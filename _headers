@@ -1,0 +1,15 @@
+/*
+  # 클릭재킹 방지
+  X-Frame-Options: DENY
+  # MIME 스니핑 방지
+  X-Content-Type-Options: nosniff
+  # 리퍼러 정보 최소화
+  Referrer-Policy: strict-origin-when-cross-origin
+  # 불필요한 브라우저 기능 비활성화
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  # XSS 필터 강제 활성화 (구형 브라우저용)
+  X-XSS-Protection: 1; mode=block
+  # HTTPS 강제 (1년)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # CSP – 외부 JS 로드 차단, 이미지·API 요청만 허용
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://pagead2.googlesyndication.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src * data: blob:; connect-src *; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';
