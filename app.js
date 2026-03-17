@@ -285,7 +285,7 @@ async function fetchGoogleTrends(geo, sourceId) {
     return makePost(
       `gt_${geo}_${i}`, sourceId,
       title,
-      newsUrl || link,
+      newsUrl || `https://www.google.com/search?q=${encodeURIComponent(title)}`,
       0, 0, new Date(),
       {
         thumbnail: picture || newsPic,
