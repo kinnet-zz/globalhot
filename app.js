@@ -101,7 +101,7 @@ const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.id, s]));
 
 // ── State ────────────────────────────────────────────────
 const state = {
-  tab: 'hot', sort: 'trending', query: '',
+  tab: 'all', sort: 'trending', query: '',
   posts: [], page: 0, PAGE_SIZE: 20,
   sourceStatus: {}, sourceCount: {},
 };
@@ -418,9 +418,19 @@ async function loadAllSources() {
     `마지막 업데이트: ${new Date().toLocaleTimeString('ko-KR')}`;
 }
 
-// ── 필터 + 정렬 ──────────────────────────────────────────
-function getFilteredPosts() {
-  const validIds = new Set(SOURCES.filter(s => s.tabs.includes(state.tab)).map(s => s.id));
+// ── 섹션 정의 (전체 대시보드용) ──────────────────────────
+const SECTION_DEFS = [
+  { tab: 'trends',   label: '🔍 검색트렌드', color: '#4285F4' },
+  { tab: 'hot',      label: '🔥 지금핫함',   color: '#FF4500' },
+  { tab: 'discover', label: '🤯 놀라운발견', color: '#0B3D91' },
+  { tab: 'internet', label: '😂 오늘의인터넷', color: '#CC0000' },
+  { tab: 'til',      label: '💡 TIL',        color: '#FF6600' },
+  { tab: 'world',    label: '🌏 세계화제',   color: '#BB1919' },
+];
+
+// ── 탭별 게시물 가져오기 ─────────────────────────────────
+function getPostsForTab(tabId) {
+  const validIds = new Set(SOURCES.filter(s => s.tabs.includes(tabId)).map(s => s.id));
   return state.posts
     .filter(p => {
       if (!validIds.has(p.sourceId)) return false;
@@ -435,169 +445,155 @@ function getFilteredPosts() {
     });
 }
 
-// ── 피드 렌더링 ──────────────────────────────────────────
+// ── 메인 렌더 ────────────────────────────────────────────
 function renderFeed() {
   const feed         = document.getElementById('feed');
   const loadMoreWrap = document.getElementById('loadMoreWrap');
-  const filtered     = getFilteredPosts();
-  const slice        = filtered.slice(0, (state.page + 1) * state.PAGE_SIZE);
-
+  loadMoreWrap.classList.add('hidden');
   feed.innerHTML = '';
 
-  if (slice.length === 0) {
-    feed.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>표시할 게시글이 없습니다.</p></div>`;
-    loadMoreWrap.classList.add('hidden');
-    return;
-  }
-
-  const frag = document.createDocumentFragment();
-
-  // 첫 번째 글이 썸네일 있으면 히어로 카드로
-  if (state.page === 0 && slice[0].thumbnail && !state.query) {
-    frag.appendChild(createHeroCard(slice[0]));
-    slice.slice(1).forEach((p, i) => frag.appendChild(createCard(p, i + 2)));
+  if (state.tab === 'all') {
+    // 전체: 멀티섹션 대시보드
+    const grid = document.createElement('div');
+    grid.className = 'sections-grid';
+    let anyContent = false;
+    SECTION_DEFS.forEach(def => {
+      const posts = getPostsForTab(def.tab).slice(0, 10);
+      if (posts.length === 0) return;
+      anyContent = true;
+      grid.appendChild(createSectionBlock(def, posts));
+    });
+    if (!anyContent) {
+      feed.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>표시할 게시글이 없습니다.</p></div>`;
+    } else {
+      feed.appendChild(grid);
+    }
   } else {
-    slice.forEach((p, i) => frag.appendChild(createCard(p, i + 1)));
+    // 단일 탭: 컴팩트 리스트
+    const posts = getPostsForTab(state.tab);
+    const slice = posts.slice(0, (state.page + 1) * state.PAGE_SIZE);
+    if (slice.length === 0) {
+      feed.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>표시할 게시글이 없습니다.</p></div>`;
+      return;
+    }
+    const list = document.createElement('div');
+    list.className = 'compact-list';
+    slice.forEach((p, i) => list.appendChild(createCompactCard(p, i + 1)));
+    feed.appendChild(list);
+    loadMoreWrap.classList.toggle('hidden', slice.length >= posts.length);
   }
-
-  feed.appendChild(frag);
-  loadMoreWrap.classList.toggle('hidden', slice.length >= filtered.length);
 }
 
-// ── 히어로 카드 (썸네일 있는 1위 글) ───────────────────────
-function createHeroCard(p) {
-  const src  = SOURCE_MAP[p.sourceId];
-  const card = document.createElement('article');
-  card.className = 'hero-card';
-  card.addEventListener('click', () => openPreview(p));
+// ── 섹션 블록 (전체 대시보드용) ──────────────────────────
+function createSectionBlock(def, posts) {
+  const block = document.createElement('div');
+  block.className = 'section-block';
 
-  const img = document.createElement('div');
-  img.className = 'hero-img';
-  img.style.backgroundImage = `url(${p.thumbnail})`;
+  const header = document.createElement('div');
+  header.className = 'section-header';
+  header.style.borderLeftColor = def.color;
 
-  const body = document.createElement('div');
-  body.className = 'hero-body';
+  const title = document.createElement('span');
+  title.className = 'section-header-title';
+  title.textContent = def.label;
 
-  const meta = document.createElement('div');
-  meta.className = 'hero-meta';
+  const more = document.createElement('button');
+  more.className = 'section-more';
+  more.textContent = '더 보기 →';
+  more.addEventListener('click', () => {
+    // 해당 탭으로 이동
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.tab[data-tab="${def.tab}"]`);
+    if (btn) btn.classList.add('active');
+    state.tab = def.tab;
+    state.page = 0;
+    renderFeed();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-  const badge = document.createElement('span');
-  badge.className = 'source-badge';
-  badge.style.background = src.color;
-  badge.textContent = `${src.emoji} ${src.name}`;
+  header.append(title, more);
+  block.appendChild(header);
 
-  const tag = document.createElement('span');
-  tag.className = 'emotion-tag';
-  tag.style.background = src.color + '33';
-  tag.style.color = src.color;
-  tag.textContent = src.emoji + ' ' + (src.sub || '');
+  const list = document.createElement('div');
+  list.className = 'compact-list';
+  posts.forEach((p, i) => list.appendChild(createCompactCard(p, i + 1)));
+  block.appendChild(list);
 
-  const time = document.createElement('span');
-  time.className = 'post-time';
-  time.textContent = relTime(p.time);
-
-  meta.append(badge, tag, time);
-
-  const title = document.createElement('div');
-  title.className = 'hero-title';
-  title.textContent = p.title;
-
-  if (p.desc) {
-    const desc = document.createElement('div');
-    desc.className = 'hero-desc';
-    desc.textContent = p.desc;
-    body.append(meta, title, desc);
-  } else {
-    body.append(meta, title);
-  }
-
-  if (p.points > 0 || p.comments > 0) {
-    const stats = document.createElement('div');
-    stats.className = 'hero-stats';
-    if (p.points   > 0) stats.appendChild(makeStat(`👍 ${fmtNum(p.points)}`));
-    if (p.comments > 0) stats.appendChild(makeStat(`💬 ${fmtNum(p.comments)}`));
-    body.appendChild(stats);
-  }
-
-  card.append(img, body);
-  return card;
+  return block;
 }
 
-// ── 일반 카드 ────────────────────────────────────────────
-function createCard(p, rank) {
+// ── 컴팩트 카드 (aagag 스타일) ───────────────────────────
+function createCompactCard(p, rank) {
   const src  = SOURCE_MAP[p.sourceId];
   const card = document.createElement('article');
-  const isTrend = p.sourceId.startsWith('trends_');
-  card.className = isTrend ? 'post-card is-trend' : 'post-card';
+  card.className = 'compact-card';
   card.addEventListener('click', () => openPreview(p));
 
+  // 순위
   const rankEl = document.createElement('div');
-  rankEl.className = rank <= 3 ? 'post-rank top3' : 'post-rank';
+  rankEl.className = rank <= 3 ? 'compact-rank top3' : 'compact-rank';
   rankEl.textContent = rank;
 
+  // 썸네일
+  if (p.thumbnail) {
+    const thumb = document.createElement('div');
+    thumb.className = 'compact-thumb';
+    const img = document.createElement('img');
+    img.src = p.thumbnail; img.alt = ''; img.loading = 'lazy';
+    img.addEventListener('error', () => { thumb.style.display = 'none'; });
+    thumb.appendChild(img);
+    card.appendChild(thumb);
+  }
+
+  // 본문
   const body = document.createElement('div');
-  body.className = 'post-body';
+  body.className = 'compact-body';
+
+  const titleEl = document.createElement('div');
+  titleEl.className = p.sourceId.startsWith('trends_') ? 'compact-title is-trend-title' : 'compact-title';
+  titleEl.textContent = p.title;
 
   const meta = document.createElement('div');
-  meta.className = 'post-meta';
+  meta.className = 'compact-meta';
 
   const badge = document.createElement('span');
-  badge.className = 'source-badge';
+  badge.className = 'compact-badge';
   badge.style.background = src.color;
   badge.textContent = src.emoji + ' ' + src.name;
 
-  const time = document.createElement('span');
-  time.className = 'post-time';
-  time.textContent = relTime(p.time);
+  meta.appendChild(badge);
 
-  meta.append(badge);
   if (p.sub) {
     const sub = document.createElement('span');
-    sub.className = 'post-subreddit';
+    sub.className = 'compact-sub';
     sub.textContent = p.sub;
     meta.appendChild(sub);
   }
-  meta.appendChild(time);
+  if (p.points > 0) {
+    const s = document.createElement('span');
+    s.textContent = `👍 ${fmtNum(p.points)}`;
+    meta.appendChild(s);
+  }
+  if (p.comments > 0) {
+    const s = document.createElement('span');
+    s.textContent = `💬 ${fmtNum(p.comments)}`;
+    meta.appendChild(s);
+  }
+  const timeEl = document.createElement('span');
+  timeEl.className = 'compact-time';
+  timeEl.textContent = relTime(p.time);
+  meta.appendChild(timeEl);
 
-  const title = document.createElement('div');
-  title.className = 'post-title';
-  title.textContent = p.title;
-
-  body.append(meta, title);
-
+  body.append(titleEl);
   if (p.desc) {
     const descEl = document.createElement('div');
-    descEl.className = 'post-desc';
+    descEl.className = 'compact-desc';
     descEl.textContent = p.desc;
     body.appendChild(descEl);
   }
+  body.appendChild(meta);
 
-  const stats = document.createElement('div');
-  stats.className = 'post-stats';
-  if (p.points   > 0) stats.appendChild(makeStat(`👍 ${fmtNum(p.points)}`));
-  if (p.comments > 0) stats.appendChild(makeStat(`💬 ${fmtNum(p.comments)}`));
-  const hint = document.createElement('span');
-  hint.className = 'preview-hint';
-  hint.textContent = '미리보기 →';
-  stats.appendChild(hint);
-
-  body.appendChild(stats);
-
-  // 썸네일 (있을 때만)
-  if (p.thumbnail) {
-    const thumb = document.createElement('div');
-    thumb.className = 'post-thumb';
-    const img = document.createElement('img');
-    img.src = p.thumbnail;
-    img.alt = '';
-    img.loading = 'lazy';
-    img.addEventListener('error', () => { thumb.style.display = 'none'; });
-    thumb.appendChild(img);
-    card.append(rankEl, body, thumb);
-  } else {
-    card.append(rankEl, body);
-  }
-
+  card.append(rankEl, body);
   return card;
 }
 
