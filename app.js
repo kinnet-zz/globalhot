@@ -23,7 +23,14 @@ async function parseRSS(feedUrl, limit = 25) {
             || item.querySelector('guid')?.textContent?.trim() || '',
     pubDate:   item.querySelector('pubDate')?.textContent?.trim() || '',
     thumbnail: extractRssImage(item),
+    desc:      extractRssDesc(item),
   }));
+}
+
+function extractRssDesc(item) {
+  const raw = item.querySelector('description')?.textContent || '';
+  const text = cleanText(raw).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return text.slice(0, 200) || '';
 }
 
 function extractRssImage(item) {
@@ -125,7 +132,11 @@ async function fetchRedditTIL() {
     c.data.title,
     'https://reddit.com' + c.data.permalink,
     c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
-    { thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '' }
+    {
+      thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '',
+      // TIL 셀프포스트는 selftext에 출처/보충 설명이 있음
+      desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '',
+    }
   ));
 }
 
@@ -137,7 +148,10 @@ async function fetchRedditIAF() {
     c.data.title,
     'https://reddit.com' + c.data.permalink,
     c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
-    { thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '' }
+    {
+      thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '',
+      desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '',
+    }
   ));
 }
 
@@ -149,7 +163,11 @@ async function fetchRedditScience() {
     c.data.title,
     c.data.url || 'https://reddit.com' + c.data.permalink,
     c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
-    { thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '' }
+    {
+      thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '',
+      // r/science는 selftext에 논문 요약이 들어있는 경우 많음
+      desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 200) || '',
+    }
   ));
 }
 
@@ -161,7 +179,10 @@ async function fetchRedditMildly() {
     c.data.title,
     'https://reddit.com' + c.data.permalink,
     c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
-    { thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '' }
+    {
+      thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '',
+      desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '',
+    }
   ));
 }
 
@@ -237,7 +258,7 @@ async function fetchAtlasObscura() {
   const items = await parseRSS('https://www.atlasobscura.com/feeds/latest', 20);
   return items.map((item, i) => makePost(
     'ao_' + i, 'atlas_obscura', item.title, item.link, 0, 0, new Date(item.pubDate),
-    { thumbnail: item.thumbnail }
+    { thumbnail: item.thumbnail, desc: item.desc }
   ));
 }
 
@@ -245,7 +266,7 @@ async function fetchSmithsonian() {
   const items = await parseRSS('https://www.smithsonianmag.com/rss/latest_articles/', 15);
   return items.map((item, i) => makePost(
     'sm_' + i, 'smithsonian', item.title, item.link, 0, 0, new Date(item.pubDate),
-    { thumbnail: item.thumbnail }
+    { thumbnail: item.thumbnail, desc: item.desc }
   ));
 }
 
@@ -272,7 +293,7 @@ async function fetchBoingBoing() {
   const items = await parseRSS('https://boingboing.net/feed', 20);
   return items.map((item, i) => makePost(
     'bb_' + i, 'boing_boing', item.title, item.link, 0, 0, new Date(item.pubDate),
-    { thumbnail: item.thumbnail }
+    { thumbnail: item.thumbnail, desc: item.desc }
   ));
 }
 
@@ -280,7 +301,7 @@ async function fetchBBCWorld() {
   const items = await parseRSS('https://feeds.bbci.co.uk/news/world/rss.xml', 20);
   return items.map((item, i) => makePost(
     'bbc_' + i, 'bbc_world', item.title, item.link, 0, 0, new Date(item.pubDate),
-    { thumbnail: item.thumbnail }
+    { thumbnail: item.thumbnail, desc: item.desc }
   ));
 }
 
@@ -288,7 +309,7 @@ async function fetchHatena() {
   const items = await parseRSS('https://b.hatena.ne.jp/hotentry/all.rss', 20);
   return items.map((item, i) => makePost(
     'ht_' + i, 'hatena', item.title, item.link, 0, 0, new Date(item.pubDate),
-    { thumbnail: item.thumbnail }
+    { thumbnail: item.thumbnail, desc: item.desc }
   ));
 }
 
@@ -316,7 +337,10 @@ async function fetchDevTo() {
   return d.map(a => makePost(
     'dt_' + a.id, 'devto', a.title, a.url,
     a.positive_reactions_count, a.comments_count, new Date(a.published_at),
-    { thumbnail: a.cover_image || a.social_image || '' }
+    {
+      thumbnail: a.cover_image || a.social_image || '',
+      desc: a.description || '',
+    }
   ));
 }
 
@@ -496,6 +520,15 @@ function createCard(p, rank) {
   title.className = 'post-title';
   title.textContent = p.title;
 
+  body.append(meta, title);
+
+  if (p.desc) {
+    const descEl = document.createElement('div');
+    descEl.className = 'post-desc';
+    descEl.textContent = p.desc;
+    body.appendChild(descEl);
+  }
+
   const stats = document.createElement('div');
   stats.className = 'post-stats';
   if (p.points   > 0) stats.appendChild(makeStat(`👍 ${fmtNum(p.points)}`));
@@ -505,7 +538,7 @@ function createCard(p, rank) {
   hint.textContent = '미리보기 →';
   stats.appendChild(hint);
 
-  body.append(meta, title, stats);
+  body.appendChild(stats);
 
   // 썸네일 (있을 때만)
   if (p.thumbnail) {
