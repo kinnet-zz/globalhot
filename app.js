@@ -62,6 +62,11 @@ function validThumb(t) {
 
 // ── Source 정의 ──────────────────────────────────────────
 const SOURCES = [
+  // 🔍 검색트렌드
+  { id: 'trends_kr', name: 'Google 트렌드', sub: '🇰🇷 한국', color: '#4285F4', emoji: '🔍', tabs: ['trends','hot'], fetch: () => fetchGoogleTrends('KR', 'trends_kr') },
+  { id: 'trends_us', name: 'Google 트렌드', sub: '🇺🇸 미국', color: '#4285F4', emoji: '🔍', tabs: ['trends'],       fetch: () => fetchGoogleTrends('US', 'trends_us') },
+  { id: 'trends_jp', name: 'Google 트렌드', sub: '🇯🇵 일본', color: '#4285F4', emoji: '🔍', tabs: ['trends'],       fetch: () => fetchGoogleTrends('JP', 'trends_jp') },
+
   // 🔥 지금핫함
   { id: 'reddit_til',    name: 'r/todayilearned', sub: 'TIL',          color: '#FF4500', emoji: '💡', tabs: ['hot','til'],      fetch: fetchRedditTIL      },
   { id: 'reddit_iaf',    name: 'r/interestingasfuck', sub: '이상한세계', color: '#FF6314', emoji: '🤯', tabs: ['hot','internet'], fetch: fetchRedditIAF      },
@@ -252,7 +257,44 @@ async function fetchNASAAPOD() {
   ));
 }
 
-async function fetchRedditScience_unused() { /* 위에서 사용 */ }
+// ── Google Trends ────────────────────────────────────────
+// RSS: trends.google.com/trending/rss?geo=KR|US|JP
+// ht: 네임스페이스에 트래픽, 이미지, 관련뉴스가 들어있음
+async function fetchGoogleTrends(geo, sourceId) {
+  const HT = 'https://trends.google.com/cutting-edge/rss';
+  const url = `https://trends.google.com/trending/rss?geo=${geo}`;
+  const r = await fetch(PROXY + encodeURIComponent(url), { cache: 'no-store' });
+  if (!r.ok) throw new Error(`Google Trends (${geo}) failed: ${r.status}`);
+  const xml = await r.text();
+  const doc = new DOMParser().parseFromString(xml, 'application/xml');
+  if (doc.querySelector('parsererror')) throw new Error('Google Trends XML parse error');
+
+  return [...doc.querySelectorAll('item')].slice(0, 20).map((item, i) => {
+    const title    = cleanText(item.querySelector('title')?.textContent || '');
+    const link     = item.querySelector('link')?.textContent?.trim() || '';
+    const traffic  = item.getElementsByTagNameNS(HT, 'approx_traffic')[0]?.textContent || '';
+    const picture  = item.getElementsByTagNameNS(HT, 'picture')[0]?.textContent || '';
+
+    // 첫 번째 관련 뉴스
+    const newsItem    = item.getElementsByTagNameNS(HT, 'news_item')[0];
+    const newsTitle   = newsItem?.getElementsByTagNameNS(HT, 'news_item_title')[0]?.textContent || '';
+    const newsSnippet = newsItem?.getElementsByTagNameNS(HT, 'news_item_snippet')[0]?.textContent || '';
+    const newsUrl     = newsItem?.getElementsByTagNameNS(HT, 'news_item_url')[0]?.textContent || '';
+    const newsPic     = newsItem?.getElementsByTagNameNS(HT, 'news_item_picture')[0]?.textContent || '';
+
+    return makePost(
+      `gt_${geo}_${i}`, sourceId,
+      title,
+      newsUrl || link,
+      0, 0, new Date(),
+      {
+        thumbnail: picture || newsPic,
+        desc:      newsSnippet || newsTitle,
+        sub:       traffic ? `🔍 ${traffic} 검색` : `🔍 트렌딩`,
+      }
+    );
+  });
+}
 
 async function fetchAtlasObscura() {
   const items = await parseRSS('https://www.atlasobscura.com/feeds/latest', 20);
@@ -485,7 +527,8 @@ function createHeroCard(p) {
 function createCard(p, rank) {
   const src  = SOURCE_MAP[p.sourceId];
   const card = document.createElement('article');
-  card.className = 'post-card';
+  const isTrend = p.sourceId.startsWith('trends_');
+  card.className = isTrend ? 'post-card is-trend' : 'post-card';
   card.addEventListener('click', () => openPreview(p));
 
   const rankEl = document.createElement('div');
