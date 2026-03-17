@@ -527,7 +527,9 @@ function createCompactCard(p, rank) {
   const src  = SOURCE_MAP[p.sourceId];
   const card = document.createElement('article');
   card.className = 'compact-card';
-  card.addEventListener('click', () => openPreview(p));
+  card.addEventListener('click', () => {
+    if (p.url) window.open(p.url, '_blank', 'noopener,noreferrer');
+  });
 
   // 순위
   const rankEl = document.createElement('div');
@@ -732,7 +734,9 @@ function renderHotList() {
 
     wrap.append(sb, ttl);
     li.append(num, wrap);
-    li.addEventListener('click', () => openPreview(p));
+    li.addEventListener('click', () => {
+      if (p.url) window.open(p.url, '_blank', 'noopener,noreferrer');
+    });
     list.appendChild(li);
   });
 }
