@@ -212,7 +212,7 @@ async function collectAll() {
 // ── 2. AI 한국어 해설 생성 (Google Gemini) ───────────────
 
 const GEMINI_KEY   = process.env.GEMINI_API_KEY || '';
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_MODEL = 'gemini-1.5-flash';
 const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_KEY}`;
 
 const SYSTEM_PROMPT = `당신은 IT·국제 분야 전문 칼럼니스트입니다.
