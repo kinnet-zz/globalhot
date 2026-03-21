@@ -16,38 +16,50 @@ const DATE_KO  = `${KST.getFullYear()}년 ${KST.getMonth() + 1}월 ${KST.getDate
 // ── 1. 데이터 수집 ────────────────────────────────────────
 
 async function fetchHN(limit = 5) {
-  const res  = await fetch('https://hacker-news.firebaseio.com/v1/topstories.json');
-  const ids  = (await res.json()).slice(0, 30);
-  const items = await Promise.all(
-    ids.map(id =>
-      fetch(`https://hacker-news.firebaseio.com/v1/item/${id}.json`)
-        .then(r => r.json())
-        .catch(() => null)
-    )
-  );
-  return items
-    .filter(i => i && i.title && i.score > 50 && i.url)
-    .map(i => ({
-      title:    i.title,
-      url:      i.url,
-      points:   i.score,
-      comments: i.descendants || 0,
-      source:   'Hacker News',
-      sourceEmoji: '💻',
-      color:    '#FF6600',
-      category: 'tech',
-    }))
-    .slice(0, limit);
+  try {
+    const res = await fetch('https://hacker-news.firebaseio.com/v1/topstories.json',
+      { headers: { 'User-Agent': 'GlobalHot/1.0' }, signal: AbortSignal.timeout(10000) });
+    if (!res.ok) { console.warn(`⚠️ HN topstories HTTP ${res.status}`); return []; }
+    const ids   = (await res.json()).slice(0, 30);
+    const items = await Promise.all(
+      ids.map(id =>
+        fetch(`https://hacker-news.firebaseio.com/v1/item/${id}.json`,
+          { signal: AbortSignal.timeout(5000) })
+          .then(r => r.json())
+          .catch(() => null)
+      )
+    );
+    const results = items
+      .filter(i => i && i.title && i.score > 50 && i.url)
+      .map(i => ({
+        title:       i.title,
+        url:         i.url,
+        points:      i.score,
+        comments:    i.descendants || 0,
+        source:      'Hacker News',
+        sourceEmoji: '💻',
+        color:       '#FF6600',
+        category:    'tech',
+      }))
+      .slice(0, limit);
+    console.log(`  HN: ${results.length}개`);
+    return results;
+  } catch (e) {
+    console.warn(`⚠️ HN fetch 실패: ${e.message}`);
+    return [];
+  }
 }
 
 async function fetchReddit(sub, label, emoji, color, category, limit = 3) {
   try {
     const res  = await fetch(
-      `https://www.reddit.com/r/${sub}/hot.json?limit=15`,
-      { headers: { 'User-Agent': 'GlobalHot/1.0' } }
+      `https://www.reddit.com/r/${sub}/hot.json?limit=15&raw_json=1`,
+      { headers: { 'User-Agent': 'GlobalHot/1.0 (github actions)' },
+        signal: AbortSignal.timeout(10000) }
     );
+    if (!res.ok) { console.warn(`⚠️ Reddit r/${sub} HTTP ${res.status}`); return []; }
     const data = await res.json();
-    return (data?.data?.children || [])
+    const results = (data?.data?.children || [])
       .map(c => c.data)
       .filter(p => p && !p.over_18 && p.score > 50 && !p.is_video)
       .map(p => ({
@@ -61,7 +73,10 @@ async function fetchReddit(sub, label, emoji, color, category, limit = 3) {
         category,
       }))
       .slice(0, limit);
-  } catch {
+    console.log(`  r/${sub}: ${results.length}개`);
+    return results;
+  } catch (e) {
+    console.warn(`⚠️ Reddit r/${sub} 실패: ${e.message}`);
     return [];
   }
 }
@@ -519,6 +534,11 @@ ${postUrls}
   const categories = await collectAll();
   const total = categories.reduce((s, c) => s + c.posts.length, 0);
   console.log(`✅ 총 ${total}개 기사 수집 완료\n`);
+
+  if (total === 0) {
+    console.error('❌ 기사를 하나도 가져오지 못했습니다. API 접근 문제일 수 있습니다.');
+    process.exit(1);
+  }
 
   console.log('🤖 AI 한국어 해설 생성 중...');
   const enriched = await enrichWithSummaries(categories);
