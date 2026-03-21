@@ -23,7 +23,10 @@ jobs:
       - name: 일일 포스트 생성
         env:
           SITE_URL: ${{ vars.SITE_URL || 'https://globalhot.pages.dev' }}
-        run: node scripts/generate-daily-post.mjs
+        run: |
+          echo "⏳ CF Pages 배포 대기 중 (120초)..."
+          sleep 120
+          node scripts/generate-daily-post.mjs
 
       - name: 변경사항 커밋 & 푸시
         run: |
