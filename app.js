@@ -1262,7 +1262,8 @@ const summaryObserver = new IntersectionObserver((entries) => {
 
     const title  = card.dataset.aiTitle;
     const source = card.dataset.aiSource;
-    const key    = title.slice(0, 80);
+    const lang   = state.lang === 'all' ? 'ko' : (state.lang || 'ko');
+    const key    = lang + ':' + title.slice(0, 80);
 
     if (summaryCache.has(key)) {
       renderSummary(card._aiEl, summaryCache.get(key));
@@ -1272,7 +1273,7 @@ const summaryObserver = new IntersectionObserver((entries) => {
     fetch('/api/summarize', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ title, source }),
+      body:    JSON.stringify({ title, source, lang }),
     })
       .then(r => r.ok ? r.json() : null)
       .then(data => {
@@ -1614,14 +1615,15 @@ function openDetail(post) {
   summaryEl.className = 'detail-summary-box loading';
   summaryEl.textContent = 'AI 분석 중...';
 
-  const key = post.title.slice(0, 80);
+  const lang = state.lang === 'all' ? 'ko' : (state.lang || 'ko');
+  const key  = lang + ':' + post.title.slice(0, 80);
   if (summaryCache.has(key)) {
     applyDetailSummary(summaryEl, summaryCache.get(key));
   } else {
     fetch('/api/summarize', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: post.title, source: src.name || '' }),
+      body: JSON.stringify({ title: post.title, source: src.name || '', lang }),
     })
       .then(r => r.ok ? r.json() : null)
       .then(data => {
