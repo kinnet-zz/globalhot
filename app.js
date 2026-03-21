@@ -1164,9 +1164,7 @@ function createCompactCard(p, rank) {
   const src  = SOURCE_MAP[p.sourceId];
   const card = document.createElement('article');
   card.className = 'compact-card';
-  card.addEventListener('click', () => {
-    if (p.url) window.open(p.url, '_blank', 'noopener,noreferrer');
-  });
+  card.addEventListener('click', () => openDetail(p));
 
   // 순위
   const rankEl = document.createElement('div');
@@ -1584,6 +1582,80 @@ function initEvents() {
   const saved = localStorage.getItem('gh-theme');
   if (saved) applyTheme(saved === 'dark');
 }
+
+// ── Detail Panel ─────────────────────────────────────────
+function openDetail(post) {
+  const src = SOURCE_MAP[post.sourceId] || {};
+
+  // 기본 정보 채우기
+  document.getElementById('detailTitle').textContent = post.title;
+
+  const badge = document.getElementById('detailBadge');
+  badge.textContent = (src.emoji || '') + ' ' + (src.name || post.sourceId);
+  badge.style.background = src.color || '#555';
+
+  document.getElementById('detailLink').href = post.url || '#';
+
+  const meta = document.getElementById('detailMeta');
+  meta.innerHTML = '';
+  const addMeta = (text) => {
+    const s = document.createElement('span');
+    s.textContent = text;
+    meta.appendChild(s);
+  };
+  const t = relTime(post.time);
+  if (t) addMeta('🕐 ' + t);
+  if (post.points > 0) addMeta('👍 ' + fmtNum(post.points));
+  if (post.comments > 0) addMeta('💬 ' + fmtNum(post.comments));
+  if (post.sub) addMeta('📌 ' + post.sub);
+
+  // AI 요약
+  const summaryEl = document.getElementById('detailSummary');
+  summaryEl.className = 'detail-summary-box loading';
+  summaryEl.textContent = 'AI 분석 중...';
+
+  const key = post.title.slice(0, 80);
+  if (summaryCache.has(key)) {
+    applyDetailSummary(summaryEl, summaryCache.get(key));
+  } else {
+    fetch('/api/summarize', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: post.title, source: src.name || '' }),
+    })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        const text = data?.summary ?? '';
+        summaryCache.set(key, text);
+        applyDetailSummary(summaryEl, text);
+      })
+      .catch(() => { summaryEl.style.display = 'none'; });
+  }
+
+  // 패널 열기
+  const panel = document.getElementById('detailPanel');
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function applyDetailSummary(el, text) {
+  el.classList.remove('loading');
+  if (!text) { el.style.display = 'none'; return; }
+  el.textContent = '🤖 ' + text;
+}
+
+function closeDetail() {
+  const panel = document.getElementById('detailPanel');
+  panel.classList.remove('open');
+  panel.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+// 패널 닫기 이벤트
+document.getElementById('detailBack').addEventListener('click', closeDetail);
+document.getElementById('detailBackdrop').addEventListener('click', closeDetail);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
 setInterval(loadAllSources, 5 * 60 * 1000);
 initEvents();

@@ -95,6 +95,31 @@
   </main>
 
 
+  <!-- ───── DETAIL PANEL ───── -->
+  <div id="detailPanel" class="detail-panel" aria-hidden="true">
+    <div class="detail-backdrop" id="detailBackdrop"></div>
+    <div class="detail-sheet" role="dialog" aria-modal="true">
+      <div class="detail-sheet-inner">
+        <div class="detail-top-bar">
+          <button class="detail-back-btn" id="detailBack">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            목록으로
+          </button>
+          <span id="detailBadge" class="detail-badge"></span>
+        </div>
+        <h1 id="detailTitle" class="detail-title"></h1>
+        <div id="detailMeta" class="detail-meta"></div>
+        <div id="detailSummary" class="detail-summary-box"></div>
+        <a id="detailLink" class="detail-link-btn" target="_blank" rel="noopener noreferrer">
+          🔗 원문 보기
+        </a>
+        <div id="detailComments" class="detail-comments">
+          <!-- Step 3: Giscus 댓글 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="wordcloud2.min.js"></script>
   <script src="app.js"></script>
 
