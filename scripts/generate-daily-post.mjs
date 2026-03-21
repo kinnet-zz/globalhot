@@ -209,21 +209,55 @@ async function collectAll() {
   return result;
 }
 
-// ── 2. AI 한국어 해설 생성 ────────────────────────────────
+// ── 2. AI 한국어 해설 생성 (Google Gemini) ───────────────
+
+const GEMINI_KEY   = process.env.GEMINI_API_KEY || '';
+const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_KEY}`;
+
+const SYSTEM_PROMPT = `당신은 IT·국제 분야 전문 칼럼니스트입니다.
+뉴스 제목을 보고 전문가 시각에서 3~4문장의 자연스러운 한국어 칼럼을 씁니다.
+
+규칙:
+- "이 기사는" "이번 소식은" "~에 따르면" "~것으로 알려졌다" 로 시작 금지
+- 번호 나열(첫째/둘째, ①②③) 금지
+- 독자가 몰랐을 배경·맥락·의미를 포함
+- 마지막 문장은 앞으로의 전망이나 시사점
+- 자연스럽고 간결한 구어체
+
+예시:
+뉴스: "Google fires 28 employees after protest against Israel contract"
+칼럼: 구글이 이스라엘 군 계약에 반대해 사내 시위를 벌인 직원 28명을 해고했다. 실리콘밸리가 '사회적 책임'을 내세우면서도 수익성 높은 방위 계약 앞에선 다른 선택을 한다는 사실이 다시 드러난 셈이다. AI가 군사 기술에 깊숙이 연루될수록 이런 내부 갈등은 앞으로 더 빈번하게 터질 것이다.`;
 
 async function getAISummary(title, source) {
+  if (!GEMINI_KEY) { console.warn('  ⚠️  GEMINI_API_KEY 없음'); return ''; }
   try {
-    const res = await fetch(`${SITE_URL}/api/summarize`, {
+    const res = await fetch(GEMINI_URL, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ title, source, lang: 'ko', mode: 'long' }),
-      signal:  AbortSignal.timeout(40000),
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents: [{
+          role: 'user',
+          parts: [{ text: `뉴스: "${title}" (출처: ${source})\n\n칼럼:` }],
+        }],
+        generationConfig: {
+          temperature:     0.7,
+          maxOutputTokens: 350,
+          topP:            0.9,
+        },
+      }),
+      signal: AbortSignal.timeout(30000),
     });
-    if (!res.ok) { console.warn(`  ⚠️  AI API ${res.status}`); return ''; }
+    if (!res.ok) {
+      const err = await res.text();
+      console.warn(`  ⚠️  Gemini API ${res.status}: ${err.slice(0, 100)}`);
+      return '';
+    }
     const data = await res.json();
-    return data.summary || '';
+    return data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
   } catch (e) {
-    console.warn(`  ⚠️  AI 해설 실패: ${e.message}`);
+    console.warn(`  ⚠️  Gemini 실패: ${e.message}`);
     return '';
   }
 }
