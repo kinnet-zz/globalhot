@@ -580,7 +580,17 @@ async function fetchRedditPhoto(sub, prefix, sourceId) {
   const d = await r.json();
   return d.data.children
     .filter(c => validThumb(c.data.thumbnail) || c.data.preview?.images?.[0])
-    .map(c => redditImagePost(prefix, sourceId, c));
+    .map(c => {
+      const p = c.data;
+      const thumb = p.preview?.images?.[0]?.resolutions?.[2]?.url?.replace(/&amp;/g, '&')
+                 || p.preview?.images?.[0]?.source?.url?.replace(/&amp;/g, '&')
+                 || (validThumb(p.thumbnail) ? p.thumbnail : '');
+      // 외부 링크면 원본 사이트, Reddit 내부 이미지면 게시글로
+      const isRedditHosted = !p.url || /reddit\.com|i\.redd\.it|v\.redd\.it/i.test(p.url);
+      const link = isRedditHosted ? ('https://www.reddit.com' + p.permalink) : p.url;
+      return makePost(`${prefix}_${p.id}`, sourceId, p.title, link,
+        p.score, p.num_comments, new Date(p.created_utc * 1000), { thumbnail: thumb });
+    });
 }
 
 function fetchEarthPorn()         { return fetchRedditPhoto('EarthPorn',        'ep',  'photo_earthporn');      }
@@ -599,7 +609,9 @@ async function fetchFlickrPhoto() {
   if (doc.querySelector('parsererror')) throw new Error('Flickr RSS parse error');
   return [...doc.querySelectorAll('item')].slice(0, 20).map((item, i) => {
     const title = cleanText(item.querySelector('title')?.textContent || '');
-    const link  = item.querySelector('link')?.nextSibling?.textContent?.trim()
+    const linkEl = item.querySelector('link');
+    const link  = linkEl?.getAttribute('href')
+               || linkEl?.textContent?.trim()
                || item.querySelector('guid')?.textContent?.trim() || '';
     const NS = 'http://search.yahoo.com/mrss/';
     const thumb = item.getElementsByTagNameNS(NS, 'thumbnail')[0]?.getAttribute('url')
@@ -1002,6 +1014,18 @@ function getPostsForTab(tabId) {
       seen.add(key);
       return true;
     });
+  }
+
+  // 포토 탭: 소스당 최대 15개 (이미지 그리드 특성상 더 많이)
+  if (tabId === 'photo') {
+    return sorted.reduce((acc, p) => {
+      const cnt = acc.count.get(p.sourceId) || 0;
+      if (cnt < 15) {
+        acc.posts.push(p);
+        acc.count.set(p.sourceId, cnt + 1);
+      }
+      return acc;
+    }, { posts: [], count: new Map() }).posts;
   }
 
   // 나머지 탭: 소스당 최대 5개로 다양성 확보
