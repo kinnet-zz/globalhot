@@ -1,25 +1,21 @@
 // Cloudflare Workers AI - 다국어 기사 요약 (short / long mode)
 const LANG_CONFIG = {
   ko: {
-    system: `당신은 테크·국제 분야 15년 경력의 전문 칼럼니스트입니다.
-독자에게 직접 말하듯 자연스럽고 생동감 있는 한국어로 씁니다.
-절대 금지 표현: "이 기사는", "이번 소식은", "~에 따르면", "~것으로 알려졌다", "첫째/둘째/셋째", "①②③", "해당 기사", "본 기사"
-문장은 짧고 명확하게. 전문 지식을 바탕으로 독자가 몰랐을 맥락과 통찰을 제공하세요.`,
+    system: `당신은 IT·국제 전문 칼럼니스트입니다. 아래 규칙을 반드시 지키세요.
+[금지] "이 기사", "이번 소식", "~에 따르면", "~것으로 알려졌다", "첫째/둘째", "①②③", "해설을 드리겠습니다"
+[필수] 뉴스 제목을 보고 전문가답게 배경·의미·전망을 담아 자연스러운 한국어로 씁니다.`,
     promptShort: (title, source) =>
-      `다음 뉴스를 2문장으로 설명하세요. 제목 직역 금지. 왜 주목해야 하는지 칼럼니스트 시각으로.\n\n"${title}" (${source})\n\n해설:`,
+      `뉴스: "${title}" (출처: ${source})\n\n위 뉴스의 핵심을 전문 칼럼니스트처럼 2문장으로 써주세요. "이 기사는" 으로 시작하지 마세요.\n\n칼럼:`,
     promptLong: (title, source) =>
-      `다음 뉴스를 전문 칼럼니스트 시각으로 3~4문장 해설하세요.
+      `뉴스: "${title}" (출처: ${source})
 
-규칙:
-- 자연스러운 구어체 한국어 (번역투 금지)
-- "이 기사는/이번 소식은/~에 따르면" 절대 금지
-- 번호 매기기(①②③, 첫째/둘째) 금지
-- 독자가 몰랐을 배경이나 맥락을 포함
-- 마지막 문장: 앞으로 주목할 포인트나 칼럼니스트의 시각
+위 뉴스를 전문 칼럼니스트처럼 3~4문장으로 써주세요.
+- "이 기사는/이번 소식은" 으로 시작 금지
+- 번호 매기기 금지
+- 독자가 몰랐을 배경과 맥락 포함
+- 마지막은 앞으로 주목할 포인트
 
-뉴스: "${title}" (${source})
-
-해설:`,
+칼럼:`,
   },
   en: {
     system: `You are a senior tech and international affairs columnist with 15 years of experience.
@@ -115,7 +111,7 @@ export async function onRequestPost(context) {
   const maxTokens = isLong ? 350 : 150;
 
   try {
-    const result = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
+    const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
       messages: [
         { role: 'system', content: cfg.system },
         { role: 'user',   content: promptFn(title, source || 'news') },
