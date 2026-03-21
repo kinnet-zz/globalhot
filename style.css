@@ -184,6 +184,28 @@ ul, ol { list-style: none; }
 .post-card:hover .preview-hint { opacity: 1; }
 
 /* ── Sections Grid (전체 대시보드) ── */
+/* ── B+C 혼합 대시보드 ── */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+/* 화제 TOP10: 풀너비 */
+.section-block--featured {
+  grid-column: 1 / -1;
+}
+/* 화제 TOP10 리스트: 2열 */
+.compact-list--2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.compact-list--2col .compact-card:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+.compact-list--2col .compact-card:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+/* 기존 sections-grid 유지 (하위 호환) */
 .sections-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -630,6 +652,11 @@ ul, ol { list-style: none; }
   .sidebar { position: static; order: -1; display: grid; grid-template-columns: 1fr 1fr; }
   .update-card { grid-column: 1 / -1; }
   .sections-grid { grid-template-columns: 1fr; }
+  .dashboard { grid-template-columns: 1fr; }
+  .compact-list--2col { grid-template-columns: 1fr; }
+  .compact-list--2col .compact-card:nth-child(odd) { border-right: none; }
+  .compact-list--2col .compact-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .compact-list--2col .compact-card:last-child { border-bottom: none; }
 }
 @media (max-width: 600px) {
   .header-inner { padding: 0 14px; gap: 10px; }

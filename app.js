@@ -977,12 +977,12 @@ async function loadAllSources() {
 
 // ── 섹션 정의 (전체 대시보드용) ──────────────────────────
 const SECTION_DEFS = [
-  { tab: 'hot',     label: '🔥 지금핫함',   color: '#FF4500' },
-  { tab: 'trends',  label: '🔍 검색트렌드', color: '#4285F4' },
-  { tab: 'tech',    label: '💻 테크',        color: '#FF6600' },
-  { tab: 'video',   label: '🎬 핫영상',       color: '#FF0000' },
-  { tab: 'world',   label: '🌏 세계화제',   color: '#BB1919' },
-  { tab: 'photo',   label: '📸 포토',        color: '#2E7D32' },
+  { tab: 'hot',    label: '🔥 지금 전세계 화제',  color: '#FF4500', limit: 10, featured: true },
+  { tab: 'tech',   label: '💻 테크 · 개발자 픽',  color: '#FF6600', limit: 5  },
+  { tab: 'world',  label: '🌍 세계 이슈',          color: '#1565C0', limit: 5  },
+  { tab: 'trends', label: '🔍 검색 트렌드',        color: '#4285F4', limit: 5  },
+  { tab: 'video',  label: '🎬 핫 영상',            color: '#FF0000', limit: 4  },
+  { tab: 'photo',  label: '📸 포토',               color: '#2E7D32', limit: 6  },
 ];
 
 // ── 탭별 게시물 가져오기 ─────────────────────────────────
@@ -1047,21 +1047,22 @@ function renderFeed() {
   feed.innerHTML = '';
 
   if (state.tab === 'all') {
-    // 전체: 멀티섹션 대시보드
-    const grid = document.createElement('div');
-    grid.className = 'sections-grid';
+    // 전체: B+C 혼합 대시보드
+    const dashboard = document.createElement('div');
+    dashboard.className = 'dashboard';
     let anyContent = false;
     SECTION_DEFS.forEach(def => {
-      const limit = def.tab === 'photo' ? 6 : 5;
-      const posts = getPostsForTab(def.tab).slice(0, limit);
+      const posts = getPostsForTab(def.tab).slice(0, def.limit || 5);
       if (posts.length === 0) return;
       anyContent = true;
-      grid.appendChild(createSectionBlock(def, posts));
+      const block = createSectionBlock(def, posts);
+      if (def.featured) block.classList.add('section-block--featured');
+      dashboard.appendChild(block);
     });
     if (!anyContent) {
       feed.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>표시할 게시글이 없습니다.</p></div>`;
     } else {
-      feed.appendChild(grid);
+      feed.appendChild(dashboard);
     }
   } else if (state.tab === 'video') {
     const posts = getPostsForTab('video');
@@ -1138,20 +1139,19 @@ function createSectionBlock(def, posts) {
   block.appendChild(header);
 
   if (def.tab === 'video') {
-    // 영상 섹션: 미니 비디오 그리드 (4개)
     const grid = document.createElement('div');
     grid.className = 'video-grid video-grid--mini';
-    posts.slice(0, 4).forEach(p => grid.appendChild(createVideoCard(p)));
+    posts.forEach(p => grid.appendChild(createVideoCard(p)));
     block.appendChild(grid);
   } else if (def.tab === 'photo') {
-    // 포토 섹션: 미니 이미지 그리드 (3×2 = 6개)
     const grid = document.createElement('div');
     grid.className = 'gravure-grid gravure-grid--mini';
-    posts.slice(0, 6).forEach(p => grid.appendChild(createGravureCard(p)));
+    posts.forEach(p => grid.appendChild(createGravureCard(p)));
     block.appendChild(grid);
   } else {
     const list = document.createElement('div');
-    list.className = 'compact-list';
+    // featured(화제 TOP10): 2열 그리드로 표시
+    list.className = def.featured ? 'compact-list compact-list--2col' : 'compact-list';
     posts.forEach((p, i) => list.appendChild(createCompactCard(p, i + 1)));
     block.appendChild(list);
   }
