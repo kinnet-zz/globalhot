@@ -260,43 +260,44 @@ function fmtNum(n) {
   return String(n);
 }
 
-function renderArticle(p, rank) {
-  const summaryHtml = p.summary
-    ? `<p class="article-summary">${escapeHtml(p.summary)}</p>`
-    : (p.desc ? `<p class="article-summary">${escapeHtml(p.desc)}</p>` : '');
-
-  const statsHtml = p.points > 0
-    ? `<span>👍 ${fmtNum(p.points)}</span>${p.comments > 0 ? `<span>💬 ${fmtNum(p.comments)}</span>` : ''}`
+function renderArticle(p) {
+  const bodyHtml = p.summary || p.desc
+    ? `<p class="art-body">${escapeHtml(p.summary || p.desc)}</p>`
     : '';
 
+  const statsParts = [];
+  if (p.points > 0)   statsParts.push(`👍 ${fmtNum(p.points)} 추천`);
+  if (p.comments > 0) statsParts.push(`💬 ${fmtNum(p.comments)} 댓글`);
+  const statsHtml = statsParts.length
+    ? `<span class="art-stats">${statsParts.join(' · ')}</span>` : '';
+
   return `
-    <article class="article-card" itemscope itemtype="https://schema.org/NewsArticle">
+    <article class="art-item" itemscope itemtype="https://schema.org/NewsArticle">
       <meta itemprop="datePublished" content="${TODAY}" />
-      <div class="article-rank ${rank <= 3 ? 'top' : ''}">${rank}</div>
-      <div class="article-body">
-        <h3 class="article-title" itemprop="headline">
-          <a href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" itemprop="url">
-            ${escapeHtml(p.title)}
-          </a>
-        </h3>
-        ${summaryHtml}
-        <div class="article-meta">
-          <span class="source-badge" style="background:${p.color}">${p.sourceEmoji} ${escapeHtml(p.source)}</span>
-          ${statsHtml}
-          <a class="read-more" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer">원문 →</a>
-        </div>
+      <div class="art-source-line">
+        <span class="art-badge" style="background:${p.color}">${p.sourceEmoji} ${escapeHtml(p.source)}</span>
+        ${statsHtml}
       </div>
+      <h3 class="art-title" itemprop="headline">
+        ${escapeHtml(p.title)}
+      </h3>
+      ${bodyHtml}
+      <a class="art-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" itemprop="url">
+        원문 읽기 →
+      </a>
     </article>`;
 }
 
 function renderCategory(cat) {
   if (cat.posts.length === 0) return '';
   return `
-    <section class="category-section" id="${cat.id}">
-      <h2 class="category-title" style="border-left-color:${cat.color}">${cat.label}</h2>
-      <p class="category-intro">${escapeHtml(cat.intro)}</p>
-      <div class="article-list">
-        ${cat.posts.map((p, i) => renderArticle(p, i + 1)).join('\n')}
+    <section class="cat-section" id="${cat.id}">
+      <div class="cat-header">
+        <h2 class="cat-title" style="color:${cat.color}">${cat.label}</h2>
+        <p class="cat-intro">${escapeHtml(cat.intro)}</p>
+      </div>
+      <div class="art-list">
+        ${cat.posts.map(p => renderArticle(p)).join('\n')}
       </div>
     </section>`;
 }
@@ -314,30 +315,33 @@ function generateHTML(categories) {
     .map(c => `<a href="#${c.id}" class="nav-pill">${c.label}</a>`)
     .join('');
 
+  const pageTitle = `${DATE_KO} — 오늘 전세계 화제`;
+  const pageDesc  = `${DATE_KO} 글로벌 주요 뉴스 ${total}건. 테크·세계이슈·과학 분야에서 오늘 가장 주목받은 소식을 정리했습니다. ${topTitles}`;
+
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 AI 총정리 | GlobalHot</title>
-  <meta name="description" content="${escapeHtml(`${DATE_KO} 전세계 화제 뉴스 ${total}건을 AI가 한국어로 해설합니다. ${topTitles}`)}" />
-  <meta property="og:title" content="${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 AI 총정리" />
-  <meta property="og:description" content="${escapeHtml(topTitles)}" />
+  <title>${escapeHtml(pageTitle)} | GlobalHot</title>
+  <meta name="description" content="${escapeHtml(pageDesc)}" />
+  <meta property="og:title" content="${escapeHtml(pageTitle)}" />
+  <meta property="og:description" content="${escapeHtml(pageDesc)}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="${SITE_URL}/posts/${TODAY}.html" />
   <meta property="og:site_name" content="GlobalHot" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="GlobalHot" />
+  <meta name="author" content="GlobalHot 편집부" />
   <link rel="canonical" href="${SITE_URL}/posts/${TODAY}.html" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 AI 총정리",
-    "description": "${escapeHtml(topTitles)}",
+    "headline": "${escapeHtml(pageTitle)}",
+    "description": "${escapeHtml(pageDesc)}",
     "datePublished": "${TODAY}",
     "dateModified": "${TODAY}",
-    "author": { "@type": "Organization", "name": "GlobalHot" },
+    "author": { "@type": "Organization", "name": "GlobalHot 편집부" },
     "publisher": { "@type": "Organization", "name": "GlobalHot", "url": "${SITE_URL}" },
     "url": "${SITE_URL}/posts/${TODAY}.html"
   }
@@ -347,62 +351,84 @@ function generateHTML(categories) {
     :root {
       --bg: #0f1117; --card: #1a1d27; --border: #2a2d3a;
       --text: #e8eaf0; --text2: #9da3b4; --text3: #6b7280;
-      --accent: #6366f1; --radius: 12px;
+      --accent: #6366f1; --radius: 10px;
     }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; line-height: 1.7; }
-    .site-header { background: var(--card); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
-    .site-header a { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; }
-    .site-header span { color: var(--accent); }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; line-height: 1.75; }
+
+    /* 헤더 */
+    .site-header { background: var(--card); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .site-logo { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; letter-spacing: -.3px; }
+    .site-logo span { color: var(--accent); }
     .header-nav a { font-size: 13px; color: var(--text2); text-decoration: none; }
-    .header-nav a:hover { color: var(--accent); }
-    .container { max-width: 800px; margin: 0 auto; padding: 32px 20px 80px; }
-    .post-header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-    .post-date { font-size: 12px; color: var(--text3); margin-bottom: 10px; letter-spacing: .5px; }
-    .post-header h1 { font-size: 26px; font-weight: 800; line-height: 1.4; margin-bottom: 12px; }
-    .post-intro { font-size: 14px; color: var(--text2); line-height: 1.8; }
-    .cat-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-    .nav-pill { padding: 6px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; font-size: 13px; color: var(--text2); text-decoration: none; }
+    .header-nav a:hover { color: var(--text); }
+
+    /* 레이아웃 */
+    .container { max-width: 740px; margin: 0 auto; padding: 40px 24px 100px; }
+
+    /* 포스트 헤더 */
+    .post-header { margin-bottom: 40px; }
+    .post-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .post-header h1 { font-size: 28px; font-weight: 800; line-height: 1.35; letter-spacing: -.4px; margin-bottom: 16px; }
+    .post-byline { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text3); padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .post-byline strong { color: var(--text2); }
+
+    /* 카테고리 네비 */
+    .cat-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+    .nav-pill { padding: 5px 14px; background: transparent; border: 1px solid var(--border); border-radius: 20px; font-size: 12px; color: var(--text3); text-decoration: none; transition: all .15s; }
     .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
-    .category-section { margin-bottom: 48px; }
-    .category-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; padding-left: 14px; border-left: 4px solid; }
-    .category-intro { font-size: 13px; color: var(--text2); margin-bottom: 20px; line-height: 1.6; }
-    .article-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card); }
-    .article-card { display: flex; align-items: flex-start; gap: 14px; padding: 20px; border-bottom: 1px solid var(--border); }
-    .article-card:last-child { border-bottom: none; }
-    .article-card:hover { background: rgba(99,102,241,.05); }
-    .article-rank { font-size: 16px; font-weight: 800; color: var(--text3); min-width: 28px; text-align: center; padding-top: 3px; flex-shrink: 0; }
-    .article-rank.top { color: #f59e0b; }
-    .article-body { flex: 1; min-width: 0; }
-    .article-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.5; }
-    .article-title a { color: var(--text); text-decoration: none; }
-    .article-title a:hover { color: var(--accent); }
-    .article-summary { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 12px; background: rgba(99,102,241,.07); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 6px 6px 0; }
-    .article-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--text3); }
-    .source-badge { color: #fff; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    .read-more { color: var(--accent); text-decoration: none; font-weight: 600; margin-left: auto; }
-    .read-more:hover { text-decoration: underline; }
-    .post-nav { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
-    .post-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 600; }
+
+    /* 카테고리 섹션 */
+    .cat-section { margin-bottom: 56px; }
+    .cat-header { margin-bottom: 20px; }
+    .cat-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .cat-intro { font-size: 13px; color: var(--text3); line-height: 1.6; }
+
+    /* 기사 아이템 — 신문 칼럼 스타일 */
+    .art-list { display: flex; flex-direction: column; }
+    .art-item { padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .art-item:last-child { border-bottom: none; }
+    .art-source-line { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .art-badge { font-size: 10px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; letter-spacing: .3px; }
+    .art-stats { font-size: 11px; color: var(--text3); }
+    .art-title { font-size: 19px; font-weight: 700; line-height: 1.45; letter-spacing: -.3px; margin-bottom: 12px; color: var(--text); }
+    .art-body { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 16px; }
+    .art-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+    .art-link:hover { border-bottom-color: var(--accent); }
+
+    /* 하단 네비 */
+    .post-nav { display: flex; gap: 10px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .post-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text2); text-decoration: none; font-size: 13px; font-weight: 600; transition: all .15s; }
     .post-nav a:hover { border-color: var(--accent); color: var(--accent); }
-    .footer { text-align: center; margin-top: 48px; font-size: 12px; color: var(--text3); line-height: 1.8; }
-    @media (max-width: 600px) { .post-header h1 { font-size: 20px; } .article-title { font-size: 14px; } .article-card { padding: 16px; gap: 10px; } }
+
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text3); line-height: 2; }
+
+    @media (max-width: 600px) {
+      .container { padding: 28px 18px 80px; }
+      .post-header h1 { font-size: 22px; }
+      .art-title { font-size: 16px; }
+      .art-body { font-size: 14px; }
+    }
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="/">🌐 Global<span>Hot</span></a>
-    <nav class="header-nav"><a href="/posts/">📚 전체 리포트</a></nav>
+    <a class="site-logo" href="/">🌐 Global<span>Hot</span></a>
+    <nav class="header-nav"><a href="/posts/">지난 리포트</a></nav>
   </header>
 
   <div class="container" itemscope itemtype="https://schema.org/Article">
+
     <div class="post-header">
-      <div class="post-date">📅 ${DATE_KO} · AI 글로벌 뉴스 리포트</div>
-      <h1 itemprop="headline">${escapeHtml(DATE_KO)} 전세계 화제 뉴스 총정리</h1>
-      <p class="post-intro" itemprop="description">
-        Hacker News, BBC, Reddit 등 전세계 주요 매체에서 오늘 가장 많이 회자된 기사 ${total}건을
-        AI가 한국어로 해설했습니다. 테크·세계이슈·과학·흥미로운 발견까지 한눈에 확인하세요.
-      </p>
+      <div class="post-eyebrow">GlobalHot Daily · ${TODAY}</div>
+      <h1 itemprop="headline">${escapeHtml(DATE_KO)}<br>오늘 전세계에서 가장 뜨거웠던 뉴스</h1>
+      <div class="post-byline">
+        <span>by <strong>GlobalHot 편집부</strong></span>
+        <span>·</span>
+        <span>뉴스 ${total}건</span>
+        <span>·</span>
+        <span itemprop="datePublished" content="${TODAY}">${DATE_KO}</span>
+      </div>
     </div>
 
     <nav class="cat-nav" aria-label="카테고리 바로가기">${catNav}</nav>
@@ -410,15 +436,16 @@ function generateHTML(categories) {
     ${catSections}
 
     <nav class="post-nav">
-      <a href="/">← GlobalHot 메인</a>
-      <a href="/posts/">📚 전체 리포트</a>
-      ${prevExists ? `<a href="/posts/${prevDate}.html">← 어제 리포트</a>` : ''}
+      <a href="/">← 메인으로</a>
+      <a href="/posts/">지난 리포트</a>
+      ${prevExists ? `<a href="/posts/${prevDate}.html">← 어제</a>` : ''}
     </nav>
 
     <div class="footer">
-      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 자동 업데이트<br>
-      뉴스 출처: Hacker News · BBC · Reddit · DW News · AI 해설: Cloudflare Workers AI
+      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 발행<br>
+      출처: Hacker News · BBC News · DW News · Reddit
     </div>
+
   </div>
 
 </body>
