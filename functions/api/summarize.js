@@ -1,25 +1,21 @@
 // Cloudflare Workers AI - 다국어 기사 요약 (short / long mode)
 const LANG_CONFIG = {
   ko: {
-    system: `당신은 IT·국제 분야 전문 칼럼니스트입니다.
-아래 예시처럼 자연스럽고 통찰 있는 한국어로 써주세요.
-
-[좋은 예시]
-뉴스: "Google fires 28 employees after protest against Israel contract"
-칼럼: 테크 기업들이 정부 방위 계약을 지키기 위해 내부 반발을 어떻게 처리하는지 보여주는 사례다. 구글은 이스라엘 군 계약에 반대해 데이터센터에서 시위를 벌인 직원 28명을 해고했는데, 이는 실리콘밸리가 '사회적 책임'을 표방하면서도 수익성 높은 정부 계약 앞에선 다른 선택을 한다는 점에서 씁쓸하다. 앞으로 AI 군사 기술 분야에서 비슷한 갈등이 더 많이 터져 나올 것이다.
-
-[나쁜 예시 - 절대 이렇게 쓰지 마세요]
-"이 기사는 구글이 직원을 해고한 내용입니다." / "이번 소식에 따르면..." / "첫째, 둘째..."`,
+    system: '당신은 IT·국제 분야 전문 칼럼니스트입니다. 간결하고 통찰 있는 한국어로 씁니다.',
     promptShort: (title, source) =>
-      `뉴스: "${title}" (${source})\n\n위 뉴스를 칼럼니스트처럼 2문장으로 써주세요. 예시처럼 자연스럽게. "이 기사는"으로 시작 금지.\n\n칼럼:`,
+      `뉴스: "${title}" (${source})\n\n2문장 칼럼:`,
     promptLong: (title, source) =>
-      `뉴스: "${title}" (${source})
-
-위 뉴스를 3~4문장 칼럼으로 써주세요.
-예시처럼: 배경 → 의미 → 전망 순서로, 자연스러운 구어체로.
-"이 기사는" "이번 소식은" "~에 따르면" 으로 시작하지 마세요.
-
-칼럼:`,
+      `뉴스: "${title}" (${source})\n\n3~4문장 칼럼:`,
+    fewShot: [
+      {
+        user: '뉴스: "Google fires 28 employees after protest against Israel contract" (Hacker News)\n\n3~4문장 칼럼:',
+        assistant: '구글이 이스라엘 군 계약에 반대해 사내 시위를 벌인 직원 28명을 해고했다. 실리콘밸리가 "사회적 책임"을 내세우면서도 수익성 높은 방위 계약 앞에서는 다른 선택을 한다는 사실이 다시 한번 드러난 셈이다. AI가 군사 기술에 깊숙이 연루될수록 이런 내부 갈등은 앞으로 더 빈번하게 터져 나올 것이다.',
+      },
+      {
+        user: '뉴스: "Japan\'s birth rate hits record low for 8th consecutive year" (BBC World)\n\n3~4문장 칼럼:',
+        assistant: '일본의 출생률이 8년 연속 역대 최저를 경신했다. 인구 절벽이 코앞인데 정부의 대응은 여전히 보육 지원금 확대 수준에 머물러 있어, 근본적인 노동 문화나 주거비 문제는 손도 못 대고 있다. 한국 역시 같은 경로를 밟고 있다는 점에서 남의 일로만 볼 수가 없다.',
+      },
+    ],
   },
   en: {
     system: `You are a senior tech and international affairs columnist with 15 years of experience.
@@ -114,14 +110,21 @@ export async function onRequestPost(context) {
   const promptFn  = isLong ? cfg.promptLong : cfg.promptShort;
   const maxTokens = isLong ? 350 : 150;
 
+  // few-shot 대화 구성 (ko 전용)
+  const fewShotMessages = (cfg.fewShot || []).flatMap(ex => [
+    { role: 'user',      content: ex.user      },
+    { role: 'assistant', content: ex.assistant  },
+  ]);
+
   try {
     const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
       messages: [
         { role: 'system', content: cfg.system },
+        ...fewShotMessages,
         { role: 'user',   content: promptFn(title, source || 'news') },
       ],
       max_tokens: maxTokens,
-      temperature: 0.5,
+      temperature: 0.6,
     });
 
     const summary = result?.response?.trim() ?? '';
