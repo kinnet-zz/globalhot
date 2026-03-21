@@ -270,7 +270,7 @@ function makePost(id, sourceId, title, url, points, comments, time, extra = {}) 
     url:       String(url).trim(),
     points:    Number(points)   || 0,
     comments:  Number(comments) || 0,
-    time:      time instanceof Date ? time : new Date(time || Date.now()),
+    time:      (time instanceof Date && !isNaN(time)) ? time : (() => { const d = new Date(time); return isNaN(d) ? new Date() : d; })(),
     thumbnail: '',
     desc:      '',
     ...extra,
@@ -1520,6 +1520,7 @@ function renderSkeletons(container, n) {
 
 // ── Utilities ────────────────────────────────────────────
 function relTime(date) {
+  if (!date || isNaN(date.getTime())) return '';
   const m = Math.floor((Date.now() - date.getTime()) / 60000);
   if (m < 1)  return '방금';
   if (m < 60) return `${m}분 전`;
