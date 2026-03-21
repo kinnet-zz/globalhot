@@ -192,16 +192,14 @@ const SOURCES = [
   { id: 'yt_us', name: 'YouTube', sub: '🇺🇸 인기', color: '#FF0000', emoji: '▶️', lang: 'en', tabs: ['video'], fetch: () => fetchYouTubeTrending('US') },
   { id: 'yt_jp', name: 'YouTube', sub: '🇯🇵 인기', color: '#FF0000', emoji: '▶️', lang: 'ja', tabs: ['video'], fetch: () => fetchYouTubeTrending('JP') },
 
-  // 📸 포토
-  { id: 'photo_earthporn',    name: 'r/EarthPorn',      sub: 'Landscapes',   color: '#2E7D32', emoji: '🏔️', lang: 'en', tabs: ['photo'], fetch: fetchEarthPorn         },
-  { id: 'photo_itap',         name: 'r/itookapicture',  sub: 'Photography',  color: '#1565C0', emoji: '📷', lang: 'en', tabs: ['photo'], fetch: fetchITookAPicture     },
-  { id: 'photo_urban',        name: 'r/UrbanPhotography',sub: 'Street',      color: '#37474F', emoji: '🏙️', lang: 'en', tabs: ['photo'], fetch: fetchUrbanPhotography  },
-  { id: 'photo_macro',        name: 'r/MacroPorn',      sub: 'Macro',        color: '#00838F', emoji: '🔬', lang: 'en', tabs: ['photo'], fetch: fetchMacroPorn         },
-  { id: 'photo_analog',       name: 'r/analog',         sub: 'Film',         color: '#5D4037', emoji: '🎞️', lang: 'en', tabs: ['photo'], fetch: fetchAnalog            },
-  { id: 'photo_photojournalism',name:'r/photojournalism',sub:'News Photo',   color: '#B71C1C', emoji: '📰', lang: 'en', tabs: ['photo'], fetch: fetchPhotojournalism   },
-  { id: 'photo_spaceporn',    name: 'r/spaceporn',      sub: 'Space',        color: '#1A237E', emoji: '🌌', lang: 'en', tabs: ['photo'], fetch: fetchSpacePorn         },
-  { id: 'photo_flickr',       name: 'Flickr',           sub: 'Best Photos',  color: '#FF0084', emoji: '📷', lang: 'en', tabs: ['photo'], fetch: fetchFlickrPhoto       },
-  { id: 'photo_deviantart',   name: 'DeviantArt',       sub: 'Photography',  color: '#05CC47', emoji: '🎨', lang: 'en', tabs: ['photo'], fetch: fetchDeviantArtPhoto   },
+  // 📸 포토 (바이럴·화제 중심, 인기도 점수 반영)
+  { id: 'photo_pics',         name: 'r/pics',              sub: 'Viral',       color: '#FF4500', emoji: '🔥', lang: 'en', tabs: ['photo'], fetch: fetchPics               },
+  { id: 'photo_iasf',         name: 'r/interestingasfuck', sub: 'Wow!',        color: '#0DD3BB', emoji: '🤯', lang: 'en', tabs: ['photo'], fetch: fetchInterestingAsFuck  },
+  { id: 'photo_earthporn',    name: 'r/EarthPorn',         sub: 'Landscapes',  color: '#2E7D32', emoji: '🏔️', lang: 'en', tabs: ['photo'], fetch: fetchEarthPorn          },
+  { id: 'photo_spaceporn',    name: 'r/spaceporn',         sub: 'Space',       color: '#1A237E', emoji: '🌌', lang: 'en', tabs: ['photo'], fetch: fetchSpacePorn          },
+  { id: 'photo_photojournalism',name:'r/photojournalism',  sub:'News Photo',   color: '#B71C1C', emoji: '📰', lang: 'en', tabs: ['photo'], fetch: fetchPhotojournalism    },
+  { id: 'photo_mildly',       name: 'r/mildlyinteresting', sub: 'Interesting', color: '#FF6314', emoji: '✨', lang: 'en', tabs: ['photo'], fetch: fetchMildlyInteresting  },
+  { id: 'photo_itap',         name: 'r/itookapicture',     sub: 'Photography', color: '#1565C0', emoji: '📷', lang: 'en', tabs: ['photo'], fetch: fetchITookAPicture      },
 
   // 🌏 세계화제
   { id: 'bbc_world',    name: 'BBC World', sub: 'News',           color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world'], fetch: fetchBBCWorld    },
@@ -593,51 +591,13 @@ async function fetchRedditPhoto(sub, prefix, sourceId) {
     });
 }
 
-function fetchEarthPorn()         { return fetchRedditPhoto('EarthPorn',        'ep',  'photo_earthporn');      }
-function fetchITookAPicture()     { return fetchRedditPhoto('itookapicture',     'it',  'photo_itap');           }
-function fetchUrbanPhotography()  { return fetchRedditPhoto('UrbanPhotography',  'up',  'photo_urban');          }
-function fetchMacroPorn()         { return fetchRedditPhoto('MacroPorn',         'mp',  'photo_macro');          }
-function fetchAnalog()            { return fetchRedditPhoto('analog',            'an',  'photo_analog');         }
-function fetchPhotojournalism()   { return fetchRedditPhoto('photojournalism',   'pj',  'photo_photojournalism');}
-function fetchSpacePorn()         { return fetchRedditPhoto('spaceporn',         'sp',  'photo_spaceporn');      }
-
-async function fetchFlickrPhoto() {
-  const url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=landscape,nature,street,photography&format=rss_200&lang=en-us';
-  const r = await fetch(SELF_PROXY + encodeURIComponent(url), { cache: 'no-store' });
-  const xml = await r.text();
-  const doc = new DOMParser().parseFromString(xml, 'application/xml');
-  if (doc.querySelector('parsererror')) throw new Error('Flickr RSS parse error');
-  return [...doc.querySelectorAll('item')].slice(0, 20).map((item, i) => {
-    const title = cleanText(item.querySelector('title')?.textContent || '');
-    const linkEl = item.querySelector('link');
-    const link  = linkEl?.getAttribute('href')
-               || linkEl?.textContent?.trim()
-               || item.querySelector('guid')?.textContent?.trim() || '';
-    const NS = 'http://search.yahoo.com/mrss/';
-    const thumb = item.getElementsByTagNameNS(NS, 'thumbnail')[0]?.getAttribute('url')
-               || item.getElementsByTagNameNS(NS, 'content')[0]?.getAttribute('url') || '';
-    const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-    return makePost(`fl_${i}`, 'photo_flickr', title, link, 0, 0, new Date(pubDate), { thumbnail: thumb });
-  });
-}
-
-async function fetchDeviantArtPhoto() {
-  const url = 'https://backend.deviantart.com/rss.xml?type=deviation&q=tag%3Aphotography+landscape';
-  const r = await fetch(SELF_PROXY + encodeURIComponent(url), { cache: 'no-store' });
-  const xml = await r.text();
-  const doc = new DOMParser().parseFromString(xml, 'application/xml');
-  if (doc.querySelector('parsererror')) throw new Error('DeviantArt RSS parse error');
-  return [...doc.querySelectorAll('item')].slice(0, 20).map((item, i) => {
-    const title = cleanText(item.querySelector('title')?.textContent || '');
-    const link  = item.querySelector('link')?.textContent?.trim()
-               || item.querySelector('guid')?.textContent?.trim() || '';
-    const NS = 'http://search.yahoo.com/mrss/';
-    const thumb = item.getElementsByTagNameNS(NS, 'thumbnail')[0]?.getAttribute('url')
-               || item.getElementsByTagNameNS(NS, 'content')[0]?.getAttribute('url') || '';
-    const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-    return makePost(`da_${i}`, 'photo_deviantart', title, link, 0, 0, new Date(pubDate), { thumbnail: thumb });
-  });
-}
+function fetchPics()               { return fetchRedditPhoto('pics',              'pc',  'photo_pics');          }
+function fetchInterestingAsFuck()  { return fetchRedditPhoto('interestingasfuck', 'ia',  'photo_iasf');          }
+function fetchEarthPorn()          { return fetchRedditPhoto('EarthPorn',         'ep',  'photo_earthporn');     }
+function fetchSpacePorn()          { return fetchRedditPhoto('spaceporn',         'sp',  'photo_spaceporn');     }
+function fetchPhotojournalism()    { return fetchRedditPhoto('photojournalism',   'pj',  'photo_photojournalism');}
+function fetchMildlyInteresting()  { return fetchRedditPhoto('mildlyinteresting', 'mi',  'photo_mildly');        }
+function fetchITookAPicture()      { return fetchRedditPhoto('itookapicture',     'it',  'photo_itap');          }
 
 async function fetchBBCWorld() {
   const items = await parseRSS('https://feeds.bbci.co.uk/news/world/rss.xml', 20);
