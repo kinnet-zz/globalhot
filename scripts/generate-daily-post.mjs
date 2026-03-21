@@ -271,7 +271,7 @@ async function enrichWithSummaries(categories) {
       const summary = await getAISummary(p.title, p.source);
       console.log(summary ? '✓' : '(스킵)');
       posts.push({ ...p, summary });
-      await new Promise(r => setTimeout(r, 400));
+      await new Promise(r => setTimeout(r, 5000)); // Gemini 무료: 15 RPM
     }
     enriched.push({ ...cat, posts });
   }
