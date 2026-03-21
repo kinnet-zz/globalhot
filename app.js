@@ -10,22 +10,22 @@
 // ── 다국어 번역 ───────────────────────────────────────────
 const I18N = {
   all: {
-    tabs:     { all:'🌐 전체', hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
+    tabs:     { all:'🌐 전체', hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'글 제목 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
+    sections: { hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
   },
   ko: {
-    tabs:     { all:'🌐 전체', hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
+    tabs:     { all:'🌐 전체', hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'글 제목 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
+    sections: { hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
   },
   en: {
-    tabs:     { all:'🌐 All', hot:'🔥 Hot Now', trends:'🔍 Search Trends', tech:'💻 Tech', video:'🎬 Videos', world:'🌏 World', photo:'📸 Photo' },
+    tabs:     { all:'🌐 All', hot:'🔥 Global Hot', trends:'🔍 Trends', tech:'💻 Tech & Dev', video:'🎬 Videos', world:'🌍 World', photo:'📸 Photo' },
     sort:     { label:'Sort', trending:'🔥 Trending', time:'🕐 Latest', points:'👍 Top', comments:'💬 Comments' },
     ui:       { search:'Search titles...', more:'More →', loadMore:'Load more ↓', keywords:'☁️ Keywords', updated:'Last updated:' },
-    sections: { hot:'🔥 Hot Now', trends:'🔍 Search Trends', tech:'💻 Tech', video:'🎬 Videos', world:'🌏 World', photo:'📸 Photo' },
+    sections: { hot:'🔥 Global Hot', trends:'🔍 Trends', tech:'💻 Tech & Dev', video:'🎬 Videos', world:'🌍 World Issues', photo:'📸 Photo' },
   },
   ja: {
     tabs:     { all:'🌐 すべて', hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', photo:'📸 フォト' },
