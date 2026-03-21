@@ -217,7 +217,7 @@ async function getAISummary(title, source) {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ title, source, lang: 'ko', mode: 'long' }),
-      signal:  AbortSignal.timeout(20000),
+      signal:  AbortSignal.timeout(40000),
     });
     if (!res.ok) { console.warn(`  ⚠️  AI API ${res.status}`); return ''; }
     const data = await res.json();
