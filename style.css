@@ -526,12 +526,12 @@ ul, ol { list-style: none; }
   gap: 10px;
 }
 .gravure-grid--mini {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 .gravure-grid--mini .gravure-card {
-  aspect-ratio: 3/4;
-  max-height: 160px;
+  aspect-ratio: 4/3;
+  max-height: 180px;
 }
 @media (max-width: 900px) {
   .video-grid--mini, .gravure-grid--mini { grid-template-columns: repeat(2, 1fr); }

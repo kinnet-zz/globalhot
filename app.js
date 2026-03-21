@@ -1052,7 +1052,8 @@ function renderFeed() {
     grid.className = 'sections-grid';
     let anyContent = false;
     SECTION_DEFS.forEach(def => {
-      const posts = getPostsForTab(def.tab).slice(0, 5);
+      const limit = def.tab === 'photo' ? 6 : 5;
+      const posts = getPostsForTab(def.tab).slice(0, limit);
       if (posts.length === 0) return;
       anyContent = true;
       grid.appendChild(createSectionBlock(def, posts));
@@ -1143,10 +1144,10 @@ function createSectionBlock(def, posts) {
     posts.slice(0, 4).forEach(p => grid.appendChild(createVideoCard(p)));
     block.appendChild(grid);
   } else if (def.tab === 'photo') {
-    // 포토 섹션: 미니 이미지 그리드 (4개)
+    // 포토 섹션: 미니 이미지 그리드 (3×2 = 6개)
     const grid = document.createElement('div');
     grid.className = 'gravure-grid gravure-grid--mini';
-    posts.slice(0, 4).forEach(p => grid.appendChild(createGravureCard(p)));
+    posts.slice(0, 6).forEach(p => grid.appendChild(createGravureCard(p)));
     block.appendChild(grid);
   } else {
     const list = document.createElement('div');
