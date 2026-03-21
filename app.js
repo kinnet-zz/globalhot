@@ -1632,11 +1632,43 @@ function openDetail(post) {
       .catch(() => { summaryEl.style.display = 'none'; });
   }
 
+  // Giscus 댓글 로드
+  loadGiscusComments(post.title);
+
   // 패널 열기
   const panel = document.getElementById('detailPanel');
   panel.classList.add('open');
   panel.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+
+  // 패널 상단으로 스크롤
+  document.querySelector('.detail-sheet').scrollTop = 0;
+}
+
+function loadGiscusComments(term) {
+  const container = document.getElementById('detailComments');
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  // 기존 위젯 초기화
+  container.innerHTML = '<h3 class="detail-comments-title">💬 댓글</h3>';
+
+  const script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.setAttribute('data-repo',            'kinnet-zz/globalhot');
+  script.setAttribute('data-repo-id',         'R_kgDORs40ww');
+  script.setAttribute('data-category',        'General');
+  script.setAttribute('data-category-id',     'DIC_kwDORs40w84C47dH');
+  script.setAttribute('data-mapping',         'specific');
+  script.setAttribute('data-term',            term.slice(0, 200));
+  script.setAttribute('data-strict',          '0');
+  script.setAttribute('data-reactions-enabled','1');
+  script.setAttribute('data-emit-metadata',   '0');
+  script.setAttribute('data-input-position',  'top');
+  script.setAttribute('data-theme',           isDark ? 'dark_dimmed' : 'light');
+  script.setAttribute('data-lang',            'ko');
+  script.setAttribute('crossorigin',          'anonymous');
+  script.async = true;
+  container.appendChild(script);
 }
 
 function applyDetailSummary(el, text) {
