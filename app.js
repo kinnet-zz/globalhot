@@ -10,34 +10,34 @@
 // ── 다국어 번역 ───────────────────────────────────────────
 const I18N = {
   all: {
-    tabs:     { all:'🌐 전체', hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', gravure:'📸 그라비아' },
+    tabs:     { all:'🌐 전체', hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'글 제목 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', gravure:'📸 그라비아' },
+    sections: { hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
   },
   ko: {
-    tabs:     { all:'🌐 전체', hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', gravure:'📸 그라비아' },
+    tabs:     { all:'🌐 전체', hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'글 제목 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', gravure:'📸 그라비아' },
+    sections: { hot:'🔥 지금핫함', trends:'🔍 검색트렌드', tech:'💻 테크', video:'🎬 핫영상', world:'🌏 세계화제', photo:'📸 포토' },
   },
   en: {
-    tabs:     { all:'🌐 All', hot:'🔥 Hot Now', trends:'🔍 Search Trends', tech:'💻 Tech', video:'🎬 Videos', world:'🌏 World', gravure:'📸 Gravure' },
+    tabs:     { all:'🌐 All', hot:'🔥 Hot Now', trends:'🔍 Search Trends', tech:'💻 Tech', video:'🎬 Videos', world:'🌏 World', photo:'📸 Photo' },
     sort:     { label:'Sort', trending:'🔥 Trending', time:'🕐 Latest', points:'👍 Top', comments:'💬 Comments' },
     ui:       { search:'Search titles...', more:'More →', loadMore:'Load more ↓', keywords:'☁️ Keywords', updated:'Last updated:' },
-    sections: { hot:'🔥 Hot Now', trends:'🔍 Search Trends', tech:'💻 Tech', video:'🎬 Videos', world:'🌏 World', gravure:'📸 Gravure' },
+    sections: { hot:'🔥 Hot Now', trends:'🔍 Search Trends', tech:'💻 Tech', video:'🎬 Videos', world:'🌏 World', photo:'📸 Photo' },
   },
   ja: {
-    tabs:     { all:'🌐 すべて', hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', gravure:'📸 グラビア' },
+    tabs:     { all:'🌐 すべて', hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', photo:'📸 フォト' },
     sort:     { label:'並替', trending:'🔥 急上昇', time:'🕐 新着', points:'👍 人気', comments:'💬 コメント' },
     ui:       { search:'タイトル検索...', more:'もっと見る →', loadMore:'もっと見る ↓', keywords:'☁️ キーワード', updated:'最終更新:' },
-    sections: { hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', gravure:'📸 グラビア' },
+    sections: { hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', photo:'📸 フォト' },
   },
   zh: {
-    tabs:     { all:'🌐 全部', hot:'🔥 热门', trends:'🔍 搜索趋势', tech:'💻 科技', video:'🎬 视频', world:'🌏 世界热议', gravure:'📸 写真' },
+    tabs:     { all:'🌐 全部', hot:'🔥 热门', trends:'🔍 搜索趋势', tech:'💻 科技', video:'🎬 视频', world:'🌏 世界热议', photo:'📸 照片' },
     sort:     { label:'排序', trending:'🔥 趋势', time:'🕐 最新', points:'👍 热门', comments:'💬 评论' },
     ui:       { search:'搜索标题...', more:'更多 →', loadMore:'加载更多 ↓', keywords:'☁️ 关键词', updated:'最后更新:' },
-    sections: { hot:'🔥 热门', trends:'🔍 搜索趋势', tech:'💻 科技', video:'🎬 视频', world:'🌏 世界热议', gravure:'📸 写真' },
+    sections: { hot:'🔥 热门', trends:'🔍 搜索趋势', tech:'💻 科技', video:'🎬 视频', world:'🌏 世界热议', photo:'📸 照片' },
   },
 };
 
@@ -192,18 +192,16 @@ const SOURCES = [
   { id: 'yt_us', name: 'YouTube', sub: '🇺🇸 인기', color: '#FF0000', emoji: '▶️', lang: 'en', tabs: ['video'], fetch: () => fetchYouTubeTrending('US') },
   { id: 'yt_jp', name: 'YouTube', sub: '🇯🇵 인기', color: '#FF0000', emoji: '▶️', lang: 'ja', tabs: ['video'], fetch: () => fetchYouTubeTrending('JP') },
 
-  // 📸 그라비아
-  { id: 'reddit_gboners',     name: 'GentlemanBoners', sub: 'SFW',      color: '#E91E63', emoji: '📸', lang: 'en', tabs: ['gravure'], fetch: fetchGentlemanBoners  },
-  { id: 'reddit_prettygirls', name: 'PrettyGirls',     sub: 'Models',   color: '#C2185B', emoji: '💃', lang: 'en', tabs: ['gravure'], fetch: fetchPrettyGirls      },
-  { id: 'reddit_cosplaygirls',name: 'CosplayGirls',    sub: 'Cosplay',  color: '#9C27B0', emoji: '🎭', lang: 'en', tabs: ['gravure'], fetch: fetchCosplayGirls     },
-  { id: 'reddit_celebs',      name: 'Celebs',          sub: 'Celebrity',color: '#FF5722', emoji: '⭐', lang: 'en', tabs: ['gravure'], fetch: fetchCelebs           },
-  { id: 'reddit_beauties',    name: 'BeautifulFemales',sub: 'Beauty',   color: '#AD1457', emoji: '🌸', lang: 'en', tabs: ['gravure'], fetch: fetchBeautifulFemales },
-  { id: 'reddit_kpop',        name: 'kpopfap',         sub: 'K-Pop',    color: '#6A1B9A', emoji: '🎤', lang: 'ko', tabs: ['gravure'], fetch: fetchKpopFap          },
-  { id: 'reddit_cosplaygirls2',name:'r/cosplaygirls',  sub: 'Cosplay2', color: '#7B1FA2', emoji: '🎀', lang: 'en', tabs: ['gravure'], fetch: fetchCosplayGirls2    },
-  { id: 'reddit_awwnime',     name: 'awwnime',          sub: 'Anime',   color: '#1976D2', emoji: '🌸', lang: 'ja', tabs: ['gravure'], fetch: fetchAwwnime          },
-  { id: 'reddit_idolkpop',    name: 'idol_kpop',        sub: 'K-Idol', color: '#00838F', emoji: '🎤', lang: 'ko', tabs: ['gravure'], fetch: fetchIdolKpop         },
-  { id: 'flickr_gravure',     name: 'Flickr',           sub: 'Gravure', color: '#FF0084', emoji: '📷', lang: 'en', tabs: ['gravure'], fetch: fetchFlickrGravure    },
-  { id: 'deviantart',         name: 'DeviantArt',       sub: 'Cosplay', color: '#05CC47', emoji: '🎨', lang: 'en', tabs: ['gravure'], fetch: fetchDeviantArt       },
+  // 📸 포토
+  { id: 'photo_earthporn',    name: 'r/EarthPorn',      sub: 'Landscapes',   color: '#2E7D32', emoji: '🏔️', lang: 'en', tabs: ['photo'], fetch: fetchEarthPorn         },
+  { id: 'photo_itap',         name: 'r/itookapicture',  sub: 'Photography',  color: '#1565C0', emoji: '📷', lang: 'en', tabs: ['photo'], fetch: fetchITookAPicture     },
+  { id: 'photo_urban',        name: 'r/UrbanPhotography',sub: 'Street',      color: '#37474F', emoji: '🏙️', lang: 'en', tabs: ['photo'], fetch: fetchUrbanPhotography  },
+  { id: 'photo_macro',        name: 'r/MacroPorn',      sub: 'Macro',        color: '#00838F', emoji: '🔬', lang: 'en', tabs: ['photo'], fetch: fetchMacroPorn         },
+  { id: 'photo_analog',       name: 'r/analog',         sub: 'Film',         color: '#5D4037', emoji: '🎞️', lang: 'en', tabs: ['photo'], fetch: fetchAnalog            },
+  { id: 'photo_photojournalism',name:'r/photojournalism',sub:'News Photo',   color: '#B71C1C', emoji: '📰', lang: 'en', tabs: ['photo'], fetch: fetchPhotojournalism   },
+  { id: 'photo_spaceporn',    name: 'r/spaceporn',      sub: 'Space',        color: '#1A237E', emoji: '🌌', lang: 'en', tabs: ['photo'], fetch: fetchSpacePorn         },
+  { id: 'photo_flickr',       name: 'Flickr',           sub: 'Best Photos',  color: '#FF0084', emoji: '📷', lang: 'en', tabs: ['photo'], fetch: fetchFlickrPhoto       },
+  { id: 'photo_deviantart',   name: 'DeviantArt',       sub: 'Photography',  color: '#05CC47', emoji: '🎨', lang: 'en', tabs: ['photo'], fetch: fetchDeviantArtPhoto   },
 
   // 🌏 세계화제
   { id: 'bbc_world',    name: 'BBC World', sub: 'News',           color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world'], fetch: fetchBBCWorld    },
@@ -576,7 +574,7 @@ function redditImagePost(prefix, sourceId, c) {
   );
 }
 
-async function fetchRedditGravure(sub, prefix, sourceId) {
+async function fetchRedditPhoto(sub, prefix, sourceId) {
   const url = `https://www.reddit.com/r/${sub}/hot.json?limit=25&raw_json=1`;
   const r = await fetch(SELF_PROXY + encodeURIComponent(url), { cache: 'no-store' });
   const d = await r.json();
@@ -585,18 +583,16 @@ async function fetchRedditGravure(sub, prefix, sourceId) {
     .map(c => redditImagePost(prefix, sourceId, c));
 }
 
-function fetchGentlemanBoners()  { return fetchRedditGravure('gentlemanboners', 'gb', 'reddit_gboners'); }
-function fetchPrettyGirls()      { return fetchRedditGravure('PrettyGirls',     'pg', 'reddit_prettygirls'); }
-function fetchCosplayGirls()     { return fetchRedditGravure('CosplayGirls',    'cg', 'reddit_cosplaygirls'); }
-function fetchCelebs()           { return fetchRedditGravure('Celebs',          'cl', 'reddit_celebs'); }
-function fetchBeautifulFemales() { return fetchRedditGravure('BeautifulFemales','bf', 'reddit_beauties'); }
-function fetchKpopFap()          { return fetchRedditGravure('kpopfap',         'kp', 'reddit_kpop'); }
-function fetchCosplayGirls2()    { return fetchRedditGravure('cosplaygirls',    'cg2','reddit_cosplaygirls2'); }
-function fetchAwwnime()          { return fetchRedditGravure('awwnime',         'aw', 'reddit_awwnime'); }
-function fetchIdolKpop()         { return fetchRedditGravure('idol_kpop',       'ik', 'reddit_idolkpop'); }
+function fetchEarthPorn()         { return fetchRedditPhoto('EarthPorn',        'ep',  'photo_earthporn');      }
+function fetchITookAPicture()     { return fetchRedditPhoto('itookapicture',     'it',  'photo_itap');           }
+function fetchUrbanPhotography()  { return fetchRedditPhoto('UrbanPhotography',  'up',  'photo_urban');          }
+function fetchMacroPorn()         { return fetchRedditPhoto('MacroPorn',         'mp',  'photo_macro');          }
+function fetchAnalog()            { return fetchRedditPhoto('analog',            'an',  'photo_analog');         }
+function fetchPhotojournalism()   { return fetchRedditPhoto('photojournalism',   'pj',  'photo_photojournalism');}
+function fetchSpacePorn()         { return fetchRedditPhoto('spaceporn',         'sp',  'photo_spaceporn');      }
 
-async function fetchFlickrGravure() {
-  const url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=gravure,idol,cosplay&format=rss_200&lang=en-us';
+async function fetchFlickrPhoto() {
+  const url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=landscape,nature,street,photography&format=rss_200&lang=en-us';
   const r = await fetch(SELF_PROXY + encodeURIComponent(url), { cache: 'no-store' });
   const xml = await r.text();
   const doc = new DOMParser().parseFromString(xml, 'application/xml');
@@ -609,12 +605,12 @@ async function fetchFlickrGravure() {
     const thumb = item.getElementsByTagNameNS(NS, 'thumbnail')[0]?.getAttribute('url')
                || item.getElementsByTagNameNS(NS, 'content')[0]?.getAttribute('url') || '';
     const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-    return makePost(`fl_${i}`, 'flickr_gravure', title, link, 0, 0, new Date(pubDate), { thumbnail: thumb });
+    return makePost(`fl_${i}`, 'photo_flickr', title, link, 0, 0, new Date(pubDate), { thumbnail: thumb });
   });
 }
 
-async function fetchDeviantArt() {
-  const url = 'https://backend.deviantart.com/rss.xml?type=deviation&q=tag%3Acosplay+girl';
+async function fetchDeviantArtPhoto() {
+  const url = 'https://backend.deviantart.com/rss.xml?type=deviation&q=tag%3Aphotography+landscape';
   const r = await fetch(SELF_PROXY + encodeURIComponent(url), { cache: 'no-store' });
   const xml = await r.text();
   const doc = new DOMParser().parseFromString(xml, 'application/xml');
@@ -627,7 +623,7 @@ async function fetchDeviantArt() {
     const thumb = item.getElementsByTagNameNS(NS, 'thumbnail')[0]?.getAttribute('url')
                || item.getElementsByTagNameNS(NS, 'content')[0]?.getAttribute('url') || '';
     const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-    return makePost(`da_${i}`, 'deviantart', title, link, 0, 0, new Date(pubDate), { thumbnail: thumb });
+    return makePost(`da_${i}`, 'photo_deviantart', title, link, 0, 0, new Date(pubDate), { thumbnail: thumb });
   });
 }
 
@@ -974,6 +970,7 @@ const SECTION_DEFS = [
   { tab: 'tech',    label: '💻 테크',        color: '#FF6600' },
   { tab: 'video',   label: '🎬 핫영상',       color: '#FF0000' },
   { tab: 'world',   label: '🌏 세계화제',   color: '#BB1919' },
+  { tab: 'photo',   label: '📸 포토',        color: '#2E7D32' },
 ];
 
 // ── 탭별 게시물 가져오기 ─────────────────────────────────
@@ -1054,8 +1051,8 @@ function renderFeed() {
     slice.forEach(p => grid.appendChild(createVideoCard(p)));
     feed.appendChild(grid);
     loadMoreWrap.classList.toggle('hidden', slice.length >= posts.length);
-  } else if (state.tab === 'gravure') {
-    // 그라비아: 이미지 그리드
+  } else if (state.tab === 'photo') {
+    // 포토: 이미지 그리드
     const posts = getPostsForTab(state.tab);
     const slice = posts.slice(0, (state.page + 1) * state.PAGE_SIZE);
     if (slice.length === 0) {
@@ -1121,8 +1118,8 @@ function createSectionBlock(def, posts) {
     grid.className = 'video-grid video-grid--mini';
     posts.slice(0, 4).forEach(p => grid.appendChild(createVideoCard(p)));
     block.appendChild(grid);
-  } else if (def.tab === 'gravure') {
-    // 그라비아 섹션: 미니 이미지 그리드 (4개)
+  } else if (def.tab === 'photo') {
+    // 포토 섹션: 미니 이미지 그리드 (4개)
     const grid = document.createElement('div');
     grid.className = 'gravure-grid gravure-grid--mini';
     posts.slice(0, 4).forEach(p => grid.appendChild(createGravureCard(p)));
