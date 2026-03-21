@@ -1632,8 +1632,11 @@ function openDetail(post) {
       .catch(() => { summaryEl.style.display = 'none'; });
   }
 
-  // Giscus 댓글 로드
-  loadGiscusComments(post.title);
+  // 공유 버튼
+  renderShareButtons(post);
+
+  // 관련 글
+  renderRelatedPosts(post);
 
   // 패널 열기
   const panel = document.getElementById('detailPanel');
@@ -1645,30 +1648,70 @@ function openDetail(post) {
   document.querySelector('.detail-sheet').scrollTop = 0;
 }
 
-function loadGiscusComments(term) {
+function renderShareButtons(post) {
   const container = document.getElementById('detailComments');
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const encodedUrl   = encodeURIComponent(post.url || location.href);
+  const encodedTitle = encodeURIComponent(post.title);
 
-  // 기존 위젯 초기화
-  container.innerHTML = '<h3 class="detail-comments-title">💬 댓글</h3>';
+  container.innerHTML = `
+    <div class="detail-share">
+      <span class="detail-share-label">공유하기</span>
+      <div class="detail-share-btns">
+        <button class="share-btn share-copy" title="링크 복사">
+          🔗 링크 복사
+        </button>
+        <a class="share-btn share-x"
+           href="https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}"
+           target="_blank" rel="noopener noreferrer">
+          𝕏 공유
+        </a>
+        <a class="share-btn share-fb"
+           href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}"
+           target="_blank" rel="noopener noreferrer">
+          f 공유
+        </a>
+      </div>
+    </div>
+  `;
 
-  const script = document.createElement('script');
-  script.src = 'https://giscus.app/client.js';
-  script.setAttribute('data-repo',            'kinnet-zz/globalhot');
-  script.setAttribute('data-repo-id',         'R_kgDORs40ww');
-  script.setAttribute('data-category',        'General');
-  script.setAttribute('data-category-id',     'DIC_kwDORs40w84C47dH');
-  script.setAttribute('data-mapping',         'specific');
-  script.setAttribute('data-term',            term.slice(0, 200));
-  script.setAttribute('data-strict',          '0');
-  script.setAttribute('data-reactions-enabled','1');
-  script.setAttribute('data-emit-metadata',   '0');
-  script.setAttribute('data-input-position',  'top');
-  script.setAttribute('data-theme',           isDark ? 'dark_dimmed' : 'light');
-  script.setAttribute('data-lang',            'ko');
-  script.setAttribute('crossorigin',          'anonymous');
-  script.async = true;
-  container.appendChild(script);
+  container.querySelector('.share-copy').addEventListener('click', () => {
+    navigator.clipboard.writeText(post.url || location.href).then(() => {
+      const btn = container.querySelector('.share-copy');
+      btn.textContent = '✅ 복사됨!';
+      setTimeout(() => { btn.textContent = '🔗 링크 복사'; }, 2000);
+    });
+  });
+}
+
+function renderRelatedPosts(post) {
+  const container = document.getElementById('detailComments');
+
+  // 같은 탭에서 현재 글 제외 3개
+  const src = SOURCE_MAP[post.sourceId];
+  const tabId = src?.tabs?.[0] || 'hot';
+  const related = getPostsForTab(tabId)
+    .filter(p => p.id !== post.id)
+    .slice(0, 3);
+
+  if (related.length === 0) return;
+
+  const section = document.createElement('div');
+  section.className = 'detail-related';
+  section.innerHTML = '<h3 class="detail-related-title">📌 관련 글</h3>';
+
+  related.forEach(p => {
+    const relSrc = SOURCE_MAP[p.sourceId] || {};
+    const item = document.createElement('div');
+    item.className = 'detail-related-item';
+    item.addEventListener('click', () => openDetail(p));
+    item.innerHTML = `
+      <div class="detail-related-badge" style="background:${relSrc.color || '#555'}">${relSrc.emoji || ''} ${relSrc.name || ''}</div>
+      <div class="detail-related-title-text">${p.title}</div>
+    `;
+    section.appendChild(item);
+  });
+
+  container.appendChild(section);
 }
 
 function applyDetailSummary(el, text) {
