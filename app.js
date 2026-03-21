@@ -1230,10 +1230,66 @@ function createCompactCard(p, rank) {
     descEl.textContent = p.desc;
     body.appendChild(descEl);
   }
+
+  // AI 요약 영역 (Trends 제외)
+  if (!p.sourceId.startsWith('trends_')) {
+    const aiEl = document.createElement('div');
+    aiEl.className = 'compact-ai-summary loading';
+    aiEl.textContent = '';
+    body.appendChild(aiEl);
+
+    // 화면에 보일 때만 API 호출 (비용 절감)
+    summaryObserver.observe(card);
+    card.dataset.aiTitle  = p.title;
+    card.dataset.aiSource = SOURCE_MAP[p.sourceId]?.name ?? '';
+    card.dataset.aiEl     = 'pending'; // 플래그
+    card._aiEl = aiEl;
+  }
+
   body.appendChild(meta);
 
   card.append(rankEl, body);
   return card;
+}
+
+// ── AI 요약 IntersectionObserver ─────────────────────────
+const summaryCache = new Map(); // 세션 내 중복 요청 방지
+const summaryObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const card = entry.target;
+    if (!card._aiEl || card.dataset.aiEl !== 'pending') return;
+    card.dataset.aiEl = 'fetching';
+    summaryObserver.unobserve(card);
+
+    const title  = card.dataset.aiTitle;
+    const source = card.dataset.aiSource;
+    const key    = title.slice(0, 80);
+
+    if (summaryCache.has(key)) {
+      renderSummary(card._aiEl, summaryCache.get(key));
+      return;
+    }
+
+    fetch('/api/summarize', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ title, source }),
+    })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        const text = data?.summary ?? '';
+        summaryCache.set(key, text);
+        renderSummary(card._aiEl, text);
+      })
+      .catch(() => { card._aiEl.remove(); });
+  });
+}, { rootMargin: '200px' });
+
+function renderSummary(el, text) {
+  if (!text) { el.remove(); return; }
+  el.classList.remove('loading');
+  el.textContent = '🤖 ' + text;
 }
 
 // ── 유튜브 비디오 카드 ───────────────────────────────────

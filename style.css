@@ -252,6 +252,21 @@ ul, ol { list-style: none; }
   margin-bottom: 5px;
   display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
 }
+.compact-ai-summary {
+  font-size: 11.5px;
+  color: var(--text2);
+  line-height: 1.55;
+  margin: 3px 0 5px;
+  padding: 5px 8px;
+  background: rgba(99,102,241,.08);
+  border-left: 2px solid rgba(99,102,241,.4);
+  border-radius: 0 4px 4px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.compact-ai-summary.loading { display: none; }
 .compact-meta {
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
   font-size: 11px; color: var(--text3);
