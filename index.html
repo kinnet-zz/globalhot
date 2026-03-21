@@ -23,7 +23,6 @@
       <a class="logo" href="#">
         <span class="logo-globe">🌐</span>
         <span class="logo-text">GlobalHot</span>
-        <span class="logo-badge">BETA</span>
       </a>
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -118,8 +117,25 @@
     </div>
   </div>
 
+  <!-- ───── COOKIE CONSENT ───── -->
+  <div id="cookieBanner" class="cookie-banner" style="display:none">
+    <p>본 사이트는 서비스 개선과 광고 게재를 위해 쿠키를 사용합니다. 계속 이용하시면 쿠키 사용에 동의하는 것으로 간주됩니다. <a href="/privacy.html">자세히 보기</a></p>
+    <button id="cookieAccept">동의</button>
+  </div>
+
   <script src="wordcloud2.min.js"></script>
   <script src="app.js"></script>
+  <script>
+    (function() {
+      if (!localStorage.getItem('cookie-ok')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+      }
+      document.getElementById('cookieAccept').addEventListener('click', function() {
+        localStorage.setItem('cookie-ok', '1');
+        document.getElementById('cookieBanner').style.display = 'none';
+      });
+    })();
+  </script>
 
   <!-- ───── FOOTER ───── -->
   <footer class="site-footer">
@@ -127,6 +143,7 @@
       <div class="footer-links">
         <a href="/about.html">서비스 소개</a>
         <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/posts/">주간 리포트</a>
         <a href="mailto:kintube0001@gmail.com">문의</a>
       </div>
       <p class="footer-copy">© 2026 GlobalHot · 본 서비스는 각 플랫폼의 공개 API를 활용하며, 콘텐츠 저작권은 원저작자에게 있습니다.</p>

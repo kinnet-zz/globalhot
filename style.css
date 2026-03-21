@@ -673,6 +673,36 @@ ul, ol { list-style: none; }
   .tab { padding: 12px 6px; }
 }
 
+/* ── Cookie Banner ── */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text2);
+}
+.cookie-banner a { color: var(--accent); }
+.cookie-banner button {
+  flex-shrink: 0;
+  padding: 7px 18px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .cookie-banner { flex-direction: column; text-align: center; }
+}
+
 /* ══════════════════════════════════════
    Detail Panel (Step 2)
 ══════════════════════════════════════ */
