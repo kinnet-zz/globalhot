@@ -1,128 +1,184 @@
 /**
  * GlobalHot 일일 화제 콘텐츠 자동 생성기
  * 매일 오전 9시 KST GitHub Actions에서 실행
- * - 글로벌 화제 기사 수집 → AI 한국어 해설 생성 → 정적 HTML 발행
+ * 소스: HN Algolia API + BBC RSS (GitHub Actions에서 안정적으로 접근 가능)
  */
 
 import { writeFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
-const SITE_URL = process.env.SITE_URL || 'https://globalhot.pages.dev';
-const KST      = new Date(Date.now() + 9 * 3600_000);
-const TODAY    = KST.toISOString().slice(0, 10);
+const SITE_URL  = process.env.SITE_URL || 'https://globalhot.pages.dev';
+const KST       = new Date(Date.now() + 9 * 3600_000);
+const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
-const DATE_KO  = `${KST.getFullYear()}년 ${KST.getMonth() + 1}월 ${KST.getDate()}일 (${DAY_NAMES[KST.getDay()]})`;
+const DATE_KO   = `${KST.getFullYear()}년 ${KST.getMonth() + 1}월 ${KST.getDate()}일 (${DAY_NAMES[KST.getDay()]})`;
 
 // ── 1. 데이터 수집 ────────────────────────────────────────
 
-async function fetchHN(limit = 5) {
+/** Node.js용 간단한 RSS XML 파서 */
+function parseRSSXml(xml) {
+  const items = [];
+  const blocks = [...xml.matchAll(/<item[^>]*>([\s\S]*?)<\/item>/gi)];
+  for (const block of blocks) {
+    const c     = block[1];
+    const title = c.match(/<title[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i)?.[1]?.trim() || '';
+    const link  = c.match(/<link[^>]*>\s*(https?:\/\/[^\s<]+)\s*<\/link>/i)?.[1]?.trim()
+               || c.match(/<guid[^>]*isPermaLink="true"[^>]*>([\s\S]*?)<\/guid>/i)?.[1]?.trim()
+               || c.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i)?.[1]?.trim() || '';
+    const date  = c.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i)?.[1]?.trim() || '';
+    const desc  = c.match(/<description[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i)?.[1]
+                   ?.replace(/<[^>]+>/g, '')?.trim()?.slice(0, 200) || '';
+    if (title && link) items.push({ title, link, date, desc });
+  }
+  return items;
+}
+
+async function safeFetch(url, opts = {}) {
   try {
-    const res = await fetch('https://hacker-news.firebaseio.com/v1/topstories.json',
-      { headers: { 'User-Agent': 'GlobalHot/1.0' }, signal: AbortSignal.timeout(10000) });
-    if (!res.ok) { console.warn(`⚠️ HN topstories HTTP ${res.status}`); return []; }
-    const ids   = (await res.json()).slice(0, 30);
-    const items = await Promise.all(
-      ids.map(id =>
-        fetch(`https://hacker-news.firebaseio.com/v1/item/${id}.json`,
-          { signal: AbortSignal.timeout(5000) })
-          .then(r => r.json())
-          .catch(() => null)
-      )
-    );
-    const results = items
-      .filter(i => i && i.title && i.score > 50 && i.url)
-      .map(i => ({
-        title:       i.title,
-        url:         i.url,
-        points:      i.score,
-        comments:    i.descendants || 0,
-        source:      'Hacker News',
-        sourceEmoji: '💻',
-        color:       '#FF6600',
-        category:    'tech',
-      }))
-      .slice(0, limit);
-    console.log(`  HN: ${results.length}개`);
-    return results;
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'GlobalHot/1.0 (news aggregator)' },
+      signal: AbortSignal.timeout(12000),
+      ...opts,
+    });
+    if (!res.ok) {
+      console.warn(`  ⚠️  ${url.slice(0, 60)} → HTTP ${res.status}`);
+      return null;
+    }
+    return res;
   } catch (e) {
-    console.warn(`⚠️ HN fetch 실패: ${e.message}`);
-    return [];
+    console.warn(`  ⚠️  fetch 실패: ${e.message}`);
+    return null;
   }
 }
 
-async function fetchReddit(sub, label, emoji, color, category, limit = 3) {
-  try {
-    const res  = await fetch(
-      `https://www.reddit.com/r/${sub}/hot.json?limit=15&raw_json=1`,
-      { headers: { 'User-Agent': 'GlobalHot/1.0 (github actions)' },
-        signal: AbortSignal.timeout(10000) }
-    );
-    if (!res.ok) { console.warn(`⚠️ Reddit r/${sub} HTTP ${res.status}`); return []; }
-    const data = await res.json();
-    const results = (data?.data?.children || [])
-      .map(c => c.data)
-      .filter(p => p && !p.over_18 && p.score > 50 && !p.is_video)
-      .map(p => ({
-        title:       p.title,
-        url:         p.url?.startsWith('http') ? p.url : `https://reddit.com${p.permalink}`,
-        points:      p.score,
-        comments:    p.num_comments,
-        source:      label,
-        sourceEmoji: emoji,
-        color,
-        category,
-      }))
-      .slice(0, limit);
-    console.log(`  r/${sub}: ${results.length}개`);
-    return results;
-  } catch (e) {
-    console.warn(`⚠️ Reddit r/${sub} 실패: ${e.message}`);
-    return [];
-  }
+/** HN Algolia API (공개 접근, 인증 불필요) */
+async function fetchHNAlgolia(limit = 5) {
+  const res = await safeFetch(
+    `https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=${limit * 3}`
+  );
+  if (!res) return [];
+  const data = await res.json();
+  const results = (data.hits || [])
+    .filter(h => h.url && h.points > 30)
+    .slice(0, limit)
+    .map(h => ({
+      title:       h.title,
+      url:         h.url,
+      points:      h.points || 0,
+      comments:    h.num_comments || 0,
+      source:      'Hacker News',
+      sourceEmoji: '💻',
+      color:       '#FF6600',
+      category:    'tech',
+    }));
+  console.log(`  HN Algolia: ${results.length}개`);
+  return results;
+}
+
+/** BBC RSS 피드 (공개, 안정적) */
+async function fetchBBCRSS(path, source, emoji, color, category, limit = 3) {
+  const res = await safeFetch(`https://feeds.bbci.co.uk/news/${path}/rss.xml`);
+  if (!res) return [];
+  const xml  = await res.text();
+  const results = parseRSSXml(xml).slice(0, limit).map(i => ({
+    title:       i.title,
+    url:         i.link,
+    points:      0,
+    comments:    0,
+    desc:        i.desc,
+    source,
+    sourceEmoji: emoji,
+    color,
+    category,
+  }));
+  console.log(`  BBC ${path}: ${results.length}개`);
+  return results;
+}
+
+/** Reddit RSS (JSON API보다 덜 제한적) */
+async function fetchRedditRSS(sub, label, emoji, color, category, limit = 3) {
+  const res = await safeFetch(`https://www.reddit.com/r/${sub}/hot.rss?limit=20`);
+  if (!res) return [];
+  const xml  = await res.text();
+  const results = parseRSSXml(xml)
+    .filter(i => i.title && !i.title.toLowerCase().includes('weekly thread'))
+    .slice(0, limit)
+    .map(i => ({
+      title:       i.title,
+      url:         i.link,
+      points:      0,
+      comments:    0,
+      source:      label,
+      sourceEmoji: emoji,
+      color,
+      category,
+    }));
+  console.log(`  Reddit r/${sub} RSS: ${results.length}개`);
+  return results;
+}
+
+/** DW (Deutsche Welle) RSS - 독립적인 글로벌 뉴스 */
+async function fetchDWRSS(limit = 3) {
+  const res = await safeFetch('https://rss.dw.com/xml/rss-en-world');
+  if (!res) return [];
+  const xml  = await res.text();
+  const results = parseRSSXml(xml).slice(0, limit).map(i => ({
+    title:       i.title,
+    url:         i.link,
+    points:      0,
+    comments:    0,
+    source:      'DW News',
+    sourceEmoji: '🌐',
+    color:       '#005DAC',
+    category:    'world',
+  }));
+  console.log(`  DW News: ${results.length}개`);
+  return results;
 }
 
 const CATEGORIES = [
   {
     id:      'tech',
     label:   '💻 테크 & 개발',
-    intro:   '오늘 전세계 개발자 커뮤니티에서 가장 주목받은 기술 소식입니다.',
+    intro:   '오늘 전세계 개발자와 테크 업계에서 가장 주목받은 뉴스와 이슈입니다.',
     color:   '#FF6600',
     fetchers: [
-      () => fetchHN(4),
-      () => fetchReddit('technology', 'Reddit 테크', '💡', '#FF6600', 'tech', 2),
+      () => fetchHNAlgolia(4),
+      () => fetchBBCRSS('technology', 'BBC 테크', '📡', '#BB1919', 'tech', 2),
     ],
     limit: 5,
   },
   {
     id:      'world',
     label:   '🌍 세계 이슈',
-    intro:   '오늘 세계에서 가장 많이 공유된 뉴스와 이슈들입니다.',
+    intro:   '오늘 세계 주요 언론이 가장 많이 다룬 국제 뉴스입니다.',
     color:   '#1565C0',
     fetchers: [
-      () => fetchReddit('worldnews',   'Reddit 세계뉴스', '🌍', '#1565C0', 'world', 3),
-      () => fetchReddit('geopolitics', 'Reddit 지정학',   '🗺️', '#283593', 'world', 2),
+      () => fetchBBCRSS('world', 'BBC World', '🌍', '#BB1919', 'world', 3),
+      () => fetchDWRSS(2),
+      () => fetchRedditRSS('worldnews', 'Reddit 세계뉴스', '📰', '#FF4500', 'world', 2),
     ],
-    limit: 4,
+    limit: 5,
   },
   {
     id:      'science',
     label:   '🔬 과학 & 우주',
-    intro:   '오늘 과학계와 우주 탐사에서 화제가 된 발견과 연구입니다.',
+    intro:   '오늘 과학·우주 분야에서 화제가 된 연구와 발견입니다.',
     color:   '#00838F',
     fetchers: [
-      () => fetchReddit('science', 'Reddit 과학', '🔬', '#00838F', 'science', 2),
-      () => fetchReddit('space',   'Reddit 우주', '🚀', '#1A237E', 'science', 2),
+      () => fetchBBCRSS('science_and_environment', 'BBC 과학', '🔬', '#00838F', 'science', 3),
+      () => fetchRedditRSS('space', 'Reddit 우주', '🚀', '#1A237E', 'science', 2),
     ],
-    limit: 3,
+    limit: 4,
   },
   {
     id:      'interesting',
     label:   '🤯 오늘의 발견',
-    intro:   '오늘 전세계 사람들이 "이런 게 있었어?" 하고 놀란 흥미로운 발견들입니다.',
+    intro:   '"이런 게 있었어?" 오늘 전세계 사람들이 공유하고 놀란 흥미로운 이야기들입니다.',
     color:   '#46D160',
     fetchers: [
-      () => fetchReddit('todayilearned',    'Reddit TIL', '🤯', '#46D160', 'interesting', 2),
-      () => fetchReddit('interestingasfuck','Reddit IAF', '✨', '#0DD3BB', 'interesting', 2),
+      () => fetchRedditRSS('todayilearned',     'Reddit TIL', '🤯', '#46D160', 'interesting', 2),
+      () => fetchRedditRSS('interestingasfuck', 'Reddit IAF', '✨', '#0DD3BB', 'interesting', 2),
     ],
     limit: 3,
   },
@@ -131,6 +187,7 @@ const CATEGORIES = [
 async function collectAll() {
   const result = [];
   for (const cat of CATEGORIES) {
+    console.log(`\n📂 [${cat.label}] 수집 중...`);
     const settled = await Promise.allSettled(cat.fetchers.map(f => f()));
     const posts   = settled
       .filter(r => r.status === 'fulfilled')
@@ -146,6 +203,7 @@ async function collectAll() {
       })
       .slice(0, cat.limit);
 
+    console.log(`  → ${deduped.length}개 선정`);
     result.push({ ...cat, posts: deduped });
   }
   return result;
@@ -159,11 +217,13 @@ async function getAISummary(title, source) {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ title, source, lang: 'ko', mode: 'long' }),
+      signal:  AbortSignal.timeout(20000),
     });
-    if (!res.ok) return '';
+    if (!res.ok) { console.warn(`  ⚠️  AI API ${res.status}`); return ''; }
     const data = await res.json();
     return data.summary || '';
-  } catch {
+  } catch (e) {
+    console.warn(`  ⚠️  AI 해설 실패: ${e.message}`);
     return '';
   }
 }
@@ -173,10 +233,11 @@ async function enrichWithSummaries(categories) {
   for (const cat of categories) {
     const posts = [];
     for (const p of cat.posts) {
-      console.log(`  🤖 AI 해설 생성: ${p.title.slice(0, 50)}...`);
+      process.stdout.write(`  🤖 AI 해설: ${p.title.slice(0, 45)}... `);
       const summary = await getAISummary(p.title, p.source);
+      console.log(summary ? '✓' : '(스킵)');
       posts.push({ ...p, summary });
-      await new Promise(r => setTimeout(r, 300)); // API 과부하 방지
+      await new Promise(r => setTimeout(r, 400));
     }
     enriched.push({ ...cat, posts });
   }
@@ -199,10 +260,15 @@ function fmtNum(n) {
   return String(n);
 }
 
-function renderPost(p, rank) {
+function renderArticle(p, rank) {
   const summaryHtml = p.summary
     ? `<p class="article-summary">${escapeHtml(p.summary)}</p>`
+    : (p.desc ? `<p class="article-summary">${escapeHtml(p.desc)}</p>` : '');
+
+  const statsHtml = p.points > 0
+    ? `<span>👍 ${fmtNum(p.points)}</span>${p.comments > 0 ? `<span>💬 ${fmtNum(p.comments)}</span>` : ''}`
     : '';
+
   return `
     <article class="article-card" itemscope itemtype="https://schema.org/NewsArticle">
       <meta itemprop="datePublished" content="${TODAY}" />
@@ -216,9 +282,8 @@ function renderPost(p, rank) {
         ${summaryHtml}
         <div class="article-meta">
           <span class="source-badge" style="background:${p.color}">${p.sourceEmoji} ${escapeHtml(p.source)}</span>
-          <span>👍 ${fmtNum(p.points)}</span>
-          ${p.comments > 0 ? `<span>💬 ${fmtNum(p.comments)}</span>` : ''}
-          <a class="read-more" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer">원문 보기 →</a>
+          ${statsHtml}
+          <a class="read-more" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer">원문 →</a>
         </div>
       </div>
     </article>`;
@@ -226,33 +291,25 @@ function renderPost(p, rank) {
 
 function renderCategory(cat) {
   if (cat.posts.length === 0) return '';
-  const articlesHtml = cat.posts.map((p, i) => renderPost(p, i + 1)).join('\n');
   return `
     <section class="category-section" id="${cat.id}">
       <h2 class="category-title" style="border-left-color:${cat.color}">${cat.label}</h2>
       <p class="category-intro">${escapeHtml(cat.intro)}</p>
       <div class="article-list">
-        ${articlesHtml}
+        ${cat.posts.map((p, i) => renderArticle(p, i + 1)).join('\n')}
       </div>
     </section>`;
 }
 
-function getPrevDate() {
-  const d = new Date(KST);
-  d.setDate(d.getDate() - 1);
-  return d.toISOString().slice(0, 10);
-}
-
 function generateHTML(categories) {
   const allPosts   = categories.flatMap(c => c.posts);
-  const totalCount = allPosts.length;
+  const total      = allPosts.length;
   const topTitles  = allPosts.slice(0, 3).map(p => p.title).join(' / ');
-  const prevDate   = getPrevDate();
+  const prevDate   = new Date(KST - 86400000).toISOString().slice(0, 10);
   const prevExists = existsSync(join(process.cwd(), 'posts', `${prevDate}.html`));
 
-  const categorySections = categories.map(renderCategory).join('\n');
-
-  const categoryNav = categories
+  const catSections = categories.map(renderCategory).join('\n');
+  const catNav = categories
     .filter(c => c.posts.length > 0)
     .map(c => `<a href="#${c.id}" class="nav-pill">${c.label}</a>`)
     .join('');
@@ -262,9 +319,9 @@ function generateHTML(categories) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 총정리 | GlobalHot</title>
-  <meta name="description" content="${escapeHtml(`${DATE_KO} 전세계 화제 뉴스 ${totalCount}개를 AI가 한국어로 정리했습니다. ${topTitles}`)}" />
-  <meta property="og:title" content="${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 총정리 | GlobalHot" />
+  <title>${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 AI 총정리 | GlobalHot</title>
+  <meta name="description" content="${escapeHtml(`${DATE_KO} 전세계 화제 뉴스 ${total}건을 AI가 한국어로 해설합니다. ${topTitles}`)}" />
+  <meta property="og:title" content="${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 AI 총정리" />
   <meta property="og:description" content="${escapeHtml(topTitles)}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="${SITE_URL}/posts/${TODAY}.html" />
@@ -276,7 +333,7 @@ function generateHTML(categories) {
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 총정리",
+    "headline": "${escapeHtml(DATE_KO)} 글로벌 화제 뉴스 AI 총정리",
     "description": "${escapeHtml(topTitles)}",
     "datePublished": "${TODAY}",
     "dateModified": "${TODAY}",
@@ -293,35 +350,23 @@ function generateHTML(categories) {
       --accent: #6366f1; --radius: 12px;
     }
     body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; line-height: 1.7; }
-
-    /* 헤더 */
     .site-header { background: var(--card); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
     .site-header a { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; }
     .site-header span { color: var(--accent); }
     .header-nav a { font-size: 13px; color: var(--text2); text-decoration: none; }
     .header-nav a:hover { color: var(--accent); }
-
-    /* 컨테이너 */
     .container { max-width: 800px; margin: 0 auto; padding: 32px 20px 80px; }
-
-    /* 포스트 헤더 */
     .post-header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-    .post-date { font-size: 12px; color: var(--text3); margin-bottom: 10px; letter-spacing: .5px; text-transform: uppercase; }
+    .post-date { font-size: 12px; color: var(--text3); margin-bottom: 10px; letter-spacing: .5px; }
     .post-header h1 { font-size: 26px; font-weight: 800; line-height: 1.4; margin-bottom: 12px; }
     .post-intro { font-size: 14px; color: var(--text2); line-height: 1.8; }
-
-    /* 카테고리 네비 */
     .cat-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
     .nav-pill { padding: 6px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; font-size: 13px; color: var(--text2); text-decoration: none; }
     .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* 카테고리 섹션 */
     .category-section { margin-bottom: 48px; }
     .category-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; padding-left: 14px; border-left: 4px solid; }
-    .category-intro { font-size: 13px; color: var(--text2); margin-bottom: 20px; }
-
-    /* 기사 카드 */
-    .article-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card); }
+    .category-intro { font-size: 13px; color: var(--text2); margin-bottom: 20px; line-height: 1.6; }
+    .article-list { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card); }
     .article-card { display: flex; align-items: flex-start; gap: 14px; padding: 20px; border-bottom: 1px solid var(--border); }
     .article-card:last-child { border-bottom: none; }
     .article-card:hover { background: rgba(99,102,241,.05); }
@@ -331,51 +376,38 @@ function generateHTML(categories) {
     .article-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.5; }
     .article-title a { color: var(--text); text-decoration: none; }
     .article-title a:hover { color: var(--accent); }
-    .article-summary { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 12px; background: rgba(99,102,241,.06); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 6px 6px 0; }
+    .article-summary { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 12px; background: rgba(99,102,241,.07); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 6px 6px 0; }
     .article-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: var(--text3); }
     .source-badge { color: #fff; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
     .read-more { color: var(--accent); text-decoration: none; font-weight: 600; margin-left: auto; }
     .read-more:hover { text-decoration: underline; }
-
-    /* 하단 네비 */
     .post-nav { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
     .post-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 600; }
     .post-nav a:hover { border-color: var(--accent); color: var(--accent); }
-
-    .footer { text-align: center; margin-top: 48px; font-size: 12px; color: var(--text3); }
-
-    @media (max-width: 600px) {
-      .post-header h1 { font-size: 20px; }
-      .article-title { font-size: 14px; }
-      .article-card { padding: 16px; }
-    }
+    .footer { text-align: center; margin-top: 48px; font-size: 12px; color: var(--text3); line-height: 1.8; }
+    @media (max-width: 600px) { .post-header h1 { font-size: 20px; } .article-title { font-size: 14px; } .article-card { padding: 16px; gap: 10px; } }
   </style>
 </head>
 <body>
 
   <header class="site-header">
     <a href="/">🌐 Global<span>Hot</span></a>
-    <nav class="header-nav">
-      <a href="/posts/">📚 전체 리포트</a>
-    </nav>
+    <nav class="header-nav"><a href="/posts/">📚 전체 리포트</a></nav>
   </header>
 
   <div class="container" itemscope itemtype="https://schema.org/Article">
-
     <div class="post-header">
       <div class="post-date">📅 ${DATE_KO} · AI 글로벌 뉴스 리포트</div>
       <h1 itemprop="headline">${escapeHtml(DATE_KO)} 전세계 화제 뉴스 총정리</h1>
       <p class="post-intro" itemprop="description">
-        Hacker News, Reddit 등 전세계 주요 커뮤니티에서 오늘 가장 많이 회자된 기사 ${totalCount}개를 AI가 한국어로 해설했습니다.
-        테크·세계이슈·과학·흥미로운 발견까지 한눈에 확인하세요.
+        Hacker News, BBC, Reddit 등 전세계 주요 매체에서 오늘 가장 많이 회자된 기사 ${total}건을
+        AI가 한국어로 해설했습니다. 테크·세계이슈·과학·흥미로운 발견까지 한눈에 확인하세요.
       </p>
     </div>
 
-    <nav class="cat-nav" aria-label="카테고리 바로가기">
-      ${categoryNav}
-    </nav>
+    <nav class="cat-nav" aria-label="카테고리 바로가기">${catNav}</nav>
 
-    ${categorySections}
+    ${catSections}
 
     <nav class="post-nav">
       <a href="/">← GlobalHot 메인</a>
@@ -384,9 +416,9 @@ function generateHTML(categories) {
     </nav>
 
     <div class="footer">
-      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 자동 업데이트 · AI 해설 by Cloudflare Workers AI
+      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 자동 업데이트<br>
+      뉴스 출처: Hacker News · BBC · Reddit · DW News · AI 해설: Cloudflare Workers AI
     </div>
-
   </div>
 
 </body>
@@ -406,7 +438,7 @@ function updateIndex() {
 
   const listHTML = files.map(f => {
     const dateStr = f.replace('.html', '');
-    const d = new Date(dateStr + 'T00:00:00+09:00');
+    const d = new Date(dateStr + 'T09:00:00+09:00');
     const dayName = ['일', '월', '화', '수', '목', '금', '토'][d.getDay()];
     const label = `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일 (${dayName})`;
     return `
@@ -423,8 +455,8 @@ function updateIndex() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>글로벌 화제 뉴스 일일 리포트 목록 | GlobalHot</title>
-  <meta name="description" content="GlobalHot AI 글로벌 뉴스 리포트 전체 목록. 매일 전세계 화제 뉴스를 AI가 한국어로 해설합니다." />
+  <title>글로벌 화제 뉴스 AI 일일 리포트 목록 | GlobalHot</title>
+  <meta name="description" content="GlobalHot AI 글로벌 뉴스 리포트 전체 목록. 매일 전세계 화제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 리포트." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${SITE_URL}/posts/" />
   <style>
@@ -448,9 +480,7 @@ function updateIndex() {
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <a href="/">🌐 Global<span>Hot</span></a>
-  </header>
+  <header class="site-header"><a href="/">🌐 Global<span>Hot</span></a></header>
   <div class="container">
     <h1>📚 AI 글로벌 뉴스 리포트</h1>
     <p class="subtitle">매일 전세계 화제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 리포트</p>
@@ -461,7 +491,7 @@ function updateIndex() {
 </html>`;
 
   writeFileSync(indexPath, html, 'utf-8');
-  console.log('✅ posts/index.html 업데이트 완료');
+  console.log('\n✅ posts/index.html 업데이트 완료');
 }
 
 // ── 5. sitemap.xml 업데이트 ───────────────────────────────
@@ -519,10 +549,10 @@ ${postUrls}
 
 (async () => {
   console.log(`\n🚀 ${TODAY} (${DATE_KO}) 일일 포스트 생성 시작`);
-  console.log(`🌐 API 엔드포인트: ${SITE_URL}/api/summarize\n`);
+  console.log(`🌐 AI API: ${SITE_URL}/api/summarize\n`);
 
-  const postsDir  = join(process.cwd(), 'posts');
-  const filePath  = join(postsDir, `${TODAY}.html`);
+  const postsDir = join(process.cwd(), 'posts');
+  const filePath = join(postsDir, `${TODAY}.html`);
   mkdirSync(postsDir, { recursive: true });
 
   if (existsSync(filePath)) {
@@ -530,23 +560,21 @@ ${postUrls}
     process.exit(0);
   }
 
-  console.log('📦 기사 수집 중...');
   const categories = await collectAll();
   const total = categories.reduce((s, c) => s + c.posts.length, 0);
-  console.log(`✅ 총 ${total}개 기사 수집 완료\n`);
+  console.log(`\n📦 총 ${total}개 기사 수집 완료`);
 
   if (total === 0) {
-    console.error('❌ 기사를 하나도 가져오지 못했습니다. API 접근 문제일 수 있습니다.');
+    console.error('❌ 기사를 하나도 가져오지 못했습니다.');
     process.exit(1);
   }
 
-  console.log('🤖 AI 한국어 해설 생성 중...');
+  console.log('\n🤖 AI 한국어 해설 생성 중...');
   const enriched = await enrichWithSummaries(categories);
-  console.log('✅ AI 해설 완료\n');
 
   const html = generateHTML(enriched);
   writeFileSync(filePath, html, 'utf-8');
-  console.log(`✅ posts/${TODAY}.html 생성 완료`);
+  console.log(`\n✅ posts/${TODAY}.html 생성 완료`);
 
   updateIndex();
   updateSitemap();
