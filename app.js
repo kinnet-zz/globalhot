@@ -981,8 +981,8 @@ const SECTION_DEFS = [
   { tab: 'tech',   label: '💻 테크 · 개발자 픽',  color: '#FF6600', limit: 5  },
   { tab: 'world',  label: '🌍 세계 이슈',          color: '#1565C0', limit: 5  },
   { tab: 'trends', label: '🔍 검색 트렌드',        color: '#4285F4', limit: 5  },
-  { tab: 'video',  label: '🎬 핫 영상',            color: '#FF0000', limit: 4  },
-  { tab: 'photo',  label: '📸 포토',               color: '#2E7D32', limit: 6  },
+  { tab: 'video',  label: '🎬 핫 영상',            color: '#FF0000', limit: 6  },
+  { tab: 'photo',  label: '📸 포토',               color: '#2E7D32', limit: 6,  featured: true },
 ];
 
 // ── 탭별 게시물 가져오기 ─────────────────────────────────

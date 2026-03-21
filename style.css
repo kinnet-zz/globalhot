@@ -559,7 +559,7 @@ ul, ol { list-style: none; }
   padding: 4px 0;
 }
 .video-grid--mini {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 .gravure-grid--mini {
