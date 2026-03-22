@@ -166,22 +166,21 @@ function validThumb(t) {
 
 // ── Source 정의 ──────────────────────────────────────────
 const SOURCES = [
-  // 📊 주식·증시 (hot)
-  { id: 'reddit_investing',  name: 'r/investing',      sub: '투자 토론',    color: '#00C851', emoji: '📈', lang: 'en', tabs: ['hot'],           fetch: fetchInvestingReddit     },
-  { id: 'reddit_stocks',     name: 'r/stocks',         sub: '주식 뉴스',    color: '#1a73e8', emoji: '📊', lang: 'en', tabs: ['hot'],           fetch: fetchStocksReddit        },
-  { id: 'reddit_wsb',        name: 'r/wallstreetbets', sub: 'WSB',          color: '#FF4500', emoji: '🚀', lang: 'en', tabs: ['hot'],           fetch: fetchWSBReddit           },
-  { id: 'yahoo_finance',     name: 'Yahoo Finance',    sub: '금융뉴스',     color: '#720E9E', emoji: '💰', lang: 'en', tabs: ['hot','trends'],  fetch: fetchYahooFinance        },
+  // 📊 주식·증시 (hot) + 일부 시장동향(trends) 겸용
+  { id: 'reddit_investing',  name: 'r/investing',      sub: '투자 토론',    color: '#00C851', emoji: '📈', lang: 'en', tabs: ['hot','trends'],          fetch: fetchInvestingReddit     },
+  { id: 'reddit_stocks',     name: 'r/stocks',         sub: '주식 뉴스',    color: '#1a73e8', emoji: '📊', lang: 'en', tabs: ['hot'],                   fetch: fetchStocksReddit        },
+  { id: 'reddit_wsb',        name: 'r/wallstreetbets', sub: 'WSB',          color: '#FF4500', emoji: '🚀', lang: 'en', tabs: ['hot'],                   fetch: fetchWSBReddit           },
+  { id: 'yahoo_finance',     name: 'Yahoo Finance',    sub: '금융뉴스',     color: '#720E9E', emoji: '💰', lang: 'en', tabs: ['hot','trends'],          fetch: fetchYahooFinance        },
 
   // 💹 시장동향 (trends)
-  { id: 'marketwatch',       name: 'MarketWatch',      sub: '시장동향',     color: '#006DB0', emoji: '📉', lang: 'en', tabs: ['trends'],        fetch: fetchMarketWatch         },
-  { id: 'cnbc',              name: 'CNBC',             sub: '글로벌경제',   color: '#004CA3', emoji: '📺', lang: 'en', tabs: ['trends','world'], fetch: fetchCNBC               },
-  { id: 'reuters_business',  name: 'Reuters Business', sub: 'Business',     color: '#FF7B00', emoji: '🌐', lang: 'en', tabs: ['trends','world'], fetch: fetchReutersBusiness    },
-  // Google 트렌드 제거 — 금융 무관 연예·스포츠 콘텐츠 혼입 문제
+  { id: 'marketwatch',       name: 'MarketWatch',      sub: '시장동향',     color: '#006DB0', emoji: '📉', lang: 'en', tabs: ['trends'],                fetch: fetchMarketWatch         },
+  { id: 'cnbc',              name: 'CNBC',             sub: '글로벌경제',   color: '#004CA3', emoji: '📺', lang: 'en', tabs: ['trends','world'],        fetch: fetchCNBC               },
+  { id: 'reuters_business',  name: 'Reuters Business', sub: 'Business',     color: '#FF7B00', emoji: '🌐', lang: 'en', tabs: ['trends','world'],        fetch: fetchReutersBusiness    },
+  { id: 'reddit_economics',  name: 'r/economics',      sub: '경제학',       color: '#1565C0', emoji: '📚', lang: 'en', tabs: ['trends','world'],        fetch: fetchEconomicsReddit    },
 
-  // 🌍 글로벌경제 (world)
-  { id: 'bbc_business',      name: 'BBC Business',     sub: '글로벌경제',   color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world'],          fetch: fetchBBCBusiness        },
-  { id: 'bbc_world',         name: 'BBC World',        sub: '국제뉴스',     color: '#BB1919', emoji: '🗞️', lang: 'en', tabs: ['world'],          fetch: fetchBBCWorld           },
-  { id: 'reddit_economics',  name: 'r/economics',      sub: '경제학',       color: '#1565C0', emoji: '📚', lang: 'en', tabs: ['world','trends'], fetch: fetchEconomicsReddit    },
+  // 🌍 글로벌경제 (world) + 시장동향(trends) 겸용
+  { id: 'bbc_business',      name: 'BBC Business',     sub: '글로벌경제',   color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world','trends'],        fetch: fetchBBCBusiness        },
+  { id: 'bbc_world',         name: 'BBC World',        sub: '국제뉴스',     color: '#BB1919', emoji: '🗞️', lang: 'en', tabs: ['world'],                fetch: fetchBBCWorld           },
 
   // 🤖 핀테크·AI (tech)
   { id: 'hacker_news',       name: 'Hacker News',      sub: 'Fintech·AI',   color: '#FF6600', emoji: '💻', lang: 'en', tabs: ['tech'],          fetch: fetchHackerNews          },
@@ -1015,7 +1014,7 @@ async function loadAllSources() {
 // ── 섹션 정의 (전체 대시보드용) ──────────────────────────
 const SECTION_DEFS = [
   { tab: 'hot',    label: '📊 주식·증시',           color: '#00C851', limit: 10, featured: true },
-  { tab: 'trends', label: '💹 시장동향',            color: '#4285F4', limit: 5  },
+  { tab: 'trends', label: '💹 시장동향',            color: '#4285F4', limit: 8  },
   { tab: 'world',  label: '🌍 글로벌경제',          color: '#1565C0', limit: 5  },
   { tab: 'crypto', label: '₿ 가상화폐',             color: '#F7931A', limit: 6  },
   { tab: 'tech',   label: '🤖 핀테크·AI',           color: '#FF6600', limit: 5  },
