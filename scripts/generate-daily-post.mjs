@@ -1,8 +1,12 @@
 /**
- * GlobalHot 일일 경제·시장 브리핑 자동 생성기
+ * GlobalHot 일일 경제·시장 브리핑 자동 생성기 v2
  * 매일 오전 9시 KST GitHub Actions에서 실행
- * 소스: Yahoo Finance, CNBC, Reuters, BBC Business, r/investing, r/stocks, r/economics,
- *        r/CryptoCurrency, HN Algolia (핀테크·AI)
+ *
+ * 설계 원칙:
+ *  - 소스: 프론트엔드(app.js)와 동일한 소스 사용 (Yahoo Finance, MarketWatch, CNBC, Reuters,
+ *            Reddit JSON API(점수 포함), CoinDesk, 연합뉴스, JTBC, 한겨레)
+ *  - 선별: 핫함 점수(upvotes + 최신성) 기준 풀 정렬 후 Gemini가 최종 선별
+ *  - AI: 카테고리당 1회 Gemini 호출 → 가장 임팩트 큰 기사 N개 선별 + 한국어 해설 동시 생성
  */
 
 import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
@@ -14,9 +18,31 @@ const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
 const DATE_KO   = `${KST.getFullYear()}년 ${KST.getMonth() + 1}월 ${KST.getDate()}일 (${DAY_NAMES[KST.getDay()]})`;
 
-// ── 1. 데이터 수집 ────────────────────────────────────────
+// ── 1. 공통 유틸 ────────────────────────────────────────────
 
-/** Node.js용 간단한 RSS XML 파서 */
+async function safeFetch(url, opts = {}) {
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'GlobalHot/2.0 (economic news aggregator; https://globalhot.pages.dev)',
+        'Accept': 'application/json, application/rss+xml, text/xml, */*',
+        ...opts.headers,
+      },
+      signal: AbortSignal.timeout(14000),
+      ...opts,
+    });
+    if (!res.ok) {
+      console.warn(`  ⚠️  ${url.slice(0, 70)} → HTTP ${res.status}`);
+      return null;
+    }
+    return res;
+  } catch (e) {
+    console.warn(`  ⚠️  fetch 실패 [${url.slice(0, 50)}]: ${e.message}`);
+    return null;
+  }
+}
+
+/** 간단한 RSS XML 파서 */
 function parseRSSXml(xml) {
   const items = [];
   const blocks = [...xml.matchAll(/<item[^>]*>([\s\S]*?)<\/item>/gi)];
@@ -28,277 +54,334 @@ function parseRSSXml(xml) {
                || c.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i)?.[1]?.trim() || '';
     const date  = c.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i)?.[1]?.trim() || '';
     const desc  = c.match(/<description[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i)?.[1]
-                   ?.replace(/<[^>]+>/g, '')?.trim()?.slice(0, 200) || '';
+                   ?.replace(/<[^>]+>/g, '')?.replace(/&nbsp;/g, ' ')?.trim()?.slice(0, 250) || '';
     if (title && link) items.push({ title, link, date, desc });
   }
   return items;
 }
 
-async function safeFetch(url, opts = {}) {
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'GlobalHot/1.0 (news aggregator)' },
-      signal: AbortSignal.timeout(12000),
-      ...opts,
-    });
-    if (!res.ok) {
-      console.warn(`  ⚠️  ${url.slice(0, 60)} → HTTP ${res.status}`);
-      return null;
-    }
-    return res;
-  } catch (e) {
-    console.warn(`  ⚠️  fetch 실패: ${e.message}`);
-    return null;
-  }
+/**
+ * 핫함 점수: upvotes + 최신성 보정
+ * - Reddit처럼 점수가 있으면 그것 사용
+ * - RSS(점수=0)는 최신성만으로 순위 결정 (24시간 내 → 최대 80점)
+ */
+function hotnessScore(p) {
+  const ageMs    = Date.now() - (p.time instanceof Date ? p.time.getTime() : Date.now());
+  const ageHours = ageMs / 3_600_000;
+  const recency  = Math.max(0, 1 - ageHours / 36) * 80; // 36시간 감쇠
+  return (p.points || 0) + recency;
 }
 
-/** HN Algolia API (공개 접근, 인증 불필요) */
-async function fetchHNAlgolia(limit = 5) {
+// ── 2. 소스별 수집 함수 ─────────────────────────────────────
+
+/** Reddit JSON API (Node.js 직접 호출 — CORS 없음) */
+async function fetchRedditJSON(sub, label, emoji, color, category, limit = 20) {
   const res = await safeFetch(
-    `https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=${limit * 3}`
+    `https://www.reddit.com/r/${sub}/hot.json?limit=30&raw_json=1`
   );
   if (!res) return [];
-  const data = await res.json();
-  const results = (data.hits || [])
-    .filter(h => h.url && h.points > 30)
+  const data = await res.json().catch(() => null);
+  if (!data?.data?.children) return [];
+  const results = data.data.children
+    .filter(c => !c.data.stickied && c.data.title)
     .slice(0, limit)
-    .map(h => ({
-      title:       h.title,
-      url:         h.url,
-      points:      h.points || 0,
-      comments:    h.num_comments || 0,
-      source:      'Hacker News',
-      sourceEmoji: '💻',
-      color:       '#FF6600',
-      category:    'tech',
-    }));
-  console.log(`  HN Algolia: ${results.length}개`);
-  return results;
-}
-
-/** BBC RSS 피드 (공개, 안정적) */
-async function fetchBBCRSS(path, source, emoji, color, category, limit = 3) {
-  const res = await safeFetch(`https://feeds.bbci.co.uk/news/${path}/rss.xml`);
-  if (!res) return [];
-  const xml  = await res.text();
-  const results = parseRSSXml(xml).slice(0, limit).map(i => ({
-    title:       i.title,
-    url:         i.link,
-    points:      0,
-    comments:    0,
-    desc:        i.desc,
-    source,
-    sourceEmoji: emoji,
-    color,
-    category,
-  }));
-  console.log(`  BBC ${path}: ${results.length}개`);
-  return results;
-}
-
-/** Reddit RSS (JSON API보다 덜 제한적) */
-async function fetchRedditRSS(sub, label, emoji, color, category, limit = 3) {
-  const res = await safeFetch(`https://www.reddit.com/r/${sub}/hot.rss?limit=20`);
-  if (!res) return [];
-  const xml  = await res.text();
-  const results = parseRSSXml(xml)
-    .filter(i => i.title && !i.title.toLowerCase().includes('weekly thread'))
-    .slice(0, limit)
-    .map(i => ({
-      title:       i.title,
-      url:         i.link,
-      points:      0,
-      comments:    0,
+    .map(c => ({
+      title:       c.data.title.trim(),
+      url:         c.data.url?.startsWith('http') ? c.data.url : `https://reddit.com${c.data.permalink}`,
+      points:      c.data.score || 0,
+      comments:    c.data.num_comments || 0,
+      time:        new Date(c.data.created_utc * 1000),
       source:      label,
       sourceEmoji: emoji,
       color,
       category,
     }));
-  console.log(`  Reddit r/${sub} RSS: ${results.length}개`);
+  console.log(`  Reddit r/${sub}: ${results.length}개 (top score: ${results[0]?.points ?? 0})`);
   return results;
 }
 
-/** DW (Deutsche Welle) RSS - 독립적인 글로벌 뉴스 */
-async function fetchDWRSS(limit = 3) {
-  const res = await safeFetch('https://rss.dw.com/xml/rss-en-world');
+/** 범용 RSS 수집 */
+async function fetchRSS(url, label, emoji, color, category, limit = 15) {
+  const res = await safeFetch(url);
   if (!res) return [];
-  const xml  = await res.text();
-  const results = parseRSSXml(xml).slice(0, limit).map(i => ({
-    title:       i.title,
-    url:         i.link,
+  const xml = await res.text().catch(() => '');
+  const results = parseRSSXml(xml).slice(0, limit).map(item => ({
+    title:       item.title.trim(),
+    url:         item.link,
     points:      0,
     comments:    0,
-    source:      'DW News',
-    sourceEmoji: '🌐',
-    color:       '#005DAC',
-    category:    'world',
+    time:        item.date ? new Date(item.date) : new Date(),
+    source:      label,
+    sourceEmoji: emoji,
+    color,
+    category,
+    desc:        item.desc,
   }));
-  console.log(`  DW News: ${results.length}개`);
+  console.log(`  ${label}: ${results.length}개`);
   return results;
 }
 
+// ── 3. 카테고리 정의 ────────────────────────────────────────
+
+/**
+ * 각 카테고리에서 다수(15~20개)를 수집한 뒤,
+ * Gemini가 최종 limit개를 선별 + 해설을 작성한다.
+ */
 const CATEGORIES = [
   {
     id:      'stocks',
     label:   '📊 주식·증시',
     intro:   '오늘 글로벌 증시에서 가장 주목받은 종목·이슈입니다. S&P500, 나스닥, 개별주 핵심 뉴스를 정리했습니다.',
     color:   '#00C851',
+    limit:   5,
     fetchers: [
-      () => fetchHNAlgolia(3),
-      () => fetchBBCRSS('business', 'BBC Business', '💼', '#BB1919', 'stocks', 3),
+      () => fetchRedditJSON('investing',      'r/investing',    '📈', '#00C851', 'stocks'),
+      () => fetchRedditJSON('stocks',         'r/stocks',       '📊', '#1a73e8', 'stocks'),
+      () => fetchRedditJSON('wallstreetbets', 'r/WallStreetBets','🚀', '#FF4500', 'stocks', 10),
+      () => fetchRSS('https://finance.yahoo.com/rss/topfinstories',
+                     'Yahoo Finance', '💰', '#720E9E', 'stocks'),
+      () => fetchRSS('https://feeds.marketwatch.com/marketwatch/topstories/',
+                     'MarketWatch', '📉', '#006DB0', 'stocks'),
     ],
-    limit: 5,
   },
   {
-    id:      'economy',
+    id:      'world',
     label:   '🌍 글로벌 경제',
     intro:   '오늘 주요 글로벌 경제 이슈입니다. 연준(Fed) 정책, 인플레이션, 거시경제 동향을 짚어봅니다.',
     color:   '#1565C0',
+    limit:   4,
     fetchers: [
-      () => fetchBBCRSS('world', 'BBC World', '🌍', '#BB1919', 'economy', 3),
-      () => fetchRedditRSS('economics',  'Reddit 경제학', '📚', '#1565C0', 'economy', 2),
-      () => fetchRedditRSS('investing',  'Reddit 투자', '📈', '#00C851', 'economy', 2),
+      () => fetchRSS('https://feeds.bbci.co.uk/news/business/rss.xml',
+                     'BBC Business', '🌍', '#BB1919', 'world'),
+      () => fetchRSS('https://www.cnbc.com/id/100003114/device/rss/rss.html',
+                     'CNBC', '📺', '#004CA3', 'world'),
+      () => fetchRSS('https://feeds.reuters.com/reuters/businessNews',
+                     'Reuters Business', '🌐', '#FF7B00', 'world'),
+      () => fetchRedditJSON('economics', 'r/economics', '📚', '#1565C0', 'world', 10),
     ],
-    limit: 5,
   },
   {
     id:      'market',
-    label:   '💹 시장·환율·원자재',
+    label:   '💹 시장동향',
     intro:   '외환시장, 원자재(오일·금), 채권 금리 등 오늘의 시장 동향입니다.',
     color:   '#4285F4',
+    limit:   4,
     fetchers: [
-      () => fetchBBCRSS('business/market_data', 'BBC 시장', '💹', '#BB1919', 'market', 2),
-      () => fetchRedditRSS('stocks', 'Reddit 주식', '📊', '#1a73e8', 'market', 3),
+      () => fetchRSS('https://feeds.marketwatch.com/marketwatch/topstories/',
+                     'MarketWatch', '📉', '#006DB0', 'market'),
+      () => fetchRSS('https://www.cnbc.com/id/100003114/device/rss/rss.html',
+                     'CNBC', '📺', '#004CA3', 'market'),
+      () => fetchRSS('https://finance.yahoo.com/rss/topfinstories',
+                     'Yahoo Finance', '💰', '#720E9E', 'market'),
+      () => fetchRedditJSON('stocks', 'r/stocks', '📊', '#1a73e8', 'market', 10),
     ],
-    limit: 4,
   },
   {
     id:      'crypto',
     label:   '₿ 가상화폐',
     intro:   '비트코인·이더리움·알트코인 오늘의 주요 뉴스와 커뮤니티 화제입니다.',
     color:   '#F7931A',
+    limit:   4,
     fetchers: [
-      () => fetchRedditRSS('CryptoCurrency', 'Reddit 크립토', '₿', '#F7931A', 'crypto', 3),
-      () => fetchRedditRSS('Bitcoin',        'Reddit 비트코인', '₿', '#F7931A', 'crypto', 2),
+      () => fetchRedditJSON('CryptoCurrency', 'r/CryptoCurrency', '₿', '#F7931A', 'crypto'),
+      () => fetchRedditJSON('Bitcoin',        'r/Bitcoin',        '₿', '#F7931A', 'crypto'),
+      () => fetchRSS('https://www.coindesk.com/arc/outboundfeeds/rss/',
+                     'CoinDesk', '🪙', '#1A1A1A', 'crypto'),
     ],
-    limit: 4,
+  },
+  {
+    id:      'korea',
+    label:   '🇰🇷 한국경제',
+    intro:   '코스피·원화·한국 기업 관련 오늘의 주요 경제 뉴스입니다.',
+    color:   '#0060A9',
+    limit:   4,
+    fetchers: [
+      () => fetchRSS('https://www.yna.co.kr/RSS/news.xml',
+                     '연합뉴스', '📰', '#0060A9', 'korea'),
+      () => fetchRSS('https://fs.jtbc.co.kr/RSS/newsflash.xml',
+                     'JTBC', '📺', '#E4002B', 'korea'),
+      () => fetchRSS('https://www.hani.co.kr/rss/',
+                     '한겨레', '📰', '#005BAC', 'korea'),
+    ],
   },
 ];
 
+// ── 4. 풀 수집 + 핫함 정렬 ──────────────────────────────────
+
 async function collectAll() {
   const result = [];
+
   for (const cat of CATEGORIES) {
     console.log(`\n📂 [${cat.label}] 수집 중...`);
     const settled = await Promise.allSettled(cat.fetchers.map(f => f()));
-    const posts   = settled
+    const raw = settled
       .filter(r => r.status === 'fulfilled')
-      .flatMap(r => r.value);
+      .flatMap(r => r.value)
+      .filter(p => p.title && p.url);
 
+    // 제목 기준 중복 제거 후 핫함 점수 정렬
     const seen = new Set();
-    const deduped = posts
-      .sort((a, b) => b.points - a.points)
+    const pool = raw
       .filter(p => {
-        if (seen.has(p.title)) return false;
-        seen.add(p.title);
+        const key = p.title.toLowerCase().slice(0, 60);
+        if (seen.has(key)) return false;
+        seen.add(key);
         return true;
       })
-      .slice(0, cat.limit);
+      .sort((a, b) => hotnessScore(b) - hotnessScore(a));
 
-    console.log(`  → ${deduped.length}개 선정`);
-    result.push({ ...cat, posts: deduped });
+    console.log(`  → 풀: ${pool.length}개 (Gemini가 ${cat.limit}개 선별 예정)`);
+    result.push({ ...cat, pool });
   }
   return result;
 }
 
-// ── 2. AI 한국어 해설 생성 (Google Gemini) ───────────────
+// ── 5. Gemini: 선별 + 해설 (카테고리당 1회 호출) ────────────
 
 const GEMINI_KEY = process.env.GEMINI_API_KEY || '';
+let geminiQuotaExhausted = false;
 
-const COLUMN_INSTRUCTION = `당신은 글로벌 금융·경제 전문 칼럼니스트입니다. 아래 규칙을 따르세요.
+/**
+ * pool에서 limit개를 선별하고 각각 한국어 해설을 작성한다.
+ * 실패 시 pool 상위 limit개에 빈 해설로 폴백.
+ */
+async function getAISelectionAndSummary(pool, catLabel, limit) {
+  // 폴백: AI 없을 때
+  const fallback = () => pool.slice(0, limit).map(a => ({ ...a, summary: '' }));
+
+  if (!GEMINI_KEY) { console.warn('  ⚠️  GEMINI_API_KEY 없음'); return fallback(); }
+  if (geminiQuotaExhausted) { console.warn('  ⚠️  Gemini 쿼터 소진 — 핫함 순 폴백'); return fallback(); }
+
+  // Gemini에게 보낼 기사 수 (너무 많으면 토큰 낭비, 너무 적으면 선택지 부족)
+  const candidates = pool.slice(0, Math.min(pool.length, 18));
+
+  const articleList = candidates.map((a, i) => {
+    const scoreStr = a.points > 0 ? `, 추천 ${a.points}` : '';
+    const timeStr  = a.time instanceof Date
+      ? `, 발행 ${a.time.toLocaleDateString('ko-KR')}`
+      : '';
+    return `[${i + 1}] "${a.title}" (출처: ${a.source}${scoreStr}${timeStr})`;
+  }).join('\n');
+
+  const prompt = `당신은 글로벌 금융·경제 전문 칼럼니스트입니다.
+
+다음은 오늘 "${catLabel}" 분야에서 수집된 기사 후보 ${candidates.length}개입니다:
+
+${articleList}
+
+위 기사 중 오늘 한국 투자자에게 가장 중요한 ${limit}개를 선별하고, 각각 3~4문장의 한국어 칼럼을 작성하세요.
+
+선별 기준 (중요도 순):
+1. 시장 파급력 — 지수·환율·금리·자산가격에 직접 영향
+2. 한국 투자자 관련성 — 코스피·원화·한국 기업 연관성
+3. 글로벌 경제 흐름의 핵심 이슈 — 장기 트렌드 변화
+4. 추천수 등 커뮤니티 관심도
+
+칼럼 작성 규칙:
 - "이 기사는" "이번 소식은" "~에 따르면" 으로 시작 금지
-- 번호 나열(첫째/둘째, ①②③) 금지
-- 배경·맥락·투자 시사점·전망을 담아 3~4문장으로 작성
+- 번호 나열(첫째/둘째 ①②③) 금지
+- 배경·맥락·투자 시사점·전망을 담아 3~4문장
 - 자연스러운 한국어 구어체
-- 주가·지수·금리·환율 등 수치가 있다면 맥락과 함께 언급
-- 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지 (정보 제공만)
+- 수치(주가·금리·환율 등)가 있다면 맥락과 함께 언급
+- 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지
 
-좋은 예시:
-뉴스: "Fed signals rate cuts may slow as inflation stays sticky"
-칼럼: 미 연준이 인플레이션이 예상보다 끈적하게 유지되면서 금리 인하 속도를 늦출 수 있다는 신호를 보냈다. 시장이 연내 3~4회 인하를 기대했던 것과 달리 실제로는 1~2회에 그칠 수 있다는 전망이 고개를 들고 있다. 달러 강세와 국채 금리 상승 압력이 다시 살아나면서 신흥국 증시와 원화 환율에도 부담이 될 수 있다. 다음 FOMC 회의 발언이 주목된다.
+반드시 아래 JSON 형식으로만 응답하세요 (앞뒤 코드블록·설명 없이 순수 JSON):
+[
+  { "idx": 1, "summary": "칼럼 3~4문장" },
+  { "idx": 5, "summary": "칼럼 3~4문장" }
+]`;
 
-`;
-
-let geminiQuotaExhausted = false; // 전역 429 플래그
-
-async function getAISummary(title, source, retries = 2) {
-  if (!GEMINI_KEY) { console.warn('  ⚠️  GEMINI_API_KEY 없음'); return ''; }
-  if (geminiQuotaExhausted) return ''; // 쿼터 소진 시 즉시 스킵
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
 
-  for (let attempt = 0; attempt <= retries; attempt++) {
+  for (let attempt = 0; attempt <= 2; attempt++) {
     try {
       const res = await fetch(url, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents: [{
-            parts: [{ text: `${COLUMN_INSTRUCTION}뉴스: "${title}" (출처: ${source})\n\n칼럼:` }],
-          }],
-          generationConfig: { temperature: 0.75, maxOutputTokens: 300 },
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.65, maxOutputTokens: 1200 },
         }),
-        signal: AbortSignal.timeout(15000),
+        signal: AbortSignal.timeout(30000),
       });
 
       if (res.status === 429) {
-        if (attempt < retries) {
-          const waitMs = 8000 * (attempt + 1); // 8s → 16s (빠른 재시도)
-          console.warn(`  ⚠️  Gemini 429 — ${waitMs / 1000}초 대기 (${attempt + 1}/${retries})`);
-          await new Promise(r => setTimeout(r, waitMs));
+        if (attempt < 2) {
+          const wait = 10000 * (attempt + 1);
+          console.warn(`  ⚠️  Gemini 429 — ${wait / 1000}초 대기`);
+          await new Promise(r => setTimeout(r, wait));
           continue;
         }
-        console.warn('  ⚠️  Gemini 429 — 쿼터 소진, 이후 기사 스킵');
+        console.warn('  ⚠️  Gemini 쿼터 소진');
         geminiQuotaExhausted = true;
-        return '';
+        return fallback();
       }
 
       if (!res.ok) {
-        const err = await res.text().catch(() => '');
-        console.warn(`  ⚠️  Gemini API ${res.status}: ${err.slice(0, 120)}`);
-        return '';
+        console.warn(`  ⚠️  Gemini API ${res.status}`);
+        return fallback();
       }
 
       const data = await res.json();
-      return data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+
+      // JSON 파싱 — 코드블록 등 래핑 제거 후 시도
+      const jsonStr = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
+      let selections;
+      try {
+        selections = JSON.parse(jsonStr);
+      } catch {
+        // 부분 파싱 시도: 첫 [ ... ] 추출
+        const m = jsonStr.match(/\[[\s\S]*\]/);
+        selections = m ? JSON.parse(m[0]) : null;
+      }
+
+      if (!Array.isArray(selections) || selections.length === 0) {
+        console.warn('  ⚠️  Gemini 응답 파싱 실패 — 핫함 순 폴백');
+        return fallback();
+      }
+
+      // idx → candidates 인덱스로 매핑 (1-based)
+      const selected = selections
+        .filter(s => s.idx >= 1 && s.idx <= candidates.length)
+        .map(s => ({ ...candidates[s.idx - 1], summary: s.summary || '' }));
+
+      // 선택이 부족하면 남은 pool 상위로 채움
+      if (selected.length < limit) {
+        const usedIdxs = new Set(selections.map(s => s.idx - 1));
+        const extras = candidates.filter((_, i) => !usedIdxs.has(i)).slice(0, limit - selected.length);
+        selected.push(...extras.map(a => ({ ...a, summary: '' })));
+      }
+
+      console.log(`  ✓ Gemini 선별 완료: ${selected.length}개 (from ${candidates.length}개 후보)`);
+      return selected.slice(0, limit);
+
     } catch (e) {
-      if (attempt < retries) {
+      if (attempt < 2) {
         console.warn(`  ⚠️  Gemini 오류: ${e.message} — 재시도`);
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 4000));
       } else {
-        console.warn(`  ⚠️  Gemini 실패: ${e.message}`);
-        return '';
+        console.warn(`  ⚠️  Gemini 최종 실패: ${e.message}`);
+        return fallback();
       }
     }
   }
-  return '';
+  return fallback();
 }
 
-async function enrichWithSummaries(categories) {
+async function enrichWithAI(categories) {
   const enriched = [];
   for (const cat of categories) {
-    const posts = [];
-    for (const p of cat.posts) {
-      process.stdout.write(`  🤖 AI 해설: ${p.title.slice(0, 45)}... `);
-      const summary = await getAISummary(p.title, p.source);
-      console.log(summary ? '✓' : '(스킵)');
-      posts.push({ ...p, summary });
-      if (!geminiQuotaExhausted) await new Promise(r => setTimeout(r, 4000)); // Gemini 무료: 15 RPM
-    }
+    console.log(`\n🤖 [${cat.label}] AI 선별 + 해설 생성 중...`);
+    const posts = await getAISelectionAndSummary(cat.pool, cat.label, cat.limit);
     enriched.push({ ...cat, posts });
+    // Gemini 무료 플랜: 15 RPM 제한 — 카테고리 간 6초 대기
+    if (!geminiQuotaExhausted) await new Promise(r => setTimeout(r, 6000));
   }
   return enriched;
 }
 
-// ── 3. HTML 생성 ──────────────────────────────────────────
+// ── 6. HTML 생성 ─────────────────────────────────────────────
 
 function escapeHtml(str) {
   return String(str || '')
@@ -315,12 +398,12 @@ function fmtNum(n) {
 }
 
 function renderArticle(p) {
-  const bodyHtml = p.summary || p.desc
+  const bodyHtml = (p.summary || p.desc)
     ? `<p class="art-body">${escapeHtml(p.summary || p.desc)}</p>`
     : '';
 
   const statsParts = [];
-  if (p.points > 0)   statsParts.push(`👍 ${fmtNum(p.points)} 추천`);
+  if (p.points   > 0) statsParts.push(`👍 ${fmtNum(p.points)} 추천`);
   if (p.comments > 0) statsParts.push(`💬 ${fmtNum(p.comments)} 댓글`);
   const statsHtml = statsParts.length
     ? `<span class="art-stats">${statsParts.join(' · ')}</span>` : '';
@@ -332,9 +415,7 @@ function renderArticle(p) {
         <span class="art-badge" style="background:${p.color}">${p.sourceEmoji} ${escapeHtml(p.source)}</span>
         ${statsHtml}
       </div>
-      <h3 class="art-title" itemprop="headline">
-        ${escapeHtml(p.title)}
-      </h3>
+      <h3 class="art-title" itemprop="headline">${escapeHtml(p.title)}</h3>
       ${bodyHtml}
       <a class="art-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" itemprop="url">
         원문 읽기 →
@@ -343,7 +424,7 @@ function renderArticle(p) {
 }
 
 function renderCategory(cat) {
-  if (cat.posts.length === 0) return '';
+  if (!cat.posts || cat.posts.length === 0) return '';
   return `
     <section class="cat-section" id="${cat.id}">
       <div class="cat-header">
@@ -357,20 +438,20 @@ function renderCategory(cat) {
 }
 
 function generateHTML(categories) {
-  const allPosts   = categories.flatMap(c => c.posts);
-  const total      = allPosts.length;
-  const topTitles  = allPosts.slice(0, 3).map(p => p.title).join(' / ');
-  const prevDate   = new Date(KST - 86400000).toISOString().slice(0, 10);
+  const allPosts  = categories.flatMap(c => c.posts || []);
+  const total     = allPosts.length;
+  const topTitles = allPosts.slice(0, 3).map(p => p.title).join(' / ');
+  const prevDate  = new Date(KST - 86400000).toISOString().slice(0, 10);
   const prevExists = existsSync(join(process.cwd(), 'posts', `${prevDate}.html`));
 
   const catSections = categories.map(renderCategory).join('\n');
   const catNav = categories
-    .filter(c => c.posts.length > 0)
+    .filter(c => c.posts?.length > 0)
     .map(c => `<a href="#${c.id}" class="nav-pill">${c.label}</a>`)
     .join('');
 
   const pageTitle = `${DATE_KO} 글로벌 경제·주식 브리핑`;
-  const pageDesc  = `${DATE_KO} 글로벌 경제·증시 주요 뉴스 ${total}건. 미국주식·가상화폐·거시경제 분야에서 오늘 가장 주목받은 소식을 AI가 한국어로 해설합니다. ${topTitles}`;
+  const pageDesc  = `${DATE_KO} 글로벌 경제·증시 주요 뉴스 ${total}건. 미국주식·가상화폐·거시경제에서 오늘 가장 주목받은 소식을 AI가 선별·한국어로 해설합니다. ${topTitles}`;
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -408,36 +489,24 @@ function generateHTML(categories) {
       --accent: #6366f1; --radius: 10px;
     }
     body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; line-height: 1.75; }
-
-    /* 헤더 */
     .site-header { background: var(--card); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
     .site-logo { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; letter-spacing: -.3px; }
     .site-logo span { color: var(--accent); }
     .header-nav a { font-size: 13px; color: var(--text2); text-decoration: none; }
     .header-nav a:hover { color: var(--text); }
-
-    /* 레이아웃 */
     .container { max-width: 740px; margin: 0 auto; padding: 40px 24px 100px; }
-
-    /* 포스트 헤더 */
     .post-header { margin-bottom: 40px; }
     .post-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
     .post-header h1 { font-size: 28px; font-weight: 800; line-height: 1.35; letter-spacing: -.4px; margin-bottom: 16px; }
-    .post-byline { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text3); padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .post-byline { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text3); padding-bottom: 24px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
     .post-byline strong { color: var(--text2); }
-
-    /* 카테고리 네비 */
     .cat-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
     .nav-pill { padding: 5px 14px; background: transparent; border: 1px solid var(--border); border-radius: 20px; font-size: 12px; color: var(--text3); text-decoration: none; transition: all .15s; }
     .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* 카테고리 섹션 */
     .cat-section { margin-bottom: 56px; }
     .cat-header { margin-bottom: 20px; }
     .cat-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
     .cat-intro { font-size: 13px; color: var(--text3); line-height: 1.6; }
-
-    /* 기사 아이템 — 신문 칼럼 스타일 */
     .art-list { display: flex; flex-direction: column; }
     .art-item { padding: 28px 0; border-bottom: 1px solid var(--border); }
     .art-item:last-child { border-bottom: none; }
@@ -448,14 +517,10 @@ function generateHTML(categories) {
     .art-body { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 16px; }
     .art-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
     .art-link:hover { border-bottom-color: var(--accent); }
-
-    /* 하단 네비 */
     .post-nav { display: flex; gap: 10px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); flex-wrap: wrap; }
     .post-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text2); text-decoration: none; font-size: 13px; font-weight: 600; transition: all .15s; }
     .post-nav a:hover { border-color: var(--accent); color: var(--accent); }
-
     .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text3); line-height: 2; }
-
     @media (max-width: 600px) {
       .container { padding: 28px 18px 80px; }
       .post-header h1 { font-size: 22px; }
@@ -467,19 +532,19 @@ function generateHTML(categories) {
 <body>
 
   <header class="site-header">
-    <a class="site-logo" href="/">🌐 Global<span>Hot</span></a>
+    <a class="site-logo" href="/">📈 Global<span>Hot</span></a>
     <nav class="header-nav"><a href="/posts/">지난 리포트</a></nav>
   </header>
 
   <div class="container" itemscope itemtype="https://schema.org/Article">
 
     <div class="post-header">
-      <div class="post-eyebrow">GlobalHot Daily · ${TODAY}</div>
-      <h1 itemprop="headline">${escapeHtml(DATE_KO)}<br>오늘 전세계에서 가장 뜨거웠던 뉴스</h1>
+      <div class="post-eyebrow">🤖 GlobalHot AI 브리핑 · ${TODAY}</div>
+      <h1 itemprop="headline">${escapeHtml(DATE_KO)}<br>오늘 전세계에서 가장 뜨거웠던 경제·시장 뉴스</h1>
       <div class="post-byline">
-        <span>by <strong>GlobalHot 편집부</strong></span>
+        <span>by <strong>GlobalHot AI 편집부</strong></span>
         <span>·</span>
-        <span>뉴스 ${total}건</span>
+        <span>AI 선별 ${total}건</span>
         <span>·</span>
         <span itemprop="datePublished" content="${TODAY}">${DATE_KO}</span>
       </div>
@@ -496,10 +561,13 @@ function generateHTML(categories) {
     </nav>
 
     <div class="footer">
-      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 발행<br>
-      출처: BBC Business · Reuters · Reddit (r/investing, r/stocks, r/economics, r/CryptoCurrency) · Hacker News<br>
+      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 KST 발행<br>
+      출처: Yahoo Finance · MarketWatch · CNBC · Reuters Business · BBC Business ·
+             Reddit (r/investing, r/stocks, r/WallStreetBets, r/economics, r/CryptoCurrency, r/Bitcoin) ·
+             CoinDesk · 연합뉴스 · JTBC · 한겨레<br>
+      AI 선별 및 해설: Google Gemini 2.0 Flash<br>
       <br>
-      ⚠️ 면책조항: 본 콘텐츠는 AI가 자동으로 수집·요약한 정보 제공용이며, 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.
+      ⚠️ 면책조항: 본 콘텐츠는 AI가 자동 수집·선별·요약한 정보 제공용이며, 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.
     </div>
 
   </div>
@@ -508,7 +576,7 @@ function generateHTML(categories) {
 </html>`;
 }
 
-// ── 4. index.html 홈페이지 AI 리포트 섹션 업데이트 ───────
+// ── 7. index.html 홈페이지 AI 리포트 섹션 업데이트 ──────────
 
 function updateHomepage(enriched) {
   const indexPath = join(process.cwd(), 'index.html');
@@ -523,27 +591,32 @@ function updateHomepage(enriched) {
     return;
   }
 
-  const allPosts = enriched.flatMap(c => c.posts);
-  const top3 = allPosts.slice(0, 3);
-  const total = allPosts.length;
+  const allPosts = enriched.flatMap(c => c.posts || []);
+  const total    = allPosts.length;
+
+  // 카테고리별로 대표 기사 1개씩 → 최대 3개 (다양성 확보)
+  const top3 = enriched
+    .filter(c => c.posts?.length > 0)
+    .map(c => c.posts[0])
+    .slice(0, 3);
 
   const articleCards = top3.map(a => `
         <div class="dr-article">
           <span class="dr-badge" style="background:${a.color}">${a.sourceEmoji} ${escapeHtml(a.source)}</span>
           <p class="dr-headline">${escapeHtml(a.title)}</p>
-          ${a.summary ? `<p class="dr-summary">${escapeHtml(a.summary)}</p>` : ''}
+          ${a.summary ? `<p class="dr-summary">${escapeHtml(a.summary.slice(0, 120))}...</p>` : ''}
         </div>`).join('');
 
   const snippet = `<!-- DAILY_REPORT_START -->
   <div class="daily-report">
     <div class="daily-report-inner">
       <div class="dr-header">
-        <span class="dr-eyebrow">🤖 AI 글로벌 리포트 · ${TODAY}</span>
+        <span class="dr-eyebrow">🤖 AI 경제·시장 브리핑 · ${TODAY}</span>
         <span class="dr-date">${DATE_KO}</span>
       </div>
       <div class="dr-articles">${articleCards}
       </div>
-      <a class="dr-more" href="/posts/${TODAY}.html">오늘 전체 리포트 보기 (${total}개 기사) →</a>
+      <a class="dr-more" href="/posts/${TODAY}.html">오늘 전체 브리핑 보기 (${total}개 기사) →</a>
     </div>
   </div>
   <!-- DAILY_REPORT_END -->`;
@@ -557,9 +630,9 @@ function updateHomepage(enriched) {
   console.log('✅ index.html AI 리포트 섹션 업데이트 완료');
 }
 
-// ── 6. posts/index.html 업데이트 ──────────────────────────
+// ── 8. posts/index.html 업데이트 ───────────────────────────
 
-function updateIndex() {
+function updatePostsIndex() {
   const postsDir  = join(process.cwd(), 'posts');
   const indexPath = join(postsDir, 'index.html');
 
@@ -588,7 +661,7 @@ function updateIndex() {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>글로벌 경제·주식 AI 브리핑 목록 | GlobalHot</title>
-  <meta name="description" content="GlobalHot AI 경제·주식 브리핑 전체 목록. 매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 브리핑." />
+  <meta name="description" content="GlobalHot AI 경제·주식 브리핑 전체 목록. 매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 선별·한국어로 해설합니다. 총 ${files.length}개의 브리핑." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${SITE_URL}/posts/" />
   <style>
@@ -615,7 +688,7 @@ function updateIndex() {
   <header class="site-header"><a href="/">📈 Global<span>Hot</span></a></header>
   <div class="container">
     <h1>📚 AI 경제·주식 브리핑 아카이브</h1>
-    <p class="subtitle">매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 브리핑</p>
+    <p class="subtitle">매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 선별·한국어로 해설합니다. 총 ${files.length}개의 브리핑</p>
     <ul>${listHTML}</ul>
     <a class="back-link" href="/">← GlobalHot 메인으로</a>
   </div>
@@ -623,13 +696,13 @@ function updateIndex() {
 </html>`;
 
   writeFileSync(indexPath, html, 'utf-8');
-  console.log('\n✅ posts/index.html 업데이트 완료');
+  console.log('✅ posts/index.html 업데이트 완료');
 }
 
-// ── 7. sitemap.xml 업데이트 ───────────────────────────────
+// ── 9. sitemap.xml 업데이트 ────────────────────────────────
 
 function updateSitemap() {
-  const postsDir   = join(process.cwd(), 'posts');
+  const postsDir    = join(process.cwd(), 'posts');
   const sitemapPath = join(process.cwd(), 'sitemap.xml');
 
   const postFiles = readdirSync(postsDir)
@@ -677,11 +750,11 @@ ${postUrls}
   console.log(`✅ sitemap.xml 업데이트 완료 (포스트 ${postFiles.length}개)`);
 }
 
-// ── 8. 메인 실행 ──────────────────────────────────────────
+// ── 10. 메인 실행 ───────────────────────────────────────────
 
 (async () => {
-  console.log(`\n🚀 ${TODAY} (${DATE_KO}) 일일 포스트 생성 시작`);
-  console.log(`🌐 AI API: ${SITE_URL}/api/summarize\n`);
+  console.log(`\n🚀 ${TODAY} (${DATE_KO}) 일일 포스트 생성 시작 v2`);
+  console.log(`🤖 AI: Gemini 2.0 Flash (카테고리당 1회 호출 — 선별+해설 동시)\n`);
 
   const postsDir = join(process.cwd(), 'posts');
   const filePath = join(postsDir, `${TODAY}.html`);
@@ -692,24 +765,29 @@ ${postUrls}
     process.exit(0);
   }
 
+  // 1단계: 풀 수집 + 핫함 정렬
   const categories = await collectAll();
-  const total = categories.reduce((s, c) => s + c.posts.length, 0);
-  console.log(`\n📦 총 ${total}개 기사 수집 완료`);
+  const poolTotal  = categories.reduce((s, c) => s + (c.pool?.length || 0), 0);
+  console.log(`\n📦 총 ${poolTotal}개 기사 풀 수집 완료`);
 
-  if (total === 0) {
+  if (poolTotal === 0) {
     console.error('❌ 기사를 하나도 가져오지 못했습니다.');
     process.exit(1);
   }
 
-  console.log('\n🤖 AI 한국어 해설 생성 중...');
-  const enriched = await enrichWithSummaries(categories);
+  // 2단계: Gemini 선별 + 해설
+  console.log('\n🤖 AI 선별 및 한국어 해설 생성 중...');
+  const enriched  = await enrichWithAI(categories);
+  const postTotal = enriched.reduce((s, c) => s + (c.posts?.length || 0), 0);
+  console.log(`\n✅ AI 선별 완료: ${postTotal}개 기사`);
 
+  // 3단계: HTML 생성
   const html = generateHTML(enriched);
   writeFileSync(filePath, html, 'utf-8');
-  console.log(`\n✅ posts/${TODAY}.html 생성 완료`);
+  console.log(`✅ posts/${TODAY}.html 생성 완료`);
 
   updateHomepage(enriched);
-  updateIndex();
+  updatePostsIndex();
   updateSitemap();
   console.log('\n🎉 완료!');
 })();
