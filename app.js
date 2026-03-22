@@ -11,34 +11,34 @@
 // ── 다국어 번역 ───────────────────────────────────────────
 const I18N = {
   all: {
-    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'종목·뉴스 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
   },
   ko: {
-    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'종목·뉴스 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
   },
   en: {
-    tabs:     { all:'🌐 All', hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', video:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea Econ' },
+    tabs:     { all:'🌐 All', hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', crypto:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea Econ' },
     sort:     { label:'Sort', trending:'🔥 Trending', time:'🕐 Latest', points:'👍 Top', comments:'💬 Comments' },
     ui:       { search:'Search stocks & news...', more:'More →', loadMore:'Load more ↓', keywords:'☁️ Keywords', updated:'Last updated:' },
-    sections: { hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', video:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea' },
+    sections: { hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', crypto:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea' },
   },
   ja: {
-    tabs:     { all:'🌐 すべて', hot:'📊 株式', trends:'💹 市場動向', tech:'🤖 フィンテック', video:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
+    tabs:     { all:'🌐 すべて', hot:'📊 株式', trends:'💹 市場動向', tech:'🤖 フィンテック', crypto:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
     sort:     { label:'並替', trending:'🔥 急上昇', time:'🕐 新着', points:'👍 人気', comments:'💬 コメント' },
     ui:       { search:'銘柄・ニュース検索...', more:'もっと見る →', loadMore:'もっと見る ↓', keywords:'☁️ キーワード', updated:'最終更新:' },
-    sections: { hot:'📊 株式', trends:'💹 市場', tech:'🤖 フィンテック', video:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
+    sections: { hot:'📊 株式', trends:'💹 市場', tech:'🤖 フィンテック', crypto:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
   },
   zh: {
-    tabs:     { all:'🌐 全部', hot:'📊 股市', trends:'💹 市场动态', tech:'🤖 金融科技', video:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国经济' },
+    tabs:     { all:'🌐 全部', hot:'📊 股市', trends:'💹 市场动态', tech:'🤖 金融科技', crypto:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国经济' },
     sort:     { label:'排序', trending:'🔥 趋势', time:'🕐 最新', points:'👍 热门', comments:'💬 评论' },
     ui:       { search:'搜索股票·新闻...', more:'更多 →', loadMore:'加载更多 ↓', keywords:'☁️ 关键词', updated:'最后更新:' },
-    sections: { hot:'📊 股市', trends:'💹 市场', tech:'🤖 金融科技', video:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国' },
+    sections: { hot:'📊 股市', trends:'💹 市场', tech:'🤖 金融科技', crypto:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国' },
   },
 };
 
@@ -191,9 +191,9 @@ const SOURCES = [
   { id: 'github_trending',   name: 'GitHub',           sub: 'Finance AI',   color: '#24292f', emoji: '⭐', lang: 'en', tabs: ['tech'],          fetch: fetchGitHubTrending      },
 
   // ₿ 가상화폐 (video → crypto)
-  { id: 'reddit_crypto',     name: 'r/CryptoCurrency', sub: '가상화폐',     color: '#F7931A', emoji: '₿',  lang: 'en', tabs: ['video'],         fetch: fetchCryptoCurrencyReddit },
-  { id: 'reddit_bitcoin',    name: 'r/Bitcoin',        sub: 'Bitcoin',      color: '#F7931A', emoji: '₿',  lang: 'en', tabs: ['video'],         fetch: fetchBitcoinReddit        },
-  { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['video'],         fetch: fetchCoinDesk            },
+  { id: 'reddit_crypto',     name: 'r/CryptoCurrency', sub: '가상화폐',     color: '#F7931A', emoji: '₿',  lang: 'en', tabs: ['crypto'],         fetch: fetchCryptoCurrencyReddit },
+  { id: 'reddit_bitcoin',    name: 'r/Bitcoin',        sub: 'Bitcoin',      color: '#F7931A', emoji: '₿',  lang: 'en', tabs: ['crypto'],         fetch: fetchBitcoinReddit        },
+  { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['crypto'],         fetch: fetchCoinDesk            },
 
   // 🇰🇷 한국경제 (photo → kr economy)
   { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['photo','hot'],   fetch: fetchYonhap              },
@@ -1018,7 +1018,7 @@ const SECTION_DEFS = [
   { tab: 'hot',    label: '📊 주식·증시',           color: '#00C851', limit: 10, featured: true },
   { tab: 'trends', label: '💹 시장동향',            color: '#4285F4', limit: 5  },
   { tab: 'world',  label: '🌍 글로벌경제',          color: '#1565C0', limit: 5  },
-  { tab: 'video',  label: '₿ 가상화폐',             color: '#F7931A', limit: 6  },
+  { tab: 'crypto', label: '₿ 가상화폐',             color: '#F7931A', limit: 6  },
   { tab: 'tech',   label: '🤖 핀테크·AI',           color: '#FF6600', limit: 5  },
   { tab: 'photo',  label: '🇰🇷 한국경제',           color: '#0060A9', limit: 6,  featured: true },
 ];
@@ -1043,8 +1043,8 @@ function getPostsForTab(tabId) {
       return trendingScore(b) - trendingScore(a);
     });
 
-  // 영상 탭: videoId 기준 중복 제거 (같은 영상이 KR/US/JP 모두에 뜨는 경우)
-  if (tabId === 'video') {
+  // 가상화폐 탭: URL 기준 중복 제거
+  if (tabId === 'crypto') {
     const seen = new Set();
     return sorted.filter(p => {
       const key = p.videoId || p.url;
@@ -1102,8 +1102,8 @@ function renderFeed() {
     } else {
       feed.appendChild(dashboard);
     }
-  } else if (state.tab === 'video') {
-    const posts = getPostsForTab('video');
+  } else if (state.tab === 'crypto') {
+    const posts = getPostsForTab('crypto');
     const slice = posts.slice(0, (state.page + 1) * state.PAGE_SIZE);
     if (slice.length === 0) {
       const msg = state.isLoading ? '영상을 불러오는 중입니다...' : '잠시 후 다시 시도해 주세요.';
@@ -1176,7 +1176,7 @@ function createSectionBlock(def, posts) {
   header.append(title, more);
   block.appendChild(header);
 
-  if (def.tab === 'video') {
+  if (def.tab === 'crypto') {
     const grid = document.createElement('div');
     grid.className = 'video-grid video-grid--mini';
     posts.forEach(p => grid.appendChild(createVideoCard(p)));
