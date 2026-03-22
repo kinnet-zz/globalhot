@@ -176,8 +176,7 @@ const SOURCES = [
   { id: 'marketwatch',       name: 'MarketWatch',      sub: '시장동향',     color: '#006DB0', emoji: '📉', lang: 'en', tabs: ['trends'],        fetch: fetchMarketWatch         },
   { id: 'cnbc',              name: 'CNBC',             sub: '글로벌경제',   color: '#004CA3', emoji: '📺', lang: 'en', tabs: ['trends','world'], fetch: fetchCNBC               },
   { id: 'reuters_business',  name: 'Reuters Business', sub: 'Business',     color: '#FF7B00', emoji: '🌐', lang: 'en', tabs: ['trends','world'], fetch: fetchReutersBusiness    },
-  { id: 'trends_kr',         name: 'Google 트렌드',    sub: '🇰🇷 한국',     color: '#4285F4', emoji: '🔍', lang: 'ko', tabs: ['trends','hot'],  fetch: () => fetchGoogleTrends('KR', 'trends_kr') },
-  { id: 'trends_us',         name: 'Google 트렌드',    sub: '🇺🇸 미국',     color: '#4285F4', emoji: '🔍', lang: 'en', tabs: ['trends'],        fetch: () => fetchGoogleTrends('US', 'trends_us') },
+  // Google 트렌드 제거 — 금융 무관 연예·스포츠 콘텐츠 혼입 문제
 
   // 🌍 글로벌경제 (world)
   { id: 'bbc_business',      name: 'BBC Business',     sub: '글로벌경제',   color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world'],          fetch: fetchBBCBusiness        },
