@@ -1,7 +1,8 @@
 /**
- * GlobalHot 일일 화제 콘텐츠 자동 생성기
+ * GlobalHot 일일 경제·시장 브리핑 자동 생성기
  * 매일 오전 9시 KST GitHub Actions에서 실행
- * 소스: HN Algolia API + BBC RSS (GitHub Actions에서 안정적으로 접근 가능)
+ * 소스: Yahoo Finance, CNBC, Reuters, BBC Business, r/investing, r/stocks, r/economics,
+ *        r/CryptoCurrency, HN Algolia (핀테크·AI)
  */
 
 import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
@@ -138,49 +139,49 @@ async function fetchDWRSS(limit = 3) {
 
 const CATEGORIES = [
   {
-    id:      'tech',
-    label:   '💻 테크 & 개발',
-    intro:   '오늘 전세계 개발자와 테크 업계에서 가장 주목받은 뉴스와 이슈입니다.',
-    color:   '#FF6600',
+    id:      'stocks',
+    label:   '📊 주식·증시',
+    intro:   '오늘 글로벌 증시에서 가장 주목받은 종목·이슈입니다. S&P500, 나스닥, 개별주 핵심 뉴스를 정리했습니다.',
+    color:   '#00C851',
     fetchers: [
-      () => fetchHNAlgolia(4),
-      () => fetchBBCRSS('technology', 'BBC 테크', '📡', '#BB1919', 'tech', 2),
+      () => fetchHNAlgolia(3),
+      () => fetchBBCRSS('business', 'BBC Business', '💼', '#BB1919', 'stocks', 3),
     ],
     limit: 5,
   },
   {
-    id:      'world',
-    label:   '🌍 세계 이슈',
-    intro:   '오늘 세계 주요 언론이 가장 많이 다룬 국제 뉴스입니다.',
+    id:      'economy',
+    label:   '🌍 글로벌 경제',
+    intro:   '오늘 주요 글로벌 경제 이슈입니다. 연준(Fed) 정책, 인플레이션, 거시경제 동향을 짚어봅니다.',
     color:   '#1565C0',
     fetchers: [
-      () => fetchBBCRSS('world', 'BBC World', '🌍', '#BB1919', 'world', 3),
-      () => fetchDWRSS(2),
-      () => fetchRedditRSS('worldnews', 'Reddit 세계뉴스', '📰', '#FF4500', 'world', 2),
+      () => fetchBBCRSS('world', 'BBC World', '🌍', '#BB1919', 'economy', 3),
+      () => fetchRedditRSS('economics',  'Reddit 경제학', '📚', '#1565C0', 'economy', 2),
+      () => fetchRedditRSS('investing',  'Reddit 투자', '📈', '#00C851', 'economy', 2),
     ],
     limit: 5,
   },
   {
-    id:      'science',
-    label:   '🔬 과학 & 우주',
-    intro:   '오늘 과학·우주 분야에서 화제가 된 연구와 발견입니다.',
-    color:   '#00838F',
+    id:      'market',
+    label:   '💹 시장·환율·원자재',
+    intro:   '외환시장, 원자재(오일·금), 채권 금리 등 오늘의 시장 동향입니다.',
+    color:   '#4285F4',
     fetchers: [
-      () => fetchBBCRSS('science_and_environment', 'BBC 과학', '🔬', '#00838F', 'science', 3),
-      () => fetchRedditRSS('space', 'Reddit 우주', '🚀', '#1A237E', 'science', 2),
+      () => fetchBBCRSS('business/market_data', 'BBC 시장', '💹', '#BB1919', 'market', 2),
+      () => fetchRedditRSS('stocks', 'Reddit 주식', '📊', '#1a73e8', 'market', 3),
     ],
     limit: 4,
   },
   {
-    id:      'interesting',
-    label:   '🤯 오늘의 발견',
-    intro:   '"이런 게 있었어?" 오늘 전세계 사람들이 공유하고 놀란 흥미로운 이야기들입니다.',
-    color:   '#46D160',
+    id:      'crypto',
+    label:   '₿ 가상화폐',
+    intro:   '비트코인·이더리움·알트코인 오늘의 주요 뉴스와 커뮤니티 화제입니다.',
+    color:   '#F7931A',
     fetchers: [
-      () => fetchRedditRSS('todayilearned',     'Reddit TIL', '🤯', '#46D160', 'interesting', 2),
-      () => fetchRedditRSS('interestingasfuck', 'Reddit IAF', '✨', '#0DD3BB', 'interesting', 2),
+      () => fetchRedditRSS('CryptoCurrency', 'Reddit 크립토', '₿', '#F7931A', 'crypto', 3),
+      () => fetchRedditRSS('Bitcoin',        'Reddit 비트코인', '₿', '#F7931A', 'crypto', 2),
     ],
-    limit: 3,
+    limit: 4,
   },
 ];
 
@@ -213,15 +214,17 @@ async function collectAll() {
 
 const GEMINI_KEY = process.env.GEMINI_API_KEY || '';
 
-const COLUMN_INSTRUCTION = `당신은 IT·국제 분야 전문 칼럼니스트입니다. 아래 규칙을 따르세요.
+const COLUMN_INSTRUCTION = `당신은 글로벌 금융·경제 전문 칼럼니스트입니다. 아래 규칙을 따르세요.
 - "이 기사는" "이번 소식은" "~에 따르면" 으로 시작 금지
 - 번호 나열(첫째/둘째, ①②③) 금지
-- 배경·맥락·의미·전망을 담아 3~4문장으로 작성
+- 배경·맥락·투자 시사점·전망을 담아 3~4문장으로 작성
 - 자연스러운 한국어 구어체
+- 주가·지수·금리·환율 등 수치가 있다면 맥락과 함께 언급
+- 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지 (정보 제공만)
 
 좋은 예시:
-뉴스: "Google fires 28 employees after protest against Israel contract"
-칼럼: 구글이 이스라엘 군 계약에 반대해 사내 시위를 벌인 직원 28명을 해고했다. 실리콘밸리가 '사회적 책임'을 내세우면서도 수익성 높은 방위 계약 앞에선 다른 선택을 한다는 사실이 다시 드러난 셈이다. AI가 군사 기술에 깊숙이 연루될수록 이런 내부 갈등은 앞으로 더 빈번하게 터질 것이다.
+뉴스: "Fed signals rate cuts may slow as inflation stays sticky"
+칼럼: 미 연준이 인플레이션이 예상보다 끈적하게 유지되면서 금리 인하 속도를 늦출 수 있다는 신호를 보냈다. 시장이 연내 3~4회 인하를 기대했던 것과 달리 실제로는 1~2회에 그칠 수 있다는 전망이 고개를 들고 있다. 달러 강세와 국채 금리 상승 압력이 다시 살아나면서 신흥국 증시와 원화 환율에도 부담이 될 수 있다. 다음 FOMC 회의 발언이 주목된다.
 
 `;
 
@@ -366,8 +369,8 @@ function generateHTML(categories) {
     .map(c => `<a href="#${c.id}" class="nav-pill">${c.label}</a>`)
     .join('');
 
-  const pageTitle = `${DATE_KO} — 오늘 전세계 화제`;
-  const pageDesc  = `${DATE_KO} 글로벌 주요 뉴스 ${total}건. 테크·세계이슈·과학 분야에서 오늘 가장 주목받은 소식을 정리했습니다. ${topTitles}`;
+  const pageTitle = `${DATE_KO} 글로벌 경제·주식 브리핑`;
+  const pageDesc  = `${DATE_KO} 글로벌 경제·증시 주요 뉴스 ${total}건. 미국주식·가상화폐·거시경제 분야에서 오늘 가장 주목받은 소식을 AI가 한국어로 해설합니다. ${topTitles}`;
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -382,7 +385,7 @@ function generateHTML(categories) {
   <meta property="og:url" content="${SITE_URL}/posts/${TODAY}.html" />
   <meta property="og:site_name" content="GlobalHot" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="GlobalHot 편집부" />
+  <meta name="author" content="GlobalHot 경제팀" />
   <link rel="canonical" href="${SITE_URL}/posts/${TODAY}.html" />
   <script type="application/ld+json">
   {
@@ -392,8 +395,8 @@ function generateHTML(categories) {
     "description": "${escapeHtml(pageDesc)}",
     "datePublished": "${TODAY}",
     "dateModified": "${TODAY}",
-    "author": { "@type": "Organization", "name": "GlobalHot 편집부" },
-    "publisher": { "@type": "Organization", "name": "GlobalHot", "url": "${SITE_URL}" },
+    "author": { "@type": "Organization", "name": "GlobalHot 경제팀" },
+    "publisher": { "@type": "Organization", "name": "GlobalHot – 글로벌 경제·주식 뉴스", "url": "${SITE_URL}" },
     "url": "${SITE_URL}/posts/${TODAY}.html"
   }
   </script>
@@ -494,7 +497,9 @@ function generateHTML(categories) {
 
     <div class="footer">
       © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 발행<br>
-      출처: Hacker News · BBC News · DW News · Reddit
+      출처: BBC Business · Reuters · Reddit (r/investing, r/stocks, r/economics, r/CryptoCurrency) · Hacker News<br>
+      <br>
+      ⚠️ 면책조항: 본 콘텐츠는 AI가 자동으로 수집·요약한 정보 제공용이며, 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.
     </div>
 
   </div>
@@ -572,7 +577,7 @@ function updateIndex() {
     <li>
       <a href="/posts/${f}">
         <span class="item-date">${dateStr}</span>
-        <span class="item-title">📋 ${label} 글로벌 화제 뉴스 총정리</span>
+        <span class="item-title">📊 ${label} 글로벌 경제·주식 브리핑</span>
       </a>
     </li>`;
   }).join('\n');
@@ -582,8 +587,8 @@ function updateIndex() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>글로벌 화제 뉴스 AI 일일 리포트 목록 | GlobalHot</title>
-  <meta name="description" content="GlobalHot AI 글로벌 뉴스 리포트 전체 목록. 매일 전세계 화제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 리포트." />
+  <title>글로벌 경제·주식 AI 브리핑 목록 | GlobalHot</title>
+  <meta name="description" content="GlobalHot AI 경제·주식 브리핑 전체 목록. 매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 브리핑." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${SITE_URL}/posts/" />
   <style>
@@ -607,10 +612,10 @@ function updateIndex() {
   </style>
 </head>
 <body>
-  <header class="site-header"><a href="/">🌐 Global<span>Hot</span></a></header>
+  <header class="site-header"><a href="/">📈 Global<span>Hot</span></a></header>
   <div class="container">
-    <h1>📚 AI 글로벌 뉴스 리포트</h1>
-    <p class="subtitle">매일 전세계 화제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 리포트</p>
+    <h1>📚 AI 경제·주식 브리핑 아카이브</h1>
+    <p class="subtitle">매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 한국어로 해설합니다. 총 ${files.length}개의 브리핑</p>
     <ul>${listHTML}</ul>
     <a class="back-link" href="/">← GlobalHot 메인으로</a>
   </div>

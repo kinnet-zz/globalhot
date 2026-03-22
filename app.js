@@ -1,43 +1,44 @@
 /* =========================================================
-   GlobalHot – app.js  v2
-   컨셉: "지금 세계에서 가장 이상하고 놀라운 것들"
-   소스: Reddit TIL/IAF/Science, Atlas Obscura, Boing Boing,
-         NASA APOD, Smithsonian, BBC World, HN, Product Hunt,
-         GitHub Trending, Hatena, NHK, Lobste.rs, Dev.to
+   GlobalHot – app.js  v3
+   컨셉: "글로벌 경제·주식·가상화폐 뉴스 실시간 집계"
+   소스: Yahoo Finance, CNBC, Reuters, MarketWatch, BBC Business,
+         r/investing, r/stocks, r/wallstreetbets, r/economics,
+         r/CryptoCurrency, CoinDesk, Hacker News (핀테크·AI),
+         연합뉴스, JTBC (한국 경제)
    ========================================================= */
 'use strict';
 
 // ── 다국어 번역 ───────────────────────────────────────────
 const I18N = {
   all: {
-    tabs:     { all:'🌐 전체', hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
+    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
-    ui:       { search:'글 제목 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
+    ui:       { search:'종목·뉴스 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
+    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
   },
   ko: {
-    tabs:     { all:'🌐 전체', hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
+    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
-    ui:       { search:'글 제목 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'🔥 전세계화제', trends:'🔍 검색트렌드', tech:'💻 테크·개발', video:'🎬 핫영상', world:'🌍 세계이슈', photo:'📸 포토' },
+    ui:       { search:'종목·뉴스 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
+    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', video:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
   },
   en: {
-    tabs:     { all:'🌐 All', hot:'🔥 Global Hot', trends:'🔍 Trends', tech:'💻 Tech & Dev', video:'🎬 Videos', world:'🌍 World', photo:'📸 Photo' },
+    tabs:     { all:'🌐 All', hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', video:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea Econ' },
     sort:     { label:'Sort', trending:'🔥 Trending', time:'🕐 Latest', points:'👍 Top', comments:'💬 Comments' },
-    ui:       { search:'Search titles...', more:'More →', loadMore:'Load more ↓', keywords:'☁️ Keywords', updated:'Last updated:' },
-    sections: { hot:'🔥 Global Hot', trends:'🔍 Trends', tech:'💻 Tech & Dev', video:'🎬 Videos', world:'🌍 World Issues', photo:'📸 Photo' },
+    ui:       { search:'Search stocks & news...', more:'More →', loadMore:'Load more ↓', keywords:'☁️ Keywords', updated:'Last updated:' },
+    sections: { hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', video:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea' },
   },
   ja: {
-    tabs:     { all:'🌐 すべて', hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', photo:'📸 フォト' },
+    tabs:     { all:'🌐 すべて', hot:'📊 株式', trends:'💹 市場動向', tech:'🤖 フィンテック', video:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
     sort:     { label:'並替', trending:'🔥 急上昇', time:'🕐 新着', points:'👍 人気', comments:'💬 コメント' },
-    ui:       { search:'タイトル検索...', more:'もっと見る →', loadMore:'もっと見る ↓', keywords:'☁️ キーワード', updated:'最終更新:' },
-    sections: { hot:'🔥 今ホット', trends:'🔍 検索トレンド', tech:'💻 テック', video:'🎬 動画', world:'🌏 世界の話題', photo:'📸 フォト' },
+    ui:       { search:'銘柄・ニュース検索...', more:'もっと見る →', loadMore:'もっと見る ↓', keywords:'☁️ キーワード', updated:'最終更新:' },
+    sections: { hot:'📊 株式', trends:'💹 市場', tech:'🤖 フィンテック', video:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
   },
   zh: {
-    tabs:     { all:'🌐 全部', hot:'🔥 热门', trends:'🔍 搜索趋势', tech:'💻 科技', video:'🎬 视频', world:'🌏 世界热议', photo:'📸 照片' },
+    tabs:     { all:'🌐 全部', hot:'📊 股市', trends:'💹 市场动态', tech:'🤖 金融科技', video:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国经济' },
     sort:     { label:'排序', trending:'🔥 趋势', time:'🕐 最新', points:'👍 热门', comments:'💬 评论' },
-    ui:       { search:'搜索标题...', more:'更多 →', loadMore:'加载更多 ↓', keywords:'☁️ 关键词', updated:'最后更新:' },
-    sections: { hot:'🔥 热门', trends:'🔍 搜索趋势', tech:'💻 科技', video:'🎬 视频', world:'🌏 世界热议', photo:'📸 照片' },
+    ui:       { search:'搜索股票·新闻...', more:'更多 →', loadMore:'加载更多 ↓', keywords:'☁️ 关键词', updated:'最后更新:' },
+    sections: { hot:'📊 股市', trends:'💹 市场', tech:'🤖 金融科技', video:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国' },
   },
 };
 
@@ -165,90 +166,39 @@ function validThumb(t) {
 
 // ── Source 정의 ──────────────────────────────────────────
 const SOURCES = [
-  // 🔍 검색트렌드
-  { id: 'trends_kr', name: 'Google 트렌드', sub: '🇰🇷 한국', color: '#4285F4', emoji: '🔍', lang: 'ko', tabs: ['trends','hot'], fetch: () => fetchGoogleTrends('KR', 'trends_kr') },
-  { id: 'trends_us', name: 'Google 트렌드', sub: '🇺🇸 미국', color: '#4285F4', emoji: '🔍', lang: 'en', tabs: ['trends'],       fetch: () => fetchGoogleTrends('US', 'trends_us') },
-  { id: 'trends_jp', name: 'Google 트렌드', sub: '🇯🇵 일본', color: '#4285F4', emoji: '🔍', lang: 'ja', tabs: ['trends'],       fetch: () => fetchGoogleTrends('JP', 'trends_jp') },
+  // 📊 주식·증시 (hot)
+  { id: 'reddit_investing',  name: 'r/investing',      sub: '투자 토론',    color: '#00C851', emoji: '📈', lang: 'en', tabs: ['hot'],           fetch: fetchInvestingReddit     },
+  { id: 'reddit_stocks',     name: 'r/stocks',         sub: '주식 뉴스',    color: '#1a73e8', emoji: '📊', lang: 'en', tabs: ['hot'],           fetch: fetchStocksReddit        },
+  { id: 'reddit_wsb',        name: 'r/wallstreetbets', sub: 'WSB',          color: '#FF4500', emoji: '🚀', lang: 'en', tabs: ['hot'],           fetch: fetchWSBReddit           },
+  { id: 'yahoo_finance',     name: 'Yahoo Finance',    sub: '금융뉴스',     color: '#720E9E', emoji: '💰', lang: 'en', tabs: ['hot','trends'],  fetch: fetchYahooFinance        },
 
-  // 🔥 지금핫함
-  { id: 'reddit_til',    name: 'r/todayilearned',     sub: 'TIL',        color: '#FF4500', emoji: '💡', lang: 'en', tabs: ['hot'], fetch: fetchRedditTIL      },
-  { id: 'reddit_iaf',    name: 'r/interestingasfuck', sub: '이상한세계', color: '#FF6314', emoji: '🤯', lang: 'en', tabs: ['hot'], fetch: fetchRedditIAF      },
-  { id: 'boing_boing',   name: 'Boing Boing',         sub: '이상한인터넷',color: '#CC0000', emoji: '😂', lang: 'en', tabs: ['hot'], fetch: fetchBoingBoing     },
-  { id: 'reddit_mildly', name: 'r/mildlyinteresting', sub: '은근흥미',   color: '#FF4500', emoji: '😮', lang: 'en', tabs: ['hot'], fetch: fetchRedditMildly   },
+  // 💹 시장동향 (trends)
+  { id: 'marketwatch',       name: 'MarketWatch',      sub: '시장동향',     color: '#006DB0', emoji: '📉', lang: 'en', tabs: ['trends'],        fetch: fetchMarketWatch         },
+  { id: 'cnbc',              name: 'CNBC',             sub: '글로벌경제',   color: '#004CA3', emoji: '📺', lang: 'en', tabs: ['trends','world'], fetch: fetchCNBC               },
+  { id: 'reuters_business',  name: 'Reuters Business', sub: 'Business',     color: '#FF7B00', emoji: '🌐', lang: 'en', tabs: ['trends','world'], fetch: fetchReutersBusiness    },
+  { id: 'trends_kr',         name: 'Google 트렌드',    sub: '🇰🇷 한국',     color: '#4285F4', emoji: '🔍', lang: 'ko', tabs: ['trends','hot'],  fetch: () => fetchGoogleTrends('KR', 'trends_kr') },
+  { id: 'trends_us',         name: 'Google 트렌드',    sub: '🇺🇸 미국',     color: '#4285F4', emoji: '🔍', lang: 'en', tabs: ['trends'],        fetch: () => fetchGoogleTrends('US', 'trends_us') },
 
-  // 💻 테크
-  { id: 'hacker_news',    name: 'Hacker News',  sub: 'Top Stories',  color: '#FF6600', emoji: '💻', lang: 'en', tabs: ['tech'], fetch: fetchHackerNews     },
-  { id: 'ask_hn',         name: 'Ask HN',       sub: 'Q&A',          color: '#FF6600', emoji: '❓', lang: 'en', tabs: ['hot'],  fetch: fetchAskHN          },
-  { id: 'show_hn',        name: 'Show HN',      sub: '내가만든것',   color: '#FF6600', emoji: '✨', lang: 'en', tabs: ['hot'],  fetch: fetchShowHN         },
-  { id: 'github_trending',name: 'GitHub',       sub: 'Trending',     color: '#24292f', emoji: '⭐', lang: 'en', tabs: ['tech'], fetch: fetchGitHubTrending },
-  { id: 'product_hunt',   name: 'Product Hunt', sub: "Today's Best", color: '#DA552F', emoji: '🚀', lang: 'en', tabs: ['tech'], fetch: fetchProductHunt    },
-  { id: 'lobsters',       name: 'Lobste.rs',    sub: 'Hottest',      color: '#AC130D', emoji: '🦞', lang: 'en', tabs: ['tech'], fetch: fetchLobsters       },
-  { id: 'devto',          name: 'Dev.to',       sub: 'Top Articles', color: '#3d3d3d', emoji: '📝', lang: 'en', tabs: ['tech'], fetch: fetchDevTo          },
-  { id: 'techcrunch',     name: 'TechCrunch',   sub: '최신 테크뉴스', color: '#0E9A47', emoji: '📰', lang: 'en', tabs: ['tech'], fetch: fetchTechCrunch     },
-  { id: 'the_verge',      name: 'The Verge',    sub: '테크/문화',    color: '#FA4B2A', emoji: '⚡', lang: 'en', tabs: ['tech'], fetch: fetchTheVerge       },
+  // 🌍 글로벌경제 (world)
+  { id: 'bbc_business',      name: 'BBC Business',     sub: '글로벌경제',   color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world'],          fetch: fetchBBCBusiness        },
+  { id: 'bbc_world',         name: 'BBC World',        sub: '국제뉴스',     color: '#BB1919', emoji: '🗞️', lang: 'en', tabs: ['world'],          fetch: fetchBBCWorld           },
+  { id: 'reddit_economics',  name: 'r/economics',      sub: '경제학',       color: '#1565C0', emoji: '📚', lang: 'en', tabs: ['world','trends'], fetch: fetchEconomicsReddit    },
 
-  // 🎬 영상
-  { id: 'yt_kr', name: 'YouTube', sub: '🇰🇷 인기', color: '#FF0000', emoji: '▶️', lang: 'ko', tabs: ['video'], fetch: () => fetchYouTubeTrending('KR') },
-  { id: 'yt_us', name: 'YouTube', sub: '🇺🇸 인기', color: '#FF0000', emoji: '▶️', lang: 'en', tabs: ['video'], fetch: () => fetchYouTubeTrending('US') },
-  { id: 'yt_jp', name: 'YouTube', sub: '🇯🇵 인기', color: '#FF0000', emoji: '▶️', lang: 'ja', tabs: ['video'], fetch: () => fetchYouTubeTrending('JP') },
+  // 🤖 핀테크·AI (tech)
+  { id: 'hacker_news',       name: 'Hacker News',      sub: 'Fintech·AI',   color: '#FF6600', emoji: '💻', lang: 'en', tabs: ['tech'],          fetch: fetchHackerNews          },
+  { id: 'ask_hn',            name: 'Ask HN',           sub: 'Q&A',          color: '#FF6600', emoji: '❓', lang: 'en', tabs: ['tech'],          fetch: fetchAskHN               },
+  { id: 'show_hn',           name: 'Show HN',          sub: '핀테크 도구',  color: '#FF6600', emoji: '✨', lang: 'en', tabs: ['tech'],          fetch: fetchShowHN              },
+  { id: 'github_trending',   name: 'GitHub',           sub: 'Finance AI',   color: '#24292f', emoji: '⭐', lang: 'en', tabs: ['tech'],          fetch: fetchGitHubTrending      },
 
-  // 📸 포토 (바이럴·화제 중심, 인기도 점수 반영)
-  { id: 'photo_pics',         name: 'r/pics',              sub: 'Viral',       color: '#FF4500', emoji: '🔥', lang: 'en', tabs: ['photo'], fetch: fetchPics               },
-  { id: 'photo_iasf',         name: 'r/interestingasfuck', sub: 'Wow!',        color: '#0DD3BB', emoji: '🤯', lang: 'en', tabs: ['photo'], fetch: fetchInterestingAsFuck  },
-  { id: 'photo_earthporn',    name: 'r/EarthPorn',         sub: 'Landscapes',  color: '#2E7D32', emoji: '🏔️', lang: 'en', tabs: ['photo'], fetch: fetchEarthPorn          },
-  { id: 'photo_spaceporn',    name: 'r/spaceporn',         sub: 'Space',       color: '#1A237E', emoji: '🌌', lang: 'en', tabs: ['photo'], fetch: fetchSpacePorn          },
-  { id: 'photo_photojournalism',name:'r/photojournalism',  sub:'News Photo',   color: '#B71C1C', emoji: '📰', lang: 'en', tabs: ['photo'], fetch: fetchPhotojournalism    },
-  { id: 'photo_mildly',       name: 'r/mildlyinteresting', sub: 'Interesting', color: '#FF6314', emoji: '✨', lang: 'en', tabs: ['photo'], fetch: fetchMildlyInteresting  },
-  { id: 'photo_itap',         name: 'r/itookapicture',     sub: 'Photography', color: '#1565C0', emoji: '📷', lang: 'en', tabs: ['photo'], fetch: fetchITookAPicture      },
+  // ₿ 가상화폐 (video → crypto)
+  { id: 'reddit_crypto',     name: 'r/CryptoCurrency', sub: '가상화폐',     color: '#F7931A', emoji: '₿',  lang: 'en', tabs: ['video'],         fetch: fetchCryptoCurrencyReddit },
+  { id: 'reddit_bitcoin',    name: 'r/Bitcoin',        sub: 'Bitcoin',      color: '#F7931A', emoji: '₿',  lang: 'en', tabs: ['video'],         fetch: fetchBitcoinReddit        },
+  { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['video'],         fetch: fetchCoinDesk            },
 
-  // 🌏 세계화제
-  { id: 'bbc_world',    name: 'BBC World', sub: 'News',           color: '#BB1919', emoji: '🌍', lang: 'en', tabs: ['world'], fetch: fetchBBCWorld    },
-  { id: 'bbc_chinese',  name: 'BBC 中文',  sub: '中国新闻',       color: '#BB1919', emoji: '🇨🇳', lang: 'zh', tabs: ['world'], fetch: fetchBBCChinese  },
-  { id: 'hatena',       name: 'はてな',    sub: 'ホットエントリ', color: '#00A4DE', emoji: '🇯🇵', lang: 'ja', tabs: ['world'], fetch: fetchHatena      },
-  { id: 'nhk',          name: 'NHK News', sub: '最新ニュース',    color: '#003F7D', emoji: '🇯🇵', lang: 'ja', tabs: ['world'], fetch: fetchNHK         },
-
-  // 🇰🇷 한국어 추가 소스
-  { id: 'yonhap',      name: '연합뉴스',  sub: '속보',       color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['hot','world'], fetch: fetchYonhap      },
-  { id: 'jtbc',        name: 'JTBC 뉴스', sub: '헤드라인',   color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['hot','world'], fetch: fetchJTBC        },
-  { id: 'hani',        name: '한겨레',    sub: '주요기사',   color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['world'],       fetch: fetchHani        },
-  { id: 'starnews',    name: '스타뉴스',  sub: 'K-Pop·연예', color: '#E91E63', emoji: '⭐', lang: 'ko', tabs: ['hot','world'], fetch: fetchStarnews    },
-  { id: 'isplus',      name: 'IS Plus',   sub: 'JTBC 연예',  color: '#C62828', emoji: '🎬', lang: 'ko', tabs: ['hot','world'], fetch: fetchISPlus      },
-  { id: 'newsen',      name: '뉴스엔',    sub: '연예뉴스',   color: '#0070C0', emoji: '📺', lang: 'ko', tabs: ['hot'],         fetch: fetchNewsen      },
-  { id: 'mk_enter',    name: '매경 엔터', sub: '연예·문화',  color: '#004EA2', emoji: '🎭', lang: 'ko', tabs: ['hot'],         fetch: fetchMKEnter     },
-
-  // 🇺🇸 미국 엔터·문화
-  { id: 'deadline',      name: 'Deadline',    sub: 'Hollywood',    color: '#1a1a1a', emoji: '🎬', lang: 'en', tabs: ['hot','world'], fetch: fetchDeadline      },
-  { id: 'rolling_stone', name: 'Rolling Stone',sub: 'Music·Culture',color:'#FF6900', emoji: '🎸', lang: 'en', tabs: ['hot','world'], fetch: fetchRollingStone  },
-  { id: 'reddit_comedy', name: 'r/comedy',    sub: 'Comedy',       color: '#FF4500', emoji: '😂', lang: 'en', tabs: ['hot'],         fetch: fetchRedditComedy  },
-  { id: 'reddit_kpop_r', name: 'r/kpop',      sub: 'K-Pop Fan',    color: '#9C27B0', emoji: '🎤', lang: 'en', tabs: ['hot','world'], fetch: fetchRedditKpopFan },
-  { id: 'billboard',     name: 'Billboard',   sub: 'Music Charts', color: '#0E2A6A', emoji: '🎵', lang: 'en', tabs: ['hot','world'], fetch: fetchBillboard     },
-  { id: 'variety',       name: 'Variety',     sub: 'Entertainment',color: '#5C0000', emoji: '🎬', lang: 'en', tabs: ['hot','world'], fetch: fetchVariety       },
-  { id: 'pitchfork',     name: 'Pitchfork',   sub: 'Music Reviews',color: '#007A36', emoji: '🎧', lang: 'en', tabs: ['hot'],         fetch: fetchPitchfork     },
-  { id: 'hypebeast',     name: 'Hypebeast',   sub: 'Street Culture',color:'#FF0000', emoji: '👟', lang: 'en', tabs: ['hot','world'], fetch: fetchHypebeast     },
-  { id: 'kpopmap',       name: 'KpopMap',     sub: 'K-Pop News',   color: '#FF69B4', emoji: '🎤', lang: 'en', tabs: ['hot','world'], fetch: fetchKpopMap       },
-  { id: 'jpopasia',      name: 'JpopAsia',    sub: 'J-Pop·Idol',   color: '#E60012', emoji: '🎵', lang: 'en', tabs: ['hot','world'], fetch: fetchJpopAsia      },
-
-  // 🇯🇵 일본어 추가 소스
-  { id: 'qiita',           name: 'Qiita',          sub: '人気記事',   color: '#55C500', emoji: '💻', lang: 'ja', tabs: ['tech','world'], fetch: fetchQiita          },
-  { id: 'zenn',            name: 'Zenn',            sub: 'トレンド',   color: '#3EA8FF', emoji: '✍️', lang: 'ja', tabs: ['tech','world'], fetch: fetchZenn           },
-  { id: 'itmedia',         name: 'ITmedia',         sub: 'ニュース',  color: '#E60012', emoji: '📱', lang: 'ja', tabs: ['tech','world'], fetch: fetchITmedia        },
-  { id: 'soranews',        name: 'SoraNews24',      sub: 'Japan Pop', color: '#0078D7', emoji: '🗾', lang: 'ja', tabs: ['hot','world'], fetch: fetchSoraNews       },
-  { id: 'tokyo_weekender', name: 'Tokyo Weekender', sub: 'Japan Life',color: '#E60012', emoji: '🗾', lang: 'ja', tabs: ['world'],        fetch: fetchTokyoWeekender },
-  { id: 'reddit_jpop',     name: 'r/jpop',          sub: 'J-Pop·Idol',color: '#FF4500', emoji: '🎵', lang: 'ja', tabs: ['hot','world'], fetch: fetchRedditJpop     },
-  { id: 'natalie_music',   name: 'ナタリー',        sub: '音楽ニュース',color:'#FF6B35',emoji: '🎵', lang: 'ja', tabs: ['hot','world'], fetch: fetchNatalieMusic   },
-  { id: 'modelpress',      name: 'Modelpress',      sub: 'アイドル·芸能',color:'#FF69B4',emoji:'💃', lang: 'ja', tabs: ['hot'],         fetch: fetchModelpress     },
-
-  // 🇨🇳 중국어 추가 소스
-  { id: 'solidot',     name: 'Solidot',    sub: '科技新闻', color: '#336699', emoji: '🔬', lang: 'zh', tabs: ['tech','world'], fetch: fetchSolidot    },
-  { id: 'sspai',       name: '少数派',     sub: '精选文章', color: '#D71A1C', emoji: '📱', lang: 'zh', tabs: ['tech','world'], fetch: fetchSspai      },
-  { id: 'v2ex',        name: 'V2EX',       sub: '热门话题', color: '#3891D5', emoji: '💬', lang: 'zh', tabs: ['hot','world'],  fetch: fetchV2EX       },
-  { id: 'global_times',name: 'Global Times',sub:'中国文化', color: '#CC0000', emoji: '🇨🇳', lang: 'zh', tabs: ['world'],       fetch: fetchGlobalTimes },
-  { id: 'china_daily', name: 'China Daily', sub: 'Culture', color: '#CC0000', emoji: '🗞️', lang: 'zh', tabs: ['world'],       fetch: fetchChinaDaily  },
-  { id: 'huxiu',       name: '虎嗅',       sub: '科技商业', color: '#FF6600', emoji: '📊', lang: 'zh', tabs: ['tech','hot'],   fetch: fetchHuxiu       },
-  { id: 'ifanr',       name: '爱范儿',     sub: '科技生活', color: '#00AEEF', emoji: '📱', lang: 'zh', tabs: ['tech','hot'],   fetch: fetchIFanr       },
-  { id: 'kr36',        name: '36氪',       sub: '创业科技', color: '#1890FF', emoji: '🚀', lang: 'zh', tabs: ['tech','hot'],   fetch: fetchKr36        },
-  { id: 'ltn',         name: '自由時報',   sub: '台灣新聞', color: '#E60026', emoji: '🇹🇼', lang: 'zh', tabs: ['world'],       fetch: fetchLTN         },
-  { id: 'mingpao',     name: '明報',       sub: '香港新聞', color: '#003F7D', emoji: '🇭🇰', lang: 'zh', tabs: ['world'],       fetch: fetchMingPao     },
+  // 🇰🇷 한국경제 (photo → kr economy)
+  { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['photo','hot'],   fetch: fetchYonhap              },
+  { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['photo','world'], fetch: fetchJTBC                },
+  { id: 'hani',              name: '한겨레',             sub: '경제기사',     color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['photo'],         fetch: fetchHani                },
 ];
 
 const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.id, s]));
@@ -638,6 +588,134 @@ async function fetchHani() {
   ));
 }
 
+// ── 💰 금융·경제 소스 ────────────────────────────────────
+
+async function fetchYahooFinance() {
+  const items = await parseRSS('https://finance.yahoo.com/rss/topfinstories', 20);
+  return items.map((item, i) => makePost(
+    'yf_' + i, 'yahoo_finance', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { desc: item.desc }
+  ));
+}
+
+async function fetchMarketWatch() {
+  const items = await parseRSS('https://feeds.marketwatch.com/marketwatch/topstories/', 20);
+  return items.map((item, i) => makePost(
+    'mw_' + i, 'marketwatch', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { desc: item.desc }
+  ));
+}
+
+async function fetchCNBC() {
+  const items = await parseRSS('https://www.cnbc.com/id/100003114/device/rss/rss.html', 20);
+  return items.map((item, i) => makePost(
+    'cnbc_' + i, 'cnbc', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { desc: item.desc }
+  ));
+}
+
+async function fetchReutersBusiness() {
+  const items = await parseRSS('https://feeds.reuters.com/reuters/businessNews', 20);
+  return items.map((item, i) => makePost(
+    'reu_' + i, 'reuters_business', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { desc: item.desc }
+  ));
+}
+
+async function fetchBBCBusiness() {
+  const items = await parseRSS('https://feeds.bbci.co.uk/news/business/rss.xml', 20);
+  return items.map((item, i) => makePost(
+    'bbcb_' + i, 'bbc_business', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { thumbnail: item.thumbnail, desc: item.desc }
+  ));
+}
+
+async function fetchInvestingReddit() {
+  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/investing.json?limit=25&raw_json=1'), { cache: 'no-store' });
+  const d = await r.json();
+  return d.data.children.map(c => makePost(
+    'inv_' + c.data.id, 'reddit_investing',
+    c.data.title,
+    c.data.url || 'https://reddit.com' + c.data.permalink,
+    c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
+    { desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '' }
+  ));
+}
+
+async function fetchStocksReddit() {
+  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/stocks.json?limit=25&raw_json=1'), { cache: 'no-store' });
+  const d = await r.json();
+  return d.data.children.map(c => makePost(
+    'stk_' + c.data.id, 'reddit_stocks',
+    c.data.title,
+    c.data.url || 'https://reddit.com' + c.data.permalink,
+    c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
+    { desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '' }
+  ));
+}
+
+async function fetchWSBReddit() {
+  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/wallstreetbets.json?limit=25&raw_json=1'), { cache: 'no-store' });
+  const d = await r.json();
+  return d.data.children.map(c => makePost(
+    'wsb_' + c.data.id, 'reddit_wsb',
+    c.data.title,
+    'https://reddit.com' + c.data.permalink,
+    c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
+    {
+      thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '',
+      desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '',
+    }
+  ));
+}
+
+async function fetchEconomicsReddit() {
+  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/economics.json?limit=20&raw_json=1'), { cache: 'no-store' });
+  const d = await r.json();
+  return d.data.children.map(c => makePost(
+    'econ_' + c.data.id, 'reddit_economics',
+    c.data.title,
+    c.data.url || 'https://reddit.com' + c.data.permalink,
+    c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
+    { desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '' }
+  ));
+}
+
+async function fetchCryptoCurrencyReddit() {
+  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/CryptoCurrency.json?limit=25&raw_json=1'), { cache: 'no-store' });
+  const d = await r.json();
+  return d.data.children.map(c => makePost(
+    'cc_' + c.data.id, 'reddit_crypto',
+    c.data.title,
+    'https://reddit.com' + c.data.permalink,
+    c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
+    {
+      thumbnail: validThumb(c.data.thumbnail) ? c.data.thumbnail : '',
+      desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '',
+    }
+  ));
+}
+
+async function fetchBitcoinReddit() {
+  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/Bitcoin.json?limit=20&raw_json=1'), { cache: 'no-store' });
+  const d = await r.json();
+  return d.data.children.map(c => makePost(
+    'btc_' + c.data.id, 'reddit_bitcoin',
+    c.data.title,
+    c.data.url || 'https://reddit.com' + c.data.permalink,
+    c.data.score, c.data.num_comments, new Date(c.data.created_utc * 1000),
+    { desc: (c.data.selftext || '').replace(/\n+/g, ' ').trim().slice(0, 160) || '' }
+  ));
+}
+
+async function fetchCoinDesk() {
+  const items = await parseRSS('https://www.coindesk.com/arc/outboundfeeds/rss/', 20);
+  return items.map((item, i) => makePost(
+    'cd_' + i, 'coindesk', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { desc: item.desc }
+  ));
+}
+
 // ── 🇯🇵 일본어 소스 ──────────────────────────────────────
 async function fetchQiita() {
   const items = await parseRSS('https://qiita.com/popular-items/feed', 20);
@@ -937,12 +1015,12 @@ async function loadAllSources() {
 
 // ── 섹션 정의 (전체 대시보드용) ──────────────────────────
 const SECTION_DEFS = [
-  { tab: 'hot',    label: '🔥 지금 전세계 화제',  color: '#FF4500', limit: 10, featured: true },
-  { tab: 'tech',   label: '💻 테크 · 개발자 픽',  color: '#FF6600', limit: 5  },
-  { tab: 'world',  label: '🌍 세계 이슈',          color: '#1565C0', limit: 5  },
-  { tab: 'trends', label: '🔍 검색 트렌드',        color: '#4285F4', limit: 5  },
-  { tab: 'video',  label: '🎬 핫 영상',            color: '#FF0000', limit: 6  },
-  { tab: 'photo',  label: '📸 포토',               color: '#2E7D32', limit: 6,  featured: true },
+  { tab: 'hot',    label: '📊 주식·증시',           color: '#00C851', limit: 10, featured: true },
+  { tab: 'trends', label: '💹 시장동향',            color: '#4285F4', limit: 5  },
+  { tab: 'world',  label: '🌍 글로벌경제',          color: '#1565C0', limit: 5  },
+  { tab: 'video',  label: '₿ 가상화폐',             color: '#F7931A', limit: 6  },
+  { tab: 'tech',   label: '🤖 핀테크·AI',           color: '#FF6600', limit: 5  },
+  { tab: 'photo',  label: '🇰🇷 한국경제',           color: '#0060A9', limit: 6,  featured: true },
 ];
 
 // ── 탭별 게시물 가져오기 ─────────────────────────────────
