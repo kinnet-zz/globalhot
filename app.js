@@ -11,34 +11,34 @@
 // ── 다국어 번역 ───────────────────────────────────────────
 const I18N = {
   all: {
-    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', korea:'🇰🇷 한국경제' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'종목·뉴스 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', korea:'🇰🇷 한국경제' },
   },
   ko: {
-    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    tabs:     { all:'🌐 전체', hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', korea:'🇰🇷 한국경제' },
     sort:     { label:'정렬', trending:'🔥 트렌딩', time:'🕐 최신순', points:'👍 인기순', comments:'💬 댓글순' },
     ui:       { search:'종목·뉴스 검색...', more:'더 보기 →', loadMore:'더 보기 ↓', keywords:'☁️ 키워드 현황', updated:'마지막 업데이트:' },
-    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', photo:'🇰🇷 한국경제' },
+    sections: { hot:'📊 주식·증시', trends:'💹 시장동향', tech:'🤖 핀테크·AI', crypto:'₿ 가상화폐', world:'🌍 글로벌경제', korea:'🇰🇷 한국경제' },
   },
   en: {
-    tabs:     { all:'🌐 All', hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', crypto:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea Econ' },
+    tabs:     { all:'🌐 All', hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', crypto:'₿ Crypto', world:'🌍 Global Economy', korea:'🇰🇷 Korea Econ' },
     sort:     { label:'Sort', trending:'🔥 Trending', time:'🕐 Latest', points:'👍 Top', comments:'💬 Comments' },
     ui:       { search:'Search stocks & news...', more:'More →', loadMore:'Load more ↓', keywords:'☁️ Keywords', updated:'Last updated:' },
-    sections: { hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', crypto:'₿ Crypto', world:'🌍 Global Economy', photo:'🇰🇷 Korea' },
+    sections: { hot:'📊 Stocks', trends:'💹 Markets', tech:'🤖 Fintech·AI', crypto:'₿ Crypto', world:'🌍 Global Economy', korea:'🇰🇷 Korea' },
   },
   ja: {
-    tabs:     { all:'🌐 すべて', hot:'📊 株式', trends:'💹 市場動向', tech:'🤖 フィンテック', crypto:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
+    tabs:     { all:'🌐 すべて', hot:'📊 株式', trends:'💹 市場動向', tech:'🤖 フィンテック', crypto:'₿ 暗号通貨', world:'🌍 グローバル経済', korea:'🇰🇷 韓国経済' },
     sort:     { label:'並替', trending:'🔥 急上昇', time:'🕐 新着', points:'👍 人気', comments:'💬 コメント' },
     ui:       { search:'銘柄・ニュース検索...', more:'もっと見る →', loadMore:'もっと見る ↓', keywords:'☁️ キーワード', updated:'最終更新:' },
-    sections: { hot:'📊 株式', trends:'💹 市場', tech:'🤖 フィンテック', crypto:'₿ 暗号通貨', world:'🌍 グローバル経済', photo:'🇰🇷 韓国経済' },
+    sections: { hot:'📊 株式', trends:'💹 市場', tech:'🤖 フィンテック', crypto:'₿ 暗号通貨', world:'🌍 グローバル経済', korea:'🇰🇷 韓国経済' },
   },
   zh: {
-    tabs:     { all:'🌐 全部', hot:'📊 股市', trends:'💹 市场动态', tech:'🤖 金融科技', crypto:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国经济' },
+    tabs:     { all:'🌐 全部', hot:'📊 股市', trends:'💹 市场动态', tech:'🤖 金融科技', crypto:'₿ 加密货币', world:'🌍 全球经济', korea:'🇰🇷 韩国经济' },
     sort:     { label:'排序', trending:'🔥 趋势', time:'🕐 最新', points:'👍 热门', comments:'💬 评论' },
     ui:       { search:'搜索股票·新闻...', more:'更多 →', loadMore:'加载更多 ↓', keywords:'☁️ 关键词', updated:'最后更新:' },
-    sections: { hot:'📊 股市', trends:'💹 市场', tech:'🤖 金融科技', crypto:'₿ 加密货币', world:'🌍 全球经济', photo:'🇰🇷 韩国' },
+    sections: { hot:'📊 股市', trends:'💹 市场', tech:'🤖 金融科技', crypto:'₿ 加密货币', world:'🌍 全球经济', korea:'🇰🇷 韩国' },
   },
 };
 
@@ -196,9 +196,9 @@ const SOURCES = [
   { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['crypto'],         fetch: fetchCoinDesk            },
 
   // 🇰🇷 한국경제 (photo → kr economy)
-  { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['photo','hot'],   fetch: fetchYonhap              },
-  { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['photo','world'], fetch: fetchJTBC                },
-  { id: 'hani',              name: '한겨레',             sub: '경제기사',     color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['photo'],         fetch: fetchHani                },
+  { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea','hot'],   fetch: fetchYonhap              },
+  { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['korea','world'], fetch: fetchJTBC                },
+  { id: 'hani',              name: '한겨레',             sub: '경제기사',     color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchHani                },
 ];
 
 const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.id, s]));
@@ -1020,7 +1020,7 @@ const SECTION_DEFS = [
   { tab: 'world',  label: '🌍 글로벌경제',          color: '#1565C0', limit: 5  },
   { tab: 'crypto', label: '₿ 가상화폐',             color: '#F7931A', limit: 6  },
   { tab: 'tech',   label: '🤖 핀테크·AI',           color: '#FF6600', limit: 5  },
-  { tab: 'photo',  label: '🇰🇷 한국경제',           color: '#0060A9', limit: 6,  featured: true },
+  { tab: 'korea', label: '🇰🇷 한국경제',           color: '#0060A9', limit: 6,  featured: true },
 ];
 
 // ── 탭별 게시물 가져오기 ─────────────────────────────────
@@ -1054,17 +1054,7 @@ function getPostsForTab(tabId) {
     });
   }
 
-  // 포토 탭: 소스당 최대 15개 (이미지 그리드 특성상 더 많이)
-  if (tabId === 'photo') {
-    return sorted.reduce((acc, p) => {
-      const cnt = acc.count.get(p.sourceId) || 0;
-      if (cnt < 15) {
-        acc.posts.push(p);
-        acc.count.set(p.sourceId, cnt + 1);
-      }
-      return acc;
-    }, { posts: [], count: new Map() }).posts;
-  }
+
 
   // 나머지 탭: 소스당 최대 5개로 다양성 확보
   return sorted.reduce((acc, p) => {
@@ -1115,7 +1105,7 @@ function renderFeed() {
     slice.forEach(p => grid.appendChild(createVideoCard(p)));
     feed.appendChild(grid);
     loadMoreWrap.classList.toggle('hidden', slice.length >= posts.length);
-  } else if (state.tab === 'photo') {
+
     // 포토: 이미지 그리드
     const posts = getPostsForTab(state.tab);
     const slice = posts.slice(0, (state.page + 1) * state.PAGE_SIZE);
@@ -1180,11 +1170,6 @@ function createSectionBlock(def, posts) {
     const grid = document.createElement('div');
     grid.className = 'video-grid video-grid--mini';
     posts.forEach(p => grid.appendChild(createVideoCard(p)));
-    block.appendChild(grid);
-  } else if (def.tab === 'photo') {
-    const grid = document.createElement('div');
-    grid.className = 'gravure-grid gravure-grid--mini';
-    posts.forEach(p => grid.appendChild(createGravureCard(p)));
     block.appendChild(grid);
   } else {
     const list = document.createElement('div');
