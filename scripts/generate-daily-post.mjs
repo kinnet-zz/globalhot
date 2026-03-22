@@ -12,7 +12,7 @@
 import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
-const SITE_URL  = process.env.SITE_URL || 'https://globalhot.pages.dev';
+const SITE_URL  = process.env.SITE_URL || 'https://globalhot.net';
 const KST       = new Date(Date.now() + 9 * 3600_000);
 const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
