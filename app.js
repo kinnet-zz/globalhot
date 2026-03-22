@@ -195,8 +195,8 @@ const SOURCES = [
   { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['crypto'],         fetch: fetchCoinDesk            },
 
   // 🇰🇷 한국경제 (photo → kr economy)
-  { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea','hot'],   fetch: fetchYonhap              },
-  { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['korea','world'], fetch: fetchJTBC                },
+  { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchYonhap              },
+  { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['korea'],         fetch: fetchJTBC                },
   { id: 'hani',              name: '한겨레',             sub: '경제기사',     color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchHani                },
 ];
 
