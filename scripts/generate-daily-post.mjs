@@ -4,7 +4,7 @@
  * 소스: HN Algolia API + BBC RSS (GitHub Actions에서 안정적으로 접근 가능)
  */
 
-import { writeFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
+import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
 const SITE_URL  = process.env.SITE_URL || 'https://globalhot.pages.dev';
@@ -225,32 +225,54 @@ const COLUMN_INSTRUCTION = `당신은 IT·국제 분야 전문 칼럼니스트�
 
 `;
 
-async function getAISummary(title, source) {
+async function getAISummary(title, source, retries = 3) {
   if (!GEMINI_KEY) { console.warn('  ⚠️  GEMINI_API_KEY 없음'); return ''; }
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
-  try {
-    const res = await fetch(url, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{ text: `${COLUMN_INSTRUCTION}뉴스: "${title}" (출처: ${source})\n\n칼럼:` }],
-        }],
-        generationConfig: { temperature: 0.75, maxOutputTokens: 300 },
-      }),
-      signal: AbortSignal.timeout(30000),
-    });
-    if (!res.ok) {
-      const err = await res.text().catch(() => '');
-      console.warn(`  ⚠️  Gemini API ${res.status}: ${err.slice(0, 120)}`);
-      return '';
+
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{ text: `${COLUMN_INSTRUCTION}뉴스: "${title}" (출처: ${source})\n\n칼럼:` }],
+          }],
+          generationConfig: { temperature: 0.75, maxOutputTokens: 300 },
+        }),
+        signal: AbortSignal.timeout(30000),
+      });
+
+      if (res.status === 429) {
+        if (attempt < retries) {
+          const waitMs = 30000 * (attempt + 1); // 30s → 60s → 90s
+          console.warn(`  ⚠️  Gemini 429 — ${waitMs / 1000}초 대기 후 재시도 (${attempt + 1}/${retries})`);
+          await new Promise(r => setTimeout(r, waitMs));
+          continue;
+        }
+        console.warn('  ⚠️  Gemini 429 — 재시도 초과, 스킵');
+        return '';
+      }
+
+      if (!res.ok) {
+        const err = await res.text().catch(() => '');
+        console.warn(`  ⚠️  Gemini API ${res.status}: ${err.slice(0, 120)}`);
+        return '';
+      }
+
+      const data = await res.json();
+      return data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+    } catch (e) {
+      if (attempt < retries) {
+        console.warn(`  ⚠️  Gemini 오류: ${e.message} — 재시도`);
+        await new Promise(r => setTimeout(r, 5000));
+      } else {
+        console.warn(`  ⚠️  Gemini 실패: ${e.message}`);
+        return '';
+      }
     }
-    const data = await res.json();
-    return data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
-  } catch (e) {
-    console.warn(`  ⚠️  Gemini 실패: ${e.message}`);
-    return '';
   }
+  return '';
 }
 
 async function enrichWithSummaries(categories) {
@@ -477,7 +499,56 @@ function generateHTML(categories) {
 </html>`;
 }
 
-// ── 4. posts/index.html 업데이트 ──────────────────────────
+// ── 4. index.html 홈페이지 AI 리포트 섹션 업데이트 ───────
+
+function updateHomepage(enriched) {
+  const indexPath = join(process.cwd(), 'index.html');
+  if (!existsSync(indexPath)) {
+    console.warn('⚠️  index.html 없음 — 홈페이지 업데이트 스킵');
+    return;
+  }
+
+  let html = readFileSync(indexPath, 'utf-8');
+  if (!html.includes('<!-- DAILY_REPORT_START -->')) {
+    console.warn('⚠️  DAILY_REPORT 마커 없음 — 홈페이지 업데이트 스킵');
+    return;
+  }
+
+  const allPosts = enriched.flatMap(c => c.posts);
+  const top3 = allPosts.slice(0, 3);
+  const total = allPosts.length;
+
+  const articleCards = top3.map(a => `
+        <div class="dr-article">
+          <span class="dr-badge" style="background:${a.color}">${a.sourceEmoji} ${escapeHtml(a.source)}</span>
+          <p class="dr-headline">${escapeHtml(a.title)}</p>
+          ${a.summary ? `<p class="dr-summary">${escapeHtml(a.summary)}</p>` : ''}
+        </div>`).join('');
+
+  const snippet = `<!-- DAILY_REPORT_START -->
+  <div class="daily-report">
+    <div class="daily-report-inner">
+      <div class="dr-header">
+        <span class="dr-eyebrow">🤖 AI 글로벌 리포트 · ${TODAY}</span>
+        <span class="dr-date">${DATE_KO}</span>
+      </div>
+      <div class="dr-articles">${articleCards}
+      </div>
+      <a class="dr-more" href="/posts/${TODAY}.html">오늘 전체 리포트 보기 (${total}개 기사) →</a>
+    </div>
+  </div>
+  <!-- DAILY_REPORT_END -->`;
+
+  html = html.replace(
+    /<!-- DAILY_REPORT_START -->[\s\S]*?<!-- DAILY_REPORT_END -->/,
+    snippet,
+  );
+
+  writeFileSync(indexPath, html, 'utf-8');
+  console.log('✅ index.html AI 리포트 섹션 업데이트 완료');
+}
+
+// ── 6. posts/index.html 업데이트 ──────────────────────────
 
 function updateIndex() {
   const postsDir  = join(process.cwd(), 'posts');
@@ -546,7 +617,7 @@ function updateIndex() {
   console.log('\n✅ posts/index.html 업데이트 완료');
 }
 
-// ── 5. sitemap.xml 업데이트 ───────────────────────────────
+// ── 7. sitemap.xml 업데이트 ───────────────────────────────
 
 function updateSitemap() {
   const postsDir   = join(process.cwd(), 'posts');
@@ -597,7 +668,7 @@ ${postUrls}
   console.log(`✅ sitemap.xml 업데이트 완료 (포스트 ${postFiles.length}개)`);
 }
 
-// ── 6. 메인 실행 ──────────────────────────────────────────
+// ── 8. 메인 실행 ──────────────────────────────────────────
 
 (async () => {
   console.log(`\n🚀 ${TODAY} (${DATE_KO}) 일일 포스트 생성 시작`);
@@ -628,6 +699,7 @@ ${postUrls}
   writeFileSync(filePath, html, 'utf-8');
   console.log(`\n✅ posts/${TODAY}.html 생성 완료`);
 
+  updateHomepage(enriched);
   updateIndex();
   updateSitemap();
   console.log('\n🎉 완료!');

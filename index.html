@@ -14,6 +14,22 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Google AdSense: 승인 후 아래 주석을 실제 코드로 교체하세요 -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <style>
+    /* ── 오늘의 AI 글로벌 리포트 섹션 ── */
+    .daily-report { background: linear-gradient(135deg, #13131f 0%, #1a1228 100%); border-bottom: 1px solid #252540; padding: 24px 0; }
+    .daily-report-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .dr-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+    .dr-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c6fff; }
+    .dr-date { font-size: 12px; color: #55556a; }
+    .dr-articles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .dr-article { background: #181828; border: 1px solid #252540; border-radius: 10px; padding: 14px 16px; }
+    .dr-badge { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+    .dr-headline { font-size: 13px; font-weight: 600; color: #e4e4f0; line-height: 1.5; margin-bottom: 8px; }
+    .dr-summary { font-size: 12px; color: #8888aa; line-height: 1.65; }
+    .dr-more { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #7c6fff; text-decoration: none; border: 1px solid #7c6fff33; border-radius: 6px; padding: 6px 14px; transition: all .15s; }
+    .dr-more:hover { background: #7c6fff22; border-color: #7c6fff; }
+    @media (max-width: 600px) { .dr-articles { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -45,6 +61,26 @@
       </div>
     </div>
   </header>
+
+  <!-- ───── 오늘의 AI 글로벌 리포트 ───── -->
+  <!-- DAILY_REPORT_START -->
+  <div class="daily-report">
+    <div class="daily-report-inner">
+      <div class="dr-header">
+        <span class="dr-eyebrow">🤖 AI 글로벌 리포트</span>
+        <span class="dr-date">매일 오전 9시 자동 업데이트</span>
+      </div>
+      <div class="dr-articles">
+        <div class="dr-article">
+          <span class="dr-badge" style="background:#FF6600">💻 Hacker News</span>
+          <p class="dr-headline">오늘의 글로벌 테크 & 세계 뉴스를 AI가 한국어로 해설합니다</p>
+          <p class="dr-summary">매일 Hacker News, BBC, Reddit에서 가장 화제가 된 뉴스를 선별해 한국어 칼럼으로 정리합니다. 아래 실시간 피드에서 더 많은 소식을 확인하세요.</p>
+        </div>
+      </div>
+      <a class="dr-more" href="/posts/">전체 리포트 아카이브 보기 →</a>
+    </div>
+  </div>
+  <!-- DAILY_REPORT_END -->
 
   <!-- ───── TABS ───── -->
   <div class="tabs-bar">
