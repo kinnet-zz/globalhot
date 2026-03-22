@@ -1091,32 +1091,6 @@ function renderFeed() {
     } else {
       feed.appendChild(dashboard);
     }
-  } else if (state.tab === 'crypto') {
-    const posts = getPostsForTab('crypto');
-    const slice = posts.slice(0, (state.page + 1) * state.PAGE_SIZE);
-    if (slice.length === 0) {
-      const msg = state.isLoading ? '영상을 불러오는 중입니다...' : '잠시 후 다시 시도해 주세요.';
-      feed.innerHTML = `<div class="empty-state"><div class="empty-icon">🎬</div><p>${msg}</p></div>`;
-      return;
-    }
-    const grid = document.createElement('div');
-    grid.className = 'video-grid';
-    slice.forEach(p => grid.appendChild(createVideoCard(p)));
-    feed.appendChild(grid);
-    loadMoreWrap.classList.toggle('hidden', slice.length >= posts.length);
-
-    // 포토: 이미지 그리드
-    const posts = getPostsForTab(state.tab);
-    const slice = posts.slice(0, (state.page + 1) * state.PAGE_SIZE);
-    if (slice.length === 0) {
-      feed.innerHTML = `<div class="empty-state"><div class="empty-icon">📸</div><p>이미지를 불러오는 중입니다.</p></div>`;
-      return;
-    }
-    const grid = document.createElement('div');
-    grid.className = 'gravure-grid';
-    slice.forEach(p => grid.appendChild(createGravureCard(p)));
-    feed.appendChild(grid);
-    loadMoreWrap.classList.toggle('hidden', slice.length >= posts.length);
   } else {
     // 단일 탭: 컴팩트 리스트
     const posts = getPostsForTab(state.tab);
@@ -1165,18 +1139,11 @@ function createSectionBlock(def, posts) {
   header.append(title, more);
   block.appendChild(header);
 
-  if (def.tab === 'crypto') {
-    const grid = document.createElement('div');
-    grid.className = 'video-grid video-grid--mini';
-    posts.forEach(p => grid.appendChild(createVideoCard(p)));
-    block.appendChild(grid);
-  } else {
-    const list = document.createElement('div');
-    // featured(화제 TOP10): 2열 그리드로 표시
-    list.className = def.featured ? 'compact-list compact-list--2col' : 'compact-list';
-    posts.forEach((p, i) => list.appendChild(createCompactCard(p, i + 1)));
-    block.appendChild(list);
-  }
+  const list = document.createElement('div');
+  // featured(화제 TOP10): 2열 그리드로 표시
+  list.className = def.featured ? 'compact-list compact-list--2col' : 'compact-list';
+  posts.forEach((p, i) => list.appendChild(createCompactCard(p, i + 1)));
+  block.appendChild(list);
 
   return block;
 }
