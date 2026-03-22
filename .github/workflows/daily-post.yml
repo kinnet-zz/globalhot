@@ -33,3 +33,10 @@ jobs:
           git add posts/ sitemap.xml index.html
           git diff --staged --quiet || git commit -m "post: daily report $(date '+%Y-%m-%d')"
           git push
+
+      - name: Cloudflare Pages 배포
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: bdb1cf8e4920671e46565a911db9f40b
+          command: pages deploy . --project-name globalhot --branch master
