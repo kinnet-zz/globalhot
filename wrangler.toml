@@ -3,3 +3,7 @@ pages_build_output_dir = "."
 
 [ai]
 binding = "AI"
+
+[[kv_namespaces]]
+binding = "SUMMARY_KV"
+id = "__KV_NAMESPACE_ID__"

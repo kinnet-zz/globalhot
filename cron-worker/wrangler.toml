@@ -1,0 +1,13 @@
+name = "globalhot-cron"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "SUMMARY_KV"
+id = "__KV_NAMESPACE_ID__"
+
+[triggers]
+crons = ["0 */6 * * *"]

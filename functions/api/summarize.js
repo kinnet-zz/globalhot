@@ -1,4 +1,5 @@
 // Cloudflare Workers AI - 다국어 기사 요약 (short / long mode)
+// KV 캐싱: 동일 기사는 최초 1회만 AI 호출, 이후 모든 방문자는 KV에서 반환
 const LANG_CONFIG = {
   ko: {
     system: '당신은 IT·국제 분야 전문 칼럼니스트입니다. 간결하고 통찰 있는 한국어로 씁니다.',
@@ -77,6 +78,10 @@ Analysis:`,
   },
 };
 
+function kvKey(lang, title, mode) {
+  return `${lang}:${mode}:${title.slice(0, 100)}`;
+}
+
 export async function onRequestPost(context) {
   const { env, request } = context;
 
@@ -105,12 +110,27 @@ export async function onRequestPost(context) {
     });
   }
 
+  const cacheKey = kvKey(lang, title, mode);
+
+  // KV 캐시 확인 - 방문자 수에 관계없이 동일 기사는 AI 미호출
+  if (env.SUMMARY_KV) {
+    const cached = await env.SUMMARY_KV.get(cacheKey);
+    if (cached) {
+      return new Response(cached, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=86400',
+          'X-Cache': 'HIT',
+        },
+      });
+    }
+  }
+
   const cfg       = LANG_CONFIG[lang] || LANG_CONFIG.ko;
   const isLong    = mode === 'long';
   const promptFn  = isLong ? cfg.promptLong : cfg.promptShort;
   const maxTokens = isLong ? 350 : 150;
 
-  // few-shot 대화 구성 (ko 전용)
   const fewShotMessages = (cfg.fewShot || []).flatMap(ex => [
     { role: 'user',      content: ex.user      },
     { role: 'assistant', content: ex.assistant  },
@@ -128,11 +148,18 @@ export async function onRequestPost(context) {
     });
 
     const summary = result?.response?.trim() ?? '';
+    const responseBody = JSON.stringify({ summary });
 
-    return new Response(JSON.stringify({ summary }), {
+    // KV에 저장 - 24시간 TTL, 이후 모든 방문자는 KV에서 반환
+    if (env.SUMMARY_KV && summary) {
+      await env.SUMMARY_KV.put(cacheKey, responseBody, { expirationTtl: 86400 });
+    }
+
+    return new Response(responseBody, {
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=86400',
+        'X-Cache': 'MISS',
       },
     });
   } catch {
