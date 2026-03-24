@@ -114,6 +114,14 @@ async function fetchWithProxy(url) {
   return r2.text();
 }
 
+// ── HTML 엔티티 디코딩 ────────────────────────────────────
+function decodeHTML(str) {
+  if (!str) return '';
+  const txt = document.createElement('textarea');
+  txt.innerHTML = str;
+  return txt.value;
+}
+
 // ── RSS 파싱 (rss2json API 사용) ────────────────────────────
 async function parseRSS(feedUrl) {
   const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
@@ -123,7 +131,7 @@ async function parseRSS(feedUrl) {
   if (d.status !== 'ok') throw new Error(`rss2json error: ${d.message || d.status}`);
 
   return d.items.map(item => ({
-    title:     item.title || '',
+    title:     decodeHTML(item.title) || '',
     link:      item.link  || item.guid || '',
     pubDate:   item.pubDate || '',
     thumbnail: item.thumbnail || item.enclosure?.link || '',
