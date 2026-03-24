@@ -7,7 +7,7 @@ binding = "AI"
 
 [[kv_namespaces]]
 binding = "SUMMARY_KV"
-id = "__KV_NAMESPACE_ID__"
+id = "e819959613044e8ca4998aa4d4ec69bd"
 
 [triggers]
 crons = ["0 */6 * * *"]
