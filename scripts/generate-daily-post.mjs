@@ -18,6 +18,21 @@ const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
 const DATE_KO   = `${KST.getFullYear()}년 ${KST.getMonth() + 1}월 ${KST.getDate()}일 (${DAY_NAMES[KST.getDay()]})`;
 
+// ── 0. HTML 엔티티 디코딩 ────────────────────────────────────
+
+function decodeHtmlEntities(str) {
+  if (!str) return '';
+  return str
+    .replace(/&#x([0-9a-fA-F]+);/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(parseInt(dec, 10)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, ' ');
+}
+
 // ── 1. 공통 유틸 ────────────────────────────────────────────
 
 async function safeFetch(url, opts = {}) {
@@ -48,7 +63,7 @@ function parseRSSXml(xml) {
   const blocks = [...xml.matchAll(/<item[^>]*>([\s\S]*?)<\/item>/gi)];
   for (const block of blocks) {
     const c     = block[1];
-    const title = c.match(/<title[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i)?.[1]?.trim() || '';
+    const title = decodeHtmlEntities(c.match(/<title[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i)?.[1]?.trim() || '');
     const link  = c.match(/<link[^>]*>\s*(https?:\/\/[^\s<]+)\s*<\/link>/i)?.[1]?.trim()
                || c.match(/<guid[^>]*isPermaLink="true"[^>]*>([\s\S]*?)<\/guid>/i)?.[1]?.trim()
                || c.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i)?.[1]?.trim() || '';
