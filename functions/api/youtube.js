@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-  const key = context.env.YOUTUBE_API_KEY || 'AIzaSyA39AKCMnSjCm2Jq83xM04d_48wKaQtp-c';
+  const key = context.env.YOUTUBE_API_KEY;
   if (!key) return new Response('YouTube API key not configured', { status: 500 });
 
   const { searchParams } = new URL(context.request.url);

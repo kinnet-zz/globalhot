@@ -183,7 +183,7 @@ const SOURCES = [
   // 💹 시장동향 (trends)
   { id: 'marketwatch',       name: 'MarketWatch',      sub: '시장동향',     color: '#006DB0', emoji: '📉', lang: 'en', tabs: ['trends'],                fetch: fetchMarketWatch         },
   { id: 'cnbc',              name: 'CNBC',             sub: '글로벌경제',   color: '#004CA3', emoji: '📺', lang: 'en', tabs: ['trends','world'],        fetch: fetchCNBC               },
-  { id: 'reuters_business',  name: 'Reuters Business', sub: 'Business',     color: '#FF7B00', emoji: '🌐', lang: 'en', tabs: ['trends','world'],        fetch: fetchReutersBusiness    },
+  { id: 'reuters_business',  name: 'Wall Street Journal', sub: 'Business',  color: '#FF7B00', emoji: '🌐', lang: 'en', tabs: ['trends','world'],        fetch: fetchReutersBusiness    },
   { id: 'reddit_economics',  name: 'r/economics',      sub: '경제학',       color: '#1565C0', emoji: '📚', lang: 'en', tabs: ['trends','world'],        fetch: fetchEconomicsReddit    },
 
   // 🌍 글로벌경제 (world) + 시장동향(trends) 겸용
@@ -202,7 +202,8 @@ const SOURCES = [
   { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['crypto'],         fetch: fetchCoinDesk            },
 
   // 🇰🇷 한국경제 (photo → kr economy)
-  { id: 'yonhap',            name: '연합뉴스',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchYonhap              },
+  { id: 'yonhap',            name: '한국경제',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchYonhap              },
+  { id: 'maeil_economy',     name: '매일경제',          sub: '경제뉴스',     color: '#005C8A', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchMaeilEconomy        },
   { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['korea'],         fetch: fetchJTBC                },
   { id: 'hani',              name: '한겨레',             sub: '경제기사',     color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchHani                },
 ];
@@ -573,9 +574,16 @@ async function fetchBBCChinese() {
 
 // ── 🇰🇷 한국어 소스 ──────────────────────────────────────
 async function fetchYonhap() {
-  const items = await parseRSS('https://www.yna.co.kr/RSS/news.xml', 20);
+  const items = await parseRSS('https://www.hankyung.com/feed/economy', 20);
   return items.map((item, i) => makePost(
     'yn_' + i, 'yonhap', item.title, item.link, 0, 0, new Date(item.pubDate),
+    { desc: item.desc }
+  ));
+}
+async function fetchMaeilEconomy() {
+  const items = await parseRSS('https://www.mk.co.kr/rss/40300001/', 20);
+  return items.map((item, i) => makePost(
+    'mk_' + i, 'maeil_economy', item.title, item.link, 0, 0, new Date(item.pubDate),
     { desc: item.desc }
   ));
 }
@@ -621,7 +629,7 @@ async function fetchCNBC() {
 }
 
 async function fetchReutersBusiness() {
-  const items = await parseRSS('https://feeds.reuters.com/reuters/businessNews', 20);
+  const items = await parseRSS('https://feeds.a.dj.com/rss/RSSWorldNews.xml', 20);
   return items.map((item, i) => makePost(
     'reu_' + i, 'reuters_business', item.title, item.link, 0, 0, new Date(item.pubDate),
     { desc: item.desc }

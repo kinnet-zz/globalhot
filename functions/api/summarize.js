@@ -112,7 +112,7 @@ export async function onRequestPost(context) {
 
   const cacheKey = kvKey(lang, title, mode);
 
-  // KV 캐시 확인 - 방문자 수에 관계없이 동일 기사는 AI 미호출
+  // KV 캐시 확인 — 크론이 사전 생성한 요약만 반환, AI 직접 호출 없음
   if (env.SUMMARY_KV) {
     const cached = await env.SUMMARY_KV.get(cacheKey);
     if (cached) {
@@ -126,46 +126,12 @@ export async function onRequestPost(context) {
     }
   }
 
-  const cfg       = LANG_CONFIG[lang] || LANG_CONFIG.ko;
-  const isLong    = mode === 'long';
-  const promptFn  = isLong ? cfg.promptLong : cfg.promptShort;
-  const maxTokens = isLong ? 350 : 150;
-
-  const fewShotMessages = (cfg.fewShot || []).flatMap(ex => [
-    { role: 'user',      content: ex.user      },
-    { role: 'assistant', content: ex.assistant  },
-  ]);
-
-  try {
-    const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
-      messages: [
-        { role: 'system', content: cfg.system },
-        ...fewShotMessages,
-        { role: 'user',   content: promptFn(title, source || 'news') },
-      ],
-      max_tokens: maxTokens,
-      temperature: 0.6,
-    });
-
-    const summary = result?.response?.trim() ?? '';
-    const responseBody = JSON.stringify({ summary });
-
-    // KV에 저장 - 24시간 TTL, 이후 모든 방문자는 KV에서 반환
-    if (env.SUMMARY_KV && summary) {
-      await env.SUMMARY_KV.put(cacheKey, responseBody, { expirationTtl: 86400 });
-    }
-
-    return new Response(responseBody, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=86400',
-        'X-Cache': 'MISS',
-      },
-    });
-  } catch {
-    return new Response(JSON.stringify({ error: 'AI request failed' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
+  // KV 미스 → 빈값 반환 (AI 호출 없음, 프론트에서 조용히 숨김)
+  return new Response(JSON.stringify({ summary: '' }), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+      'X-Cache': 'MISS',
+    },
+  });
 }
