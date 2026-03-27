@@ -135,7 +135,7 @@ async function parseRSS(feedUrl) {
     link:      item.link  || item.guid || '',
     pubDate:   item.pubDate || '',
     thumbnail: item.thumbnail || item.enclosure?.link || '',
-    desc:      item.description ? item.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200) : '',
+    desc:      item.description ? decodeHTML(item.description.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 200) : '',
   }));
 }
 
