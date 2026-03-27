@@ -609,10 +609,17 @@ function updateHomepage(enriched) {
   const allPosts = enriched.flatMap(c => c.posts || []);
   const total    = allPosts.length;
 
-  // 카테고리별로 대표 기사 1개씩 → 최대 3개 (다양성 확보)
+  // 카테고리별로 대표 기사 1개씩 → 최대 3개 (다양성 확보, 중복 제거)
+  const seenTitles = new Set();
   const top3 = enriched
     .filter(c => c.posts?.length > 0)
-    .map(c => c.posts[0])
+    .flatMap(c => c.posts)
+    .filter(p => {
+      const key = p.title.toLowerCase().slice(0, 60);
+      if (seenTitles.has(key)) return false;
+      seenTitles.add(key);
+      return true;
+    })
     .slice(0, 3);
 
   const articleCards = top3.map(a => `

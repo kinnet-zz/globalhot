@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>페이지를 찾을 수 없습니다 | GlobalHot</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .not-found-wrap {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      gap: 16px;
+    }
+    .not-found-code {
+      font-size: 96px;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #7c5cfc, #b06efb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .not-found-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text, #e8e8f0);
+      margin: 0;
+    }
+    .not-found-desc {
+      font-size: 15px;
+      color: var(--text2, #8888aa);
+      max-width: 360px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .not-found-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .not-found-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .not-found-btn:hover { opacity: .8; }
+    .not-found-btn--primary {
+      background: linear-gradient(135deg, #7c5cfc, #b06efb);
+      color: #fff;
+    }
+    .not-found-btn--secondary {
+      background: rgba(255,255,255,.07);
+      color: var(--text, #e8e8f0);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <span class="logo-globe">📈</span>
+        <span class="logo-text">GlobalHot</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="not-found-wrap">
+    <div class="not-found-code">404</div>
+    <p class="not-found-title">페이지를 찾을 수 없습니다</p>
+    <p class="not-found-desc">요청하신 페이지가 삭제되었거나 주소가 변경되었습니다.<br>홈으로 돌아가 최신 경제 뉴스를 확인해보세요.</p>
+    <div class="not-found-actions">
+      <a href="/" class="not-found-btn not-found-btn--primary">🏠 홈으로 돌아가기</a>
+      <a href="/posts/" class="not-found-btn not-found-btn--secondary">📰 브리핑 아카이브</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 GlobalHot · <a href="/about.html">서비스 소개</a> · <a href="/privacy.html">개인정보처리방침</a></span>
+    </div>
+  </footer>
+</body>
+</html>
