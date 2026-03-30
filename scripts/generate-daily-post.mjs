@@ -68,8 +68,9 @@ function parseRSSXml(xml) {
                || c.match(/<guid[^>]*isPermaLink="true"[^>]*>([\s\S]*?)<\/guid>/i)?.[1]?.trim()
                || c.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i)?.[1]?.trim() || '';
     const date  = c.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i)?.[1]?.trim() || '';
-    const desc  = c.match(/<description[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i)?.[1]
-                   ?.replace(/<[^>]+>/g, '')?.replace(/&nbsp;/g, ' ')?.trim()?.slice(0, 250) || '';
+    const desc  = decodeHtmlEntities(
+                   c.match(/<description[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i)?.[1]
+                   ?.replace(/<[^>]+>/g, '')?.replace(/&nbsp;/g, ' ')?.trim()?.slice(0, 250) || '');
     if (title && link) items.push({ title, link, date, desc });
   }
   return items;
