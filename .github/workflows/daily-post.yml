@@ -22,7 +22,7 @@ jobs:
 
       - name: 일일 포스트 생성
         env:
-          SITE_URL:       ${{ vars.SITE_URL || 'https://globalhot.pages.dev' }}
+          SITE_URL:       ${{ vars.SITE_URL || 'https://globalhot.net' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/generate-daily-post.mjs
 

@@ -12,6 +12,26 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://globalhot.net/sp500.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://globalhot.net/bitcoin.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://globalhot.net/nasdaq.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://globalhot.net/us-economy.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://globalhot.net/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

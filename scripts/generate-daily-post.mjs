@@ -39,7 +39,7 @@ async function safeFetch(url, opts = {}) {
   try {
     const res = await fetch(url, {
       headers: {
-        'User-Agent': 'GlobalHot/2.0 (economic news aggregator; https://globalhot.pages.dev)',
+        'User-Agent': 'GlobalHot/2.0 (economic news aggregator; https://globalhot.net)',
         'Accept': 'application/json, application/rss+xml, text/xml, */*',
         ...opts.headers,
       },
@@ -453,6 +453,32 @@ function renderCategory(cat) {
     </section>`;
 }
 
+// ── SEO 키워드 추출 ─────────────────────────────────────────
+function extractSEOTerms(allPosts) {
+  const text = allPosts.map(p => (p.title + ' ' + (p.summary || '')).toLowerCase()).join(' ');
+  const termMap = [
+    ['S&P500',      /\bs&p\s*500\b|\bsp500\b/],
+    ['나스닥',      /\bnasdaq\b/],
+    ['비트코인',    /\bbitcoin\b|\bbtc\b/],
+    ['이더리움',    /\bethereum\b|\beth\b/],
+    ['연준·금리',   /\bfederal reserve\b|\bfed\b.*\brate\b|\bfomc\b|\binterest rate\b/],
+    ['관세',        /\btariff\b/],
+    ['인플레이션',  /\binflation\b/],
+    ['달러·환율',   /\bdollar index\b|\bexchange rate\b|\busd\b.*\bkrw\b/],
+    ['원자재',      /\bcrude oil\b|\bwti\b|\bgold price\b|\bcommodit/],
+    ['AI·기술주',   /\bai stock\b|\bartificial intelligence\b.*\bstock\b/],
+    ['테슬라',      /\btesla\b/],
+    ['애플',        /\bapple\b.*\bstock\b|\baapl\b/],
+    ['엔비디아',    /\bnvidia\b|\bnvda\b/],
+  ];
+  const found = [];
+  for (const [label, pattern] of termMap) {
+    if (pattern.test(text)) found.push(label);
+    if (found.length >= 3) break;
+  }
+  return found;
+}
+
 function generateHTML(categories) {
   const allPosts  = categories.flatMap(c => c.posts || []);
   const total     = allPosts.length;
@@ -466,8 +492,16 @@ function generateHTML(categories) {
     .map(c => `<a href="#${c.id}" class="nav-pill">${c.label}</a>`)
     .join('');
 
-  const pageTitle = `${DATE_KO} 글로벌 경제·주식 브리핑`;
-  const pageDesc  = `${DATE_KO} 글로벌 경제·증시 주요 뉴스 ${total}건. 미국주식·가상화폐·거시경제에서 오늘 가장 주목받은 소식을 AI가 선별·한국어로 해설합니다. ${topTitles}`;
+  const seoTerms   = extractSEOTerms(allPosts);
+  const termPrefix = seoTerms.length > 0 ? seoTerms.join('·') + ' ' : '';
+  const pageTitle  = seoTerms.length > 0
+    ? `${termPrefix}오늘 시황 – ${DATE_KO}`
+    : `${DATE_KO} 글로벌 경제·주식 브리핑`;
+  const h1Text     = seoTerms.length > 0
+    ? `${seoTerms.join(', ')} 오늘 시황`
+    : `오늘 전세계에서 가장 뜨거웠던 경제·시장 뉴스`;
+  const h1Sub      = `${DATE_KO} 글로벌 경제·주식 AI 브리핑`;
+  const pageDesc   = `${DATE_KO} 글로벌 경제·증시 주요 뉴스 ${total}건. 미국주식·가상화폐·거시경제에서 오늘 가장 주목받은 소식을 AI가 선별·한국어로 해설합니다. ${topTitles}`;
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -556,7 +590,7 @@ function generateHTML(categories) {
 
     <div class="post-header">
       <div class="post-eyebrow">🤖 GlobalHot AI 브리핑 · ${TODAY}</div>
-      <h1 itemprop="headline">${escapeHtml(DATE_KO)}<br>오늘 전세계에서 가장 뜨거웠던 경제·시장 뉴스</h1>
+      <h1 itemprop="headline">${escapeHtml(h1Text)}<br><span style="font-size:.72em;font-weight:600;color:var(--text2)">${escapeHtml(h1Sub)}</span></h1>
       <div class="post-byline">
         <span>by <strong>GlobalHot AI 편집부</strong></span>
         <span>·</span>
@@ -753,6 +787,26 @@ function updateSitemap() {
   <url>
     <loc>${SITE_URL}/posts/</loc>
     <lastmod>${TODAY}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/sp500.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/bitcoin.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/nasdaq.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/us-economy.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
