@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://globalhot.pages.dev/sitemap.xml
+Sitemap: https://globalhot.net/sitemap.xml
