@@ -854,9 +854,21 @@ ${postUrls}
 
   // 2단계: Gemini 선별 + 해설
   console.log('\n🤖 AI 선별 및 한국어 해설 생성 중...');
-  const enriched  = await enrichWithAI(categories);
+  const enrichedRaw = await enrichWithAI(categories);
+
+  // 크로스-카테고리 중복 URL 제거 (같은 기사가 여러 카테고리에 나오는 것 방지)
+  const usedUrls = new Set();
+  const enriched = enrichedRaw.map(cat => ({
+    ...cat,
+    posts: (cat.posts || []).filter(p => {
+      if (!p.url || usedUrls.has(p.url)) return false;
+      usedUrls.add(p.url);
+      return true;
+    }),
+  }));
+
   const postTotal = enriched.reduce((s, c) => s + (c.posts?.length || 0), 0);
-  console.log(`\n✅ AI 선별 완료: ${postTotal}개 기사`);
+  console.log(`\n✅ AI 선별 완료: ${postTotal}개 기사 (중복 제거 후)`);
 
   // 3단계: HTML 생성
   const html = generateHTML(enriched);

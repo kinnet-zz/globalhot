@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="미국 주요 경제 지표 완전 설명. CPI·PPI·GDP·실업률·FOMC·PCE 등 투자자가 꼭 알아야 할 미국 경제 지표를 발표 시기와 시장 영향까지 함께 설명합니다." />
+  <meta name="keywords" content="CPI 뜻, FOMC 날짜, GDP 발표일, 미국 경제지표, 실업률 발표, PPI 설명, PCE 인플레이션" />
+  <title>미국 경제 지표 완전 가이드 – CPI·FOMC·GDP | GlobalHot</title>
+  <link rel="canonical" href="https://globalhot.net/market-indicators.html" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "미국 경제 지표 완전 가이드 – CPI·FOMC·GDP",
+    "description": "CPI·GDP·실업률·FOMC 등 투자자가 꼭 알아야 할 미국 경제 지표를 발표 시기와 시장 영향까지 함께 설명합니다.",
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-04-07",
+    "author": { "@type": "Organization", "name": "GlobalHot 편집부" },
+    "publisher": { "@type": "Organization", "name": "GlobalHot", "url": "https://globalhot.net" }
+  }
+  </script>
+  <style>
+    .page-wrap { max-width: 820px; margin: 40px auto; padding: 0 20px 80px; }
+    .page-wrap h1 { font-size: 28px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+    .subtitle { font-size: 15px; color: var(--text2); margin-bottom: 12px; line-height: 1.7; }
+    .updated { font-size: 12px; color: var(--text3); margin-bottom: 32px; }
+    .toc-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .toc-box h2 { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; }
+    .toc-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; list-style: none; padding: 0; margin: 0; }
+    .toc-list a { font-size: 13.5px; color: var(--accent); text-decoration: none; }
+    .toc-list a:hover { text-decoration: underline; }
+    .section { margin-bottom: 52px; }
+    .section > h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+    .indicator-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px 24px; margin-bottom: 16px; }
+    .ind-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .ind-name { font-size: 17px; font-weight: 800; color: var(--text); }
+    .ind-en { font-size: 12px; color: var(--text3); font-style: italic; margin-top: 2px; }
+    .ind-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .meta-tag { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+    .tag-timing { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .tag-impact { background: rgba(245,158,11,.12); color: #fbbf24; }
+    .tag-impact.high { background: rgba(239,68,68,.12); color: #f87171; }
+    .ind-body { font-size: 14px; color: var(--text2); line-height: 1.85; }
+    .ind-body strong { color: var(--text); }
+    .tip { background: rgba(99,102,241,.08); border-left: 3px solid var(--accent); padding: 11px 15px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .impact-box { padding: 10px 13px; border-radius: 6px; font-size: 13px; color: var(--text2); line-height: 1.6; }
+    .impact-up { background: rgba(0,200,81,.07); border: 1px solid rgba(0,200,81,.2); }
+    .impact-down { background: rgba(239,68,68,.07); border: 1px solid rgba(239,68,68,.2); }
+    .impact-box strong { display: block; font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+    .impact-up strong { color: #00C851; }
+    .impact-down strong { color: #f87171; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text3); margin-bottom: 32px; transition: color .2s; text-decoration: none; }
+    .back-link:hover { color: var(--accent); }
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .nav-pill-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text2); text-decoration: none; transition: all .15s; }
+    .nav-pill-link:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 600px) { .impact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <span class="logo-globe">📈</span>
+        <span class="logo-text">GlobalHot</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <a href="/" class="back-link">← 메인으로 돌아가기</a>
+
+    <h1>📊 미국 경제 지표 완전 가이드</h1>
+    <p class="subtitle">CPI·FOMC·GDP·실업률·PCE… 뉴스에서 자주 등장하는 미국 핵심 경제 지표의 뜻, 발표 시기, 시장 영향을 한 곳에서 정리했습니다.</p>
+    <p class="updated">최종 업데이트: 2026년 4월 7일 · GlobalHot 편집부</p>
+
+    <div class="toc-box">
+      <h2>목차</h2>
+      <ul class="toc-list">
+        <li><a href="#inflation">물가 지표</a></li>
+        <li><a href="#fed">연준·금리 지표</a></li>
+        <li><a href="#growth">성장·고용 지표</a></li>
+        <li><a href="#housing">주택·소비 지표</a></li>
+        <li><a href="#reading">지표 읽는 법</a></li>
+      </ul>
+    </div>
+
+    <!-- 물가 지표 -->
+    <section class="section" id="inflation">
+      <h2>🔥 물가 지표</h2>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">CPI — 소비자물가지수</div>
+            <div class="ind-en">Consumer Price Index</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 둘째 주 화요일~수요일</span>
+            <span class="meta-tag tag-impact high">⚡ 시장 영향: 매우 큼</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          미국 소비자가 구매하는 재화와 서비스의 가격 변동을 측정하는 지수입니다. 미국 노동통계국(BLS)이 발표하며, <strong>연준(Fed)의 금리 결정에 가장 직접적인 영향을 주는 지표</strong>입니다.
+          <br><br>
+          CPI는 <strong>헤드라인 CPI</strong>(전체)와 <strong>근원 CPI(Core CPI)</strong>(식품·에너지 제외)로 나뉩니다. 변동성이 큰 식품·에너지를 제외한 근원 CPI가 연준의 정책 판단에 더 중요합니다.
+          <div class="impact-grid">
+            <div class="impact-box impact-up">
+              <strong>📈 CPI 예상치 상회 시</strong>
+              인플레이션 우려 → 연준 금리 인상 기대 → 국채 금리 상승, 주식 하락, 달러 강세
+            </div>
+            <div class="impact-box impact-down">
+              <strong>📉 CPI 예상치 하회 시</strong>
+              물가 둔화 신호 → 연준 금리 인하 기대 → 국채 금리 하락, 주식 상승, 달러 약세
+            </div>
+          </div>
+          <div class="tip">💡 연준의 물가 목표는 연 2%(PCE 기준)입니다. CPI가 이를 지속적으로 초과하면 금리 인상 압력이 생깁니다. 발표 전날 밤부터 포지션 조정이 일어나 변동성이 커지는 경우가 많습니다.</div>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">PCE — 개인소비지출 물가지수</div>
+            <div class="ind-en">Personal Consumption Expenditures Price Index</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 말 금요일</span>
+            <span class="meta-tag tag-impact high">⚡ 시장 영향: 매우 큼</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          <strong>연준이 공식적으로 목표로 삼는 인플레이션 지표</strong>입니다. CPI보다 더 폭넓은 소비 패턴을 반영하며, 미국 상무부 경제분석국(BEA)이 발표합니다. 연준의 목표는 근원 PCE 연간 2%입니다.
+          <div class="impact-grid">
+            <div class="impact-box impact-up">
+              <strong>📈 PCE 상승 시</strong>
+              금리 인상 또는 동결 연장 예상 → 주식·채권 동반 하락 압력
+            </div>
+            <div class="impact-box impact-down">
+              <strong>📉 PCE 하락 시</strong>
+              금리 인하 기대 강화 → 성장주·기술주 수혜
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">PPI — 생산자물가지수</div>
+            <div class="ind-en">Producer Price Index</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 CPI 다음 날</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 중간</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          기업이 판매하는 상품과 서비스의 가격 변동을 측정합니다. 소비자에게 전가되기 전 단계의 물가를 보여주므로, <strong>CPI의 선행 지표</strong> 역할을 합니다. PPI가 오르면 시차를 두고 CPI도 오를 가능성이 높습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 연준·금리 지표 -->
+    <section class="section" id="fed">
+      <h2>🏦 연준·금리 지표</h2>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">FOMC 회의 및 금리 결정</div>
+            <div class="ind-en">Federal Open Market Committee Meeting</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 연 8회 (약 6주마다)</span>
+            <span class="meta-tag tag-impact high">⚡ 시장 영향: 최대</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          미국 연방준비제도(Fed)의 통화정책 결정 기구인 FOMC가 열리는 날입니다. 회의 결과로 <strong>기준금리(Federal Funds Rate) 인상·동결·인하</strong>가 결정됩니다. 금리 결정 자체보다 연준 의장의 기자회견 발언이 시장을 더 크게 움직이는 경우가 많습니다.
+          <br><br>
+          2026년 FOMC 예정일(미국 동부시간 오후 2시 발표, 한국시간 새벽 3시):
+          <br>· 1월 28~29일 · 3월 18~19일 · 4월 29~30일 · 6월 10~11일
+          <br>· 7월 29~30일 · 9월 16~17일 · 10월 28~29일 · 12월 9~10일
+          <div class="impact-grid">
+            <div class="impact-box impact-up">
+              <strong>📈 예상보다 비둘기파(금리 인하 시사) 시</strong>
+              주식 급등, 채권 금리 하락, 달러 약세, 금·비트코인 상승
+            </div>
+            <div class="impact-box impact-down">
+              <strong>📉 예상보다 매파(금리 인상 시사) 시</strong>
+              주식 급락, 채권 금리 상승, 달러 강세, 성장주 타격
+            </div>
+          </div>
+          <div class="tip">💡 '매파(Hawkish)'는 인플레이션 억제 우선, 금리 인상 선호 / '비둘기파(Dovish)'는 경기 부양 우선, 금리 인하 선호를 의미합니다.</div>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">연방기금금리 선물 (CME FedWatch)</div>
+            <div class="ind-en">Fed Funds Futures / CME FedWatch Tool</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 실시간</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 간접적</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          시장이 예상하는 금리 변동 확률을 실시간으로 보여주는 도구입니다. CME 그룹의 FedWatch 사이트에서 무료로 확인할 수 있습니다. 다음 FOMC에서 금리 인하 확률이 80%라면 시장이 이미 인하를 기정사실화하고 있다는 의미입니다.
+          <div class="tip">💡 실제 FOMC 발표보다 FedWatch 기대치 변화가 더 중요할 수 있습니다. 기대치가 크게 바뀔 때 주식·채권 시장이 먼저 반응합니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 성장·고용 지표 -->
+    <section class="section" id="growth">
+      <h2>📈 성장·고용 지표</h2>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">GDP — 국내총생산</div>
+            <div class="ind-en">Gross Domestic Product</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 분기별 (속보치·잠정치·확정치)</span>
+            <span class="meta-tag tag-impact high">⚡ 시장 영향: 큼</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          미국 경제의 전체 생산량을 나타내는 지표입니다. 분기 GDP 성장률이 <strong>2분기 연속 마이너스면 기술적 경기침체(Recession)</strong>로 정의합니다. 미국 상무부 BEA가 속보치(1개월 후) → 잠정치(2개월 후) → 확정치(3개월 후) 순으로 발표합니다.
+          <div class="impact-grid">
+            <div class="impact-box impact-up">
+              <strong>📈 GDP 예상 상회 시</strong>
+              경기 호조 → 주식 상승. 단, 너무 강하면 연준 금리 인상 우려로 역효과 가능
+            </div>
+            <div class="impact-box impact-down">
+              <strong>📉 GDP 예상 하회 시</strong>
+              경기 둔화 우려 → 주식 하락, 안전자산 선호(채권·금·달러)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">NFP — 비농업 고용지수</div>
+            <div class="ind-en">Non-Farm Payrolls</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 첫째 주 금요일</span>
+            <span class="meta-tag tag-impact high">⚡ 시장 영향: 매우 큼</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          미국 비농업 부문의 월간 신규 고용자 수입니다. <strong>연준이 고용 극대화와 물가 안정 두 가지를 목표</strong>로 삼기 때문에, 고용 지표는 금리 정책에 직접 영향을 줍니다.
+          <br><br>
+          일반적으로 월 15~20만 명 수준이 '건강한' 고용으로 봅니다. 예상치를 크게 웃돌면 경기 과열 우려, 크게 밑돌면 경기 침체 우려가 커집니다.
+          <div class="tip">💡 NFP 발표 당일 아침은 외환·주식 시장이 크게 요동칩니다. 발표 전 급등·급락 모두 가능하므로 초보자는 그날 포지션 변경을 자제하는 것이 좋습니다.</div>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">실업률</div>
+            <div class="ind-en">Unemployment Rate</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 NFP와 동시 발표</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 중간</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          경제활동인구 중 실업자 비율입니다. 미국 완전고용 실업률은 약 <strong>4~4.5%</strong>로 봅니다. 실업률이 너무 낮으면 임금 인상 → 인플레이션 압력이 생기고, 너무 높으면 경기 침체 신호입니다.
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">ADP 고용보고서</div>
+            <div class="ind-en">ADP National Employment Report</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 NFP 발표 이틀 전 (수요일)</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 중간</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          민간 고용정보업체 ADP가 발표하는 민간 부문 고용 통계입니다. 공식 NFP의 <strong>선행 지표</strong>로 활용되지만, 실제 NFP와 차이가 큰 경우도 있어 참고 지표로만 활용하는 것이 좋습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 주택·소비 지표 -->
+    <section class="section" id="housing">
+      <h2>🏠 주택·소비·심리 지표</h2>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">소매판매 (Retail Sales)</div>
+            <div class="ind-en">Retail Sales Report</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 중순</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 중간</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          미국 소비자들의 소매 지출 규모를 나타냅니다. 미국 GDP의 약 70%가 소비로 이루어지므로, 소매판매는 경기 향방을 가늠하는 중요한 선행 지표입니다. 예상을 크게 웃돌면 소비 호조 → 경기 낙관론 → 주식 상승 재료가 됩니다.
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">ISM 제조업·서비스업 PMI</div>
+            <div class="ind-en">ISM Manufacturing / Services PMI</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 초 (제조업: 1일, 서비스: 3일)</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 중간</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          기업 구매 담당자들의 설문을 바탕으로 경기를 측정하는 선행 지수입니다. <strong>50 이상이면 경기 확장, 50 미만이면 수축</strong>을 의미합니다. 실제 경기보다 1~2개월 선행하는 특성이 있어 투자자들이 중요하게 봅니다.
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-header">
+          <div>
+            <div class="ind-name">미시간대 소비자심리지수</div>
+            <div class="ind-en">University of Michigan Consumer Sentiment</div>
+          </div>
+          <div class="ind-meta">
+            <span class="meta-tag tag-timing">📅 매월 두 번째·네 번째 금요일</span>
+            <span class="meta-tag tag-impact">⚡ 시장 영향: 낮음~중간</span>
+          </div>
+        </div>
+        <div class="ind-body">
+          미국 소비자들의 경제에 대한 낙관·비관 정도를 수치화한 지표입니다. 소비자 심리가 좋으면 소비 지출 증가 → 경기 활성화로 이어질 수 있습니다. 지수에는 <strong>인플레이션 기대치</strong>도 포함되어 연준이 주목합니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 지표 읽는 법 -->
+    <section class="section" id="reading">
+      <h2>💡 경제 지표, 이렇게 읽으세요</h2>
+
+      <div class="indicator-card">
+        <div class="ind-title" style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px;">핵심 원칙: 절대값보다 '예상 대비'가 중요</div>
+        <div class="ind-body">
+          경제 지표 발표에서 가장 중요한 것은 절대적 수치가 아니라 <strong>시장 예상치(컨센서스)와의 차이</strong>입니다. CPI가 3%라도 예상이 3.5%였으면 '예상보다 낮다'는 이유로 주식이 오를 수 있습니다.
+          <br><br>
+          발표 전 블룸버그·로이터 등이 집계한 예상치를 미리 파악해두면 발표 후 시장 반응을 이해하는 데 도움이 됩니다.
+          <div class="tip">💡 좋은 뉴스가 나빠지고(Good news is bad news), 나쁜 뉴스가 좋아지는(Bad news is good news) 역설적 상황도 자주 발생합니다. 경기가 너무 좋으면 연준이 금리를 올릴 것이라는 우려 때문입니다.</div>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <div class="ind-title" style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px;">지표 발표 전후 투자 전략</div>
+        <div class="ind-body">
+          <strong>발표 전:</strong> 포지션을 줄이거나 헤지하는 것이 안전합니다. 예상과 반대로 움직이면 손실이 커질 수 있습니다.
+          <br><br>
+          <strong>발표 직후:</strong> 초기 반응은 과도한 경우가 많습니다. 15~30분이 지나면 시장이 재해석하며 반전이 오기도 합니다.
+          <br><br>
+          <strong>장기 투자자라면:</strong> 단기 발표에 일희일비하지 말고, 추세(3~6개월 방향)에 집중하는 것이 더 효과적입니다.
+        </div>
+      </div>
+    </section>
+
+    <div class="nav-pills">
+      <a href="/guide.html" class="nav-pill-link">📖 경제 용어 가이드</a>
+      <a href="/investing-guide.html" class="nav-pill-link">📈 미국주식 투자 가이드</a>
+      <a href="/etf-guide.html" class="nav-pill-link">📦 ETF 완전 가이드</a>
+      <a href="/posts/" class="nav-pill-link">매일 시장 브리핑</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/guide.html">경제 용어</a>
+        <a href="/investing-guide.html">투자 가이드</a>
+        <a href="/etf-guide.html">ETF 가이드</a>
+        <a href="/market-indicators.html">경제 지표</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/posts/">브리핑 아카이브</a>
+      </div>
+      <p class="footer-copy">© 2026 GlobalHot · 본 콘텐츠는 정보 제공 목적이며 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.</p>
+    </div>
+  </footer>
+</body>
+</html>

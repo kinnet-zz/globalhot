@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ETF(상장지수펀드) 완전 가이드. ETF 뜻과 종류, S&P500·나스닥·섹터 ETF 비교, 한국인 추천 ETF 목록까지 초보자도 쉽게 이해할 수 있도록 설명합니다." />
+  <meta name="keywords" content="ETF 뜻, ETF 추천, SPY QQQ 비교, 나스닥ETF, S&P500 ETF, 미국ETF 종류, ETF 투자 방법" />
+  <title>ETF 완전 가이드 – 종류·추천·투자 방법 | GlobalHot</title>
+  <link rel="canonical" href="https://globalhot.net/etf-guide.html" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ETF 완전 가이드 – 종류·추천·투자 방법",
+    "description": "ETF의 뜻과 종류, S&P500·나스닥·섹터 ETF 비교, 한국인 추천 ETF 목록까지 초보자도 쉽게 이해할 수 있도록 설명합니다.",
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-04-07",
+    "author": { "@type": "Organization", "name": "GlobalHot 편집부" },
+    "publisher": { "@type": "Organization", "name": "GlobalHot", "url": "https://globalhot.net" }
+  }
+  </script>
+  <style>
+    .page-wrap { max-width: 820px; margin: 40px auto; padding: 0 20px 80px; }
+    .page-wrap h1 { font-size: 28px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+    .subtitle { font-size: 15px; color: var(--text2); margin-bottom: 12px; line-height: 1.7; }
+    .updated { font-size: 12px; color: var(--text3); margin-bottom: 32px; }
+    .toc-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .toc-box h2 { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; }
+    .toc-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px; list-style: none; padding: 0; margin: 0; }
+    .toc-list a { font-size: 13.5px; color: var(--accent); text-decoration: none; }
+    .toc-list a:hover { text-decoration: underline; }
+    .section { margin-bottom: 52px; }
+    .section > h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px 24px; margin-bottom: 16px; }
+    .info-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .info-body { font-size: 14px; color: var(--text2); line-height: 1.85; }
+    .info-body strong { color: var(--text); }
+    .tip { background: rgba(99,102,241,.08); border-left: 3px solid var(--accent); padding: 11px 15px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .warn { background: rgba(245,158,11,.06); border-left: 3px solid #f59e0b; padding: 11px 15px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .etf-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .etf-table th { background: var(--card); padding: 10px 12px; text-align: left; font-weight: 700; border: 1px solid var(--border); color: var(--text); font-size: 12px; }
+    .etf-table td { padding: 10px 12px; border: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+    .etf-table tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+    .etf-badge { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 2px 7px; border-radius: 4px; }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .pros { background: rgba(0,200,81,.06); border: 1px solid rgba(0,200,81,.2); border-radius: var(--radius-sm); padding: 16px; }
+    .cons { background: rgba(255,99,71,.06); border: 1px solid rgba(255,99,71,.2); border-radius: var(--radius-sm); padding: 16px; }
+    .pros h4, .cons h4 { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+    .pros h4 { color: #00C851; }
+    .cons h4 { color: #ff6347; }
+    .pros li, .cons li { font-size: 13px; color: var(--text2); line-height: 1.7; list-style: none; padding: 3px 0; }
+    .pros li::before { content: "✓ "; color: #00C851; font-weight: 700; }
+    .cons li::before { content: "✗ "; color: #ff6347; font-weight: 700; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
+    .scenario-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; }
+    .scenario-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .scenario-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text3); margin-bottom: 32px; transition: color .2s; text-decoration: none; }
+    .back-link:hover { color: var(--accent); }
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .nav-pill-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text2); text-decoration: none; transition: all .15s; }
+    .nav-pill-link:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <span class="logo-globe">📈</span>
+        <span class="logo-text">GlobalHot</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <a href="/" class="back-link">← 메인으로 돌아가기</a>
+
+    <h1>📦 ETF 완전 가이드</h1>
+    <p class="subtitle">ETF가 뭔지부터 어떤 ETF를 골라야 하는지까지 — 주식 초보자도 바로 이해할 수 있는 ETF 투자 완전 설명서입니다.</p>
+    <p class="updated">최종 업데이트: 2026년 4월 7일 · GlobalHot 편집부</p>
+
+    <div class="toc-box">
+      <h2>목차</h2>
+      <ul class="toc-list">
+        <li><a href="#what">ETF란 무엇인가</a></li>
+        <li><a href="#pros-cons">ETF의 장단점</a></li>
+        <li><a href="#types">ETF 종류</a></li>
+        <li><a href="#major-etf">주요 미국 ETF 비교</a></li>
+        <li><a href="#sector">섹터 ETF</a></li>
+        <li><a href="#domestic">국내 ETF vs 미국 직접 투자</a></li>
+        <li><a href="#strategy">ETF 투자 전략</a></li>
+        <li><a href="#faq">자주 묻는 질문</a></li>
+      </ul>
+    </div>
+
+    <!-- ETF란 -->
+    <section class="section" id="what">
+      <h2>ETF란 무엇인가</h2>
+
+      <div class="info-card">
+        <div class="info-title">ETF = 펀드 + 주식의 장점을 합친 것</div>
+        <div class="info-body">
+          ETF(Exchange-Traded Fund, 상장지수펀드)는 <strong>주식처럼 거래소에서 실시간으로 사고팔 수 있는 펀드</strong>입니다. 일반 펀드처럼 여러 자산을 담고 있으면서도, 주식처럼 증권사 앱에서 클릭 한 번으로 즉시 매매할 수 있습니다.
+          <br><br>
+          예를 들어 S&P 500 ETF 하나를 사면, 그 안에 애플·마이크로소프트·아마존·엔비디아 등 500개 기업에 동시에 분산 투자하는 효과가 납니다.
+          <div class="tip">💡 비유하자면 ETF는 '주식 모둠 도시락'입니다. 한 도시락 안에 여러 반찬(종목)이 들어 있어 따로따로 살 필요가 없고, 편의점에서 바로 살 수 있는 것처럼 거래소에서 즉시 거래됩니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">ETF의 핵심 구조</div>
+        <div class="info-body">
+          ETF는 특정 <strong>지수(Index)를 추종</strong>하도록 설계됩니다. 지수란 특정 기준으로 선별된 주식들의 묶음입니다.
+          <br><br>
+          · <strong>S&P 500 지수</strong> → 미국 대형주 500개를 시가총액 비중대로 담음
+          <br>· <strong>나스닥 100 지수</strong> → 나스닥 상장 비금융 대형주 100개
+          <br>· <strong>MSCI 월드 지수</strong> → 선진국 주식 시장 전체
+          <br><br>
+          ETF 운용사(BlackRock, Vanguard, State Street 등)는 이 지수를 그대로 복제해 ETF를 만들고, 투자자는 ETF를 사는 것만으로 지수 수익률을 따라갈 수 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 장단점 -->
+    <section class="section" id="pros-cons">
+      <h2>ETF의 장단점</h2>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>장점</h4>
+          <ul>
+            <li>즉시 분산투자 효과</li>
+            <li>개별주보다 낮은 리스크</li>
+            <li>운용 보수가 매우 저렴 (연 0.03~0.2%)</li>
+            <li>실시간 매매 가능 (주식처럼)</li>
+            <li>투명한 구성 종목 공개</li>
+            <li>소액으로도 분산 투자 가능</li>
+            <li>배당금 지급 ETF도 존재</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>단점</h4>
+          <ul>
+            <li>개별주 급등 같은 대박 수익 불가능</li>
+            <li>시장 전체가 하락하면 같이 하락</li>
+            <li>레버리지 ETF는 매우 위험</li>
+            <li>수수료가 0은 아님 (소액이지만 존재)</li>
+            <li>주식 시장 개장 시간에만 거래 가능</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ETF 종류 -->
+    <section class="section" id="types">
+      <h2>ETF 종류</h2>
+
+      <div class="info-card">
+        <div class="info-title">① 지수 추종 ETF (Index ETF)</div>
+        <div class="info-body">
+          가장 일반적인 ETF입니다. S&P 500, 나스닥 100, 다우존스 등 특정 지수를 그대로 복제합니다. 운용 보수가 낮고 장기투자에 적합합니다. SPY, IVV, VOO(S&P 500), QQQ(나스닥 100)가 대표적입니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">② 섹터 ETF (Sector ETF)</div>
+        <div class="info-body">
+          IT, 헬스케어, 에너지, 금융 등 특정 산업 분야에만 집중하는 ETF입니다. 특정 섹터 전망이 좋을 때 집중 투자하는 데 사용합니다. XLK(기술), XLV(헬스케어), XLF(금융), XLE(에너지)가 대표적입니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">③ 채권 ETF (Bond ETF)</div>
+        <div class="info-body">
+          미국 국채, 회사채 등에 투자하는 ETF입니다. 주식보다 안전하지만 수익률이 낮습니다. 포트폴리오의 안전판 역할로 활용합니다. AGG(미국 종합채권), TLT(장기 국채), BND가 대표적입니다.
+          <div class="tip">💡 일반적으로 주식 ETF와 채권 ETF를 혼합해 포트폴리오를 구성합니다. 나이가 많을수록 채권 비중을 높이는 전략이 고전적입니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">④ 테마 ETF (Thematic ETF)</div>
+        <div class="info-body">
+          AI, 반도체, 전기차, 클라우드, 사이버보안 등 특정 테마에 투자하는 ETF입니다. 성장 가능성이 높지만 변동성도 큽니다. ARKK(혁신 기술), SOXX(반도체), HACK(사이버보안)이 대표적입니다.
+          <div class="warn">⚠️ 테마 ETF는 변동성이 크고 유행을 타는 경향이 있습니다. ARKK는 2020년 고점 대비 80% 이상 하락한 사례가 있습니다. 핵심 포트폴리오보다는 위성 포지션으로 소량 편입하는 것이 안전합니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">⑤ 레버리지·인버스 ETF</div>
+        <div class="info-body">
+          <strong>레버리지 ETF</strong>는 지수 수익률의 2배, 3배를 추구합니다(TQQQ: 나스닥 3배). <strong>인버스 ETF</strong>는 지수가 하락할 때 수익이 나도록 설계됩니다.
+          <div class="warn">⚠️ 레버리지·인버스 ETF는 단기 트레이딩 도구이지 장기 투자 상품이 아닙니다. 매일 리밸런싱하는 구조 때문에 장기 보유 시 복리 손실이 발생합니다. 초보자는 피하는 것을 강력히 권고합니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 주요 ETF 비교 -->
+    <section class="section" id="major-etf">
+      <h2>주요 미국 ETF 비교</h2>
+
+      <div class="info-card">
+        <div class="info-title">S&P 500 ETF 3대장 비교</div>
+        <div class="info-body">
+          <table class="etf-table">
+            <thead>
+              <tr><th>ETF</th><th>운용사</th><th>연 보수</th><th>순자산(AUM)</th><th>특징</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>SPY</strong></td>
+                <td>State Street</td>
+                <td>0.0945%</td>
+                <td>~$5,000억+</td>
+                <td>최초의 S&P500 ETF. 유동성 최고, 옵션 거래 활발</td>
+              </tr>
+              <tr>
+                <td><strong>IVV</strong></td>
+                <td>BlackRock(iShares)</td>
+                <td>0.03%</td>
+                <td>~$5,000억+</td>
+                <td>SPY보다 보수 저렴, 장기 투자에 유리</td>
+              </tr>
+              <tr>
+                <td><strong>VOO</strong></td>
+                <td>Vanguard</td>
+                <td>0.03%</td>
+                <td>~$5,000억+</td>
+                <td>IVV와 유사, 워런 버핏이 추천한 ETF</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="tip">💡 장기 투자라면 보수가 낮은 IVV나 VOO가 유리합니다. 단기 트레이딩이나 옵션 거래를 한다면 유동성이 가장 높은 SPY가 적합합니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">성격이 다른 주요 ETF 비교</div>
+        <div class="info-body">
+          <table class="etf-table">
+            <thead>
+              <tr><th>ETF</th><th>추종 지수</th><th>연 보수</th><th>특징</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>QQQ</strong></td>
+                <td>나스닥 100</td>
+                <td>0.20%</td>
+                <td>기술주 중심, 고성장·고변동성</td>
+              </tr>
+              <tr>
+                <td><strong>VTI</strong></td>
+                <td>미국 전체 주식</td>
+                <td>0.03%</td>
+                <td>대·중·소형주 포함, 극단적 분산</td>
+              </tr>
+              <tr>
+                <td><strong>VEA</strong></td>
+                <td>선진국(미국 제외)</td>
+                <td>0.05%</td>
+                <td>유럽·일본·호주 등 분산</td>
+              </tr>
+              <tr>
+                <td><strong>VWO</strong></td>
+                <td>신흥국</td>
+                <td>0.08%</td>
+                <td>중국·인도·한국 등 이머징 마켓</td>
+              </tr>
+              <tr>
+                <td><strong>GLD</strong></td>
+                <td>금 현물</td>
+                <td>0.40%</td>
+                <td>인플레이션 헤지, 안전자산</td>
+              </tr>
+              <tr>
+                <td><strong>AGG</strong></td>
+                <td>미국 종합채권</td>
+                <td>0.03%</td>
+                <td>주식 위험 완충, 안정적 수익</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹터 ETF -->
+    <section class="section" id="sector">
+      <h2>섹터 ETF — 업종별 집중 투자</h2>
+
+      <div class="info-card">
+        <div class="info-title">미국 11개 GICS 섹터 ETF</div>
+        <div class="info-body">
+          <table class="etf-table">
+            <thead>
+              <tr><th>섹터</th><th>대표 ETF</th><th>주요 보유 종목 예시</th><th>특징</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>IT·기술</td><td>XLK</td><td>애플, 마이크로소프트, 엔비디아</td><td>고성장, AI·반도체 수혜</td></tr>
+              <tr><td>헬스케어</td><td>XLV</td><td>존슨앤존슨, UnitedHealth, 화이자</td><td>경기 방어적, 안정적</td></tr>
+              <tr><td>금융</td><td>XLF</td><td>JP모건, 버크셔해서웨이, BOA</td><td>금리 상승 수혜</td></tr>
+              <tr><td>임의소비재</td><td>XLY</td><td>아마존, 테슬라, 맥도날드</td><td>경기 호황 시 수혜</td></tr>
+              <tr><td>필수소비재</td><td>XLP</td><td>P&G, 코카콜라, 월마트</td><td>경기 방어적, 안정 배당</td></tr>
+              <tr><td>에너지</td><td>XLE</td><td>엑손모빌, 셰브론</td><td>유가 연동, 인플레 헤지</td></tr>
+              <tr><td>유틸리티</td><td>XLU</td><td>넥스트에라에너지, Duke</td><td>고배당, 금리 민감</td></tr>
+              <tr><td>부동산</td><td>XLRE</td><td>아메리칸타워, Prologis</td><td>임대 수익, 배당 중심</td></tr>
+              <tr><td>소재</td><td>XLB</td><td>린데, Air Products, FCX</td><td>원자재 경기 연동</td></tr>
+              <tr><td>산업재</td><td>XLI</td><td>하니웰, 유니온퍼시픽, GE</td><td>제조업·물류 핵심</td></tr>
+              <tr><td>통신</td><td>XLC</td><td>알파벳, 메타, Comcast</td><td>광고·미디어·통신 혼합</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 국내 ETF vs 미국 직접 투자 -->
+    <section class="section" id="domestic">
+      <h2>국내 ETF vs 미국 ETF 직접 투자</h2>
+
+      <div class="info-card">
+        <div class="info-title">국내 상장 미국 추종 ETF</div>
+        <div class="info-body">
+          한국거래소(KRX)에 상장된 ETF로도 미국 지수에 투자할 수 있습니다. 원화로 거래 가능하고, ISA·연금저축계좌와 연계해 세제 혜택을 받을 수 있습니다.
+          <table class="etf-table">
+            <thead>
+              <tr><th>국내 ETF</th><th>추종 지수</th><th>운용사</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>TIGER 미국S&P500</td><td>S&P 500</td><td>미래에셋자산운용</td></tr>
+              <tr><td>KODEX 미국S&P500TR</td><td>S&P 500 (배당 재투자)</td><td>삼성자산운용</td></tr>
+              <tr><td>TIGER 미국나스닥100</td><td>나스닥 100</td><td>미래에셋자산운용</td></tr>
+              <tr><td>KODEX 미국나스닥100TR</td><td>나스닥 100 (배당 재투자)</td><td>삼성자산운용</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">💡 연금저축·IRP 계좌에서 국내 ETF 투자 시 연 최대 900만 원까지 세액공제(13.2~16.5%) 혜택을 받을 수 있습니다. 미국 ETF 직접 투자보다 세제 면에서 유리한 경우가 많습니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">미국 ETF 직접 투자의 장점</div>
+        <div class="info-body">
+          · <strong>보수율</strong>이 국내 동일 ETF보다 낮음 (VOO 0.03% vs 국내 0.07~0.15%)
+          <br>· <strong>종류가 다양</strong>해 원하는 전략을 더 정밀하게 구현 가능
+          <br>· <strong>달러 자산</strong> 보유 효과 (원화 약세 시 이익)
+          <br>· 배당을 현금으로 받아 재투자 결정 가능
+          <div class="warn">⚠️ 미국 ETF 직접 투자는 연간 양도차익 250만 원 초과 시 22% 세금 신고 의무가 있습니다. 국내 ETF는 과세 구조가 다르므로 자신의 상황에 맞게 선택하세요.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 투자 전략 -->
+    <section class="section" id="strategy">
+      <h2>ETF 투자 전략</h2>
+
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="scenario-title">🌱 입문자 포트폴리오</div>
+          <div class="scenario-body">VOO 또는 SPY 100%. 단 하나의 ETF로 시작해 미국 시장 전체에 분산 투자. 가장 단순하고 검증된 방법입니다.</div>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-title">⚖️ 균형 포트폴리오</div>
+          <div class="scenario-body">VOO 60% + AGG(채권) 30% + GLD(금) 10%. 주식·채권·금을 나눠 변동성을 줄이는 안정적인 구성입니다.</div>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-title">🚀 성장 포트폴리오</div>
+          <div class="scenario-body">QQQ 60% + VOO 30% + SOXX(반도체) 10%. AI·기술 성장에 베팅하는 공격적 구성. 변동성이 큽니다.</div>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-title">🌍 글로벌 분산</div>
+          <div class="scenario-body">VTI(미국 전체) 50% + VEA(선진국) 30% + VWO(신흥국) 20%. 미국 집중 리스크를 줄이는 글로벌 분산 전략입니다.</div>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-title">🏠 배당 중심</div>
+          <div class="scenario-body">VYM(고배당) 40% + SCHD(배당 성장) 40% + XLRE(부동산) 20%. 안정적인 배당 수익을 원하는 투자자에게 적합합니다.</div>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-title">🇰🇷 국내 절세 활용</div>
+          <div class="scenario-body">IRP/연금저축 계좌에 TIGER 미국S&P500 + KODEX 미국나스닥100TR. 세액공제를 최대 활용하는 국내 계좌 전략입니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>자주 묻는 질문</h2>
+
+      <div class="info-card">
+        <div class="info-title">Q. ETF는 언제 사는 게 좋나요?</div>
+        <div class="info-body">
+          '지금이 좋은 타이밍인가?'를 고민하기보다 <strong>매월 일정 금액을 꾸준히 분할 매수</strong>하는 것이 장기적으로 대부분의 타이밍 전략을 이깁니다. 시장을 예측할 수 있는 사람은 없습니다. 워런 버핏도 "주식 시장을 단기 예측할 수 있다고 생각하는 사람을 조심하라"고 했습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. ETF와 인덱스펀드는 같은 건가요?</div>
+        <div class="info-body">
+          둘 다 특정 지수를 추종하지만 <strong>거래 방식이 다릅니다</strong>. 인덱스펀드는 하루 한 번 기준가로 거래되고, ETF는 주식처럼 장중 실시간으로 거래됩니다. 소액 투자자에게는 ETF가 더 접근하기 편리합니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. ETF는 망할 수 있나요?</div>
+        <div class="info-body">
+          ETF 자체가 '청산'될 수는 있습니다. 규모가 너무 작거나 투자자가 줄면 운용사가 ETF를 종료하기도 합니다. 그러나 SPY·VOO·QQQ처럼 <strong>규모가 수천억 달러 이상인 대형 ETF</strong>는 사실상 청산 위험이 없습니다. 청산되더라도 자산 가치를 돌려받으므로 원금이 사라지는 개념이 아닙니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. 배당 ETF에서 배당금은 언제 받나요?</div>
+        <div class="info-body">
+          미국 ETF의 배당은 대부분 <strong>분기별(3·6·9·12월)</strong>로 지급됩니다. 일부 ETF는 월배당도 지급합니다. 배당금은 증권사 달러 계좌로 입금되며, 미국 원천징수세 15%가 이미 공제된 금액이 입금됩니다.
+        </div>
+      </div>
+    </section>
+
+    <div class="nav-pills">
+      <a href="/guide.html" class="nav-pill-link">📖 경제 용어 가이드</a>
+      <a href="/investing-guide.html" class="nav-pill-link">📈 미국주식 투자 가이드</a>
+      <a href="/market-indicators.html" class="nav-pill-link">📊 경제 지표 설명</a>
+      <a href="/posts/" class="nav-pill-link">매일 시장 브리핑</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/guide.html">경제 용어</a>
+        <a href="/investing-guide.html">투자 가이드</a>
+        <a href="/etf-guide.html">ETF 가이드</a>
+        <a href="/market-indicators.html">경제 지표</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/posts/">브리핑 아카이브</a>
+      </div>
+      <p class="footer-copy">© 2026 GlobalHot · 본 콘텐츠는 정보 제공 목적이며 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.</p>
+    </div>
+  </footer>
+</body>
+</html>
