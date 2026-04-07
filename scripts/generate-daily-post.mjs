@@ -553,7 +553,9 @@ function generateHTML(categories) {
     .cat-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
     .nav-pill { padding: 5px 14px; background: transparent; border: 1px solid var(--border); border-radius: 20px; font-size: 12px; color: var(--text3); text-decoration: none; transition: all .15s; }
     .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-pill.active { border-color: var(--accent); color: var(--accent); background: rgba(99,102,241,.12); }
     .cat-section { margin-bottom: 56px; }
+    .cat-section.hidden { display: none; }
     .cat-header { margin-bottom: 20px; }
     .cat-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
     .cat-intro { font-size: 13px; color: var(--text3); line-height: 1.6; }
@@ -621,6 +623,42 @@ function generateHTML(categories) {
     </div>
 
   </div>
+
+  <script>
+  (function () {
+    var pills = document.querySelectorAll('.nav-pill');
+    var sections = document.querySelectorAll('.cat-section');
+    function activate(hash) {
+      var id = hash ? hash.replace('#', '') : '';
+      var found = false;
+      sections.forEach(function (s) {
+        if (s.id === id) { s.classList.remove('hidden'); found = true; }
+        else { s.classList.add('hidden'); }
+      });
+      pills.forEach(function (p) {
+        if (p.getAttribute('href') === hash) p.classList.add('active');
+        else p.classList.remove('active');
+      });
+      if (!found) {
+        sections.forEach(function (s) { s.classList.remove('hidden'); });
+        pills.forEach(function (p) { p.classList.remove('active'); });
+      }
+    }
+    pills.forEach(function (p) {
+      p.addEventListener('click', function (e) {
+        var href = p.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          history.pushState(null, '', href);
+          activate(href);
+          window.scrollTo(0, 0);
+        }
+      });
+    });
+    activate(location.hash);
+    window.addEventListener('popstate', function () { activate(location.hash); window.scrollTo(0, 0); });
+  })();
+  </script>
 
 </body>
 </html>`;

@@ -237,5 +237,40 @@
     </li></ul>
     <a class="back-link" href="/">← GlobalHot 메인으로</a>
   </div>
+  <script>
+  (function () {
+    var pills = document.querySelectorAll('.nav-pill');
+    var sections = document.querySelectorAll('.cat-section');
+    function activate(hash) {
+      var id = hash ? hash.replace('#', '') : '';
+      var found = false;
+      sections.forEach(function (s) {
+        if (s.id === id) { s.classList.remove('hidden'); found = true; }
+        else { s.classList.add('hidden'); }
+      });
+      pills.forEach(function (p) {
+        if (p.getAttribute('href') === hash) p.classList.add('active');
+        else p.classList.remove('active');
+      });
+      if (!found) {
+        sections.forEach(function (s) { s.classList.remove('hidden'); });
+        pills.forEach(function (p) { p.classList.remove('active'); });
+      }
+    }
+    pills.forEach(function (p) {
+      p.addEventListener('click', function (e) {
+        var href = p.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          history.pushState(null, '', href);
+          activate(href);
+          window.scrollTo(0, 0);
+        }
+      });
+    });
+    activate(location.hash);
+    window.addEventListener('popstate', function () { activate(location.hash); window.scrollTo(0, 0); });
+  })();
+  </script>
 </body>
 </html>
