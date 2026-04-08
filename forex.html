@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="환율 완전 가이드. 달러·원화·글로벌 외환의 기본 개념부터 환율 결정 요인, 환헤지 ETF, 역대 환율 위기, 개인 투자자 환리스크 관리 방법까지 한눈에 정리합니다." />
+  <meta name="keywords" content="환율 뜻, USD KRW 환율, 달러 원화 환율, 달러 인덱스 DXY, 환헤지 ETF, 원화 약세 강세, IMF 환율 위기, 환율 투자" />
+  <title>환율 완전 가이드 – 달러·원화·글로벌 외환 | GlobalHot</title>
+  <link rel="canonical" href="https://globalhot.net/forex.html" />
+  <link rel="stylesheet" href="style.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3314960461630607" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "환율 완전 가이드 – 달러·원화·글로벌 외환",
+    "description": "환율의 기본 개념부터 달러/원 환율 결정 요인, 환헤지 ETF, 역대 환율 위기, 개인 투자자 환리스크 관리 방법까지 한눈에 정리합니다.",
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-04-07",
+    "author": { "@type": "Organization", "name": "GlobalHot 편집부" },
+    "publisher": { "@type": "Organization", "name": "GlobalHot", "url": "https://globalhot.net" }
+  }
+  </script>
+  <style>
+    .page-wrap { max-width: 820px; margin: 40px auto; padding: 0 20px 80px; }
+    .page-wrap h1 { font-size: 28px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+    .subtitle { font-size: 15px; color: var(--text2); margin-bottom: 12px; line-height: 1.7; }
+    .updated { font-size: 12px; color: var(--text3); margin-bottom: 32px; }
+    .toc-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .toc-box h2 { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; }
+    .toc-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px; list-style: none; padding: 0; margin: 0; }
+    .toc-list a { font-size: 13.5px; color: var(--accent); text-decoration: none; }
+    .toc-list a:hover { text-decoration: underline; }
+    .section { margin-bottom: 52px; }
+    .section > h2 { font-size: 20px; font-weight: 800; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px 24px; margin-bottom: 16px; }
+    .info-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .info-body { font-size: 14px; color: var(--text2); line-height: 1.85; }
+    .info-body strong { color: var(--text); }
+    .tip { background: rgba(99,102,241,.08); border-left: 3px solid var(--accent); padding: 11px 15px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .warn { background: rgba(245,158,11,.06); border-left: 3px solid #f59e0b; padding: 11px 15px; margin-top: 12px; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .fx-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .fx-table th { background: var(--card); padding: 10px 12px; text-align: left; font-weight: 700; border: 1px solid var(--border); color: var(--text); font-size: 12px; }
+    .fx-table td { padding: 10px 12px; border: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+    .fx-table tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+    .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .pros { background: rgba(0,200,81,.06); border: 1px solid rgba(0,200,81,.2); border-radius: var(--radius-sm); padding: 16px; }
+    .cons { background: rgba(255,99,71,.06); border: 1px solid rgba(255,99,71,.2); border-radius: var(--radius-sm); padding: 16px; }
+    .pros h4, .cons h4 { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+    .pros h4 { color: #00C851; }
+    .cons h4 { color: #ff6347; }
+    .pros li, .cons li { font-size: 13px; color: var(--text2); line-height: 1.7; list-style: none; padding: 3px 0; }
+    .pros li::before { content: "✓ "; color: #00C851; font-weight: 700; }
+    .cons li::before { content: "✗ "; color: #ff6347; font-weight: 700; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
+    .scenario-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; }
+    .scenario-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .scenario-body { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text3); margin-bottom: 32px; transition: color .2s; text-decoration: none; }
+    .back-link:hover { color: var(--accent); }
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .nav-pill-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; color: var(--text2); text-decoration: none; transition: all .15s; }
+    .nav-pill-link:hover { border-color: var(--accent); color: var(--accent); }
+    .crisis-timeline { position: relative; padding-left: 24px; margin-top: 16px; }
+    .crisis-timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .crisis-item { position: relative; margin-bottom: 24px; }
+    .crisis-item::before { content: ''; position: absolute; left: -20px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+    .crisis-year { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 4px; letter-spacing: 0.5px; }
+    .crisis-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .crisis-body { font-size: 13px; color: var(--text2); line-height: 1.75; }
+    @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <span class="logo-globe">📈</span>
+        <span class="logo-text">GlobalHot</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <a href="/" class="back-link">← 메인으로 돌아가기</a>
+
+    <h1>💱 환율 완전 가이드</h1>
+    <p class="subtitle">달러·원화부터 글로벌 외환까지 — 환율이 뭔지, 왜 움직이는지, 내 투자에 어떤 영향을 주는지 초보자도 바로 이해할 수 있는 환율 완전 설명서입니다.</p>
+    <p class="updated">최종 업데이트: 2026년 4월 7일 · GlobalHot 편집부</p>
+
+    <div class="toc-box">
+      <h2>목차</h2>
+      <ul class="toc-list">
+        <li><a href="#what">환율이란?</a></li>
+        <li><a href="#factors">달러/원 환율 결정 요인</a></li>
+        <li><a href="#impact">주식·수출·수입에 미치는 영향</a></li>
+        <li><a href="#won">원화 강세 vs 약세</a></li>
+        <li><a href="#dxy">달러 인덱스(DXY)란?</a></li>
+        <li><a href="#hedge">환헤지(Currency Hedge)란?</a></li>
+        <li><a href="#crisis">역대 주요 환율 위기</a></li>
+        <li><a href="#manage">개인 투자자 환리스크 관리</a></li>
+        <li><a href="#faq">자주 묻는 질문</a></li>
+      </ul>
+    </div>
+
+    <!-- 환율이란? -->
+    <section class="section" id="what">
+      <h2>환율이란?</h2>
+
+      <div class="info-card">
+        <div class="info-title">환율 = 두 나라 돈의 교환 비율</div>
+        <div class="info-body">
+          환율(Exchange Rate)은 <strong>한 나라의 통화를 다른 나라 통화로 바꿀 때 적용되는 교환 비율</strong>입니다. 예를 들어 달러/원 환율이 1,350원이라면 미국 달러 1달러를 받으려면 한국 원화 1,350원이 필요하다는 뜻입니다.
+          <br><br>
+          환율은 단순히 여행 환전에만 쓰이는 게 아닙니다. 기업의 수출 수익, 수입 원자재 비용, 외국 주식 투자 수익률, 심지어 물가와 금리까지 환율의 영향을 받습니다. 전 세계 외환 시장은 하루 거래대금이 7조 달러(약 9,500조 원)에 달하는 세계 최대 금융 시장입니다.
+          <div class="tip">💡 비유하자면 환율은 '나라 간 돈의 환전소 가격표'입니다. 환전소 가격은 수요·공급에 따라 매 순간 바뀌듯, 환율도 실시간으로 변동됩니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">직접표시 vs 간접표시</div>
+        <div class="info-body">
+          환율을 표시하는 방식에는 두 가지가 있습니다.
+          <br><br>
+          <strong>직접표시(Direct Quotation)</strong>는 외국 통화 1단위에 대한 자국 통화의 양으로 표시하는 방식입니다. 한국에서 "달러/원 = 1,350원"이라고 할 때가 직접표시입니다. 달러 1달러를 사기 위해 원화 1,350원이 필요하다는 뜻입니다.
+          <br><br>
+          <strong>간접표시(Indirect Quotation)</strong>는 자국 통화 1단위에 대한 외국 통화의 양으로 표시하는 방식입니다. 영국 파운드처럼 "GBP/USD = 1.27"처럼 표시하면 영국 파운드 1파운드로 미국 달러 1.27달러를 살 수 있다는 뜻입니다.
+          <br><br>
+          <strong>매매기준율</strong>은 외환 거래의 기준이 되는 기준 환율로, 은행이 고시하는 고시 환율의 중간값에 해당합니다. 실제 환전 시에는 매매기준율에 <strong>스프레드(수수료 격차)</strong>가 더해져 '살 때 환율(매도율)'과 '팔 때 환율(매수율)'이 다르게 적용됩니다. 예를 들어 매매기준율이 1,350원이면 달러를 살 때는 1,370원, 팔 때는 1,330원 정도가 됩니다.
+          <div class="tip">💡 인터넷 환전이나 외환 수수료 우대 서비스를 이용하면 스프레드를 크게 줄일 수 있습니다. 공항 환전소는 스프레드가 가장 높으니 피하는 것이 좋습니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">환율 표기 방법: 통화 쌍(Currency Pair)</div>
+        <div class="info-body">
+          외환 시장에서는 항상 두 통화를 묶어서 거래합니다. 이를 <strong>통화 쌍</strong>이라 합니다.
+          <br><br>
+          <table class="fx-table">
+            <thead>
+              <tr><th>통화 쌍</th><th>이름</th><th>설명</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>USD/KRW</strong></td><td>달러/원</td><td>미국 달러 1달러당 한국 원화 금액</td></tr>
+              <tr><td><strong>EUR/USD</strong></td><td>유로/달러</td><td>유럽 유로 1유로당 미국 달러 금액</td></tr>
+              <tr><td><strong>USD/JPY</strong></td><td>달러/엔</td><td>미국 달러 1달러당 일본 엔화 금액</td></tr>
+              <tr><td><strong>GBP/USD</strong></td><td>파운드/달러</td><td>영국 파운드 1파운드당 미국 달러 금액</td></tr>
+              <tr><td><strong>USD/CNY</strong></td><td>달러/위안</td><td>미국 달러 1달러당 중국 위안화 금액</td></tr>
+            </tbody>
+          </table>
+          통화 쌍에서 앞에 오는 통화를 <strong>기준 통화(Base Currency)</strong>, 뒤에 오는 통화를 <strong>가격 통화(Quote Currency)</strong>라 합니다. USD/KRW = 1,350이면 기준 통화는 달러, 가격 통화는 원화이며 달러 1달러 = 원화 1,350원임을 의미합니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 달러/원 환율 결정 요인 -->
+    <section class="section" id="factors">
+      <h2>달러/원(USD/KRW) 환율 결정 요인</h2>
+
+      <div class="info-card">
+        <div class="info-title">① 무역수지 — 달러의 공급을 결정한다</div>
+        <div class="info-body">
+          한국이 수출을 많이 하면 해외에서 달러가 국내로 들어옵니다. 수출 대금으로 받은 달러를 원화로 환전하면 <strong>달러 공급이 늘어나 원화 가치가 올라가고(환율 하락)</strong>, 반대로 수입이 많아 달러가 빠져나가면 원화 가치가 떨어집니다(환율 상승).
+          <br><br>
+          한국의 주요 수출품은 반도체·자동차·배터리·조선인데, 이들 산업의 실적이 좋은 해에는 무역수지 흑자가 커지면서 원화 강세 압력이 생깁니다. 반대로 국제 유가가 급등하거나 수입이 급증하면 무역수지 적자로 원화가 약세를 보이는 경향이 있습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">② 한미 금리 차이 — 돈이 금리 높은 곳으로 흐른다</div>
+        <div class="info-body">
+          투자자들은 더 높은 이자를 주는 나라의 자산을 선호합니다. <strong>미국 금리가 한국보다 높아지면</strong> 글로벌 자금이 미국으로 유입되어 달러 수요가 늘고, 원화는 약세가 됩니다. 반대로 한국 금리가 상대적으로 높아지면 외국인 자금이 한국 채권 등에 투자하기 위해 유입되어 원화가 강세를 보입니다.
+          <br><br>
+          2022~2023년 미국이 기준금리를 0.25%에서 5.5%까지 가파르게 올렸을 때, 한미 금리차가 확대되며 달러/원 환율이 1,400원대를 돌파한 것이 대표적 사례입니다. 이처럼 <strong>미국 연준(Fed)의 통화정책은 달러/원 환율에 가장 큰 영향을 미치는 요소 중 하나</strong>입니다.
+          <div class="tip">💡 연준의 FOMC 회의(연 8회)와 기준금리 결정을 주시하면 환율 방향성을 미리 예측하는 데 도움이 됩니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">③ 외국인 투자 자금 흐름 — 주식·채권 시장과 연동된다</div>
+        <div class="info-body">
+          외국인이 한국 주식(코스피·코스닥)이나 국채를 사기 위해서는 원화가 필요합니다. 따라서 외국인이 한국 자산을 매수하면 달러를 팔고 원화를 사게 되어 <strong>원화 수요가 늘고 환율이 하락(원화 강세)</strong>합니다.
+          <br><br>
+          반대로 외국인이 한국 주식을 대거 매도하고 달러로 환전해 해외로 나가면 원화 약세가 됩니다. 코스피 외국인 수급과 달러/원 환율은 역의 상관관계를 보이는 경우가 많습니다. 글로벌 위험 회피(Risk-off) 심리가 높아지는 상황에서는 신흥국에서 자금이 빠져나가며 원화 약세가 동시에 진행되는 경향이 있습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">④ 그 외 주요 요인들</div>
+        <div class="info-body">
+          <strong>국제 유가:</strong> 한국은 원유를 거의 전량 수입하므로 유가 상승 시 달러 수요가 늘어 환율이 오르는 경향이 있습니다.
+          <br><br>
+          <strong>글로벌 위기 심리:</strong> 금융 위기나 지정학적 리스크(전쟁, 충돌 등) 발생 시 안전 자산인 달러로 자금이 몰려 신흥국 통화(원화 포함)가 약세를 보입니다.
+          <br><br>
+          <strong>외환 보유고·외환 당국 개입:</strong> 한국은행과 외환 당국은 과도한 환율 변동 시 시장에 개입합니다. 외환 보유고(약 4,000억 달러 수준)를 활용해 급격한 원화 약세를 막는 스무딩 오퍼레이션을 수행합니다.
+          <br><br>
+          <strong>중국 경제 상황:</strong> 한국 수출의 약 20%가 중국으로 향하므로 위안화(CNY) 약세나 중국 경기 침체 시 원화도 함께 약해지는 경향이 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 주식·수출·수입에 미치는 영향 -->
+    <section class="section" id="impact">
+      <h2>환율이 주식·수출기업·수입물가에 미치는 영향</h2>
+
+      <div class="info-card">
+        <div class="info-title">수출 기업 — 원화 약세가 유리하다</div>
+        <div class="info-body">
+          삼성전자, 현대차, SK하이닉스처럼 해외에서 달러를 벌어오는 수출 대기업은 원화 약세(환율 상승)일 때 이익이 늘어납니다. 예를 들어 반도체 1억 달러어치를 수출했을 때 환율이 1,200원이면 원화 수입은 1,200억 원이지만, 환율이 1,400원이면 1,400억 원이 됩니다. 같은 수출량이어도 원화로 환산한 매출과 이익이 200억 원 더 많아지는 것입니다.
+          <br><br>
+          이 때문에 원화 약세 국면에서는 수출 대기업 중심의 코스피가 상승하는 경우가 많습니다. 다만 이는 단기적 효과이며, 과도한 원화 약세는 수입 원자재 비용 상승과 외국인 자금 이탈을 초래해 장기적으로 부정적 영향을 줄 수 있습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">수입 물가와 인플레이션 — 원화 약세면 물가가 오른다</div>
+        <div class="info-body">
+          한국은 원유, 천연가스, 식품 원재료, 각종 부품을 대규모로 수입합니다. 원화가 약해지면(환율 상승) 달러로 표시된 수입품의 원화 가격이 올라가 <strong>수입 인플레이션</strong>이 발생합니다.
+          <br><br>
+          예를 들어 국제 유가가 배럴당 80달러로 동일해도, 환율이 1,200원에서 1,400원으로 오르면 국내 정유사의 원유 도입 비용이 16.7% 상승하게 됩니다. 이는 휘발유·경유 가격 인상으로 이어지고 소비자 물가 전반에 영향을 줍니다. 외식, 공산품 가격에도 파급 효과가 나타납니다.
+          <div class="warn">⚠️ 원화 약세와 국제 유가 상승이 동시에 오는 상황은 한국 경제에 이중 타격이 됩니다. 2022년이 그런 케이스였습니다. 환율이 1,430원까지 치솟고 유가도 고공행진하며 소비자 물가가 6%대까지 올랐습니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">미국 주식 투자자에게 미치는 영향</div>
+        <div class="info-body">
+          한국 투자자가 미국 주식(예: S&P500 ETF)에 투자할 때 환율은 수익률을 크게 바꿀 수 있습니다.
+          <br><br>
+          <table class="fx-table">
+            <thead>
+              <tr><th>시나리오</th><th>주식 수익률(달러)</th><th>환율 변화</th><th>원화 환산 수익률</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>이상적</td><td>+10%</td><td>1,200→1,320원 (+10%)</td><td>약 +21%</td></tr>
+              <tr><td>상쇄</td><td>+10%</td><td>1,320→1,200원 (-9%)</td><td>약 +1%</td></tr>
+              <tr><td>이중 손실</td><td>-10%</td><td>1,320→1,200원 (-9%)</td><td>약 -19%</td></tr>
+              <tr><td>환율 방어</td><td>-10%</td><td>1,200→1,320원 (+10%)</td><td>약 -1%</td></tr>
+            </tbody>
+          </table>
+          환율이 투자 수익을 증폭시킬 수도 있고 상쇄시킬 수도 있습니다. 미국 증시 하락 시에는 통상 원화도 약세가 되어 손실이 일부 완충되는 효과도 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 원화 강세 vs 약세 -->
+    <section class="section" id="won">
+      <h2>원화 강세 vs 약세 — 누가 유리하고 누가 불리한가</h2>
+
+      <div class="info-card">
+        <div class="info-title">원화 강세(환율 하락): 수입업체·소비자·해외여행객에 유리</div>
+        <div class="info-body">
+          원화 강세란 달러/원 환율이 하락하는 상황입니다. 예를 들어 환율이 1,400원에서 1,200원으로 내려가면 원화 가치가 올라간 것입니다.
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>원화 강세 수혜자</h4>
+          <ul>
+            <li>해외 여행객 (달러 환전 비용 감소)</li>
+            <li>수입 업체 (원자재·상품 비용 절감)</li>
+            <li>항공사 (항공유·달러 부채 부담 경감)</li>
+            <li>미국 유학생 가족 (송금 비용 절감)</li>
+            <li>해외 직구 소비자</li>
+            <li>달러 부채가 많은 기업</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>원화 강세 피해자</h4>
+          <ul>
+            <li>수출 대기업 (원화 환산 매출·이익 감소)</li>
+            <li>해외 관광객 유치 기업 (외국인 방한 비용 증가)</li>
+            <li>달러 자산 보유 투자자 (원화 환산 평가액 감소)</li>
+            <li>재외 동포 (국내 송금 시 원화 수령액 감소)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:16px;">
+        <div class="info-title">원화 약세(환율 상승): 수출기업·외화 자산 보유자에 유리</div>
+        <div class="info-body">
+          원화 약세란 달러/원 환율이 상승하는 상황입니다. 예를 들어 환율이 1,200원에서 1,400원으로 오르면 원화 가치가 떨어진 것입니다.
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>원화 약세 수혜자</h4>
+          <ul>
+            <li>수출 대기업 (원화 환산 이익 증가)</li>
+            <li>달러·외화 자산 보유 투자자</li>
+            <li>해외 관광 유치 산업 (외국인 한국 여행 저렴)</li>
+            <li>외국인 직접 투자 유치 (가격 경쟁력 향상)</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>원화 약세 피해자</h4>
+          <ul>
+            <li>해외 여행객 (환전 비용 증가)</li>
+            <li>수입 업체 및 소비자 (물가 상승)</li>
+            <li>달러 부채 기업 (상환 부담 증가)</li>
+            <li>해외 유학생 가족 (생활비 증가)</li>
+            <li>에너지·식품 수입 의존 가구</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:16px;">
+        <div class="info-title">경제 전체로 보면 — 적정 환율이 중요하다</div>
+        <div class="info-body">
+          원화 강세도 약세도 모두 일부에게는 유리하고 일부에게는 불리합니다. 경제학적으로는 <strong>급격한 환율 변동이 가장 해롭습니다.</strong> 기업이 수출 계획을 세우고, 수입 단가를 예측하고, 투자 결정을 내리는 데 환율 안정이 필수적이기 때문입니다.
+          <br><br>
+          한국은행과 기획재정부가 과도한 환율 급등락 시 시장 개입을 하는 이유도 이 때문입니다. 특정 환율 목표치를 정하기보다 <strong>급격한 변동성을 완화(스무딩 오퍼레이션)</strong>하는 것이 외환 당국의 기본 목적입니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 달러 인덱스 -->
+    <section class="section" id="dxy">
+      <h2>달러 인덱스(DXY)란?</h2>
+
+      <div class="info-card">
+        <div class="info-title">DXY = 달러의 글로벌 가치를 숫자 하나로 표현</div>
+        <div class="info-body">
+          달러 인덱스(Dollar Index, DXY)는 <strong>미국 달러의 가치를 주요 6개국 통화 대비 가중 평균으로 나타낸 지수</strong>입니다. 1973년을 기준(100)으로 달러 가치가 오르면 지수가 올라가고 내리면 지수가 내려갑니다.
+          <br><br>
+          <table class="fx-table">
+            <thead>
+              <tr><th>구성 통화</th><th>비중</th><th>설명</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>유로(EUR)</strong></td><td>57.6%</td><td>비중 압도적 1위. DXY는 사실상 달러/유로 지수에 가깝다</td></tr>
+              <tr><td><strong>일본 엔(JPY)</strong></td><td>13.6%</td><td>아시아 대표 통화</td></tr>
+              <tr><td><strong>영국 파운드(GBP)</strong></td><td>11.9%</td><td>영국 금융 시장 반영</td></tr>
+              <tr><td><strong>캐나다 달러(CAD)</strong></td><td>9.1%</td><td>미국과 가장 큰 교역국</td></tr>
+              <tr><td><strong>스웨덴 크로나(SEK)</strong></td><td>4.2%</td><td>북유럽 대표</td></tr>
+              <tr><td><strong>스위스 프랑(CHF)</strong></td><td>3.6%</td><td>안전자산 통화</td></tr>
+            </tbody>
+          </table>
+          <div class="tip">💡 DXY에 한국 원화(KRW), 중국 위안화(CNY)는 포함되지 않습니다. 따라서 DXY만 봐서는 원화 환율을 직접적으로 파악하기 어렵습니다. 원화 환율은 USD/KRW를 따로 확인해야 합니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">DXY 보는 법과 글로벌 경제 관계</div>
+        <div class="info-body">
+          DXY는 <strong>글로벌 위험 선호도와 역의 관계</strong>를 보이는 경향이 있습니다. 주식 시장이 급락하거나 글로벌 불안이 커지면 안전자산인 달러로 수요가 몰려 DXY가 상승합니다. 반대로 경제가 안정되고 위험 자산 선호가 높아지면 달러에서 자금이 빠져나가 DXY가 하락합니다.
+          <br><br>
+          <strong>DXY 강세(달러 강세)의 글로벌 파급 효과:</strong>
+          <br>· 신흥국 통화(원화, 위안화, 브라질 헤알 등) 동반 약세
+          <br>· 원자재(원유, 금, 곡물) 가격 하락 압력 (달러 표시 원자재이므로)
+          <br>· 달러 부채가 많은 신흥국 기업·정부의 상환 부담 증가
+          <br>· 미국 수출 기업들의 가격 경쟁력 저하
+          <br><br>
+          <strong>DXY 약세(달러 약세)의 파급 효과:</strong>
+          <br>· 신흥국 통화 강세 경향
+          <br>· 원자재 가격 상승 압력
+          <br>· 미국 수출 기업 경쟁력 향상
+          <br>· 글로벌 유동성 확대 신호로 해석되기도 함
+          <br><br>
+          DXY는 100을 중심으로 80~120 사이에서 장기 평균을 이루어 왔습니다. 2022년 9월에는 114를 돌파하며 20년 만의 최고치를 기록했고, 2023~2024년에는 100~105 사이에서 움직였습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 환헤지 -->
+    <section class="section" id="hedge">
+      <h2>환헤지(Currency Hedge)란?</h2>
+
+      <div class="info-card">
+        <div class="info-title">환헤지 = 환율 변동 위험을 없애는 방어막</div>
+        <div class="info-body">
+          해외 자산에 투자하면 자산 가격 변동뿐만 아니라 환율 변동이라는 추가 위험이 생깁니다. <strong>환헤지(Currency Hedging)란 파생 상품(선물, 옵션, 스왑 등)을 이용해 환율 변동이 투자 수익에 영향을 미치지 않도록 차단하는 전략</strong>입니다.
+          <br><br>
+          예를 들어 미국 S&P500 ETF에 투자할 때 환헤지를 하면, 달러/원 환율이 올라도 내려도 원화 환산 수익률이 달러 기준 수익률과 거의 같아집니다. 단, 헤지 비용(통화 선도 계약 등)이 발생하므로 완전히 공짜는 아닙니다.
+          <div class="tip">💡 환헤지는 마치 '환율 보험'과 같습니다. 보험료(헤지 비용)를 내는 대신 환율 급변으로 인한 손실을 막아줍니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">환헤지 ETF vs 환노출 ETF — 어떤 걸 선택해야 할까?</div>
+        <div class="info-body">
+          국내에서 판매되는 해외 주식 ETF는 크게 두 종류로 나뉩니다.
+          <br><br>
+          <table class="fx-table">
+            <thead>
+              <tr><th>구분</th><th>환헤지 ETF (H 표기)</th><th>환노출 ETF (환헤지 없음)</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>수익률 구성</strong></td>
+                <td>해외 자산 수익률만 반영</td>
+                <td>해외 자산 수익률 + 환율 변동 반영</td>
+              </tr>
+              <tr>
+                <td><strong>환율 급등 시</strong></td>
+                <td>환율 효과 없음</td>
+                <td>원화 환산 수익률 추가 상승</td>
+              </tr>
+              <tr>
+                <td><strong>환율 급락 시</strong></td>
+                <td>환율 효과 없음</td>
+                <td>원화 환산 수익률 추가 하락</td>
+              </tr>
+              <tr>
+                <td><strong>헤지 비용</strong></td>
+                <td>연 0.5~1.5% 추가 비용 발생</td>
+                <td>없음</td>
+              </tr>
+              <tr>
+                <td><strong>적합한 상황</strong></td>
+                <td>원화 강세 전망 시, 환율 변동성 싫을 때</td>
+                <td>원화 약세 전망 시, 장기 투자</td>
+              </tr>
+              <tr>
+                <td><strong>국내 대표 예시</strong></td>
+                <td>TIGER 미국S&P500(H), KODEX 나스닥100(H)</td>
+                <td>TIGER 미국S&P500, KODEX 미국나스닥100</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="warn">⚠️ 환헤지는 헤지 비용이 발생하므로 장기적으로 환헤지 ETF가 환노출 ETF보다 수익이 낮을 수 있습니다. 특히 한미 금리차가 클 때 헤지 비용이 더 커집니다. 10년 이상 장기 투자라면 환노출 ETF가 비용 면에서 유리한 경우가 많습니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">헤지 비용은 어떻게 결정되나?</div>
+        <div class="info-body">
+          환헤지 비용은 <strong>한미 금리차</strong>와 밀접한 관련이 있습니다. 미국 금리가 한국보다 높을수록 달러를 헤지하는 비용이 높아집니다. 2022~2023년처럼 미국 기준금리가 5.5%로 한국(3.5%)보다 훨씬 높았던 시기에는 연간 환헤지 비용이 2% 이상에 달하기도 했습니다. 이 비용은 ETF 운용 수익에서 자동으로 차감됩니다.
+          <br><br>
+          따라서 금리 역전(미국 금리 > 한국 금리) 상황이 지속될 때는 환헤지 ETF의 실질 수익률이 많이 깎일 수 있다는 점을 유의해야 합니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 역대 환율 위기 -->
+    <section class="section" id="crisis">
+      <h2>역대 주요 환율 위기</h2>
+
+      <div class="info-card">
+        <div class="info-body">
+          <div class="crisis-timeline">
+
+            <div class="crisis-item">
+              <div class="crisis-year">1997~1998년</div>
+              <div class="crisis-title">한국 외환위기 (IMF 구제금융)</div>
+              <div class="crisis-body">
+                가장 큰 환율 충격으로 기록된 1997년 아시아 외환위기입니다. 당시 한국의 단기 외채가 급증하고 외환보유고가 바닥나면서 달러/원 환율은 1997년 11월~12월 단 2개월 만에 900원대에서 1,900원대까지 두 배 이상 폭등했습니다. 정부는 IMF에 550억 달러 구제금융을 신청했고, 이후 금리를 30% 이상으로 올리고 기업·금융기관 대규모 구조조정을 단행했습니다. 외환위기는 수많은 기업 도산과 실업을 낳았고, 국민들은 금 모으기 운동으로 외화 확보에 동참했습니다. 이 경험 이후 한국은 외환보유고 확충과 단기 외채 관리를 최우선 과제로 삼게 되었습니다.
+              </div>
+            </div>
+
+            <div class="crisis-item">
+              <div class="crisis-year">2008~2009년</div>
+              <div class="crisis-title">글로벌 금융위기 — 달러/원 1,570원 돌파</div>
+              <div class="crisis-body">
+                미국 서브프라임 모기지 사태에서 촉발된 글로벌 금융위기 당시 전 세계적으로 달러 선호 현상이 극도로 강해졌습니다. 외국인들이 한국 주식을 대거 매도하고 달러로 환전해 빠져나가면서, 달러/원 환율은 2009년 3월 1,570원을 넘어섰습니다. 2007년 900원대였던 것과 비교하면 약 1.7배 폭등한 수준입니다. 한국은행은 미국 연준과 300억 달러 규모의 통화스왑 협정을 체결해 달러 유동성을 공급하며 위기를 진화했습니다.
+              </div>
+            </div>
+
+            <div class="crisis-item">
+              <div class="crisis-year">2020년</div>
+              <div class="crisis-title">코로나19 팬데믹 — 안전자산 달러 급등</div>
+              <div class="crisis-body">
+                2020년 3월 코로나19 팬데믹이 글로벌 공황을 유발하면서 달러/원 환율이 단숨에 1,280원을 넘어서고 코스피는 1,400포인트대까지 추락했습니다. 다만 미국 연준이 제로금리와 무제한 양적완화를 발표하고 한미 통화스왑(600억 달러)이 재가동되면서 수개월 만에 환율이 안정됐습니다. 이후 2021년에는 저금리·유동성 공급으로 오히려 원화가 1,100원대 초반까지 강세를 보이기도 했습니다.
+              </div>
+            </div>
+
+            <div class="crisis-item">
+              <div class="crisis-year">2022년</div>
+              <div class="crisis-title">강달러 시대 — 달러/원 1,440원대 돌파</div>
+              <div class="crisis-body">
+                코로나19 이후 급격한 인플레이션에 대응해 미국 연준이 기준금리를 0.25%에서 5.5%까지 불과 1년 반 만에 올리는 초고속 긴축을 단행했습니다. 이로 인해 글로벌 자금이 미국으로 쏠리며 달러 인덱스(DXY)는 20년 만의 최고치인 114를 기록했고, 달러/원 환율은 2022년 10월 1,444원까지 치솟았습니다. 일본 엔화, 유로화, 영국 파운드 등 대부분의 통화가 동시에 달러 대비 급락한 '강달러 쇼크'였습니다. 미국 금리 인상 종료 기대감이 커진 2023년 이후 환율은 점차 하향 안정되었습니다.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">환율 위기의 공통 패턴</div>
+        <div class="info-body">
+          역대 환율 위기를 살펴보면 공통적인 발생 패턴이 있습니다.
+          <br><br>
+          <strong>1. 글로벌 위기 or 달러 강세 → 신흥국 자금 이탈</strong>: 어떤 이유든 글로벌 불안감이 커지면 자금이 신흥국을 떠나 미국 달러와 국채로 이동합니다. 원화는 신흥국 통화로 분류되어 같은 충격을 받습니다.
+          <br><br>
+          <strong>2. 외채 과다 또는 경상수지 적자 → 취약성 증폭</strong>: 외환 부채가 많거나 경상수지 적자가 클수록 환율 충격에 더 취약합니다. 1997년 위기가 극심했던 이유 중 하나입니다.
+          <br><br>
+          <strong>3. 통화스왑·외환보유고로 방어</strong>: 충분한 외환보유고와 주요국과의 통화스왑 협정이 있으면 위기를 빠르게 진화할 수 있습니다. 한국의 외환보유고는 현재 4,000억 달러 수준으로 세계 9~10위권이며, 미국·중국·캐나다 등과 통화스왑이 체결되어 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 개인 투자자 환리스크 관리 -->
+    <section class="section" id="manage">
+      <h2>개인 투자자가 환율 리스크 관리하는 방법</h2>
+
+      <div class="info-card">
+        <div class="info-title">① 분산 투자: 원화 자산 + 외화 자산 비중 조절</div>
+        <div class="info-body">
+          가장 기본적인 환리스크 관리 방법은 <strong>원화 자산과 달러 등 외화 자산을 적절히 나누어 보유</strong>하는 것입니다. 원화만 보유하면 원화 약세 시 구매력이 감소하고, 반대로 달러만 보유하면 원화 강세 시 손실이 생깁니다.
+          <br><br>
+          일반적으로 중장기 투자자들은 국내 자산(코스피, 국내 채권 등)과 해외 자산(미국 주식, 글로벌 ETF)을 5:5 또는 4:6 정도로 나누어 환율 변동 리스크를 분산하는 방식을 많이 씁니다. 외화 자산 비중이 높을수록 원화 약세 시 방어가 되지만, 원화 강세 시에는 역으로 환차손이 발생합니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">② 달러 분할 매수: 환율 타이밍을 분산한다</div>
+        <div class="info-body">
+          환율의 최저점과 최고점을 맞추는 것은 전문가도 어렵습니다. 이를 해결하는 방법이 <strong>달러 분할 매수(달러 적립식 투자)</strong>입니다. 매월 일정 금액을 달러로 환전하거나 해외 ETF에 자동 투자하면, 환율이 높을 때는 조금, 낮을 때는 많이 사게 되어 평균 매입 환율이 안정됩니다.
+          <br><br>
+          이 방식은 '달러 코스트 에버리징(Dollar Cost Averaging)'이라고도 하며, 증권사의 해외 주식 정기 투자 서비스를 이용하면 자동화할 수 있습니다. 환율이 1,200원 구간에서도, 1,400원 구간에서도 꾸준히 매수했다면 결과적으로 평균 환율은 그 사이 어딘가가 됩니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">③ 환헤지 여부 선택: 투자 기간과 전망을 고려하라</div>
+        <div class="info-body">
+          단기(1~2년)로 해외 투자를 한다면 환율 변동이 수익률에 큰 영향을 줄 수 있으므로 <strong>환헤지 ETF</strong>를 고려해 볼 수 있습니다. 반면 10년 이상 장기 투자라면 환율의 단기 변동은 평균 회귀 경향이 있고, 헤지 비용도 누적되므로 <strong>환노출 ETF</strong>가 장기적으로 유리할 수 있습니다.
+          <br><br>
+          원화 약세가 구조적으로 계속될 것으로 전망된다면(한국 경제 성장 둔화, 고령화 등) 환노출 달러 자산을 늘리는 것이 장기적 구매력 보호에 도움이 됩니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">④ 외화 예금 활용: 달러를 현금으로도 보유</div>
+        <div class="info-body">
+          증권 투자 외에도 <strong>은행의 달러 외화 예금</strong>을 활용하는 방법이 있습니다. 달러 보통예금이나 정기예금에 달러를 예치해 두면 달러 자체를 보유할 수 있습니다. 환율이 상대적으로 낮을 때(원화 강세 시) 달러를 사두고, 환율이 높을 때 원화로 환전하는 전략입니다.
+          <br><br>
+          다만 외화 예금은 이자율이 매우 낮은 경우가 많고, 달러 이자가 그리 크지 않으므로 단순 환차익을 노리는 목적으로만 활용하는 것이 일반적입니다.
+          <div class="warn">⚠️ 외화 예금은 예금자보호법에 따라 원화 환산 5,000만 원까지만 보호됩니다. 환전 스프레드(수수료)도 발생하므로 잦은 환전은 비용이 쌓입니다.</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">⑤ 환율 지표 모니터링: DXY, FOMC, 무역수지 주시</div>
+        <div class="info-body">
+          환율 방향성을 파악하기 위해 주시해야 할 핵심 지표들입니다.
+          <br><br>
+          <table class="fx-table">
+            <thead>
+              <tr><th>지표</th><th>확인 방법</th><th>보는 이유</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>달러 인덱스(DXY)</strong></td><td>TradingView, Investing.com</td><td>달러 전반적 강도 파악</td></tr>
+              <tr><td><strong>미국 FOMC 결정</strong></td><td>연준 공식 사이트, 경제 뉴스</td><td>금리 방향이 환율에 직접 영향</td></tr>
+              <tr><td><strong>한국 무역수지</strong></td><td>관세청, 기재부 발표 (매월 초)</td><td>달러 수급 변화 선행 지표</td></tr>
+              <tr><td><strong>외국인 주식 순매수/순매도</strong></td><td>한국거래소(KRX), 증권사 앱</td><td>외국인 자금 유출입 → 환율 변동</td></tr>
+              <tr><td><strong>미국 CPI(소비자물가)</strong></td><td>BLS 발표, 경제 뉴스 (매월)</td><td>인플레이션 → 연준 금리 → 달러 가치</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+
+      <div class="info-card">
+        <div class="info-title">Q. 환율이 오르면 달러 강세인가요, 원화 강세인가요?</div>
+        <div class="info-body">
+          달러/원(USD/KRW) 환율이 오른다는 것은 <strong>달러 강세, 원화 약세</strong>를 의미합니다. 예를 들어 1,200원에서 1,400원으로 환율이 올랐다면 달러 1달러를 사는 데 더 많은 원화가 필요해진 것이므로 원화 가치가 하락한(약세) 것입니다. 반대로 환율이 내려가면 원화 강세, 달러 약세입니다. 헷갈릴 때는 "달러를 사는 데 원화가 더 필요하면 달러 강세"라고 기억하면 됩니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. 환율이 1,400원대인데 지금 달러를 사야 할까요?</div>
+        <div class="info-body">
+          환율의 단기 방향을 정확히 예측하는 것은 전문가도 불가능합니다. 다만 <strong>장기 평균(구매력 평가 기준 1,200~1,300원)보다 높은 환율이 지속되는 경우</strong> 달러 자산이 원화 자산 대비 고평가된 상태라 볼 수 있습니다. 단기 트레이딩보다는 분할 매수로 달러 자산 비중을 늘리는 전략이 일반 투자자에게 더 적합합니다. 특정 환율에서 "지금이 저점/고점"이라고 판단하는 것은 매우 어렵습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. 미국 주식 투자 시 환헤지를 꼭 해야 하나요?</div>
+        <div class="info-body">
+          반드시 해야 하는 것은 아닙니다. <strong>투자 기간과 시장 전망에 따라 다릅니다.</strong> 장기 투자(10년 이상)라면 환율은 장기적으로 수렴하는 경향이 있고 헤지 비용이 누적되어 환노출 상품이 유리한 경우가 많습니다. 단기 투자나 원화 강세 국면이 예상된다면 환헤지 ETF를 고려해 볼 수 있습니다. 가장 실용적인 방법은 환헤지 ETF와 환노출 ETF를 함께 보유해 환율 변동을 일부 분산하는 것입니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. 달러 인덱스(DXY)가 오르면 코스피는 왜 내리나요?</div>
+        <div class="info-body">
+          달러 강세(DXY 상승) 시 외국인 투자자들은 <strong>신흥국 자산을 팔고 달러로 회수</strong>하는 경향이 있습니다. 외국인이 한국 주식을 매도하면 주가가 하락하고 동시에 달러/원 환율도 오릅니다. 즉 "DXY 상승 → 신흥국 자금 이탈 → 코스피 하락 + 원화 약세"가 동시에 나타나는 경우가 많습니다. 다만 이는 경향성이지 항상 성립하는 법칙은 아닙니다. 한국 수출 경쟁력 강화나 특수한 내수 요인이 있을 때는 달러 강세에도 코스피가 버티는 경우도 있습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. 원화가 기축통화가 되면 어떻게 달라지나요?</div>
+        <div class="info-body">
+          현재 글로벌 기축통화는 미국 달러입니다. 만약 원화가 기축통화가 된다면 한국은 달러를 확보하기 위해 무역 흑자를 내거나 외화를 빌릴 필요가 줄어들고, 원화로 해외 거래가 가능해져 <strong>환전 비용이 대폭 감소</strong>합니다. 또한 글로벌 유동성 위기 시에도 원화 수요가 유지되어 환율이 안정됩니다. 다만 기축통화국은 무역수지 적자를 허용해야 하는 트리핀 딜레마가 생기기도 합니다. 현실적으로 원화가 기축통화가 될 가능성은 매우 낮지만, 위안화(CNY)의 국제화는 점진적으로 진행 중에 있습니다.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Q. 환율과 금리는 어떤 관계인가요?</div>
+        <div class="info-body">
+          일반적으로 <strong>금리가 높은 나라의 통화는 강세를 보이는 경향</strong>이 있습니다. 높은 금리는 더 높은 투자 수익을 의미하므로 글로벌 자금이 유입되기 때문입니다. 이를 '이자율 평가 이론(Interest Rate Parity)'이라 합니다. 예를 들어 미국 금리가 한국보다 높아지면 달러 수요가 증가해 달러 강세(원화 약세)가 됩니다. 반대로 한국이 기준금리를 올리면 원화 매력도가 올라 원화 강세 압력이 생깁니다. 이 때문에 중앙은행의 금리 결정은 환율에 즉각적으로 영향을 미치는 가장 강력한 변수 중 하나입니다.
+        </div>
+      </div>
+    </section>
+
+    <div class="nav-pills">
+      <a href="/guide.html" class="nav-pill-link">📖 경제 용어 가이드</a>
+      <a href="/investing-guide.html" class="nav-pill-link">📈 미국주식 투자 가이드</a>
+      <a href="/etf-guide.html" class="nav-pill-link">📦 ETF 완전 가이드</a>
+      <a href="/market-indicators.html" class="nav-pill-link">📊 경제 지표 설명</a>
+      <a href="/posts/" class="nav-pill-link">매일 시장 브리핑</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/guide.html">경제 용어</a>
+        <a href="/investing-guide.html">투자 가이드</a>
+        <a href="/etf-guide.html">ETF 가이드</a>
+        <a href="/forex.html">환율 가이드</a>
+        <a href="/market-indicators.html">경제 지표</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/posts/">브리핑 아카이브</a>
+      </div>
+      <p class="footer-copy">© 2026 GlobalHot · 본 콘텐츠는 정보 제공 목적이며 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.</p>
+    </div>
+  </footer>
+</body>
+</html>

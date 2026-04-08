@@ -208,16 +208,16 @@ const CATEGORIES = [
   {
     id:      'korea',
     label:   '🇰🇷 한국경제',
-    intro:   '코스피·원화·한국 기업 관련 오늘의 주요 경제 뉴스입니다.',
+    intro:   '코스피·원화·한국 기업 관련 오늘의 주요 경제·금융 뉴스입니다.',
     color:   '#0060A9',
     limit:   4,
     fetchers: [
-      () => fetchRSS('https://www.yna.co.kr/RSS/news.xml',
+      () => fetchRSS('https://www.yna.co.kr/RSS/economy.xml',
+                     '연합뉴스', '📰', '#0060A9', 'korea'),
+      () => fetchRSS('https://www.yna.co.kr/RSS/finance.xml',
                      '연합뉴스', '📰', '#0060A9', 'korea'),
       () => fetchRSS('https://fs.jtbc.co.kr/RSS/newsflash.xml',
                      'JTBC', '📺', '#E4002B', 'korea'),
-      () => fetchRSS('https://www.hani.co.kr/rss/',
-                     '한겨레', '📰', '#005BAC', 'korea'),
     ],
   },
 ];
@@ -259,11 +259,12 @@ let geminiQuotaExhausted = false;
 
 /**
  * pool에서 limit개를 선별하고 각각 한국어 해설을 작성한다.
+ * 반환값: { posts: [...], catSummary: '카테고리 편집 요약' }
  * 실패 시 pool 상위 limit개에 빈 해설로 폴백.
  */
 async function getAISelectionAndSummary(pool, catLabel, limit) {
   // 폴백: AI 없을 때
-  const fallback = () => pool.slice(0, limit).map(a => ({ ...a, summary: '' }));
+  const fallback = () => ({ posts: pool.slice(0, limit).map(a => ({ ...a, summary: '' })), catSummary: '' });
 
   if (!GEMINI_KEY) { console.warn('  ⚠️  GEMINI_API_KEY 없음'); return fallback(); }
   if (geminiQuotaExhausted) { console.warn('  ⚠️  Gemini 쿼터 소진 — 핫함 순 폴백'); return fallback(); }
@@ -291,7 +292,7 @@ ${articleList}
 1. 시장 파급력 — 지수·환율·금리·자산가격에 직접 영향
 2. 한국 투자자 관련성 — 코스피·원화·한국 기업 연관성
 3. 글로벌 경제 흐름의 핵심 이슈 — 장기 트렌드 변화
-4. 추천수 등 커뮤니티 관심도
+4. 추천수 등 커뮤니티 관심도${catLabel.includes('한국') ? '\n\n⚠️ 한국경제 카테고리 주의: 반드시 경제·금융·증시·환율·기업 실적과 직접 관련된 기사만 선별하세요. 보도자료·행사 안내·스포츠·연예·식품 관련 기사는 절대 선택하지 마세요.' : ''}
 
 칼럼 작성 규칙:
 - "이 기사는" "이번 소식은" "~에 따르면" 으로 시작 금지
@@ -302,10 +303,13 @@ ${articleList}
 - 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지
 
 반드시 아래 JSON 형식으로만 응답하세요 (앞뒤 코드블록·설명 없이 순수 JSON):
-[
-  { "idx": 1, "summary": "칼럼 3~4문장" },
-  { "idx": 5, "summary": "칼럼 3~4문장" }
-]`;
+{
+  "catSummary": "${catLabel} 전체를 관통하는 오늘의 핵심 흐름 2~3문장 (한국 투자자 관점, 마크다운 없이 평문)",
+  "selections": [
+    { "idx": 1, "summary": "칼럼 3~4문장" },
+    { "idx": 5, "summary": "칼럼 3~4문장" }
+  ]
+}`;
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
 
@@ -343,14 +347,22 @@ ${articleList}
 
       // JSON 파싱 — 코드블록 등 래핑 제거 후 시도
       const jsonStr = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
-      let selections;
+      let parsed;
       try {
-        selections = JSON.parse(jsonStr);
+        parsed = JSON.parse(jsonStr);
       } catch {
-        // 부분 파싱 시도: 첫 [ ... ] 추출
-        const m = jsonStr.match(/\[[\s\S]*\]/);
-        selections = m ? JSON.parse(m[0]) : null;
+        // 부분 파싱 시도: 객체 또는 배열 추출
+        const mObj = jsonStr.match(/\{[\s\S]*\}/);
+        const mArr = jsonStr.match(/\[[\s\S]*\]/);
+        try { parsed = mObj ? JSON.parse(mObj[0]) : null; } catch { parsed = null; }
+        if (!parsed) {
+          try { parsed = mArr ? { selections: JSON.parse(mArr[0]) } : null; } catch { parsed = null; }
+        }
       }
+
+      // 구 포맷(배열) 호환
+      const selections = Array.isArray(parsed) ? parsed : (parsed?.selections || null);
+      const catSummary = typeof parsed?.catSummary === 'string' ? parsed.catSummary.trim() : '';
 
       if (!Array.isArray(selections) || selections.length === 0) {
         console.warn('  ⚠️  Gemini 응답 파싱 실패 — 핫함 순 폴백');
@@ -362,15 +374,17 @@ ${articleList}
         .filter(s => s.idx >= 1 && s.idx <= candidates.length)
         .map(s => ({ ...candidates[s.idx - 1], summary: s.summary || '' }));
 
-      // 선택이 부족하면 남은 pool 상위로 채움
+      // 선택이 부족하면 남은 pool 상위로 채움 (summary 있는 것만)
       if (selected.length < limit) {
         const usedIdxs = new Set(selections.map(s => s.idx - 1));
-        const extras = candidates.filter((_, i) => !usedIdxs.has(i)).slice(0, limit - selected.length);
+        const extras = candidates
+          .filter((c, i) => !usedIdxs.has(i) && (c.desc || '').length > 20)
+          .slice(0, limit - selected.length);
         selected.push(...extras.map(a => ({ ...a, summary: '' })));
       }
 
       console.log(`  ✓ Gemini 선별 완료: ${selected.length}개 (from ${candidates.length}개 후보)`);
-      return selected.slice(0, limit);
+      return { posts: selected.slice(0, limit), catSummary };
 
     } catch (e) {
       if (attempt < 2) {
@@ -385,12 +399,35 @@ ${articleList}
   return fallback();
 }
 
+async function generateEditorialSummary(enriched) {
+  if (!GEMINI_KEY || geminiQuotaExhausted) return '';
+  try {
+    const allPosts = enriched.flatMap(c => c.posts || []);
+    const topTitles = allPosts.slice(0, 10).map((p, i) => `[${i+1}] ${p.title} (${p.source})`).join('\n');
+    const prompt = `오늘(${DATE_KO}) 글로벌 경제·시장에서 가장 주목받은 뉴스들입니다:\n${topTitles}\n\n위 뉴스들을 바탕으로 '오늘의 시장 흐름'을 한국 개인 투자자 관점에서 150~200자 분량으로 요약해주세요. 특정 종목 추천이나 투자 조언은 하지 말고, 오늘 시장의 전반적인 분위기와 주목해야 할 테마를 간결하게 서술해주세요. 반드시 한국어로, 마크다운 없이 평문으로 작성하세요.`;
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.6, maxOutputTokens: 300 } }),
+        signal: AbortSignal.timeout(20000) }
+    );
+    if (!res.ok) return '';
+    const data = await res.json();
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+    return text;
+  } catch (e) {
+    console.warn('  ⚠️  편집자 요약 생성 실패:', e.message);
+    return '';
+  }
+}
+
 async function enrichWithAI(categories) {
   const enriched = [];
   for (const cat of categories) {
     console.log(`\n🤖 [${cat.label}] AI 선별 + 해설 생성 중...`);
-    const posts = await getAISelectionAndSummary(cat.pool, cat.label, cat.limit);
-    enriched.push({ ...cat, posts });
+    const result = await getAISelectionAndSummary(cat.pool, cat.label, cat.limit);
+    enriched.push({ ...cat, posts: result.posts, catSummary: result.catSummary || '' });
     // Gemini 무료 플랜: 15 RPM 제한 — 카테고리 간 6초 대기
     if (!geminiQuotaExhausted) await new Promise(r => setTimeout(r, 6000));
   }
@@ -414,8 +451,10 @@ function fmtNum(n) {
 }
 
 function renderArticle(p) {
-  const bodyHtml = (p.summary || p.desc)
-    ? `<p class="art-body">${escapeHtml(p.summary || p.desc)}</p>`
+  const body = p.summary || p.desc || '';
+  // body가 너무 짧으면 (단순 제목 반복 등) 표시하지 않음
+  const bodyHtml = body.length > 15
+    ? `<p class="art-body">${escapeHtml(body)}</p>`
     : '';
 
   const statsParts = [];
@@ -441,12 +480,19 @@ function renderArticle(p) {
 
 function renderCategory(cat) {
   if (!cat.posts || cat.posts.length === 0) return '';
+  const catSummaryHtml = cat.catSummary
+    ? `<div class="cat-editorial">
+        <span class="cat-editorial-label">✏️ GlobalHot 편집부 한 줄 요약</span>
+        <p class="cat-editorial-body">${escapeHtml(cat.catSummary)}</p>
+      </div>`
+    : '';
   return `
     <section class="cat-section" id="${cat.id}">
       <div class="cat-header">
         <h2 class="cat-title" style="color:${cat.color}">${cat.label}</h2>
         <p class="cat-intro">${escapeHtml(cat.intro)}</p>
       </div>
+      ${catSummaryHtml}
       <div class="art-list">
         ${cat.posts.map(p => renderArticle(p)).join('\n')}
       </div>
@@ -479,7 +525,7 @@ function extractSEOTerms(allPosts) {
   return found;
 }
 
-function generateHTML(categories) {
+function generateHTML(categories, editorialSummary = '') {
   const allPosts  = categories.flatMap(c => c.posts || []);
   const total     = allPosts.length;
   const topTitles = allPosts.slice(0, 3).map(p => p.title).join(' / ');
@@ -518,6 +564,7 @@ function generateHTML(categories) {
   <meta name="robots" content="index, follow" />
   <meta name="author" content="GlobalHot 경제팀" />
   <link rel="canonical" href="${SITE_URL}/posts/${TODAY}.html" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3314960461630607" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -556,6 +603,17 @@ function generateHTML(categories) {
     .nav-pill.active { border-color: var(--accent); color: var(--accent); background: rgba(99,102,241,.12); }
     .cat-section { margin-bottom: 56px; }
     .cat-section.hidden { display: none; }
+    .editorial-box { background: linear-gradient(135deg, #13131f 0%, #1a1228 100%); border: 1px solid #7c6fff44; border-radius: 12px; padding: 24px 28px; margin-bottom: 40px; }
+    .editorial-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c6fff; margin-bottom: 12px; }
+    .editorial-body { font-size: 15px; color: #c8cad8; line-height: 1.9; }
+    .cat-editorial { background: var(--card); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 20px; }
+    .cat-editorial-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .cat-editorial-body { font-size: 13.5px; color: var(--text2); line-height: 1.75; margin: 0; }
+    .guide-related { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .guide-related h3 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
+    .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+    .guide-related-link { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; text-decoration: none; font-size: 12.5px; color: var(--text2); font-weight: 600; transition: all .15s; }
+    .guide-related-link:hover { border-color: var(--accent); color: var(--accent); }
     .cat-header { margin-bottom: 20px; }
     .cat-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
     .cat-intro { font-size: 13px; color: var(--text3); line-height: 1.6; }
@@ -603,6 +661,11 @@ function generateHTML(categories) {
     </div>
 
     <nav class="cat-nav" aria-label="카테고리 바로가기">${catNav}</nav>
+
+    ${editorialSummary ? `<div class="editorial-box">
+      <div class="editorial-label">📝 오늘의 시장 흐름 — GlobalHot 편집부</div>
+      <div class="editorial-body">${escapeHtml(editorialSummary)}</div>
+    </div>` : ''}
 
     ${catSections}
 
@@ -849,9 +912,49 @@ function updateSitemap() {
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${SITE_URL}/about.html</loc>
+    <loc>${SITE_URL}/guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/investing-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/etf-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/market-indicators.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/fed-rate.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/forex.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/recession.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/portfolio.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>${SITE_URL}/privacy.html</loc>
@@ -908,8 +1011,13 @@ ${postUrls}
   const postTotal = enriched.reduce((s, c) => s + (c.posts?.length || 0), 0);
   console.log(`\n✅ AI 선별 완료: ${postTotal}개 기사 (중복 제거 후)`);
 
-  // 3단계: HTML 생성
-  const html = generateHTML(enriched);
+  // 3단계: 전체 편집 요약 생성
+  console.log('\n📝 오늘의 시장 흐름 요약 생성 중...');
+  const editorialSummary = await generateEditorialSummary(enriched);
+  if (editorialSummary) console.log('  ✓ 편집 요약 생성 완료');
+
+  // 4단계: HTML 생성
+  const html = generateHTML(enriched, editorialSummary);
   writeFileSync(filePath, html, 'utf-8');
   console.log(`✅ posts/${TODAY}.html 생성 완료`);
 
