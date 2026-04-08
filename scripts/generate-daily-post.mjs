@@ -64,9 +64,10 @@ function parseRSSXml(xml) {
   for (const block of blocks) {
     const c     = block[1];
     const title = decodeHtmlEntities(c.match(/<title[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i)?.[1]?.trim() || '');
-    const link  = c.match(/<link[^>]*>\s*(https?:\/\/[^\s<]+)\s*<\/link>/i)?.[1]?.trim()
-               || c.match(/<guid[^>]*isPermaLink="true"[^>]*>([\s\S]*?)<\/guid>/i)?.[1]?.trim()
-               || c.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i)?.[1]?.trim() || '';
+    const rawLink = c.match(/<link[^>]*>\s*(?:<!\[CDATA\[)?\s*(https?:\/\/[^\s\]<]+)\s*(?:\]\]>)?\s*<\/link>/i)?.[1]?.trim()
+               || c.match(/<guid[^>]*isPermaLink="true"[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/guid>/i)?.[1]?.trim()
+               || c.match(/<guid[^>]*>(?:<!\[CDATA\[)?(https?:\/\/[^\s\]<]+)(?:\]\]>)?<\/guid>/i)?.[1]?.trim() || '';
+    const link  = rawLink.replace(/^<!\[CDATA\[/, '').replace(/\]\]>$/, '').trim();
     const date  = c.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i)?.[1]?.trim() || '';
     const desc  = decodeHtmlEntities(
                    c.match(/<description[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i)?.[1]
@@ -212,10 +213,10 @@ const CATEGORIES = [
     color:   '#0060A9',
     limit:   4,
     fetchers: [
-      () => fetchRSS('https://www.yna.co.kr/RSS/economy.xml',
-                     '연합뉴스', '📰', '#0060A9', 'korea'),
-      () => fetchRSS('https://www.yna.co.kr/RSS/finance.xml',
-                     '연합뉴스', '📰', '#0060A9', 'korea'),
+      () => fetchRSS('https://www.mk.co.kr/rss/50200011/',
+                     '매일경제', '📰', '#001A5C', 'korea'),
+      () => fetchRSS('https://www.hankyung.com/feed/economy',
+                     '한국경제', '📰', '#1A3C8F', 'korea'),
       () => fetchRSS('https://fs.jtbc.co.kr/RSS/newsflash.xml',
                      'JTBC', '📺', '#E4002B', 'korea'),
     ],
