@@ -9,6 +9,15 @@ export async function onRequest(context) {
     'trends.google.com',
     'www.reddit.com',
     'reddit.com',
+    'finance.yahoo.com',
+    'feeds.marketwatch.com',
+    'www.cnbc.com',
+    'feeds.bbci.co.uk',
+    'www.coindesk.com',
+    'www.hankyung.com',
+    'www.mk.co.kr',
+    'fs.jtbc.co.kr',
+    'www.hani.co.kr',
     'api.flickr.com',
     'backend.deviantart.com',
   ];
@@ -39,7 +48,7 @@ export async function onRequest(context) {
   const response = await fetch(target, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-      'Accept': 'application/json, application/xml, text/xml, */*',
+      'Accept': 'application/json, application/rss+xml, application/xml, text/xml, */*',
       'Accept-Language': 'en-US,en;q=0.9',
     },
   });

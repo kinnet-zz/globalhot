@@ -125,18 +125,40 @@ function decodeHTML(str) {
 // ── RSS 파싱 (rss2json API 사용) ────────────────────────────
 async function parseRSS(feedUrl) {
   const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
-  const r = await fetch(url, { cache: 'no-store' });
-  if (!r.ok) throw new Error(`RSS fetch failed: ${r.status}`);
-  const d = await r.json();
-  if (d.status !== 'ok') throw new Error(`rss2json error: ${d.message || d.status}`);
+  try {
+    const r = await fetch(url, { cache: 'no-store' });
+    if (!r.ok) throw new Error(`RSS fetch failed: ${r.status}`);
+    const d = await r.json();
+    if (d.status !== 'ok') throw new Error(`rss2json error: ${d.message || d.status}`);
 
-  return d.items.map(item => ({
-    title:     decodeHTML(item.title) || '',
-    link:      item.link  || item.guid || '',
-    pubDate:   item.pubDate || '',
-    thumbnail: item.thumbnail || item.enclosure?.link || '',
-    desc:      item.description ? decodeHTML(item.description.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 200) : '',
-  }));
+    return d.items.map(item => ({
+      title:     decodeHTML(item.title) || '',
+      link:      item.link  || item.guid || '',
+      pubDate:   item.pubDate || '',
+      thumbnail: item.thumbnail || item.enclosure?.link || '',
+      desc:      item.description ? decodeHTML(item.description.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 200) : '',
+    }));
+  } catch (err) {
+    const proxied = await fetch(SELF_PROXY + encodeURIComponent(feedUrl), { cache: 'no-store' });
+    if (!proxied.ok) throw new Error(`${err.message}; proxy RSS fetch failed: ${proxied.status}`);
+    const xml = await proxied.text();
+    if (xml.trim().startsWith('<!DOCTYPE html') || xml.trim().startsWith('<html')) {
+      throw new Error(`${err.message}; proxy returned HTML`);
+    }
+    return parseRSSXml(xml);
+  }
+}
+
+function parseRSSXml(xml) {
+  const doc = new DOMParser().parseFromString(xml, 'text/xml');
+  const items = Array.from(doc.querySelectorAll('item')).slice(0, 25);
+  return items.map(item => ({
+    title:     decodeHTML(cleanText(item.querySelector('title')?.textContent || '')),
+    link:      cleanText(item.querySelector('link')?.textContent || item.querySelector('guid')?.textContent || ''),
+    pubDate:   cleanText(item.querySelector('pubDate')?.textContent || ''),
+    thumbnail: extractRssImage(item),
+    desc:      extractRssDesc(item),
+  })).filter(item => item.title && item.link);
 }
 
 function extractRssDesc(item) {
@@ -170,6 +192,16 @@ function cleanText(str) {
 // Reddit 썸네일 유효성 체크
 function validThumb(t) {
   return t && !['self','default','nsfw','image','spoiler',''].includes(t) && t.startsWith('http');
+}
+
+async function fetchRedditListing(url) {
+  const r = await fetch(SELF_PROXY + encodeURIComponent(url), { cache: 'no-store' });
+  if (!r.ok) throw new Error(`Reddit fetch failed: ${r.status}`);
+  const text = await r.text();
+  if (text.trim().startsWith('<')) throw new Error('Reddit returned HTML');
+  const d = JSON.parse(text);
+  if (!d?.data?.children) throw new Error('Reddit response missing children');
+  return d.data.children.filter(c => c?.data && !c.data.stickied);
 }
 
 // ── Source 정의 ──────────────────────────────────────────
@@ -645,9 +677,8 @@ async function fetchBBCBusiness() {
 }
 
 async function fetchInvestingReddit() {
-  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/investing.json?limit=25&raw_json=1'), { cache: 'no-store' });
-  const d = await r.json();
-  return d.data.children.map(c => makePost(
+  const children = await fetchRedditListing('https://www.reddit.com/r/investing.json?limit=25&raw_json=1');
+  return children.map(c => makePost(
     'inv_' + c.data.id, 'reddit_investing',
     c.data.title,
     c.data.url || 'https://reddit.com' + c.data.permalink,
@@ -657,9 +688,8 @@ async function fetchInvestingReddit() {
 }
 
 async function fetchStocksReddit() {
-  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/stocks.json?limit=25&raw_json=1'), { cache: 'no-store' });
-  const d = await r.json();
-  return d.data.children.map(c => makePost(
+  const children = await fetchRedditListing('https://www.reddit.com/r/stocks.json?limit=25&raw_json=1');
+  return children.map(c => makePost(
     'stk_' + c.data.id, 'reddit_stocks',
     c.data.title,
     c.data.url || 'https://reddit.com' + c.data.permalink,
@@ -669,9 +699,8 @@ async function fetchStocksReddit() {
 }
 
 async function fetchWSBReddit() {
-  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/wallstreetbets.json?limit=25&raw_json=1'), { cache: 'no-store' });
-  const d = await r.json();
-  return d.data.children.map(c => makePost(
+  const children = await fetchRedditListing('https://www.reddit.com/r/wallstreetbets.json?limit=25&raw_json=1');
+  return children.map(c => makePost(
     'wsb_' + c.data.id, 'reddit_wsb',
     c.data.title,
     'https://reddit.com' + c.data.permalink,
@@ -684,9 +713,8 @@ async function fetchWSBReddit() {
 }
 
 async function fetchEconomicsReddit() {
-  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/economics.json?limit=20&raw_json=1'), { cache: 'no-store' });
-  const d = await r.json();
-  return d.data.children.map(c => makePost(
+  const children = await fetchRedditListing('https://www.reddit.com/r/economics.json?limit=20&raw_json=1');
+  return children.map(c => makePost(
     'econ_' + c.data.id, 'reddit_economics',
     c.data.title,
     c.data.url || 'https://reddit.com' + c.data.permalink,
@@ -696,9 +724,8 @@ async function fetchEconomicsReddit() {
 }
 
 async function fetchCryptoCurrencyReddit() {
-  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/CryptoCurrency.json?limit=25&raw_json=1'), { cache: 'no-store' });
-  const d = await r.json();
-  return d.data.children.map(c => makePost(
+  const children = await fetchRedditListing('https://www.reddit.com/r/CryptoCurrency.json?limit=25&raw_json=1');
+  return children.map(c => makePost(
     'cc_' + c.data.id, 'reddit_crypto',
     c.data.title,
     'https://reddit.com' + c.data.permalink,
@@ -711,9 +738,8 @@ async function fetchCryptoCurrencyReddit() {
 }
 
 async function fetchBitcoinReddit() {
-  const r = await fetch(SELF_PROXY + encodeURIComponent('https://www.reddit.com/r/Bitcoin.json?limit=20&raw_json=1'), { cache: 'no-store' });
-  const d = await r.json();
-  return d.data.children.map(c => makePost(
+  const children = await fetchRedditListing('https://www.reddit.com/r/Bitcoin.json?limit=20&raw_json=1');
+  return children.map(c => makePost(
     'btc_' + c.data.id, 'reddit_bitcoin',
     c.data.title,
     c.data.url || 'https://reddit.com' + c.data.permalink,

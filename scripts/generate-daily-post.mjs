@@ -300,6 +300,7 @@ ${articleList}
 - 번호 나열(첫째/둘째 ①②③) 금지
 - 배경·맥락·투자 시사점·전망을 담아 3~4문장
 - 자연스러운 한국어 구어체
+- 원문 제목이나 설명을 그대로 번역하지 말고, 왜 중요한지와 어떤 변수를 봐야 하는지 GlobalHot의 자체 해설로 작성
 - 수치(주가·금리·환율 등)가 있다면 맥락과 함께 언급
 - 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지
 
@@ -610,6 +611,9 @@ function generateHTML(categories, editorialSummary = '') {
     .cat-editorial { background: var(--card); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 20px; }
     .cat-editorial-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
     .cat-editorial-body { font-size: 13.5px; color: var(--text2); line-height: 1.75; margin: 0; }
+    .source-policy { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 40px; }
+    .source-policy h2 { font-size: 14px; margin-bottom: 8px; color: var(--text); }
+    .source-policy p { font-size: 13px; color: var(--text2); line-height: 1.75; }
     .guide-related { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
     .guide-related h3 { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
     .guide-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
@@ -667,6 +671,11 @@ function generateHTML(categories, editorialSummary = '') {
       <div class="editorial-label">📝 오늘의 시장 흐름 — GlobalHot 편집부</div>
       <div class="editorial-body">${escapeHtml(editorialSummary)}</div>
     </div>` : ''}
+
+    <section class="source-policy" aria-label="편집 기준">
+      <h2>GlobalHot 편집 기준</h2>
+      <p>이 브리핑은 공개 RSS와 공식 API에서 수집한 원문을 그대로 복제하지 않고, 시장 파급력·한국 투자자 관련성·거시 흐름을 기준으로 선별해 한국어 맥락을 덧붙입니다. 모든 기사에는 원문 링크를 남기며, 자동 요약은 정보 제공 목적일 뿐 투자 권유가 아닙니다.</p>
+    </section>
 
     ${catSections}
 
