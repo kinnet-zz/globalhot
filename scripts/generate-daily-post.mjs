@@ -768,12 +768,16 @@ function updateHomepage(enriched) {
     })
     .slice(0, 3);
 
-  const articleCards = top3.map(a => `
+  const fallbackSummary = '시장 흐름을 빠르게 파악하기 위한 참고 기사입니다. 투자 판단에는 원문과 GlobalHot 자체 가이드를 함께 확인하세요.';
+  const articleCards = top3.map(a => {
+    const summary = a.summary ? `${escapeHtml(a.summary.slice(0, 120))}...` : fallbackSummary;
+    return `
         <div class="dr-article">
           <span class="dr-badge" style="background:${a.color}">${a.sourceEmoji} ${escapeHtml(a.source)}</span>
           <p class="dr-headline">${escapeHtml(a.title)}</p>
-          ${a.summary ? `<p class="dr-summary">${escapeHtml(a.summary.slice(0, 120))}...</p>` : ''}
-        </div>`).join('');
+          <p class="dr-summary">${summary}</p>
+        </div>`;
+  }).join('');
 
   const snippet = `<!-- DAILY_REPORT_START -->
   <div class="daily-report">
@@ -782,6 +786,7 @@ function updateHomepage(enriched) {
         <span class="dr-eyebrow">🤖 AI 경제·시장 브리핑 · ${TODAY}</span>
         <span class="dr-date">${DATE_KO}</span>
       </div>
+      <p class="dr-note">오늘의 브리핑은 주요 공개 출처를 바탕으로 시장 흐름을 빠르게 확인하기 위한 보조 자료입니다. 투자 판단에는 위의 GlobalHot 자체 가이드와 각 기사 원문을 함께 참고하세요.</p>
       <div class="dr-articles">${articleCards}
       </div>
       <a class="dr-more" href="/posts/${TODAY}.html">오늘 전체 브리핑 보기 (${total}개 기사) →</a>

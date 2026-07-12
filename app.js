@@ -4,7 +4,7 @@
    소스: Yahoo Finance, CNBC, Reuters, MarketWatch, BBC Business,
          r/investing, r/stocks, r/wallstreetbets, r/economics,
          r/CryptoCurrency, CoinDesk, Hacker News (핀테크·AI),
-         연합뉴스, JTBC (한국 경제)
+         한국경제, 매일경제
    ========================================================= */
 'use strict';
 
@@ -234,10 +234,8 @@ const SOURCES = [
   { id: 'coindesk',          name: 'CoinDesk',         sub: '코인뉴스',     color: '#1A1A1A', emoji: '🪙', lang: 'en', tabs: ['crypto'],         fetch: fetchCoinDesk            },
 
   // 🇰🇷 한국경제 (photo → kr economy)
-  { id: 'yonhap',            name: '한국경제',          sub: '경제속보',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchYonhap              },
+  { id: 'yonhap',            name: '한국경제',          sub: '경제뉴스',     color: '#0060A9', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchYonhap              },
   { id: 'maeil_economy',     name: '매일경제',          sub: '경제뉴스',     color: '#005C8A', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchMaeilEconomy        },
-  { id: 'jtbc',              name: 'JTBC 뉴스',         sub: '경제헤드라인', color: '#E4002B', emoji: '📺', lang: 'ko', tabs: ['korea'],         fetch: fetchJTBC                },
-  { id: 'hani',              name: '한겨레',             sub: '경제기사',     color: '#005BAC', emoji: '📰', lang: 'ko', tabs: ['korea'],         fetch: fetchHani                },
 ];
 
 const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.id, s]));
@@ -245,7 +243,7 @@ const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.id, s]));
 // ── State ────────────────────────────────────────────────
 const state = {
   tab: 'all', sort: 'trending', query: '', lang: 'all',
-  posts: [], page: 0, PAGE_SIZE: 20,
+  posts: [], page: 0, PAGE_SIZE: 12,
   isLoading: false,
 };
 
@@ -1055,12 +1053,12 @@ async function loadAllSources() {
 
 // ── 섹션 정의 (전체 대시보드용) ──────────────────────────
 const SECTION_DEFS = [
-  { tab: 'hot',    label: '📊 주식·증시',           color: '#00C851', limit: 10, featured: true },
-  { tab: 'trends', label: '💹 시장동향',            color: '#4285F4', limit: 8  },
-  { tab: 'world',  label: '🌍 글로벌경제',          color: '#1565C0', limit: 5  },
-  { tab: 'crypto', label: '₿ 가상화폐',             color: '#F7931A', limit: 6  },
-  { tab: 'tech',   label: '🤖 핀테크·AI',           color: '#FF6600', limit: 5  },
-  { tab: 'korea', label: '🇰🇷 한국경제',           color: '#0060A9', limit: 6,  featured: true },
+  { tab: 'hot',    label: '📊 주식·증시',           color: '#00C851', limit: 5, featured: true },
+  { tab: 'trends', label: '💹 시장동향',            color: '#4285F4', limit: 4  },
+  { tab: 'world',  label: '🌍 글로벌경제',          color: '#1565C0', limit: 4  },
+  { tab: 'crypto', label: '₿ 가상화폐',             color: '#F7931A', limit: 4  },
+  { tab: 'tech',   label: '🤖 핀테크·AI',           color: '#FF6600', limit: 3  },
+  { tab: 'korea', label: '🇰🇷 한국경제',           color: '#0060A9', limit: 4,  featured: true },
 ];
 
 // ── 탭별 게시물 가져오기 ─────────────────────────────────
