@@ -1,9 +1,7 @@
-name: 일일 글로벌 뉴스 AI 리포트 자동 발행
+name: 경제 해설 브리핑 수동 발행
 
 on:
-  schedule:
-    - cron: '30 9 * * *'  # 매일 오후 6시 30분 KST (UTC 9:30 — Gemini 쿼터 리셋 후)
-  workflow_dispatch:        # 수동 실행 버튼
+  workflow_dispatch:
 
 jobs:
   generate:

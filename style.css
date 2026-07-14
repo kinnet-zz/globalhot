@@ -80,6 +80,7 @@ ul, ol { list-style: none; }
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 .primary-nav a {
   color: var(--text2);

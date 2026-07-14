@@ -1,11 +1,11 @@
 /**
  * GlobalHot 일일 경제·시장 브리핑 자동 생성기 v2
- * 매일 오전 9시 KST GitHub Actions에서 실행
+ * GitHub Actions의 수동 실행으로 품질 확인 후 발행
  *
  * 설계 원칙:
- *  - 소스: 프론트엔드(app.js)와 동일한 소스 사용 (Yahoo Finance, MarketWatch, CNBC, Reuters,
- *            Reddit JSON API(점수 포함), CoinDesk, 연합뉴스, JTBC, 한겨레)
- *  - 선별: 핫함 점수(upvotes + 최신성) 기준 풀 정렬 후 Gemini가 최종 선별
+ *  - 소스: Yahoo Finance, MarketWatch, CNBC, WSJ, BBC Business, CoinDesk,
+ *            한국경제, 매일경제의 공개 RSS 사용
+ *  - 선별: 경제 관련성 필터와 최신성 기준으로 정렬 후 Gemini가 최종 선별
  *  - AI: 카테고리당 1회 Gemini 호출 → 가장 임팩트 큰 기사 N개 선별 + 한국어 해설 동시 생성
  */
 
@@ -13,6 +13,7 @@ import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 
 import { join } from 'path';
 
 const SITE_URL  = process.env.SITE_URL || 'https://globalhot.net';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 const KST       = new Date(Date.now() + 9 * 3600_000);
 const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
@@ -79,8 +80,7 @@ function parseRSSXml(xml) {
 
 /**
  * 핫함 점수: upvotes + 최신성 보정
- * - Reddit처럼 점수가 있으면 그것 사용
- * - RSS(점수=0)는 최신성만으로 순위 결정 (24시간 내 → 최대 80점)
+ * - RSS 기사는 최신성으로 우선순위를 정한다. (24시간 내 → 최대 80점)
  */
 function hotnessScore(p) {
   const ageMs    = Date.now() - (p.time instanceof Date ? p.time.getTime() : Date.now());
@@ -90,32 +90,6 @@ function hotnessScore(p) {
 }
 
 // ── 2. 소스별 수집 함수 ─────────────────────────────────────
-
-/** Reddit JSON API (Node.js 직접 호출 — CORS 없음) */
-async function fetchRedditJSON(sub, label, emoji, color, category, limit = 20) {
-  const res = await safeFetch(
-    `https://www.reddit.com/r/${sub}/hot.json?limit=30&raw_json=1`
-  );
-  if (!res) return [];
-  const data = await res.json().catch(() => null);
-  if (!data?.data?.children) return [];
-  const results = data.data.children
-    .filter(c => !c.data.stickied && c.data.title)
-    .slice(0, limit)
-    .map(c => ({
-      title:       c.data.title.trim(),
-      url:         c.data.url?.startsWith('http') ? c.data.url : `https://reddit.com${c.data.permalink}`,
-      points:      c.data.score || 0,
-      comments:    c.data.num_comments || 0,
-      time:        new Date(c.data.created_utc * 1000),
-      source:      label,
-      sourceEmoji: emoji,
-      color,
-      category,
-    }));
-  console.log(`  Reddit r/${sub}: ${results.length}개 (top score: ${results[0]?.points ?? 0})`);
-  return results;
-}
 
 /** 범용 RSS 수집 */
 async function fetchRSS(url, label, emoji, color, category, limit = 15) {
@@ -138,6 +112,22 @@ async function fetchRSS(url, label, emoji, color, category, limit = 15) {
   return results;
 }
 
+const RELEVANCE_PATTERNS = {
+  stocks: /\b(stock|stocks|share|shares|equity|market|earnings|revenue|profit|investor|bank|ipo|dividend|s&p|nasdaq|dow|company|business)\b/i,
+  world: /\b(economy|economic|inflation|gdp|growth|trade|tariff|employment|jobs|central bank|federal reserve|fed|interest rate|recession|debt|sanction|business|shipping)\b/i,
+  market: /\b(currency|dollar|yen|won|forex|oil|gold|commodity|bond|treasury|yield|interest rate|futures|market|inflation)\b/i,
+  crypto: /\b(bitcoin|btc|ethereum|eth|crypto|blockchain|stablecoin|token|digital asset|crypto etf|coinbase|binance)\b/i,
+  korea: /(경제|금융|증시|코스피|코스닥|주가|금리|환율|원화|달러|수출|수입|무역|관세|반도체|기업|실적|매출|영업이익|물가|고용|부동산|채권|투자|은행|가계부채)/,
+};
+
+const LOW_VALUE_PATTERN = /\b(celebrity|movie|television|recipe|weather forecast|football|baseball|soccer|world cup)\b|연예|스포츠|축구|야구|날씨|맛집|여행|방송/i;
+
+function isRelevantArticle(post, categoryId) {
+  const text = `${post.title || ''} ${post.desc || ''}`.trim();
+  if (!text || LOW_VALUE_PATTERN.test(text)) return false;
+  return RELEVANCE_PATTERNS[categoryId]?.test(text) ?? false;
+}
+
 // ── 3. 카테고리 정의 ────────────────────────────────────────
 
 /**
@@ -152,13 +142,12 @@ const CATEGORIES = [
     color:   '#00C851',
     limit:   5,
     fetchers: [
-      () => fetchRedditJSON('investing',      'r/investing',    '📈', '#00C851', 'stocks'),
-      () => fetchRedditJSON('stocks',         'r/stocks',       '📊', '#1a73e8', 'stocks'),
-      () => fetchRedditJSON('wallstreetbets', 'r/WallStreetBets','🚀', '#FF4500', 'stocks', 10),
       () => fetchRSS('https://finance.yahoo.com/rss/topfinstories',
                      'Yahoo Finance', '💰', '#720E9E', 'stocks'),
       () => fetchRSS('https://feeds.marketwatch.com/marketwatch/topstories/',
                      'MarketWatch', '📉', '#006DB0', 'stocks'),
+      () => fetchRSS('https://www.cnbc.com/id/100003114/device/rss/rss.html',
+                     'CNBC', '📺', '#004CA3', 'stocks'),
     ],
   },
   {
@@ -172,9 +161,8 @@ const CATEGORIES = [
                      'BBC Business', '🌍', '#BB1919', 'world'),
       () => fetchRSS('https://www.cnbc.com/id/100003114/device/rss/rss.html',
                      'CNBC', '📺', '#004CA3', 'world'),
-      () => fetchRSS('https://feeds.reuters.com/reuters/businessNews',
-                     'Reuters Business', '🌐', '#FF7B00', 'world'),
-      () => fetchRedditJSON('economics', 'r/economics', '📚', '#1565C0', 'world', 10),
+      () => fetchRSS('https://feeds.a.dj.com/rss/RSSWorldNews.xml',
+                     'WSJ World News', '🌐', '#FF7B00', 'world'),
     ],
   },
   {
@@ -190,7 +178,6 @@ const CATEGORIES = [
                      'CNBC', '📺', '#004CA3', 'market'),
       () => fetchRSS('https://finance.yahoo.com/rss/topfinstories',
                      'Yahoo Finance', '💰', '#720E9E', 'market'),
-      () => fetchRedditJSON('stocks', 'r/stocks', '📊', '#1a73e8', 'market', 10),
     ],
   },
   {
@@ -200,8 +187,6 @@ const CATEGORIES = [
     color:   '#F7931A',
     limit:   4,
     fetchers: [
-      () => fetchRedditJSON('CryptoCurrency', 'r/CryptoCurrency', '₿', '#F7931A', 'crypto'),
-      () => fetchRedditJSON('Bitcoin',        'r/Bitcoin',        '₿', '#F7931A', 'crypto'),
       () => fetchRSS('https://www.coindesk.com/arc/outboundfeeds/rss/',
                      'CoinDesk', '🪙', '#1A1A1A', 'crypto'),
     ],
@@ -217,8 +202,6 @@ const CATEGORIES = [
                      '매일경제', '📰', '#001A5C', 'korea'),
       () => fetchRSS('https://www.hankyung.com/feed/economy',
                      '한국경제', '📰', '#1A3C8F', 'korea'),
-      () => fetchRSS('https://fs.jtbc.co.kr/RSS/newsflash.xml',
-                     'JTBC', '📺', '#E4002B', 'korea'),
     ],
   },
 ];
@@ -236,9 +219,12 @@ async function collectAll() {
       .flatMap(r => r.value)
       .filter(p => p.title && p.url);
 
+    const relevant = raw.filter(p => isRelevantArticle(p, cat.id));
+    console.log(`  → 경제 관련성 필터: ${raw.length}개 중 ${relevant.length}개 통과`);
+
     // 제목 기준 중복 제거 후 핫함 점수 정렬
     const seen = new Set();
-    const pool = raw
+    const pool = relevant
       .filter(p => {
         const key = p.title.toLowerCase().slice(0, 60);
         if (seen.has(key)) return false;
@@ -293,14 +279,15 @@ ${articleList}
 1. 시장 파급력 — 지수·환율·금리·자산가격에 직접 영향
 2. 한국 투자자 관련성 — 코스피·원화·한국 기업 연관성
 3. 글로벌 경제 흐름의 핵심 이슈 — 장기 트렌드 변화
-4. 추천수 등 커뮤니티 관심도${catLabel.includes('한국') ? '\n\n⚠️ 한국경제 카테고리 주의: 반드시 경제·금융·증시·환율·기업 실적과 직접 관련된 기사만 선별하세요. 보도자료·행사 안내·스포츠·연예·식품 관련 기사는 절대 선택하지 마세요.' : ''}
+4. 같은 사건을 다룬 중복 기사보다 서로 다른 핵심 변수 우선${catLabel.includes('한국') ? '\n\n⚠️ 한국경제 카테고리 주의: 반드시 경제·금융·증시·환율·기업 실적과 직접 관련된 기사만 선별하세요. 보도자료·행사 안내·스포츠·연예·식품 관련 기사는 절대 선택하지 마세요.' : ''}
 
 칼럼 작성 규칙:
 - "이 기사는" "이번 소식은" "~에 따르면" 으로 시작 금지
 - 번호 나열(첫째/둘째 ①②③) 금지
 - 배경·맥락·투자 시사점·전망을 담아 3~4문장
-- 자연스러운 한국어 구어체
+- 자연스럽고 정확한 한국어 설명체
 - 원문 제목이나 설명을 그대로 번역하지 말고, 왜 중요한지와 어떤 변수를 봐야 하는지 GlobalHot의 자체 해설로 작성
+- 기사에 없는 수치나 사실을 만들어내지 말고, 불확실한 전망은 가능성으로 표현
 - 수치(주가·금리·환율 등)가 있다면 맥락과 함께 언급
 - 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지
 
@@ -313,7 +300,7 @@ ${articleList}
   ]
 }`;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_KEY}`;
 
   for (let attempt = 0; attempt <= 2; attempt++) {
     try {
@@ -322,7 +309,11 @@ ${articleList}
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.65, maxOutputTokens: 1200 },
+          generationConfig: {
+            temperature: 0.55,
+            maxOutputTokens: 1800,
+            responseMimeType: 'application/json',
+          },
         }),
         signal: AbortSignal.timeout(30000),
       });
@@ -408,10 +399,10 @@ async function generateEditorialSummary(enriched) {
     const topTitles = allPosts.slice(0, 10).map((p, i) => `[${i+1}] ${p.title} (${p.source})`).join('\n');
     const prompt = `오늘(${DATE_KO}) 글로벌 경제·시장에서 가장 주목받은 뉴스들입니다:\n${topTitles}\n\n위 뉴스들을 바탕으로 '오늘의 시장 흐름'을 한국 개인 투자자 관점에서 150~200자 분량으로 요약해주세요. 특정 종목 추천이나 투자 조언은 하지 말고, 오늘 시장의 전반적인 분위기와 주목해야 할 테마를 간결하게 서술해주세요. 반드시 한국어로, 마크다운 없이 평문으로 작성하세요.`;
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_KEY}`,
       { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.6, maxOutputTokens: 300 } }),
+          generationConfig: { temperature: 0.5, maxOutputTokens: 300 } }),
         signal: AbortSignal.timeout(20000) }
     );
     if (!res.ok) return '';
@@ -434,6 +425,12 @@ async function enrichWithAI(categories) {
     if (!geminiQuotaExhausted) await new Promise(r => setTimeout(r, 6000));
   }
   return enriched;
+}
+
+function hasPublishableSummary(post) {
+  const summary = String(post.summary || '').trim();
+  const hangulCount = (summary.match(/[가-힣]/g) || []).length;
+  return summary.length >= 90 && hangulCount >= 25;
 }
 
 // ── 6. HTML 생성 ─────────────────────────────────────────────
@@ -484,7 +481,7 @@ function renderCategory(cat) {
   if (!cat.posts || cat.posts.length === 0) return '';
   const catSummaryHtml = cat.catSummary
     ? `<div class="cat-editorial">
-        <span class="cat-editorial-label">✏️ GlobalHot 편집부 한 줄 요약</span>
+        <span class="cat-editorial-label">✏️ GlobalHot 카테고리 해설</span>
         <p class="cat-editorial-body">${escapeHtml(cat.catSummary)}</p>
       </div>`
     : '';
@@ -530,6 +527,7 @@ function extractSEOTerms(allPosts) {
 function generateHTML(categories, editorialSummary = '') {
   const allPosts  = categories.flatMap(c => c.posts || []);
   const total     = allPosts.length;
+  const sourceNames = [...new Set(allPosts.map(p => p.source))].join(' · ');
   const topTitles = allPosts.slice(0, 3).map(p => p.title).join(' / ');
   const prevDate  = new Date(KST - 86400000).toISOString().slice(0, 10);
   const prevExists = existsSync(join(process.cwd(), 'posts', `${prevDate}.html`));
@@ -548,8 +546,8 @@ function generateHTML(categories, editorialSummary = '') {
   const h1Text     = seoTerms.length > 0
     ? `${seoTerms.join(', ')} 오늘 시황`
     : `오늘 전세계에서 가장 뜨거웠던 경제·시장 뉴스`;
-  const h1Sub      = `${DATE_KO} 글로벌 경제·주식 AI 브리핑`;
-  const pageDesc   = `${DATE_KO} 글로벌 경제·증시 주요 뉴스 ${total}건. 미국주식·가상화폐·거시경제에서 오늘 가장 주목받은 소식을 AI가 선별·한국어로 해설합니다. ${topTitles}`;
+  const h1Sub      = `${DATE_KO} 글로벌 경제·주식 해설 브리핑`;
+  const pageDesc   = `${DATE_KO} 글로벌 경제·증시 주요 이슈 ${total}건. 미국주식·가상화폐·거시경제에서 한국 투자자가 확인할 흐름과 변수를 해설합니다. ${topTitles}`;
 
   return `<!DOCTYPE html>
 <html lang="ko">
@@ -564,7 +562,7 @@ function generateHTML(categories, editorialSummary = '') {
   <meta property="og:url" content="${SITE_URL}/posts/${TODAY}.html" />
   <meta property="og:site_name" content="GlobalHot" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="GlobalHot 경제팀" />
+  <meta name="author" content="GlobalHot 운영자" />
   <link rel="canonical" href="${SITE_URL}/posts/${TODAY}.html" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3314960461630607" crossorigin="anonymous"></script>
   <script type="application/ld+json">
@@ -575,7 +573,7 @@ function generateHTML(categories, editorialSummary = '') {
     "description": "${escapeHtml(pageDesc)}",
     "datePublished": "${TODAY}",
     "dateModified": "${TODAY}",
-    "author": { "@type": "Organization", "name": "GlobalHot 경제팀" },
+    "author": { "@type": "Organization", "name": "GlobalHot 운영자" },
     "publisher": { "@type": "Organization", "name": "GlobalHot – 글로벌 경제·주식 뉴스", "url": "${SITE_URL}" },
     "url": "${SITE_URL}/posts/${TODAY}.html"
   }
@@ -654,12 +652,12 @@ function generateHTML(categories, editorialSummary = '') {
   <div class="container" itemscope itemtype="https://schema.org/Article">
 
     <div class="post-header">
-      <div class="post-eyebrow">🤖 GlobalHot AI 브리핑 · ${TODAY}</div>
+      <div class="post-eyebrow">GlobalHot 경제 해설 · ${TODAY}</div>
       <h1 itemprop="headline">${escapeHtml(h1Text)}<br><span style="font-size:.72em;font-weight:600;color:var(--text2)">${escapeHtml(h1Sub)}</span></h1>
       <div class="post-byline">
-        <span>by <strong>GlobalHot AI 편집부</strong></span>
+        <span>by <strong>GlobalHot 운영자</strong></span>
         <span>·</span>
-        <span>AI 선별 ${total}건</span>
+        <span>해설 ${total}건</span>
         <span>·</span>
         <span itemprop="datePublished" content="${TODAY}">${DATE_KO}</span>
       </div>
@@ -668,13 +666,13 @@ function generateHTML(categories, editorialSummary = '') {
     <nav class="cat-nav" aria-label="카테고리 바로가기">${catNav}</nav>
 
     ${editorialSummary ? `<div class="editorial-box">
-      <div class="editorial-label">📝 오늘의 시장 흐름 — GlobalHot 편집부</div>
+      <div class="editorial-label">오늘의 시장 흐름 — GlobalHot</div>
       <div class="editorial-body">${escapeHtml(editorialSummary)}</div>
     </div>` : ''}
 
     <section class="source-policy" aria-label="편집 기준">
       <h2>GlobalHot 편집 기준</h2>
-      <p>이 브리핑은 공개 RSS와 공식 API에서 수집한 원문을 그대로 복제하지 않고, 시장 파급력·한국 투자자 관련성·거시 흐름을 기준으로 선별해 한국어 맥락을 덧붙입니다. 모든 기사에는 원문 링크를 남기며, 자동 요약은 정보 제공 목적일 뿐 투자 권유가 아닙니다.</p>
+      <p>이 브리핑은 공개 RSS에서 확인한 원문을 그대로 복제하지 않고, 시장 파급력·한국 투자자 관련성·거시 흐름을 기준으로 선별해 한국어 맥락을 덧붙입니다. 자동화 도구는 자료 정리와 초안 작성에만 보조적으로 사용하며, 의미 있는 한국어 해설이 생성되지 않으면 해당 글을 발행하지 않습니다.</p>
     </section>
 
     ${catSections}
@@ -686,13 +684,11 @@ function generateHTML(categories, editorialSummary = '') {
     </nav>
 
     <div class="footer">
-      © ${KST.getFullYear()} GlobalHot · 매일 오전 9시 KST 발행<br>
-      출처: Yahoo Finance · MarketWatch · CNBC · Reuters Business · BBC Business ·
-             Reddit (r/investing, r/stocks, r/WallStreetBets, r/economics, r/CryptoCurrency, r/Bitcoin) ·
-             CoinDesk · 연합뉴스 · JTBC · 한겨레<br>
-      AI 선별 및 해설: Google Gemini 2.0 Flash<br>
+      © ${KST.getFullYear()} GlobalHot · 품질 기준 통과 후 발행<br>
+      이번 글에서 사용한 출처: ${escapeHtml(sourceNames)}<br>
+      작성 보조 도구: Google ${escapeHtml(GEMINI_MODEL)}<br>
       <br>
-      ⚠️ 면책조항: 본 콘텐츠는 AI가 자동 수집·선별·요약한 정보 제공용이며, 투자 권유가 아닙니다. 투자 결정은 반드시 전문가와 상의하시기 바랍니다.
+      ⚠️ 면책조항: 본 콘텐츠는 공개 자료를 바탕으로 한 정보 제공용 해설이며 투자 권유가 아닙니다. 수치와 제도는 원문 및 공식 자료를 다시 확인하고, 투자 결정은 본인의 판단과 전문가 상담을 바탕으로 하시기 바랍니다.
     </div>
 
   </div>
@@ -768,9 +764,8 @@ function updateHomepage(enriched) {
     })
     .slice(0, 3);
 
-  const fallbackSummary = '시장 흐름을 빠르게 파악하기 위한 참고 기사입니다. 투자 판단에는 원문과 GlobalHot 자체 가이드를 함께 확인하세요.';
   const articleCards = top3.map(a => {
-    const summary = a.summary ? `${escapeHtml(a.summary.slice(0, 120))}...` : fallbackSummary;
+    const summary = escapeHtml(a.summary.length > 120 ? `${a.summary.slice(0, 120)}...` : a.summary);
     return `
         <div class="dr-article">
           <span class="dr-badge" style="background:${a.color}">${a.sourceEmoji} ${escapeHtml(a.source)}</span>
@@ -783,7 +778,7 @@ function updateHomepage(enriched) {
   <div class="daily-report">
     <div class="daily-report-inner">
       <div class="dr-header">
-        <span class="dr-eyebrow">🤖 AI 경제·시장 브리핑 · ${TODAY}</span>
+        <span class="dr-eyebrow">경제·시장 해설 브리핑 · ${TODAY}</span>
         <span class="dr-date">${DATE_KO}</span>
       </div>
       <p class="dr-note">오늘의 브리핑은 주요 공개 출처를 바탕으로 시장 흐름을 빠르게 확인하기 위한 보조 자료입니다. 투자 판단에는 위의 GlobalHot 자체 가이드와 각 기사 원문을 함께 참고하세요.</p>
@@ -833,8 +828,8 @@ function updatePostsIndex() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>글로벌 경제·주식 AI 브리핑 목록 | GlobalHot</title>
-  <meta name="description" content="GlobalHot AI 경제·주식 브리핑 전체 목록. 매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 선별·한국어로 해설합니다. 총 ${files.length}개의 브리핑." />
+  <title>글로벌 경제·주식 해설 브리핑 목록 | GlobalHot</title>
+  <meta name="description" content="GlobalHot 경제·주식 해설 브리핑 전체 목록. 미국주식·가상화폐·글로벌경제 이슈를 한국 투자자 관점에서 설명합니다. 총 ${files.length}개의 브리핑." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${SITE_URL}/posts/" />
   <style>
@@ -860,8 +855,8 @@ function updatePostsIndex() {
 <body>
   <header class="site-header"><a href="/">📈 Global<span>Hot</span></a></header>
   <div class="container">
-    <h1>📚 AI 경제·주식 브리핑 아카이브</h1>
-    <p class="subtitle">매일 미국주식·가상화폐·글로벌경제 뉴스를 AI가 선별·한국어로 해설합니다. 총 ${files.length}개의 브리핑</p>
+    <h1>📚 경제·주식 해설 브리핑 아카이브</h1>
+    <p class="subtitle">미국주식·가상화폐·글로벌경제 이슈를 한국 투자자 관점에서 설명합니다. 총 ${files.length}개의 브리핑</p>
     <ul>${listHTML}</ul>
     <a class="back-link" href="/">← GlobalHot 메인으로</a>
   </div>
@@ -907,26 +902,6 @@ function updateSitemap() {
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${SITE_URL}/sp500.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${SITE_URL}/bitcoin.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${SITE_URL}/nasdaq.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${SITE_URL}/us-economy.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>${SITE_URL}/guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -966,14 +941,34 @@ function updateSitemap() {
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>${SITE_URL}/analysis-tariff-kospi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-fed-delay.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-usd-krw.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-semiconductor.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-etf-vs-stock.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-us-stock-tax.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-recession-signal.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-bitcoin-halving.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-nvidia-ai.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>${SITE_URL}/analysis-asset-allocation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url>
     <loc>${SITE_URL}/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>${SITE_URL}/sources.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>${SITE_URL}/privacy.html</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/terms.html</loc>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 ${postUrls}
@@ -1017,6 +1012,7 @@ ${postUrls}
   const enriched = enrichedRaw.map(cat => ({
     ...cat,
     posts: (cat.posts || []).filter(p => {
+      if (!hasPublishableSummary(p)) return false;
       if (!p.url || usedUrls.has(p.url)) return false;
       usedUrls.add(p.url);
       return true;
@@ -1025,6 +1021,11 @@ ${postUrls}
 
   const postTotal = enriched.reduce((s, c) => s + (c.posts?.length || 0), 0);
   console.log(`\n✅ AI 선별 완료: ${postTotal}개 기사 (중복 제거 후)`);
+
+  if (postTotal < 8) {
+    console.error(`❌ 발행 중단: 한국어 자체 해설 품질 기준을 통과한 기사가 ${postTotal}개뿐입니다. 최소 8개가 필요합니다.`);
+    process.exit(1);
+  }
 
   // 3단계: 전체 편집 요약 생성
   console.log('\n📝 오늘의 시장 흐름 요약 생성 중...');
