@@ -1069,8 +1069,8 @@ body:not(.home-page) .site-footer { background: #fff; }
   margin: 0 0 18px;
 }
 .guide-intro > p:last-child { color: var(--home-muted); font-size: 13px; line-height: 1.8; margin: 0; }
-.guide-links { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--home-ink); }
-.guide-links a {
+.guide-library .guide-links { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--home-ink); }
+.guide-library .guide-links a {
   position: relative;
   min-height: 116px;
   display: grid;
@@ -1080,13 +1080,13 @@ body:not(.home-page) .site-footer { background: #fff; }
   padding: 18px 20px 18px 0;
   border-bottom: 1px solid var(--home-line);
 }
-.guide-links a:nth-child(odd) { border-right: 1px solid var(--home-line); }
-.guide-links a:nth-child(even) { padding-left: 20px; }
-.guide-links span { grid-row: 1 / 3; color: var(--home-hot); font-family: Georgia, serif; font-size: 13px; }
-.guide-links strong { color: var(--home-ink); font-size: 15px; line-height: 1.4; }
-.guide-links small { color: var(--home-faint); font-size: 11px; }
-.guide-links a:hover { background: #f6f6f2; }
-.guide-links a:hover strong { color: var(--home-hot); }
+.guide-library .guide-links a:nth-child(odd) { border-right: 1px solid var(--home-line); }
+.guide-library .guide-links a:nth-child(even) { padding-left: 20px; }
+.guide-library .guide-links span { grid-row: 1 / 3; color: var(--home-hot); font-family: Georgia, serif; font-size: 13px; }
+.guide-library .guide-links strong { color: var(--home-ink); font-size: 15px; line-height: 1.4; }
+.guide-library .guide-links small { color: var(--home-faint); font-size: 11px; }
+.guide-library .guide-links a:hover { background: #f6f6f2; }
+.guide-library .guide-links a:hover strong { color: var(--home-hot); }
 
 .editorial-policy { background: #ebebe6; border-bottom: 1px solid var(--home-line); padding: 28px 0; }
 .policy-row { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 38px; }
@@ -1165,10 +1165,10 @@ body:not(.home-page) .site-footer { background: #fff; }
   .analysis-list { grid-template-columns: 1fr; }
   .analysis-list a { min-height: 112px; }
   .analysis-list h3 { font-size: 16px; }
-  .guide-links { grid-template-columns: 1fr; }
-  .guide-links a:nth-child(odd) { border-right: 0; }
-  .guide-links a:nth-child(even) { padding-left: 0; }
-  .guide-links a { min-height: 100px; }
+  .guide-library .guide-links { grid-template-columns: 1fr; }
+  .guide-library .guide-links a:nth-child(odd) { border-right: 0; }
+  .guide-library .guide-links a:nth-child(even) { padding-left: 0; }
+  .guide-library .guide-links a { min-height: 100px; }
   .policy-row { grid-template-columns: 1fr; gap: 20px; }
   .policy-row > a { grid-column: auto; }
   .footer-grid { grid-template-columns: 1fr; gap: 26px; }
