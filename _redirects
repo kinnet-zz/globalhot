@@ -1,6 +1,5 @@
 https://www.globalhot.net/* https://globalhot.net/:splat 301
-/posts/* /guide.html 302
-/posts /guide.html 302
+/posts /posts/ 301
 /sp500.html /investing-guide.html 301
 /nasdaq.html /investing-guide.html 301
 /bitcoin.html /analysis-bitcoin-halving.html 301
