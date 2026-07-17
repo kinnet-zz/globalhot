@@ -96,18 +96,21 @@ async function fetchRSS(url, label, emoji, color, category, limit = 15) {
   const res = await safeFetch(url);
   if (!res) return [];
   const xml = await res.text().catch(() => '');
-  const results = parseRSSXml(xml).slice(0, limit).map(item => ({
-    title:       item.title.trim(),
-    url:         item.link,
-    points:      0,
-    comments:    0,
-    time:        item.date ? new Date(item.date) : new Date(),
-    source:      label,
-    sourceEmoji: emoji,
-    color,
-    category,
-    desc:        item.desc,
-  }));
+  const results = parseRSSXml(xml).slice(0, limit).map(item => {
+    const parsedTime = item.date ? new Date(item.date) : null;
+    return {
+      title:       item.title.trim(),
+      url:         item.link,
+      points:      0,
+      comments:    0,
+      time:        parsedTime && Number.isFinite(parsedTime.getTime()) ? parsedTime : null,
+      source:      label,
+      sourceEmoji: emoji,
+      color,
+      category,
+      desc:        item.desc,
+    };
+  });
   console.log(`  ${label}: ${results.length}개`);
   return results;
 }
@@ -219,8 +222,14 @@ async function collectAll() {
       .flatMap(r => r.value)
       .filter(p => p.title && p.url);
 
-    const relevant = raw.filter(p => isRelevantArticle(p, cat.id));
-    console.log(`  → 경제 관련성 필터: ${raw.length}개 중 ${relevant.length}개 통과`);
+    const fresh = raw.filter(p => {
+      if (!(p.time instanceof Date) || !Number.isFinite(p.time.getTime())) return false;
+      const ageMs = Date.now() - p.time.getTime();
+      return ageMs >= -6 * 3_600_000 && ageMs <= 72 * 3_600_000;
+    });
+    const relevant = fresh.filter(p => isRelevantArticle(p, cat.id));
+    console.log(`  → 최신성 필터: ${raw.length}개 중 ${fresh.length}개 통과 (72시간 이내)`);
+    console.log(`  → 경제 관련성 필터: ${fresh.length}개 중 ${relevant.length}개 통과`);
 
     // 제목 기준 중복 제거 후 핫함 점수 정렬
     const seen = new Set();
@@ -262,9 +271,10 @@ async function getAISelectionAndSummary(pool, catLabel, limit) {
   const articleList = candidates.map((a, i) => {
     const scoreStr = a.points > 0 ? `, 추천 ${a.points}` : '';
     const timeStr  = a.time instanceof Date
-      ? `, 발행 ${a.time.toLocaleDateString('ko-KR')}`
+      ? `, 발행 ${a.time.toISOString()}`
       : '';
-    return `[${i + 1}] "${a.title}" (출처: ${a.source}${scoreStr}${timeStr})`;
+    const descStr = a.desc ? `\n   원문 설명: ${a.desc}` : '';
+    return `[${i + 1}] "${a.title}" (출처: ${a.source}${scoreStr}${timeStr})${descStr}`;
   }).join('\n');
 
   const prompt = `당신은 글로벌 금융·경제 전문 칼럼니스트입니다.
@@ -287,7 +297,8 @@ ${articleList}
 - 배경·맥락·투자 시사점·전망을 담아 3~4문장
 - 자연스럽고 정확한 한국어 설명체
 - 원문 제목이나 설명을 그대로 번역하지 말고, 왜 중요한지와 어떤 변수를 봐야 하는지 GlobalHot의 자체 해설로 작성
-- 기사에 없는 수치나 사실을 만들어내지 말고, 불확실한 전망은 가능성으로 표현
+- 제공된 제목·원문 설명에 없는 사건, 인물의 직책, 수치나 인과관계를 만들어내지 말 것
+- 불확실한 전망은 가능성으로 표현하고, 확인되지 않은 투자 판단을 단정하지 말 것
 - 수치(주가·금리·환율 등)가 있다면 맥락과 함께 언급
 - 투자 권유 표현("매수하라", "지금 사야 한다") 사용 금지
 
@@ -760,8 +771,8 @@ function updateHomepage(enriched) {
   // 카테고리별로 대표 기사 1개씩 → 최대 3개 (다양성 확보, 중복 제거)
   const seenTitles = new Set();
   const top3 = enriched
-    .filter(c => c.posts?.length > 0)
-    .flatMap(c => c.posts)
+    .map(c => c.posts?.[0])
+    .filter(Boolean)
     .filter(p => {
       const key = p.title.toLowerCase().slice(0, 60);
       if (seenTitles.has(key)) return false;
@@ -773,26 +784,29 @@ function updateHomepage(enriched) {
   const articleCards = top3.map(a => {
     const summary = escapeHtml(a.summary.length > 120 ? `${a.summary.slice(0, 120)}...` : a.summary);
     return `
-        <div class="dr-article">
+        <article class="dr-article">
           <span class="dr-badge" style="background:${a.color}">${a.sourceEmoji} ${escapeHtml(a.source)}</span>
-          <p class="dr-headline">${escapeHtml(a.title)}</p>
+          <h3 class="dr-headline">${escapeHtml(a.title)}</h3>
           <p class="dr-summary">${summary}</p>
-        </div>`;
+        </article>`;
   }).join('');
 
   const snippet = `<!-- DAILY_REPORT_START -->
-  <div class="daily-report">
+  <section class="daily-report" id="latest" aria-labelledby="latest-title">
     <div class="daily-report-inner">
       <div class="dr-header">
-        <span class="dr-eyebrow">경제·시장 해설 브리핑 · ${TODAY}</span>
-        <span class="dr-date">${DATE_KO}</span>
+        <div>
+          <span class="dr-eyebrow">LATEST BRIEFING</span>
+          <h2 id="latest-title">오늘의 경제·시장 브리핑</h2>
+        </div>
+        <time class="dr-date" datetime="${TODAY}">${DATE_KO}</time>
       </div>
-      <p class="dr-note">오늘의 브리핑은 주요 공개 출처를 바탕으로 시장 흐름을 빠르게 확인하기 위한 보조 자료입니다. 투자 판단에는 위의 GlobalHot 자체 가이드와 각 기사 원문을 함께 참고하세요.</p>
+      <p class="dr-note">최근 72시간의 주요 공개 출처에서 시장 파급력과 한국 투자자 관련성을 기준으로 선별했습니다.</p>
       <div class="dr-articles">${articleCards}
       </div>
       <a class="dr-more" href="/posts/${TODAY}.html">오늘 전체 브리핑 보기 (${total}개 기사) →</a>
     </div>
-  </div>
+  </section>
   <!-- DAILY_REPORT_END -->`;
 
   html = html.replace(
