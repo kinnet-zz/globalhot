@@ -13,7 +13,7 @@ import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 
 import { join } from 'path';
 
 const SITE_URL  = process.env.SITE_URL || 'https://globalhot.net';
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
 const KST       = new Date(Date.now() + 9 * 3600_000);
 const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
@@ -331,7 +331,8 @@ ${articleList}
       }
 
       if (!res.ok) {
-        console.warn(`  ⚠️  Gemini API ${res.status}`);
+        const errorText = await res.text().catch(() => '');
+        console.warn(`  ⚠️  Gemini API ${res.status}: ${errorText.slice(0, 400)}`);
         return fallback();
       }
 
@@ -405,7 +406,11 @@ async function generateEditorialSummary(enriched) {
           generationConfig: { temperature: 0.5, maxOutputTokens: 300 } }),
         signal: AbortSignal.timeout(20000) }
     );
-    if (!res.ok) return '';
+    if (!res.ok) {
+      const errorText = await res.text().catch(() => '');
+      console.warn(`  ⚠️  편집자 요약 Gemini API ${res.status}: ${errorText.slice(0, 400)}`);
+      return '';
+    }
     const data = await res.json();
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
     return text;
@@ -982,7 +987,7 @@ ${postUrls}
 
 (async () => {
   console.log(`\n🚀 ${TODAY} (${DATE_KO}) 일일 포스트 생성 시작 v2`);
-  console.log(`🤖 AI: Gemini 2.0 Flash (카테고리당 1회 호출 — 선별+해설 동시)\n`);
+  console.log(`🤖 AI: ${GEMINI_MODEL} (카테고리당 1회 호출 — 선별+해설 동시)\n`);
 
   const postsDir = join(process.cwd(), 'posts');
   const filePath = join(postsDir, `${TODAY}.html`);
