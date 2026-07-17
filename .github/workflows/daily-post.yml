@@ -22,7 +22,7 @@ jobs:
         env:
           SITE_URL:       ${{ vars.SITE_URL || 'https://globalhot.net' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL:   gemini-flash-latest
+          GEMINI_MODEL:   gemini-3.1-flash-lite
         run: node scripts/generate-daily-post.mjs
 
       - name: 변경사항 커밋 & 푸시

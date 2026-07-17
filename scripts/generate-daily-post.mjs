@@ -13,7 +13,7 @@ import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 
 import { join } from 'path';
 
 const SITE_URL  = process.env.SITE_URL || 'https://globalhot.net';
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 const KST       = new Date(Date.now() + 9 * 3600_000);
 const TODAY     = KST.toISOString().slice(0, 10);
 const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
@@ -318,15 +318,16 @@ ${articleList}
         signal: AbortSignal.timeout(30000),
       });
 
-      if (res.status === 429) {
+      if ([429, 500, 502, 503, 504].includes(res.status)) {
+        const errorText = await res.text().catch(() => '');
         if (attempt < 2) {
           const wait = 10000 * (attempt + 1);
-          console.warn(`  ⚠️  Gemini 429 — ${wait / 1000}초 대기`);
+          console.warn(`  ⚠️  Gemini API ${res.status} — ${wait / 1000}초 대기 후 재시도: ${errorText.slice(0, 240)}`);
           await new Promise(r => setTimeout(r, wait));
           continue;
         }
-        console.warn('  ⚠️  Gemini 쿼터 소진');
-        geminiQuotaExhausted = true;
+        console.warn(`  ⚠️  Gemini API ${res.status} 재시도 소진: ${errorText.slice(0, 400)}`);
+        if (res.status === 429) geminiQuotaExhausted = true;
         return fallback();
       }
 
