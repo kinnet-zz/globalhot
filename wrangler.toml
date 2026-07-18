@@ -1,5 +1,6 @@
 name = "globalhot"
 pages_build_output_dir = "."
+compatibility_date = "2026-07-18"
 
 [ai]
 binding = "AI"
@@ -7,3 +8,9 @@ binding = "AI"
 [[kv_namespaces]]
 binding = "SUMMARY_KV"
 id = "e819959613044e8ca4998aa4d4ec69bd"
+
+[[d1_databases]]
+binding = "QUIZ_DB"
+database_name = "globalhot-quiz"
+database_id = "fd0c08f6-0ac4-49d3-93d6-a25061d06857"
+migrations_dir = "migrations"

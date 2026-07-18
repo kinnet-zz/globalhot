@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8MS3D3NTV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C8MS3D3NTV');
+  </script>
+  <title>오늘의 폭락 60초 | VIX 상황 퀴즈 | GlobalHot</title>
+  <meta name="description" content="VIX가 급등한 가상 상황을 3문제로 풀며 변동성과 투자 위험을 60초 안에 이해하는 GlobalHot 경제 퀴즈입니다." />
+  <meta property="og:title" content="오늘의 폭락 60초 | GlobalHot" />
+  <meta property="og:description" content="VIX 50이면 주식은 무조건 더 떨어질까? 3문제로 60초 안에 확인해보세요." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://globalhot.net/quiz/" />
+  <meta property="og:site_name" content="GlobalHot" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://globalhot.net/quiz/" />
+  <link rel="stylesheet" href="../style.css?v=20260718" />
+  <link rel="stylesheet" href="./quiz.css?v=1.0.0" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "오늘의 폭락 60초",
+    "about": "VIX와 시장 변동성",
+    "educationalLevel": "초급",
+    "inLanguage": "ko",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "GlobalHot",
+      "url": "https://globalhot.net/"
+    }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3314960461630607" crossorigin="anonymous"></script>
+</head>
+<body class="home-page quiz-page">
+  <header class="editorial-header">
+    <div class="editorial-header-inner">
+      <a class="editorial-logo" href="/" aria-label="GlobalHot 홈">
+        <span>Global</span><strong>Hot</strong>
+      </a>
+      <nav class="editorial-nav" aria-label="주요 메뉴">
+        <a href="/quiz/" aria-current="page">60초 퀴즈</a>
+        <a href="/#insights">이슈 해설</a>
+        <a href="/#guides">시장 가이드</a>
+        <a href="/about.html">작성 원칙</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="quiz-hero" aria-labelledby="quiz-title">
+      <div class="quiz-shell">
+        <div class="quiz-edition-row">
+          <p id="quizEdition" class="edition-line">LOADING QUIZ</p>
+          <div class="quiz-runtime" aria-label="퀴즈 진행 정보">
+            <span id="quizStep">준비</span>
+            <time id="quizTimer" aria-label="남은 시간">60초</time>
+          </div>
+        </div>
+
+        <div class="quiz-hero-grid">
+          <div>
+            <p class="quiz-series">오늘의 폭락 60초</p>
+            <h1 id="quiz-title" data-pretext data-editable="title">퀴즈를 불러오는 중입니다</h1>
+            <p id="quizDek" class="quiz-dek" data-pretext data-editable="dek">잠시만 기다려주세요.</p>
+          </div>
+          <aside class="quiz-promise" aria-label="퀴즈 특징">
+            <strong>뉴스를 외우지 않습니다.</strong>
+            <p>오늘 상황에서 용어가 어떤 뜻인지 판단합니다. 로그인 없이 바로 시작하고 결과는 기기에만 저장됩니다.</p>
+            <ul>
+              <li><b>3</b><span>상황 문제</span></li>
+              <li><b>60</b><span>목표 시간</span></li>
+              <li><b>0</b><span>필수 개인정보</span></li>
+            </ul>
+          </aside>
+        </div>
+
+        <div id="loadError" class="quiz-error" role="alert" hidden>
+          <strong>퀴즈를 불러오지 못했습니다.</strong>
+          <span>인터넷 연결을 확인한 뒤 다시 시도해주세요.</span>
+          <button id="retryButton" type="button">다시 시도</button>
+        </div>
+
+        <div id="startPanel" class="quiz-start-panel">
+          <div>
+            <span class="quiz-demo-badge">데모 퀴즈</span>
+            <p>현재 시장 수치를 단정하지 않는 가상 상황입니다. 기능과 문제 형식을 먼저 검증합니다.</p>
+          </div>
+          <button id="startButton" class="quiz-primary-button" type="button" disabled>60초 시작</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="questionSection" class="quiz-stage" aria-labelledby="questionPrompt" hidden>
+      <div class="quiz-shell quiz-stage-inner">
+        <div class="quiz-progress" aria-hidden="true">
+          <span id="progressBar"></span>
+        </div>
+        <div class="question-meta">
+          <span id="questionNumber">QUESTION 01 / 03</span>
+          <span>하나를 선택하세요</span>
+        </div>
+        <h2 id="questionPrompt" tabindex="-1"></h2>
+        <div id="choiceList" class="choice-list" role="group" aria-labelledby="questionPrompt"></div>
+        <p id="answerStatus" class="answer-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="resultSection" class="quiz-result" aria-labelledby="resultTitle" hidden>
+      <div class="quiz-shell">
+        <div class="result-score-row">
+          <div class="result-score">
+            <span>SCORE</span>
+            <strong id="resultScore">0/3</strong>
+          </div>
+          <div class="result-summary">
+            <p id="resultKicker">완료</p>
+            <h2 id="resultTitle" tabindex="-1">결과를 계산하고 있습니다</h2>
+            <p id="resultMeta"></p>
+          </div>
+        </div>
+
+        <p id="crowdSummary" class="crowd-summary" aria-live="polite">참여자 정답률은 문항별 30명부터 공개됩니다.</p>
+        <div id="explanationList" class="explanation-list" aria-label="문항별 해설"></div>
+
+        <div class="result-actions">
+          <button id="shareImageButton" class="quiz-primary-button" type="button">결과 이미지 공유</button>
+          <button id="shareXButton" class="quiz-secondary-button" type="button">X에 공유</button>
+          <button id="copyResultButton" class="quiz-secondary-button" type="button">결과 문구 복사</button>
+          <button id="retryQuizButton" class="quiz-text-button" type="button">다시 풀기</button>
+        </div>
+        <p id="shareStatus" class="share-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="quiz-source-section" aria-labelledby="sourceTitle">
+      <div class="quiz-shell source-grid">
+        <div>
+          <p class="section-kicker">FACT CHECK</p>
+          <h2 id="sourceTitle">정답은 출처와 함께 봅니다</h2>
+          <p id="quizDisclaimer">교육 목적이며 투자 권유가 아닙니다.</p>
+        </div>
+        <ol id="sourceList" class="quiz-source-list">
+          <li>퀴즈를 불러오면 공식 출처가 표시됩니다.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="quiz-next-section" aria-label="다음 읽을거리">
+      <div class="quiz-shell quiz-next-row">
+        <div>
+          <p class="section-kicker">NEXT READ</p>
+          <h2>VIX 다음에는 무엇을 볼까?</h2>
+          <p>경제 용어와 시장 지표 가이드에서 변동성, 금리, 환율의 연결을 이어서 확인하세요.</p>
+        </div>
+        <a href="/guide.html">경제 용어 가이드 읽기 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="cookieBanner" class="cookie-banner" style="display:none">
+    <p>본 사이트는 서비스 개선과 광고 게재를 위해 쿠키를 사용합니다. <a href="/privacy.html">자세히 보기</a></p>
+    <button id="cookieAccept">동의</button>
+  </div>
+
+  <footer class="editorial-footer">
+    <div class="editorial-shell footer-grid">
+      <div>
+        <a class="editorial-logo footer-logo" href="/"><span>Global</span><strong>Hot</strong></a>
+        <p>글로벌 경제 이슈를 한국 투자자의 언어로 설명합니다.</p>
+      </div>
+      <nav aria-label="하단 메뉴">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/sources.html">자료 출처</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="mailto:kintube0001@gmail.com">문의</a>
+      </nav>
+      <p class="footer-note">© 2026 GlobalHot. 정보 제공 목적이며 투자 권유가 아닙니다.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./quiz.js?v=1.0.0"></script>
+</body>
+</html>
