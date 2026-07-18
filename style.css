@@ -66,9 +66,9 @@ ul, ol { list-style: none; }
   max-width: 1280px; margin: 0 auto; padding: 0 20px;
   height: 58px; display: flex; align-items: center; gap: 16px;
 }
-.logo { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.logo-globe { font-size: 22px; }
-.logo-text { font-size: 18px; font-weight: 700; color: var(--accent); letter-spacing: -.5px; }
+.logo { display: inline-flex; align-items: center; gap: 0; flex-shrink: 0; }
+.logo-text { display: inline-flex; align-items: baseline; font-size: 25px; font-weight: 900; line-height: 1; }
+.logo-text strong { color: var(--accent); font-weight: 900; }
 .logo-badge {
   font-size: 9px; font-weight: 700;
   background: var(--accent); color: #fff;
@@ -835,7 +835,6 @@ body:not(.home-page) .logo-text {
   font-weight: 900;
   letter-spacing: 0;
 }
-body:not(.home-page) .logo-globe { font-size: 18px; }
 body:not(.home-page) .site-footer { background: #fff; }
 
 .home-page {
