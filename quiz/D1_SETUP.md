@@ -1,13 +1,20 @@
 # D1 정답률 활성화 체크리스트
 
-코드는 준비됐지만 실제 Cloudflare 자원 생성·배포는 별도 승인 후 진행한다.
+Cloudflare Preview까지 활성화하고 실제 답안 저장을 검증했다.
 
-1. D1 데이터베이스 `globalhot-quiz`를 만든다.
-2. `migrations/0001_quiz_answers.sql`을 원격 D1에 적용한다.
-3. Cloudflare Pages 프로젝트에 D1 바인딩 이름 `QUIZ_DB`를 연결한다.
-4. 32바이트 이상의 무작위 비밀값을 `QUIZ_COOKIE_SECRET` 환경변수로 등록한다.
-5. 미리보기 환경에서 `/api/quiz-answer` POST와 중복 집계를 확인한 뒤 프로덕션에 배포한다.
-6. Cloudflare Rate Limiting으로 `/api/quiz-answer`에 IP별 완만한 제한을 둔다. IP는 애플리케이션 DB에 저장하지 않는다.
+## 완료
+
+- [x] D1 데이터베이스 `globalhot-quiz` 생성
+- [x] `migrations/0001_quiz_answers.sql` 원격 적용
+- [x] Cloudflare Pages의 `QUIZ_DB` 바인딩 연결
+- [x] 운영·미리보기 환경에 32바이트 이상 무작위 `QUIZ_COOKIE_SECRET` 등록
+- [x] 미리보기에서 3개 `/api/quiz-answer` 요청의 200 응답과 D1 저장 확인
+
+## 운영 배포 전 남은 작업
+
+1. PR을 병합해 프로덕션에 배포한다.
+2. 프로덕션에서 `/api/quiz-answer` POST와 중복 방지를 다시 확인한다.
+3. Cloudflare Rate Limiting으로 `/api/quiz-answer`에 IP별 완만한 제한을 둔다. IP는 애플리케이션 DB에 저장하지 않는다.
 
 예시 명령은 Cloudflare 계정과 프로젝트를 확인한 뒤 실행한다.
 

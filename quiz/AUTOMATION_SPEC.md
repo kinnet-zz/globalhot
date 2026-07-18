@@ -68,4 +68,4 @@ RSS/Gemini 브리핑 ──▶ 사실카드 점수화 ──▶ AI 초안 6개
 
 ## 7. 배포 범위
 
-코드와 D1 마이그레이션까지 저장소에 포함한다. 실제 D1 데이터베이스 생성, `QUIZ_DB` 바인딩, 커밋·푸시·운영 배포는 별도 승인 후 수행한다.
+코드와 D1 마이그레이션을 저장소에 포함하고, `globalhot-quiz` 데이터베이스 생성·마이그레이션·`QUIZ_DB` 바인딩·운영 및 미리보기용 `QUIZ_COOKIE_SECRET` 등록까지 완료했다. Cloudflare Preview에서 3문제 답안 저장과 결과 화면을 검증했다. 프로덕션 배포는 PR 병합 후 진행하고, `/api/quiz-answer` Rate Limiting은 운영 전 별도로 설정한다.
