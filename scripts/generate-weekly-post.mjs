@@ -110,7 +110,7 @@ function generateHTML(posts) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/analytics.js"></script>
+  <script src="/analytics.js?v=20260718-2"></script>
   <title>${escapeHtml(title)} | GlobalHot</title>
   <meta name="description" content="${escapeHtml(desc)}" />
   <meta property="og:title" content="${escapeHtml(title)}" />
@@ -209,7 +209,7 @@ async function updateIndex(newPost) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/analytics.js"></script>
+  <script src="/analytics.js?v=20260718-2"></script>
   <title>주간 화제 리포트 목록 | GlobalHot</title>
   <meta name="description" content="GlobalHot 주간 전세계 화제 TOP10 리포트 목록" />
   <meta name="robots" content="index, follow" />
