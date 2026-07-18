@@ -586,6 +586,11 @@ ul, ol { list-style: none; }
 }
 @media (max-width: 600px) {
   .header-inner { padding: 0 14px; gap: 10px; }
+  body:not(.home-page) .header-inner {
+    height: 56px;
+    align-items: flex-start;
+    padding: 10px 15px 0;
+  }
   .logo-badge { display: none; }
   .main { padding: 14px; gap: 14px; }
   .sidebar { grid-template-columns: 1fr; }
