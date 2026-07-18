@@ -125,6 +125,7 @@ function generateHTML(posts, friday) {
 <html lang="ko">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="/analytics.js"></script>
   <title>${esc(title)} | GlobalHot</title>
   <meta name="description" content="${esc(desc)}"/>
   <meta property="og:title" content="${esc(title)}"/>
@@ -198,6 +199,7 @@ function rebuildIndex() {
 <html lang="ko">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <script src="/analytics.js"></script>
   <title>주간 화제 리포트 목록 | GlobalHot</title>
   <meta name="description" content="GlobalHot 주간 전세계 화제 TOP10 리포트 목록. 매주 금요일 자동 업데이트됩니다."/>
   <meta name="robots" content="index, follow"/>

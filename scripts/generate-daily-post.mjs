@@ -572,6 +572,7 @@ function generateHTML(categories, editorialSummary = '') {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="/analytics.js"></script>
   <title>${escapeHtml(pageTitle)} | GlobalHot</title>
   <meta name="description" content="${escapeHtml(pageDesc)}" />
   <meta property="og:title" content="${escapeHtml(pageTitle)}" />
@@ -849,6 +850,7 @@ function updatePostsIndex() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="/analytics.js"></script>
   <title>글로벌 경제·주식 해설 브리핑 목록 | GlobalHot</title>
   <meta name="description" content="GlobalHot 경제·주식 해설 브리핑 전체 목록. 미국주식·가상화폐·글로벌경제 이슈를 한국 투자자 관점에서 설명합니다. 총 ${files.length}개의 브리핑." />
   <meta name="robots" content="index, follow" />
@@ -932,6 +934,11 @@ function updateSitemap() {
     <loc>${SITE_URL}/guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/vix-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>${SITE_URL}/investing-guide.html</loc>

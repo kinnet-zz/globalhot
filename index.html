@@ -3,13 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8MS3D3NTV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-C8MS3D3NTV');
-  </script>
+  <script src="/analytics.js"></script>
   <meta name="description" content="오늘의 글로벌 경제 이슈를 한국 투자자 관점에서 깊이 설명합니다. 관세, 금리, 환율, 반도체와 미국 시장의 배경·영향·확인 지표를 자체 해설로 제공합니다." />
   <meta property="og:title" content="GlobalHot | 글로벌 경제 이슈 해설" />
   <meta property="og:description" content="뜨거운 글로벌 경제 이슈에서 한국 투자자가 확인해야 할 배경, 영향, 지표를 깊이 있게 설명합니다." />
@@ -260,6 +254,7 @@
           <a href="/etf-guide.html"><span>06</span><strong>ETF</strong><small>종류, 비용, 분산 효과</small></a>
           <a href="/recession.html"><span>07</span><strong>경기침체</strong><small>선행 지표와 역사적 사례</small></a>
           <a href="/portfolio.html"><span>08</span><strong>포트폴리오</strong><small>분산, 리밸런싱, 자산배분</small></a>
+          <a href="/vix-guide.html"><span>09</span><strong>VIX 공포지수</strong><small>20·30·40 구간과 폭락장 해석</small></a>
         </div>
       </div>
     </section>
@@ -272,11 +267,6 @@
       </div>
     </section>
   </main>
-
-  <div id="cookieBanner" class="cookie-banner" style="display:none">
-    <p>본 사이트는 서비스 개선과 광고 게재를 위해 쿠키를 사용합니다. <a href="/privacy.html">자세히 보기</a></p>
-    <button id="cookieAccept">동의</button>
-  </div>
 
   <footer class="editorial-footer">
     <div class="editorial-shell footer-grid">
@@ -295,16 +285,5 @@
     </div>
   </footer>
 
-  <script>
-    (function() {
-      var banner = document.getElementById('cookieBanner');
-      var accept = document.getElementById('cookieAccept');
-      if (!localStorage.getItem('cookie-ok')) banner.style.display = 'flex';
-      accept.addEventListener('click', function() {
-        localStorage.setItem('cookie-ok', '1');
-        banner.style.display = 'none';
-      });
-    })();
-  </script>
 </body>
 </html>
