@@ -5,6 +5,7 @@
   var consentStorageKey = 'gh-consent-v1';
   var rawPath = window.location.pathname || '/';
   var path = rawPath.replace(/\/+$/, '') || '/';
+  var route = path.replace(/\.html$/, '');
   var pageType = document.currentScript && document.currentScript.getAttribute('data-page-type');
   var analyticsLoaded = false;
   var analyticsLoadScheduled = false;
@@ -12,26 +13,26 @@
 
   function classifyContentGroup() {
     if (pageType === 'not_found') return 'not_found';
-    if (path === '/' || path === '/index.html') return 'home';
-    if (path === '/quiz' || path === '/quiz/index.html') return 'quiz';
-    if (path === '/posts' || path === '/posts/index.html' || /^\/posts\/\d{4}-\d{2}-\d{2}\.html$/.test(path)) {
+    if (route === '/' || route === '/index') return 'home';
+    if (route === '/quiz' || route === '/quiz/index') return 'quiz';
+    if (route === '/posts' || route === '/posts/index' || /^\/posts\/\d{4}-\d{2}-\d{2}$/.test(route)) {
       return 'daily_briefing';
     }
-    if (/^\/analysis-[a-z0-9-]+\.html$/.test(path)) return 'analysis';
+    if (/^\/analysis-[a-z0-9-]+$/.test(route)) return 'analysis';
     if (
-      /^\/[a-z0-9-]+-guide\.html$/.test(path) ||
-      path === '/guide.html' ||
-      path === '/market-indicators.html' ||
-      path === '/fed-rate.html' ||
-      path === '/forex.html' ||
-      path === '/recession.html' ||
-      path === '/portfolio.html'
+      /^\/[a-z0-9-]+-guide$/.test(route) ||
+      route === '/guide' ||
+      route === '/market-indicators' ||
+      route === '/fed-rate' ||
+      route === '/forex' ||
+      route === '/recession' ||
+      route === '/portfolio'
     ) return 'evergreen_guide';
     if (
-      path === '/about.html' ||
-      path === '/sources.html' ||
-      path === '/privacy.html' ||
-      path === '/terms.html'
+      route === '/about' ||
+      route === '/sources' ||
+      route === '/privacy' ||
+      route === '/terms'
     ) return 'trust_policy';
     return 'other';
   }
