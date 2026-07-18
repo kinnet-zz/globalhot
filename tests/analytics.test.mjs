@@ -105,21 +105,21 @@ test('every published HTML page loads the blocking consent loader exactly once',
 
   for (const file of htmlFiles) {
     const html = await readFile(file, 'utf8');
-    assert.equal((html.match(/<script src="\/analytics\.js"(?: data-page-type="not_found")?><\/script>/g) || []).length, 1, file);
-    assert.doesNotMatch(html, /analytics\.js" defer/, file);
+    assert.equal((html.match(/<script src="\/analytics\.js\?v=20260718-2"(?: data-page-type="not_found")?><\/script>/g) || []).length, 1, file);
+    assert.doesNotMatch(html, /analytics\.js(?:\?[^\"]*)?" defer/, file);
     assert.doesNotMatch(html, /googletagmanager\.com\/gtag\/js\?id=G-C8MS3D3NTV/, file);
     assert.doesNotMatch(html, /id="cookieBanner"|id="cookieAccept"/, file);
   }
 
   const notFound = await readFile(join(root, '404.html'), 'utf8');
-  assert.match(notFound, /<script src="\/analytics\.js" data-page-type="not_found"><\/script>/);
+  assert.match(notFound, /<script src="\/analytics\.js\?v=20260718-2" data-page-type="not_found"><\/script>/);
 });
 
 test('every post generator includes the consent loader in post and archive templates', async () => {
   for (const name of ['generate-daily-post.mjs', 'generate-weekly-post.mjs', 'generate-backfill.mjs']) {
     const source = await readFile(join(root, 'scripts', name), 'utf8');
-    assert.equal((source.match(/<script src="\/analytics\.js"><\/script>/g) || []).length, 2, name);
-    assert.doesNotMatch(source, /analytics\.js" defer/, name);
+    assert.equal((source.match(/<script src="\/analytics\.js\?v=20260718-2"><\/script>/g) || []).length, 2, name);
+    assert.doesNotMatch(source, /analytics\.js(?:\?[^\"]*)?" defer/, name);
   }
 });
 
