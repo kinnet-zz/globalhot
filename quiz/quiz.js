@@ -32,9 +32,7 @@ const elements = {
   retryQuizButton: document.getElementById('retryQuizButton'),
   shareStatus: document.getElementById('shareStatus'),
   sourceList: document.getElementById('sourceList'),
-  disclaimer: document.getElementById('quizDisclaimer'),
-  cookieBanner: document.getElementById('cookieBanner'),
-  cookieAccept: document.getElementById('cookieAccept')
+  disclaimer: document.getElementById('quizDisclaimer')
 };
 
 const state = {
@@ -597,15 +595,6 @@ async function initializeTextLayout() {
   });
 }
 
-function initializeCookieBanner() {
-  if (!elements.cookieBanner || !elements.cookieAccept) return;
-  if (!localStorage.getItem('cookie-ok')) elements.cookieBanner.style.display = 'flex';
-  elements.cookieAccept.addEventListener('click', () => {
-    localStorage.setItem('cookie-ok', '1');
-    elements.cookieBanner.style.display = 'none';
-  });
-}
-
 elements.startButton.addEventListener('click', startQuiz);
 elements.retryButton.addEventListener('click', loadQuiz);
 elements.retryQuizButton.addEventListener('click', startQuiz);
@@ -613,5 +602,4 @@ elements.shareImageButton.addEventListener('click', shareResultImage);
 elements.shareXButton.addEventListener('click', shareOnX);
 elements.copyResultButton.addEventListener('click', copyResult);
 
-initializeCookieBanner();
 loadQuiz();
