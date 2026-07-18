@@ -840,6 +840,27 @@ body:not(.home-page) .logo-text {
   font-weight: 900;
   letter-spacing: 0;
 }
+body:not(.home-page) .header-inner {
+  width: min(1180px, calc(100% - 40px));
+  max-width: none;
+  height: 68px;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  body:not(.home-page) .header-inner {
+    width: min(calc(100% - 32px), 760px);
+    height: 62px;
+  }
+}
+@media (max-width: 680px) {
+  body:not(.home-page) .header-inner {
+    width: 100%;
+    height: 52px;
+    align-items: flex-start;
+    padding: 14px 16px 0;
+  }
+  body:not(.home-page) .logo-text { font-size: 23px; }
+}
 body:not(.home-page) .site-footer { background: #fff; }
 
 .home-page {
