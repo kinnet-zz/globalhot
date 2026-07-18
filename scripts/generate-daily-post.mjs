@@ -11,6 +11,7 @@
 
 import { writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync } from 'fs';
 import { join } from 'path';
+import { ensureDailyQuizFiles, generateDailyQuizFiles } from './generate-daily-quiz.mjs';
 
 const SITE_URL  = process.env.SITE_URL || 'https://globalhot.net';
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
@@ -922,6 +923,12 @@ function updateSitemap() {
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>${SITE_URL}/quiz/</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>${SITE_URL}/guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1009,7 +1016,9 @@ ${postUrls}
   mkdirSync(postsDir, { recursive: true });
 
   if (existsSync(filePath)) {
-    console.log(`⏭️  이미 존재: posts/${TODAY}.html — 스킵`);
+    console.log(`⏭️  이미 존재: posts/${TODAY}.html — 퀴즈 상태만 복구 확인`);
+    await ensureDailyQuizFiles({ date: TODAY, rootDir: process.cwd() });
+    updateSitemap();
     process.exit(0);
   }
 
@@ -1046,6 +1055,15 @@ ${postUrls}
     console.error(`❌ 발행 중단: 한국어 자체 해설 품질 기준을 통과한 기사가 ${postTotal}개뿐입니다. 최소 8개가 필요합니다.`);
     process.exit(1);
   }
+
+  // 게시물보다 퀴즈를 먼저 원자적으로 저장해 부분 성공 시에도 다음 실행이 안전하다.
+  await generateDailyQuizFiles({
+    date: TODAY,
+    enriched,
+    geminiKey: GEMINI_KEY,
+    model: GEMINI_MODEL,
+    rootDir: process.cwd(),
+  });
 
   // 3단계: 전체 편집 요약 생성
   console.log('\n📝 오늘의 시장 흐름 요약 생성 중...');

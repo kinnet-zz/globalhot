@@ -1,6 +1,9 @@
-name: 경제 해설 브리핑 수동 발행
+name: 경제 해설·퀴즈 매일 발행
 
 on:
+  schedule:
+    # 매일 06:30 KST/JST (GitHub Actions cron은 UTC)
+    - cron: '30 21 * * *'
   workflow_dispatch:
 
 jobs:
@@ -18,17 +21,28 @@ jobs:
         with:
           node-version: '24'
 
-      - name: 일일 포스트 생성
+      - name: 일일 포스트와 검증 퀴즈 생성
+        id: daily-content
+        continue-on-error: true
         env:
           SITE_URL:       ${{ vars.SITE_URL || 'https://globalhot.net' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL:   gemini-3.1-flash-lite
         run: node scripts/generate-daily-post.mjs
 
+      - name: 퀴즈 독립 발행 보장
+        run: node scripts/generate-daily-quiz.mjs
+
       - name: 변경사항 커밋 & 푸시
         run: |
           git config user.name  "GlobalHot Bot"
           git config user.email "bot@globalhot.pages.dev"
-          git add posts/ sitemap.xml index.html
-          git diff --staged --quiet || git commit -m "post: daily report $(date '+%Y-%m-%d')"
+          git add posts/ quiz/data/ sitemap.xml index.html
+          git diff --staged --quiet || git commit -m "content: daily report and quiz $(date '+%Y-%m-%d')"
           git push
+
+      - name: 브리핑 생성 실패 알림
+        if: steps.daily-content.outcome != 'success'
+        run: |
+          echo "브리핑 생성은 실패했지만 검증 문제은행 퀴즈는 발행했습니다."
+          exit 1
