@@ -1,0 +1,77 @@
+{
+  "id": "daily-market-2026-07-20",
+  "date": "2026-07-20",
+  "editionLabel": "DAILY QUIZ · 2026.07.20",
+  "eyebrow": "오늘의 시장 60초",
+  "title": "오늘 시장, CPI 신호를 제대로 읽을까?",
+  "dek": "오늘 시장 뉴스와 연결된 세 가지 상황을 60초 동안 판단해 보세요. 정답은 검증된 공식 자료에서만 가져옵니다.",
+  "mode": "verified-bank-fallback",
+  "questions": [
+    {
+      "id": "2026-07-20-cpi-basket-index",
+      "factId": "cpi-basket-index",
+      "type": "meaning",
+      "prompt": "CPI가 측정하는 대상으로 가장 정확한 것은?",
+      "choices": [
+        "중앙은행이 정하는 시장금리 변화",
+        "도시 소비자가 구입하는 재화·서비스 바구니의 가격 변화",
+        "상장기업 전체의 평균 이익 변화"
+      ],
+      "answerIndex": 1,
+      "explanation": "CPI는 소비자가 지불하는 상품과 서비스 바구니의 가격 변화를 측정하는 지수입니다.",
+      "sourceIds": [
+        "https://fred.stlouisfed.org/series/CPIAUCSL"
+      ]
+    },
+    {
+      "id": "2026-07-20-fed-rate-chain",
+      "factId": "fed-rate-chain",
+      "type": "interpretation",
+      "prompt": "연준 금리 변화가 시장에 전달되는 설명으로 맞는 것은?",
+      "choices": [
+        "장기금리와 환율에는 영향을 줄 수 없다",
+        "여러 금리·환율·신용 경로를 거쳐 영향을 준다",
+        "모든 자산 가격을 즉시 같은 방향으로 움직인다"
+      ],
+      "answerIndex": 1,
+      "explanation": "통화정책은 하나의 가격을 바로 결정하기보다 여러 금융 경로를 통해 전달됩니다.",
+      "sourceIds": [
+        "https://www.federalreserve.gov/monetarypolicy/fomc.htm"
+      ]
+    },
+    {
+      "id": "2026-07-20-gdp-estimate-vintage",
+      "factId": "gdp-estimate-vintage",
+      "type": "check",
+      "prompt": "서로 다른 GDP 성장률 보도가 엇갈릴 때 먼저 확인할 것은?",
+      "choices": [
+        "발표일과 추정 단계, 수정 여부",
+        "기사에 사용된 사진의 종류",
+        "발표 당일의 금 가격만"
+      ],
+      "answerIndex": 0,
+      "explanation": "GDP는 추정 단계와 수정 시점에 따라 값이 바뀔 수 있으므로 자료의 빈티지를 확인해야 합니다.",
+      "sourceIds": [
+        "https://www.bea.gov/data/gdp/gross-domestic-product"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "FRED CPI 공식 데이터",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "note": "BLS CPI 정의와 단위"
+    },
+    {
+      "label": "연준 FOMC 공식 설명",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+      "note": "금리 변화의 전달 경로"
+    },
+    {
+      "label": "BEA GDP 공식 설명",
+      "url": "https://www.bea.gov/data/gdp/gross-domestic-product",
+      "note": "발표 단계와 수정 정보"
+    }
+  ],
+  "disclaimer": "교육용 상황 퀴즈이며 특정 종목이나 자산의 매수·매도를 권유하지 않습니다."
+}
