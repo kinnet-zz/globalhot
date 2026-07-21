@@ -1,0 +1,77 @@
+{
+  "id": "daily-market-2026-07-22",
+  "date": "2026-07-22",
+  "editionLabel": "DAILY QUIZ · 2026.07.22",
+  "eyebrow": "오늘의 시장 60초",
+  "title": "오늘 시장, 국채 신호를 제대로 읽을까?",
+  "dek": "오늘 시장 뉴스와 연결된 세 가지 상황을 60초 동안 판단해 보세요. 정답은 검증된 공식 자료에서만 가져옵니다.",
+  "mode": "verified-bank-fallback",
+  "questions": [
+    {
+      "id": "2026-07-22-treasury-par-yield-curve",
+      "factId": "treasury-par-yield-curve",
+      "type": "meaning",
+      "prompt": "국채 수익률곡선 표가 비교하는 핵심 축은?",
+      "choices": [
+        "서로 다른 국가의 소비자물가",
+        "같은 시점의 서로 다른 국채 만기",
+        "서로 다른 기업의 영업이익률"
+      ],
+      "answerIndex": 1,
+      "explanation": "수익률곡선은 같은 시점에서 만기가 다른 국채 수익률을 비교합니다.",
+      "sourceIds": [
+        "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+      ]
+    },
+    {
+      "id": "2026-07-22-cpi-seasonal-adjustment",
+      "factId": "cpi-seasonal-adjustment",
+      "type": "interpretation",
+      "prompt": "계절조정 CPI를 따로 보는 이유는?",
+      "choices": [
+        "반복되는 계절 요인의 영향을 줄여 기초 변화를 보기 위해",
+        "물가가 오른 품목을 지수에서 모두 빼기 위해",
+        "주식시장 휴장일만 제거하기 위해"
+      ],
+      "answerIndex": 0,
+      "explanation": "계절조정은 반복되는 계절 패턴을 제거해 기간 간 비교를 돕습니다.",
+      "sourceIds": [
+        "https://fred.stlouisfed.org/series/CPIAUCSL"
+      ]
+    },
+    {
+      "id": "2026-07-22-fomc-primary-materials",
+      "factId": "fomc-primary-materials",
+      "type": "check",
+      "prompt": "FOMC 결정을 확인할 때 우선 볼 공식 자료 조합은?",
+      "choices": [
+        "주가 차트의 장중 움직임만",
+        "FOMC 성명서·의사록·기자회견 자료",
+        "익명 커뮤니티 게시글만"
+      ],
+      "answerIndex": 1,
+      "explanation": "정책 결정과 배경은 공식 성명서, 의사록, 기자회견을 함께 확인하는 것이 좋습니다.",
+      "sourceIds": [
+        "https://www.federalreserve.gov/monetarypolicy/fomc.htm"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "미 재무부 일일 금리",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+      "note": "만기별 국채 파 수익률"
+    },
+    {
+      "label": "FRED CPI 공식 데이터",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "note": "계절조정 CPI 설명"
+    },
+    {
+      "label": "연준 FOMC 공식 페이지",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+      "note": "성명서·의사록·기자회견"
+    }
+  ],
+  "disclaimer": "교육용 상황 퀴즈이며 특정 종목이나 자산의 매수·매도를 권유하지 않습니다."
+}
