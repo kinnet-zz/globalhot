@@ -1,0 +1,77 @@
+{
+  "id": "daily-market-2026-07-23",
+  "date": "2026-07-23",
+  "editionLabel": "DAILY QUIZ · 2026.07.23",
+  "eyebrow": "오늘의 시장 60초",
+  "title": "오늘 시장, GDP 신호를 제대로 읽을까?",
+  "dek": "오늘 시장 뉴스와 연결된 세 가지 상황을 60초 동안 판단해 보세요. 정답은 검증된 공식 자료에서만 가져옵니다.",
+  "mode": "verified-bank-fallback",
+  "questions": [
+    {
+      "id": "2026-07-23-gdp-final-output",
+      "factId": "gdp-final-output",
+      "type": "meaning",
+      "prompt": "GDP의 설명으로 가장 정확한 것은?",
+      "choices": [
+        "상장기업 시가총액의 합계",
+        "국내에서 생산된 최종 재화와 서비스의 가치",
+        "국민이 보유한 금융자산의 합계"
+      ],
+      "answerIndex": 1,
+      "explanation": "GDP는 국내 경제활동을 최종 산출물의 가치로 측정하며 중간재는 중복 계산하지 않습니다.",
+      "sourceIds": [
+        "https://www.bea.gov/data/gdp/gross-domestic-product"
+      ]
+    },
+    {
+      "id": "2026-07-23-yield-curve-comparison",
+      "factId": "yield-curve-comparison",
+      "type": "interpretation",
+      "prompt": "장단기 금리차를 비교할 때 올바른 방법은?",
+      "choices": [
+        "서로 다른 날짜의 같은 주가지수를 비교한다",
+        "국채 가격과 소비자물가 수준을 직접 뺀다",
+        "같은 날짜의 서로 다른 만기 국채 수익률을 비교한다"
+      ],
+      "answerIndex": 2,
+      "explanation": "날짜와 자료 종류를 맞춰야 만기에 따른 수익률 구조를 읽을 수 있습니다.",
+      "sourceIds": [
+        "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+      ]
+    },
+    {
+      "id": "2026-07-23-cpi-period-check",
+      "factId": "cpi-period-check",
+      "type": "check",
+      "prompt": "CPI 상승률 숫자를 비교하기 전에 반드시 맞춰야 할 것은?",
+      "choices": [
+        "같은 날 주식 거래량",
+        "비교 기간과 계절조정 여부",
+        "뉴스 제목의 글자 수"
+      ],
+      "answerIndex": 1,
+      "explanation": "비교 기간과 계절조정 조건이 다르면 같은 CPI라도 숫자의 의미가 달라집니다.",
+      "sourceIds": [
+        "https://fred.stlouisfed.org/series/CPIAUCSL"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "BEA GDP 공식 설명",
+      "url": "https://www.bea.gov/data/gdp/gross-domestic-product",
+      "note": "GDP 정의와 발표 자료"
+    },
+    {
+      "label": "미 재무부 일일 금리",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+      "note": "만기별 일일 수익률"
+    },
+    {
+      "label": "FRED CPI 공식 데이터",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "note": "빈도·단위·계절조정"
+    }
+  ],
+  "disclaimer": "교육용 상황 퀴즈이며 특정 종목이나 자산의 매수·매도를 권유하지 않습니다."
+}
