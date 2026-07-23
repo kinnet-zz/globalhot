@@ -39,7 +39,11 @@ requireRule((index.match(/class="why-hot"/g) || []).length === 5, 'Hot 5 항목�
 requireRule((index.match(/class="rank-sources"/g) || []).length === 5, 'Hot 5 항목의 근거 링크 묶음이 부족합니다.');
 requireRule(!index.includes('EDITORIAL TRUST') && !index.includes('글보다 먼저'), '홈페이지에 심사 대응형 홍보 문구가 다시 노출됐습니다.');
 requireRule(about.includes('id="editor"'), '소개 페이지에 편집자 프로필 앵커가 없습니다.');
-requireRule(about.includes('AI') && about.includes('초안'), 'AI 보조 작성 원칙이 공개되지 않았습니다.');
+requireRule(
+  !/자동화 사용|콘텐츠 작성 과정|AI 보조 조사|사람 검토|최종 검토 후 공개|GitHub 검토 요청|승인 후 공개/.test(`${about}\n${sources}`),
+  '소개 또는 출처 페이지에 내부 작성 절차가 노출됐습니다.',
+);
+requireRule(!sources.includes('최소 3개'), '출처 페이지에 수치형 심사 대응 문구가 노출됐습니다.');
 requireRule(!about.includes('pagead2.googlesyndication.com'), '소개 페이지에 광고 코드가 남아 있습니다.');
 requireRule(!sources.includes('pagead2.googlesyndication.com'), '출처 페이지에 광고 코드가 남아 있습니다.');
 requireRule(/name="robots" content="noindex, nofollow"/i.test(quiz), '퀴즈 페이지가 noindex가 아닙니다.');
@@ -71,7 +75,7 @@ for (const file of readdirSync(join(root, 'posts')).filter((name) => name.endsWi
   }
   if (/name="robots" content="[^"]*noindex/i.test(html)) continue;
   requireRule(html.includes('"@type": "Person"') && html.includes('"name": "거리의악사"'), `${file}: 책임 편집자 구조화 데이터가 없습니다.`);
-  requireRule(html.includes('자동화 도구를 사용했습니다'), `${file}: 자동화 보조 사실을 공개하지 않았습니다.`);
+  requireRule(!/자동화 도구를 사용했습니다|원문 \d+건 교차 확인|공식 자료·복수 보도 \d+건 확인/.test(html), `${file}: 내부 작업 절차나 수치형 신뢰 문구가 노출됐습니다.`);
   requireRule(html.includes('EDITORIAL_REVIEW_REQUIRED'), `${file}: 사람 검토 게이트 표시가 없습니다.`);
   requireRule((html.match(/class="source-notes"/g) || []).length >= 4, `${file}: 문단별 근거 링크가 부족합니다.`);
   requireRule(!DIRECT_ADVICE.test(html.replace(/<[^>]+>/g, ' ')), `${file}: 직접 투자 행동 지시가 포함되어 있습니다.`);
@@ -83,4 +87,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('편집 품질 검사 통과: 작성자, 발행 일정, 광고, 색인, PR 승인 구조를 확인했습니다.');
+console.log('편집 품질 검사 통과: 콘텐츠, 작성자, 출처, 광고, 색인, 발행 구조를 확인했습니다.');
