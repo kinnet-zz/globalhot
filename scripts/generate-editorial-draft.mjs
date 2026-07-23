@@ -351,7 +351,7 @@ function renderPost(article, sourceById, fileName) {
   <meta property="og:description" content="${escapeHtml(description)}" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="${escapeHtml(canonical)}" />
-  <link rel="stylesheet" href="/style.css?v=20260723-1" />
+  <link rel="stylesheet" href="/style.css?v=20260724-1" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3314960461630607" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
@@ -381,7 +381,6 @@ function renderPost(article, sourceById, fileName) {
     .article-deck { color:#5e635c; font-size:18px; line-height:1.8; margin:22px 0; }
     .article-byline { display:flex; flex-wrap:wrap; gap:9px 16px; color:#737970; font-size:13px; padding:17px 0; border-top:1px solid #d9ddd6; border-bottom:1px solid #d9ddd6; }
     .article-byline strong { color:#252824; }
-    .article-disclosure { background:#eef1ec; border-left:3px solid #8d9689; padding:16px 18px; color:#555b53; font-size:13px; line-height:1.75; margin:28px 0 36px; }
     .article-summary { padding:25px 0 8px; }
     .article-summary strong { display:block; font-size:15px; margin-bottom:12px; }
     .article-summary li { margin:8px 0; color:#3f433e; line-height:1.7; }
@@ -427,7 +426,6 @@ function renderPost(article, sourceById, fileName) {
           <time datetime="${TODAY}">${escapeHtml(DATE_KO)}</time>
           <span>원문 ${sources.length}건 교차 확인</span>
         </div>
-        <p class="article-disclosure">공개 RSS와 원문 후보 수집, 초안 구조화에 자동화 도구를 사용했습니다. 발행 승인 과정에서 거리의악사가 원문 대조, 수치 확인, 문장 수정과 투자 권유 표현 검토를 완료했습니다.</p>
       </header>
 
       <section class="article-summary" aria-labelledby="summary-title">
@@ -457,6 +455,7 @@ function renderPost(article, sourceById, fileName) {
     </article>
 
     <footer class="article-footer">
+      후보 기사 수집과 자료 정리에 자동화 도구를 사용했습니다. 공개된 원문과 수치를 대조하고 편집한 뒤 발행했습니다.<br />
       본문은 정보 제공과 경제 교육을 위한 해설이며 특정 자산의 매수·매도를 권유하지 않습니다.
       오류 제보: <a href="mailto:kintube0001@gmail.com">kintube0001@gmail.com</a>
     </footer>
@@ -471,31 +470,17 @@ function updateHomepage(article, sourceById, fileName) {
   const marker = /<!-- EDITORIAL_LATEST_START -->[\s\S]*?<!-- EDITORIAL_LATEST_END -->/;
   if (!marker.test(html)) throw new Error('홈페이지 최신 글 마커를 찾을 수 없습니다.');
 
-  const sources = [...new Set(article.sourceIds)]
-    .map((id) => sourceById.get(id)?.source)
-    .filter(Boolean);
   const block = `<!-- EDITORIAL_LATEST_START -->
-    <section class="daily-report" id="latest" aria-labelledby="latest-title">
-      <div class="daily-report-inner">
-        <div class="dr-header">
-          <div>
-            <span class="dr-eyebrow">LATEST ANALYSIS</span>
-            <h2 id="latest-title">이번 주 이슈 해설</h2>
-          </div>
-          <time class="dr-date" datetime="${TODAY}">${escapeHtml(DATE_KO)}</time>
-        </div>
-        <p class="dr-note">매주 화·금요일, 복수 원문과 공식 자료를 확인한 분석을 발행합니다. 책임 편집: 거리의악사</p>
-        <article class="latest-analysis-card">
-          <div>
-            <p class="latest-analysis-meta">${escapeHtml(article.category)} · ${sources.map(escapeHtml).join(' · ')}</p>
-            <h3>${escapeHtml(article.title)}</h3>
+          <div class="feature-copy">
+            <p class="feature-category">${escapeHtml(article.category)} · 최신 심층 해설 · ${escapeHtml(DATE_KO)}</p>
+            <h2 id="feature-title"><a href="/posts/${escapeHtml(fileName)}">${escapeHtml(article.title)}</a></h2>
             <p>${escapeHtml(article.deck)}</p>
+            <ul class="feature-points">
+              ${article.keyPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join('\n              ')}
+            </ul>
+            <a class="hot-button" href="/posts/${escapeHtml(fileName)}">심층 분석 읽기 <span aria-hidden="true">→</span></a>
           </div>
-          <a href="/posts/${escapeHtml(fileName)}">분석 읽기 <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </section>
-    <!-- EDITORIAL_LATEST_END -->`;
+          <!-- EDITORIAL_LATEST_END -->`;
 
   html = html.replace(marker, block);
   writeFileSync(path, html, 'utf8');
@@ -542,7 +527,7 @@ function updatePostsIndex() {
   <meta name="description" content="거리의악사가 편집한 글로벌 경제·주식·기술 이슈 해설 아카이브입니다." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${SITE_URL}/posts/" />
-  <link rel="stylesheet" href="/style.css?v=20260723-1" />
+  <link rel="stylesheet" href="/style.css?v=20260724-1" />
   <style>
     .archive-page { background:#f6f7f4; color:#232622; }
     .archive-wrap { width:min(840px,calc(100% - 40px)); margin:0 auto; padding:52px 0 90px; }
