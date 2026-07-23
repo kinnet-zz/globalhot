@@ -1002,6 +1002,47 @@ body:not(.home-page) .site-footer { background: #fff; }
 .dr-summary { color: var(--home-muted); font-size: 12.5px; line-height: 1.75; margin: 0; }
 .dr-more { display: inline-block; color: var(--home-blue); font-size: 13px; font-weight: 800; margin-top: 20px; }
 .dr-more:hover { color: var(--home-hot); }
+.latest-analysis-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--home-line);
+}
+.latest-analysis-meta {
+  color: var(--home-hot);
+  font-size: 11px;
+  font-weight: 800;
+  margin: 0 0 9px;
+  text-transform: uppercase;
+}
+.latest-analysis-card h3 {
+  color: var(--home-ink);
+  font-family: 'Noto Serif KR', Georgia, serif;
+  font-size: 27px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  margin: 0 0 9px;
+}
+.latest-analysis-card div > p:last-child {
+  color: var(--home-muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+.latest-analysis-card > a {
+  color: #fff;
+  background: var(--home-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 48px;
+  padding: 0 18px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.latest-analysis-card > a:hover { background: var(--home-hot); }
 
 .quiz-home-teaser {
   background: var(--home-ink);
@@ -1282,6 +1323,9 @@ body:not(.home-page) .site-footer { background: #fff; }
   .dr-articles { grid-template-columns: 1fr; }
   .dr-article, .dr-article:first-child, .dr-article:last-child { padding: 18px 0 20px; border-right: 0; border-bottom: 1px solid var(--home-line); }
   .dr-article:last-child { border-bottom: 0; }
+  .latest-analysis-card { display: block; }
+  .latest-analysis-card h3 { font-size: 23px; }
+  .latest-analysis-card > a { margin-top: 22px; }
   .quiz-home-grid { display: block; min-height: 0; }
   .quiz-home-copy { padding: 38px 0 34px; }
   .quiz-home-copy h2 { font-size: 29px; }

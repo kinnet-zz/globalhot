@@ -116,7 +116,7 @@ test('every published HTML page loads the blocking consent loader exactly once',
 });
 
 test('every post generator includes the consent loader in post and archive templates', async () => {
-  for (const name of ['generate-daily-post.mjs', 'generate-weekly-post.mjs', 'generate-backfill.mjs']) {
+  for (const name of ['generate-editorial-draft.mjs']) {
     const source = await readFile(join(root, 'scripts', name), 'utf8');
     assert.equal((source.match(/<script src="\/analytics\.js\?v=20260718-2"><\/script>/g) || []).length, 2, name);
     assert.doesNotMatch(source, /analytics\.js(?:\?[^\"]*)?" defer/, name);
@@ -225,15 +225,15 @@ test('shared loader assigns bounded revenue groups and isolates 404 traffic', as
   }
 });
 
-test('VIX guide is indexable, sourced, and connected to the quiz', async () => {
+test('VIX guide is indexable, sourced, and not connected to the unlisted quiz', async () => {
   const html = await readFile(join(root, 'vix-guide.html'), 'utf8');
   assert.match(html, /<link rel="canonical" href="https:\/\/globalhot\.net\/vix-guide\.html"/);
   assert.match(html, /www\.cboe\.com\/tradable_products\/vix/);
   assert.match(html, /tradable-products\/vix\/faqs\//);
-  assert.match(html, /href="\/quiz\/"/);
+  assert.doesNotMatch(html, /href="\/quiz\/"/);
   assert.match(html, /매수·매도를 권유하지 않습니다/);
 
-  for (const path of ['index.html', 'guide.html', join('quiz', 'index.html')]) {
+  for (const path of ['index.html', 'guide.html']) {
     const source = await readFile(join(root, path), 'utf8');
     assert.match(source, /href="\/vix-guide\.html"/, path);
   }
@@ -241,6 +241,6 @@ test('VIX guide is indexable, sourced, and connected to the quiz', async () => {
   const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
   assert.equal((sitemap.match(/https:\/\/globalhot\.net\/vix-guide\.html/g) || []).length, 1);
 
-  const generator = await readFile(join(root, 'scripts', 'generate-daily-post.mjs'), 'utf8');
-  assert.equal((generator.match(/\$\{SITE_URL\}\/vix-guide\.html/g) || []).length, 1);
+  const homepage = await readFile(join(root, 'index.html'), 'utf8');
+  assert.match(homepage, /EDITORIAL_LATEST_START/);
 });
