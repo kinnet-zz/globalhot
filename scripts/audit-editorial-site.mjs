@@ -34,6 +34,10 @@ const quarantinedPages = [
 requireRule(index.includes('거리의악사'), '홈페이지에 책임 편집자 이름이 없습니다.');
 requireRule(!index.includes('href="/quiz/"'), '홈페이지에 검토 중인 퀴즈 링크가 남아 있습니다.');
 requireRule(!index.includes('오늘의 경제·시장 브리핑'), '홈페이지에 오래된 오늘 브리핑 표현이 남아 있습니다.');
+requireRule((index.match(/class="rank-cell"/g) || []).length === 5, '홈페이지의 Global Hot 5 순위가 완성되지 않았습니다.');
+requireRule((index.match(/class="why-hot"/g) || []).length === 5, 'Hot 5 항목의 한국 영향 설명이 부족합니다.');
+requireRule((index.match(/class="rank-sources"/g) || []).length === 5, 'Hot 5 항목의 근거 링크 묶음이 부족합니다.');
+requireRule(!index.includes('EDITORIAL TRUST') && !index.includes('글보다 먼저'), '홈페이지에 심사 대응형 홍보 문구가 다시 노출됐습니다.');
 requireRule(about.includes('id="editor"'), '소개 페이지에 편집자 프로필 앵커가 없습니다.');
 requireRule(about.includes('AI') && about.includes('초안'), 'AI 보조 작성 원칙이 공개되지 않았습니다.');
 requireRule(!about.includes('pagead2.googlesyndication.com'), '소개 페이지에 광고 코드가 남아 있습니다.');
