@@ -422,9 +422,8 @@ function renderPost(article, sourceById, fileName) {
         <h1>${escapeHtml(article.title)}</h1>
         <p class="article-deck">${escapeHtml(article.deck)}</p>
         <div class="article-byline">
-          <span>책임 편집 <strong><a href="/about.html#editor">거리의악사</a></strong></span>
+          <span>글 <strong><a href="/about.html#editor">거리의악사</a></strong></span>
           <time datetime="${TODAY}">${escapeHtml(DATE_KO)}</time>
-          <span>원문 ${sources.length}건 교차 확인</span>
         </div>
       </header>
 
@@ -455,7 +454,6 @@ function renderPost(article, sourceById, fileName) {
     </article>
 
     <footer class="article-footer">
-      후보 기사 수집과 자료 정리에 자동화 도구를 사용했습니다. 공개된 원문과 수치를 대조하고 편집한 뒤 발행했습니다.<br />
       본문은 정보 제공과 경제 교육을 위한 해설이며 특정 자산의 매수·매도를 권유하지 않습니다.
       오류 제보: <a href="mailto:kintube0001@gmail.com">kintube0001@gmail.com</a>
     </footer>
