@@ -2,9 +2,5 @@
   "name": "globalhot-static",
   "private": true,
   "type": "module",
-  "scripts": {
-    "test": "node --test tests/*.test.mjs",
-    "generate:draft": "node scripts/generate-editorial-draft.mjs",
-    "audit": "node scripts/audit-editorial-site.mjs"
-  }
+  "scripts": {}
 }
