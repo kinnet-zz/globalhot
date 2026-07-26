@@ -69,38 +69,33 @@ def call_openrouter(api_key, prompt, system=None):
 
 def call_gemini(api_key, prompt, system=None):
     import time as _time
-    # v1beta/models/gemini-2.0-flash is the working endpoint (tested)
-    models = ["gemini-2.0-flash", "gemini-1.5-flash"]
     last_err = None
-    for model in models:
-        for attempt in range(4):
-            try:
-                body = {
-                    "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-                    "generationConfig": {"temperature": 0.7, "maxOutputTokens": 3000},
-                }
-                if system:
-                    body["systemInstruction"] = {"parts": [{"text": system}]}
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-                req = Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-                resp = json.loads(urlopen(req, timeout=120).read())
-                if "candidates" in resp and resp["candidates"]:
-                    return resp["candidates"][0]["content"]["parts"][0]["text"]
-                log(f"Gemini {model}: empty response")
-                break
-            except Exception as e:
-                last_err = e
-                code = getattr(e, "code", 0) if hasattr(e, "code") else 0
-                if code == 429:
-                    delay = 10 * (attempt + 1)
-                    log(f"Gemini {model}: rate limited, waiting {delay}s...")
-                    _time.sleep(delay)
-                    continue
-                if code == 404:
-                    log(f"Gemini {model}: not found")
-                    break
-                log(f"Gemini {model}: {e}")
-                break
+    model = "gemini-2.0-flash"
+    for attempt in range(6):
+        try:
+            body = {
+                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                "generationConfig": {"temperature": 0.7, "maxOutputTokens": 3000},
+            }
+            if system:
+                body["systemInstruction"] = {"parts": [{"text": system}]}
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+            req = Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+            resp = json.loads(urlopen(req, timeout=120).read())
+            if "candidates" in resp and resp["candidates"]:
+                return resp["candidates"][0]["content"]["parts"][0]["text"]
+            log(f"Gemini {model}: empty response")
+            break
+        except Exception as e:
+            last_err = e
+            code = getattr(e, "code", 0) if hasattr(e, "code") else 0
+            if code == 429:
+                delay = 30 * (attempt + 1)
+                log(f"Gemini {model}: rate limited, waiting {delay}s...")
+                _time.sleep(delay)
+                continue
+            log(f"Gemini {model}: {e}")
+            break
     if last_err:
         log(f"Gemini API error: {last_err}")
     return None
