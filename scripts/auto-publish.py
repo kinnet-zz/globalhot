@@ -28,12 +28,35 @@ def log(msg):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
 def call_ai_api(prompt, system=None):
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        log("WARNING: OPENAI_API_KEY not set, using template fallback")
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    openai_key = os.environ.get("OPENAI_API_KEY")
+
+    if gemini_key:
+        return call_gemini(gemini_key, prompt, system)
+    if openai_key:
+        return call_openai(openai_key, prompt, system)
+
+    log("ERROR: No API key set (set GEMINI_API_KEY or OPENAI_API_KEY)")
+    return None
+
+def call_gemini(api_key, prompt, system=None):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+    body = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 3000},
+    }
+    if system:
+        body["systemInstruction"] = {"parts": [{"text": system}]}
+    try:
+        req = Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+        resp = json.loads(urlopen(req, timeout=120).read())
+        return resp["candidates"][0]["content"]["parts"][0]["text"]
+    except Exception as e:
+        log(f"Gemini API error: {e}")
         return None
-    model = os.environ.get("AI_MODEL", "gpt-4o")
-    url = os.environ.get("AI_API_URL", "https://api.openai.com/v1/chat/completions")
+
+def call_openai(api_key, prompt, system=None):
+    model = os.environ.get("AI_MODEL", "gpt-4o-mini")
     body = json.dumps({
         "model": model,
         "messages": [
@@ -43,7 +66,7 @@ def call_ai_api(prompt, system=None):
         "temperature": 0.7,
         "max_tokens": 3000,
     }).encode()
-    req = Request(url, data=body, headers={
+    req = Request("https://api.openai.com/v1/chat/completions", data=body, headers={
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     })
@@ -51,7 +74,7 @@ def call_ai_api(prompt, system=None):
         resp = json.loads(urlopen(req, timeout=120).read())
         return resp["choices"][0]["message"]["content"]
     except Exception as e:
-        log(f"AI API error: {e}")
+        log(f"OpenAI API error: {e}")
         return None
 
 def pick_topic():
