@@ -274,7 +274,7 @@ def build_article_html(data, slug, pub_date):
       <div class="post-tags">
         {tag_spans}
       </div>
-      <p class="post-author">편집: 거리의악사 · 이 글은 AI 초안을 검토·수정하여 작성되었습니다.</p>
+      <p class="post-author">편집: 거리의악사</p>
     </div>
 
     <div class="post-nav" id="postNav">
