@@ -28,22 +28,50 @@ def log(msg):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
 def call_ai_api(prompt, system=None):
+    openrouter_key = os.environ.get("OPENROUTER_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY2")
     openai_key = os.environ.get("OPENAI_API_KEY")
 
+    if openrouter_key:
+        return call_openrouter(openrouter_key, prompt, system)
     if gemini_key:
         return call_gemini(gemini_key, prompt, system)
     if openai_key:
         return call_openai(openai_key, prompt, system)
 
-    log("ERROR: No API key set (set GEMINI_API_KEY or OPENAI_API_KEY)")
+    log("ERROR: No API key set (OPENROUTER_API_KEY, GEMINI_API_KEY2, or OPENAI_API_KEY)")
+    return None
+
+def call_openrouter(api_key, prompt, system=None):
+    models = ["google/gemini-2.0-flash-001", "meta-llama/llama-3.1-8b-instruct", "mistralai/mistral-7b-instruct"]
+    last_err = None
+    for model in models:
+        try:
+            body = {
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": system or "You are a professional news curator writing in Korean."},
+                    {"role": "user", "content": prompt},
+                ],
+                "temperature": 0.7, "max_tokens": 3000,
+            }
+            req = Request("https://openrouter.ai/api/v1/chat/completions",
+                data=json.dumps(body).encode(),
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json",
+                         "HTTP-Referer": "https://globalhot.net", "X-Title": "GlobalHot"})
+            resp = json.loads(urlopen(req, timeout=120).read())
+            return resp["choices"][0]["message"]["content"]
+        except Exception as e:
+            last_err = e
+            log(f"OpenRouter {model}: {e}")
+    log(f"OpenRouter API failed: {last_err}")
     return None
 
 def call_gemini(api_key, prompt, system=None):
-    models = ["gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash"]
+    models = ["gemini-2.0-flash", "gemini-1.5-flash"]
     last_err = None
     for model in models:
-        for attempt in range(2):
+        for attempt in range(3):
             try:
                 body = {
                     "contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -56,18 +84,24 @@ def call_gemini(api_key, prompt, system=None):
                 resp = json.loads(urlopen(req, timeout=120).read())
                 if "candidates" in resp and resp["candidates"]:
                     return resp["candidates"][0]["content"]["parts"][0]["text"]
-                log(f"Gemini {model}: empty response, trying next")
+                log(f"Gemini {model}: empty response")
                 break
             except Exception as e:
                 last_err = e
                 code = getattr(e, "code", 0) if hasattr(e, "code") else 0
-                if code == 429 and attempt == 0:
-                    import time as _time
-                    _time.sleep(3)
+                if code == 429:
+                    if attempt < 2:
+                        import time as _time
+                        _time.sleep(5 * (attempt + 1))
+                        continue
+                    log(f"Gemini {model}: rate limited after retries")
                     continue
+                if code == 404:
+                    log(f"Gemini {model}: not found, trying next")
+                    break
                 log(f"Gemini {model}: {e}")
                 break
-    log(f"Gemini API failed (tried {models}): {last_err}")
+    log(f"Gemini API error: {last_err}")
     return None
 
 def call_openai(api_key, prompt, system=None):
