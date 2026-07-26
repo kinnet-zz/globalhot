@@ -28,7 +28,7 @@ def log(msg):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
 def call_ai_api(prompt, system=None):
-    gemini_key = os.environ.get("GEMINI_API_KEY")
+    gemini_key = os.environ.get("GEMINI_API_KEY2")
     openai_key = os.environ.get("OPENAI_API_KEY")
 
     if gemini_key:
