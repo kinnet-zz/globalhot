@@ -68,10 +68,12 @@ def call_openrouter(api_key, prompt, system=None):
     return None
 
 def call_gemini(api_key, prompt, system=None):
+    import time as _time
+    # v1beta/models/gemini-2.0-flash is the working endpoint (tested)
     models = ["gemini-2.0-flash", "gemini-1.5-flash"]
     last_err = None
     for model in models:
-        for attempt in range(3):
+        for attempt in range(4):
             try:
                 body = {
                     "contents": [{"role": "user", "parts": [{"text": prompt}]}],
@@ -90,18 +92,17 @@ def call_gemini(api_key, prompt, system=None):
                 last_err = e
                 code = getattr(e, "code", 0) if hasattr(e, "code") else 0
                 if code == 429:
-                    if attempt < 2:
-                        import time as _time
-                        _time.sleep(5 * (attempt + 1))
-                        continue
-                    log(f"Gemini {model}: rate limited after retries")
+                    delay = 10 * (attempt + 1)
+                    log(f"Gemini {model}: rate limited, waiting {delay}s...")
+                    _time.sleep(delay)
                     continue
                 if code == 404:
-                    log(f"Gemini {model}: not found, trying next")
+                    log(f"Gemini {model}: not found")
                     break
                 log(f"Gemini {model}: {e}")
                 break
-    log(f"Gemini API error: {last_err}")
+    if last_err:
+        log(f"Gemini API error: {last_err}")
     return None
 
 def call_openai(api_key, prompt, system=None):
