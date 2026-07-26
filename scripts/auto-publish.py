@@ -40,20 +40,35 @@ def call_ai_api(prompt, system=None):
     return None
 
 def call_gemini(api_key, prompt, system=None):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
-    body = {
-        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 3000},
-    }
-    if system:
-        body["systemInstruction"] = {"parts": [{"text": system}]}
-    try:
-        req = Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-        resp = json.loads(urlopen(req, timeout=120).read())
-        return resp["candidates"][0]["content"]["parts"][0]["text"]
-    except Exception as e:
-        log(f"Gemini API error: {e}")
-        return None
+    models = ["gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash"]
+    last_err = None
+    for model in models:
+        for attempt in range(2):
+            try:
+                body = {
+                    "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                    "generationConfig": {"temperature": 0.7, "maxOutputTokens": 3000},
+                }
+                if system:
+                    body["systemInstruction"] = {"parts": [{"text": system}]}
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+                req = Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+                resp = json.loads(urlopen(req, timeout=120).read())
+                if "candidates" in resp and resp["candidates"]:
+                    return resp["candidates"][0]["content"]["parts"][0]["text"]
+                log(f"Gemini {model}: empty response, trying next")
+                break
+            except Exception as e:
+                last_err = e
+                code = getattr(e, "code", 0) if hasattr(e, "code") else 0
+                if code == 429 and attempt == 0:
+                    import time as _time
+                    _time.sleep(3)
+                    continue
+                log(f"Gemini {model}: {e}")
+                break
+    log(f"Gemini API failed (tried {models}): {last_err}")
+    return None
 
 def call_openai(api_key, prompt, system=None):
     model = os.environ.get("AI_MODEL", "gpt-4o-mini")
