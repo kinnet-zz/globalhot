@@ -1,3 +1,4 @@
 .wrangler/
 .env.local
 .gstack/
+.claude-work-session.md
