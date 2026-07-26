@@ -28,7 +28,6 @@ jobs:
 
       - name: Generate article
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER2 }}
           GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
         run: python scripts/auto-publish.py
 

@@ -28,18 +28,18 @@ def log(msg):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
 def call_ai_api(prompt, system=None):
-    openrouter_key = os.environ.get("OPENROUTER_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY2")
+    openrouter_key = os.environ.get("OPENROUTER_API_KEY")
     openai_key = os.environ.get("OPENAI_API_KEY")
 
-    if openrouter_key:
-        return call_openrouter(openrouter_key, prompt, system)
     if gemini_key:
         return call_gemini(gemini_key, prompt, system)
+    if openrouter_key:
+        return call_openrouter(openrouter_key, prompt, system)
     if openai_key:
         return call_openai(openai_key, prompt, system)
 
-    log("ERROR: No API key set (OPENROUTER_API_KEY, GEMINI_API_KEY2, or OPENAI_API_KEY)")
+    log("ERROR: No API key set (GEMINI_API_KEY2, OPENROUTER_API_KEY, or OPENAI_API_KEY)")
     return None
 
 def call_openrouter(api_key, prompt, system=None):
