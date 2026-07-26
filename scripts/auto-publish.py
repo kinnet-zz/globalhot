@@ -28,10 +28,13 @@ def log(msg):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
 def call_ai_api(prompt, system=None):
+    opencode_key = os.environ.get("OPENCODE_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY2")
     openrouter_key = os.environ.get("OPENROUTER_API_KEY")
     openai_key = os.environ.get("OPENAI_API_KEY")
 
+    if opencode_key:
+        return call_opencode(opencode_key, prompt, system)
     if gemini_key:
         return call_gemini(gemini_key, prompt, system)
     if openrouter_key:
@@ -39,8 +42,28 @@ def call_ai_api(prompt, system=None):
     if openai_key:
         return call_openai(openai_key, prompt, system)
 
-    log("ERROR: No API key set (GEMINI_API_KEY2, OPENROUTER_API_KEY, or OPENAI_API_KEY)")
+    log("ERROR: No API key set (OPENCODE_API_KEY, GEMINI_API_KEY2, OPENROUTER_API_KEY, or OPENAI_API_KEY)")
     return None
+
+def call_opencode(api_key, prompt, system=None):
+    model = "deepseek-v4-flash-free"
+    try:
+        body = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system or "You are a professional news curator writing in Korean."},
+                {"role": "user", "content": prompt},
+            ],
+            "temperature": 0.7, "max_tokens": 3000,
+        }
+        req = Request("https://opencode.ai/zen/v1/chat/completions",
+            data=json.dumps(body).encode(),
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"})
+        resp = json.loads(urlopen(req, timeout=120).read())
+        return resp["choices"][0]["message"]["content"]
+    except Exception as e:
+        log(f"OpenCode {model}: {e}")
+        return None
 
 def call_openrouter(api_key, prompt, system=None):
     models = ["openai/gpt-4o-mini", "google/gemini-2.0-flash-001", "mistralai/mistral-small-3.1-24b-instruct"]
