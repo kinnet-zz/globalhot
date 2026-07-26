@@ -43,7 +43,7 @@ def call_ai_api(prompt, system=None):
     return None
 
 def call_openrouter(api_key, prompt, system=None):
-    models = ["google/gemini-2.0-flash-001", "meta-llama/llama-3.1-8b-instruct", "mistralai/mistral-7b-instruct"]
+    models = ["openai/gpt-4o-mini", "google/gemini-2.0-flash-001", "mistralai/mistral-small-3.1-24b-instruct"]
     last_err = None
     for model in models:
         try:
