@@ -1,0 +1,45 @@
+name: Auto Publish (Mon/Wed/Fri)
+
+on:
+  schedule:
+    - cron: "0 0 * * 1,3,5"
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Override topic (category:subtopic)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate article
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          AI_MODEL: ${{ vars.AI_MODEL || 'gpt-4o' }}
+        run: python scripts/auto-publish.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "GlobalHot Bot"
+          git config user.email "bot@globalhot.net"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "auto-publish: $(date +'%Y-%m-%d') article"
+            git push
+          fi
