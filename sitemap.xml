@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://globalhot.net/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
     <loc>https://globalhot.net/posts/</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://globalhot.net/posts/2026-07-26-ai-coding.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://globalhot.net/posts/2026-07-25-streaming-wars.html</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://globalhot.net/posts/2026-07-24-quantum-milestone.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
     <loc>https://globalhot.net/about.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/standards.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/contact.html</loc>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
     <loc>https://globalhot.net/privacy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
     <loc>https://globalhot.net/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
-    <loc>https://globalhot.net/posts/2026년-로봇-기술의-미래를-엿보다.html</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://globalhot.net/posts/ai-agent-before-autopilot.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/posts/eu-ai-act-august-2026.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/posts/ai-coding-productivity-evidence.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/posts/humanoid-robot-statistics.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/posts/sodium-ion-battery-reality.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/posts/ai-benchmark-scorecard.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://globalhot.net/posts/tech-earnings-source-guide.html</loc>
+    <lastmod>2026-07-29</lastmod>
   </url>
 </urlset>

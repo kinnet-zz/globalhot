@@ -1,141 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/analytics.js?v=20260718-2"></script>
-  <title>전체 글 | Global Hot Reads</title>
-  <meta name="description" content="Global Hot Reads의 큐레이션 아카이브 — 기술·비즈니스·문화·과학 분야의 해외 주목할 만한 아티클을 소개합니다." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://globalhot.net/posts/" />
-  <link rel="stylesheet" href="/style.css?v=20260718-4" />
-  <style>
-    .archive-page { background:var(--bg); }
-    .archive-wrap { max-width:780px; margin:0 auto; padding:52px 20px 90px; }
-    .archive-back { color:var(--text3); text-decoration:none; font-size:13px; }
-    .archive-back:hover { color:var(--accent); }
-    .archive-wrap > h1 { font-family:'Noto Serif KR',Georgia,serif; font-size:36px; line-height:1.3; margin:24px 0 8px; }
-    .archive-lead { color:var(--text2); font-size:15px; line-height:1.7; margin-bottom:36px; }
-    .archive-item { border-top:1px solid var(--border); padding:24px 0; }
-    .archive-item:last-child { border-bottom:1px solid var(--border); }
-    .archive-item time { color:var(--accent); font-size:12px; font-weight:700; }
-    .archive-item h2 { font-family:'Noto Serif KR',Georgia,serif; font-size:20px; line-height:1.5; margin:6px 0 8px; }
-    .archive-item h2 a { color:var(--text); text-decoration:none; }
-    .archive-item h2 a:hover { color:var(--accent); }
-    .archive-item p { color:var(--text2); font-size:14px; line-height:1.75; margin:0; }
-    .archive-tag { display:inline-block; background:var(--bg3); color:var(--text2); font-size:11px; padding:2px 8px; border-radius:4px; margin-top:8px; }
-    @media (max-width:600px) { .archive-wrap > h1 { font-size:28px; } .archive-item h2 { font-size:17px; } }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlobalHot이 공식 원문과 공개 데이터로 확인한 기술·비즈니스 브리핑 전체 목록.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://globalhot.net/posts/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="GlobalHot">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="전체 브리핑 | GlobalHot">
+  <meta property="og:description" content="GlobalHot이 공식 원문과 공개 데이터로 확인한 기술·비즈니스 브리핑 전체 목록.">
+  <meta property="og:url" content="https://globalhot.net/posts/">
+  <meta property="og:image" content="https://globalhot.net/assets/ai-infrastructure-capex.webp">
+  <meta property="og:image:alt" content="GlobalHot 글로벌 기술·비즈니스 브리핑">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="전체 브리핑 | GlobalHot">
+  <meta name="twitter:description" content="GlobalHot이 공식 원문과 공개 데이터로 확인한 기술·비즈니스 브리핑 전체 목록.">
+  <meta name="twitter:image" content="https://globalhot.net/assets/ai-infrastructure-capex.webp">
+  <meta name="theme-color" content="#ffffff">
+  <title>전체 브리핑 | GlobalHot</title>
+  <link rel="stylesheet" href="/style.css?v=20260729">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"GlobalHot 전체 브리핑","url":"https://globalhot.net/posts/","inLanguage":"ko-KR","hasPart":[{"@type":"Article","headline":"AI 에이전트 도입 전, 데모보다 먼저 확인할 네 가지","url":"https://globalhot.net/posts/ai-agent-before-autopilot.html"},{"@type":"Article","headline":"EU AI Act 2026년 8월, 모든 AI 서비스가 같은 의무를 지는 것은 아니다","url":"https://globalhot.net/posts/eu-ai-act-august-2026.html"},{"@type":"Article","headline":"AI 코딩 도구는 빠른가: 서로 반대인 연구를 함께 읽는 법","url":"https://globalhot.net/posts/ai-coding-productivity-evidence.html"},{"@type":"Article","headline":"한국 로봇 밀도 세계 1위, 휴머노이드 경쟁력과 같은 뜻일까","url":"https://globalhot.net/posts/humanoid-robot-statistics.html"},{"@type":"Article","headline":"나트륨이온 배터리는 리튬을 대체할까: 용도부터 나눠 봐야 한다","url":"https://globalhot.net/posts/sodium-ion-battery-reality.html"},{"@type":"Article","headline":"AI 벤치마크 1등 기사에서 빠지기 쉬운 여섯 가지","url":"https://globalhot.net/posts/ai-benchmark-scorecard.html"},{"@type":"Article","headline":"AI 투자 뉴스, CAPEX 숫자 하나로 읽으면 틀리는 이유","url":"https://globalhot.net/posts/tech-earnings-source-guide.html"}]}</script>
 </head>
-<body class="archive-page">
-  <header class="header">
-    <div class="header-inner">
-      <a class="logo" href="/" aria-label="Global Hot Reads 홈">
-        <span class="logo-text"><span>Global</span><strong>Hot Reads</strong></span>
-        <span class="logo-badge">BETA</span>
-      </a>
-      <nav class="primary-nav" aria-label="주요 메뉴">
-        <a href="/#latest">최신 글</a>
-        <a href="/#curated">이 주의 큐레이션</a>
-        <a href="/posts/">전체 글</a>
-        <a href="/about.html">소개</a>
-      </nav>
-    </div>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="GlobalHot 홈">
+      <span class="brand-global">Global</span><strong>Hot</strong>
+      <span class="brand-note">원문 해설</span>
+    </a>
+    <nav class="primary-nav" aria-label="주요 메뉴">
+      <a href="/posts/" aria-current="page">브리핑</a><a href="/standards.html">자료 기준</a><a href="/about.html">소개</a>
+    </nav>
+  </div>
+</header>
+<main class="archive-page section-shell">
+  <header class="page-intro">
+    <p class="section-kicker">All briefings</p>
+    <h1>전체 브리핑</h1>
+    <p>AI·소프트웨어, 정책, 로봇, 배터리, 기업 공시를 공식 원문과 함께 읽습니다.</p>
   </header>
-  <main class="archive-wrap">
-    <a class="archive-back" href="/">← 홈으로</a>
-    <h1>전체 큐레이션</h1>
-    <p class="archive-lead">기술·비즈니스·문화·과학 — 글로벌 미디어에서 선별한 주목할 만한 아티클.</p>
-
-    
-    <article class="archive-item">
-      <time datetime="2026-07-29">2026.07.29</time>
-      <h2><a href="/posts/2026-07-29-ev-market.html">전기차 시장 2026 — CATL·테슬라·BYD 3강 구도와 한국의 선택</a></h2>
-      <p>CATL의 나트륨 이온 배터리 양산, 테슬라 사이버트럭의 글로벌 확대, BYD의 가격 공세 — 판이 흔들리는 2026년 글로벌 전기차 시장의 현주소를 진단합니다.</p>
-      <span class="archive-tag">비즈니스 · 전기차</span>
-    </article><article class="archive-item">
-      <time datetime="2026-07-29">2026.07.29</time>
-      <h2><a href="/posts/2026-07-29-ai-agent.html">AI 에이전트 2026 — 스스로 일하는 AI가 바꾼 현실</a></h2>
-      <p>OpenAI Operator, Claude Computer Use, Gemini Agent까지 — 2026년 AI 에이전트가 실제 업무와 생활에 가져온 변화를 집중 분석합니다.</p>
-      <span class="archive-tag">기술 · AI</span>
-    </article><article class="archive-item">
-      <time datetime="2026-07-27">2026.07.27</time>
-      <h2><a href="/posts/2026-07-27-space-race.html">2026 우주 산업 리포트: 화성·달·궤도에서 벌어지는 세 가지 전쟁</a></h2>
-      <p>스타십의 첫 화성 테스트, 아르테미스 III 달 착륙, 저궤도 위성 통신망 경쟁까지 — 2026년 우주 산업 주요 이슈를 집중 조명합니다.</p>
-      <span class="archive-tag">과학 · 우주</span>
-    </article><article class="archive-item">
-      <time datetime="2026-07-27">2026.07.27</time>
-      <h2><a href="/posts/2026-07-27-global-ecommerce.html">2026 이커머스 전쟁: 아마존·테무·쉬인 3파전과 쿠팡의 선택</a></h2>
-      <p>초저가 플랫폼의 급성장, 아마존의 AI 혁신, 그리고 한국 이커머스 시장에 불어닥친 구조적 변화를 분석합니다.</p>
-      <span class="archive-tag">비즈니스 · 이커머스</span>
+  <div class="archive-list">
+    <article class="archive-row">
+      <div class="archive-meta">
+        <span>AI 업무</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/ai-agent-before-autopilot.html">AI 에이전트 도입 전, 데모보다 먼저 확인할 네 가지</a></h2>
+        <p>브라우저를 조작하는 AI가 실제 업무 도구가 되려면 성공률보다 권한, 실패 복구, 기록, 비용을 먼저 봐야 합니다.</p>
+        <div class="card-foot"><span>원문 4개</span><span>8분</span></div>
+      </div>
+    </article><article class="archive-row">
+      <div class="archive-meta">
+        <span>정책</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/eu-ai-act-august-2026.html">EU AI Act 2026년 8월, 모든 AI 서비스가 같은 의무를 지는 것은 아니다</a></h2>
+        <p>위험 등급과 사업자의 역할을 먼저 구분해야 적용 시점과 준비 문서가 보입니다. 공식 시행 일정을 기준으로 핵심만 정리했습니다.</p>
+        <div class="card-foot"><span>원문 3개</span><span>9분</span></div>
+      </div>
+    </article><article class="archive-row">
+      <div class="archive-meta">
+        <span>개발 생산성</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/ai-coding-productivity-evidence.html">AI 코딩 도구는 빠른가: 서로 반대인 연구를 함께 읽는 법</a></h2>
+        <p>짧은 과제, 익숙한 대형 저장소, 설문과 실제 시간은 서로 다른 질문에 답합니다. 숫자보다 연구 조건을 먼저 비교했습니다.</p>
+        <div class="card-foot"><span>원문 3개</span><span>9분</span></div>
+      </div>
+    </article><article class="archive-row">
+      <div class="archive-meta">
+        <span>로봇</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/humanoid-robot-statistics.html">한국 로봇 밀도 세계 1위, 휴머노이드 경쟁력과 같은 뜻일까</a></h2>
+        <p>산업용 로봇 밀도와 휴머노이드 출하 전망은 다른 지표입니다. 자주 섞여 쓰이는 로봇 통계를 분리해 읽었습니다.</p>
+        <div class="card-foot"><span>원문 3개</span><span>7분</span></div>
+      </div>
+    </article><article class="archive-row">
+      <div class="archive-meta">
+        <span>배터리</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/sodium-ion-battery-reality.html">나트륨이온 배터리는 리튬을 대체할까: 용도부터 나눠 봐야 한다</a></h2>
+        <p>가격·공급망 장점과 에너지 밀도 한계를 함께 보면 전기차와 저장장치에서 맡을 역할이 다르게 보입니다.</p>
+        <div class="card-foot"><span>원문 3개</span><span>8분</span></div>
+      </div>
+    </article><article class="archive-row">
+      <div class="archive-meta">
+        <span>AI 평가</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/ai-benchmark-scorecard.html">AI 벤치마크 1등 기사에서 빠지기 쉬운 여섯 가지</a></h2>
+        <p>점수 하나는 모델의 전체 능력이 아닙니다. 과제 범위, 오염, 비용, 지연, 재현성을 확인하는 방법을 정리했습니다.</p>
+        <div class="card-foot"><span>원문 3개</span><span>8분</span></div>
+      </div>
+    </article><article class="archive-row">
+      <div class="archive-meta">
+        <span>기업 분석</span>
+        <time datetime="2026-07-29">2026년 7월 29일</time>
+      </div>
+      <div>
+        <h2><a href="/posts/tech-earnings-source-guide.html">AI 투자 뉴스, CAPEX 숫자 하나로 읽으면 틀리는 이유</a></h2>
+        <p>투자액, 감가상각, 현금흐름, 계약 의무를 함께 보면 데이터센터 지출이 사업에 미치는 시간이 보입니다.</p>
+        <div class="card-foot"><span>원문 4개</span><span>9분</span></div>
+      </div>
     </article>
-    
-    <article class="archive-item">
-      <time datetime="2026-07-26">2026.07.26</time>
-      <h2><a href="/posts/2026년-로봇-기술의-미래를-엿보다.html">2026년, 로봇 기술의 미래를 엿보다</a></h2>
-      <p>로봇 기술의 발전이 가져올 변화와 우리의 삶에 미치는 영향 분석</p>
-      <span class="archive-tag">과학 · 로봇</span>
-    </article><article class="archive-item">
-      <time datetime="2026-07-26">2026.07.26</time>
-      <h2><a href="/posts/2026-07-26-ai-coding.html">AI가 코딩을 대체한다는 착각 — 생산성 향상과 일자리 변화의 현실</a></h2>
-      <p>Github Copilot, Cursor, Claude가 바꾸는 개발자 업무의 실제. 생산성 데이터와 업계 반응을 종합해 전망합니다.</p>
-      <span class="archive-tag">기술 · AI</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-25">2026.07.25</time>
-      <h2><a href="/posts/2026-07-25-streaming-wars.html">스트리밍 전쟁 2026: 넷플릭스·디즈니·애플의 3파전과 한국 OTT에 주는 교훈</a></h2>
-      <p>글로벌 OTT 시장의 구도 변화, 광고 요금제 정착, 그리고 한국 OTT가 참고할 전략 포인트를 정리했습니다.</p>
-      <span class="archive-tag">비즈니스 · 미디어</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-24">2026.07.24</time>
-      <h2><a href="/posts/2026-07-24-quantum-milestone.html">양자 컴퓨터의 실제 상용화 시점은? Google·IBM·Microsoft의 2026년 로드맵 비교</a></h2>
-      <p>각 기업의 양자 우위 달성 현황과 상용화 전망, 그리고 양자 컴퓨팅이 산업에 미칠 영향을 분석합니다.</p>
-      <span class="archive-tag">과학 · 기술</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-23">2026.07.23</time>
-      <h2><a href="/posts/2026-07-23-remote-work.html">하이브리드 워크의 진화: 아마존·구글의 복귀 명령과 글로벌 기업들이 선택한 세 가지 길</a></h2>
-      <p>2026년 현재 글로벌 빅테크의 사무실 복귀 정책 현황과 실제 생산성 데이터, 직원 만족도에 미친 영향을 비교합니다.</p>
-      <span class="archive-tag">비즈니스 · 문화</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-22">2026.07.22</time>
-      <h2><a href="/posts/2026-07-22-sodium-battery.html">배터리 혁명의 다음 단계 — 나트륨 이온 배터리가 바꿀 전기차와 ESS 시장</a></h2>
-      <p>리튬 가격 변동성과 공급망 불안이 가속화한 나트륨 이온 배터리 기술의 상용화 현황과 전망을 정리합니다.</p>
-      <span class="archive-tag">과학 · 기술</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-21">2026.07.21</time>
-      <h2><a href="/posts/2026-07-21-ai-regulation.html">EU AI Act이 글로벌 기술 기업에 미치는 실제 영향 — 규제 리스크와 기회</a></h2>
-      <p>2026년 본격 시행된 EU AI Act이 글로벌 빅테크와 AI 스타트업의 제품 개발, 데이터 활용, 시장 전략에 미치는 실질적 영향을 분석합니다.</p>
-      <span class="archive-tag">기술 · 정책</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-20">2026.07.20</time>
-      <h2><a href="/posts/2026-07-20-smart-city-failure.html">스마트 시티의 배신 — 기술이 약속한 유토피아, 왜 실패했나</a></h2>
-      <p>토론토 Quayside부터 인도 스마트 시티까지. 빅테크가 주도한 도시 혁신 프로젝트의 실패 원인과 시사점을 분석합니다.</p>
-      <span class="archive-tag">기술 · 사회</span>
-    </article>
-
-    <article class="archive-item">
-      <time datetime="2026-07-18">2026.07.18</time>
-      <h2><a href="/posts/2026-07-18-ai-creativity.html">AI가 창작을 대체할 수 없는 이유 — 인간의 불완전함이 만드는 예술의 가치</a></h2>
-      <p>알고리즘이 완벽한 소설을 쓸 수 있다면, 왜 우리는 여전히 인간 작가의 글을 읽을까? 창작의 '결점'이 예술을 예술답게 만드는 이유를 탐구합니다.</p>
-      <span class="archive-tag">문화 · 기술</span>
-    </article>
-  </main>
-
-  <footer class="site-footer" style="border-top:1px solid var(--border);padding:32px 20px;background:var(--bg2);">
-    <div style="max-width:780px;margin:0 auto;">
-      <p style="color:var(--text3);font-size:12px;">© 2026 Global Hot Reads · <a href="/privacy.html" style="color:var(--text3);">개인정보처리방침</a> · <a href="/terms.html" style="color:var(--text3);">이용약관</a></p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div>
+      <a class="brand brand-footer" href="/"><span class="brand-global">Global</span><strong>Hot</strong></a>
+      <p>글로벌 기술·비즈니스 이슈를 공식 원문과 공개 데이터로 확인해 설명합니다.</p>
     </div>
-  </footer>
+    <nav aria-label="하단 메뉴">
+      <a href="/posts/">전체 브리핑</a>
+      <a href="/about.html">소개</a>
+      <a href="/standards.html">자료 기준</a>
+      <a href="/contact.html">문의·정정</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </div>
+  <div class="footer-legal">
+    <p>© 2026 GlobalHot. 인용 자료의 저작권은 각 원저작자에게 있습니다.</p>
+    <p>정보 제공 목적이며 투자·법률·의료 자문이 아닙니다.</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,99 +1,74 @@
-<!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<!doctype html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/analytics.js?v=20260718-2"></script>
-  <meta name="description" content="Global Hot Reads 개인정보처리방침 - 사용자 데이터 보호 및 처리 방법 안내" />
-  <title>개인정보처리방침 – Global Hot Reads</title>
-  <link rel="canonical" href="https://globalhot.net/privacy.html" />
-  <link rel="stylesheet" href="style.css?v=20260718-4" />
-  <style>
-    .page-wrap { max-width: 780px; margin: 40px auto; padding: 0 20px 60px; }
-    .page-wrap h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
-    .page-wrap .updated { font-size: 13px; color: var(--text3); margin-bottom: 32px; }
-    .page-wrap h2 { font-size: 17px; font-weight: 700; margin: 28px 0 10px; color: var(--text); }
-    .page-wrap p, .page-wrap li { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 10px; }
-    .page-wrap ul { padding-left: 20px; }
-    .page-wrap ul li { list-style: disc; }
-    .page-wrap a { color: var(--accent); text-decoration: underline; }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text3); margin-bottom: 32px; transition: color .2s; }
-    .back-link:hover { color: var(--accent); }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlobalHot의 개인정보, 서버 로그, 쿠키, 광고 관련 처리 방침.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://globalhot.net/privacy.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="GlobalHot">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="개인정보처리방침 | GlobalHot">
+  <meta property="og:description" content="GlobalHot의 개인정보, 서버 로그, 쿠키, 광고 관련 처리 방침.">
+  <meta property="og:url" content="https://globalhot.net/privacy.html">
+  <meta property="og:image" content="https://globalhot.net/assets/ai-infrastructure-capex.webp">
+  <meta property="og:image:alt" content="GlobalHot 글로벌 기술·비즈니스 브리핑">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="개인정보처리방침 | GlobalHot">
+  <meta name="twitter:description" content="GlobalHot의 개인정보, 서버 로그, 쿠키, 광고 관련 처리 방침.">
+  <meta name="twitter:image" content="https://globalhot.net/assets/ai-infrastructure-capex.webp">
+  <meta name="theme-color" content="#ffffff">
+  <title>개인정보처리방침 | GlobalHot</title>
+  <link rel="stylesheet" href="/style.css?v=20260729">
+
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <a class="logo" href="/" aria-label="Global Hot Reads 홈">
-        <span class="logo-text"><span>Global</span><strong>Hot Reads</strong></span>
-        <span class="logo-badge">BETA</span>
-      </a>
-    </div>
-  </header>
-
-  <div class="page-wrap">
-    <a href="/" class="back-link">← 메인으로 돌아가기</a>
-    <h1>개인정보처리방침</h1>
-    <p class="updated">최종 업데이트: 2026년 7월 18일</p>
-
-    <p>Global Hot Reads(이하 "본 서비스")은 사용자의 개인정보를 중요하게 생각합니다. 본 방침은 본 서비스가 수집하는 정보와 그 사용 방법을 설명합니다.</p>
-
-    <h2>1. 수집하는 정보</h2>
-    <p>본 서비스는 <strong>개인 식별 정보를 수집하지 않습니다.</strong></p>
-    <ul>
-      <li>회원가입 없음 – 이메일, 이름, 연락처를 수집하지 않습니다.</li>
-      <li>로그인 없음 – 계정이나 패스워드를 저장하지 않습니다.</li>
-      <li><strong>로컬 저장소(localStorage)</strong>: 쿠키 안내 확인 여부가 사용자의 기기에 저장됩니다. 이 값은 서버로 전송되지 않습니다.</li>
-    </ul>
-
-    <h2>2. 자동으로 수집되는 정보</h2>
-    <p>Cloudflare Pages 인프라를 통해 다음의 기술 정보가 자동으로 수집될 수 있습니다.</p>
-    <ul>
-      <li>IP 주소 (Cloudflare 서버 로그)</li>
-      <li>브라우저 종류 및 운영체제 (User-Agent)</li>
-      <li>방문한 페이지 및 시간</li>
-    </ul>
-    <p>이 정보는 서비스 운영 및 보안 목적으로만 사용되며, 개인 식별에 활용되지 않습니다.</p>
-
-    <h2>3. 제3자 서비스</h2>
-    <p>본 서비스의 호스팅, 접속 통계, 광고 제공 과정에서 다음 제3자 서비스의 개인정보처리방침이 적용될 수 있습니다.</p>
-    <ul>
-      <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare</a> – 정적 사이트 호스팅, 보안, 전송 로그</li>
-      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> – Google Analytics 접속 통계와 Google AdSense 광고</li>
-    </ul>
-
-    <h2>4. 광고 (Google AdSense)</h2>
-    <p>본 서비스는 Google AdSense를 통한 광고를 게재할 수 있습니다. Google은 사용자의 브라우저 쿠키를 사용하여 관심 기반 광고를 표시할 수 있습니다.</p>
-    <ul>
-      <li>Google의 광고 쿠키 사용을 거부하려면 <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google 광고 설정</a>을 방문하세요.</li>
-      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a></li>
-    </ul>
-
-    <h2>5. 쿠키 및 로컬 저장</h2>
-    <p>본 서비스는 분석 쿠키 선택(동의 또는 거부)을 저장하기 위해 브라우저 로컬 저장소(localStorage)를 사용합니다. 선택 전과 거부 상태에서는 GA4 분석 태그를 불러오지 않습니다. 동의한 경우에만 Google Analytics가 방문 통계를 측정하며, 화면 아래의 ‘쿠키 설정’에서 언제든 선택을 바꿀 수 있습니다. 거부해도 사이트 이용에는 제한이 없습니다.</p>
-    <p>AdSense 심사 중에는 광고 요청을 일시 중지하며, 광고가 승인되어 실제 게재되기 전 적용 지역의 동의 요건과 Google 인증 CMP를 별도로 적용합니다.</p>
-
-    <h2>6. 데이터 보안</h2>
-    <p>본 서비스는 다음의 보안 조치를 적용합니다.</p>
-    <ul>
-      <li>모든 통신 HTTPS 암호화</li>
-      <li>보안 HTTP 헤더 적용 (X-Frame-Options, HSTS 등)</li>
-    </ul>
-
-    <h2>7. 아동 개인정보 보호</h2>
-    <p>본 서비스는 만 14세 미만 아동으로부터 의도적으로 개인정보를 수집하지 않습니다. 해당 연령의 아동은 보호자의 동의 없이 서비스를 이용하지 않도록 권고합니다.</p>
-
-    <h2>8. 개인정보처리방침 변경</h2>
-    <p>본 방침은 서비스 변경에 따라 업데이트될 수 있습니다. 변경 시 본 페이지의 "최종 업데이트" 날짜가 수정됩니다.</p>
-
-    <h2>9. 문의</h2>
-    <p>개인정보 관련 문의는 <a href="/about.html">소개 페이지</a>를 통해 연락해주세요. 이메일: <a href="mailto:admin@globalhot.net">admin@globalhot.net</a></p>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="GlobalHot 홈">
+      <span class="brand-global">Global</span><strong>Hot</strong>
+      <span class="brand-note">원문 해설</span>
+    </a>
+    <nav class="primary-nav" aria-label="주요 메뉴">
+      <a href="/posts/">브리핑</a><a href="/standards.html">자료 기준</a><a href="/about.html">소개</a>
+    </nav>
   </div>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2026 Global Hot Reads · <a href="/privacy.html">개인정보처리방침</a> · <a href="/terms.html">이용약관</a> · <a href="/about.html">소개</a></p>
+</header>
+<main class="policy-page section-shell">
+  <header class="page-intro">
+    <p class="section-kicker">Privacy</p>
+    <h1>개인정보처리방침</h1>
+    <p>최종 업데이트: 2026년 7월 29일</p>
+  </header>
+  <section><h2>1. 운영자</h2><p>GlobalHot 운영자: 거리의악사 · 문의: <a href="mailto:admin@globalhot.net">admin@globalhot.net</a></p></section>
+  <section><h2>2. 직접 수집하는 정보</h2><p>회원가입, 댓글, 뉴스레터 신청 기능을 운영하지 않으며 사이트 안에서 이름·전화번호·주소를 직접 수집하지 않습니다. 이메일로 문의하면 발신 주소와 문의 내용이 답변을 위해 처리됩니다.</p></section>
+  <section><h2>3. 서버 로그</h2><p>호스팅 제공자인 Cloudflare는 보안과 서비스 제공을 위해 IP 주소, 요청 시간, 브라우저 정보 같은 접속 로그를 처리할 수 있습니다. 관련 처리는 Cloudflare의 개인정보 보호정책을 따릅니다.</p></section>
+  <section><h2>4. 쿠키와 분석</h2><p>현재 GlobalHot은 방문 분석을 위한 자체 쿠키를 설정하지 않습니다. 향후 분석 또는 광고 기능을 추가하면 적용 전에 이 방침과 동의 절차를 갱신합니다.</p></section>
+  <section><h2>5. Google 광고</h2><p>Google AdSense 광고가 게재되는 경우 Google과 파트너는 광고 제공, 빈도 제한, 부정행위 방지를 위해 쿠키 또는 유사 기술을 사용할 수 있습니다. 필요한 지역에는 Google이 인증한 동의 관리 플랫폼을 적용하고 선택권을 제공합니다.</p></section>
+  <section><h2>6. 외부 링크</h2><p>기사의 출처 링크를 열면 해당 외부 사이트의 개인정보처리방침이 적용됩니다. GlobalHot은 외부 사이트의 데이터 처리 방식을 통제하지 않습니다.</p></section>
+  <section><h2>7. 문의와 변경</h2><p>개인정보 관련 문의는 admin@globalhot.net로 보내주세요. 처리 방식이 달라지면 이 페이지의 업데이트 날짜와 내용을 수정합니다.</p></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div>
+      <a class="brand brand-footer" href="/"><span class="brand-global">Global</span><strong>Hot</strong></a>
+      <p>글로벌 기술·비즈니스 이슈를 공식 원문과 공개 데이터로 확인해 설명합니다.</p>
     </div>
-  </footer>
+    <nav aria-label="하단 메뉴">
+      <a href="/posts/">전체 브리핑</a>
+      <a href="/about.html">소개</a>
+      <a href="/standards.html">자료 기준</a>
+      <a href="/contact.html">문의·정정</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </div>
+  <div class="footer-legal">
+    <p>© 2026 GlobalHot. 인용 자료의 저작권은 각 원저작자에게 있습니다.</p>
+    <p>정보 제공 목적이며 투자·법률·의료 자문이 아닙니다.</p>
+  </div>
+</footer>
 </body>
 </html>

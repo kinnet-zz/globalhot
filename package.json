@@ -2,5 +2,9 @@
   "name": "globalhot-static",
   "private": true,
   "type": "module",
-  "scripts": {}
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/check-site.mjs",
+    "audit": "node scripts/build.mjs && node scripts/check-site.mjs"
+  }
 }

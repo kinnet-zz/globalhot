@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GlobalHot</title>
+    <link>https://globalhot.net/</link>
+    <description>글로벌 기술·비즈니스 이슈를 공식 원문과 공개 데이터로 확인해 한국 독자에게 설명하는 근거 기반 브리핑.</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 29 Jul 2026 03:00:00 GMT</lastBuildDate>
+    <atom:link href="https://globalhot.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI 에이전트 도입 전, 데모보다 먼저 확인할 네 가지</title>
+      <link>https://globalhot.net/posts/ai-agent-before-autopilot.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/ai-agent-before-autopilot.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>브라우저를 조작하는 AI가 실제 업무 도구가 되려면 성공률보다 권한, 실패 복구, 기록, 비용을 먼저 봐야 합니다.</description>
+    </item>
+    <item>
+      <title>EU AI Act 2026년 8월, 모든 AI 서비스가 같은 의무를 지는 것은 아니다</title>
+      <link>https://globalhot.net/posts/eu-ai-act-august-2026.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/eu-ai-act-august-2026.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>위험 등급과 사업자의 역할을 먼저 구분해야 적용 시점과 준비 문서가 보입니다. 공식 시행 일정을 기준으로 핵심만 정리했습니다.</description>
+    </item>
+    <item>
+      <title>AI 코딩 도구는 빠른가: 서로 반대인 연구를 함께 읽는 법</title>
+      <link>https://globalhot.net/posts/ai-coding-productivity-evidence.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/ai-coding-productivity-evidence.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>짧은 과제, 익숙한 대형 저장소, 설문과 실제 시간은 서로 다른 질문에 답합니다. 숫자보다 연구 조건을 먼저 비교했습니다.</description>
+    </item>
+    <item>
+      <title>한국 로봇 밀도 세계 1위, 휴머노이드 경쟁력과 같은 뜻일까</title>
+      <link>https://globalhot.net/posts/humanoid-robot-statistics.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/humanoid-robot-statistics.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>산업용 로봇 밀도와 휴머노이드 출하 전망은 다른 지표입니다. 자주 섞여 쓰이는 로봇 통계를 분리해 읽었습니다.</description>
+    </item>
+    <item>
+      <title>나트륨이온 배터리는 리튬을 대체할까: 용도부터 나눠 봐야 한다</title>
+      <link>https://globalhot.net/posts/sodium-ion-battery-reality.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/sodium-ion-battery-reality.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>가격·공급망 장점과 에너지 밀도 한계를 함께 보면 전기차와 저장장치에서 맡을 역할이 다르게 보입니다.</description>
+    </item>
+    <item>
+      <title>AI 벤치마크 1등 기사에서 빠지기 쉬운 여섯 가지</title>
+      <link>https://globalhot.net/posts/ai-benchmark-scorecard.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/ai-benchmark-scorecard.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>점수 하나는 모델의 전체 능력이 아닙니다. 과제 범위, 오염, 비용, 지연, 재현성을 확인하는 방법을 정리했습니다.</description>
+    </item>
+    <item>
+      <title>AI 투자 뉴스, CAPEX 숫자 하나로 읽으면 틀리는 이유</title>
+      <link>https://globalhot.net/posts/tech-earnings-source-guide.html</link>
+      <guid isPermaLink="true">https://globalhot.net/posts/tech-earnings-source-guide.html</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <description>투자액, 감가상각, 현금흐름, 계약 의무를 함께 보면 데이터센터 지출이 사업에 미치는 시간이 보입니다.</description>
+    </item>
+  </channel>
+</rss>
