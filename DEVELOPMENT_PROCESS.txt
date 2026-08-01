@@ -169,6 +169,15 @@ Phase 5. 수익화 및 최적화
 - 알려진 위험: 현재 origin/master의 배포 workflow는 저장소 root를 배포하므로 다음 master 배포가 포털을 다른 사이트 내용으로 교체하거나 의도하지 않은 저장소 파일을 공개할 수 있다.
 - 다음 행동: 다음 master push 전에 사용자가 포털과 technology briefings 중 운영 방향을 명시적으로 선택하고, 겹치는 사이트 변경과 배포 workflow를 함께 정리한다.
 
+2026-08-01
+- 목표: 가상 데모 포털을 공식 출처 기반의 실제 프로필 디렉터리로 전환하고 Cloudflare 운영 환경에서 검증.
+- 결정: Enako, Umi Shinonome, Nashiko Momotsuki, Ai Shinozaki, Kiko Mizuhara, Elaiza Ikeda의 실존 프로필 6명을 등록했다. 공식 사이트 또는 소속사 출처만 사용하고 사진은 사용하지 않으며 CSS 모노그램으로 표시한다. 댓글 기능은 없고, 광고는 실제 네트워크를 연결하지 않은 placeholder 2개만 유지한다. 추천은 IP와 secret salt로 만든 SHA-256 가명 해시(UA 제외)를 사용해 모델별 1회, 해시별 시간당 20회로 제한한다. migration 0002_real_profiles.sql을 적용했다. 레거시 is_demo=1 행은 혼합 버전 호환을 위해 보존하되 API는 is_demo=0 프로필만 노출한다.
+- 변경 파일: index.html, portal.css, portal.js, about.html, privacy.html, terms.html, 404.html, functions/_lib/recommendations.js, migrations/0002_real_profiles.sql, 관련 테스트, DEVELOPMENT_PROCESS.txt, CLOUDFLARE_SETUP.txt
+- 배포·복구: D1 백업은 C:\tmp\globalhot-recommendations-pre-real-20260801.sql에 보관했다. 수동 배포에서는 반드시 D1 migration을 Pages보다 먼저 적용한다. 자동 CI의 원격 migration 적용은 아직 도입하지 않았다.
+- 검증 명령/결과: npm test 44/44 PASS. Preview 최종 Deployment ID는 1b32892d-46e4-4149-a98b-e62cd558e054, URL은 https://1b32892d.globalhot.pages.dev 이다. Production 최종 Deployment ID는 379d9b49-3e8a-4ab0-a6f6-a5b1b08c3dde, URL은 https://379d9b49.globalhot.pages.dev 이며 canonical은 https://globalhot.net 이다. gstack QA에서 Umi 검색 결과 카드 1개 표시, 375px viewport innerWidth/scrollWidth 375/375, console errors 없음, GET API의 실존 6명 count=0을 확인했다. 추천 쓰기는 201 저장과 같은 IP의 409 중복 차단을 확인한 뒤 QA vote id=7만 삭제했고, 실존 6명 모두 count=0으로 복원했다. 검색 결과 hidden 표시 문제와 긴 공식 링크의 모바일 overflow도 수정했다.
+- 알려진 위험: 계정 기반 식별이 아닌 IP 유래 가명 해시이므로 공유 네트워크에서는 중복 제한이 함께 적용될 수 있다. 원격 migration 자동화는 아직 없다.
+- 다음 행동: origin/master는 기술뉴스 계열로 분기되어 있으므로 이번 포털 변경은 push 또는 merge하지 않는다. 운영 방향을 결정한 뒤 배포 workflow와 원격 migration 자동화를 별도로 검토한다.
+
 9. 기록 금지 정보
 
 - 비밀값, API 키, 토큰, 비밀번호

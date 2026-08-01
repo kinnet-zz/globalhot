@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var DEMO_STORAGE_KEY = 'globalhot-demo-recommendations-v1';
+  var LOCAL_STORAGE_KEY = 'globalhot-local-recommendations-v1';
   var SERVER_STORAGE_KEY = 'globalhot-recommendations-v2';
   var VALID_CATEGORIES = ['all', 'model', 'cosplay', 'gravure'];
   var VALID_SORTS = ['popular', 'latest', 'name'];
@@ -60,7 +60,7 @@
       category: isValid(parameters.get('category') || 'all', VALID_CATEGORIES, 'all'),
       sort: isValid(parameters.get('sort') || 'popular', VALID_SORTS, 'popular')
     };
-    var demoRecommendations = getStoredRecommendations(DEMO_STORAGE_KEY, validModelIds);
+    var localRecommendations = getStoredRecommendations(LOCAL_STORAGE_KEY, validModelIds);
     var serverRecommendations = getStoredRecommendations(SERVER_STORAGE_KEY, validModelIds);
     var serverCounts = {};
     var pendingRecommendations = {};
@@ -75,7 +75,7 @@
       var id = card.dataset.modelId;
       var base = Number(card.dataset.baseRecommendations);
       if (serverMode) return hasOwn(serverCounts, id) ? serverCounts[id] : (Number.isFinite(base) ? base : 0);
-      return (Number.isFinite(base) ? base : 0) + (demoRecommendations[id] ? 1 : 0);
+      return (Number.isFinite(base) ? base : 0) + (localRecommendations[id] ? 1 : 0);
     }
 
     function updateRecommendationButton(card) {
@@ -85,7 +85,7 @@
       if (count) count.textContent = String(cardCount(card));
       if (!button) return;
 
-      var recommended = serverMode ? Boolean(serverRecommendations[id]) : Boolean(demoRecommendations[id]);
+      var recommended = serverMode ? Boolean(serverRecommendations[id]) : Boolean(localRecommendations[id]);
       var pending = Boolean(pendingRecommendations[id]);
       button.setAttribute('aria-pressed', String(recommended));
       button.disabled = recommended || pending;
@@ -198,7 +198,7 @@
       }).then(function (payload) {
         if (setServerMode(payload)) render({ sync: false });
       }).catch(function () {
-        // Leave the immediate device-local demo recommendation mode active.
+        // Leave the immediate device-local recommendation mode active.
       });
     }
 
@@ -268,9 +268,9 @@
       if (!card || id !== button.dataset.recommendModel || !validModelIds[id] || pendingRecommendations[id]) return;
       if (serverMode) {
         if (!serverRecommendations[id]) recommendOnServer(card);
-      } else if (!demoRecommendations[id]) {
-        demoRecommendations[id] = true;
-        saveRecommendations(DEMO_STORAGE_KEY, demoRecommendations);
+      } else if (!localRecommendations[id]) {
+        localRecommendations[id] = true;
+        saveRecommendations(LOCAL_STORAGE_KEY, localRecommendations);
         render();
       }
     });

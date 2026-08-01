@@ -32,8 +32,8 @@ function requestIsAllowed(request) {
   return request.headers.get('Sec-Fetch-Site') !== 'cross-site';
 }
 
-async function voterHash(salt, ip, userAgent) {
-  const input = new TextEncoder().encode(JSON.stringify([salt, ip, userAgent]));
+async function voterHash(salt, ip) {
+  const input = new TextEncoder().encode(JSON.stringify([salt, ip]));
   const digest = await crypto.subtle.digest('SHA-256', input);
   return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
@@ -48,8 +48,8 @@ function voterIp(request) {
 
 async function activeModel(db, modelId) {
   return db.prepare(
-    'SELECT id, base_recommendations AS baseRecommendations FROM models WHERE id = ? AND status = ?'
-  ).bind(modelId, ACTIVE).first();
+    'SELECT id, base_recommendations AS baseRecommendations FROM models WHERE id = ? AND status = ? AND is_demo = ?'
+  ).bind(modelId, ACTIVE, 0).first();
 }
 
 async function modelCount(db, modelId) {
@@ -76,8 +76,8 @@ export async function getRecommendations(context) {
   if (!context.env?.DB) return unavailable();
   try {
     const result = await context.env.DB.prepare(
-      'SELECT m.id AS modelId, m.base_recommendations + COUNT(v.id) AS count FROM models m LEFT JOIN recommendation_votes v ON v.model_id = m.id WHERE m.status = ? GROUP BY m.id ORDER BY m.id'
-    ).bind(ACTIVE).all();
+      'SELECT m.id AS modelId, m.base_recommendations + COUNT(v.id) AS count FROM models m LEFT JOIN recommendation_votes v ON v.model_id = m.id WHERE m.status = ? AND m.is_demo = ? GROUP BY m.id ORDER BY m.id'
+    ).bind(ACTIVE, 0).all();
     return json({ ok: true, models: (result.results ?? []).map(safeModel) });
   } catch {
     logUnexpected(context.request);
@@ -99,7 +99,7 @@ export async function postRecommendation(context, modelId) {
     const model = await activeModel(db, modelId);
     if (!model) return error('not_found', '모델을 찾을 수 없습니다.', 404);
 
-    const hash = await voterHash(salt, ip, context.request.headers.get('User-Agent') ?? '');
+    const hash = await voterHash(salt, ip);
     const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
     const rate = await db.prepare(
       'SELECT COUNT(*) AS count FROM recommendation_votes WHERE voter_hash = ? AND created_at >= ?'
