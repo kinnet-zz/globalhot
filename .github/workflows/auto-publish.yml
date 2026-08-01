@@ -1,8 +1,6 @@
-name: Auto Publish (Mon/Wed/Fri)
+name: Legacy News Publisher (Manual Only)
 
 on:
-  schedule:
-    - cron: "0 0 * * 1,3,5"
   workflow_dispatch:
     inputs:
       topic:
@@ -26,12 +24,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate article
+      - name: Legacy manual news: Generate article
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER2 }}
         run: python scripts/auto-publish.py
 
-      - name: Commit and push
+      - name: Legacy manual news: Commit and push
         run: |
           git config user.name "GlobalHot Bot"
           git config user.email "bot@globalhot.net"

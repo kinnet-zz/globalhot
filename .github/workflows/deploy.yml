@@ -20,9 +20,24 @@ jobs:
       - name: 저장소 체크아웃
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build Pages output
+        run: npm run build:pages
+
       - name: Cloudflare Pages 배포
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: bdb1cf8e4920671e46565a911db9f40b
-          command: pages deploy . --project-name globalhot --branch master
+          command: pages deploy dist --project-name globalhot --branch master

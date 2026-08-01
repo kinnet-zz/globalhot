@@ -1,0 +1,37 @@
+Cloudflare Pages 추천 API 설정
+
+1. Cloudflare Dashboard에서 이 Pages 프로젝트를 열고 Settings > Bindings에 D1 database binding을 추가합니다.
+   Binding name은 반드시 DB로 설정합니다. 변경 후에는 새 배포가 필요합니다.
+
+2. Settings > Variables and Secrets에서 RECOMMENDATION_SALT 비밀 값을 추가합니다.
+   최소 32자(권장: 32바이트 이상의 무작위 값)를 사용하며, 실제 secret 값은 저장소에 넣지 않습니다.
+
+3. 마이그레이션 적용 예시:
+   npx wrangler d1 migrations apply <DB_NAME> --local
+   npx wrangler d1 migrations apply <DB_NAME> --remote
+
+4. 로컬 개발은 .dev.vars에 RECOMMENDATION_SALT를 넣어 사용합니다. .dev.vars와 .env는 커밋하지 않습니다.
+
+5. Pages Functions 로컬 확인 예시:
+   npm run build:pages
+   npx wrangler pages dev dist --d1 DB=<DB_NAME>
+   curl http://localhost:8788/api/recommendations
+   curl -X POST http://localhost:8788/api/recommendations/luna-miro
+
+6. 2026-08-01 실제 적용 상태
+   - Wrangler 4.118.0을 설치했다.
+   - 전용 D1 데이터베이스 globalhot-recommendations를 APAC에 생성했다.
+     Database UUID: 866c176d-9335-4545-b21f-2eff64c044cb
+   - wrangler.toml의 D1 binding DB를 위 데이터베이스에 연결했다.
+   - migration 0001_recommendations.sql을 remote에 적용했고, 대기 중인 migration은 없다.
+   - RECOMMENDATION_SALT는 실제 값을 노출하지 않은 채 Production과 Preview 환경 모두에 설정했다.
+   - 배포용 dist는 공개 허용 목록 14개 파일만 생성하도록 구성했다.
+   - Preview 배포 이력:
+     Deployment ID: c0bb465c-4982-4979-821d-0ba1a0024305
+     Preview URL: https://c0bb465c.globalhot.pages.dev
+     Branch alias: https://codex-recommendations.globalhot.pages.dev
+     Branch: codex-recommendations
+   - Production master 배포를 완료했다.
+     Deployment ID: aa509f0a-1cf8-41df-89ce-c0fe85f6a90d
+     Deployment URL: https://aa509f0a.globalhot.pages.dev
+     Canonical URL: https://globalhot.net/ (HTTP 200 확인)

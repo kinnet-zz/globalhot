@@ -1,0 +1,176 @@
+GLOBALHOT DEVELOPMENT PROCESS
+
+1. 문서 목적 및 상시 갱신 규칙
+
+이 파일은 GlobalHot의 개발 방향, 결정 사항, 검증 결과, 다음 작업을 한곳에 기록한다.
+모든 작업이 완료되면 담당자는 이 파일의 변경 이력에 해당 작업을 추가하거나 갱신한다.
+구현 코드와 이 문서의 내용이 다를 때에는 현재 코드 상태를 사실로 기록하고, 목표 방향은 별도로 표시한다.
+비밀값, API 키, 광고 계정 ID, 개인 정보는 이 파일에 절대 기록하지 않는다.
+
+2. 현재 상태와 목표 방향
+
+[CURRENT CODE]
+- 루트 index.html은 2026-08-01에 새 GlobalHot 모델·코스프레·그라비아 포털 MVP 메인으로 교체되었다.
+- Cloudflare Pages 정적 배포 구조는 유지한다.
+- 메인에는 6개 가상 데모 프로필, 검색, 카테고리 필터, 추천/최신/이름 정렬, 기기 로컬 추천, 추천 랭킹, 가상 출시/SNS 업데이트, 광고 자리 2개가 구현되었다.
+- 실데이터, 실이미지, 글로벌 추천 백엔드는 아직 구현되지 않았다.
+- about/privacy/terms/404는 GlobalHot 포털 기준으로 전환되었다.
+- 기존 뉴스 자동 발행은 예약이 제거되어 수동 전용이다. 기존 뉴스 posts 파일은 남아 있지만 새 sitemap에서는 제외되었다.
+- sitemap은 root/about/privacy/terms 4개만 공개한다.
+- 구 뉴스 지원 파일과 기존 뉴스 posts가 남아 있어 전체 포털 전환은 미완료다.
+
+[TARGET DIRECTION]
+- GlobalHot을 글로벌 모델·코스프레·그라비아 정보 포털로 전환한다.
+- 이미지에는 사용 권한이 확인된 자료 또는 직접 제작한 이미지만 사용한다.
+- 모델 프로필, 화보·출시 일정, SNS 업데이트, 인기 순위, AI 요약을 제공한다.
+- 댓글은 만들지 않는다.
+- 추천 기능을 제공하고 추천 수 기준 정렬·검색을 지원한다.
+- 다국어 기능은 초기 MVP 이후 단계적으로 추가한다.
+
+3. 역할 분담: Advisor와 Worker
+
+- Advisor: 요구사항 분석, 범위·위험 판단, 설계 결정, Worker 작업 브리프 작성, diff 검토, 테스트 실행, 승인 및 사용자 보고를 맡는다.
+- Worker: 코드와 테스트를 작성·수정한다.
+- 검증이 실패하면 Advisor는 수정 브리프를 작성하여 Worker에게 반환한다.
+- 1~2줄 수준의 사소한 마무리만 Advisor가 직접 처리할 수 있다.
+
+4. 표준 작업 흐름
+
+1) 요청 확인
+2) Git 상태와 현재 코드 점검
+3) 범위, 영향, 저작권·개인정보·광고 위험 판단
+4) 완료 기준과 테스트를 포함한 Worker 브리프 작성
+5) Worker 구현
+6) Advisor가 변경 diff 검토
+7) 테스트 및 필요 시 브라우저 QA 수행
+8) 이 DEVELOPMENT_PROCESS.txt 갱신
+9) 사용자에게 결과, 검증, 남은 위험과 다음 행동 보고
+10) 커밋은 사용자가 명시적으로 요청하거나 승인한 경우에만 수행
+
+5. 단계별 로드맵
+
+Phase 0. 기존 기반 보존 및 이전 결정
+- 기존 정적 뉴스 사이트를 유지할지, 별도 경로/새 구조로 이전할지 결정한다.
+- 기존 배포와 사용자 소유 파일에 영향을 주지 않는 이전 경로를 선택한다.
+- 현재 뉴스 자동 발행은 수동 전용으로 전환했고, 기존 posts는 보존하되 sitemap에서 제외했다.
+
+Phase 1. 포털 MVP 및 콘텐츠 모델
+- 모델, 태그, 게시물, 출시 정보, SNS 업데이트의 데이터 모델을 정의한다.
+- 모델 목록, 모델 프로필, 최신 업데이트, 태그 탐색의 기본 화면을 만든다.
+
+Phase 2. 추천 및 랭킹
+- 익명 사용자의 중복 추천을 방지한다.
+- 추천 API에 속도 제한을 둔다.
+- 추천 수에 따른 정렬, 검색, 인기 랭킹을 제공한다.
+
+Phase 3. 수집·AI·권리 추적
+- 허용된 출처만 수집하는 흐름을 만든다.
+- AI 요약은 출처와 검토 상태를 함께 기록한다.
+- 각 이미지와 콘텐츠에 출처, 라이선스/사용 권한, 확인 일자를 기록한다.
+
+Phase 4. SEO 및 다국어
+- 모델·태그·출시 페이지의 고유 메타데이터, 구조화 데이터, 사이트맵을 추가한다.
+- 한국어 기반으로 시작하고 필요한 언어를 순차적으로 지원한다.
+
+Phase 5. 수익화 및 최적화
+- 광고 품질, 이탈률, 제휴 전환을 측정해 수익 구조를 조정한다.
+- 직접 광고는 충분한 트래픽과 신뢰가 쌓인 뒤 검토한다.
+
+6. 현재 수익화 결정
+
+- AdSense 승인에 의존하지 않는다.
+- 제휴 링크를 우선 수익원으로 둔다.
+- SAFE 페이지(일반 모델 프로필, 코스프레, 랭킹)에는 Adsterra 네이티브/배너를 사용한다.
+- SUGGESTIVE 페이지(그라비아, 수영복 등)에는 ExoClick 네이티브/배너만 조건부로 사용한다.
+- 18+ 콘텐츠는 현재 범위에서 제외한다.
+- 팝언더, 클릭언더, 강제 리디렉션, 푸시 구독 유도 광고는 사용하지 않는다.
+- 초기에는 페이지당 광고를 최대 2개로 제한한다.
+- 이용자 동의 후에만 광고 스크립트를 로드한다.
+- ads.txt에는 광고망 승인 후 해당 광고망이 제공한 항목만 등록한다.
+
+7. 완료 정의(Definition of Done)
+
+[ ] 요청 범위와 완료 기준을 충족했다.
+[ ] 관련 테스트를 작성 또는 실행했고 결과를 기록했다.
+[ ] 모바일 및 주요 화면 크기에서 확인했다.
+[ ] 기본 접근성(의미 있는 제목, 대체 텍스트, 키보드 접근, 충분한 대비)을 확인했다.
+[ ] 관련 기능에는 SEO 메타데이터, 구조화 데이터, 사이트맵을 적용 또는 검토했다.
+[ ] 성능 저하와 누적 레이아웃 이동(CLS)을 확인했다.
+[ ] 광고·분석 스크립트에는 개인정보 고지와 동의 처리를 적용했다.
+[ ] 콘텐츠와 이미지의 출처 및 라이선스/사용 권한을 기록했다.
+[x] 추천 API에는 보안, 익명 중복 방지, 속도 제한을 적용했다.
+[x] 요청과 관계없는 파일은 변경하지 않았다.
+[x] 이 파일의 변경 이력을 갱신했다.
+
+8. 변경 이력 형식
+
+각 항목은 아래 필드를 모두 기록한다.
+- 날짜:
+- 목표:
+- 결정:
+- 변경 파일:
+- 검증 명령/결과:
+- 알려진 위험:
+- 다음 행동:
+
+2026-08-01
+- 목표: GlobalHot의 포털 전환과 수익화 작업을 기록할 개발 프로세스 문서를 만든다.
+- 결정: 현재 정적 뉴스 사이트와 목표 모델·코스프레·그라비아 정보 포털을 구분한다. 댓글은 제외하고 추천·랭킹을 포함한다. 수익화는 제휴 우선, SAFE 페이지의 Adsterra 네이티브/배너, SUGGESTIVE 페이지의 조건부 ExoClick 네이티브/배너로 정한다. 18+와 침해적인 광고 형식은 제외한다.
+- 변경 파일: DEVELOPMENT_PROCESS.txt
+- 검증 명령/결과: 문서 내용 검토 완료.
+- 알려진 위험: 포털 코드, 데이터 모델, 광고 계정 승인, 콘텐츠 사용 권한 검증은 아직 구현 또는 확정되지 않았다.
+- 다음 행동: 포털 코드 작업 전에 이전 접근 방식과 데이터 모델을 결정한다.
+
+2026-08-01
+- 목표: 기존 뉴스형 루트 메인을 새 포털 MVP로 교체.
+- 결정: 기존 style.css/app.js는 레거시 보호를 위해 그대로 두고 portal.css/portal.js로 분리했다. 제3자 사진 없이 CSS 가상 패널을 사용했다. 댓글은 만들지 않았고, 광고는 승인 전 placeholder 2개만 두었다. 추천은 기기 로컬 데모로 제공한다.
+- 변경 파일: index.html, portal.css, portal.js, package.json, tests/portal-home.test.mjs, DEVELOPMENT_PROCESS.txt
+- 검증 명령/결과: Advisor 직접 npm.cmd test 6/6 PASS; node --check portal.js PASS; git diff --check PASS. gstack browser에서 HTTP 200, 접근 가능한 controls snapshot, 검색 q=Aria URL 반영, cosplay category URL 반영, 추천 버튼 click, viewport 375px에서 scrollWidth=375(no horizontal overflow), console errors 없음을 확인했다. 브라우저 daemon 세션 불안정으로 localStorage의 reload 후 지속성 자동 확인은 미완료다.
+- 알려진 위험: localStorage persistence browser recheck pending. 기기 로컬 추천은 조작 방지나 전역 집계가 아니다. 실데이터·권리 확인 이미지·백엔드는 미구현이다. about/privacy/terms와 레거시 posts는 여전히 뉴스형이므로 다음 마이그레이션이 필요하다. 실제 광고망 스크립트는 미삽입 상태다.
+- 다음 행동: about/privacy/terms 및 레거시 콘텐츠 마이그레이션을 결정하고, 데이터 모델과 D1 추천 API를 설계한다.
+
+2026-08-01
+- 목표: 포털과 불일치한 소개/정책/404 및 레거시 자동발행·사이트맵 정리.
+- 결정: 공통 portal.css와 info.css를 사용한다. privacy에는 실제 현재 동작인 gh-consent-v1, globalhot-demo-recommendations-v1, 동의 기반 GA4, Cloudflare 기술 로그만 기록했다. AdSense 사용 주장을 제거하고, 실제 광고 스크립트가 없으며 placeholder만 있음을 명시했다. 자동 뉴스 schedule을 제거하고 manual workflow는 보존했다. 기존 posts는 삭제하지 않고 sitemap에서만 제외했다.
+- 변경 파일: about.html, privacy.html, terms.html, 404.html, info.css, .github/workflows/auto-publish.yml, sitemap.xml, tests/portal-info.test.mjs, DEVELOPMENT_PROCESS.txt
+- 검증 명령/결과: Advisor 직접 npm.cmd test 16/16 PASS; node --check portal.js PASS; git diff --check PASS; 금지 문자열/레거시 링크 검사 PASS. 브라우저 QA는 이번 작업에서 사용자 요청이 없어 실행하지 않았다.
+- 알려진 위험: 정책 문서는 현재 구현 설명이며 전문 법률 검토를 대체하지 않는다. 기존 뉴스 posts는 파일로 접근 가능하다. 실제 광고/제휴 도입 전 policy/consent/vendor 업데이트가 필요하다. 전역 추천 백엔드와 실데이터는 미구현이다.
+- 다음 행동: D1 데이터 모델과 조작 방지 전역 추천 API를 설계·구현한다.
+
+2026-08-01
+- 목표: D1 기반 전역 추천 API와 안전한 로컬 fallback 구현.
+- 결정: Cloudflare Pages Functions와 D1(DB binding)을 사용한다. RECOMMENDATION_SALT는 최소 32자로 설정하고, IP+UA+secret을 SHA-256 가명 해시하며 원본 IP/UA는 앱 DB에 저장하지 않는다. same-origin 검사를 적용하고 UNIQUE model+hash로 중복 추천을 방지하며 1시간당 20회로 제한한다. 서버 미설정 또는 초기 전역 추천 조회 장애 시 v1 local demo를 사용하고, 서버 성공 또는 중복 응답은 v2 browser state에 기록한다. 전역 모드의 개별 추천 실패는 로컬 수치로 바꾸지 않고 재시도를 안내한다. 6개 가상 demo seed를 사용한다. 실제 Cloudflare 리소스 생성이나 배포는 수행하지 않았다.
+- 변경 파일: .gitignore, CLOUDFLARE_SETUP.txt, migrations/0001_recommendations.sql, functions/_lib/recommendations.js, functions/api/recommendations/index.js, functions/api/recommendations/[modelId].js, index.html, about.html, portal.js, privacy.html, tests/recommendations-api.test.mjs, tests/portal-home.test.mjs, tests/portal-info.test.mjs, DEVELOPMENT_PROCESS.txt
+- 검증 명령/결과: Advisor npm.cmd test 23/23 PASS; node --check portal.js와 Functions 3개 PASS; Node sqlite 메모리 migration 적용 models=6/votes=0 PASS; git diff --check PASS. gstack에서 HTTP 200과 접근성 snapshot, 6개 추천순/랭킹 정상 동작을 확인했다. 이후 상호작용 chain은 browser daemon 반복 재시작으로 미완료다. 정적 Python 서버에서는 /api 404가 예상되어 console network error가 있었다. 자동 테스트로 local/201/409/429/timeout을 검증했다.
+- 알려진 위험: 실제 Cloudflare D1/secret/binding/migration/preview 통합은 실행하지 않았다. IP/UA 가명 fingerprint는 기기 또는 네트워크 변경에 대한 완전한 조작 방지가 아니므로 필요하면 Turnstile이나 별도 rate limiter를 검토한다. 정책은 법률 검토를 대체하지 않는다. 실데이터, 권리 확인 이미지, 광고는 미구현이다.
+- 다음 행동: 사용자 승인 후 Cloudflare D1을 생성하고 DB binding과 secret을 연결하며 remote migration을 적용한 뒤 preview에서 전역 추천 E2E를 검증한다.
+
+2026-08-01
+- 목표: 전역 추천 기능의 Cloudflare D1 연결, Preview 배포 및 실제 환경 검증.
+- 결정: Wrangler 4.118.0을 사용해 D1을 연결했다. 배포 시에는 공개 허용 목록 14개 파일만 dist에 생성해 개발 파일이 공개되지 않도록 한다. Production master는 사용자 승인 전까지 그대로 둔다.
+- 변경 파일: wrangler.toml, scripts/build-pages.mjs, tests/pages-build.test.mjs, package.json, package-lock.json, .gitignore, .github/workflows/deploy.yml, CLOUDFLARE_SETUP.txt, DEVELOPMENT_PROCESS.txt
+- 검증 명령/결과: 전체 테스트 26/26 PASS. Pages Functions 컴파일 PASS. remote D1은 APAC/NRT에서 models=6, votes=0, active_demo=6을 확인했다(정확히 식별한 QA 추천 1건을 정리한 뒤의 값). Preview E2E에서 추천 목록 GET 200, 동일 사용자의 중복 POST 409 already_recommended 및 count=285, Mio 검색, 375x812 모바일 가로 넘침 없음, 예상된 409 외 console 오류 없음을 확인했다.
+- 알려진 위험: Preview에서만 검증했다. 추천 fingerprint는 네트워크·기기 변경에 대한 완전한 조작 방지가 아니며, 실데이터·권리 확인 이미지·광고는 별도 작업이 필요하다.
+- 다음 행동: 사용자의 명시적 승인 후에만 master Production 배포를 수행한다.
+
+2026-08-01
+- 목표: 검증된 전역 추천 기능을 Production master에 배포하고 운영 환경에서 확인.
+- 결정: Advisor 사전 검증을 통과한 배포 산출물만 사용했고, Worker는 Production 배포만 수행했다. Deployment ID는 aa509f0a-1cf8-41df-89ce-c0fe85f6a90d이며 https://aa509f0a.globalhot.pages.dev 및 canonical https://globalhot.net/에 반영했다.
+- 변경 파일: CLOUDFLARE_SETUP.txt, DEVELOPMENT_PROCESS.txt (이번 기록 갱신 기준; 배포 산출물에는 D1 배포 계약 테스트 추가 사항이 포함됨)
+- 검증 명령/결과: Advisor 사전 검증에서 D1 deployment-contract 테스트를 포함한 전체 테스트 27/27 PASS, 공개 허용 목록 14개 파일 build PASS, Pages Functions 컴파일 PASS, secret scan PASS. Production gstack E2E에서 /api/recommendations GET 200, Luna 추천 UI 284에서 285로 증가 및 추천 완료 상태, 동일 사용자의 중복 POST 409 already_recommended, Mio 검색 결과 정확히 1개와 query URL 반영, 375x812에서 scrollWidth=clientWidth=375를 확인했다. console에는 의도한 중복 요청 409만 있었다. canonical https://globalhot.net/은 HTTP 200을 반환했다. QA vote id=5(luna-miro)는 삭제했고, 기존 또는 새 사용자 vote id=4(aria-nova)는 보존했다. 최종 D1 상태는 models=6, votes=1, aria_votes=1, luna_votes=0이다.
+- 알려진 위험: 현재 콘텐츠는 DEMO이므로 이번 Production 배포의 차단 사유로 보지 않았다. 실랭킹 또는 실제 트래픽 도입 전 Turnstile 등 동등한 bot 제어를 추가하고, 추천 가명 hash의 보관 기간과 삭제 정책을 정의·강제해야 한다.
+- 다음 행동: 실데이터·사용 권한 추적 파이프라인을 구축하고, 추천 남용 방지와 hash 보관·삭제 정책을 강화한다.
+
+2026-08-01
+- 목표: Production 배포 이후 로컬 포털과 원격 master의 분기 상태를 확인하고 안전한 다음 작업 조건을 기록.
+- 결정: Production은 direct Pages deployment aa509f0a-1cf8-41df-89ce-c0fe85f6a90d 상태로 계속 운영한다. 로컬에서 검증한 포털은 branch codex/globalhot-model-portal의 최신 로컬 commit으로 보존했다. fetch 후 origin/master가 c682348(tech-briefing rebuild), 888ecd4(content publish) 두 commit 앞서 있고 사이트 핵심 파일이 크게 겹치는 것을 확인하여 master를 병합하거나 덮어쓰지 않았다. feature branch push를 시도했으나 환경 승인 정책에 막혀 실제 push는 발생하지 않았다.
+- 변경 파일: DEVELOPMENT_PROCESS.txt
+- 검증 명령/결과: 로컬 포털 commit과 원격 분기 상태를 확인했다. Production 배포는 유지됐고 원격 저장소에는 이번 feature branch가 추가되지 않았다. 사용자 소유 파일은 변경하거나 삭제하지 않았다.
+- 알려진 위험: 현재 origin/master의 배포 workflow는 저장소 root를 배포하므로 다음 master 배포가 포털을 다른 사이트 내용으로 교체하거나 의도하지 않은 저장소 파일을 공개할 수 있다.
+- 다음 행동: 다음 master push 전에 사용자가 포털과 technology briefings 중 운영 방향을 명시적으로 선택하고, 겹치는 사이트 변경과 배포 workflow를 함께 정리한다.
+
+9. 기록 금지 정보
+
+- 비밀값, API 키, 토큰, 비밀번호
+- 광고·제휴·분석 계정 ID 또는 결제 정보
+- 이용자 또는 운영자의 개인 식별 정보
