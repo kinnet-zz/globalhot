@@ -1,0 +1,2681 @@
+{
+  "title": "GlobalHot Unified Model Directory",
+  "description": "gravure-models.json + world-models.json 의 canonical 병합 명단. 중복 ID 제거, country/officialUrl/sns 필드 표준화.",
+  "generated": "2026-08-02",
+  "source": "merge of data/gravure-models.json (102) + data/world-models.json (102) with 27 shared IDs deduped",
+  "schemaVersion": 1,
+  "fields": [
+    "id",
+    "name",
+    "altName",
+    "country",
+    "tags",
+    "photoAvailable",
+    "officialUrl",
+    "sns"
+  ],
+  "snsFields": [
+    "x",
+    "instagram",
+    "youtube",
+    "tiktok"
+  ],
+  "modelCount": 177,
+  "models": [
+    {
+      "id": "enako",
+      "name": "Enako",
+      "altName": "えなこ",
+      "country": "JAPAN",
+      "tags": "cosplay gravure magazine tv photobook radio",
+      "photoAvailable": true,
+      "officialUrl": "https://ppe.jp/talent/enako/",
+      "sns": {
+        "x": "https://twitter.com/enako_cos",
+        "instagram": "https://www.instagram.com/enakorin",
+        "youtube": "https://www.youtube.com/channel/UCrUdiKv9LERZmG_MKh63Xgg",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "umi-shinonome",
+      "name": "Umi Shinonome",
+      "altName": "東雲うみ",
+      "country": "JAPAN",
+      "tags": "gravure magazine tv film cosplay gunpla oil painting",
+      "photoAvailable": true,
+      "officialUrl": "https://ppe.jp/talent/umi-shinonome/",
+      "sns": {
+        "x": "https://twitter.com/sinonome_umi",
+        "instagram": "https://www.instagram.com/umi_portrait/",
+        "youtube": "https://www.youtube.com/channel/UCLnac6g3R8YcGOisZxsVIpw",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "ai-shinozaki",
+      "name": "Ai Shinozaki",
+      "altName": "篠崎愛",
+      "country": "JAPAN",
+      "tags": "gravure singer food singing young champion",
+      "photoAvailable": true,
+      "officialUrl": "https://shinozakiai0226.com/",
+      "sns": {
+        "x": "https://twitter.com/shinozakiai_226",
+        "instagram": "https://www.instagram.com/shinopp._.ai/",
+        "youtube": "https://www.youtube.com/channel/UCKiLOWcSyFZjRLAY1IsZzjA",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "nashiko-momotsuki",
+      "name": "Nashiko Momotsuki",
+      "altName": "桃月なしこ",
+      "country": "JAPAN",
+      "tags": "cosplay game manga actor bis model",
+      "photoAvailable": true,
+      "officialUrl": "https://official.01familia.jp/talent/nashiko",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "aika-sawaguchi",
+      "name": "Aika Sawaguchi",
+      "altName": "沢口愛華",
+      "country": "JAPAN",
+      "tags": "gravure magazine actor miss-magazine dela",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yuno-ohara",
+      "name": "Yuno Ohara",
+      "altName": "大原優乃",
+      "country": "JAPAN",
+      "tags": "gravure actress dream5 magazine tv",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miku-kuwashima",
+      "name": "Miku Kuwashima",
+      "altName": "桑島海空",
+      "country": "JAPAN",
+      "tags": "gravure tiktok instagram magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "ina-enohara",
+      "name": "Ina Enohara",
+      "altName": "榎原依那",
+      "country": "JAPAN",
+      "tags": "gravure magazine tiktok youtube",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "cocoro-toyoshima",
+      "name": "Cocoro Toyoshima",
+      "altName": "豊島心桜",
+      "country": "JAPAN",
+      "tags": "gravure actress magazine ballet",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miu-shirahama",
+      "name": "Miu Shirahama",
+      "altName": "白濱美兎",
+      "country": "JAPAN",
+      "tags": "gravure magazine tiktok instagram",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mizuki-hoshina",
+      "name": "Mizuki Hoshina",
+      "altName": "星名美津紀",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "sayaka-tomaru",
+      "name": "Sayaka Tomaru",
+      "altName": "都丸紗也華",
+      "country": "JAPAN",
+      "tags": "gravure magazine actor",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "asuka-kishi",
+      "name": "Asuka Kishi",
+      "altName": "岸明日香",
+      "country": "JAPAN",
+      "tags": "gravure magazine variety osaka",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "hina-kikuchi",
+      "name": "Hina Kikuchi",
+      "altName": "菊地姫奈",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "ririka-fukui",
+      "name": "Ririka Fukui",
+      "altName": "福井梨莉華",
+      "country": "JAPAN",
+      "tags": "gravure magazine rookie",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miku-tanaka",
+      "name": "Miku Tanaka",
+      "altName": "田中美久",
+      "country": "JAPAN",
+      "tags": "gravure magazine hkt48 photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kanami-takasaki",
+      "name": "Kanami Takasaki",
+      "altName": "高崎かなみ",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "moe-iori",
+      "name": "Moe Iori",
+      "altName": "伊織もえ",
+      "country": "JAPAN",
+      "tags": "cosplay gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "koto-hoshino",
+      "name": "Koto Hoshino",
+      "altName": "星野琴",
+      "country": "JAPAN",
+      "tags": "gravure magazine dvd rookie",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yuzuha-hongo",
+      "name": "Yuzuha Hongo",
+      "altName": "本郷柚巴",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "sumire-yokono",
+      "name": "Sumire Yokono",
+      "altName": "横野すみれ",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kokoro-shinozaki",
+      "name": "Kokoro Shinozaki",
+      "altName": "篠崎こころ",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "ami-minami",
+      "name": "Ami Minami",
+      "altName": "南あみ",
+      "country": "JAPAN",
+      "tags": "gravure magazine rookie",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yokyun",
+      "name": "Yokyun",
+      "altName": "よきゅーん",
+      "country": "JAPAN",
+      "tags": "gravure magazine tiktok",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "honoka-sasaki",
+      "name": "Honoka Sasaki",
+      "altName": "佐々木ほのか",
+      "country": "JAPAN",
+      "tags": "gravure magazine singer upupgirls",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mizuki-setoguchi",
+      "name": "Mizuki Setoguchi",
+      "altName": "瀬戸口心月",
+      "country": "JAPAN",
+      "tags": "gravure magazine nogizaka46",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "moeka-yada",
+      "name": "Moeka Yada",
+      "altName": "矢田萌華",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "hinano-okoshi",
+      "name": "Hinano Okoshi",
+      "altName": "大越ひなの",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rio-nagashima",
+      "name": "Rio Nagashima",
+      "altName": "長嶋凛桜",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "akina-kawabata",
+      "name": "Akina Kawabata",
+      "altName": "川端晃菜",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kokoro-atago",
+      "name": "Kokoro Atago",
+      "altName": "愛宕心響",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "reina-ozu",
+      "name": "Reina Ozu",
+      "altName": "小津玲奈",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yuna-suzuki",
+      "name": "Yuna Suzuki",
+      "altName": "鈴木佑捺",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rei-morihei",
+      "name": "Rei Morihei",
+      "altName": "森平麗心",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miyuka-minami",
+      "name": "Miyuka Minami",
+      "altName": "南みゆか",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kana-nakada",
+      "name": "Kana Nakada",
+      "altName": "中田花奈",
+      "country": "JAPAN",
+      "tags": "gravure magazine pro-mahjong nogizaka46",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "nene-shida",
+      "name": "Nene Shida",
+      "altName": "志田音々",
+      "country": "JAPAN",
+      "tags": "gravure magazine announcer",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kasumi-mori",
+      "name": "Kasumi Mori",
+      "altName": "森香澄",
+      "country": "JAPAN",
+      "tags": "gravure magazine tv announcer",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "runa-toyota",
+      "name": "Runa Toyota",
+      "altName": "豊田ルナ",
+      "country": "JAPAN",
+      "tags": "gravure magazine actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mizuki-yamashita",
+      "name": "Mizuki Yamashita",
+      "altName": "山下美月",
+      "country": "JAPAN",
+      "tags": "gravure magazine nogizaka46 actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "nao-kosaka",
+      "name": "Nao Kosaka",
+      "altName": "小坂菜緒",
+      "country": "JAPAN",
+      "tags": "gravure magazine hinatazaka46",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yui-iruma",
+      "name": "Yui Iruma",
+      "altName": "入間ゆい",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine bestseller",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miki-ide",
+      "name": "Miki Ide",
+      "altName": "井手美希",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "ayana-nishinaga",
+      "name": "Ayana Nishinaga",
+      "altName": "西永彩奈",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine small-bust",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "minami-hori",
+      "name": "Minami Hori",
+      "altName": "堀みなみ",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine rookie",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yuki-mita",
+      "name": "Yuki Mita",
+      "altName": "三田悠貴",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yoshino-chitose",
+      "name": "Yoshino Chitose",
+      "altName": "ちとせよしの",
+      "country": "JAPAN",
+      "tags": "gravure magazine eating talent",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rui-kiriyama",
+      "name": "Rui Kiriyama",
+      "altName": "桐山瑠衣",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "io-iori",
+      "name": "Io Iori",
+      "altName": "伊織いお",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "memori-tsukihana",
+      "name": "Memori Tsukihana",
+      "altName": "月花めもり",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "saki-yanase",
+      "name": "Saki Yanase",
+      "altName": "柳瀬さき",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yasuyo-saito",
+      "name": "Yasuyo Saito",
+      "altName": "斎藤恭代",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miu-miyake",
+      "name": "Miu Miyake",
+      "altName": "三宅美羽",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "tomoka-takenaka",
+      "name": "Tomoka Takenaka",
+      "altName": "竹中知華",
+      "country": "JAPAN",
+      "tags": "gravure magazine announcer",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mao-takano",
+      "name": "Mao Takano",
+      "altName": "髙野真央",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "jun-amaki",
+      "name": "Jun Amaki",
+      "altName": "天木じゅん",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "hinako-sano",
+      "name": "Hinako Sano",
+      "altName": "佐野ひなこ",
+      "country": "JAPAN",
+      "tags": "gravure actress vivi model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mio-imada",
+      "name": "Mio Imada",
+      "altName": "今田美桜",
+      "country": "JAPAN",
+      "tags": "gravure actress magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "sayaka-isoyama",
+      "name": "Sayaka Isoyama",
+      "altName": "磯山さやか",
+      "country": "JAPAN",
+      "tags": "gravure variety actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "fumika-baba",
+      "name": "Fumika Baba",
+      "altName": "馬場ふみか",
+      "country": "JAPAN",
+      "tags": "gravure actress magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yuka-ogura",
+      "name": "Yuka Ogura",
+      "altName": "小倉ゆうか",
+      "country": "JAPAN",
+      "tags": "gravure actress model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rena-takeda",
+      "name": "Rena Takeda",
+      "altName": "武田玲奈",
+      "country": "JAPAN",
+      "tags": "gravure actress model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rika-izumi",
+      "name": "Rika Izumi",
+      "altName": "泉里香",
+      "country": "JAPAN",
+      "tags": "gravure model actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "shizuka-nakamura",
+      "name": "Shizuka Nakamura",
+      "altName": "中村静香",
+      "country": "JAPAN",
+      "tags": "gravure variety actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "anri-sugihara",
+      "name": "Anri Sugihara",
+      "altName": "杉原杏璃",
+      "country": "JAPAN",
+      "tags": "gravure singer photobook finance",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "ikumi-hisamatsu",
+      "name": "Ikumi Hisamatsu",
+      "altName": "久松郁実",
+      "country": "JAPAN",
+      "tags": "gravure model non-no actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rio-teramoto",
+      "name": "Rio Teramoto",
+      "altName": "寺本莉緒",
+      "country": "JAPAN",
+      "tags": "gravure actress magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miwako-kakehi",
+      "name": "Miwako Kakehi",
+      "altName": "筧美和子",
+      "country": "JAPAN",
+      "tags": "gravure model actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yukie-kawamura",
+      "name": "Yukie Kawamura",
+      "altName": "川村ゆきえ",
+      "country": "JAPAN",
+      "tags": "gravure actress magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "nono-ono",
+      "name": "Nono Ono",
+      "altName": "おのののか",
+      "country": "JAPAN",
+      "tags": "gravure race-queen variety",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mikie-hara",
+      "name": "Mikie Hara",
+      "altName": "原幹恵",
+      "country": "JAPAN",
+      "tags": "gravure actress cutie-honey",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rena-asakawa",
+      "name": "Rena Asakawa",
+      "altName": "浅川梨奈",
+      "country": "JAPAN",
+      "tags": "gravure supergirls actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "aoi-fujino",
+      "name": "Aoi Fujino",
+      "altName": "藤乃あおい",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine legend",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "rina-hashimoto",
+      "name": "Rina Hashimoto",
+      "altName": "橋本梨菜",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "nanoka",
+      "name": "Nanoka",
+      "altName": "菜乃花",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "saya-okada",
+      "name": "Saya Okada",
+      "altName": "岡田紗佳",
+      "country": "JAPAN",
+      "tags": "gravure pro-mahjong model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "hitomi-yasueda",
+      "name": "Hitomi Yasueda",
+      "altName": "安枝瞳",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "natsuki-kawamura",
+      "name": "Natsuki Kawamura",
+      "altName": "川村那月",
+      "country": "JAPAN",
+      "tags": "gravure magazine",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "marina-nagasawa",
+      "name": "Marina Nagasawa",
+      "altName": "長澤茉里奈",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "tomomi-morisaki",
+      "name": "Tomomi Morisaki",
+      "altName": "森咲智美",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "aya-kawasaki",
+      "name": "Aya Kawasaki",
+      "altName": "川崎あや",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yuka-kuramochi",
+      "name": "Yuka Kuramochi",
+      "altName": "倉持由香",
+      "country": "JAPAN",
+      "tags": "gravure variety photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "haruka-arai",
+      "name": "Haruka Arai",
+      "altName": "新井遥",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yotsuba-kominato",
+      "name": "Yotsuba Kominato",
+      "altName": "小湊よつ葉",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "nana-owada",
+      "name": "Nana Owada",
+      "altName": "大和田南那",
+      "country": "JAPAN",
+      "tags": "gravure actress akb48 photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mariya-nagao",
+      "name": "Mariya Nagao",
+      "altName": "永尾まりや",
+      "country": "JAPAN",
+      "tags": "gravure actress akb48",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "momoka-ishida",
+      "name": "Momoka Ishida",
+      "altName": "石田桃香",
+      "country": "JAPAN",
+      "tags": "gravure magazine photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kyoka",
+      "name": "Kyoka",
+      "altName": "京佳",
+      "country": "JAPAN",
+      "tags": "gravure yumeyuru-adorerecence photobook",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "aki-hoshino",
+      "name": "Aki Hoshino",
+      "altName": "ほしのあき",
+      "country": "JAPAN",
+      "tags": "gravure variety actress legend",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "saki-suzuki",
+      "name": "Saki Suzuki",
+      "altName": "鈴木咲",
+      "country": "JAPAN",
+      "tags": "gravure a-cup photographer",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yoko-kumada",
+      "name": "Yoko Kumada",
+      "altName": "熊田曜子",
+      "country": "JAPAN",
+      "tags": "gravure variety legend",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "waka-inoue",
+      "name": "Waka Inoue",
+      "altName": "井上和香",
+      "country": "JAPAN",
+      "tags": "gravure actress legend",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "misako-yasuda",
+      "name": "Misako Yasuda",
+      "altName": "安田美沙子",
+      "country": "JAPAN",
+      "tags": "gravure actress legend",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "akina-minami",
+      "name": "Akina Minami",
+      "altName": "南明奈",
+      "country": "JAPAN",
+      "tags": "gravure variety actress",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "yumiko-shaku",
+      "name": "Yumiko Shaku",
+      "altName": "釈由美子",
+      "country": "JAPAN",
+      "tags": "gravure actress godzilla legend",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "haruka-igawa",
+      "name": "Haruka Igawa",
+      "altName": "井川遥",
+      "country": "JAPAN",
+      "tags": "gravure actress legend",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miho-yoshioka",
+      "name": "Miho Yoshioka",
+      "altName": "吉岡美穂",
+      "country": "JAPAN",
+      "tags": "gravure variety legend",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mayuko-iwasawa",
+      "name": "Mayuko Iwasawa",
+      "altName": "岩佐真悠子",
+      "country": "JAPAN",
+      "tags": "gravure actress variety",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "fumie-hosokawa",
+      "name": "Fumie Hosokawa",
+      "altName": "細川ふみえ",
+      "country": "JAPAN",
+      "tags": "gravure legend 90s",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "akiko-hinagata",
+      "name": "Akiko Hinagata",
+      "altName": "雛形あきこ",
+      "country": "JAPAN",
+      "tags": "gravure legend 90s actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "kiko-mizuhara",
+      "name": "Kiko Mizuhara",
+      "altName": "水原希子",
+      "country": "JAPAN",
+      "tags": "model actor creative movie tv editorial commercial books event office kiko",
+      "photoAvailable": true,
+      "officialUrl": "https://kiko-mizuhara.com/",
+      "sns": {
+        "x": "",
+        "instagram": "https://www.instagram.com/i_am_kiko/",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "elaiza-ikeda",
+      "name": "Elaiza Ikeda",
+      "altName": "池田エライザ",
+      "country": "JAPAN",
+      "tags": "model actor film drama music magazine runway director cancam nicola",
+      "photoAvailable": false,
+      "officialUrl": "https://ikedaelaiza.jp/",
+      "sns": {
+        "x": "",
+        "instagram": "https://www.instagram.com/elaiza_ikd/",
+        "youtube": "",
+        "tiktok": "https://www.tiktok.com/@elaizaofficial_"
+      }
+    },
+    {
+      "id": "mayuka-mitsumine",
+      "name": "Mayuka Mitsumine",
+      "altName": "三峰真由花",
+      "country": "JAPAN",
+      "tags": "gravure actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "mika-kimura",
+      "name": "Mika Kimura",
+      "altName": "木村ウルハナ",
+      "country": "JAPAN",
+      "tags": "gravure idol",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "miyuki-irie",
+      "name": "Miyuki Irie",
+      "altName": "入江みいな",
+      "country": "JAPAN",
+      "tags": "gravure actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-inkyung",
+      "name": "Kang In-kyung",
+      "altName": "강인경",
+      "country": "KOREA",
+      "tags": "web-gravure maxim model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-dahye",
+      "name": "Lee Da-hye",
+      "altName": "이다혜",
+      "country": "KOREA",
+      "tags": "cheerleader",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-soyeon",
+      "name": "Soyeon",
+      "altName": "소이",
+      "country": "KOREA",
+      "tags": "racing model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-chaesia",
+      "name": "Chae Sia",
+      "altName": "채시아",
+      "country": "KOREA",
+      "tags": "racing model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-biroha",
+      "name": "Son Bi-ro-ha",
+      "altName": "손비로하",
+      "country": "KOREA",
+      "tags": "racing model cheer youtuber",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-hari",
+      "name": "Ban Ha-ri",
+      "altName": "반하리",
+      "country": "KOREA",
+      "tags": "racing model cosplay",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-nagyeong",
+      "name": "Mok Na-kyeong",
+      "altName": "목나경",
+      "country": "KOREA",
+      "tags": "cheer swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-minsu",
+      "name": "Choi Min-soo",
+      "altName": "최미수아",
+      "country": "KOREA",
+      "tags": "miss earth solo parade swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-suhyun",
+      "name": "Lee Su-hyun",
+      "altName": "이수현",
+      "country": "KOREA",
+      "tags": "actress swimwear barrel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-jain",
+      "name": "Han Jae-in",
+      "altName": "한재인",
+      "country": "KOREA",
+      "tags": "actress swimwear barrel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-euni",
+      "name": "Jung Eun-i",
+      "altName": "정은이",
+      "country": "KOREA",
+      "tags": "model maxim fitness",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-dyeon",
+      "name": "E Da-yeon",
+      "altName": "E다연",
+      "country": "KOREA",
+      "tags": "racing model maxim cheer",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-sjua",
+      "name": "Song J-a",
+      "altName": "송주아",
+      "country": "KOREA",
+      "tags": "cosplay racing model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-seol",
+      "name": "Choi Seol-ah",
+      "altName": "첼설아",
+      "country": "KOREA",
+      "tags": "model maxim bikini",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-bb",
+      "name": "Bobby-ang",
+      "altName": "바비앙",
+      "country": "KOREA",
+      "tags": "miss-maxim DJ",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "k-yeo",
+      "name": "Seo Yeo-jin",
+      "altName": "서여진",
+      "country": "KOREA",
+      "tags": "cheer maxim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-emrata",
+      "name": "Emily Ratajkowski",
+      "altName": "",
+      "country": "USA",
+      "tags": "bikini inamorata actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-kupton",
+      "name": "Kate Upton",
+      "altName": "",
+      "country": "USA",
+      "tags": "swimsuit actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-irina",
+      "name": "Irina Shayk",
+      "altName": "Ирина Шейк",
+      "country": "RUSSIA",
+      "tags": "supermodel swimsuit",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-kendall",
+      "name": "Kendall Jenner",
+      "altName": "",
+      "country": "USA",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-gigi",
+      "name": "Gigi Hadid",
+      "altName": "",
+      "country": "USA",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-bella",
+      "name": "Bella Hadid",
+      "altName": "",
+      "country": "USA",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-cara",
+      "name": "Cara Delevingne",
+      "altName": "",
+      "country": "UK",
+      "tags": "supermodel actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-rosie",
+      "name": "Rosie Huntington-Whiteley",
+      "altName": "",
+      "country": "UK",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-candice",
+      "name": "Candice Swanepoel",
+      "altName": "",
+      "country": "SOUTH_AFRICA",
+      "tags": "supermodel vs angel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-adriana",
+      "name": "Adriana Lima",
+      "altName": "",
+      "country": "BRAZIL",
+      "tags": "supermodel vs angel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-aless",
+      "name": "Alessandra Ambrosio",
+      "altName": "",
+      "country": "BRAZIL",
+      "tags": "supermodel vs angel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-gisele",
+      "name": "Gisele Bundchen",
+      "altName": "",
+      "country": "BRAZIL",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-barbara",
+      "name": "Barbara Palvin",
+      "altName": "",
+      "country": "HUNGARY",
+      "tags": "supermodel swimsuit",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-chrissy",
+      "name": "Chrissy Teigen",
+      "altName": "",
+      "country": "USA",
+      "tags": "swimsuit model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-nina",
+      "name": "Nina Agdal",
+      "altName": "",
+      "country": "DENMARK",
+      "tags": "swimsuit model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-katebock",
+      "name": "Kate Bock",
+      "altName": "",
+      "country": "CANADA",
+      "tags": "swimsuit model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-charlotte",
+      "name": "Charlotte McKinney",
+      "altName": "",
+      "country": "USA",
+      "tags": "model actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-demirose",
+      "name": "Demi Rose",
+      "altName": "",
+      "country": "UK",
+      "tags": "glamour model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-rebecca",
+      "name": "Rebecca Romijn",
+      "altName": "",
+      "country": "USA",
+      "tags": "model actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-rose",
+      "name": "Rose Bertram",
+      "altName": "",
+      "country": "BELGIUM",
+      "tags": "bikini model swimsuit",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-doutzen",
+      "name": "Doutzen Kroes",
+      "altName": "",
+      "country": "NETHERLANDS",
+      "tags": "supermodel vs angel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-emilys",
+      "name": "Emily DiDonato",
+      "altName": "",
+      "country": "USA",
+      "tags": "swimsuit model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-georgia",
+      "name": "Georgina Rodriguez",
+      "altName": "",
+      "country": "SPAIN",
+      "tags": "model influencer",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-kelly",
+      "name": "Kelly Rohrbach",
+      "altName": "",
+      "country": "USA",
+      "tags": "bikini model actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-hailey",
+      "name": "Hailey Bieber",
+      "altName": "Hailey Baldwin",
+      "country": "USA",
+      "tags": "model rhode",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-naomi",
+      "name": "Naomi Campbell",
+      "altName": "",
+      "country": "UK",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-taylor",
+      "name": "Taylor Hill",
+      "altName": "",
+      "country": "USA",
+      "tags": "vs angel model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-georgina2",
+      "name": "Georgina Charmaine",
+      "altName": "",
+      "country": "MEXICO",
+      "tags": "model si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-olivia",
+      "name": "Olivia Dunne",
+      "altName": "",
+      "country": "USA",
+      "tags": "gymnast si swim model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-lauren",
+      "name": "Lauren Chan",
+      "altName": "",
+      "country": "CANADA",
+      "tags": "plus-size model si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-salma",
+      "name": "Salma Hayek",
+      "altName": "",
+      "country": "MEXICO",
+      "tags": "actress si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-alix",
+      "name": "Alix Earle",
+      "altName": "",
+      "country": "USA",
+      "tags": "influencer si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-haley-kalil",
+      "name": "Haley Kalil",
+      "altName": "Haley Baylee",
+      "country": "USA",
+      "tags": "model si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-jena-frumes",
+      "name": "Jena Frumes",
+      "altName": "",
+      "country": "USA",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-sofia",
+      "name": "Sofia Jamora",
+      "altName": "",
+      "country": "USA",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-kara",
+      "name": "Kara Del Toro",
+      "altName": "",
+      "country": "USA",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-demibae",
+      "name": "Cora Ciccone",
+      "altName": "",
+      "country": "ITALY",
+      "tags": "bikini model si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-yasmine",
+      "name": "Yasmine Wijnaldum",
+      "altName": "",
+      "country": "NETHERLANDS",
+      "tags": "swimsuit model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-anok",
+      "name": "Anok Yai",
+      "altName": "",
+      "country": "USA",
+      "tags": "supermodel",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-lamecia",
+      "name": "Iris Law",
+      "altName": "",
+      "country": "UK",
+      "tags": "model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-linds",
+      "name": "Lindsey Vonn",
+      "altName": "",
+      "country": "USA",
+      "tags": "skier si swim model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-marta",
+      "name": "Marta Dyks",
+      "altName": "",
+      "country": "POLAND",
+      "tags": "bikini fitness model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-amanda",
+      "name": "Amanda Cerny",
+      "altName": "",
+      "country": "USA",
+      "tags": "model influencer actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-millane",
+      "name": "Sommer Ray",
+      "altName": "",
+      "country": "USA",
+      "tags": "fitness model influencer",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-cecil",
+      "name": "Celine Farach",
+      "altName": "",
+      "country": "USA",
+      "tags": "model singer",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-izzy",
+      "name": "Erin Gilfoy",
+      "altName": "",
+      "country": "USA",
+      "tags": "model si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-hanabe",
+      "name": "Elena Knoeferl",
+      "altName": "",
+      "country": "GERMANY",
+      "tags": "model si swim",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-kimmi",
+      "name": "Kimmi Scott",
+      "altName": "",
+      "country": "BRITISH_TERRITORY",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-tiaru",
+      "name": "Tiarah Hawkins",
+      "altName": "",
+      "country": "AUSTRALIA",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-nat",
+      "name": "Natalia Narganes",
+      "altName": "",
+      "country": "SPAIN",
+      "tags": "model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-sum",
+      "name": "Marisa LaFrance",
+      "altName": "",
+      "country": "CANADA",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-linne",
+      "name": "Linn Aamdal",
+      "altName": "",
+      "country": "NORWAY",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-kenya",
+      "name": "Zhuri Madison",
+      "altName": "",
+      "country": "USA",
+      "tags": "si swim model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-ry",
+      "name": "Ava Skye",
+      "altName": "",
+      "country": "AUSTRALIA",
+      "tags": "bikini model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-lena",
+      "name": "Lena Mantler",
+      "altName": "",
+      "country": "GERMANY",
+      "tags": "influencer model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    },
+    {
+      "id": "w-asund",
+      "name": "Anitta",
+      "altName": "",
+      "country": "BRAZIL",
+      "tags": "singer si swim model",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      }
+    }
+  ]
+}

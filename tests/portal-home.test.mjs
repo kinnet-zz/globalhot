@@ -31,7 +31,7 @@ test('homepage retains discovery controls and structured search metadata', () =>
   assert.match(html, /<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*\bhref\s*=\s*["']https:\/\/globalhot\.net\/["']/i);
 });
 
-test('homepage has exactly two ad slots, no comments UI, and only local media assets', () => {
+test('homepage has exactly two ad slots, no comments UI, and only local CC-licensed profile photos', () => {
   assert.equal((html.match(/\bdata-ad-slot\b/gi) || []).length, 2);
   assert.doesNotMatch(html, /(?:id|class)\s*=\s*(["'])[^"']*comment[^"']*\1/i);
   assert.doesNotMatch(html, /<textarea\b/i);
@@ -39,10 +39,31 @@ test('homepage has exactly two ad slots, no comments UI, and only local media as
     assert.ok(!/^https?:\/\//i.test(source), `remote source is not allowed: ${source}`);
     assert.ok(!/^data:image\//i.test(source), 'data:image is not allowed');
   }
-  assert.doesNotMatch(html, /<img\b/i);
   assert.doesNotMatch(html, /<link\b[^>]*(?:fonts\.googleapis\.com|fonts\.gstatic\.com)/i);
   assert.doesNotMatch(html, /<link\b[^>]*\brel\s*=\s*["'][^"']*stylesheet[^"']*["'][^>]*\bhref\s*=\s*["']https?:\/\//i);
   assert.doesNotMatch(html, /data:image\//i);
+
+  const expectedProfileSrcs = [
+    '/assets/profiles/enako.jpg',
+    '/assets/profiles/umi-shinonome.jpg',
+    '/assets/profiles/nashiko-momotsuki.jpg',
+    '/assets/profiles/ai-shinozaki.jpg',
+    '/assets/profiles/kiko-mizuhara.jpg',
+  ];
+  const imgTags = Array.from(html.matchAll(/<img\b[^>]*>/gi), (match) => match[0]);
+  assert.equal(imgTags.length, 5);
+  assert.deepEqual(
+    imgTags.map((tag) => attributes(tag, 'src')[0]).sort(),
+    [...expectedProfileSrcs].sort(),
+  );
+  for (const tag of imgTags) {
+    const src = attributes(tag, 'src')[0];
+    assert.match(src, /^\/assets\/profiles\/[a-z-]+\.jpg$/);
+    assert.match(tag, /\balt\s*=\s*["'][^"']+["']/);
+    assert.match(tag, /\bloading\s*=\s*["']lazy["']/);
+  }
+  assert.equal((html.match(/class\s*=\s*["']photo-credit["']/g) || []).length, 5);
+  assert.equal((html.match(/data-monogram\s*=\s*["']EI["']/g) || []).length, 1);
 });
 
 test('the six profile IDs are unique and every card has its matching recommendation button', () => {
@@ -161,4 +182,45 @@ test('mobile layout allows navigation, cards, and linked update rows to shrink w
 
 test('filtered cards using hidden are removed from the grid layout', () => {
   assert.match(css, /\[hidden\]\{display:none!important\}/);
+});
+
+test('homepage renders the Patreon support button with safe new-tab attributes', () => {
+  assert.match(html, /class=["'][^"']*\bsupport-cta\b[^"']*["']/i);
+  const supportMatch = html.match(/<a\s+[^>]*class=["'][^"']*\bsupport-cta\b[^"']*["'][^>]*>/i);
+  assert.ok(supportMatch, 'support-cta anchor must exist');
+  assert.match(supportMatch[0], /href=["']https:\/\/patreon\.com\/[^"']+["']/i);
+  assert.match(supportMatch[0], /target="_blank"/);
+  assert.match(supportMatch[0], /rel="noopener noreferrer"/);
+  assert.match(supportMatch[0], /aria-label=/);
+});
+
+test('homepage renders an Amazon Global affiliate placeholder with tracking hook and disclosure label', () => {
+  assert.match(html, /class=["'][^"']*\bcard-affiliate\b[^"']*["']/i);
+  const affiliateMatch = html.match(/<a\s+[^>]*data-affiliate=["']amazon-global["'][^>]*>/i);
+  assert.ok(affiliateMatch, 'amazon-global affiliate anchor must exist');
+  assert.match(affiliateMatch[0], /href=["']https:\/\/www\.amazon\.com\/[^"']*tag=globalhot-22[^"']*["']/i);
+  assert.match(affiliateMatch[0], /target="_blank"/);
+  assert.match(affiliateMatch[0], /rel="noopener noreferrer"/);
+  // Disclosure label is visible to users (not just screen readers).
+  assert.match(html, /AMAZON ASSOCIATE/i);
+  assert.match(html, /PARTNER LINK/i);
+});
+
+test('portal stylesheet defines the ad-spot, card-affiliate, and support-cta surfaces', () => {
+  for (const className of ['ad-spot', 'card-affiliate', 'support-cta', 'affiliate-link', 'affiliate-label']) {
+    assert.match(css, new RegExp(`\\.${className}\\b`), `css must define .${className}`);
+  }
+  assert.match(css, /\.support-cta:hover\{/);
+  assert.match(css, /\.card-affiliate a\.affiliate-link:hover\{/);
+});
+
+test('portal script wires affiliate click tracking defensively without blocking navigation', () => {
+  assert.match(script, /data-affiliate/);
+  assert.match(script, /setupAffiliateTracking/);
+  assert.match(script, /trackAffiliateClick/);
+  assert.match(script, /addEventListener\('click'/);
+  // Tracking must never throw outwards.
+  assert.match(script, /Tracking must never break the user journey/);
+  assert.doesNotMatch(script, /\beval\s*\(/);
+  assert.doesNotMatch(script, /innerHTML/);
 });

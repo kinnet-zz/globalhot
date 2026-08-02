@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Hot Reads Writer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f8f8f6;--bg2:#eeecea;--surface:#fff;--border:#dddcd8;--text:#1a1a18;--text2:#5c5a55;--text3:#999893;--accent:#c84b2e;--radius:8px;--font:-apple-system,'Noto Sans KR',sans-serif;--mono:'JetBrains Mono','Consolas',monospace}
+body{font-family:var(--font);background:var(--bg);color:var(--text)}
+.top{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-size:16px;font-weight:700;margin-right:auto}
+.main{display:flex;height:calc(100vh - 52px)}
+.left{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.right{flex:1;border-left:1px solid var(--border);overflow-y:auto;padding:24px;background:#fff}
+.scroll{flex:1;overflow-y:auto;padding:16px}
+label{font-size:12px;font-weight:600;color:var(--text2);display:block;margin-bottom:3px}
+input,select,textarea{width:100%;font-family:var(--font);font-size:14px;padding:7px 10px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{font-family:var(--mono);font-size:13px;line-height:1.7;resize:vertical;min-height:250px}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;font-size:13px;font-weight:600;border:1px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;color:var(--text)}
+.btn:hover{background:var(--bg2)}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-accent:hover{opacity:.9}
+.btn-big{width:100%;justify-content:center;padding:10px;font-size:15px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.section{margin-bottom:14px}
+.tag-wrap{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.tag-wrap input{flex:1;min-width:80px}
+.tag{display:inline-flex;align-items:center;gap:3px;background:var(--bg2);padding:2px 8px;border-radius:3px;font-size:12px}
+.tag button{background:none;border:none;cursor:pointer;color:var(--text3);font-size:14px;line-height:1;padding:0}
+.tag button:hover{color:var(--accent)}
+.status{font-size:13px;padding:8px 12px;border:1px solid var(--border);border-radius:4px;background:var(--bg2);margin-bottom:14px;min-height:36px;font-weight:500}
+.status.error{color:var(--accent);border-color:var(--accent);background:#fff0ed}
+.status.ok{color:#2a8a5a;border-color:#2a8a5a;background:#edf7f1}
+.help{font-size:11px;color:var(--text3)}
+.api-box{background:#fff3e0;border:1px solid #ffe0b2;border-radius:6px;padding:10px 12px;margin-bottom:14px}
+@media(max-width:800px){.main{flex-direction:column}.right{border-left:none;border-top:1px solid var(--border);max-height:50vh}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Global Hot Reads Writer</h1>
+  <button class="btn" onclick="saveDraft()">초안 저장</button>
+  <button class="btn" onclick="loadDraft()">불러오기</button>
+  <button class="btn" onclick="exportKeys()">키 내보내기</button>
+</div>
+
+<div class="main">
+  <div class="left">
+    <div class="scroll">
+
+      <div class="api-box" id="apiBox">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="font-size:13px;font-weight:600">API 키 설정</span>
+          <span id="keyStatusOR" style="font-size:12px;color:var(--text3)">O</span>
+          <span id="keyStatusOC" style="font-size:12px;color:var(--text3)">O</span>
+          <span style="font-size:11px;color:var(--text3);margin-left:auto">자동 저장</span>
+        </div>
+        <input type="password" id="keyOpenrouter" placeholder="OpenRouter 키 (sk-or-v1-...)" style="width:100%;margin-bottom:4px">
+        <input type="password" id="keyOpencode" placeholder="OpenCode Zen 키 (oc_...)" style="width:100%">
+      </div>
+
+      <div style="margin-bottom:12px">
+        <button class="btn" onclick="suggestTopics()" style="width:100%;margin-bottom:6px">주제 추천받기</button>
+        <div id="topicList" style="display:none">
+          <div class="help" style="margin-bottom:4px">추천 주제 중 하나를 클릭:</div>
+          <div id="topicItems" style="display:flex;flex-direction:column;gap:3px"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <select id="model" style="flex:1">
+          <optgroup label="OpenRouter">
+            <option value="openai/gpt-4o-mini">GPT-4o-mini</option>
+            <option value="google/gemini-2.0-flash-001">Gemini 2.0 Flash</option>
+            <option value="meta-llama/llama-3.3-70b-instruct">Llama 3.3 70B</option>
+            <option value="deepseek/deepseek-chat">DeepSeek V3</option>
+          </optgroup>
+          <optgroup label="OpenCode Zen">
+            <option value="deepseek-v4-flash-free">DeepSeek V4 Flash Free</option>
+            <option value="nemotron-3-ultra-free">Nemotron 3 Ultra Free</option>
+          </optgroup>
+        </select>
+        <input type="text" id="topic" placeholder="주제 입력 또는 추천에서 선택" style="flex:2">
+      </div>
+
+      <button class="btn btn-accent btn-big" onclick="writeArticle()" style="margin-bottom:12px">글작성</button>
+      <div class="status" id="status">준비</div>
+
+      <div class="section">
+        <label>카테고리</label>
+        <select id="cat">
+          <option>기술</option><option>비즈니스</option><option>문화</option><option>과학</option>
+        </select>
+      </div>
+      <div class="section">
+        <label>서브토픽</label>
+        <input id="subtopic" placeholder="AI, 반도체, 전기차 등">
+      </div>
+      <div class="section">
+        <label>제목</label>
+        <input id="title" placeholder="25-45자">
+      </div>
+      <div class="section">
+        <label>부제목 <span class="help">(50-90자)</span></label>
+        <input id="subtitle" placeholder="한 줄 요약">
+      </div>
+      <div class="section">
+        <label>태그</label>
+        <div class="tag-wrap" id="tagbox">
+          <input id="taginp" placeholder="태그 입력 후 Enter" onkeydown="if(event.key==='Enter')addTag()">
+        </div>
+      </div>
+      <div class="section">
+        <label>본문 (HTML)</label>
+        <textarea id="body" placeholder="AI가 생성한 글이 여기에 표시됩니다"></textarea>
+      </div>
+
+      <button class="btn btn-accent btn-big" onclick="publish()">발행하기</button>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn" style="flex:1" onclick="download()">HTML 다운로드</button>
+        <button class="btn" style="flex:1" onclick="pushGithub()">GitHub 푸시</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="right" id="preview">
+    <div style="color:var(--text3);text-align:center;padding:60px 0;line-height:2">
+      글작성 버튼을 누르면<br>AI가 글을 작성하고<br>여기에 미리보기가 표시됩니다
+    </div>
+  </div>
+</div>
+
+<script src="keys.js"></script>
+<script>
+var tags = [];
+
+function addTag() {
+  var inp = document.getElementById('taginp');
+  var v = inp.value.trim();
+  if (v && tags.indexOf(v) < 0) { tags.push(v); renderTags(); }
+  inp.value = '';
+  inp.focus();
+}
+
+function rmTag(t) {
+  var arr = [];
+  for (var i = 0; i < tags.length; i++) { if (tags[i] !== t) arr.push(tags[i]); }
+  tags = arr;
+  renderTags();
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function renderTags() {
+  var box = document.getElementById('tagbox');
+  var inp = document.getElementById('taginp');
+  var html = '';
+  for (var i = 0; i < tags.length; i++) {
+    html += '<span class="tag">' + esc(tags[i]) + '<button onclick="rmTag(\'' + esc(tags[i]) + '\')">&times;</button></span>';
+  }
+  box.innerHTML = html;
+  box.appendChild(inp);
+}
+
+function now() {
+  var d = new Date();
+  return d.getFullYear() + '.' + (d.getMonth()+1 < 10 ? '0'+(d.getMonth()+1) : d.getMonth()+1) + '.' + (d.getDate() < 10 ? '0'+d.getDate() : d.getDate());
+}
+
+function isoday() {
+  var d = new Date();
+  return d.getFullYear() + '-' + (d.getMonth()+1 < 10 ? '0'+(d.getMonth()+1) : d.getMonth()+1) + '-' + (d.getDate() < 10 ? '0'+d.getDate() : d.getDate());
+}
+
+function slug(s) {
+  return s.toLowerCase().replace(/[^a-z0-9\uac00-\ud7af\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').substring(0,60) || 'article';
+}
+
+function getProvider() {
+  var sel = document.getElementById('model');
+  var opt = sel.options[sel.selectedIndex];
+  var group = opt.parentNode;
+  return group && group.tagName === 'OPTGROUP' ? group.label : 'OpenRouter';
+}
+
+function getApiBase() {
+  return getProvider() === 'OpenRouter' ? 'https://openrouter.ai/api/v1' : 'https://opencode.ai/zen/v1';
+}
+
+function getKey() {
+  var provider = getProvider();
+  var inputId = provider === 'OpenRouter' ? 'keyOpenrouter' : 'keyOpencode';
+  var lsKey = provider === 'OpenRouter' ? 'writer_key_or' : 'writer_key_oc';
+  var input = document.getElementById(inputId);
+  var val = input ? input.value.trim() : '';
+  if (val) { try { localStorage.setItem(lsKey, val); } catch(e) {} }
+  return val || (function(){ try { return localStorage.getItem(lsKey) || ''; } catch(e) { return ''; } })();
+}
+
+function setStatus(msg, type) {
+  var s = document.getElementById('status');
+  if (!s) return;
+  s.textContent = msg;
+  s.className = 'status';
+  if (type === 'error') s.className = 'status error';
+  else if (type === 'ok') s.className = 'status ok';
+}
+
+function updateKeyStatus() {
+  var orV = (function(){ try { return localStorage.getItem('writer_key_or') || ''; } catch(e) { return ''; } })();
+  var ocV = (function(){ try { return localStorage.getItem('writer_key_oc') || ''; } catch(e) { return ''; } })();
+  var orInp = document.getElementById('keyOpenrouter');
+  var ocInp = document.getElementById('keyOpencode');
+  if (orInp && orInp.value.trim()) orV = orInp.value.trim();
+  if (ocInp && ocInp.value.trim()) ocV = ocInp.value.trim();
+  var orStat = document.getElementById('keyStatusOR');
+  var ocStat = document.getElementById('keyStatusOC');
+  if (orStat) { orStat.textContent = orV ? 'V' : 'O'; orStat.style.color = orV ? '#2a8a5a' : 'var(--text3)'; }
+  if (ocStat) { ocStat.textContent = ocV ? 'V' : 'O'; ocStat.style.color = ocV ? '#2a8a5a' : 'var(--text3)'; }
+}
+
+function showPreview() {
+  var title = document.getElementById('title').value.trim();
+  var subtitle = document.getElementById('subtitle').value.trim();
+  var cat = document.getElementById('cat').value;
+  var sub = document.getElementById('subtopic').value.trim();
+  if (sub) cat = cat + ' - ' + sub;
+  var body = document.getElementById('body').value.trim();
+  var th = '';
+  for (var i = 0; i < tags.length; i++) {
+    th += '<span style="background:#eeecea;padding:2px 8px;border-radius:3px;font-size:12px;margin-right:4px">' + esc(tags[i]) + '</span>';
+  }
+  var preview = document.getElementById('preview');
+  if (!title && !body) {
+    preview.innerHTML = '<div style="color:var(--text3);text-align:center;padding:60px 0;line-height:2">글작성 버튼을 누르면<br>미리보기가 표시됩니다</div>';
+    return;
+  }
+  var h = '';
+  if (cat) h += '<p style="color:#c84b2e;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:10px">' + esc(cat) + '</p>';
+  h += '<h1 style="font-size:34px;font-weight:700;line-height:1.35;margin-bottom:14px;word-break:keep-all">' + esc(title) + '</h1>';
+  h += '<p style="color:#999893;font-size:12px;margin-bottom:8px">' + now() + ' · 거리의악사</p>';
+  if (subtitle) h += '<p style="color:#5c5a55;font-size:16px;line-height:1.7;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #dddcd8">' + esc(subtitle) + '</p>';
+  if (body) h += '<div style="font-size:15.5px;line-height:1.95">' + body + '</div>';
+  if (th) h += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:24px">' + th + '</div>';
+  preview.innerHTML = h;
+}
+
+function parseJson(raw) {
+  var s = raw.trim();
+  if (s.substring(0,3) === '```') {
+    s = s.replace(/^```(json)?\s*/i, '').replace(/\s*```$/, '');
+  }
+  try { return JSON.parse(s); } catch(e) { return null; }
+}
+
+async function loadKeysFromServer() {
+  try {
+    var origin = window.location.origin;
+    var r = await fetch(origin + '/api/key');
+    if (r.ok) {
+      var j = await r.json();
+      return { openrouter: j.openrouter || '', opencode: j.opencode || '' };
+    }
+  } catch(e) {}
+  return null;
+}
+
+async function callAI(messages) {
+  var key = getKey();
+  if (!key) { setStatus('API 키를 먼저 입력하세요', 'error'); return 'NO_KEY'; }
+  var model = document.getElementById('model').value;
+  var base = getApiBase();
+  var provider = getProvider();
+  setStatus(model + ' 호출 중...');
+  try {
+    var headers = { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key };
+    if (provider === 'OpenRouter') {
+      headers['HTTP-Referer'] = 'https://globalhot.net';
+    }
+    // OpenCode Zen은 로컬 프록시로 우회 (CORS 이슈)
+    var url = base + '/chat/completions';
+    if (provider === 'OpenCode Zen' && window.location.port === '8899') {
+      url = '/api/proxy';
+      headers['X-Api-Key'] = key;
+      headers['X-Api-Base'] = base;
+      delete headers['Authorization'];
+    }
+    setStatus(model + ' 응답 대기 중... (최대 60초)');
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function() { controller.abort(); }, 60000);
+    var r = await fetch(url, {
+      method: 'POST', headers: headers,
+      body: JSON.stringify({ model: model, messages: messages, temperature: 0.7, max_tokens: 4000 }),
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    if (!r.ok) {
+      var errText = await r.text();
+      setStatus('HTTP ' + r.status + ': ' + errText.substring(0,300), 'error');
+      return null;
+    }
+    var rawText = await r.text();
+    var j = null;
+    try { j = JSON.parse(rawText); } catch(e) {
+      setStatus('JSON 파싱 오류. 응답 앞부분: ' + rawText.substring(0,200), 'error');
+      return null;
+    }
+    if (!j.choices || !j.choices[0] || !j.choices[0].message) {
+      setStatus('API 응답 형식 오류: choices 필드 없음', 'error');
+      return null;
+    }
+    return j.choices[0].message.content;
+  } catch(e) {
+    setStatus('API 호출 실패: ' + e.message, 'error');
+    return null;
+  }
+}
+
+async function suggestTopics() {
+  try {
+    var key = getKey();
+    if (!key) { setStatus('API 키를 입력해주세요 (위 설정창)', 'error'); return; }
+    var raw = await callAI([
+      { role: 'system', content: 'You are a Korean news curator. Always write in Korean. Return ONLY JSON array. No other text.' },
+      { role: 'user', content: 'Suggest 10 trending article topics for a Korean tech/business curation site in 2026. Return JSON array in Korean: ["주제 1","주제 2",...]. Each topic 10-20 chars, specific (company + trend). Topics should be in Korean.' }
+    ]);
+    if (!raw) { return; }
+    var d = parseJson(raw);
+    if (d && Array.isArray(d) && d.length > 0) {
+      var box = document.getElementById('topicItems');
+      var html = '';
+      for (var i = 0; i < d.length; i++) {
+        html += '<button onclick="selectTopic(\'' + esc(d[i]) + '\')" style="text-align:left;padding:6px 10px;border:1px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;font-size:13px;margin-bottom:3px">' + (i+1) + '. ' + esc(d[i]) + '</button>';
+      }
+      box.innerHTML = html;
+      document.getElementById('topicList').style.display = 'block';
+      setStatus('주제 10개 추천 완료! 클릭해서 선택하세요', 'ok');
+    } else {
+      setStatus('파싱 실패: ' + raw.substring(0,80), 'error');
+    }
+  } catch(e) {
+    setStatus('오류: ' + e.message, 'error');
+  }
+}
+
+function selectTopic(t) {
+  document.getElementById('topic').value = t;
+  document.getElementById('topicList').style.display = 'none';
+  setStatus(t + ' 선택됨 - 글작성 버튼을 누르세요', 'ok');
+}
+
+async function writeArticle() {
+  var topic = document.getElementById('topic').value.trim();
+  if (!topic) { setStatus('주제를 입력하거나 추천에서 선택하세요', 'error'); return; }
+  var cat = document.getElementById('cat').value;
+  setStatus('AI가 글을 작성 중입니다...');
+  var raw = await callAI([
+    { role: 'system', content: 'You are a professional journalist writing in Korean for Global Hot Reads. Return ONLY valid JSON in Korean.' },
+    { role: 'user', content: 'Write a Korean curation article about "' + topic + '" in category "' + cat + '". Return JSON in Korean: {"title":"25-45자 한국어 제목","subtitle":"50-90자 요약","tags":["태그1","태그2","태그3","태그4"],"body_html":"<h2>...</h2><p>...</p>"}. Body: 600-900 words in Korean HTML with h2/p/blockquote/ul. Include real 2026 trends, companies, Korea angle.' }
+  ]);
+  if (!raw) return;
+  var d = parseJson(raw);
+  if (d) {
+    document.getElementById('title').value = d.title || '';
+    document.getElementById('subtitle').value = d.subtitle || '';
+    if (d.tags) { tags = d.tags; renderTags(); }
+    document.getElementById('body').value = d.body_html || raw;
+    setStatus('글 작성 완료! 미리보기에서 확인하고 수정하세요', 'ok');
+    showPreview();
+  } else {
+    document.getElementById('body').value = raw;
+    setStatus('생성됨 (JSON 파싱 실패, 본문 확인 후 수정)');
+    showPreview();
+  }
+}
+
+function buildHTML() {
+  var title = document.getElementById('title').value.trim();
+  var subtitle = document.getElementById('subtitle').value.trim();
+  var cat = document.getElementById('cat').value;
+  var sub = document.getElementById('subtopic').value.trim();
+  if (sub) cat = cat + ' - ' + sub;
+  var body = document.getElementById('body').value.trim();
+  var th = '';
+  for (var i = 0; i < tags.length; i++) { th += '<span class="post-tag">' + esc(tags[i]) + '</span>'; }
+  var sl = slug(title);
+  var ds = now();
+
+  return '<!DOCTYPE html>\n<html lang="ko">\n<head>\n<meta charset="UTF-8" />\n<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n<script src="/analytics.js?v=20260718-2"><\/script>\n<meta name="description" content="' + esc(subtitle||title) + '" />\n<title>' + esc(title) + ' | Global Hot Reads</title>\n<link rel="canonical" href="https://globalhot.net/posts/' + sl + '.html" />\n<link rel="stylesheet" href="/style.css?v=20260718-4" />\n<style>\n.post-wrap{max-width:740px;margin:0 auto;padding:48px 20px 80px}\n.post-category{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}\n.post-wrap h1{font-family:\'Noto Serif KR\',Georgia,serif;font-size:34px;line-height:1.35;letter-spacing:-0.3px;margin-bottom:14px;word-break:keep-all}\n.post-meta{color:var(--text3);font-size:12px;margin-bottom:8px}\n.post-subtitle{color:var(--text2);font-size:16px;line-height:1.7;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}\n.post-body{font-size:15.5px;line-height:1.95}\n.post-body p{margin-bottom:18px}\n.post-body h2{font-size:22px;font-weight:700;margin:40px 0 14px}\n.post-body blockquote{border-left:3px solid var(--accent);padding:12px 18px;margin:20px 0;background:var(--card);border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--text2);font-style:italic}\n.post-body ul,.post-body ol{padding-left:20px;margin-bottom:18px}\n.post-body li{margin-bottom:8px}\n.post-footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}\n.post-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}\n.post-tag{background:var(--bg3);color:var(--text2);font-size:11px;padding:4px 10px;border-radius:4px}\n@media(max-width:600px){.post-wrap h1{font-size:26px}.post-body{font-size:15px}}\n</style>\n</head>\n<body class="post-page">\n<header class="header">\n<div class="header-inner">\n<a class="logo" href="/" aria-label="Global Hot Reads 홈">\n<span class="logo-text"><span>Global</span><strong>Hot Reads</strong></span>\n<span class="logo-badge">BETA</span>\n</a>\n<nav class="primary-nav" aria-label="주요 메뉴">\n<a href="/#latest">최신 글</a>\n<a href="/#curated">이 주의 큐레이션</a>\n<a href="/posts/">전체 글</a>\n<a href="/about.html">소개</a>\n</nav>\n</div>\n</header>\n<main class="post-wrap">\n<p class="post-category">' + esc(cat) + '</p>\n<h1>' + esc(title) + '</h1>\n<p class="post-meta">' + ds + ' · 거리의악사</p>\n<p class="post-subtitle">' + esc(subtitle) + '</p>\n<div class="post-body">' + body + '</div>\n<div class="post-footer">\n<div class="post-tags">' + th + '</div>\n<p class="post-author" style="color:var(--text3);font-size:13px">편집: 거리의악사</p>\n</div>\n<div class="post-nav" style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap">\n<a href="/posts/" style="color:var(--accent);font-size:13px;font-weight:600">← 전체 글 목록</a>\n<a href="/posts/" style="color:var(--accent);font-size:13px;font-weight:600">전체 글 목록 →</a>\n</div>\n<div style="margin-top:32px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;color:var(--text3);line-height:1.7">이 글은 정보 제공 목적이며 특정 기술이나 서비스에 대한 추천이 아닙니다. 인용된 데이터와 통계는 각 출처의 저작물입니다.</div>\n</main>\n<footer class="site-footer" style="border-top:1px solid var(--border);padding:32px 20px;background:var(--bg2)">\n<div style="max-width:740px;margin:0 auto">\n<p style="color:var(--text3);font-size:12px">&copy; 2026 Global Hot Reads · <a href="/privacy.html" style="color:var(--text3)">개인정보처리방침</a> · <a href="/terms.html" style="color:var(--text3)">이용약관</a></p>\n</div>\n</footer>\n</body>\n</html>';
+}
+
+async function publish() {
+  var title = document.getElementById('title').value.trim();
+  if (!title || !document.getElementById('body').value.trim()) {
+    setStatus('제목과 본문이 필요합니다. 먼저 글작성 버튼을 눌러주세요.', 'error');
+    return;
+  }
+  var html = buildHTML();
+  try { localStorage.setItem('gh_out', html); } catch(e) {}
+  var sl = slug(title);
+  var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = sl + '.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  setStatus('HTML 다운로드 완료! posts/ 폴더에 저장하세요', 'ok');
+}
+
+function download() {
+  var html = '';
+  try { html = localStorage.getItem('gh_out') || ''; } catch(e) {}
+  if (!html) html = buildHTML();
+  var sl = slug(document.getElementById('title').value || 'article');
+  var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = sl + '.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+async function pushGithub() {
+  var html = '';
+  try { html = localStorage.getItem('gh_out') || ''; } catch(e) {}
+  if (!html) html = buildHTML();
+  var token = prompt('GitHub Personal Access Token (repo 권한 필요):');
+  if (!token) return;
+  var title = document.getElementById('title').value.trim();
+  var sl = slug(title);
+  var path = 'posts/' + sl + '.html';
+  var repo = 'kinnet-zz/globalhot';
+  var branch = 'master';
+  var msg = 'manual-publish: ' + isoday() + ' - ' + title;
+  setStatus('GitHub 푸시 중...');
+  try {
+    var get = await fetch('https://api.github.com/repos/' + repo + '/contents/' + encodeURIComponent(path) + '?ref=' + branch, {
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    var sha = null;
+    if (get.ok) { var gj = await get.json(); sha = gj.sha; }
+    var content = btoa(unescape(encodeURIComponent(html)));
+    var put = await fetch('https://api.github.com/repos/' + repo + '/contents/' + encodeURIComponent(path), {
+      method: 'PUT',
+      headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, content: content, sha: sha, branch: branch })
+    });
+    if (put.ok) { setStatus('푸시 완료! Cloudflare Pages 자동 배포', 'ok'); }
+    else { setStatus('푸시 실패: ' + (await put.text()).substring(0,200), 'error'); }
+  } catch(e) { setStatus(e.message, 'error'); }
+}
+
+function saveDraft() {
+  var data = {
+    cat: document.getElementById('cat').value,
+    subtopic: document.getElementById('subtopic').value,
+    title: document.getElementById('title').value,
+    subtitle: document.getElementById('subtitle').value,
+    tags: tags,
+    body: document.getElementById('body').value
+  };
+  try { localStorage.setItem('gh_draft', JSON.stringify(data)); } catch(e) {}
+  setStatus('초안 저장됨', 'ok');
+}
+
+function loadDraft() {
+  var r = '';
+  try { r = localStorage.getItem('gh_draft') || ''; } catch(e) {}
+  if (!r) { setStatus('저장된 초안 없음', 'error'); return; }
+  var d = JSON.parse(r);
+  document.getElementById('cat').value = d.cat || '기술';
+  document.getElementById('subtopic').value = d.subtopic || '';
+  document.getElementById('title').value = d.title || '';
+  document.getElementById('subtitle').value = d.subtitle || '';
+  tags = d.tags || [];
+  renderTags();
+  document.getElementById('body').value = d.body || '';
+  setStatus('초안 불러옴', 'ok');
+  showPreview();
+}
+
+function exportKeys() {
+  var orV = document.getElementById('keyOpenrouter').value.trim();
+  var ocV = document.getElementById('keyOpencode').value.trim();
+  if (!orV && !ocV) { setStatus('저장할 키가 없습니다', 'error'); return; }
+  var content = 'var SAVED_KEYS = { openrouter: ' + JSON.stringify(orV) + ', opencode: ' + JSON.stringify(ocV) + ' };';
+  var blob = new Blob([content], { type: 'application/javascript;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'keys.js';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  setStatus('keys.js 다운로드됨! editor.html 옆에 두면 자동 로드', 'ok');
+}
+
+function init() {
+  // file:// 프로토콜 체크 — 전체 화면 오버레이
+  if (window.location.protocol === 'file:') {
+    document.body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#1a1a18;color:#fff;font-family:sans-serif;text-align:center;padding:40px">' +
+      '<div style="font-size:60px;margin-bottom:20px">🚫</div>' +
+      '<h1 style="font-size:24px;margin-bottom:12px">file:// 프로토콜에서는 작동하지 않습니다</h1>' +
+      '<p style="color:#aaa;line-height:1.7;margin-bottom:24px;max-width:500px">' +
+      '브라우저 보안 정책으로 인해 file:// 에서 API 호출이 차단됩니다.<br><br>' +
+      '<strong style="color:#fff">PowerShell을 열고 아래 명령어를 실행하세요:</strong></p>' +
+      '<div style="background:#333;padding:14px 24px;border-radius:8px;font-family:monospace;font-size:15px;margin-bottom:24px">' +
+      'cd C:\\Users\\KINPC\\Documents\\newKIN\\globalhot<br>.\run.ps1' +
+      '</div>' +
+      '<p style="color:#888;font-size:13px">그러면 http://localhost:8899 가 열리고 정상 작동합니다</p>' +
+      '</div>';
+    return; // init 중단
+  }
+
+  // 우선순위: keys.js 파일 > localStorage
+  try {
+    if (typeof SAVED_KEYS !== 'undefined' && SAVED_KEYS) {
+      if (SAVED_KEYS.openrouter) document.getElementById('keyOpenrouter').value = SAVED_KEYS.openrouter;
+      if (SAVED_KEYS.opencode) document.getElementById('keyOpencode').value = SAVED_KEYS.opencode;
+    } else {
+      var orKey = localStorage.getItem('writer_key_or');
+      var ocKey = localStorage.getItem('writer_key_oc');
+      if (orKey) document.getElementById('keyOpenrouter').value = orKey;
+      if (ocKey) document.getElementById('keyOpencode').value = ocKey;
+    }
+  } catch(e) {}
+
+  updateKeyStatus();
+
+  // 키 입력 시 저장
+  document.getElementById('keyOpenrouter').addEventListener('input', function() {
+    var v = this.value.trim();
+    if (v) { try { localStorage.setItem('writer_key_or', v); } catch(e) {} }
+    updateKeyStatus();
+  });
+  document.getElementById('keyOpencode').addEventListener('input', function() {
+    var v = this.value.trim();
+    if (v) { try { localStorage.setItem('writer_key_oc', v); } catch(e) {} }
+    updateKeyStatus();
+  });
+
+  // 미리보기 실시간 업데이트
+  var previewIds = ['title','subtitle','body','cat','subtopic'];
+  for (var i = 0; i < previewIds.length; i++) {
+    var el = document.getElementById(previewIds[i]);
+    if (el) { el.addEventListener('input', showPreview); el.addEventListener('change', showPreview); }
+  }
+
+  // 서버 키 로드 시도
+  loadKeysFromServer().then(function(serverKeys) {
+    if (serverKeys) {
+      if (serverKeys.openrouter) {
+        document.getElementById('keyOpenrouter').value = serverKeys.openrouter;
+        try { localStorage.setItem('writer_key_or', serverKeys.openrouter); } catch(e) {}
+      }
+      if (serverKeys.opencode) {
+        document.getElementById('keyOpencode').value = serverKeys.opencode;
+        try { localStorage.setItem('writer_key_oc', serverKeys.opencode); } catch(e) {}
+      }
+      updateKeyStatus();
+    }
+    var hasKey = getKey();
+    if (hasKey) setStatus('API 키 로드됨. 주제 추천 or 직접 입력 후 글작성', 'ok');
+  });
+
+  showPreview();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+</script>
+</body>
+</html>

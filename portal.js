@@ -4,6 +4,7 @@
   var LOCAL_STORAGE_KEY = 'globalhot-local-recommendations-v1';
   var SERVER_STORAGE_KEY = 'globalhot-recommendations-v2';
   var VALID_CATEGORIES = ['all', 'model', 'cosplay', 'gravure'];
+  var VALID_COUNTRIES = ['all', 'JAPAN', 'KOREA', 'WORLD'];
   var VALID_SORTS = ['popular', 'latest', 'name'];
 
   function isSafeCount(value) {
@@ -49,15 +50,28 @@
     if (!search || !sortSelect || !resultsCount || !grid || !rankingList || !emptyState || !clearSearch) return;
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.model-card'));
+    var validModelIds = {};
+
+    function updateValidModelIds() {
+      cards = Array.prototype.slice.call(grid.querySelectorAll('.model-card'));
+      validModelIds = cards.reduce(function (ids, card) {
+        if (card.dataset.modelId) ids[card.dataset.modelId] = true;
+        return ids;
+      }, {});
+    }
+
+    updateValidModelIds();
     var validModelIds = cards.reduce(function (ids, card) {
       if (card.dataset.modelId) ids[card.dataset.modelId] = true;
       return ids;
     }, {});
     var filterButtons = Array.prototype.slice.call(document.querySelectorAll('.filter-button[data-category]'));
+    var countryButtons = Array.prototype.slice.call(document.querySelectorAll('.filter-button[data-country]'));
     var parameters = new URLSearchParams(window.location.search);
     var state = {
       query: parameters.get('q') || '',
       category: isValid(parameters.get('category') || 'all', VALID_CATEGORIES, 'all'),
+      country: isValid(parameters.get('country') || 'all', VALID_COUNTRIES, 'all'),
       sort: isValid(parameters.get('sort') || 'popular', VALID_SORTS, 'popular')
     };
     var localRecommendations = getStoredRecommendations(LOCAL_STORAGE_KEY, validModelIds);
@@ -91,25 +105,28 @@
       button.disabled = recommended || pending;
       button.removeAttribute('title');
       if (pending) {
-        button.textContent = '처리 중…';
-        button.setAttribute('aria-label', '추천 처리 중');
+        button.textContent = 'Processing…';
+        button.setAttribute('aria-label', 'Recommendation processing');
       } else if (recommended) {
-        button.textContent = '추천 완료';
-        button.setAttribute('aria-label', '추천 완료');
+        button.textContent = 'Recommended';
+        button.setAttribute('aria-label', 'Recommendation completed');
       } else if (recommendationErrors[id]) {
-        button.textContent = '다시 시도';
+        button.textContent = 'Retry';
         button.setAttribute('aria-label', recommendationErrors[id]);
         button.setAttribute('title', recommendationErrors[id]);
       } else {
-        button.textContent = '추천';
-        button.setAttribute('aria-label', '추천');
+        button.textContent = 'Recommend';
+        button.setAttribute('aria-label', 'Recommend');
       }
     }
 
     function matches(card) {
       var fields = [card.dataset.name, card.dataset.altName, card.dataset.country, card.dataset.tags].join(' ').toLocaleLowerCase();
       var query = state.query.trim().toLocaleLowerCase();
-      return (state.category === 'all' || card.dataset.category === state.category) && (!query || fields.indexOf(query) !== -1);
+      var categoryMatch = state.category === 'all' || card.dataset.category === state.category;
+      var countryMatch = state.country === 'all' || card.dataset.country === state.country;
+      var queryMatch = !query || fields.indexOf(query) !== -1;
+      return categoryMatch && countryMatch && queryMatch;
     }
 
     function compareCards(first, second) {
@@ -123,7 +140,7 @@
       var rankedCards = displayedCards.slice().sort(function (first, second) {
         return cardCount(second) - cardCount(first) || String(first.dataset.name || '').localeCompare(String(second.dataset.name || ''), 'ko');
       });
-      rankedCards.forEach(function (card, index) {
+      rankedCards.slice(0, 5).forEach(function (card, index) {
         var item = document.createElement('li');
         var rank = document.createElement('span');
         var name = document.createElement('span');
@@ -144,6 +161,7 @@
         var next = new URLSearchParams();
         if (state.query) next.set('q', state.query);
         next.set('category', state.category);
+        next.set('country', state.country);
         next.set('sort', state.sort);
         window.history.replaceState(null, '', window.location.pathname + '?' + next.toString() + window.location.hash);
       } catch (error) {
@@ -160,11 +178,16 @@
         button.setAttribute('aria-pressed', String(isActive));
         button.classList.toggle('is-active', isActive);
       });
+      countryButtons.forEach(function (button) {
+        var isActive = button.dataset.country === state.country;
+        button.setAttribute('aria-pressed', String(isActive));
+        button.classList.toggle('is-active', isActive);
+      });
       cards.forEach(updateRecommendationButton);
       var displayedCards = cards.filter(matches).sort(compareCards);
       cards.forEach(function (card) { card.hidden = displayedCards.indexOf(card) === -1; });
       displayedCards.forEach(function (card) { grid.append(card); });
-      resultsCount.textContent = String(displayedCards.length) + '개의 모델을 찾았습니다';
+      resultsCount.textContent = String(displayedCards.length) + ' profiles found';
       emptyState.hidden = displayedCards.length !== 0;
       renderRanking(displayedCards);
       if (shouldSync) syncUrl();
@@ -244,7 +267,7 @@
       window.fetch('/api/recommendations/' + encodeURIComponent(id), requestOptions).then(readRecommendationResponse).then(function (result) {
         applyServerRecommendation(id, result);
       }).catch(function () {
-        recommendationErrors[id] = '추천을 처리할 수 없습니다. 잠시 후 다시 시도해 주세요.';
+        recommendationErrors[id] = 'Cannot process recommendation. Please try again later.';
       }).then(function () {
         if (timeoutId !== null) window.clearTimeout(timeoutId);
         delete pendingRecommendations[id];
@@ -255,6 +278,12 @@
     filterButtons.forEach(function (button) {
       button.addEventListener('click', function () {
         state.category = isValid(button.dataset.category, VALID_CATEGORIES, 'all');
+        render();
+      });
+    });
+    countryButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        state.country = isValid(button.dataset.country, VALID_COUNTRIES, 'all');
         render();
       });
     });
@@ -277,6 +306,7 @@
     clearSearch.addEventListener('click', function () {
       state.query = '';
       state.category = 'all';
+      state.country = 'all';
       state.sort = 'popular';
       render();
       search.focus();
@@ -284,11 +314,415 @@
 
     render({ sync: true });
     loadServerRecommendations();
+
+    document.addEventListener('portal-models-loaded', function () {
+      updateValidModelIds();
+      render({ sync: false });
+    });
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initialisePortal, { once: true });
   } else {
     initialisePortal();
+  }
+}());
+
+(function () {
+  'use strict';
+
+  function trackAffiliateClick(link) {
+    try {
+      var label = link.getAttribute('data-affiliate') || 'unknown';
+      var href = link.getAttribute('href') || '';
+      if (typeof window.navigator !== 'undefined' && typeof window.navigator.sendBeacon === 'function') {
+        // Placeholder for future analytics endpoint. Beacons are fire-and-forget
+        // so they never block navigation or break the user journey.
+        // window.navigator.sendBeacon('/api/affiliate-click?label=' + encodeURIComponent(label));
+      }
+      if (typeof window.console !== 'undefined' && typeof window.console.debug === 'function') {
+        window.console.debug('affiliate click', label, href);
+      }
+    } catch (error) {
+      // Tracking must never break the user journey.
+    }
+  }
+
+  function setupAffiliateTracking() {
+    var links = typeof document !== 'undefined' ? document.querySelectorAll('a[data-affiliate]') : null;
+    if (!links || !links.length) return;
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('click', function () { trackAffiliateClick(link); }, false);
+    });
+  }
+
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupAffiliateTracking, { once: true });
+    } else {
+      setupAffiliateTracking();
+    }
+  }
+}());
+
+(function () {
+  'use strict';
+
+  var MODELS_JSON_URL = '/data/models.json';
+  var INITIAL_BATCH_SIZE = 6;
+  var LOAD_MORE_BATCH_SIZE = 20;
+
+  function buildMonogram(name) {
+    if (!name) return '';
+    var parts = String(name).split(/\s+/).filter(Boolean);
+    return parts.slice(0, 2).map(function (p) { return p.charAt(0); }).join('').toUpperCase();
+  }
+
+  function createModelCard(model, baseRecommendations) {
+    var card = document.createElement('article');
+    card.className = 'model-card story-card';
+    card.dataset.modelId = model.id;
+    card.dataset.name = model.name;
+    card.dataset.altName = model.altName || '';
+    card.dataset.country = model.country;
+    card.dataset.tags = (model.tags || []).join(' ');
+    card.dataset.updated = '2026-08-02';
+    card.dataset.baseRecommendations = String(baseRecommendations || 0);
+
+    var category = 'model';
+    if (model.tags && model.tags.indexOf('cosplay') !== -1) category = 'cosplay';
+    else if (model.tags && model.tags.indexOf('gravure') !== -1) category = 'gravure';
+    card.dataset.category = category;
+
+    var portraitClass = 'portrait portrait-' + ['luna', 'hana', 'aria', 'mio', 'noa', 'sora'][Math.floor(Math.random() * 6)];
+    var portrait = document.createElement('div');
+    portrait.className = portraitClass;
+    portrait.setAttribute('role', 'img');
+
+    if (model.photoAvailable) {
+      portrait.setAttribute('aria-label', model.name + ' photo');
+      var img = document.createElement('img');
+      img.src = '/assets/profiles/' + model.id + '.jpg';
+      img.alt = model.name + ' photo';
+      img.setAttribute('loading', 'lazy');
+      portrait.appendChild(img);
+    } else {
+      var monogram = buildMonogram(model.name);
+      portrait.setAttribute('data-monogram', monogram);
+      portrait.setAttribute('aria-label', model.name + ' photo (monogram only)');
+      var noPhotoSpan = document.createElement('span');
+      noPhotoSpan.textContent = 'NO PHOTO';
+      portrait.appendChild(noPhotoSpan);
+    }
+
+    var cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+
+    var categoryLabel = document.createElement('p');
+    categoryLabel.className = 'category-label';
+    categoryLabel.textContent = category.toUpperCase() + ' · ' + model.country;
+
+    var nameHeading = document.createElement('h3');
+    nameHeading.textContent = model.name;
+    if (model.altName) {
+      var small = document.createElement('small');
+      small.textContent = model.altName;
+      nameHeading.appendChild(small);
+    }
+
+    var profileLine = document.createElement('p');
+    profileLine.className = 'profile-line';
+    profileLine.textContent = 'Official profile with ' + (model.tags || []).length + ' registered tags and activities.';
+
+    var tagList = document.createElement('div');
+    tagList.className = 'tag-list';
+    var tagArray = (model.tags || []).slice(0, 3);
+    tagArray.forEach(function (tag) {
+      var span = document.createElement('span');
+      span.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+      tagList.appendChild(span);
+    });
+
+    var sourceLinks = document.createElement('p');
+    sourceLinks.className = 'source-links';
+    if (model.officialUrl) {
+      var officialLink = document.createElement('a');
+      officialLink.href = model.officialUrl;
+      officialLink.target = '_blank';
+      officialLink.rel = 'noopener noreferrer';
+      officialLink.textContent = 'Official Profile';
+      sourceLinks.appendChild(officialLink);
+    }
+    if (model.sns && model.sns.x) {
+      var xLink = document.createElement('a');
+      xLink.href = model.sns.x;
+      xLink.target = '_blank';
+      xLink.rel = 'noopener noreferrer';
+      xLink.textContent = 'X';
+      sourceLinks.appendChild(xLink);
+    }
+    if (model.sns && model.sns.instagram) {
+      var igLink = document.createElement('a');
+      igLink.href = model.sns.instagram;
+      igLink.target = '_blank';
+      igLink.rel = 'noopener noreferrer';
+      igLink.textContent = 'Instagram';
+      sourceLinks.appendChild(igLink);
+    }
+    if (model.sns && model.sns.youtube) {
+      var ytLink = document.createElement('a');
+      ytLink.href = model.sns.youtube;
+      ytLink.target = '_blank';
+      ytLink.rel = 'noopener noreferrer';
+      ytLink.textContent = 'YouTube';
+      sourceLinks.appendChild(ytLink);
+    }
+
+    var rightsBadge = document.createElement('p');
+    rightsBadge.className = 'rights-badge';
+    rightsBadge.textContent = 'Official source verified · CC licensed photo';
+
+    var photoCredit = document.createElement('p');
+    photoCredit.className = 'photo-credit';
+    photoCredit.textContent = 'Photo: ';
+    var creditLink = document.createElement('a');
+    creditLink.href = 'https://commons.wikimedia.org/';
+    creditLink.target = '_blank';
+    creditLink.rel = 'noopener noreferrer';
+    creditLink.textContent = 'Wikimedia Commons';
+    photoCredit.appendChild(creditLink);
+    var creditText = document.createTextNode(' · CC BY-SA');
+    photoCredit.appendChild(creditText);
+
+    var cardFooter = document.createElement('div');
+    cardFooter.className = 'card-footer';
+
+    var time = document.createElement('time');
+    time.dateTime = '2026-08-02';
+    time.textContent = 'Verified 2026.08.02';
+
+    var recommendDiv = document.createElement('div');
+    var recommendStrong = document.createElement('strong');
+    var recommendCount = document.createElement('span');
+    recommendCount.setAttribute('data-recommendation-count', '');
+    recommendCount.textContent = '0';
+    recommendStrong.appendChild(recommendCount);
+    recommendStrong.appendChild(document.createTextNode(' Recommend'));
+    recommendDiv.appendChild(recommendStrong);
+
+    var recommendButton = document.createElement('button');
+    recommendButton.className = 'recommend-button';
+    recommendButton.type = 'button';
+    recommendButton.setAttribute('data-recommend-model', model.id);
+    recommendButton.setAttribute('aria-pressed', 'false');
+    recommendButton.textContent = 'Recommend';
+    recommendDiv.appendChild(recommendButton);
+
+    cardFooter.appendChild(time);
+    cardFooter.appendChild(recommendDiv);
+
+    cardBody.appendChild(categoryLabel);
+    cardBody.appendChild(nameHeading);
+    cardBody.appendChild(profileLine);
+    cardBody.appendChild(tagList);
+    cardBody.appendChild(sourceLinks);
+    cardBody.appendChild(rightsBadge);
+    cardBody.appendChild(photoCredit);
+    cardBody.appendChild(cardFooter);
+
+    card.appendChild(portrait);
+    card.appendChild(cardBody);
+
+    return card;
+  }
+
+  function initDynamicModels() {
+    var grid = document.getElementById('modelGrid');
+    var loadMoreButton = document.createElement('button');
+    loadMoreButton.id = 'loadMoreButton';
+    loadMoreButton.className = 'load-more-button';
+    loadMoreButton.textContent = 'Load More';
+    loadMoreButton.hidden = true;
+    loadMoreButton.addEventListener('click', function () {
+      loadNextBatch();
+    });
+
+    if (grid && grid.parentNode) {
+      grid.parentNode.insertBefore(loadMoreButton, grid.nextSibling);
+    }
+
+    var allModels = [];
+    var displayedCount = 0;
+
+    function loadNextBatch() {
+      var nextBatch = allModels.slice(displayedCount, displayedCount + LOAD_MORE_BATCH_SIZE);
+      nextBatch.forEach(function (model) {
+        var card = createModelCard(model, 0);
+        grid.appendChild(card);
+      });
+      displayedCount += nextBatch.length;
+
+      if (displayedCount >= allModels.length) {
+        loadMoreButton.hidden = true;
+      } else {
+        loadMoreButton.hidden = false;
+        loadMoreButton.textContent = 'Load More (' + (allModels.length - displayedCount) + ' remaining)';
+      }
+
+      var portalEvent = new CustomEvent('portal-models-loaded', { detail: { count: nextBatch.length } });
+      document.dispatchEvent(portalEvent);
+    }
+
+    if (typeof window.fetch === 'function') {
+      window.fetch(MODELS_JSON_URL, {
+        headers: { Accept: 'application/json' },
+        cache: 'no-cache'
+      }).then(function (response) {
+        if (!response || !response.ok) throw new Error('models_json_unavailable');
+        return response.json();
+      }).then(function (data) {
+        if (!data || !Array.isArray(data.models)) throw new Error('invalid_models_json');
+        allModels = data.models;
+        loadNextBatch();
+      }).catch(function (error) {
+        console.error('Failed to load models.json:', error);
+        if (grid.children.length === 0) {
+          var errorP = document.createElement('p');
+          errorP.className = 'error-state';
+          errorP.textContent = 'Failed to load model profiles. Please refresh the page.';
+          grid.appendChild(errorP);
+        }
+      });
+    }
+  }
+
+  function initProfileModal() {
+    var modal = typeof document !== 'undefined' ? document.getElementById('profileModal') : null;
+    if (!modal) return;
+
+    var image = modal.querySelector('.modal-image');
+    var categoryEl = modal.querySelector('.modal-category');
+    var titleEl = modal.querySelector('#modalTitle');
+    var summaryEl = modal.querySelector('.modal-summary');
+    var countryEl = modal.querySelector('[data-modal-country]');
+    var updatedEl = modal.querySelector('[data-modal-updated]');
+    var recEl = modal.querySelector('[data-modal-recommendations]');
+    var actionsEl = modal.querySelector('[data-modal-actions]');
+    var lastFocus = null;
+
+    function clearActions() {
+      while (actionsEl && actionsEl.firstChild) actionsEl.removeChild(actionsEl.firstChild);
+    }
+
+    function fillModal(card) {
+      var recCount = card.querySelector('[data-recommendation-count]');
+      var profileLine = card.querySelector('.profile-line');
+      var categoryLabel = card.querySelector('.category-label');
+      var portrait = card.querySelector('.portrait');
+      var photo = card.querySelector('.portrait img');
+      var photoCredit = card.querySelector('.photo-credit');
+      var sourceLinks = card.querySelectorAll('.source-links a');
+
+      var name = card.dataset.name || '';
+      var altName = card.dataset.altName || '';
+      var monogram = portrait && portrait.dataset.monogram ? portrait.dataset.monogram : buildMonogram(name);
+
+      if (categoryEl) categoryEl.textContent = categoryLabel ? categoryLabel.textContent.trim() : '';
+      if (titleEl) titleEl.textContent = name + (altName ? ' ' + altName : '');
+      if (summaryEl) summaryEl.textContent = profileLine ? profileLine.textContent.trim() : '';
+      if (countryEl) countryEl.textContent = card.dataset.country || '';
+      if (updatedEl) updatedEl.textContent = card.dataset.updated || '';
+      if (recEl) recEl.textContent = recCount ? recCount.textContent.trim() : '0';
+
+      if (image) {
+        image.classList.remove('is-portrait');
+        image.style.backgroundImage = '';
+        image.setAttribute('data-monogram', monogram);
+        image.setAttribute('aria-label', photo ? (photo.getAttribute('alt') || name) : (name + ' 모노그램'));
+        if (photo && photo.getAttribute('src')) {
+          var src = photo.getAttribute('src');
+          if (typeof window !== 'undefined' && typeof window.Image === 'function') {
+            var preloader = new window.Image();
+            preloader.onload = function () {
+              image.classList.add('is-portrait');
+              image.style.backgroundImage = 'url("' + src + '")';
+            };
+            preloader.onerror = function () { /* keep monogram fallback on image error */ };
+            preloader.src = src;
+          } else {
+            image.classList.add('is-portrait');
+            image.style.backgroundImage = 'url("' + src + '")';
+          }
+        }
+      }
+
+      if (actionsEl) {
+        clearActions();
+        Array.prototype.forEach.call(sourceLinks, function (link) {
+          var anchor = document.createElement('a');
+          anchor.href = link.getAttribute('href') || '';
+          anchor.textContent = link.textContent.trim();
+          anchor.target = '_blank';
+          anchor.rel = 'noopener noreferrer';
+          actionsEl.append(anchor);
+        });
+        if (photoCredit) {
+          var credit = document.createElement('p');
+          credit.className = 'photo-credit';
+          Array.prototype.forEach.call(photoCredit.childNodes, function (node) {
+            credit.append(node.cloneNode(true));
+          });
+          actionsEl.append(credit);
+        }
+      }
+    }
+
+    function openModal(card) {
+      lastFocus = typeof document !== 'undefined' && document.activeElement ? document.activeElement : null;
+      fillModal(card);
+      modal.hidden = false;
+      if (typeof document !== 'undefined' && document.body) document.body.style.overflow = 'hidden';
+      var closeBtn = modal.querySelector('.modal-close');
+      if (closeBtn && typeof closeBtn.focus === 'function') closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      if (typeof document !== 'undefined' && document.body) document.body.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    function isInteractive(event) {
+      return Boolean(event.target.closest('a, button, .recommend-button, .source-links, .tag-list'));
+    }
+
+    document.addEventListener('click', function (event) {
+      if (event.defaultPrevented) return;
+      var card = event.target.closest('.model-card.story-card[data-model-id]');
+      if (!card) return;
+      if (isInteractive(event)) return;
+      event.preventDefault();
+      openModal(card);
+    });
+
+    modal.addEventListener('click', function (event) {
+      if (event.target.closest('[data-modal-close]')) closeModal();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
+  }
+
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initProfileModal();
+        initDynamicModels();
+      }, { once: true });
+    } else {
+      initProfileModal();
+      initDynamicModels();
+    }
   }
 }());

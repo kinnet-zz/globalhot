@@ -2,6 +2,11 @@ name = "globalhot"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-07-18"
 
+# 배포 시 필수 시크릿 (Cloudflare Pages 대시보드 또는 wrangler secret 으로 설정):
+#   wrangler pages secret put RECOMMENDATION_SALT --project-name globalhot
+# RECOMMENDATION_SALT 는 추천 해시용 솔트이며 32자 이상의 무작위 문자열이어야 합니다.
+# 참고: functions/_lib/recommendations.js 가 이 값을 검증합니다.
+
 [[d1_databases]]
 binding = "DB"
 database_name = "globalhot-recommendations"

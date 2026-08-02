@@ -8,16 +8,40 @@ import { PUBLIC_FILES, buildPages } from "../scripts/build-pages.mjs";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(projectRoot, "dist");
 
+async function walkDist(dir = distDir, base = "") {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const files = [];
+  const dirs = [];
+  for (const entry of entries) {
+    const relative = base ? `${base}/${entry.name}` : entry.name;
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      dirs.push(relative);
+      const nested = await walkDist(fullPath, relative);
+      files.push(...nested.files);
+      dirs.push(...nested.dirs);
+    } else {
+      files.push(relative);
+    }
+  }
+  return { files, dirs };
+}
+
 test("Pages build contains exactly the approved public files", async () => {
   const builtFiles = await buildPages();
-  const distEntries = await readdir(distDir, { withFileTypes: true });
+  const { files: distFiles, dirs: distDirs } = await walkDist();
 
   assert.deepEqual(builtFiles, [...PUBLIC_FILES].sort());
-  assert.deepEqual(
-    distEntries.filter((entry) => entry.isFile()).map((entry) => entry.name).sort(),
-    [...PUBLIC_FILES].sort(),
-  );
-  assert.equal(distEntries.some((entry) => entry.isDirectory()), false);
+  assert.deepEqual([...distFiles].sort(), [...PUBLIC_FILES].sort());
+  for (const file of distFiles) {
+    assert.ok(PUBLIC_FILES.includes(file), `dist file outside the allowlist: ${file}`);
+  }
+  for (const dir of distDirs) {
+    assert.ok(
+      PUBLIC_FILES.some((file) => file.startsWith(`${dir}/`)),
+      `dist directory outside the allowlist: ${dir}`,
+    );
+  }
 });
 
 test("Pages build excludes development and user-owned files", async () => {

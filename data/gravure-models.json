@@ -705,6 +705,20 @@
       "altName": "雛形あきこ",
       "tags": "gravure legend 90s actress",
       "photoAvailable": false
+    },
+    {
+      "id": "kiko-mizuhara",
+      "name": "Kiko Mizuhara",
+      "altName": "水原希子",
+      "tags": "model actor creative movie tv editorial commercial books event office kiko",
+      "photoAvailable": true
+    },
+    {
+      "id": "elaiza-ikeda",
+      "name": "Elaiza Ikeda",
+      "altName": "池田エライザ",
+      "tags": "model actor film drama music magazine runway director cancam nicola",
+      "photoAvailable": false
     }
   ]
 }

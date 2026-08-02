@@ -39,3 +39,9 @@ Cloudflare Pages 추천 API 현재 운영 설정
    - AdSense는 사용하지 않는다.
    - popunder, clickunder, 강제 리디렉션, push 구독 유도 광고는 금지한다.
    - 실제 광고 네트워크는 아직 연결하지 않았다. 화면의 광고 영역은 placeholder이며, 새 네트워크 도입 전 정책·동의·사업자 정보를 갱신한다.
+
+6. CC 라이선스 사진 사용 (2026-08-01)
+   - 프로필 사진은 Wikimedia Commons의 CC 라이선스 사진을 사용한다. 파일은 assets/profiles/ 아래 enako, umi-shinonome, nashiko-momotsuki, ai-shinozaki, kiko-mizuhara .jpg 5개이며 별도 Worker가 다운로드한다.
+   - 각 카드에 저작자·라이선스·출처 링크를 표시한다. Elaiza Ikeda는 자유 라이선스 사진이 없어 모노그램으로 표시한다.
+   - build-pages.mjs 공개 허용 목록에 이미지 5개가 추가되어 dist/assets/profiles/로 복사되고, dist 검증은 재귀 탐색으로 동작한다.
+   - npm test와 npm run build:pages는 이미지 파일 도착 후 Advisor가 실행한다.

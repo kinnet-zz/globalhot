@@ -17,6 +17,11 @@ export const PUBLIC_FILES = [
   "sitemap.xml",
   "_headers",
   "_redirects",
+  "assets/profiles/enako.jpg",
+  "assets/profiles/umi-shinonome.jpg",
+  "assets/profiles/nashiko-momotsuki.jpg",
+  "assets/profiles/ai-shinozaki.jpg",
+  "assets/profiles/kiko-mizuhara.jpg",
 ];
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -27,6 +32,27 @@ function assertDistPath() {
   if (path.dirname(distDir) !== projectRoot || path.basename(distDir) !== "dist") {
     throw new Error(`Refusing to modify unexpected output directory: ${distDir}`);
   }
+}
+
+async function collectDistFiles(dir, base = "") {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const files = [];
+  const dirs = [];
+  for (const entry of entries) {
+    const relative = base ? `${base}/${entry.name}` : entry.name;
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      dirs.push(relative);
+      const nested = await collectDistFiles(fullPath, relative);
+      files.push(...nested.files);
+      dirs.push(...nested.dirs);
+    } else if (entry.isFile()) {
+      files.push(relative);
+    } else {
+      throw new Error(`Unexpected dist entry type: ${fullPath}`);
+    }
+  }
+  return { files, dirs };
 }
 
 export async function buildPages() {
@@ -40,14 +66,17 @@ export async function buildPages() {
     if (!sourceInfo.isFile()) {
       throw new Error(`Public source must be a regular file: ${fileName}`);
     }
-    await copyFile(sourcePath, path.join(distDir, fileName));
+    const destPath = path.join(distDir, fileName);
+    await mkdir(path.dirname(destPath), { recursive: true });
+    await copyFile(sourcePath, destPath);
   }
 
-  const outputEntries = await readdir(distDir, { withFileTypes: true });
-  const outputFiles = outputEntries.filter((entry) => entry.isFile()).map((entry) => entry.name).sort();
+  const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);
   const expectedFiles = [...PUBLIC_FILES].sort();
-  const hasUnexpectedEntries = outputEntries.some((entry) => !entry.isFile() || !PUBLIC_FILES.includes(entry.name));
-  if (hasUnexpectedEntries || outputFiles.join("\n") !== expectedFiles.join("\n")) {
+  const unexpectedDirs = outputDirs.filter(
+    (dir) => !PUBLIC_FILES.some((file) => file.startsWith(`${dir}/`)),
+  );
+  if (outputFiles.sort().join("\n") !== expectedFiles.join("\n") || unexpectedDirs.length > 0) {
     throw new Error("Pages output does not match the public-file allowlist.");
   }
 

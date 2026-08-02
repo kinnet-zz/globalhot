@@ -50,12 +50,14 @@ test('information pages retain the shared accented brand, footer, and legal link
   }
 });
 
-test('about page lists the six official-source profiles and maintains a photo-free directory policy', () => {
+test('about page lists the six official-source profiles and documents a licensed-photo policy', () => {
   for (const name of ['Enako', 'Umi Shinonome', 'Nashiko Momotsuki', 'Ai Shinozaki', 'Kiko Mizuhara', 'Elaiza Ikeda']) {
     assert.match(about, new RegExp(name));
   }
   assert.match(about, /https:\/\/ppe\.jp\/talent\/enako\//);
   assert.match(about, /mailto:admin@globalhot\.net/);
+  assert.match(about, /CC\b|라이선스/);
+  assert.match(about, /모노그램/);
   assert.doesNotMatch(about, /\/posts\//i);
 });
 
