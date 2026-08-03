@@ -385,16 +385,20 @@
     card.dataset.name = model.name;
     card.dataset.altName = model.altName || '';
     card.dataset.country = model.country;
-    card.dataset.tags = (model.tags || []).join(' ');
+
+    // models.json stores tags as a space-delimited string ("cosplay gravure tv").
+    // Normalize once so every consumer below works against a real array.
+    var rawTags = model.tags;
+    var tags = typeof rawTags === 'string'
+      ? rawTags.split(/\s+/).filter(Boolean)
+      : (Array.isArray(rawTags) ? rawTags : []);
+    card.dataset.tags = tags.join(' ');
     card.dataset.updated = '2026-08-02';
     card.dataset.baseRecommendations = String(baseRecommendations || 0);
 
     var category = 'model';
-    if (model.tags) {
-      var tags = typeof model.tags === 'string' ? model.tags.split(' ') : model.tags;
-      if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
-      else if (tags.indexOf('gravure') !== -1) category = 'gravure';
-    }
+    if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
+    else if (tags.indexOf('gravure') !== -1) category = 'gravure';
     card.dataset.category = category;
 
     var portraitClass = 'portrait portrait-' + ['luna', 'hana', 'aria', 'mio', 'noa', 'sora'][Math.floor(Math.random() * 6)];
@@ -435,11 +439,11 @@
 
     var profileLine = document.createElement('p');
     profileLine.className = 'profile-line';
-    profileLine.textContent = 'Official profile with ' + (model.tags || []).length + ' registered tags and activities.';
+    profileLine.textContent = 'Official profile with ' + tags.length + ' registered tags and activities.';
 
     var tagList = document.createElement('div');
     tagList.className = 'tag-list';
-    var tagArray = (model.tags || []).slice(0, 3);
+    var tagArray = tags.slice(0, 3);
     tagArray.forEach(function (tag) {
       var span = document.createElement('span');
       span.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
