@@ -540,6 +540,9 @@
     var grid = document.getElementById('modelGrid');
     if (!grid) return;
 
+    // Add test attribute to verify dynamic loading started
+    grid.setAttribute('data-dynamic-loading', 'true');
+
     // Clear existing static cards before loading dynamic models
     while (grid.firstChild) {
       grid.removeChild(grid.firstChild);
