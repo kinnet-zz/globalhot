@@ -390,8 +390,11 @@
     card.dataset.baseRecommendations = String(baseRecommendations || 0);
 
     var category = 'model';
-    if (model.tags && model.tags.indexOf('cosplay') !== -1) category = 'cosplay';
-    else if (model.tags && model.tags.indexOf('gravure') !== -1) category = 'gravure';
+    if (model.tags) {
+      var tags = typeof model.tags === 'string' ? model.tags.split(' ') : model.tags;
+      if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
+      else if (tags.indexOf('gravure') !== -1) category = 'gravure';
+    }
     card.dataset.category = category;
 
     var portraitClass = 'portrait portrait-' + ['luna', 'hana', 'aria', 'mio', 'noa', 'sora'][Math.floor(Math.random() * 6)];
