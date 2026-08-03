@@ -538,6 +538,13 @@
 
   function initDynamicModels() {
     var grid = document.getElementById('modelGrid');
+    if (!grid) return;
+
+    // Clear existing static cards before loading dynamic models
+    while (grid.firstChild) {
+      grid.removeChild(grid.firstChild);
+    }
+
     var loadMoreButton = document.createElement('button');
     loadMoreButton.id = 'loadMoreButton';
     loadMoreButton.className = 'load-more-button';
