@@ -17,6 +17,7 @@ export const PUBLIC_FILES = [
   "sitemap.xml",
   "_headers",
   "_redirects",
+  "data/models.json",
   "assets/profiles/enako.jpg",
   "assets/profiles/umi-shinonome.jpg",
   "assets/profiles/nashiko-momotsuki.jpg",
