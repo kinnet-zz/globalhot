@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { prepareModelsData } from "./prepare-data.mjs";
 
-export const PUBLIC_FILES = [
+export const STATIC_FILES = [
   "index.html",
   "about.html",
   "privacy.html",
@@ -18,13 +18,9 @@ export const PUBLIC_FILES = [
   "sitemap.xml",
   "_headers",
   "_redirects",
-  "data/models.json",
-  "assets/profiles/enako.jpg",
-  "assets/profiles/umi-shinonome.jpg",
-  "assets/profiles/nashiko-momotsuki.jpg",
-  "assets/profiles/ai-shinozaki.jpg",
-  "assets/profiles/kiko-mizuhara.jpg",
 ];
+
+const SCAN_DIRS = ["assets/profiles"];
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -57,13 +53,28 @@ async function collectDistFiles(dir, base = "") {
   return { files, dirs };
 }
 
+async function copyDirTree(srcDir, destDir) {
+  const entries = await readdir(srcDir, { withFileTypes: true });
+  await mkdir(destDir, { recursive: true });
+  for (const entry of entries) {
+    const srcPath = path.join(srcDir, entry.name);
+    const destPath = path.join(destDir, entry.name);
+    if (entry.isDirectory()) {
+      await copyDirTree(srcPath, destPath);
+    } else if (entry.isFile()) {
+      await copyFile(srcPath, destPath);
+    } else {
+      throw new Error(`Unexpected entry in ${srcDir}: ${entry.name}`);
+    }
+  }
+}
+
 export async function buildPages() {
   assertDistPath();
   await rm(distDir, { recursive: true, force: true });
   await mkdir(distDir, { recursive: true });
 
-  for (const fileName of PUBLIC_FILES) {
-    if (fileName === "data/models.json") continue; // prepare-data가 dist에 직접 작성
+  for (const fileName of STATIC_FILES) {
     const sourcePath = path.resolve(projectRoot, fileName);
     const sourceInfo = await stat(sourcePath);
     if (!sourceInfo.isFile()) {
@@ -74,14 +85,34 @@ export async function buildPages() {
     await copyFile(sourcePath, destPath);
   }
 
+  for (const scanDir of SCAN_DIRS) {
+    await copyDirTree(path.resolve(projectRoot, scanDir), path.join(distDir, scanDir));
+  }
+
   await prepareModelsData({ projectRoot, distDir });
+
   const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);
-  const expectedFiles = [...PUBLIC_FILES].sort();
-  const unexpectedDirs = outputDirs.filter(
-    (dir) => !PUBLIC_FILES.some((file) => file.startsWith(`${dir}/`)),
-  );
-  if (outputFiles.sort().join("\n") !== expectedFiles.join("\n") || unexpectedDirs.length > 0) {
-    throw new Error("Pages output does not match the public-file allowlist.");
+  const staticSet = new Set(STATIC_FILES);
+  const isAllowedOutput = (file) =>
+    staticSet.has(file) ||
+    file === "data/models.json" ||
+    SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
+  const allowedDirRoots = new Set(["data", "assets", "assets/profiles"]);
+  const isAllowedDir = (d) => allowedDirRoots.has(d) || SCAN_DIRS.some((dir) => d.startsWith(`${dir}/`));
+
+  const unexpectedFiles = outputFiles.filter((f) => !isAllowedOutput(f));
+  const missingStatic = STATIC_FILES.filter((f) => !outputFiles.includes(f));
+  const unexpectedDirs = outputDirs.filter((d) => !isAllowedDir(d));
+  const missingModelsJson = !outputFiles.includes("data/models.json");
+
+  if (unexpectedFiles.length || missingStatic.length || unexpectedDirs.length || missingModelsJson) {
+    throw new Error(
+      "Pages output invariant violated. " +
+      (unexpectedFiles.length ? `Unexpected files: ${unexpectedFiles.join(", ")}. ` : "") +
+      (missingStatic.length ? `Missing static files: ${missingStatic.join(", ")}. ` : "") +
+      (unexpectedDirs.length ? `Unexpected dirs: ${unexpectedDirs.join(", ")}. ` : "") +
+      (missingModelsJson ? "Missing data/models.json." : ""),
+    );
   }
 
   return outputFiles;

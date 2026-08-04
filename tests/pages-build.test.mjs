@@ -3,7 +3,7 @@ import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { PUBLIC_FILES, buildPages } from "../scripts/build-pages.mjs";
+import { STATIC_FILES, buildPages } from "../scripts/build-pages.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(projectRoot, "dist");
@@ -27,20 +27,30 @@ async function walkDist(dir = distDir, base = "") {
   return { files, dirs };
 }
 
-test("Pages build contains exactly the approved public files", async () => {
-  const builtFiles = await buildPages();
+test("Pages build contains the static files, every source profile photo, and models.json", async () => {
+  const builtFiles = (await buildPages()).sort();
   const { files: distFiles, dirs: distDirs } = await walkDist();
 
-  assert.deepEqual(builtFiles, [...PUBLIC_FILES].sort());
-  assert.deepEqual([...distFiles].sort(), [...PUBLIC_FILES].sort());
-  for (const file of distFiles) {
-    assert.ok(PUBLIC_FILES.includes(file), `dist file outside the allowlist: ${file}`);
+  // 모든 고정 파일 + models.json 존재
+  for (const f of [...STATIC_FILES, "data/models.json"]) {
+    assert.ok(builtFiles.includes(f), `missing expected file: ${f}`);
   }
-  for (const dir of distDirs) {
-    assert.ok(
-      PUBLIC_FILES.some((file) => file.startsWith(`${dir}/`)),
-      `dist directory outside the allowlist: ${dir}`,
-    );
+
+  // dist 의 profile 사진이 소스 디렉토리를 정확히 반영
+  const srcPhotos = (await readdir(path.join(projectRoot, "assets", "profiles")))
+    .filter((name) => name.endsWith(".jpg"))
+    .map((name) => `assets/profiles/${name}`)
+    .sort();
+  const distPhotos = distFiles
+    .filter((f) => f.startsWith("assets/profiles/") && f.endsWith(".jpg"))
+    .sort();
+  assert.deepEqual(distPhotos, srcPhotos, "dist profile photos must mirror the source directory");
+  assert.ok(srcPhotos.length >= 5, "expected the seed profile photos to be present");
+
+  // 허용되지 않은 파일/디렉토리 없음
+  const allowedRoots = new Set(["data", "assets", "assets/profiles"]);
+  for (const d of distDirs) {
+    assert.ok(allowedRoots.has(d) || d.startsWith("assets/profiles/"), `unexpected dir: ${d}`);
   }
 });
 

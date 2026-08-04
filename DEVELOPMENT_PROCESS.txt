@@ -123,7 +123,7 @@ Phase 5. 수익화 및 최적화
 
 2026-08-01
 - 목표: 기존 뉴스형 루트 메인을 새 포털 MVP로 교체.
-- 결정: 기존 style.css/app.js는 레거시 보호를 위해 그대로 두고 portal.css/portal.js로 분리했다. 제3자 사진 없이 CSS 가상 패널을 사용했다. 댓글은 만들지 않았고, 광고는 승인 전 placeholder 2개만 두었다. 추천은 기기 로컬 데모로 제공한다.
+- 결정: 기존 style.css는 레거시 보호를 위해 그대로 두고 portal.css/portal.js로 분리했다. app.js(미사용 뉴스 대시보드 스크립트)는 데드코드로 확인되어 삭제했다. 제3자 사진 없이 CSS 가상 패널을 사용했다. 댓글은 만들지 않았고, 광고는 승인 전 placeholder 2개만 두었다. 추천은 기기 로컬 데모로 제공한다.
 - 변경 파일: index.html, portal.css, portal.js, package.json, tests/portal-home.test.mjs, DEVELOPMENT_PROCESS.txt
 - 검증 명령/결과: Advisor 직접 npm.cmd test 6/6 PASS; node --check portal.js PASS; git diff --check PASS. gstack browser에서 HTTP 200, 접근 가능한 controls snapshot, 검색 q=Aria URL 반영, cosplay category URL 반영, 추천 버튼 click, viewport 375px에서 scrollWidth=375(no horizontal overflow), console errors 없음을 확인했다. 브라우저 daemon 세션 불안정으로 localStorage의 reload 후 지속성 자동 확인은 미완료다.
 - 알려진 위험: localStorage persistence browser recheck pending. 기기 로컬 추천은 조작 방지나 전역 집계가 아니다. 실데이터·권리 확인 이미지·백엔드는 미구현이다. about/privacy/terms와 레거시 posts는 여전히 뉴스형이므로 다음 마이그레이션이 필요하다. 실제 광고망 스크립트는 미삽입 상태다.
