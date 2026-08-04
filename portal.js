@@ -378,6 +378,18 @@
     return parts.slice(0, 2).map(function (p) { return p.charAt(0); }).join('').toUpperCase();
   }
 
+  // Pre-render shape check. A model missing core fields is skipped before it can
+  // throw inside createModelCard and poison the rest of the batch.
+  function isValidModel(model) {
+    if (!model || typeof model !== 'object') return false;
+    if (typeof model.id !== 'string' || !model.id) return false;
+    if (typeof model.name !== 'string' || !model.name) return false;
+    if (typeof model.country !== 'string' || !model.country) return false;
+    if (typeof model.tags !== 'string' && !Array.isArray(model.tags)) return false;
+    if (typeof model.sns !== 'object' || model.sns === null || Array.isArray(model.sns)) return false;
+    return true;
+  }
+
   function createModelCard(model, baseRecommendations) {
     var card = document.createElement('article');
     card.className = 'model-card story-card';
@@ -406,20 +418,34 @@
     portrait.className = portraitClass;
     portrait.setAttribute('role', 'img');
 
+    // Swaps a portrait to its monogram fallback. Used both for models with no
+    // photo and as the onerror recovery when a declared photo 404s or fails to
+    // decode. Idempotent: safe to call on an already-fallback portrait.
+    function applyMonogramFallback() {
+      var monogram = buildMonogram(model.name);
+      portrait.setAttribute('data-monogram', monogram);
+      portrait.setAttribute('aria-label', model.name + ' photo (monogram only)');
+      var brokenImg = portrait.querySelector('img');
+      if (brokenImg && brokenImg.parentNode) brokenImg.parentNode.removeChild(brokenImg);
+      if (!portrait.querySelector('span')) {
+        var noPhotoSpan = document.createElement('span');
+        noPhotoSpan.textContent = 'NO PHOTO';
+        portrait.appendChild(noPhotoSpan);
+      }
+    }
+
     if (model.photoAvailable) {
       portrait.setAttribute('aria-label', model.name + ' photo');
       var img = document.createElement('img');
       img.src = '/assets/profiles/' + model.id + '.jpg';
       img.alt = model.name + ' photo';
       img.setAttribute('loading', 'lazy');
+      // Defense-in-depth: if the photo 404s or fails to load, recover to the
+      // monogram so the grid never renders a broken-image icon.
+      img.addEventListener('error', applyMonogramFallback);
       portrait.appendChild(img);
     } else {
-      var monogram = buildMonogram(model.name);
-      portrait.setAttribute('data-monogram', monogram);
-      portrait.setAttribute('aria-label', model.name + ' photo (monogram only)');
-      var noPhotoSpan = document.createElement('span');
-      noPhotoSpan.textContent = 'NO PHOTO';
-      portrait.appendChild(noPhotoSpan);
+      applyMonogramFallback();
     }
 
     var cardBody = document.createElement('div');
@@ -452,38 +478,59 @@
 
     var sourceLinks = document.createElement('p');
     sourceLinks.className = 'source-links';
+    var searchQuery = encodeURIComponent((model.name + ' ' + (model.altName || '')).trim());
+
+    var officialLink = document.createElement('a');
+    officialLink.target = '_blank';
     if (model.officialUrl) {
-      var officialLink = document.createElement('a');
       officialLink.href = model.officialUrl;
-      officialLink.target = '_blank';
       officialLink.rel = 'noopener noreferrer';
       officialLink.textContent = 'Official Profile';
-      sourceLinks.appendChild(officialLink);
+    } else {
+      officialLink.href = 'https://www.google.com/search?q=' + searchQuery;
+      officialLink.rel = 'noopener noreferrer nofollow';
+      officialLink.textContent = 'Search';
     }
+    sourceLinks.appendChild(officialLink);
+
+    var xLink = document.createElement('a');
+    xLink.target = '_blank';
     if (model.sns && model.sns.x) {
-      var xLink = document.createElement('a');
       xLink.href = model.sns.x;
-      xLink.target = '_blank';
       xLink.rel = 'noopener noreferrer';
       xLink.textContent = 'X';
-      sourceLinks.appendChild(xLink);
+    } else {
+      xLink.href = 'https://twitter.com/search?q=' + searchQuery + '&src=typed_query';
+      xLink.rel = 'noopener noreferrer nofollow';
+      xLink.textContent = 'Find on X';
     }
+    sourceLinks.appendChild(xLink);
+
+    var igLink = document.createElement('a');
+    igLink.target = '_blank';
     if (model.sns && model.sns.instagram) {
-      var igLink = document.createElement('a');
       igLink.href = model.sns.instagram;
-      igLink.target = '_blank';
       igLink.rel = 'noopener noreferrer';
       igLink.textContent = 'Instagram';
-      sourceLinks.appendChild(igLink);
+    } else {
+      igLink.href = 'https://www.google.com/search?q=site%3Ainstagram.com%20' + searchQuery;
+      igLink.rel = 'noopener noreferrer nofollow';
+      igLink.textContent = 'Find on Instagram';
     }
+    sourceLinks.appendChild(igLink);
+
+    var ytLink = document.createElement('a');
+    ytLink.target = '_blank';
     if (model.sns && model.sns.youtube) {
-      var ytLink = document.createElement('a');
       ytLink.href = model.sns.youtube;
-      ytLink.target = '_blank';
       ytLink.rel = 'noopener noreferrer';
       ytLink.textContent = 'YouTube';
-      sourceLinks.appendChild(ytLink);
+    } else {
+      ytLink.href = 'https://www.youtube.com/results?search_query=' + searchQuery;
+      ytLink.rel = 'noopener noreferrer nofollow';
+      ytLink.textContent = 'Find on YouTube';
     }
+    sourceLinks.appendChild(ytLink);
 
     var rightsBadge = document.createElement('p');
     rightsBadge.className = 'rights-badge';
@@ -543,6 +590,30 @@
     return card;
   }
 
+  // Renders a batch of models into the grid. Each model is validated and wrapped
+  // in its own try/catch so a single bad entry (missing field, unexpected type,
+  // thrown error inside createModelCard) is skipped with a warning instead of
+  // aborting the whole batch and surfacing as a "load failure".
+  function renderCards(models, grid, baseRecommendations) {
+    var base = baseRecommendations || 0;
+    models.forEach(function (model) {
+      if (!isValidModel(model)) {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('Skipping invalid model:', model && model.id);
+        }
+        return;
+      }
+      try {
+        var card = createModelCard(model, base);
+        grid.appendChild(card);
+      } catch (error) {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('Failed to render model', model.id, error);
+        }
+      }
+    });
+  }
+
   function initDynamicModels() {
     var grid = document.getElementById('modelGrid');
     if (!grid) return;
@@ -573,10 +644,7 @@
 
     function loadNextBatch() {
       var nextBatch = allModels.slice(displayedCount, displayedCount + LOAD_MORE_BATCH_SIZE);
-      nextBatch.forEach(function (model) {
-        var card = createModelCard(model, 0);
-        grid.appendChild(card);
-      });
+      renderCards(nextBatch, grid, 0);
       displayedCount += nextBatch.length;
 
       if (displayedCount >= allModels.length) {

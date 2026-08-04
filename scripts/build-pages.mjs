@@ -1,6 +1,7 @@
 import { copyFile, mkdir, readdir, rm, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { prepareModelsData } from "./prepare-data.mjs";
 
 export const PUBLIC_FILES = [
   "index.html",
@@ -62,6 +63,7 @@ export async function buildPages() {
   await mkdir(distDir, { recursive: true });
 
   for (const fileName of PUBLIC_FILES) {
+    if (fileName === "data/models.json") continue; // prepare-data가 dist에 직접 작성
     const sourcePath = path.resolve(projectRoot, fileName);
     const sourceInfo = await stat(sourcePath);
     if (!sourceInfo.isFile()) {
@@ -72,6 +74,7 @@ export async function buildPages() {
     await copyFile(sourcePath, destPath);
   }
 
+  await prepareModelsData({ projectRoot, distDir });
   const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);
   const expectedFiles = [...PUBLIC_FILES].sort();
   const unexpectedDirs = outputDirs.filter(

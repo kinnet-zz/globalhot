@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
+import { readdir } from 'node:fs/promises';
+import path from 'node:path';
+import { buildPages } from '../scripts/build-pages.mjs';
 
 const [mergedRaw, gravureRaw, worldRaw] = await Promise.all([
   readFile('data/models.json', 'utf8'),
@@ -103,4 +107,20 @@ test('country distribution covers the documented regions and every country is no
   for (const expected of ['JAPAN', 'KOREA', 'USA', 'UK', 'BRAZIL']) {
     assert.ok(countries.has(expected), `missing country ${expected}`);
   }
+});
+
+test('build reconciles photoAvailable to match real profile photos in dist', async () => {
+  await buildPages();
+  const distRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
+  const built = JSON.parse(await readFile(path.join(distRoot, 'data', 'models.json'), 'utf8'));
+  let available = [];
+  try { available = await readdir(path.join(distRoot, 'assets', 'profiles')); } catch {}
+  const set = new Set(available);
+  for (const model of built.models) {
+    const fileExists = set.has(`${model.id}.jpg`);
+    assert.equal(model.photoAvailable, fileExists, `${model.id}: photoAvailable must match file existence`);
+  }
+  // 정확히 5개만 true여야 함 (실제 사진 파일이 5개)
+  const trueCount = built.models.filter((m) => m.photoAvailable).length;
+  assert.equal(trueCount, 5);
 });
