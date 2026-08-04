@@ -2,6 +2,7 @@ import { copyFile, mkdir, readdir, rm, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { prepareModelsData } from "./prepare-data.mjs";
+import { applyCacheBust } from "./cache-bust.mjs";
 
 export const STATIC_FILES = [
   "index.html",
@@ -90,6 +91,12 @@ export async function buildPages() {
   }
 
   await prepareModelsData({ projectRoot, distDir });
+
+  await applyCacheBust({
+    projectRoot,
+    distDir,
+    htmlFiles: ["index.html", "about.html", "privacy.html", "terms.html", "404.html"],
+  });
 
   const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);
   const staticSet = new Set(STATIC_FILES);
