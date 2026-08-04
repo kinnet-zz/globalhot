@@ -31,8 +31,8 @@ test('homepage retains discovery controls and structured search metadata', () =>
   assert.match(html, /<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*\bhref\s*=\s*["']https:\/\/globalhot\.net\/["']/i);
 });
 
-test('homepage has exactly two ad slots, no comments UI, and only local CC-licensed profile photos', () => {
-  assert.equal((html.match(/\bdata-ad-slot\b/gi) || []).length, 2);
+test('homepage has no placeholder ad slots, no comments UI, and only local CC-licensed profile photos', () => {
+  assert.equal((html.match(/\bdata-ad-slot\b/gi) || []).length, 0);
   assert.doesNotMatch(html, /(?:id|class)\s*=\s*(["'])[^"']*comment[^"']*\1/i);
   assert.doesNotMatch(html, /<textarea\b/i);
   for (const source of attributes(html, 'src')) {
