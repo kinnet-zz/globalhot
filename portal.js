@@ -478,59 +478,34 @@
 
     var sourceLinks = document.createElement('p');
     sourceLinks.className = 'source-links';
-    var searchQuery = encodeURIComponent((model.name + ' ' + (model.altName || '')).trim());
 
-    var officialLink = document.createElement('a');
-    officialLink.target = '_blank';
-    if (model.officialUrl) {
-      officialLink.href = model.officialUrl;
-      officialLink.rel = 'noopener noreferrer';
-      officialLink.textContent = 'Official Profile';
-    } else {
-      officialLink.href = 'https://www.google.com/search?q=' + searchQuery;
-      officialLink.rel = 'noopener noreferrer nofollow';
-      officialLink.textContent = 'Search';
+    // Only render links for sources the model actually has. We never fabricate
+    // "Find on X" search links — a card shows real channels, or (when a profile
+    // has zero real links) a single honest "Search" escape hatch.
+    function addSourceLink(href, label) {
+      var link = document.createElement('a');
+      link.target = '_blank';
+      link.href = href;
+      link.rel = 'noopener noreferrer';
+      link.textContent = label;
+      sourceLinks.appendChild(link);
     }
-    sourceLinks.appendChild(officialLink);
 
-    var xLink = document.createElement('a');
-    xLink.target = '_blank';
-    if (model.sns && model.sns.x) {
-      xLink.href = model.sns.x;
-      xLink.rel = 'noopener noreferrer';
-      xLink.textContent = 'X';
-    } else {
-      xLink.href = 'https://twitter.com/search?q=' + searchQuery + '&src=typed_query';
-      xLink.rel = 'noopener noreferrer nofollow';
-      xLink.textContent = 'Find on X';
-    }
-    sourceLinks.appendChild(xLink);
+    var realSourceCount = 0;
+    if (model.officialUrl) { addSourceLink(model.officialUrl, 'Official Profile'); realSourceCount++; }
+    if (model.sns && model.sns.x) { addSourceLink(model.sns.x, 'X'); realSourceCount++; }
+    if (model.sns && model.sns.instagram) { addSourceLink(model.sns.instagram, 'Instagram'); realSourceCount++; }
+    if (model.sns && model.sns.youtube) { addSourceLink(model.sns.youtube, 'YouTube'); realSourceCount++; }
 
-    var igLink = document.createElement('a');
-    igLink.target = '_blank';
-    if (model.sns && model.sns.instagram) {
-      igLink.href = model.sns.instagram;
-      igLink.rel = 'noopener noreferrer';
-      igLink.textContent = 'Instagram';
-    } else {
-      igLink.href = 'https://www.google.com/search?q=site%3Ainstagram.com%20' + searchQuery;
-      igLink.rel = 'noopener noreferrer nofollow';
-      igLink.textContent = 'Find on Instagram';
+    if (realSourceCount === 0) {
+      var searchQuery = encodeURIComponent((model.name + ' ' + (model.altName || '')).trim());
+      var searchLink = document.createElement('a');
+      searchLink.target = '_blank';
+      searchLink.href = 'https://www.google.com/search?q=' + searchQuery;
+      searchLink.rel = 'noopener noreferrer nofollow';
+      searchLink.textContent = 'Search';
+      sourceLinks.appendChild(searchLink);
     }
-    sourceLinks.appendChild(igLink);
-
-    var ytLink = document.createElement('a');
-    ytLink.target = '_blank';
-    if (model.sns && model.sns.youtube) {
-      ytLink.href = model.sns.youtube;
-      ytLink.rel = 'noopener noreferrer';
-      ytLink.textContent = 'YouTube';
-    } else {
-      ytLink.href = 'https://www.youtube.com/results?search_query=' + searchQuery;
-      ytLink.rel = 'noopener noreferrer nofollow';
-      ytLink.textContent = 'Find on YouTube';
-    }
-    sourceLinks.appendChild(ytLink);
 
     var rightsBadge = document.createElement('p');
     rightsBadge.className = 'rights-badge';
@@ -614,6 +589,17 @@
     });
   }
 
+  // Directory gate: only models with a real, reconciled profile photo are shown.
+  // Photo-less entries are filtered out of the loaded set (NOT deleted from the
+  // data), so every downstream step — search, filter, sort, ranking, load-more —
+  // only ever sees publishable profiles. Dropping a photo into assets/profiles/
+  // and rebuilding restores a hidden model automatically.
+  function selectPublishedModels(models) {
+    return (Array.isArray(models) ? models : []).filter(function (model) {
+      return model && model.photoAvailable === true;
+    });
+  }
+
   function initDynamicModels() {
     var grid = document.getElementById('modelGrid');
     if (!grid) return;
@@ -667,7 +653,7 @@
         return response.json();
       }).then(function (data) {
         if (!data || !Array.isArray(data.models)) throw new Error('invalid_models_json');
-        allModels = data.models;
+        allModels = selectPublishedModels(data.models);
         loadNextBatch();
       }).catch(function (error) {
         console.error('Failed to load models.json:', error);

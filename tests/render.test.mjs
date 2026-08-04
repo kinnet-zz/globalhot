@@ -92,7 +92,7 @@ function loadPortalDynamic() {
   // helpers above it are already declared in the IIFE scope.
   const instrumented = script.replace(
     '  function initDynamicModels() {',
-    '  globalThis.__portalDynamic = { createModelCard, isValidModel, renderCards, buildMonogram };\n\n  function initDynamicModels() {',
+    '  globalThis.__portalDynamic = { createModelCard, isValidModel, renderCards, buildMonogram, selectPublishedModels };\n\n  function initDynamicModels() {',
   );
   const context = {
     document: {
@@ -138,6 +138,32 @@ test('isValidModel accepts every production model and rejects malformed entries'
   assert.equal(dyn.isValidModel({ id: 'x', name: 'X', country: 'Y', tags: 5, sns: {} }), false, 'numeric tags invalid');
   assert.equal(dyn.isValidModel({ id: 'x', name: 'X', country: 'Y', tags: 'z', sns: 'no' }), false, 'string sns invalid');
   assert.equal(dyn.isValidModel({ id: 'x', name: 'X', country: 'Y', tags: 'z', sns: null }), false, 'null sns invalid');
+});
+
+test('selectPublishedModels keeps only photo-bearing models and preserves order', () => {
+  // The directory must not flood with photo-less monogram cards. This gate is
+  // what hides the ~170 entries that have no real profile photo after reconcile.
+  const expected = allModels.filter((model) => model.photoAvailable === true);
+  assert.ok(expected.length >= 1, 'fixture must include photo-bearing models');
+
+  const published = dyn.selectPublishedModels(allModels);
+  assert.equal(published.length, expected.length, 'only photoAvailable models are published');
+  assert.deepEqual(
+    published.map((model) => model.id),
+    expected.map((model) => model.id),
+    'relative order is preserved',
+  );
+  for (const model of published) {
+    assert.equal(model.photoAvailable, true, `${model.id}: every published model has a photo`);
+  }
+
+  // Edge cases: non-array and empty input never throw. Compare by length
+  // (a primitive) rather than deepEqual against a [] literal — the helper runs
+  // inside a vm sandbox, so its returned array lives in a different realm and
+  // assert/strict rejects a cross-realm deepStrictEqual against a host [].
+  assert.equal(dyn.selectPublishedModels(undefined).length, 0);
+  assert.equal(dyn.selectPublishedModels([]).length, 0);
+  assert.equal(dyn.selectPublishedModels([{ id: 'a', photoAvailable: false }]).length, 0);
 });
 
 test('renderCards isolates failures so one broken model never kills the batch', () => {
@@ -209,17 +235,28 @@ test('models with real source data render official links, nofollow-free', () => 
   }
 });
 
-test('models with empty source data fall back to honest search links', () => {
-  const bare = allModels.find((model) => !model.officialUrl && !(model.sns && model.sns.x));
-  assert.ok(bare, 'fixture must include a model with no source data');
-  const card = dyn.createModelCard(bare, 0);
-  const sourceLinks = card.querySelector('.source-links');
-  assert.ok(sourceLinks);
-  const labels = sourceLinks.children.map((anchor) => anchor.textContent);
-  assert.deepEqual(labels, ['Search', 'Find on X', 'Find on Instagram', 'Find on YouTube']);
-  for (const anchor of sourceLinks.children) {
+test('source links show only real channels — no fabricated "Find on" search links', () => {
+  // A profile with zero real links gets a single honest "Search" escape hatch.
+  const bare = { id: 'bare-test', name: 'Bare Test', altName: '', country: 'JAPAN', tags: 'model', sns: {} };
+  const bareCard = dyn.createModelCard(bare, 0);
+  const bareLinks = bareCard.querySelector('.source-links');
+  assert.deepEqual(bareLinks.children.map((anchor) => anchor.textContent), ['Search']);
+  for (const anchor of bareLinks.children) {
     assert.equal(anchor.target, '_blank');
-    assert.match(anchor.rel, /nofollow/, 'generated search links are nofollow');
+    assert.match(anchor.rel, /nofollow/, 'the sole Search escape hatch is nofollow');
     assert.match(anchor.href, /^https?:\/\//, 'search href is absolute');
+  }
+
+  // A profile with SOME (not all) channels shows exactly those — never a
+  // "Find on YouTube" / "Find on X" placeholder for the missing ones.
+  const partial = {
+    id: 'partial-test', name: 'Partial', altName: '', country: 'JAPAN', tags: 'model',
+    officialUrl: 'https://example.com/', sns: { x: 'https://twitter.com/partial' },
+  };
+  const partialCard = dyn.createModelCard(partial, 0);
+  const partialLinks = partialCard.querySelector('.source-links');
+  assert.deepEqual(partialLinks.children.map((anchor) => anchor.textContent), ['Official Profile', 'X']);
+  for (const anchor of partialLinks.children) {
+    assert.doesNotMatch(anchor.rel, /nofollow/, 'real source links are followed');
   }
 });
