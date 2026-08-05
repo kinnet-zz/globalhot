@@ -260,3 +260,39 @@ test('source links show only real channels — no fabricated "Find on" search li
     assert.doesNotMatch(anchor.rel, /nofollow/, 'real source links are followed');
   }
 });
+
+test('a fresh card hides the zero recommend count so it never reads as an empty social feature', () => {
+  // A directory card that permanently shows "0 Recommend" looks like a broken
+  // social feature. The count element must exist (the handler updates it) but
+  // stay hidden until it is non-zero.
+  const model = allModels.find((m) => m.photoAvailable) || allModels[0];
+  const card = dyn.createModelCard(model, 0);
+
+  const count = card.querySelector('.recommend-count');
+  assert.ok(count, 'card exposes a recommend count element');
+  assert.equal(count.hidden, true, 'a zero count is hidden by default');
+  assert.equal(count.getAttribute('data-recommendation-count'), '', 'count carries the data hook the handler updates');
+
+  const buttons = card.querySelectorAll('.recommend-button');
+  assert.equal(buttons.length, 1, 'exactly one recommend button per card');
+  assert.equal(buttons[0].getAttribute('aria-pressed'), 'false', 'button starts in the not-pressed state');
+});
+
+test('card attribution is a single merged source-credit row, not separate rights and credit rows', () => {
+  // The old card had two near-duplicate rows — rights-badge ("Official source
+  // verified · CC licensed photo") and photo-credit ("Photo: Wikimedia · CC
+  // BY-SA"). They collapse into one readable attribution line.
+  const model = allModels.find((m) => m.photoAvailable) || allModels[0];
+  const card = dyn.createModelCard(model, 0);
+
+  const credit = card.querySelector('.source-credit');
+  assert.ok(credit, 'a single merged attribution row exists');
+  assert.equal(card.querySelector('.rights-badge'), null, 'the old separate rights-badge is gone');
+  assert.equal(card.querySelector('.photo-credit'), null, 'the dynamic card no longer emits a photo-credit paragraph');
+
+  const link = credit.children.find((child) => child.tagName === 'A');
+  assert.ok(link, 'source-credit links out to the photo source');
+  assert.equal(link.textContent, 'Wikimedia Commons');
+  assert.equal(link.target, '_blank');
+  assert.match(link.rel, /noopener/);
+});

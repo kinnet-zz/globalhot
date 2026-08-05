@@ -96,7 +96,11 @@
       var id = card.dataset.modelId;
       var count = card.querySelector('[data-recommendation-count]');
       var button = card.querySelector('.recommend-button[data-recommend-model]');
-      if (count) count.textContent = String(cardCount(card));
+      if (count) {
+        var nextCount = cardCount(card);
+        count.textContent = String(nextCount);
+        count.hidden = nextCount <= 0;
+      }
       if (!button) return;
 
       var recommended = serverMode ? Boolean(serverRecommendations[id]) : Boolean(localRecommendations[id]);
@@ -465,7 +469,7 @@
 
     var profileLine = document.createElement('p');
     profileLine.className = 'profile-line';
-    profileLine.textContent = 'Official profile with ' + tags.length + ' registered tags and activities.';
+    profileLine.textContent = 'Official profile · ' + tags.length + ' registered tags';
 
     var tagList = document.createElement('div');
     tagList.className = 'tag-list';
@@ -507,21 +511,18 @@
       sourceLinks.appendChild(searchLink);
     }
 
-    var rightsBadge = document.createElement('p');
-    rightsBadge.className = 'rights-badge';
-    rightsBadge.textContent = 'Official source verified · CC licensed photo';
-
-    var photoCredit = document.createElement('p');
-    photoCredit.className = 'photo-credit';
-    photoCredit.textContent = 'Photo: ';
+    // One attribution row consolidates the old rights-badge + photo-credit. It
+    // states what makes this a trustworthy directory entry — verified official
+    // source, the CC license, and where the photo came from — at a readable size.
+    var sourceCredit = document.createElement('p');
+    sourceCredit.className = 'source-credit';
+    sourceCredit.textContent = 'Verified official source · CC BY-SA 4.0 · ';
     var creditLink = document.createElement('a');
     creditLink.href = 'https://commons.wikimedia.org/';
     creditLink.target = '_blank';
     creditLink.rel = 'noopener noreferrer';
     creditLink.textContent = 'Wikimedia Commons';
-    photoCredit.appendChild(creditLink);
-    var creditText = document.createTextNode(' · CC BY-SA');
-    photoCredit.appendChild(creditText);
+    sourceCredit.appendChild(creditLink);
 
     var cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
@@ -530,14 +531,17 @@
     time.dateTime = '2026-08-02';
     time.textContent = 'Verified 2026.08.02';
 
-    var recommendDiv = document.createElement('div');
-    var recommendStrong = document.createElement('strong');
+    // The recommend count stays hidden until it is non-zero. An always-"0"
+    // count reads as an empty social feature on a directory; the count earns
+    // its place only once someone has actually recommended the profile.
+    var recommendWrap = document.createElement('div');
+    recommendWrap.className = 'recommend-wrap';
+
     var recommendCount = document.createElement('span');
+    recommendCount.className = 'recommend-count';
     recommendCount.setAttribute('data-recommendation-count', '');
+    recommendCount.hidden = true;
     recommendCount.textContent = '0';
-    recommendStrong.appendChild(recommendCount);
-    recommendStrong.appendChild(document.createTextNode(' Recommend'));
-    recommendDiv.appendChild(recommendStrong);
 
     var recommendButton = document.createElement('button');
     recommendButton.className = 'recommend-button';
@@ -545,18 +549,19 @@
     recommendButton.setAttribute('data-recommend-model', model.id);
     recommendButton.setAttribute('aria-pressed', 'false');
     recommendButton.textContent = 'Recommend';
-    recommendDiv.appendChild(recommendButton);
+
+    recommendWrap.appendChild(recommendCount);
+    recommendWrap.appendChild(recommendButton);
 
     cardFooter.appendChild(time);
-    cardFooter.appendChild(recommendDiv);
+    cardFooter.appendChild(recommendWrap);
 
     cardBody.appendChild(categoryLabel);
     cardBody.appendChild(nameHeading);
     cardBody.appendChild(profileLine);
     cardBody.appendChild(tagList);
     cardBody.appendChild(sourceLinks);
-    cardBody.appendChild(rightsBadge);
-    cardBody.appendChild(photoCredit);
+    cardBody.appendChild(sourceCredit);
     cardBody.appendChild(cardFooter);
 
     card.appendChild(portrait);
@@ -691,7 +696,7 @@
       var categoryLabel = card.querySelector('.category-label');
       var portrait = card.querySelector('.portrait');
       var photo = card.querySelector('.portrait img');
-      var photoCredit = card.querySelector('.photo-credit');
+      var photoCredit = card.querySelector('.source-credit');
       var sourceLinks = card.querySelectorAll('.source-links a');
 
       var name = card.dataset.name || '';
