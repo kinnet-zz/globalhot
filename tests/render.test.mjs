@@ -279,20 +279,44 @@ test('a fresh card hides the zero recommend count so it never reads as an empty 
 });
 
 test('card attribution is a single merged source-credit row, not separate rights and credit rows', () => {
-  // The old card had two near-duplicate rows — rights-badge ("Official source
-  // verified · CC licensed photo") and photo-credit ("Photo: Wikimedia · CC
-  // BY-SA"). They collapse into one readable attribution line.
-  const model = allModels.find((m) => m.photoAvailable) || allModels[0];
-  const card = dyn.createModelCard(model, 0);
+  // Pin to enako (a known CC/Wikimedia model that carries no license fields) so
+  // the assertion stays stable regardless of which models sort first after the
+  // gravure auto-add pipeline grows the directory.
+  const enako = allModels.find((m) => m.id === 'enako') || allModels.find((m) => m.photoAvailable) || allModels[0];
+  const card = dyn.createModelCard(enako, 0);
 
   const credit = card.querySelector('.source-credit');
   assert.ok(credit, 'a single merged attribution row exists');
   assert.equal(card.querySelector('.rights-badge'), null, 'the old separate rights-badge is gone');
   assert.equal(card.querySelector('.photo-credit'), null, 'the dynamic card no longer emits a photo-credit paragraph');
 
+  // A model with no license fields falls back to the CC/Wikimedia default.
   const link = credit.children.find((child) => child.tagName === 'A');
   assert.ok(link, 'source-credit links out to the photo source');
   assert.equal(link.textContent, 'Wikimedia Commons');
+  assert.equal(link.target, '_blank');
+  assert.match(link.rel, /noopener/);
+});
+
+test('a copyrighted model renders its own license and credit, never a false CC label', () => {
+  // Attribution is data-driven per model. A photo cleared as © must show
+  // exactly that — the CC default must never leak onto a copyrighted entry.
+  const copyrighted = {
+    id: 'copyrighted-test', name: 'Copyrighted Test', altName: '', country: 'JAPAN',
+    tags: 'model', sns: {},
+    license: '© 2026 Example Office', creditText: 'Example Talent Office',
+    creditUrl: 'https://example.com/credit',
+  };
+  const card = dyn.createModelCard(copyrighted, 0);
+  const credit = card.querySelector('.source-credit');
+  assert.ok(credit, 'copyrighted model still gets a source-credit row');
+  assert.match(credit.textContent, /© 2026 Example Office/);
+  assert.doesNotMatch(credit.textContent, /CC BY-SA/);
+
+  const link = credit.children.find((child) => child.tagName === 'A');
+  assert.ok(link);
+  assert.equal(link.textContent, 'Example Talent Office');
+  assert.equal(link.href, 'https://example.com/credit');
   assert.equal(link.target, '_blank');
   assert.match(link.rel, /noopener/);
 });

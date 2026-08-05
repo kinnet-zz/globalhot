@@ -17,12 +17,17 @@ const gravure = JSON.parse(gravureRaw);
 const world = JSON.parse(worldRaw);
 
 const REQUIRED_FIELDS = ['id', 'name', 'altName', 'country', 'tags', 'photoAvailable', 'officialUrl', 'sns'];
+// Optional fields introduced for license-aware attribution. The gravure
+// auto-add pipeline sets these on every model it adds; legacy models omit them
+// and fall back to the CC/Wikimedia default in createModelCard. They are
+// documented in the `fields` array but not required on every model.
+const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl'];
 const SNS_FIELDS = ['x', 'instagram', 'youtube', 'tiktok'];
 const FEATURED_IDS = ['enako', 'umi-shinonome', 'nashiko-momotsuki', 'ai-shinozaki', 'kiko-mizuhara', 'elaiza-ikeda'];
 
 test('merged models.json declares the standardized schema and documents its lineage', () => {
   assert.equal(merged.title, 'GlobalHot Unified Model Directory');
-  assert.deepEqual(merged.fields, REQUIRED_FIELDS);
+  assert.deepEqual(merged.fields, [...REQUIRED_FIELDS, ...OPTIONAL_FIELDS]);
   assert.deepEqual(merged.snsFields, SNS_FIELDS);
   assert.equal(merged.schemaVersion, 1);
   assert.match(merged.source, /gravure-models\.json/);
@@ -120,7 +125,10 @@ test('build reconciles photoAvailable to match real profile photos in dist', asy
     const fileExists = set.has(`${model.id}.jpg`);
     assert.equal(model.photoAvailable, fileExists, `${model.id}: photoAvailable must match file existence`);
   }
-  // 정확히 5개만 true여야 함 (실제 사진 파일이 5개)
+  // photoAvailable count must equal the number of real .jpg files in
+  // assets/profiles. The directory grows over time via the gravure auto-add
+  // pipeline, so the count is self-consistent rather than pinned to a snapshot.
+  const jpgCount = available.filter((file) => file.endsWith('.jpg')).length;
   const trueCount = built.models.filter((m) => m.photoAvailable).length;
-  assert.equal(trueCount, 5);
+  assert.equal(trueCount, jpgCount, 'photoAvailable count must equal the number of .jpg profile files');
 });

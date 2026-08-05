@@ -1,0 +1,66 @@
+name: Gravure Daily Add
+
+# Adds up to 10 license-verified gravure models per day from
+# data/gravure-queue.json (status: "ready" entries, newest-first). Downloads
+# each photo, appends the model to data/models.json, runs the test suite as a
+# gate, then commits + pushes. The push triggers deploy.yml, which builds and
+# ships the new cards.
+#
+# Schedule: 20:50 UTC daily = 05:50 KST (just before the 06:00 KST target; the
+# :50 mark avoids the global :00 cron stampede). workflow_dispatch lets a human
+# run it on demand with a custom --limit.
+
+on:
+  schedule:
+    - cron: "50 20 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max models to add this run (default 10)"
+        required: false
+        default: "10"
+
+permissions:
+  contents: write
+
+# Never cancel a mid-flight add — a half-added batch is worse than a slow one.
+concurrency:
+  group: gravure-daily
+  cancel-in-progress: false
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Add gravure models from queue
+        run: node scripts/gravure-add.mjs --limit "${{ github.event.inputs.limit || '10' }}"
+
+      - name: Run tests (gate — never push a red state to master)
+        run: npm test
+
+      - name: Commit and push
+        run: |
+          git config user.name "GlobalHot Bot"
+          git config user.email "bot@globalhot.net"
+          # Specific paths only — dist/ is build output and must never be committed.
+          git add data/models.json data/gravure-queue.json assets/profiles/
+          if git diff --cached --quiet; then
+            echo "No changes to commit (queue empty or nothing ready)."
+          else
+            git commit -m "feat(models): daily gravure add via gravure-daily.yml"
+            git push
+          fi

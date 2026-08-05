@@ -513,15 +513,20 @@
 
     // One attribution row consolidates the old rights-badge + photo-credit. It
     // states what makes this a trustworthy directory entry — verified official
-    // source, the CC license, and where the photo came from — at a readable size.
+    // source, the license, and where the photo came from — at a readable size.
+    // License/credit are per-model so a copyrighted photo is never mislabelled
+    // as CC. Models without these fields fall back to the CC/Wikimedia default.
+    var creditLicense = (model.license && String(model.license)) || 'CC BY-SA 4.0';
+    var creditText = (model.creditText && String(model.creditText)) || 'Wikimedia Commons';
+    var creditUrl = (model.creditUrl && String(model.creditUrl)) || 'https://commons.wikimedia.org/';
     var sourceCredit = document.createElement('p');
     sourceCredit.className = 'source-credit';
-    sourceCredit.textContent = 'Verified official source · CC BY-SA 4.0 · ';
+    sourceCredit.textContent = 'Verified official source · ' + creditLicense + ' · ';
     var creditLink = document.createElement('a');
-    creditLink.href = 'https://commons.wikimedia.org/';
+    creditLink.href = creditUrl;
     creditLink.target = '_blank';
     creditLink.rel = 'noopener noreferrer';
-    creditLink.textContent = 'Wikimedia Commons';
+    creditLink.textContent = creditText;
     sourceCredit.appendChild(creditLink);
 
     var cardFooter = document.createElement('div');

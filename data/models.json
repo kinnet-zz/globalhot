@@ -12,7 +12,10 @@
     "tags",
     "photoAvailable",
     "officialUrl",
-    "sns"
+    "sns",
+    "license",
+    "creditText",
+    "creditUrl"
   ],
   "snsFields": [
     "x",
@@ -20,7 +23,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 177,
+  "modelCount": 179,
   "models": [
     {
       "id": "enako",
@@ -2676,6 +2679,42 @@
         "youtube": "",
         "tiktok": ""
       }
+    },
+    {
+      "id": "suzu-hirose",
+      "name": "Suzu Hirose",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:MKr377554_Suzu_Hirose_(A_Pale_View_of_Hills,_Cannes_2025).jpg"
+    },
+    {
+      "id": "yuzuki-aikawa",
+      "name": "Yuzuki Aikawa",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg"
     }
   ]
 }
