@@ -23,7 +23,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 179,
+  "modelCount": 189,
   "models": [
     {
       "id": "enako",
@@ -2715,6 +2715,186 @@
       "license": "CC BY 3.0",
       "creditText": "Wikimedia Commons",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg"
+    },
+    {
+      "id": "tsukasa-fujimoto",
+      "name": "Tsukasa Fujimoto",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg"
+    },
+    {
+      "id": "sola-aoi",
+      "name": "Sola Aoi",
+      "altName": "蒼井そら",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_(22241441840)_(cropped).jpg"
+    },
+    {
+      "id": "mitsu-dan",
+      "name": "Mitsu Dan",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Dan_mitsu.jpg"
+    },
+    {
+      "id": "mao-ichimichi",
+      "name": "Mao Ichimichi",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%B8%82%E9%81%93%E7%9C%9F%E5%A4%AE%EF%BC%91.jpg"
+    },
+    {
+      "id": "kyoko-hinami",
+      "name": "Kyoko Hinami",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_(44894003194).jpg"
+    },
+    {
+      "id": "alice-hirose",
+      "name": "Alice Hirose",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_(49013313561)_(cropped).jpg"
+    },
+    {
+      "id": "tsukasa-aoi",
+      "name": "Tsukasa Aoi",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%EC%95%84%EC%98%A4%EC%9D%B4%EC%B8%A0%EC%B9%B4%EC%82%AC(Aoi_Tsukasa)_%EA%B5%AD%EB%82%B4_%ED%8C%AC%EB%AF%B8%ED%8C%85_5.jpg"
+    },
+    {
+      "id": "marie-iitoyo",
+      "name": "Marie Iitoyo",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Iitoyo_Marie_from_%22The_Tunnel_to_Summer,_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_(52461345204).jpg"
+    },
+    {
+      "id": "akemi-darenogare",
+      "name": "Akemi Darenogare",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg"
+    },
+    {
+      "id": "yukari-fukui",
+      "name": "Yukari Fukui",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Yukari_in_ACE_(cropped).jpg"
     }
   ]
 }
