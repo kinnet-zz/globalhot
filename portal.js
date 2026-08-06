@@ -564,23 +564,23 @@
       sourceLinks.appendChild(searchLink);
     }
 
-    // One attribution row consolidates the old rights-badge + photo-credit. It
-    // states what makes this a trustworthy directory entry — verified official
-    // source, the license, and where the photo came from — at a readable size.
-    // License/credit are per-model so a copyrighted photo is never mislabelled
-    // as CC. Models without these fields fall back to the CC/Wikimedia default.
+    // Subtle photo attribution: where the photo came from + its license, as a
+    // quiet footnote. This is NOT a "verified source" claim — the model's own
+    // official channels (source-links above) are the directory's real source.
+    // Per-model license/credit so a copyrighted photo is never mislabelled CC;
+    // models without those fields fall back to the CC/Wikimedia default.
     var creditLicense = (model.license && String(model.license)) || 'CC BY-SA 4.0';
     var creditText = (model.creditText && String(model.creditText)) || 'Wikimedia Commons';
     var creditUrl = (model.creditUrl && String(model.creditUrl)) || 'https://commons.wikimedia.org/';
-    var sourceCredit = document.createElement('p');
-    sourceCredit.className = 'source-credit';
-    sourceCredit.textContent = 'Verified official source · ' + creditLicense + ' · ';
+    var photoCredit = document.createElement('p');
+    photoCredit.className = 'photo-credit';
+    photoCredit.textContent = 'Photo · ' + creditLicense + ' · ';
     var creditLink = document.createElement('a');
     creditLink.href = creditUrl;
     creditLink.target = '_blank';
     creditLink.rel = 'noopener noreferrer';
     creditLink.textContent = creditText;
-    sourceCredit.appendChild(creditLink);
+    photoCredit.appendChild(creditLink);
 
     var cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
@@ -619,7 +619,7 @@
     cardBody.appendChild(profileLine);
     cardBody.appendChild(tagList);
     cardBody.appendChild(sourceLinks);
-    cardBody.appendChild(sourceCredit);
+    cardBody.appendChild(photoCredit);
     cardBody.appendChild(cardFooter);
 
     card.appendChild(portrait);
@@ -754,7 +754,7 @@
       var categoryLabel = card.querySelector('.category-label');
       var portrait = card.querySelector('.portrait');
       var photo = card.querySelector('.portrait img');
-      var photoCredit = card.querySelector('.source-credit');
+      var photoCredit = card.querySelector('.photo-credit');
       var sourceLinks = card.querySelectorAll('.source-links a');
 
       var name = card.dataset.name || '';
