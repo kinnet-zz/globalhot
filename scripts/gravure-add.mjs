@@ -30,6 +30,10 @@ const DEFAULT_LICENSE = "CC BY-SA 4.0";
 const DEFAULT_CREDIT_TEXT = "Wikimedia Commons";
 const DEFAULT_CREDIT_URL = "https://commons.wikimedia.org/";
 const MIN_PHOTO_BYTES = 2048;
+// Cap a downloaded photo well under Cloudflare Pages' 25 MiB per-file limit.
+// The worker does not resize, so an over-large original is rejected (entry is
+// marked error, model not added) rather than shipped and breaking the deploy.
+const MAX_PHOTO_BYTES = 6_291_456; // 6 MiB
 
 // A model id must be safe as a filename component: lowercase ascii letters,
 // digits, hyphens. Anything else would create a file that build reconciliation
@@ -140,6 +144,13 @@ export async function addGravureModels({
     }
     try {
       const buffer = await fetcher(entry.photoUrl);
+      if (buffer.length > MAX_PHOTO_BYTES) {
+        throw new Error(
+          "photo is " + buffer.length + " bytes, exceeds the " + MAX_PHOTO_BYTES +
+            " byte cap (reject an over-large original so the deploy never trips " +
+            "Cloudflare Pages' 25 MiB per-file limit)",
+        );
+      }
       if (!isJpeg(buffer)) {
         throw new Error("downloaded photo is not a valid JPEG or is too small");
       }

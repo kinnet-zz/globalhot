@@ -143,6 +143,21 @@ test('a downloaded buffer that is not a JPEG is treated as a failure', async () 
   assert.equal(result.newModelsData.models.length, 0);
 });
 
+test('an oversized photo is rejected so the deploy never trips the 25 MiB per-file limit', async () => {
+  const queueData = { queue: [entry('huge')] };
+  const modelsData = { models: [], modelCount: 0 };
+  const fetcher = async () => Buffer.concat([Buffer.from([0xff, 0xd8, 0xff]), Buffer.alloc(7_000_000)]);
+
+  const result = await addGravureModels({ queueData, modelsData, limit: 10, fetcher });
+
+  assert.deepEqual(result.added, [], 'oversized model not added');
+  assert.equal(result.errored.length, 1);
+  assert.match(result.errored[0].error, /exceeds the .* byte cap/i);
+  assert.equal(result.newModelsData.models.length, 0);
+  const failed = result.newQueueData.queue.find((e) => e.id === 'huge');
+  assert.equal(failed.status, 'error');
+});
+
 test('dry run plans the additions but writes nothing and fetches nothing', async () => {
   const queueData = { queue: [entry('a'), entry('b')] };
   const modelsData = { models: [], modelCount: 0 };
