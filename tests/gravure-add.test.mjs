@@ -5,6 +5,8 @@ import {
   planAdd,
   buildModelObject,
   isJpeg,
+  wikimediaApiHost,
+  lastPathSegment,
 } from '../scripts/gravure-add.mjs';
 
 // A buffer that passes isJpeg: magic bytes FF D8 FF + enough payload to clear
@@ -156,6 +158,50 @@ test('an oversized photo is rejected so the deploy never trips the 25 MiB per-fi
   assert.equal(result.newModelsData.models.length, 0);
   const failed = result.newQueueData.queue.find((e) => e.id === 'huge');
   assert.equal(failed.status, 'error');
+});
+
+test('wikimediaApiHost maps Commons/en upload URLs to their API host and rejects others', () => {
+  assert.equal(wikimediaApiHost('https://upload.wikimedia.org/wikipedia/commons/a/ab/F.jpg'), 'commons.wikimedia.org');
+  assert.equal(wikimediaApiHost('http://upload.wikimedia.org/wikipedia/en/a/ab/F.jpg'), 'en.wikipedia.org');
+  assert.equal(wikimediaApiHost('https://example.com/f.jpg'), null);
+  assert.equal(wikimediaApiHost('https://commons.wikimedia.org/wiki/Special:FilePath/F.jpg'), null);
+  assert.equal(wikimediaApiHost(''), null);
+  assert.equal(wikimediaApiHost(null), null);
+});
+
+test('lastPathSegment URL-decodes the file title and strips any query/hash', () => {
+  assert.equal(lastPathSegment('https://upload.wikimedia.org/wikipedia/commons/d/d9/Foo_%28Bar%29.jpg'), 'Foo_(Bar).jpg');
+  assert.equal(lastPathSegment('https://x/y/Foo.jpg?utm=1#frag'), 'Foo.jpg');
+  assert.equal(lastPathSegment('https://x/y/Foo%20Bar.jpg'), 'Foo Bar.jpg');
+});
+
+test('addGravureModels downloads the 800px Wikimedia thumbnail, never the multi-MiB original', async () => {
+  const queueData = { queue: [entry('x', { photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Foo.jpg' })] };
+  const modelsData = { models: [], modelCount: 0 };
+  const fetcher = async (url) => {
+    if (url.includes('/api.php')) {
+      return Buffer.from(JSON.stringify({ query: { pages: [{ imageinfo: [{ thumburl: 'https://upload.wikimedia.org/THUMB.jpg' }] }] } }));
+    }
+    if (url === 'https://upload.wikimedia.org/THUMB.jpg') return fakeJpeg();
+    throw new Error('unexpected fetch — the original should NOT be requested: ' + url);
+  };
+  const result = await addGravureModels({ queueData, modelsData, limit: 10, fetcher });
+  assert.deepEqual(result.added, ['x']);
+  assert.equal(result.errored.length, 0);
+});
+
+test('addGravureModels falls back to the original photo when the API returns no thumburl', async () => {
+  const original = 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Foo.jpg';
+  const queueData = { queue: [entry('x', { photoUrl: original })] };
+  const modelsData = { models: [], modelCount: 0 };
+  const fetcher = async (url) => {
+    if (url.includes('/api.php')) return Buffer.from(JSON.stringify({ query: { pages: [{ imageinfo: [{}] }] } }));
+    if (url === original) return fakeJpeg();
+    throw new Error('unexpected fetch: ' + url);
+  };
+  const result = await addGravureModels({ queueData, modelsData, limit: 10, fetcher });
+  assert.deepEqual(result.added, ['x'], 'falls back to the original and still adds the model');
+  assert.equal(result.errored.length, 0);
 });
 
 test('dry run plans the additions but writes nothing and fetches nothing', async () => {

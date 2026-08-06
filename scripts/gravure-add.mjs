@@ -34,6 +34,31 @@ const MIN_PHOTO_BYTES = 2048;
 // The worker does not resize, so an over-large original is rejected (entry is
 // marked error, model not added) rather than shipped and breaking the deploy.
 const MAX_PHOTO_BYTES = 6_291_456; // 6 MiB
+// Target on-demand thumbnail width. Profile photos render at 160px (card) and
+// ~440px (modal), so an 800px source covers retina with room to spare while
+// keeping files in the tens-to-hundreds-of-KB range instead of multi-MiB.
+const THUMB_WIDTH = 800;
+
+// Map a Wikimedia upload URL to the API host that describes it, or null when
+// the URL is not a Wikimedia upload (downloaded as-is, no thumbnail lookup).
+export function wikimediaApiHost(photoUrl) {
+  if (typeof photoUrl !== "string" || !photoUrl) return null;
+  if (/^https?:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//i.test(photoUrl)) return "commons.wikimedia.org";
+  if (/^https?:\/\/upload\.wikimedia\.org\/wikipedia\/en\//i.test(photoUrl)) return "en.wikipedia.org";
+  return null;
+}
+
+// The File: title is the last path segment of the upload URL, URL-decoded and
+// stripped of any query/hash.
+export function lastPathSegment(url) {
+  const clean = String(url).split("?")[0].split("#")[0];
+  const seg = clean.split("/").pop() || "";
+  try {
+    return decodeURIComponent(seg);
+  } catch {
+    return seg;
+  }
+}
 
 // A model id must be safe as a filename component: lowercase ascii letters,
 // digits, hyphens. Anything else would create a file that build reconciliation
@@ -119,6 +144,35 @@ async function defaultFetcher(url) {
   return Buffer.from(await res.arrayBuffer());
 }
 
+// Best-effort: ask Wikimedia for an 800px thumbnail of the entry's photo and
+// download that instead of the (often multi-MiB) original, so profile photos
+// land in the KB range at the source. Any failure (non-Wikimedia host, API
+// error, missing thumburl) falls back to the original photoUrl; the
+// MAX_PHOTO_BYTES cap is the final guard. Covered via the addGravureModels
+// integration tests below with a stubbed fetcher.
+async function fetchPhotoBuffer(entry, fetcher) {
+  const original = entry.photoUrl;
+  const host = wikimediaApiHost(original);
+  if (host) {
+    try {
+      const apiUrl =
+        "https://" + host + "/w/api.php?action=query&format=json&formatversion=2" +
+        "&titles=" + encodeURIComponent("File:" + lastPathSegment(original)) +
+        "&prop=imageinfo&iiprop=url&iiurlwidth=" + THUMB_WIDTH;
+      const json = JSON.parse((await fetcher(apiUrl)).toString("utf8"));
+      const page = json && json.query && json.query.pages && json.query.pages[0];
+      const thumb = page && page.imageinfo && page.imageinfo[0] && page.imageinfo[0].thumburl;
+      if (thumb) {
+        const buf = await fetcher(thumb);
+        if (buf && buf.length) return buf;
+      }
+    } catch (_e) {
+      // fall back to the original below
+    }
+  }
+  return fetcher(original);
+}
+
 // Core logic. Pure with respect to the filesystem: it reads parsed data and an
 // injectable fetcher, and returns the new models/queue plus the buffers to
 // persist. The CLI wrapper (run) does the actual writes.
@@ -143,7 +197,7 @@ export async function addGravureModels({
       continue;
     }
     try {
-      const buffer = await fetcher(entry.photoUrl);
+      const buffer = await fetchPhotoBuffer(entry, fetcher);
       if (buffer.length > MAX_PHOTO_BYTES) {
         throw new Error(
           "photo is " + buffer.length + " bytes, exceeds the " + MAX_PHOTO_BYTES +
