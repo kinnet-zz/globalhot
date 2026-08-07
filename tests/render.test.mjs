@@ -140,7 +140,7 @@ test('isValidModel accepts every production model and rejects malformed entries'
   assert.equal(dyn.isValidModel({ id: 'x', name: 'X', country: 'Y', tags: 'z', sns: null }), false, 'null sns invalid');
 });
 
-test('selectPublishedModels keeps only photo-bearing models and preserves order', () => {
+test('selectPublishedModels keeps only photo-bearing models and orders gravure first', () => {
   // The directory must not flood with photo-less monogram cards. This gate is
   // what hides the ~170 entries that have no real profile photo after reconcile.
   const expected = allModels.filter((model) => model.photoAvailable === true);
@@ -149,12 +149,29 @@ test('selectPublishedModels keeps only photo-bearing models and preserves order'
   const published = dyn.selectPublishedModels(allModels);
   assert.equal(published.length, expected.length, 'only photoAvailable models are published');
   assert.deepEqual(
-    published.map((model) => model.id),
-    expected.map((model) => model.id),
-    'relative order is preserved',
+    published.map((model) => model.id).slice().sort(),
+    expected.map((model) => model.id).slice().sort(),
+    'no models are added or dropped by the gravure-first ordering',
   );
   for (const model of published) {
     assert.equal(model.photoAvailable, true, `${model.id}: every published model has a photo`);
+  }
+
+  // Directory priority: every gravure/cosplay/bikini model leads the feed ahead
+  // of any general model or actor with a photo. `priorityOf` classifies by
+  // tag containment, and the set is sorted with gravure-class entries first.
+  const priorityTags = ['gravure', 'cosplay', 'bikini', 'swimsuit', 'racing'];
+  function isPriority(tags) {
+    const hay = String(tags || '').toLowerCase();
+    return priorityTags.some(function (t) { return hay.indexOf(t) !== -1; });
+  }
+  const firstGeneralIndex = published.findIndex(function (model) {
+    return !isPriority(model.tags);
+  });
+  if (firstGeneralIndex !== -1) {
+    for (let i = 0; i < firstGeneralIndex; i += 1) {
+      assert.ok(isPriority(published[i].tags), `${published[i].id}: gravure-class model leads the feed`);
+    }
   }
 
   // Edge cases: non-array and empty input never throw. Compare by length
@@ -278,48 +295,45 @@ test('a fresh card hides the zero recommend count so it never reads as an empty 
   assert.equal(buttons[0].getAttribute('aria-pressed'), 'false', 'button starts in the not-pressed state');
 });
 
-test('card attribution is a subtle photo-credit footnote, not a "verified source" box', () => {
-  // Pin to enako (a known CC/Wikimedia model that carries no license fields) so
-  // the assertion stays stable regardless of which models sort first after the
-  // gravure auto-add pipeline grows the directory.
-  const enako = allModels.find((m) => m.id === 'enako') || allModels.find((m) => m.photoAvailable) || allModels[0];
-  const card = dyn.createModelCard(enako, 0);
+test('cards stay clean — no per-card photo credit, verified date, or registered-tag line', () => {
+  // The card no longer advertises "Photo · CC … · Wikimedia Commons", a
+  // "Verified YYYY.MM.DD" date, or "Official profile · N registered tags".
+  // Attribution is consolidated once on the about page; a card keeps only its
+  // photo, category, name, tag chips, official source links, and detail CTA.
+  for (const model of allModels.slice(0, 12)) {
+    const card = dyn.createModelCard(model, 0);
+    assert.equal(card.querySelector('.photo-credit'), null, `${model.id}: no per-card photo-credit footnote`);
+    assert.equal(card.querySelector('.profile-line'), null, `${model.id}: no registered-tag line`);
+    assert.equal(card.querySelector('time'), null, `${model.id}: no card footer date`);
+  }
 
-  const credit = card.querySelector('.photo-credit');
-  assert.ok(credit, 'a subtle photo-credit footnote exists');
+  const enakoModel = allModels.find((m) => m.id === 'enako') || allModels.find((m) => m.photoAvailable) || allModels[0];
+  const card = dyn.createModelCard(enakoModel, 0);
+  assert.equal(card.querySelector('.photo-credit'), null, 'no per-card photo-credit footnote');
   assert.equal(card.querySelector('.source-credit'), null, 'the verbose "verified source" box is gone');
   assert.equal(card.querySelector('.rights-badge'), null, 'the old separate rights-badge is gone');
-  assert.doesNotMatch(credit.textContent, /Verified official source/, 'no misleading verified-source claim');
-
-  // A model with no license fields falls back to the CC/Wikimedia default.
-  assert.match(credit.textContent, /CC BY-SA 4\.0/);
-  const link = credit.children.find((child) => child.tagName === 'A');
-  assert.ok(link, 'photo-credit links out to the photo source');
-  assert.equal(link.textContent, 'Wikimedia Commons');
-  assert.equal(link.target, '_blank');
-  assert.match(link.rel, /noopener/);
+  assert.ok(card.querySelector('.source-links'), 'official source links remain on the card');
 });
 
-test('a copyrighted model renders its own license and credit in the photo-credit line, never a false CC label', () => {
-  // Attribution is data-driven per model. A photo cleared as © must show
-  // exactly that — the CC default must never leak onto a copyrighted entry.
-  const copyrighted = {
-    id: 'copyrighted-test', name: 'Copyrighted Test', altName: '', country: 'JAPAN',
-    tags: 'model', sns: {},
-    license: '© 2026 Example Office', creditText: 'Example Talent Office',
-    creditUrl: 'https://example.com/credit',
-  };
-  const card = dyn.createModelCard(copyrighted, 0);
-  const credit = card.querySelector('.photo-credit');
-  assert.ok(credit, 'copyrighted model still gets a photo-credit footnote');
-  assert.equal(card.querySelector('.source-credit'), null);
-  assert.match(credit.textContent, /© 2026 Example Office/);
-  assert.doesNotMatch(credit.textContent, /CC BY-SA/);
-
-  const link = credit.children.find((child) => child.tagName === 'A');
-  assert.ok(link);
-  assert.equal(link.textContent, 'Example Talent Office');
-  assert.equal(link.href, 'https://example.com/credit');
-  assert.equal(link.target, '_blank');
-  assert.match(link.rel, /noopener/);
+test('attribution is consolidated on the about page, not scattered on every card', async () => {
+  // Credits move off the cards and onto the about page's "프로필 사진 출처" list,
+  // generated at build time from the reconciled photo-bearing models.
+  await buildPages();
+  const about = await readFile(path.join(projectRoot, 'dist', 'about.html'), 'utf8');
+  assert.match(about, /프로필 사진 출처/);
+  assert.match(about, /credit-model/);
+  assert.doesNotMatch(about, /<!-- PHOTO-CREDITS -->/, 'the placeholder must be replaced by real list items');
+  const published = allModels.filter((m) => m.photoAvailable === true);
+  assert.ok(published.length >= 1, 'fixture must include photo-bearing models');
+  for (const model of published) {
+    const display = model.altName ? `${model.name} (${model.altName})` : model.name;
+    assert.match(about, new RegExp(escapeRegex(display)), `${display} is listed in the about credits`);
+  }
+  // The default CC/Wikimedia fallback is present for models without explicit license.
+  assert.match(about, /CC BY-SA 4\.0/);
+  assert.match(about, /Wikimedia Commons/);
 });
+
+function escapeRegex(input) {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}

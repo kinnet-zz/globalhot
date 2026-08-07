@@ -62,7 +62,12 @@ test('homepage has no placeholder ad slots, no comments UI, and only local CC-li
     assert.match(tag, /\balt\s*=\s*["'][^"']+["']/);
     assert.match(tag, /\bloading\s*=\s*["']lazy["']/);
   }
-  assert.equal((html.match(/class\s*=\s*["']photo-credit["']/g) || []).length, 5);
+  // Attribution is consolidated on the about page; homepage cards carry no
+  // per-photo credit line, no card-footer date, and no registered-tag line.
+  assert.equal((html.match(/class\s*=\s*["']photo-credit["']/g) || []).length, 0);
+  assert.equal((html.match(/class\s*=\s*["']profile-line["']/g) || []).length, 0);
+  assert.equal((html.match(/<time\b/g) || []).length, 1, 'only the official-news date remains on the homepage');
+  assert.equal((html.match(/data-modal-updated/g) || []).length, 0, 'the modal no longer shows a verified date');
   assert.equal((html.match(/data-monogram\s*=\s*["']EI["']/g) || []).length, 1);
 });
 

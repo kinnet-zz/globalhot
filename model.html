@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlobalHot 모델 프로필. 상세 설명, 공식 출처, CC 라이선스 사진을 하나의 페이지에서 확인합니다.">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="GlobalHot">
+  <meta property="og:title" content="GlobalHot | 모델 프로필">
+  <meta property="og:description" content="GlobalHot 모델 프로필. 상세 설명, 공식 출처, CC 라이선스 사진을 확인합니다.">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://globalhot.net/model.html">
+  <link rel="stylesheet" href="/portal.css">
+  <script src="/analytics.js" defer></script>
+  <script src="/portal.js" defer></script>
+  <title>GlobalHot | 모델 프로필</title>
+  <style>
+    .profile-main{min-height:calc(100vh - 220px);background:linear-gradient(145deg,#0d0d10 8%,#16161a 100%);padding:52px 0 86px}
+    .profile-shell{width:min(980px,calc(100% - 40px));margin:0 auto}
+    .profile-header{display:flex;gap:26px;align-items:flex-start;margin-bottom:34px}
+    .profile-photo{flex:0 0 260px;max-width:260px}
+    .profile-photo .portrait{width:100%;aspect-ratio:3/4;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+    .profile-photo .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+    .profile-photo .photo-credit{color:var(--muted);font-size:.72rem;margin-top:9px;line-height:1.6}
+    .profile-copy{flex:1;min-width:0}
+    .profile-copy .eyebrow{color:var(--coral-soft);letter-spacing:.15em;font-size:.68rem;font-weight:900;margin:0 0 10px}
+    .profile-copy h1{margin:0;color:var(--ink);font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.05em}
+    .profile-copy h1 small{display:block;margin-top:6px;color:var(--muted);font-size:.92rem;letter-spacing:0}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0;color:var(--muted);font-size:.85rem}
+    .profile-meta span{display:inline-block;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+    .profile-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .profile-actions a{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;background:var(--coral);border:1px solid var(--coral);color:#fff;font-size:.82rem;font-weight:800;text-decoration:none;border-radius:6px}
+    .profile-actions a.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+    .profile-actions a:hover{background:var(--coral-soft);border-color:var(--coral-soft);color:#16110d}
+    .profile-section{border-top:1px solid var(--line);padding:28px 0;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:34px}
+    .profile-section h2{color:var(--ink);font-size:1.15rem;letter-spacing:-.04em;margin:0 0 14px}
+    .profile-bio{color:#cfc9c4;font-size:.96rem;line-height:1.82;white-space:pre-line}
+    .profile-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .profile-tags span{padding:4px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.75rem;background:rgba(255,255,255,.03)}
+    .profile-rail dl{display:grid;gap:12px;margin:0}
+    .profile-rail .photo-credit{margin:18px 0 0;color:var(--muted);font-size:.72rem;line-height:1.7;border-top:1px solid var(--line);padding-top:14px}
+    .profile-rail .photo-credit a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
+    .profile-rail dt{color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.06em}
+    .profile-rail dd{margin:3px 0 0;color:var(--ink);font-size:.9rem;line-height:1.5}
+    .back-link{display:inline-block;margin-bottom:26px;color:var(--muted);font-size:.84rem;text-decoration:none}
+    .back-link:hover{color:var(--coral-soft)}
+    .profile-actions a:focus-visible,.back-link:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+    .profile-section h2:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+    .profile-rail a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
+    .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    @media(max-width:700px){.profile-header{flex-direction:column}.profile-section{grid-template-columns:1fr;gap:20px}.profile-shell{width:min(100% - 28px,980px)}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+  <header class="site-header"><div class="shell header-inner"><a class="brand" href="/" aria-label="GlobalHot home">GLOBAL<span>HOT</span></a><nav class="primary-nav" aria-label="Primary"><a href="/#discover">Discover</a><a href="/#models">Profiles</a><a href="/#releases">Official updates</a><a href="/#ranking">Ranking</a></nav><a class="header-link" href="/#models">프로필 보기</a></div></header>
+  <main id="main-content" class="profile-main">
+    <div class="profile-shell">
+      <a class="back-link" href="/#models">← 모든 프로필 보기</a>
+      <div id="profileState" class="load-state">로딩 중...</div>
+      <section class="ad-zone-band" aria-label="Advertisement"><div class="shell"><aside class="ad-spot ad-network" id="ad-zone-banner" aria-label="Advertisement"><p class="ad-spot-label">Advertisement</p></aside></div></section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-grid"><div><a class="brand" href="/">GLOBAL<span>HOT</span></a><p>Official-source profile directory. Profile photos use CC-licensed images with attribution.</p><p class="rights-note">Name, trademark, and content rights belong to respective owners. Correction/removal requests: admin@globalhot.net</p></div><nav aria-label="Footer"><a href="/about.html">소개</a><a href="/privacy.html">개인정보</a><a href="/terms.html">이용약관</a></nav></div><p class="shell copyright">© 2026 GlobalHot.</p></footer>
+  <nav class="mobile-nav" aria-label="모바일 메뉴"><a class="mobile-nav-item" href="/"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a><a class="mobile-nav-item" href="/#ranking"><span class="mobile-nav-icon" aria-hidden="true">★</span><span>랭킹</span></a><a class="mobile-nav-item" href="/#models"><span class="mobile-nav-icon" aria-hidden="true">✦</span><span>신작</span></a><a class="mobile-nav-item" href="/#updates"><span class="mobile-nav-icon" aria-hidden="true">◑</span><span>모델</span></a><a class="mobile-nav-item" href="/#discover"><span class="mobile-nav-icon" aria-hidden="true">⌕</span><span>검색</span></a></nav>
+
+  <script>
+    (function () {
+      'use strict';
+      var modelsJsonUrl = '/data/models.json';
+      var stateEl = document.getElementById('profileState');
+      if (!stateEl) return;
+
+      function buildMonogram(name) {
+        if (!name) return '';
+        var parts = String(name).split(/\s+/).filter(Boolean);
+        return parts.slice(0, 2).map(function (p) { return p.charAt(0); }).join('').toUpperCase();
+      }
+
+      function syncMeta(model) {
+        var photoUrl = model.photoAvailable
+          ? 'https://globalhot.net/assets/profiles/' + encodeURIComponent(model.id) + '.jpg'
+          : '';
+        var desc = (model.bio || model.name + ' 공식 프로필').slice(0, 160);
+        setMeta('og:title', 'property', model.name + ' | GlobalHot');
+        setMeta('og:description', 'property', desc);
+        setMeta('twitter:title', 'name', model.name + ' | GlobalHot');
+        setMeta('twitter:description', 'name', desc);
+        var ogImage = document.querySelector('meta[property="og:image"]');
+        if (!ogImage && photoUrl) {
+          ogImage = document.createElement('meta');
+          ogImage.setAttribute('property', 'og:image');
+          document.head.appendChild(ogImage);
+        }
+        if (ogImage) ogImage.setAttribute('content', photoUrl);
+        var canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', 'https://globalhot.net/model.html?id=' + encodeURIComponent(model.id));
+      }
+
+      function setMeta(key, attr, value) {
+        var el = document.querySelector('meta[' + attr + '="' + key + '"]');
+        if (el) el.setAttribute('content', value);
+      }
+
+      function safeAnchor(href, label, ghost) {
+        var a = document.createElement('a');
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = label;
+        if (ghost) a.className = 'ghost';
+        return a;
+      }
+
+      function mount(titleText, model) {
+        document.title = titleText;
+        syncMeta(model);
+
+        var back = document.createElement('a');
+        back.className = 'back-link';
+        back.href = '/#models';
+        back.textContent = '← 모든 프로필 보기';
+        stateEl.parentNode.insertBefore(back, stateEl);
+
+        var header = document.createElement('div');
+        header.className = 'profile-header';
+
+        var photo = document.createElement('div');
+        photo.className = 'profile-photo';
+        var portrait = document.createElement('div');
+        portrait.className = 'portrait';
+        portrait.setAttribute('role', 'img');
+        if (model.photoAvailable) {
+          portrait.setAttribute('aria-label', model.name + ' 프로필 사진');
+          var img = document.createElement('img');
+          img.src = '/assets/profiles/' + model.id + '.jpg';
+          img.alt = model.name + ' 프로필 사진';
+          portrait.appendChild(img);
+        } else {
+          portrait.setAttribute('data-monogram', buildMonogram(model.name));
+          portrait.setAttribute('aria-label', model.name + ' (모노그램)');
+          var mo = document.createElement('span');
+          mo.textContent = 'NO PHOTO';
+          portrait.appendChild(mo);
+        }
+        photo.appendChild(portrait);
+
+        var copy = document.createElement('div');
+        copy.className = 'profile-copy';
+
+        var eyebrow = document.createElement('p');
+        eyebrow.className = 'eyebrow';
+        eyebrow.textContent = (model.category || 'MODEL') + ' PROFILE';
+        copy.appendChild(eyebrow);
+
+        var h1 = document.createElement('h1');
+        h1.textContent = model.name;
+        if (model.altName) {
+          var small = document.createElement('small');
+          small.textContent = model.altName;
+          h1.appendChild(small);
+        }
+        copy.appendChild(h1);
+
+        var meta = document.createElement('div');
+        meta.className = 'profile-meta';
+        [
+          ['국가', model.country],
+        ].forEach(function (pair) {
+          var span = document.createElement('span');
+          span.textContent = pair[0] + ': ' + pair[1];
+          meta.appendChild(span);
+        });
+        copy.appendChild(meta);
+
+        var actions = document.createElement('div');
+        actions.className = 'profile-actions';
+        if (model.officialUrl) actions.appendChild(safeAnchor(model.officialUrl, '공식 프로필'));
+        if (model.sns && model.sns.x) actions.appendChild(safeAnchor(model.sns.x, 'X', true));
+        if (model.sns && model.sns.instagram) actions.appendChild(safeAnchor(model.sns.instagram, 'Instagram', true));
+        if (model.sns && model.sns.youtube) actions.appendChild(safeAnchor(model.sns.youtube, 'YouTube', true));
+        copy.appendChild(actions);
+
+        header.appendChild(photo);
+        header.appendChild(copy);
+        var headerNode = header;
+        stateEl.replaceWith(headerNode);
+
+        var section = document.createElement('section');
+        section.className = 'profile-section';
+        var bioCol = document.createElement('div');
+        var bioTitle = document.createElement('h2');
+        bioTitle.textContent = '모델 소개';
+        bioCol.appendChild(bioTitle);
+        var bio = document.createElement('p');
+        bio.className = 'profile-bio';
+        bio.textContent = model.bio || (model.name + '의 공식 프로필입니다. 최신 활동은 공식 채널과 소속사 프로필에서 확인하세요.');
+        bioCol.appendChild(bio);
+        if (model.tags) {
+          var tags = document.createElement('div');
+          tags.className = 'profile-tags';
+          String(model.tags).split(/\s+/).filter(Boolean).forEach(function (tag) {
+            var span = document.createElement('span');
+            span.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+            tags.appendChild(span);
+          });
+          bioCol.appendChild(tags);
+        }
+        section.appendChild(bioCol);
+
+        var rail = document.createElement('aside');
+        rail.className = 'profile-rail';
+        var dl = document.createElement('dl');
+        var facts = [
+          ['국가', model.country],
+          ['라이선스', (model.license && String(model.license)) || 'CC BY-SA 4.0'],
+        ];
+        facts.forEach(function (pair) {
+          var term = document.createElement('dt');
+          term.textContent = pair[0];
+          var value = document.createElement('dd');
+          value.textContent = pair[1];
+          dl.appendChild(term);
+          dl.appendChild(value);
+        });
+        rail.appendChild(dl);
+
+        section.appendChild(rail);
+        headerNode.after(section);
+      }
+
+      function renderModel(model) {
+        var category = 'model';
+        var tags = String(model.tags || '');
+        if (tags.indexOf('gravure') !== -1) category = 'gravure';
+        else if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
+        model.category = category;
+        model.updated = model.updatedAt || '2026-08-02';
+        mount(model.name + ' | GlobalHot', model);
+      }
+
+      function showMissing() {
+        stateEl.replaceChildren();
+        var p = document.createElement('p');
+        p.textContent = '요청하신 모델 프로필을 찾을 수 없습니다.';
+        stateEl.appendChild(p);
+        var a = document.createElement('a');
+        a.className = 'ghost';
+        a.href = '/#models';
+        a.textContent = '모든 프로필 보기';
+        stateEl.appendChild(a);
+      }
+
+      function findModel(models, id) {
+        if (!Array.isArray(models)) return null;
+        for (var i = 0; i < models.length; i += 1) {
+          if (models[i] && models[i].id === id) return models[i];
+        }
+        return null;
+      }
+
+      var id = new URLSearchParams(window.location.search).get('id');
+      if (!id) {
+        showMissing();
+        return;
+      }
+      window.fetch(modelsJsonUrl, { headers: { Accept: 'application/json' }, cache: 'no-cache' })
+        .then(function (response) { if (!response || !response.ok) throw new Error('load_failed'); return response.json(); })
+        .then(function (data) {
+          var model = findModels(data.models, id);
+          if (!model) throw new Error('not_found');
+          renderModel(model);
+        })
+        .catch(function () {
+          if (stateEl) showMissing();
+        });
+    }());
+  </script>
+</body>
+</html>

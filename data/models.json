@@ -23,7 +23,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 191,
+  "modelCount": 192,
   "models": [
     {
       "id": "enako",
@@ -2912,7 +2912,8 @@
       },
       "license": "CC BY-SA 3.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Dasdas_Special_AV_Event_by_LonelyBob_(Rin_Aoki_crop).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Dasdas_Special_AV_Event_by_LonelyBob_(Rin_Aoki_crop).jpg",
+      "bio": "일본의 그라비아 모델 겸 배우. 사진집·주간지 그라비아와 이벤트 활동을 중심으로 활약했으며, 그라비아 출판물에 다수 출연했다."
     },
     {
       "id": "saori-hara",
@@ -2930,7 +2931,27 @@
       },
       "license": "CC BY 2.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Matsunoi_Miyabi_from_%22GARO_-KAMINOKIBA-%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2017_(40170147262).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Matsunoi_Miyabi_from_%22GARO_-KAMINOKIBA-%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2017_(40170147262).jpg",
+      "bio": "일본의 그라비아 모델 겸 배우. 주간지·디지털 그라비아에서 활동하며 사진집 발매와 이벤트 참여로 이름을 알렸다."
+    },
+    {
+      "id": "aya-asahina",
+      "name": "Aya Asahina",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E6%9C%9D%E6%AF%94%E5%A5%88%E5%BD%A9.png",
+      "bio": "일본의 대표적 그라비아 아이돌. 국내외 주간지·디지털 그라비아를 넘나들며 활발히 활동했고, 팬 이벤트와 사진집으로 큰 화제를 모았다."
     }
   ]
 }

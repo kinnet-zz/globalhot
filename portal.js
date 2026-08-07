@@ -520,10 +520,6 @@
       nameHeading.appendChild(small);
     }
 
-    var profileLine = document.createElement('p');
-    profileLine.className = 'profile-line';
-    profileLine.textContent = 'Official profile · ' + tags.length + ' registered tags';
-
     var tagList = document.createElement('div');
     tagList.className = 'tag-list';
     var tagArray = tags.slice(0, 3);
@@ -564,30 +560,13 @@
       sourceLinks.appendChild(searchLink);
     }
 
-    // Subtle photo attribution: where the photo came from + its license, as a
-    // quiet footnote. This is NOT a "verified source" claim — the model's own
-    // official channels (source-links above) are the directory's real source.
-    // Per-model license/credit so a copyrighted photo is never mislabelled CC;
-    // models without those fields fall back to the CC/Wikimedia default.
-    var creditLicense = (model.license && String(model.license)) || 'CC BY-SA 4.0';
-    var creditText = (model.creditText && String(model.creditText)) || 'Wikimedia Commons';
-    var creditUrl = (model.creditUrl && String(model.creditUrl)) || 'https://commons.wikimedia.org/';
-    var photoCredit = document.createElement('p');
-    photoCredit.className = 'photo-credit';
-    photoCredit.textContent = 'Photo · ' + creditLicense + ' · ';
-    var creditLink = document.createElement('a');
-    creditLink.href = creditUrl;
-    creditLink.target = '_blank';
-    creditLink.rel = 'noopener noreferrer';
-    creditLink.textContent = creditText;
-    photoCredit.appendChild(creditLink);
-
+    // Subtle photo attribution: where the photo came from + its license. Per-model
+    // license/credit so a copyrighted photo is never mislabelled CC; models without
+    // those fields fall back to the CC/Wikimedia default. Attribution is kept OFF
+    // the card (a noisy per-card footnote) and consolidated on the about page's
+    // "프로필 사진 출처" section at build time, so a card stays clean and focused.
     var cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
-
-    var time = document.createElement('time');
-    time.dateTime = '2026-08-02';
-    time.textContent = 'Verified 2026.08.02';
 
     // The recommend count stays hidden until it is non-zero. An always-"0"
     // count reads as an empty social feature on a directory; the count earns
@@ -606,20 +585,24 @@
     recommendButton.type = 'button';
     recommendButton.setAttribute('data-recommend-model', model.id);
     recommendButton.setAttribute('aria-pressed', 'false');
-    recommendButton.textContent = 'Recommend';
+    recommendButton.textContent = '추천';
 
     recommendWrap.appendChild(recommendCount);
     recommendWrap.appendChild(recommendButton);
 
-    cardFooter.appendChild(time);
     cardFooter.appendChild(recommendWrap);
 
     cardBody.appendChild(categoryLabel);
     cardBody.appendChild(nameHeading);
-    cardBody.appendChild(profileLine);
     cardBody.appendChild(tagList);
+
+    var detailLink = document.createElement('a');
+    detailLink.className = 'card-detail-link';
+    detailLink.href = '/model.html?id=' + encodeURIComponent(model.id);
+    detailLink.textContent = '상세 프로필 보기 →';
+    cardBody.appendChild(detailLink);
+
     cardBody.appendChild(sourceLinks);
-    cardBody.appendChild(photoCredit);
     cardBody.appendChild(cardFooter);
 
     card.appendChild(portrait);
@@ -652,14 +635,33 @@
     });
   }
 
-  // Directory gate: only models with a real, reconciled profile photo are shown.
+// Directory gate: only models with a real, reconciled profile photo are shown.
   // Photo-less entries are filtered out of the loaded set (NOT deleted from the
   // data), so every downstream step — search, filter, sort, ranking, load-more —
   // only ever sees publishable profiles. Dropping a photo into assets/profiles/
   // and rebuilding restores a hidden model automatically.
+  //
+  // The loaded set is then ordered by directory priority so gravure/sexy models
+  // surface first: gravure > cosplay > general model/actor. The user's directory
+  // is gravure-centric, so the primary feed leads with those profiles before
+  // general fashion models, actresses, and mainstream talent.
+  function priorityOf(model) {
+    if (!model || typeof model.tags !== 'string') return 3;
+    var tags = model.tags.toLowerCase();
+    if (tags.indexOf('gravure') !== -1) return 0;
+    if (tags.indexOf('cosplay') !== -1) return 1;
+    if (tags.indexOf('bikini') !== -1 || tags.indexOf('swimsuit') !== -1 || tags.indexOf('racing') !== -1) return 1;
+    return 2;
+  }
+
   function selectPublishedModels(models) {
-    return (Array.isArray(models) ? models : []).filter(function (model) {
+    var published = (Array.isArray(models) ? models : []).filter(function (model) {
       return model && model.photoAvailable === true;
+    });
+    return published.slice().sort(function (a, b) {
+      var diff = priorityOf(a) - priorityOf(b);
+      if (diff !== 0) return diff;
+      return String((a && a.name) || '').localeCompare(String((b && b.name) || ''), 'ko');
     });
   }
 
@@ -750,11 +752,9 @@
 
     function fillModal(card) {
       var recCount = card.querySelector('[data-recommendation-count]');
-      var profileLine = card.querySelector('.profile-line');
       var categoryLabel = card.querySelector('.category-label');
       var portrait = card.querySelector('.portrait');
       var photo = card.querySelector('.portrait img');
-      var photoCredit = card.querySelector('.photo-credit');
       var sourceLinks = card.querySelectorAll('.source-links a');
 
       var name = card.dataset.name || '';
@@ -763,7 +763,12 @@
 
       if (categoryEl) categoryEl.textContent = categoryLabel ? categoryLabel.textContent.trim() : '';
       if (titleEl) titleEl.textContent = name + (altName ? ' ' + altName : '');
-      if (summaryEl) summaryEl.textContent = profileLine ? profileLine.textContent.trim() : '';
+      if (summaryEl) {
+        var modalTags = (card.dataset.tags || '').split(/\s+/).filter(Boolean);
+        summaryEl.textContent = modalTags.length
+          ? modalTags.map(function (t) { return t.charAt(0).toUpperCase() + t.slice(1); }).join(' · ')
+          : (card.dataset.country || '');
+      }
       if (countryEl) countryEl.textContent = card.dataset.country || '';
       if (updatedEl) updatedEl.textContent = card.dataset.updated || '';
       if (recEl) recEl.textContent = recCount ? recCount.textContent.trim() : '0';
@@ -792,6 +797,11 @@
 
       if (actionsEl) {
         clearActions();
+        var detail = document.createElement('a');
+        detail.className = 'card-detail-link';
+        detail.href = '/model.html?id=' + encodeURIComponent(card.dataset.modelId);
+        detail.textContent = '전체 프로필 보기 →';
+        actionsEl.append(detail);
         Array.prototype.forEach.call(sourceLinks, function (link) {
           var anchor = document.createElement('a');
           anchor.href = link.getAttribute('href') || '';
@@ -800,14 +810,6 @@
           anchor.rel = 'noopener noreferrer';
           actionsEl.append(anchor);
         });
-        if (photoCredit) {
-          var credit = document.createElement('p');
-          credit.className = 'photo-credit';
-          Array.prototype.forEach.call(photoCredit.childNodes, function (node) {
-            credit.append(node.cloneNode(true));
-          });
-          actionsEl.append(credit);
-        }
       }
     }
 
