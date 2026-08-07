@@ -1,0 +1,88 @@
+/* GlobalHot 리빌딩 섹션 — AI 데모 / 광고 레이어 / 갤러리 / 플레이그라운드
+   기존 portal.css의 변수와 테마를 재사용하고, 추가 컴포넌트만 정의한다.
+   portal.css와 달리 이 파일의 추가는 기존 페이지 테스트를 깨지 않는다. */
+
+/* ---------- AI 데모 미리보기 (홈) ---------- */
+.ai-demo-banner{
+  padding:34px 0 40px;
+  background:linear-gradient(180deg,rgba(255,73,56,.06),transparent 40%),radial-gradient(circle at 15% 30%,rgba(255,122,110,.10),transparent 38%);
+  border-bottom:1px solid var(--line);
+}
+.ai-demo .section-heading{margin-bottom:18px}
+.ai-demo-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}
+.ai-card{
+  position:relative;background:var(--surface);border:1px solid var(--line);
+  border-top:3px solid var(--coral);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:14px;
+}
+.ai-card h3{margin:0;font-size:1.02rem;color:#fff}
+.ai-card .ai-desc{margin:0;color:var(--muted);font-size:.82rem;line-height:1.55}
+.ai-input-wrap{display:flex;gap:8px;align-items:center}
+.ai-input{flex:1;min-width:0;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.03);color:var(--ink);font-size:.9rem}
+.ai-input:focus{outline:2px solid var(--focus);outline-offset:1px}
+.ai-run{height:44px;padding:0 20px;border:0;border-radius:6px;background:var(--coral);color:#fff;font-weight:900;font-size:.82rem;cursor:pointer;letter-spacing:.03em;white-space:nowrap}
+.ai-run:hover{background:var(--coral-soft)}
+.ai-run:disabled{opacity:.55;cursor:default}
+.ai-progress{min-height:20px;margin:0;color:var(--coral-soft);font-size:.78rem;font-weight:800}
+.ai-result{border-top:1px dashed var(--line);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.ai-result-label{color:var(--coral-soft);font-size:.72rem;font-weight:900;letter-spacing:.08em}
+.ai-image-grid{height:170px;border-radius:6px;display:grid;place-items:center;border:1px solid var(--line)}
+.ai-image-mono{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:rgba(255,255,255,.9);letter-spacing:.05em;text-shadow:0 4px 18px rgba(0,0,0,.4)}
+.ai-image-caption,.ai-result-text{margin:0;color:var(--ink);font-size:.88rem;line-height:1.6}
+.ai-result-list{margin:0;padding-left:18px;color:var(--ink);font-size:.86rem;display:flex;flex-direction:column;gap:6px}
+.ai-result-note{margin:0;color:var(--quiet);font-size:.7rem;line-height:1.5}
+.ai-cta{text-align:right}
+.ai-cta a{display:inline-flex;align-items:center;gap:6px;color:var(--coral-soft);font-weight:900;font-size:.78rem;text-decoration:none;border-bottom:1px solid var(--coral)}
+.ai-cta a:hover{color:#fff}
+
+/* ---------- 광고 레이어 ---------- */
+.ad-zone-band{padding:26px 0;background:#101319;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ad-zone-band .shell{display:flex;justify-content:center}
+.ad-slot{position:relative;min-height:90px;display:flex;align-items:center;justify-content:center;margin:0 auto;width:100%}
+.ad-slot[data-width="728"]{max-width:728px}
+.ad-slot[data-width="300"]{max-width:300px}
+.ad-slot .ad-spot-label{margin:0;font-size:.6rem;font-weight:900;letter-spacing:.12em;color:var(--quiet);text-transform:uppercase}
+.ad-slot ins{display:block}
+.ad-fallback{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 16px;border:1px dashed var(--line);border-radius:8px;text-align:center}
+.ad-fallback-label{color:var(--muted);font-size:.76rem;font-weight:700}
+.ad-fallback .support-cta{margin-top:0}
+
+/* ---------- 플레이그라운드 ---------- */
+.playground-main{padding:46px 0 72px;background:linear-gradient(150deg,#0d0d10 8%,#171a22 100%);min-height:70vh}
+.playground-shell{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
+.playground-panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.playground-panel h1{margin:0;font-family:'Bebas Neue','Noto Sans KR',sans-serif;font-size:1.9rem;letter-spacing:-.02em}
+.playground-panel .lead{margin:0;color:var(--muted);font-size:.86rem;line-height:1.6}
+.model-picker{display:flex;flex-wrap:wrap;gap:8px}
+.model-chip{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font-size:.8rem;font-weight:800;cursor:pointer}
+.model-chip.is-active{border-color:var(--coral);color:var(--coral-soft);background:rgba(255,73,56,.08)}
+.playground-form{display:flex;flex-direction:column;gap:10px}
+.playground-form label{color:var(--muted);font-size:.74rem;font-weight:800;letter-spacing:.04em}
+.playground-form textarea,.playground-form input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.03);color:var(--ink);font-size:.9rem;font-family:inherit;min-height:96px;resize:vertical}
+.playground-form textarea:focus,.playground-form input:focus{outline:2px solid var(--focus)}
+.playground-run{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border:0;border-radius:6px;background:var(--coral);color:#fff;font-weight:900;font-size:.86rem;cursor:pointer}
+.playground-run:hover{background:var(--coral-soft)}
+.playground-run:disabled{opacity:.55;cursor:default}
+.playground-facts{display:flex;flex-wrap:wrap;gap:10px;margin:0;color:var(--muted);font-size:.8rem}
+.playground-facts span{padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+.playground-side{display:flex;flex-direction:column;gap:18px}
+.playground-guide{display:flex;flex-direction:column;gap:14px}
+.playground-guide details{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.02)}
+.playground-guide summary{padding:12px 14px;cursor:pointer;font-size:.84rem;font-weight:800;color:var(--ink)}
+.playground-guide .guide-body{padding:0 14px 12px;color:var(--muted);font-size:.8rem;line-height:1.6}
+/* 사이드바 하프 (300x250) */
+.ad-sticky{position:sticky;top:86px;display:flex;flex-direction:column;gap:14px}
+
+/* ---------- 갤러리 ---------- */
+.gallery-main{padding:40px 0 70px}
+.gallery-heading{margin-bottom:22px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gallery-item{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;display:grid;place-items:center;color:#fff;text-align:center;background:var(--panel)}
+.gallery-item .gallery-mono{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;opacity:.9;letter-spacing:.05em}
+.gallery-item .gallery-caption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 10px;font-size:.7rem;font-weight:700;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+/* 인피드 광고 기본광고 카드 */
+.gallery-infeed{display:none}
+@media(min-width:1000px){.gallery-grid.has-infeed .gallery-infeed{width:300px;margin:0 auto}}
+
+@media(max-width:980px){.ai-demo-grid,.playground-shell{grid-template-columns:1fr}.playground-side{flex-direction:row}.ad-sticky{position:static}.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.ai-input-wrap{flex-direction:column;align-items:stretch}.ai-run-btn{width:100%}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.playground-side{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.ai-image-grid{transition:none}}

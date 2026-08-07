@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlobalHot 플레이그라운드 — 이미지 생성, 텍스트 요약, 아이디어 스파크 AI 데모를 브라우저에서 바로 시험해보세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GlobalHot">
+  <meta property="og:title" content="GlobalHot | AI 플레이그라운드">
+  <meta property="og:description" content="AI 데모를 브라우저에서 바로 사용해보세요.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://poweredby.jads.co 'unsafe-inline'">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://globalhot.net/playground.html">
+  <link rel="stylesheet" href="/portal.css">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/analytics.js" defer></script>
+  <script src="/ads.js" defer></script>
+  <script src="/ai-demo.js" defer></script>
+  <title>GlobalHot | AI 플레이그라운드</title>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="/#ai-demo">AI 데모</a>
+        <a href="/#models">프로필</a>
+        <a href="/#ranking">랭킹</a>
+        <a href="/gallery.html">갤러리</a>
+      </nav>
+      <a class="header-link" href="/">홈으로</a>
+    </div>
+  </header>
+  <main id="main-content" class="playground-main">
+    <div class="shell playground-shell">
+      <div class="playground-panel">
+        <p class="eyebrow">PLAYGROUND</p>
+        <h1>AI 데모 플레이그라운드</h1>
+        <p class="lead">원하는 모델을 선택하고 입력을 넣어보세요. 실제 모델 연동 전 데모 모드로 동작하며, 결과는 브라우저에서 즉시 돌아옵니다.</p>
+
+        <div id="modelPicker" class="model-picker" role="tablist" aria-label="모델 선택">
+          <button class="model-chip is-active" type="button" role="tab" aria-selected="true" data-model-pick="image-vision">이미지 생성</button>
+          <button class="model-chip" type="button" role="tab" aria-selected="false" data-model-pick="text-summary">텍스트 요약</button>
+          <button class="model-chip" type="button" role="tab" aria-selected="false" data-model-pick="idea-spark">아이디어 스파크</button>
+        </div>
+
+        <div class="playground-form" data-ai-box data-ai-model="image-vision">
+          <label for="playgroundInput">입력</label>
+          <input id="playgroundInput" class="ai-input" type="text" data-ai-input placeholder="예) neon city, rainy street, pastel">
+          <button class="playground-run" type="button" data-ai-run>실행</button>
+          <p class="ai-progress" data-ai-progress hidden></p>
+          <div class="ai-result" data-ai-result hidden></div>
+        </div>
+
+        <p class="playground-facts">
+          <span>제공 · 데모</span>
+          <span>브라우저 실행</span>
+          <span>결과는 저장되지 않음</span>
+        </p>
+      </div>
+
+      <aside class="playground-side">
+        <div class="ad-sticky">
+          <aside class="ad-slot" data-ad-zone data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고">
+            <p class="ad-spot-label">Sponsored</p>
+          </aside>
+          <aside class="ad-slot" data-ad-zone data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고">
+            <p class="ad-spot-label">Sponsored</p>
+          </aside>
+        </div>
+        <section class="playground-guide" aria-labelledby="guide-title">
+          <div class="section-heading compact"><div><p class="eyebrow">GUIDE</p><h2 id="guide-title">사용 가이드</h2></div></div>
+          <details open><summary>어떻게 사용하나요?</summary><div class="guide-body">위에서 모델을 고르고, 입력란에 키워드나 문장을 넣은 뒤 실행을 누르세요. 진행률이 표시된 뒤 결과 카드가 나타납니다.</div></details>
+          <details><summary>결과물의 저작권은?</summary><div class="guide-body">데모 결과물은 실제 모델이 생성하지 않은 미리보기입니다. 실서비스 전환 시 각 모델의 이용약관이 적용됩니다.</div></details>
+          <details><summary>왜 광고가 있나요?</summary><div class="guide-body">GlobalHot은 광고 수익으로 서버 비용과 모델 연동 비용을 충당합니다. 광고 차단 시 후원 버튼이 대신 표시됩니다.</div></details>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="/">GLOBAL<span>HOT</span></a>
+        <p>Official-source profile directory + AI demo playground.</p>
+        <p class="rights-note">콘텐츠·성명·상표 권리는 각 권리자에게 있습니다.</p>
+        <a class="support-cta" href="https://patreon.com/globalhot" target="_blank" rel="noopener noreferrer" aria-label="Patreon으로 GlobalHot 후원 (새 창)"><span class="support-icon" aria-hidden="true">⭐</span><span>Become a Patron</span></a>
+      </div>
+      <nav aria-label="푸터 메뉴">
+        <a href="/about.html">소개</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/terms.html">이용약관</a>
+      </nav>
+    </div>
+    <p class="shell copyright">© 2026 GlobalHot.</p>
+  </footer>
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a class="mobile-nav-item" href="/"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a>
+    <a class="mobile-nav-item is-active" href="#main-content"><span class="mobile-nav-icon" aria-hidden="true">▶</span><span>실험</span></a>
+    <a class="mobile-nav-item" href="/#models"><span class="mobile-nav-icon" aria-hidden="true">◈</span><span>프로필</span></a>
+    <a class="mobile-nav-item" href="/#ranking"><span class="mobile-nav-icon" aria-hidden="true">★</span><span>랭킹</span></a>
+    <a class="mobile-nav-item" href="/gallery.html"><span class="mobile-nav-icon" aria-hidden="true">▦</span><span>갤러리</span></a>
+  </nav>
+
+  <script>
+    (function () {
+      'use strict';
+      var picker = document.getElementById('modelPicker');
+      var box = document.querySelector('[data-ai-box]');
+      if (!picker || !box) return;
+      var PLACEHOLDERS = {
+        'image-vision': '예) neon city, rainy street, pastel',
+        'text-summary': '요약할 문장을 붙여넣으세요.',
+        'idea-spark': '예: 여름 한정 LINE 스탬프',
+      };
+      var BADGES = { 'image-vision': '한 장 생성', 'text-summary': '한 번 요약', 'idea-spark': '세 가지 제안' };
+      var chips = Array.prototype.slice.call(picker.querySelectorAll('[data-model-pick]'));
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var id = chip.getAttribute('data-model-pick');
+          box.setAttribute('data-ai-model', id);
+          chips.forEach(function (c) {
+            var active = c === chip;
+            c.classList.toggle('is-active', active);
+            c.setAttribute('aria-selected', String(active));
+          });
+          var inputEl = box.querySelector('[data-ai-input]');
+          if (inputEl && PLACEHOLDERS[id]) inputEl.setAttribute('placeholder', PLACEHOLDERS[id]);
+          var resultEl = box.querySelector('[data-ai-result]');
+          var progressEl = box.querySelector('[data-ai-progress]');
+          if (resultEl) resultEl.hidden = true;
+          if (progressEl) progressEl.hidden = true;
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

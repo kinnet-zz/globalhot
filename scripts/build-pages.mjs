@@ -7,13 +7,18 @@ import { applyCacheBust } from "./cache-bust.mjs";
 export const STATIC_FILES = [
   "index.html",
   "model.html",
+  "playground.html",
+  "gallery.html",
   "about.html",
   "privacy.html",
   "terms.html",
   "404.html",
   "portal.css",
+  "app.css",
   "info.css",
   "portal.js",
+  "ads.js",
+  "ai-demo.js",
   "analytics.js",
   "ads.txt",
   "robots.txt",
@@ -123,7 +128,7 @@ export async function buildPages() {
   await applyCacheBust({
     projectRoot,
     distDir,
-    htmlFiles: ["index.html", "about.html", "privacy.html", "terms.html", "404.html"],
+    htmlFiles: ["index.html", "model.html", "playground.html", "gallery.html", "about.html", "privacy.html", "terms.html", "404.html"],
   });
 
   const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);

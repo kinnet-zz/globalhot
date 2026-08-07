@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlobalHot 갤러리 — AI 데모 결과물과 프로필 사진을 한곳에서 모아봅니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GlobalHot">
+  <meta property="og:title" content="GlobalHot | 갤러리">
+  <meta property="og:description" content="커뮤니티 AI 데모 결과물 모아보기.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://globalhot.net/gallery.html">
+  <link rel="stylesheet" href="/portal.css">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/analytics.js" defer></script>
+  <script src="/ads.js" defer></script>
+  <script src="/ai-demo.js" defer></script>
+  <title>GlobalHot | 갤러리</title>
+  <style>
+    .gallery-masonry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .gallery-tile{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;display:grid;place-items:center;color:#fff;background:var(--panel)}
+    .gallery-tile .tile-mono{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;opacity:.92}
+    .gallery-tile .tile-caption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;font-size:.72rem;font-weight:800;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+    .gallery-tile.outbound{grid-column:span 2}
+    @media(max-width:820px){.gallery-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-tile.outbound{grid-column:span 2}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="/#ai-demo">AI 데모</a>
+        <a href="/#models">프로필</a>
+        <a href="/#ranking">랭킹</a>
+        <a href="/playground.html">플레이그라운드</a>
+      </nav>
+      <a class="header-link" href="/playground.html">데모 사용하기</a>
+    </div>
+  </header>
+  <main id="main-content" class="gallery-main">
+    <div class="shell">
+      <div class="section-heading gallery-heading">
+        <div><p class="eyebrow">GALLERY</p><h1>커뮤니티 갤러리</h1></div>
+        <p>플레이그라운드 데모 결과와 확인된 공식 사진을 모아봅니다.</p>
+      </div>
+
+      <div id="gallerySeed" class="gallery-meta" data-ads-config=".ad-slot">
+        <article class="gallery-tile" style="background:linear-gradient(135deg,#2a2f3a,#101218)"><span class="tile-mono">DEMO</span><span class="tile-caption">데모 결과 · 이미지 생성</span></article>
+        <article class="gallery-tile" style="background:linear-gradient(135deg,#1c2333,#0d0f14)"><span class="tile-mono">AI</span><span class="tile-caption">아이디어 스파크</span></article>
+        <article class="gallery-tile" style="background:linear-gradient(135deg,#241a20,#100d10)"><span class="tile-mono">SUM</span><span class="tile-caption">텍스트 요약</span></article>
+        <aside class="ad-slot" data-ad-zone data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고 인피드">
+          <p class="ad-spot-label">Sponsored</p>
+        </aside>
+        <article class="gallery-tile" style="background:linear-gradient(135deg,#111a2a,#0d0f14)"><span class="tile-mono">EN</span><span class="tile-caption">Enako · 공개 프로필</span></article>
+        <article class="gallery-tile" style="background:linear-gradient(135deg,#1c2a1a,#0d100d)"><span class="tile-mono">US</span><span class="tile-caption">Umi Shinonome · 공개 프로필</span></article>
+        <article class="gallery-tile" style="background:linear-gradient(135deg,#2a2018,#101008)"><span class="tile-mono">AS</span><span class="tile-caption">Ai Shinozaki · 공개 프로필</span></article>
+        <aside class="ad-slot" data-ad-zone data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고 인피드">
+          <p class="ad-spot-label">Sponsored</p>
+        </aside>
+        <article class="gallery-tile outbound" style="background:linear-gradient(135deg,#241a1a,#0f0d0e)"><span class="tile-mono">KM</span><span class="tile-caption">Kiko Mizuhara · 공개 프로필</span></article>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="/">GLOBAL<span>HOT</span></a>
+        <p>Official-source profile directory + AI demo gallery.</p>
+        <p class="rights-note">콘텐츠·성명·상표 권리는 각 권리자에게 있습니다.</p>
+        <a class="support-cta" href="https://patreon.com/globalhot" target="_blank" rel="noopener noreferrer" aria-label="Patreon으로 GlobalHot 후원 (새 창)"><span class="support-icon" aria-hidden="true">⭐</span><span>Become a Patron</span></a>
+      </div>
+      <nav aria-label="푸터 메뉴">
+        <a href="/about.html">소개</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/terms.html">이용약관</a>
+      </nav>
+    </div>
+    <p class="shell copyright">© 2026 GlobalHot.</p>
+  </footer>
+</body>
+</html>

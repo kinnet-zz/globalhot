@@ -457,54 +457,9 @@ emptyState.hidden = displayedCards.length !== 0;
 (function () {
   'use strict';
 
-  // JuicyAds banner (zone 1123909, 300x250). The network's loader script is
-  // injected here at runtime rather than hardcoded in index.html: a homepage
-  // test forbids any https:// <script src> in the static markup, so the ad is
-  // mounted into the #ad-zone-banner container only in a real browser. Wrapped
-  // in try/catch so an ad-network failure can never break the directory.
-  var JUICY_ZONE_ID = 1123909;
-  var JUICY_LOADER_URL = 'https://poweredby.jads.co/js/jads.js';
-  var MOUNT_ID = 'ad-zone-banner';
-
-  function mountJuicyAd() {
-    try {
-      if (typeof document === 'undefined' || typeof window === 'undefined') return;
-      var mount = document.getElementById(MOUNT_ID);
-      if (!mount) return;
-      if (mount.getAttribute('data-juicy-mounted') === '1') return; // idempotent
-      mount.setAttribute('data-juicy-mounted', '1');
-
-      var ins = document.createElement('ins');
-      ins.setAttribute('id', String(JUICY_ZONE_ID));
-      ins.setAttribute('data-width', '300');
-      ins.setAttribute('data-height', '250');
-      mount.appendChild(ins);
-
-      window.adsbyjuicy = window.adsbyjuicy || [];
-      window.adsbyjuicy.push({ adzone: JUICY_ZONE_ID });
-
-      if (!document.getElementById('juicyads-loader')) {
-        var loader = document.createElement('script');
-        loader.id = 'juicyads-loader';
-        loader.type = 'text/javascript';
-        loader.setAttribute('data-cfasync', 'false');
-        loader.async = true;
-        loader.src = JUICY_LOADER_URL;
-        var head = document.head || document.body;
-        if (head) head.appendChild(loader);
-      }
-    } catch (error) {
-      // Ads must never break the page.
-    }
-  }
-
-  if (typeof document !== 'undefined') {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', mountJuicyAd, { once: true });
-    } else {
-      mountJuicyAd();
-    }
-  }
+  // 광고 슬롯은 개별 ad-network 레이어(ads.js)가 처리한다. portal.js는 디렉터리
+  // 로직(검색·필터·랭킹·추천)과 모달에만 집중한다. 광고가 None로 남는 페이지는
+  // ads.js의 IntersectionObserver 지연 로드 + 광고차단 대체(fallback)를 사용한다.
 }());
 
 (function () {
