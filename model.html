@@ -27,7 +27,7 @@
     .profile-copy h1{margin:0;color:var(--ink);font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.05em}
     .profile-copy h1 small{display:block;margin-top:6px;color:var(--muted);font-size:.92rem;letter-spacing:0}
     .profile-meta{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0;color:var(--muted);font-size:.85rem}
-    .profile-meta span{display:inline-block;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+    .profile-meta span{display:inline-block;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}.profile-rank{display:inline-flex;align-items:baseline;gap:10px;margin-top:18px;padding:8px 16px;border:1px solid rgba(255,73,56,.5);border-radius:6px;background:rgba(255,73,56,.08)}.profile-rank span{color:var(--coral-soft);font-size:.68rem;font-weight:900;letter-spacing:.16em}.profile-rank strong{color:#fff;font-size:1.05rem;font-weight:950}
     .profile-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
     .profile-actions a{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;background:var(--coral);border:1px solid var(--coral);color:#fff;font-size:.82rem;font-weight:800;text-decoration:none;border-radius:6px}
     .profile-actions a.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
@@ -113,7 +113,36 @@
         return a;
       }
 
-      function mount(titleText, model) {
+            function categoryPriority(category) {
+        if (category === 'gravure') return 0;
+        if (category === 'cosplay') return 1;
+        return 2;
+      }
+
+      // Rank mirrors the homepage leaderboard: gravure-class first, then name
+      // (recommendation counts start at 0, so the deterministic directory order
+      // is the rank until real counts arrive).
+      function computeRank(model, models) {
+        if (!model || !Array.isArray(models)) return null;
+        var published = models.filter(function (m) { return m && m.photoAvailable === true; });
+        published.sort(function (a, b) {
+          return categoryPriority(categoryOf(a)) - categoryPriority(categoryOf(b)) ||
+            String(a.name || '').localeCompare(String(b.name || ''), 'ko');
+        });
+        for (var i = 0; i < published.length; i += 1) {
+          if (published[i].id === model.id) return i + 1;
+        }
+        return null;
+      }
+
+      function categoryOf(m) {
+        var tags = String(m.tags || '');
+        if (tags.indexOf('gravure') !== -1) return 'gravure';
+        if (tags.indexOf('cosplay') !== -1) return 'cosplay';
+        return 'model';
+      }
+
+      function mount(titleText, model, rank) {
         document.title = titleText;
         syncMeta(model);
 
@@ -162,6 +191,17 @@
           h1.appendChild(small);
         }
         copy.appendChild(h1);
+
+        if (rank) {
+          var rankBadge = document.createElement('div');
+          rankBadge.className = 'profile-rank';
+          var rankLabel = document.createElement('span');
+          rankLabel.textContent = 'RANK';
+          var rankValue = document.createElement('strong');
+          rankValue.textContent = '#' + rank;
+          rankBadge.append(rankLabel, rankValue);
+          copy.appendChild(rankBadge);
+        }
 
         var meta = document.createElement('div');
         meta.className = 'profile-meta';
@@ -213,6 +253,7 @@
         rail.className = 'profile-rail';
         var dl = document.createElement('dl');
         var facts = [
+          ['카테고리', String(model.category || 'MODEL').toUpperCase()],
           ['국가', model.country],
           ['라이선스', (model.license && String(model.license)) || 'CC BY-SA 4.0'],
         ];
@@ -230,14 +271,14 @@
         headerNode.after(section);
       }
 
-      function renderModel(model) {
+            function renderModel(model, rank) {
         var category = 'model';
         var tags = String(model.tags || '');
         if (tags.indexOf('gravure') !== -1) category = 'gravure';
         else if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
         model.category = category;
         model.updated = model.updatedAt || '2026-08-02';
-        mount(model.name + ' | GlobalHot', model);
+        mount(model.name + ' | GlobalHot', model, rank);
       }
 
       function showMissing() {
@@ -268,9 +309,9 @@
       window.fetch(modelsJsonUrl, { headers: { Accept: 'application/json' }, cache: 'no-cache' })
         .then(function (response) { if (!response || !response.ok) throw new Error('load_failed'); return response.json(); })
         .then(function (data) {
-          var model = findModels(data.models, id);
+          var model = findModel(data.models, id);
           if (!model) throw new Error('not_found');
-          renderModel(model);
+          renderModel(model, computeRank(model, data.models));
         })
         .catch(function () {
           if (stateEl) showMissing();

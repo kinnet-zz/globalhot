@@ -45,6 +45,7 @@
     var resultsCount = document.getElementById('resultsCount');
     var grid = document.getElementById('modelGrid');
     var rankingList = document.getElementById('rankingList');
+    var actorRanking = document.getElementById('actorRanking');
     var emptyState = document.getElementById('emptyState');
     var clearSearch = document.getElementById('clearSearch');
     if (!search || !sortSelect || !resultsCount || !grid || !rankingList || !emptyState || !clearSearch) return;
@@ -139,12 +140,26 @@
       return cardCount(second) - cardCount(first) || String(first.dataset.name || '').localeCompare(String(second.dataset.name || ''), 'ko');
     }
 
+    function cardCategoryPriority(card) {
+      var cat = card.dataset.category || '';
+      if (cat === 'gravure') return 0;
+      if (cat === 'cosplay') return 1;
+      return 2;
+    }
+
+    // Directory ranking order: recommendation count first, then gravure-class
+    // models lead general actors, then name (Korean collation). With counts
+    // starting at 0 this degenerates to a stable gravure-first, name-sorted
+    // leaderboard — the same column an avdbs-style actor ranking uses.
+    function rankComparator(first, second) {
+      return cardCount(second) - cardCount(first) ||
+        cardCategoryPriority(first) - cardCategoryPriority(second) ||
+        String(first.dataset.name || '').localeCompare(String(second.dataset.name || ''), 'ko');
+    }
+
     function renderRanking(displayedCards) {
       rankingList.replaceChildren();
-      var rankedCards = displayedCards.slice().sort(function (first, second) {
-        return cardCount(second) - cardCount(first) || String(first.dataset.name || '').localeCompare(String(second.dataset.name || ''), 'ko');
-      });
-      rankedCards.slice(0, 5).forEach(function (card, index) {
+      displayedCards.slice().sort(rankComparator).slice(0, 5).forEach(function (card, index) {
         var item = document.createElement('li');
         var rank = document.createElement('span');
         var name = document.createElement('span');
@@ -157,6 +172,75 @@
         score.textContent = String(cardCount(card));
         item.append(rank, name, score);
         rankingList.append(item);
+      });
+    }
+
+    function renderActorRanking(displayedCards) {
+      if (!actorRanking) return;
+      actorRanking.replaceChildren();
+      var ranked = displayedCards.slice().sort(rankComparator);
+      ranked.forEach(function (card, index) {
+        var id = card.dataset.modelId;
+        var item = document.createElement('li');
+        item.className = 'actor-ranking-item';
+        item.dataset.modelId = id;
+        item.setAttribute('role', 'link');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-label', String(index + 1) + '번 ' + (card.dataset.name || ''));
+
+        var slab = document.createElement('span');
+        slab.className = 'rank-slab';
+        slab.textContent = '#' + (index + 1);
+
+        var thumb = document.createElement('span');
+        thumb.className = 'actor-thumb';
+        var cardPortrait = card.querySelector('.portrait');
+        if (cardPortrait) {
+          var thumbImg = cardPortrait.querySelector('img');
+          if (thumbImg) {
+            var ti = document.createElement('img');
+            ti.src = thumbImg.getAttribute('src');
+            ti.alt = (card.dataset.name || '') + ' photo';
+            ti.setAttribute('loading', 'lazy');
+            thumb.appendChild(ti);
+          } else {
+            thumb.setAttribute('data-monogram', cardPortrait.getAttribute('data-monogram') || buildMonogram(card.dataset.name || ''));
+          }
+        }
+
+        var body = document.createElement('div');
+        body.className = 'actor-ranking-body';
+        var name = document.createElement('span');
+        name.className = 'rank-name';
+        name.textContent = card.dataset.name || '';
+        if (card.dataset.altName) {
+          var small = document.createElement('small');
+          small.textContent = card.dataset.altName;
+          name.appendChild(small);
+        }
+        body.appendChild(name);
+        var meta = document.createElement('span');
+        meta.className = 'rank-meta';
+        var catEl = card.querySelector('.category-label');
+        meta.textContent = catEl ? catEl.textContent.trim() : (card.dataset.country || '');
+        body.appendChild(meta);
+
+        var count = document.createElement('span');
+        count.className = 'rank-count';
+        var value = cardCount(card);
+        count.textContent = value > 0 ? String(value) + ' 추천' : '';
+        count.hidden = value <= 0;
+
+        item.append(slab, thumb, body, count);
+
+        var go = function () {
+          window.location.href = '/model.html?id=' + encodeURIComponent(id);
+        };
+        item.addEventListener('click', go);
+        item.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); go(); }
+        });
+        actorRanking.append(item);
       });
     }
 
@@ -192,8 +276,9 @@
       cards.forEach(function (card) { card.hidden = displayedCards.indexOf(card) === -1; });
       displayedCards.forEach(function (card) { grid.append(card); });
       resultsCount.textContent = String(displayedCards.length) + ' profiles found';
-      emptyState.hidden = displayedCards.length !== 0;
-      renderRanking(displayedCards);
+emptyState.hidden = displayedCards.length !== 0;
+        renderRanking(displayedCards);
+        renderActorRanking(displayedCards);
       if (shouldSync) syncUrl();
     }
 

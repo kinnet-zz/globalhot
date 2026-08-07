@@ -109,7 +109,8 @@ test('portal script retains filtering, sorting, ranking, and accessible recommen
   assert.match(script, /state\.query\.trim\(\)\.toLocaleLowerCase\(\)/);
   assert.match(script, /state\.sort\s*===\s*['"]latest['"]/);
   assert.match(script, /state\.sort\s*===\s*['"]name['"]/);
-  assert.match(script, /rankedCards\s*=\s*displayedCards\.slice\(\)\.sort/);
+  assert.match(script, /displayedCards\.slice\(\)\.sort\(rankComparator\)/);
+  assert.match(script, /function renderActorRanking\(/);
   for (const className of ['rank-number', 'rank-name', 'rank-count']) assert.match(script, new RegExp(className));
   assert.match(script, /search\.focus\(\)/);
 });
