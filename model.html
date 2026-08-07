@@ -2,21 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GlobalHot 모델 프로필. 상세 설명, 공식 출처, CC 라이선스 사진을 하나의 페이지에서 확인합니다.">
+  <meta name="description" content="GlobalHot 모델 프로필. 공식 출처로 확인한 정보와 CC 라이선스 사진을 하나의 페이지에서 확인합니다.">
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="GlobalHot">
   <meta property="og:title" content="GlobalHot | 모델 프로필">
-  <meta property="og:description" content="GlobalHot 모델 프로필. 상세 설명, 공식 출처, CC 라이선스 사진을 확인합니다.">
+  <meta property="og:description" content="GlobalHot 모델 프로필. 공식 출처로 확인한 정보와 CC 라이선스 사진을 확인합니다.">
   <meta name="twitter:card" content="summary">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://globalhot.net/model.html">
-  <link rel="alternate" hreflang="ko" href="https://globalhot.net/model.html">
-  <link rel="alternate" hreflang="x-default" href="https://globalhot.net/model.html">
-  <link rel="stylesheet" href="/portal.css">
-  <link rel="stylesheet" href="/app.css">
-  <script src="/analytics.js" defer></script>
-  <script src="/portal.js" defer></script>
-  <script src="/ads.js" defer></script>
+  <link rel="stylesheet" href="/portal.css?v=20260802-3">
+  <script src="/analytics.js?v=20260718-2" defer></script>
+  <script src="/portal.js?v=20260802-3" defer></script>
   <title>GlobalHot | 모델 프로필</title>
   <style>
     .profile-main{min-height:calc(100vh - 220px);background:linear-gradient(145deg,#0d0d10 8%,#16161a 100%);padding:52px 0 86px}
@@ -25,7 +21,6 @@
     .profile-photo{flex:0 0 260px;max-width:260px}
     .profile-photo .portrait{width:100%;aspect-ratio:3/4;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
     .profile-photo .portrait img{width:100%;height:100%;object-fit:cover;display:block}
-    .profile-photo .photo-credit{color:var(--muted);font-size:.72rem;margin-top:9px;line-height:1.6}
     .profile-copy{flex:1;min-width:0}
     .profile-copy .eyebrow{color:var(--coral-soft);letter-spacing:.15em;font-size:.68rem;font-weight:900;margin:0 0 10px}
     .profile-copy h1{margin:0;color:var(--ink);font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.05em}
@@ -48,26 +43,51 @@
     .profile-rail dd{margin:3px 0 0;color:var(--ink);font-size:.9rem;line-height:1.5}
     .back-link{display:inline-block;margin-bottom:26px;color:var(--muted);font-size:.84rem;text-decoration:none}
     .back-link:hover{color:var(--coral-soft)}
+    .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
     .profile-actions a:focus-visible,.back-link:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
     .profile-section h2:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
     .profile-rail a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
-    .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
     @media(max-width:700px){.profile-header{flex-direction:column}.profile-section{grid-template-columns:1fr;gap:20px}.profile-shell{width:min(100% - 28px,980px)}}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
-  <header class="site-header"><div class="shell header-inner"><a class="brand" href="/" aria-label="GlobalHot home">GLOBAL<span>HOT</span></a><nav class="primary-nav" aria-label="Primary"><a href="/#discover">Discover</a><a href="/#models">Profiles</a><a href="/#releases">Official updates</a><a href="/#ranking">Ranking</a></nav><a class="header-link" href="/#models">프로필 보기</a></div></header>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="/#models">프로필</a>
+      </nav>
+    </div>
+  </header>
   <main id="main-content" class="profile-main">
     <div class="profile-shell">
       <a class="back-link" href="/#models">← 모든 프로필 보기</a>
       <div id="profileState" class="load-state">로딩 중...</div>
-      <section class="ad-zone-band" aria-label="광고"><div class="shell"><aside class="ad-slot" data-ad-zone data-width="300" data-height="250" aria-label="광고"><p class="ad-spot-label">Sponsored</p></aside></div></section>
     </div>
   </main>
-  <footer class="site-footer"><div class="shell footer-grid"><div><a class="brand" href="/">GLOBAL<span>HOT</span></a><p>Official-source profile directory. Profile photos use CC-licensed images with attribution.</p><p class="rights-note">Name, trademark, and content rights belong to respective owners. Correction/removal requests: admin@globalhot.net</p></div><nav aria-label="Footer"><a href="/about.html">소개</a><a href="/privacy.html">개인정보</a><a href="/terms.html">이용약관</a></nav></div><p class="shell copyright">© 2026 GlobalHot.</p></footer>
-  <nav class="mobile-nav" aria-label="모바일 메뉴"><a class="mobile-nav-item" href="/"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a><a class="mobile-nav-item" href="/#ranking"><span class="mobile-nav-icon" aria-hidden="true">★</span><span>랭킹</span></a><a class="mobile-nav-item" href="/#models"><span class="mobile-nav-icon" aria-hidden="true">✦</span><span>신작</span></a><a class="mobile-nav-item" href="/#updates"><span class="mobile-nav-icon" aria-hidden="true">◑</span><span>모델</span></a><a class="mobile-nav-item" href="/#discover"><span class="mobile-nav-icon" aria-hidden="true">⌕</span><span>검색</span></a></nav>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="/">GLOBAL<span>HOT</span></a>
+        <p>Official-source profile directory. Profile photos use CC-licensed images with attribution.</p>
+        <p class="rights-note">콘텐츠·성명·상표 권리는 각 권리자에게 있습니다. 수정/삭제 요청: admin@globalhot.net</p>
+        <a class="support-cta" href="https://patreon.com/globalhot" target="_blank" rel="noopener noreferrer" aria-label="Patreon으로 GlobalHot 후원 (새 창)"><span class="support-icon" aria-hidden="true">⭐</span><span>Become a Patron</span></a>
+      </div>
+      <nav aria-label="푸터 메뉴">
+        <a href="/about.html">소개</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/terms.html">이용약관</a>
+      </nav>
+    </div>
+    <p class="shell copyright">© 2026 GlobalHot.</p>
+  </footer>
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a class="mobile-nav-item" href="/"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a>
+    <a class="mobile-nav-item" href="/#models"><span class="mobile-nav-icon" aria-hidden="true">◈</span><span>프로필</span></a>
+    <a class="mobile-nav-item" href="/about.html"><span class="mobile-nav-icon" aria-hidden="true">ⓘ</span><span>소개</span></a>
+  </nav>
 
   <script>
     (function () {
@@ -86,7 +106,7 @@
         var photoUrl = model.photoAvailable
           ? 'https://globalhot.net/assets/profiles/' + encodeURIComponent(model.id) + '.jpg'
           : '';
-        var desc = (model.bio || model.name + ' 공식 프로필').slice(0, 160);
+        var desc = (model.bio || model.name + ' GlobalHot 공식 프로필').slice(0, 160);
         setMeta('og:title', 'property', model.name + ' | GlobalHot');
         setMeta('og:description', 'property', desc);
         setMeta('twitter:title', 'name', model.name + ' | GlobalHot');
@@ -117,21 +137,27 @@
         return a;
       }
 
-            function categoryPriority(category) {
+      function categoryOf(model) {
+        var tags = String(model.tags || '').toLowerCase();
+        if (tags.indexOf('gravure') !== -1) return 'gravure';
+        if (tags.indexOf('cosplay') !== -1) return 'cosplay';
+        return 'model';
+      }
+
+      function categoryPriority(model) {
+        var category = categoryOf(model);
         if (category === 'gravure') return 0;
         if (category === 'cosplay') return 1;
         return 2;
       }
 
-      // Rank mirrors the homepage leaderboard: gravure-class first, then name
-      // (recommendation counts start at 0, so the deterministic directory order
-      // is the rank until real counts arrive).
+      // Rank mirrors the homepage directory order: gravure-class first, then
+      // cosplay, then the rest, with name (ko) as the deterministic tiebreak.
       function computeRank(model, models) {
         if (!model || !Array.isArray(models)) return null;
         var published = models.filter(function (m) { return m && m.photoAvailable === true; });
         published.sort(function (a, b) {
-          return categoryPriority(categoryOf(a)) - categoryPriority(categoryOf(b)) ||
-            String(a.name || '').localeCompare(String(b.name || ''), 'ko');
+          return categoryPriority(a) - categoryPriority(b);
         });
         for (var i = 0; i < published.length; i += 1) {
           if (published[i].id === model.id) return i + 1;
@@ -139,22 +165,9 @@
         return null;
       }
 
-      function categoryOf(m) {
-        var tags = String(m.tags || '');
-        if (tags.indexOf('gravure') !== -1) return 'gravure';
-        if (tags.indexOf('cosplay') !== -1) return 'cosplay';
-        return 'model';
-      }
-
-      function mount(titleText, model, rank) {
-        document.title = titleText;
+      function mount(model, rank) {
         syncMeta(model);
-
-        var back = document.createElement('a');
-        back.className = 'back-link';
-        back.href = '/#models';
-        back.textContent = '← 모든 프로필 보기';
-        stateEl.parentNode.insertBefore(back, stateEl);
+        document.title = model.name + ' | GlobalHot';
 
         var header = document.createElement('div');
         header.className = 'profile-header';
@@ -184,7 +197,7 @@
 
         var eyebrow = document.createElement('p');
         eyebrow.className = 'eyebrow';
-        eyebrow.textContent = (model.category || 'MODEL') + ' PROFILE';
+        eyebrow.textContent = (model.category || 'MODEL').toUpperCase() + ' PROFILE';
         copy.appendChild(eyebrow);
 
         var h1 = document.createElement('h1');
@@ -228,8 +241,7 @@
 
         header.appendChild(photo);
         header.appendChild(copy);
-        var headerNode = header;
-        stateEl.replaceWith(headerNode);
+        stateEl.replaceWith(header);
 
         var section = document.createElement('section');
         section.className = 'profile-section';
@@ -239,7 +251,7 @@
         bioCol.appendChild(bioTitle);
         var bio = document.createElement('p');
         bio.className = 'profile-bio';
-        bio.textContent = model.bio || (model.name + '의 공식 프로필입니다. 최신 활동은 공식 채널과 소속사 프로필에서 확인하세요.');
+        bio.textContent = model.bio || (model.name + '의 공식 프로필입니다.');
         bioCol.appendChild(bio);
         if (model.tags) {
           var tags = document.createElement('div');
@@ -257,7 +269,7 @@
         rail.className = 'profile-rail';
         var dl = document.createElement('dl');
         var facts = [
-          ['카테고리', String(model.category || 'MODEL').toUpperCase()],
+          ['카테고리', String(categoryOf(model)).toUpperCase()],
           ['국가', model.country],
           ['라이선스', (model.license && String(model.license)) || 'CC BY-SA 4.0'],
         ];
@@ -272,17 +284,12 @@
         rail.appendChild(dl);
 
         section.appendChild(rail);
-        headerNode.after(section);
+        header.after(section);
       }
 
-            function renderModel(model, rank) {
-        var category = 'model';
-        var tags = String(model.tags || '');
-        if (tags.indexOf('gravure') !== -1) category = 'gravure';
-        else if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
-        model.category = category;
-        model.updated = model.updatedAt || '2026-08-02';
-        mount(model.name + ' | GlobalHot', model, rank);
+      function renderModel(model, rank) {
+        model.category = categoryOf(model);
+        mount(model, rank);
       }
 
       function showMissing() {
