@@ -23,7 +23,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 189,
+  "modelCount": 191,
   "models": [
     {
       "id": "enako",
@@ -2895,6 +2895,42 @@
       "license": "CC BY-SA 3.0",
       "creditText": "Wikimedia Commons",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Yukari_in_ACE_(cropped).jpg"
+    },
+    {
+      "id": "rin-aoki",
+      "name": "Rin Aoki",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Dasdas_Special_AV_Event_by_LonelyBob_(Rin_Aoki_crop).jpg"
+    },
+    {
+      "id": "saori-hara",
+      "name": "Saori Hara",
+      "altName": "",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Matsunoi_Miyabi_from_%22GARO_-KAMINOKIBA-%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2017_(40170147262).jpg"
     }
   ]
 }
