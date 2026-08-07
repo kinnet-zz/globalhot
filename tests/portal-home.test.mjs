@@ -43,47 +43,49 @@ test('homepage has no placeholder ad slots, no comments UI, and only local CC-li
   assert.doesNotMatch(html, /<link\b[^>]*\brel\s*=\s*["'][^"']*stylesheet[^"']*["'][^>]*\bhref\s*=\s*["']https?:\/\//i);
   assert.doesNotMatch(html, /data:image\//i);
 
-  const expectedProfileSrcs = [
-    '/assets/profiles/enako.jpg',
-    '/assets/profiles/umi-shinonome.jpg',
-    '/assets/profiles/nashiko-momotsuki.jpg',
-    '/assets/profiles/ai-shinozaki.jpg',
-    '/assets/profiles/kiko-mizuhara.jpg',
-  ];
-  const imgTags = Array.from(html.matchAll(/<img\b[^>]*>/gi), (match) => match[0]);
-  assert.equal(imgTags.length, 5);
-  assert.deepEqual(
-    imgTags.map((tag) => attributes(tag, 'src')[0]).sort(),
-    [...expectedProfileSrcs].sort(),
-  );
-  for (const tag of imgTags) {
-    const src = attributes(tag, 'src')[0];
-    assert.match(src, /^\/assets\/profiles\/[a-z-]+\.jpg$/);
-    assert.match(tag, /\balt\s*=\s*["'][^"']+["']/);
-    assert.match(tag, /\bloading\s*=\s*["']lazy["']/);
-  }
+  // The grid is populated at runtime from the reconciled data source, so the
+  // published HTML ships no static card markup and no static profile photos.
+  // Each card is created by createModelCard with a local /assets/profiles path.
+  assert.equal((html.match(/<img\b/gi) || []).length, 0, 'profile photos are injected dynamically, not hard-coded');
+  assert.equal((html.match(/<article\b/gi) || []).length, 0, 'no static cards are hard-coded in the homepage');
   // Attribution is consolidated on the about page; homepage cards carry no
   // per-photo credit line, no card-footer date, and no registered-tag line.
   assert.equal((html.match(/class\s*=\s*["']photo-credit["']/g) || []).length, 0);
   assert.equal((html.match(/class\s*=\s*["']profile-line["']/g) || []).length, 0);
-  assert.equal((html.match(/<time\b/g) || []).length, IDS.length, 'blog cards each publish an update date');
+  assert.equal((html.match(/<time\b/g) || []).length, 0, 'dynamic cards do not publish an update date');
   assert.equal((html.match(/data-modal-updated/g) || []).length, 0, 'the modal no longer shows a verified date');
-  assert.equal((html.match(/data-monogram\s*=\s*["']EI["']/g) || []).length, 1);
+  assert.equal((html.match(/data-monogram\s*=\s*["']EI["']/g) || []).length, 0);
+
+  // The grid is populated by the dynamic loader that fetches the reconciled
+  // data, filters to published profiles, and renders cards from it.
+  assert.equal((html.match(/data-model-id=/g) || []).length, 0, 'profile IDs are injected at runtime');
+  assert.match(html, /\bid\s*=\s*["']boardLoading["']/i);
+  assert.match(html, /\bid\s*=\s*["']modelGrid["'][^>]*\bmodel-grid\b/i);
+  assert.match(script, /MODELS_JSON_URL/);
 });
 
-test('the six profile IDs are unique and every card has its matching recommendation button', () => {
-  const ids = attributes(html, 'data-model-id');
-  const recommendationIds = attributes(html, 'data-recommend-model');
-  assert.deepEqual(ids, IDS);
-  assert.equal(new Set(ids).size, 6);
-  assert.deepEqual(new Set(recommendationIds), new Set(ids));
-});
+test('real published profiles are rendered dynamically from the reconciled data source', async () => {
+  const modelsData = JSON.parse(await readFile('data/models.json', 'utf8'));
+  const published = modelsData.models.filter((model) => model.photoAvailable === true);
+  assert.ok(published.length >= 1, 'data must include photo-bearing models');
 
-test('real profiles start at zero and have official-source links with safe new-tab attributes', () => {
-  for (const [id, name] of IDS.map((id, index) => [id, ['Enako', 'Umi Shinonome', 'Nashiko Momotsuki', 'Ai Shinozaki', 'Kiko Mizuhara', 'Elaiza Ikeda'][index]])) {
-    assert.match(html, new RegExp(`data-model-id="${id}"[\\s\\S]*?data-base-recommendations="0"`));
-    assert.match(html, new RegExp(name));
+  assert.match(script, /selectPublishedModels\(/);
+  assert.match(script, /photoAvailable === true/);
+  assert.match(script, /renderAll\(\)/);
+  assert.match(script, /portal-models-loaded/);
+
+  // The six official-source featured profiles must be present in the data and
+  // carry an official source URL. Only models with a real reconciled photo are
+  // published on the homepage, so the published set is a subset of these.
+  for (const id of IDS) {
+    const model = modelsData.models.find((entry) => entry.id === id);
+    assert.ok(model, `data/models.json must contain ${id}`);
+    assert.match(model.officialUrl, /^https:\/\//, `${id} carries an official source URL`);
   }
+  assert.ok(published.some((model) => model.id === 'enako'), 'the homepage feed must include enako');
+  // Every dynamically rendered card starts at zero recommend, so no card ever
+  // ships with a fabricated count.
+  assert.match(script, /card\.dataset\.baseRecommendations\s*=\s*String\(baseRecommendations \|\| 0\)/);
   for (const match of html.matchAll(/<a\s+[^>]*href="https?:\/\/[^>]+>/g)) {
     assert.match(match[0], /target="_blank"/);
     assert.match(match[0], /rel="noopener noreferrer"/);

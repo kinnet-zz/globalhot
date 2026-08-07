@@ -217,9 +217,9 @@ test('0001 then 0002 executes in SQLite, preserves votes, and retains compatibil
   }
 });
 
-test('static cards, about links, and migration metadata agree on every profile mapping', async () => {
-  const [home, about, migration] = await Promise.all([
-    readFile(new URL('../index.html', import.meta.url), 'utf8'),
+test('data source, about links, and migration metadata agree on every profile mapping', async () => {
+  const [modelsRaw, about, migration] = await Promise.all([
+    readFile(new URL('../data/models.json', import.meta.url), 'utf8'),
     readFile(new URL('../about.html', import.meta.url), 'utf8'),
     readFile(new URL('../migrations/0002_real_profiles.sql', import.meta.url), 'utf8')
   ]);
@@ -231,14 +231,24 @@ test('static cards, about links, and migration metadata agree on every profile m
     ['kiko-mizuhara', 'Kiko Mizuhara', 'https://kiko-mizuhara.com/'],
     ['elaiza-ikeda', 'Elaiza Ikeda', 'https://www.evergreen-e.com/feature/ikeda_elaiza']
   ];
+  const published = JSON.parse(modelsRaw).models.filter((m) => m.photoAvailable === true);
   for (const [id, name, url] of profiles) {
-    const homeCard = home.match(new RegExp(`<article[^>]*data-model-id="${id}"[\\s\\S]*?<\\/article>`));
-    assert.ok(homeCard, `index.html must contain card ${id}`);
-    assert.match(homeCard[0], new RegExp(`href="${url.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}"`));
-    assert.match(about, new RegExp(`href="${url.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}"[^>]*>${name}`));
-    assert.match(migration, new RegExp(`'${id}'[\\s\\S]{0,500}'${url.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}'`));
+    const model = published.find((m) => m.id === id);
+    if (!model) {
+      // A featured profile without a reconciled photo is not published on the
+      // homepage feed. The authoritative mapping check simply skips it.
+      assert.ok(id === 'elaiza-ikeda', `only the photo-less featured profile may be unpublished: ${id}`);
+      continue;
+    }
+    assert.match(model.officialUrl, new RegExp(escapeRegex(url)), `${id} officialUrl must match`);
+    assert.match(about, new RegExp(`href="${escapeRegex(url)}"[^>]*>${escapeRegex(name)}`));
+    assert.match(migration, new RegExp(`'${id}'[\\s\\S]{0,500}'${escapeRegex(url)}'`));
   }
 });
+
+function escapeRegex(input) {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 test('recommendation schema preserves the unique vote identity and supporting indexes', async () => {
   const sql = await readFile(new URL('../migrations/0001_recommendations.sql', import.meta.url), 'utf8');

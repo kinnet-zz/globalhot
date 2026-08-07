@@ -467,8 +467,6 @@ emptyState.hidden = displayedCards.length !== 0;
   'use strict';
 
   var MODELS_JSON_URL = '/data/models.json';
-  var INITIAL_BATCH_SIZE = 6;
-  var LOAD_MORE_BATCH_SIZE = 20;
 
   function buildMonogram(name) {
     if (!name) return '';
@@ -718,35 +716,17 @@ emptyState.hidden = displayedCards.length !== 0;
       grid.removeChild(grid.firstChild);
     }
 
-    var loadMoreButton = document.createElement('button');
-    loadMoreButton.id = 'loadMoreButton';
-    loadMoreButton.className = 'load-more-button';
-    loadMoreButton.textContent = 'Load More';
-    loadMoreButton.hidden = true;
-    loadMoreButton.addEventListener('click', function () {
-      loadNextBatch();
-    });
-
-    if (grid && grid.parentNode) {
-      grid.parentNode.insertBefore(loadMoreButton, grid.nextSibling);
-    }
-
     var allModels = [];
-    var displayedCount = 0;
 
-    function loadNextBatch() {
-      var nextBatch = allModels.slice(displayedCount, displayedCount + LOAD_MORE_BATCH_SIZE);
-      renderCards(nextBatch, grid, 0);
-      displayedCount += nextBatch.length;
+    function renderAll() {
+      renderCards(allModels, grid, 0);
 
-      if (displayedCount >= allModels.length) {
-        loadMoreButton.hidden = true;
-      } else {
-        loadMoreButton.hidden = false;
-        loadMoreButton.textContent = 'Load More (' + (allModels.length - displayedCount) + ' remaining)';
+      var loading = typeof document !== 'undefined' ? document.getElementById('boardLoading') : null;
+      if (loading && loading.parentNode) {
+        loading.parentNode.removeChild(loading);
       }
 
-      var portalEvent = new CustomEvent('portal-models-loaded', { detail: { count: nextBatch.length } });
+      var portalEvent = new CustomEvent('portal-models-loaded', { detail: { count: allModels.length } });
       document.dispatchEvent(portalEvent);
     }
 
@@ -760,7 +740,7 @@ emptyState.hidden = displayedCards.length !== 0;
       }).then(function (data) {
         if (!data || !Array.isArray(data.models)) throw new Error('invalid_models_json');
         allModels = selectPublishedModels(data.models);
-        loadNextBatch();
+        renderAll();
       }).catch(function (error) {
         console.error('Failed to load models.json:', error);
         if (grid.children.length === 0) {
