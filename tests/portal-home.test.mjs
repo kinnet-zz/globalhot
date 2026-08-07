@@ -23,7 +23,7 @@ test('homepage loads portal assets and excludes the legacy stylesheet and app', 
 });
 
 test('homepage retains discovery controls and structured search metadata', () => {
-  for (const id of ['portalSearch', 'sortSelect', 'resultsCount', 'modelGrid', 'rankingList', 'emptyState', 'clearSearch']) {
+  for (const id of ['portalSearch', 'sortSelect', 'resultsCount', 'modelGrid', 'emptyState', 'clearSearch']) {
     assert.match(html, new RegExp(`\\bid\\s*=\\s*["']${id}["']`, 'i'));
   }
   assert.match(html, /data-category\s*=\s*["'](?:all|model|cosplay|gravure)["']/i);
@@ -66,7 +66,7 @@ test('homepage has no placeholder ad slots, no comments UI, and only local CC-li
   // per-photo credit line, no card-footer date, and no registered-tag line.
   assert.equal((html.match(/class\s*=\s*["']photo-credit["']/g) || []).length, 0);
   assert.equal((html.match(/class\s*=\s*["']profile-line["']/g) || []).length, 0);
-  assert.equal((html.match(/<time\b/g) || []).length, 1, 'only the official-news date remains on the homepage');
+  assert.equal((html.match(/<time\b/g) || []).length, IDS.length, 'blog cards each publish an update date');
   assert.equal((html.match(/data-modal-updated/g) || []).length, 0, 'the modal no longer shows a verified date');
   assert.equal((html.match(/data-monogram\s*=\s*["']EI["']/g) || []).length, 1);
 });
@@ -200,16 +200,11 @@ test('homepage renders the Patreon support button with safe new-tab attributes',
   assert.match(supportMatch[0], /aria-label=/);
 });
 
-test('homepage renders an Amazon Global affiliate placeholder with tracking hook and disclosure label', () => {
-  assert.match(html, /class=["'][^"']*\bcard-affiliate\b[^"']*["']/i);
-  const affiliateMatch = html.match(/<a\s+[^>]*data-affiliate=["']amazon-global["'][^>]*>/i);
-  assert.ok(affiliateMatch, 'amazon-global affiliate anchor must exist');
-  assert.match(affiliateMatch[0], /href=["']https:\/\/www\.amazon\.com\/[^"']*tag=globalhot-22[^"']*["']/i);
-  assert.match(affiliateMatch[0], /target="_blank"/);
-  assert.match(affiliateMatch[0], /rel="noopener noreferrer"/);
-  // Disclosure label is visible to users (not just screen readers).
-  assert.match(html, /AMAZON ASSOCIATE/i);
-  assert.match(html, /PARTNER LINK/i);
+test('homepage carries no affiliate or ad surfaces in the blog format', () => {
+  assert.doesNotMatch(html, /class=["'][^"']*\bcard-affiliate\b[^"']*["']/i);
+  assert.doesNotMatch(html, /data-ad-slot\b/i);
+  assert.doesNotMatch(html, /AMAZON ASSOCIATE/i);
+  assert.doesNotMatch(html, /PARTNER LINK/i);
 });
 
 test('portal stylesheet defines the ad-spot, card-affiliate, and support-cta surfaces', () => {

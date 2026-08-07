@@ -18,7 +18,6 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"GlobalHot","url":"https://globalhot.net/","potentialAction":{"@type":"SearchAction","target":"https://globalhot.net/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <script src="/analytics.js?v=20260718-2" defer></script>
   <script src="/portal.js?v=20260802-3" defer></script>
-  <script src="/ads.js" defer></script>
   <title>GlobalHot | 프로필 디렉터리</title>
 </head>
 <body>
@@ -28,47 +27,22 @@
       <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
       <nav class="primary-nav" aria-label="주요 메뉴">
         <a href="#models">프로필</a>
-        <a href="#ranking">랭킹</a>
-        <a href="/gallery.html">갤러리</a>
       </nav>
-      <a class="header-link" href="/playground.html">플레이그라운드</a>
     </div>
   </header>
   <main id="main-content">
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div>
-          <p class="eyebrow">MODEL DIRECTORY</p>
-          <h1>그라비아·모델 <em>디렉터리</em>.</h1>
-          <p class="hero-copy">GlobalHot은 공식 출처 확인 프로필 디렉터리로, 전체 프로필은 공식 채널과 CC 라이선스 사진으로 구성됩니다.</p>
-          <div class="hero-search" role="search">
-            <label for="portalSearch">모델 이름, 일본어 표기, 국가, 태그로 검색</label>
-            <input id="portalSearch" type="search" placeholder="e.g., Enako, えなこ, Japan" autocomplete="off">
-          </div>
-        </div>
-        <aside class="directory-notice" aria-label="디렉터리 정책">
-          <strong>OFFICIAL-SOURCE DIRECTORY</strong>
-          <p>전체 프로필은 공식 채널과 CC 라이선스 사진으로 구성됩니다. 카드를 클릭하면 상세 프로필 페이지로 이동합니다.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="ad-zone-band" aria-label="광고">
-      <div class="shell">
-        <aside class="ad-slot" data-ad-zone data-width="728" data-height="90" aria-label="광고">
-          <p class="ad-spot-label">Sponsored</p>
-        </aside>
-      </div>
-    </section>
-
-    <section id="models" class="feed-section" aria-labelledby="models-title">
+    <section class="feed-section" id="models" aria-labelledby="models-title">
       <div class="shell">
         <div class="section-heading">
-          <div><p class="eyebrow">DISCOVER</p><h2 id="models-title">Official-source profiles</h2></div>
-          <p>추천 수는 0부터 시작합니다.</p>
+          <div><p class="eyebrow">PROFILES</p><h2 id="models-title">모델 프로필</h2></div>
+          <p>공식 출처로 확인한 정보와 발췌 소개입니다.</p>
         </div>
         <section class="discovery-bar" id="discover" aria-label="프로필 검색">
           <div class="shell controls-wrap">
+            <div class="search-form" role="search">
+              <label for="portalSearch">모델 이름, 일본어 표기, 국가, 태그로 검색</label>
+              <input id="portalSearch" type="search" placeholder="e.g., Enako, えなこ, Japan" autocomplete="off">
+            </div>
             <div class="filter-group" role="group" aria-label="카테고리">
               <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">All</button>
               <button class="filter-button" type="button" data-category="model" aria-pressed="false">Model</button>
@@ -96,123 +70,77 @@
           <article class="model-card" data-model-id="enako" data-category="cosplay" data-name="Enako" data-alt-name="えなこ" data-country="Japan" data-tags="cosplay tv magazine" data-updated="2026-08-01" data-base-recommendations="0">
             <div class="portrait portrait-enako" data-monogram="EN" role="img" aria-label="Enako 공식 프로필 패널"><img src="/assets/profiles/enako.jpg" alt="Enako official profile photo" loading="lazy"></div>
             <div class="card-body">
-              <p class="category-label">COSPLAY · JAPAN</p>
-              <h3>Enako <small>えなこ</small></h3>
+              <p class="post-meta"><span class="category-label">COSPLAY · JAPAN</span><time datetime="2026-08-01">2026-08-01</time></p>
+              <h3><a class="post-title" href="/model.html?id=enako">Enako <small>えなこ</small></a></h3>
+              <p class="post-excerpt">일본을 대표하는 코스프레 모델 겸 그라비어 아티스트. 대형 코스프레 작품, 주간지 표지, TV·라디오 출연, 포토북 발간까지 활동 영역을 넓히며 코스프레 문화의 상징으로 자리잡았습니다.</p>
               <p class="source-links"> <a href="https://twitter.com/enako_cosplay" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.instagram.com/enako_cosplay/" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://www.youtube.com/channel/UCzPZ4KQTqY9" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="https://ppe.jp/talent/enako/" target="_blank" rel="noopener noreferrer">공식 프로필</a></p>
               <div class="tag-list"><span>Cosplay</span><span>TV</span><span>Magazine</span></div>
-              <a class="card-detail-link" href="/model.html?id=enako">상세 프로필 보기 →</a>
+              <a class="card-detail-link" href="/model.html?id=enako">전체 프로필 보기 →</a>
               <div class="card-footer"><div class="recommend-wrap"><span class="recommend-count" data-recommendation-count hidden>0</span><button class="recommend-button" type="button" data-recommend-model="enako" aria-pressed="false">추천</button></div></div>
             </div>
           </article>
           <article class="model-card" data-model-id="umi-shinonome" data-category="model" data-name="Umi Shinonome" data-alt-name="東雲 うみ" data-country="Japan" data-tags="model gravure magazine" data-updated="2026-08-01" data-base-recommendations="0">
             <div class="portrait portrait-umi" data-monogram="US" role="img" aria-label="Umi Shinonome 공식 프로필 패널"><img src="/assets/profiles/umi-shinonome.jpg" alt="Umi Shinonome official profile photo" loading="lazy"></div>
             <div class="card-body">
-              <p class="category-label">MODEL · JAPAN</p>
-              <h3>Umi Shinonome <small>油ミ うみ</small></h3>
+              <p class="post-meta"><span class="category-label">MODEL · JAPAN</span><time datetime="2026-08-01">2026-08-01</time></p>
+              <h3><a class="post-title" href="/model.html?id=umi-shinonome">Umi Shinonome <small>東雲 うみ</small></a></h3>
+              <p class="post-excerpt">그라비어 모델로 주간지·화보 중심으로 활약합니다. 프라모델 조립을 비롯한 다채로운 취미와 유튜브 활동으로도 잘 알려져 있으며, 잡지·TV·영화로 영역을 확장한 멀티 탤런트입니다.</p>
               <p class="source-links"> <a href="https://ppe.jp/talent/umi-shinonome/" target="_blank" rel="noopener noreferrer">공식 프로필</a>, <a href="https://twitter.com/sinonome_umi" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.instagram.com/sinonome_umi/" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://www.youtube.com/channel/UC8qNk8" target="_blank" rel="noopener noreferrer">YouTube</a></p>
               <div class="tag-list"><span>Model</span><span>Gravure</span><span>Magazine</span></div>
-              <a class="card-detail-link" href="/model.html?id=umi-shinonome">상세 프로필 보기 →</a>
+              <a class="card-detail-link" href="/model.html?id=umi-shinonome">전체 프로필 보기 →</a>
               <div class="card-footer"><div class="recommend-wrap"><span class="recommend-count" data-recommendation-count hidden>0</span><button class="recommend-button" type="button" data-recommend-model="umi-shinonome" aria-pressed="false">추천</button></div></div>
             </div>
           </article>
           <article class="model-card" data-model-id="nashiko-momotsuki" data-category="gravure" data-name="Nashiko Momotsuki" data-alt-name="桃月 なしこ" data-country="Japan" data-tags="gravure idol tv" data-updated="2026-08-01" data-base-recommendations="0">
             <div class="portrait portrait-nashiko" data-monogram="NM" role="img" aria-label="Nashiko Momotsuki 공식 프로필 패널"><img src="/assets/profiles/nashiko-momotsuki.jpg" alt="Nashiko Momotsuki official profile photo" loading="lazy"></div>
             <div class="card-body">
-              <p class="category-label">GRAVURE · JAPAN</p>
-              <h3>Nashiko Momotsuki <small>桃木 なしこ</small></h3>
+              <p class="post-meta"><span class="category-label">GRAVURE · JAPAN</span><time datetime="2026-08-01">2026-08-01</time></p>
+              <h3><a class="post-title" href="/model.html?id=nashiko-momotsuki">Nashiko Momotsuki <small>桃月 なしこ</small></a></h3>
+              <p class="post-excerpt">코스프레 모델로 시작해 모델 겸 배우로 활동 영역을 넓힌 탤런트. 게임, 영화, 방송 등 다양한 장르를 넘나들며 자신만의 존재감을 드러냅니다.</p>
               <p class="source-links"> <a href="https://official.01familia.jp/talent/nashiko" target="_blank" rel="noopener noreferrer">공식 프로필</a>, <a href="https://twitter.com/nashiko_momotsuki" target="_blank" rel="noopener noreferrer">X</a></p>
               <div class="tag-list"><span>Gravure</span><span>Idol</span><span>TV</span></div>
-              <a class="card-detail-link" href="/model.html?id=nashiko-momotsuki">상세 프로필 보기 →</a>
+              <a class="card-detail-link" href="/model.html?id=nashiko-momotsuki">전체 프로필 보기 →</a>
               <div class="card-footer"><div class="recommend-wrap"><span class="recommend-count" data-recommendation-count hidden>0</span><button class="recommend-button" type="button" data-recommend-model="nashiko-momotsuki" aria-pressed="false">추천</button></div></div>
             </div>
           </article>
           <article class="model-card" data-model-id="ai-shinozaki" data-category="gravure" data-name="Ai Shinozaki" data-alt-name="篠崎 愛" data-country="Japan" data-tags="gravure model singer" data-updated="2026-08-01" data-base-recommendations="0">
             <div class="portrait portrait-ai" data-monogram="AS" role="img" aria-label="Ai Shinozaki 공식 프로필 패널"><img src="/assets/profiles/ai-shinozaki.jpg" alt="Ai Shinozaki official profile photo" loading="lazy"></div>
             <div class="card-body">
-              <p class="category-label">GRAVURE · JAPAN</p>
-              <h3>Ai Shinozaki <small>篠崎 愛</small></h3>
+              <p class="post-meta"><span class="category-label">GRAVURE · JAPAN</span><time datetime="2026-08-01">2026-08-01</time></p>
+              <h3><a class="post-title" href="/model.html?id=ai-shinozaki">Ai Shinozaki <small>篠崎 愛</small></a></h3>
+              <p class="post-excerpt">십대에 그라비어 아이돌로 데뷔해 오랫동안 잡지 표지를 장식해온 모델 겸 가수. 노래, 영화, 방송까지 활동 범위를 넓히며 꾸준히 인기를 이어왔습니다.</p>
               <p class="source-links"> <a href="https://twitter.com/shinozakiai_226" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.instagram.com/shinozakiai_226/" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://www.youtube.com/user/ai0226shinozaki" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="https://shinozakiai0226.com/" target="_blank" rel="noopener noreferrer">공식 사이트</a></p>
               <div class="tag-list"><span>Gravure</span><span>Model</span><span>Singer</span></div>
-              <a class="card-detail-link" href="/model.html?id=ai-shinozaki">상세 프로필 보기 →</a>
+              <a class="card-detail-link" href="/model.html?id=ai-shinozaki">전체 프로필 보기 →</a>
               <div class="card-footer"><div class="recommend-wrap"><span class="recommend-count" data-recommendation-count hidden>0</span><button class="recommend-button" type="button" data-recommend-model="ai-shinozaki" aria-pressed="false">추천</button></div></div>
             </div>
           </article>
           <article class="model-card" data-model-id="kiko-mizuhara" data-category="model" data-name="Kiko Mizuhara" data-alt-name="水原 希子" data-country="Japan" data-tags="model actress fashion" data-updated="2026-08-01" data-base-recommendations="0">
             <div class="portrait portrait-kiko" data-monogram="KM" role="img" aria-label="Kiko Mizuhara 공식 프로필 패널"><img src="/assets/profiles/kiko-mizuhara.jpg" alt="Kiko Mizuhara official profile photo" loading="lazy"></div>
             <div class="card-body">
-              <p class="category-label">MODEL · JAPAN</p>
-              <h3>Kiko Mizuhara <small>水原 希子</small></h3>
+              <p class="post-meta"><span class="category-label">MODEL · JAPAN</span><time datetime="2026-08-01">2026-08-01</time></p>
+              <h3><a class="post-title" href="/model.html?id=kiko-mizuhara">Kiko Mizuhara <small>水原 希子</small></a></h3>
+              <p class="post-excerpt">일본을 대표하는 패션 모델이자 배우. 국제 패션 무대와 개인 브랜드, 영화·드라마 활동으로 글로벌 인지도를 쌓아온 인물입니다.</p>
               <p class="source-links"> <a href="https://kiko-mizuhara.com/" target="_blank" rel="noopener noreferrer">공식 사이트</a>, <a href="https://www.instagram.com/i_am_kiko/" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://www.youtube.com/user/KikoMizuhara" target="_blank" rel="noopener noreferrer">YouTube</a></p>
               <div class="tag-list"><span>Model</span><span>Actress</span><span>Fashion</span></div>
-              <a class="card-detail-link" href="/model.html?id=kiko-mizuhara">상세 프로필 보기 →</a>
+              <a class="card-detail-link" href="/model.html?id=kiko-mizuhara">전체 프로필 보기 →</a>
               <div class="card-footer"><div class="recommend-wrap"><span class="recommend-count" data-recommendation-count hidden>0</span><button class="recommend-button" type="button" data-recommend-model="kiko-mizuhara" aria-pressed="false">추천</button></div></div>
             </div>
           </article>
           <article class="model-card" data-model-id="elaiza-ikeda" data-category="model" data-name="Elaiza Ikeda" data-alt-name="池田 エライザ" data-country="Japan" data-tags="model actress film" data-updated="2026-08-01" data-base-recommendations="0">
             <div class="portrait portrait-elaiza" data-monogram="EI" role="img" aria-label="Elaiza Ikeda 공식 프로필 패널"></div>
             <div class="card-body">
-              <p class="category-label">MODEL · JAPAN</p>
-              <h3>Elaiza Ikeda <small>池田 エライザ</small></h3>
+              <p class="post-meta"><span class="category-label">MODEL · JAPAN</span><time datetime="2026-08-01">2026-08-01</time></p>
+              <h3><a class="post-title" href="/model.html?id=elaiza-ikeda">Elaiza Ikeda <small>池田 エライザ</small></a></h3>
+              <p class="post-excerpt">패션 모델과 여배우를 겸하는 활동형 아티스트. CanCam 등 패션계와 영화·드라마, 음악 작업까지 영역을 넓히며 연출 프로젝트에도 참여합니다.</p>
               <p class="source-links"> <a href="https://www.evergreen-e.com/feature/ikeda_elaiza" target="_blank" rel="noopener noreferrer">공식 프로필</a>, <a href="https://ikedaelaiza.jp/" target="_blank" rel="noopener noreferrer">공식 사이트</a></p>
               <div class="tag-list"><span>Model</span><span>Actress</span><span>Film</span></div>
-              <a class="card-detail-link" href="/model.html?id=elaiza-ikeda">상세 프로필 보기 →</a>
+              <a class="card-detail-link" href="/model.html?id=elaiza-ikeda">전체 프로필 보기 →</a>
               <div class="card-footer"><div class="recommend-wrap"><span class="recommend-count" data-recommendation-count hidden>0</span><button class="recommend-button" type="button" data-recommend-model="elaiza-ikeda" aria-pressed="false">추천</button></div></div>
             </div>
           </article>
         </div>
         <div id="emptyState" class="empty-state" hidden><strong>조건에 맞는 프로필이 없습니다.</strong><p>다른 검색어나 카테고리로 시도해 보세요.</p><button id="clearSearch" class="text-button" type="button">검색 초기화</button></div>
-      </div>
-    </section>
-
-    <section class="ad-zone-band" aria-label="광고">
-      <div class="shell">
-        <aside class="ad-slot" data-ad-zone data-width="300" data-height="250" aria-label="광고 인피드">
-          <p class="ad-spot-label">Sponsored</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="ranking-section" id="ranking" aria-labelledby="ranking-title-full">
-      <div class="shell">
-        <div class="ranking-heading">
-          <div><p class="eyebrow">RANKING</p><h2 id="ranking-title-full">전체 랭킹</h2><p>추천이 모이면 순위가 갱신됩니다.</p></div>
-        </div>
-        <div class="ranking-panels">
-          <aside class="ranking-panel" aria-labelledby="ranking-h5-title">
-            <div class="ranking-heading"><p class="eyebrow">HOT 5</p><h3 id="ranking-h5-title">상위 랭크</h3></div>
-            <ol id="rankingList" class="ranking-list"></ol>
-          </aside>
-          <ol id="actorRanking" class="actor-ranking" aria-label="전체 모델 랭킹"></ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-band">
-      <div class="shell lower-grid">
-        <section class="release-section" id="releases" aria-labelledby="releases-title">
-          <div class="section-heading compact">
-            <div><p class="eyebrow">OFFICIAL UPDATES</p><h2 id="releases-title">공식 업데이트</h2></div>
-            <p>공식 출처로 확인된 링크만 제공합니다.</p>
-          </div>
-          <div class="release-list">
-            <article><time datetime="2025-07-25">07.25</time><div><p class="category-label">OFFICIAL NEWS · AI SHINOZAKI</p><h3>Young Champion 16호 표지 공지</h3><p>공식 뉴스에 게시된 공지입니다.</p></div><a href="https://shinozakiai0226.com/news/post-1121/" target="_blank" rel="noopener noreferrer">공식 뉴스</a></article>
-          </div>
-        </section>
-        <section class="updates-section" id="updates" aria-labelledby="updates-title">
-          <div class="section-heading compact"><div><p class="eyebrow">MORE</p><h2 id="updates-title">함께 보기</h2></div><p>플레이그라운드와 갤러리로 GlobalHot을 더 즐겨보세요.</p></div>
-          <ul class="update-list">
-            <li><span class="update-dot coral"></span><div><strong>플레이그라운드</strong><p>이미지·요약·아이디어 데모</p></div><a href="/playground.html">바로가기</a></li>
-            <li><span class="update-dot blue"></span><div><strong>갤러리</strong><p>커뮤니티 결과물 모아보기</p></div><a href="/gallery.html">바로가기</a></li>
-            <li><span class="update-dot gold"></span><div><strong>소개</strong><p>공식 출처 정책</p></div><a href="/about.html">자세히</a></li>
-          </ul>
-          <a class="card-affiliate" data-affiliate="amazon-global" href="https://www.amazon.com/s?k=gravure+photobook&tag=globalhot-22" target="_blank" rel="noopener noreferrer">
-            <span class="affiliate-text">
-              <span class="affiliate-label">AMAZON ASSOCIATE</span>
-              <span class="affiliate-title">파트너 마켓에서 사진집·주간지 찾아보기 — PARTNER LINK</span>
-            </span>
-            <span class="affiliate-link" aria-hidden="true">둘러보기</span>
-          </a>
-        </section>
       </div>
     </section>
   </main>
@@ -235,9 +163,7 @@
   <nav class="mobile-nav" aria-label="모바일 메뉴">
     <a class="mobile-nav-item is-active" href="#main-content"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a>
     <a class="mobile-nav-item" href="#models"><span class="mobile-nav-icon" aria-hidden="true">◈</span><span>프로필</span></a>
-    <a class="mobile-nav-item" href="#ranking"><span class="mobile-nav-icon" aria-hidden="true">★</span><span>랭킹</span></a>
-    <a class="mobile-nav-item" href="/gallery.html"><span class="mobile-nav-icon" aria-hidden="true">▦</span><span>갤러리</span></a>
-    <a class="mobile-nav-item" href="/playground.html"><span class="mobile-nav-icon" aria-hidden="true">▶</span><span>실험</span></a>
+    <a class="mobile-nav-item" href="/about.html"><span class="mobile-nav-icon" aria-hidden="true">ⓘ</span><span>소개</span></a>
   </nav>
   <div id="profileModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-modal-close></div>

@@ -48,7 +48,7 @@
     var actorRanking = document.getElementById('actorRanking');
     var emptyState = document.getElementById('emptyState');
     var clearSearch = document.getElementById('clearSearch');
-    if (!search || !sortSelect || !resultsCount || !grid || !rankingList || !emptyState || !clearSearch) return;
+    if (!search || !sortSelect || !resultsCount || !grid || !emptyState || !clearSearch) return;
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.model-card'));
     var validModelIds = {};
@@ -158,6 +158,7 @@
     }
 
     function renderRanking(displayedCards) {
+      if (!rankingList) return;
       rankingList.replaceChildren();
       displayedCards.slice().sort(rankComparator).slice(0, 5).forEach(function (card, index) {
         var item = document.createElement('li');
