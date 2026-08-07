@@ -21,7 +21,7 @@ const REQUIRED_FIELDS = ['id', 'name', 'altName', 'country', 'tags', 'photoAvail
 // auto-add pipeline sets these on every model it adds; legacy models omit them
 // and fall back to the CC/Wikimedia default in createModelCard. They are
 // documented in the `fields` array but not required on every model.
-const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl'];
+const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl', 'bio'];
 const SNS_FIELDS = ['x', 'instagram', 'youtube', 'tiktok'];
 const FEATURED_IDS = ['enako', 'umi-shinonome', 'nashiko-momotsuki', 'ai-shinozaki', 'kiko-mizuhara', 'elaiza-ikeda'];
 

@@ -15,7 +15,8 @@
     "sns",
     "license",
     "creditText",
-    "creditUrl"
+    "creditUrl",
+    "bio"
   ],
   "snsFields": [
     "x",
@@ -38,7 +39,8 @@
         "instagram": "https://www.instagram.com/enakorin",
         "youtube": "https://www.youtube.com/channel/UCrUdiKv9LERZmG_MKh63Xgg",
         "tiktok": ""
-      }
+      },
+      "bio": "일본을 대표하는 코스프레 모델 겸 그라비어 아티스트. 대형 코스프레 작품, 주간지 표지, TV·라디오 출연, 포토북 발간까지 활동 영역을 넓히며 코스프레 문화의 상징으로 자리잡았습니다."
     },
     {
       "id": "umi-shinonome",
@@ -53,7 +55,8 @@
         "instagram": "https://www.instagram.com/umi_portrait/",
         "youtube": "https://www.youtube.com/channel/UCLnac6g3R8YcGOisZxsVIpw",
         "tiktok": ""
-      }
+      },
+      "bio": "그라비어 모델로 주간지·화보 중심으로 활약합니다. 프라모델 조립을 비롯한 다채로운 취미와 유튜브 활동으로도 잘 알려져 있으며, 잡지·TV·영화로 영역을 확장한 멀티 탤런트입니다."
     },
     {
       "id": "ai-shinozaki",
@@ -68,7 +71,8 @@
         "instagram": "https://www.instagram.com/shinopp._.ai/",
         "youtube": "https://www.youtube.com/channel/UCKiLOWcSyFZjRLAY1IsZzjA",
         "tiktok": ""
-      }
+      },
+      "bio": "십대에 그라비어 아이돌로 데뷔해 오랫동안 잡지 표지를 장식해온 모델 겸 가수. 노래, 영화, 방송까지 활동 범위를 넓히며 꾸준히 인기를 이어왔습니다."
     },
     {
       "id": "nashiko-momotsuki",
@@ -83,7 +87,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "코스프레 모델로 시작해 모델 겸 배우로 활동 영역을 넓힌 탤런트. 게임, 영화, 방송 등 다양한 장르를 넘나들며 자신만의 존재감을 드러냅니다."
     },
     {
       "id": "aika-sawaguchi",
@@ -1538,7 +1543,8 @@
         "instagram": "https://www.instagram.com/i_am_kiko/",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본을 대표하는 패션 모델이자 배우. 국제 패션 무대와 개인 브랜드, 영화·드라마 활동으로 글로벌 인지도를 쌓아온 인물입니다."
     },
     {
       "id": "elaiza-ikeda",
@@ -1553,7 +1559,8 @@
         "instagram": "https://www.instagram.com/elaiza_ikd/",
         "youtube": "",
         "tiktok": "https://www.tiktok.com/@elaizaofficial_"
-      }
+      },
+      "bio": "패션 모델과 여배우를 겸하는 활동형 아티스트. CanCam 등 패션계와 영화·드라마, 음악 작업까지 영역을 넓히며 연출 프로젝트에도 참여합니다."
     },
     {
       "id": "mayuka-mitsumine",
@@ -2696,7 +2703,8 @@
       },
       "license": "CC BY-SA 4.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:MKr377554_Suzu_Hirose_(A_Pale_View_of_Hills,_Cannes_2025).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:MKr377554_Suzu_Hirose_(A_Pale_View_of_Hills,_Cannes_2025).jpg",
+      "bio": "수수하고 명랑한 매력으로 영화·드라마를 넘나들며 활약하는 여배우 겸 모델. 안정적인 연기와 폭넓은 작품 선택으로 주목받습니다."
     },
     {
       "id": "yuzuki-aikawa",
@@ -2714,7 +2722,8 @@
       },
       "license": "CC BY 3.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg",
+      "bio": "그라비어 아이돌로 데뷔해 다수의 주간지와 화보 표지를 장식했으며, 방송·국제 활동까지 인기를 넓힌 대표적인 아이돌 모델입니다."
     },
     {
       "id": "tsukasa-fujimoto",
@@ -2732,7 +2741,8 @@
       },
       "license": "CC BY-SA 4.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg",
+      "bio": "그라비어 활동과 프로레슬링 무대를 넘나드는 독특한 이력을 가진 탤런트. 강인한 존재감과 근성 있는 매력으로 폭넓은 응원을 받습니다."
     },
     {
       "id": "sola-aoi",
@@ -2750,7 +2760,8 @@
       },
       "license": "CC BY 2.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_(22241441840)_(cropped).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_(22241441840)_(cropped).jpg",
+      "bio": "일본 엔터테인먼트계의 상징적 인물. 그라비어 활동을 비롯해 여러 매체에서 오랫동안 대중의 사랑을 받아온 아이콘입니다."
     },
     {
       "id": "mitsu-dan",
@@ -2768,7 +2779,8 @@
       },
       "license": "CC BY-SA 4.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Dan_mitsu.jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Dan_mitsu.jpg",
+      "bio": "깊은 표현력과 다양한 활동으로 이름을 알린 모델 겸 탤런트. 사진과 미디어 전반에서 존재감을 보여줍니다."
     },
     {
       "id": "mao-ichimichi",
@@ -2786,7 +2798,8 @@
       },
       "license": "CC BY-SA 3.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%B8%82%E9%81%93%E7%9C%9F%E5%A4%AE%EF%BC%91.jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%B8%82%E9%81%93%E7%9C%9F%E5%A4%AE%EF%BC%91.jpg",
+      "bio": "신선한 분위기와 뚜렷한 개성을 지닌 그라비어 모델. 잡지와 화보 작업을 중심으로 입지를 넓혀가고 있습니다."
     },
     {
       "id": "kyoko-hinami",
@@ -2804,7 +2817,8 @@
       },
       "license": "CC BY 2.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_(44894003194).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_(44894003194).jpg",
+      "bio": "청초한 분위기와 안정된 표현력으로 그라비어 씬에서 주목받는 모델. 매거진과 이벤트를 중심으로 활동합니다."
     },
     {
       "id": "alice-hirose",
@@ -2822,7 +2836,8 @@
       },
       "license": "CC BY 2.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_(49013313561)_(cropped).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_(49013313561)_(cropped).jpg",
+      "bio": "밝은 이미지와 친근한 분위기로 사랑받는 여배우 겸 모델. 드라마, 광고, 잡지에서 폭넓은 활동을 이어갑니다."
     },
     {
       "id": "tsukasa-aoi",
@@ -2840,7 +2855,8 @@
       },
       "license": "CC BY 4.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:%EC%95%84%EC%98%A4%EC%9D%B4%EC%B8%A0%EC%B9%B4%EC%82%AC(Aoi_Tsukasa)_%EA%B5%AD%EB%82%B4_%ED%8C%AC%EB%AF%B8%ED%8C%85_5.jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%EC%95%84%EC%98%A4%EC%9D%B4%EC%B8%A0%EC%B9%B4%EC%82%AC(Aoi_Tsukasa)_%EA%B5%AD%EB%82%B4_%ED%8C%AC%EB%AF%B8%ED%8C%85_5.jpg",
+      "bio": "뚜렷한 개성과 안정된 균형으로 화제가 된 그라비어 모델. 화보와 주간지에서 독특한 세계관을 구축해왔습니다."
     },
     {
       "id": "marie-iitoyo",
@@ -2858,7 +2874,8 @@
       },
       "license": "CC BY 2.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Iitoyo_Marie_from_%22The_Tunnel_to_Summer,_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_(52461345204).jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Iitoyo_Marie_from_%22The_Tunnel_to_Summer,_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_(52461345204).jpg",
+      "bio": "그라비어 모델 겸 탤런트. 잡지·화보 작업과 함께 블로그, SNS로 팬들과의 교류를 유지하며 꾸준히 활동합니다."
     },
     {
       "id": "akemi-darenogare",
@@ -2876,7 +2893,8 @@
       },
       "license": "CC BY 2.0",
       "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg"
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg",
+      "bio": "강렬한 분위기와 뚜렷한 개성으로 주목받은 그래비어·패션 모델. 다수의 매체와 화보에서 존재감을 보여줍니다."
     },
     {
       "id": "yukari-fukui",
