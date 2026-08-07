@@ -7,8 +7,6 @@ import { applyCacheBust } from "./cache-bust.mjs";
 export const STATIC_FILES = [
   "index.html",
   "model.html",
-  "playground.html",
-  "gallery.html",
   "about.html",
   "privacy.html",
   "terms.html",
@@ -17,8 +15,6 @@ export const STATIC_FILES = [
   "app.css",
   "info.css",
   "portal.js",
-  "ads.js",
-  "ai-demo.js",
   "analytics.js",
   "ads.txt",
   "robots.txt",
@@ -80,27 +76,6 @@ function escapeHtml(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-async function injectPhotoCredits(distDir) {
-  const dataPath = path.join(distDir, "data", "models.json");
-  const models = JSON.parse(await readFile(dataPath, "utf8")).models;
-  const aboutPath = path.join(distDir, "about.html");
-  const aboutHtml = await readFile(aboutPath, "utf8");
-  const placeholder = "<!-- PHOTO-CREDITS -->";
-  if (!aboutHtml.includes(placeholder)) {
-    throw new Error("about.html is missing the PHOTO-CREDITS placeholder");
-  }
-  const published = models.filter((m) => m.photoAvailable === true).sort((a, b) => a.name.localeCompare(b.name));
-  const items = published.map((model) => {
-    const displayName = escapeHtml((model.altName ? `${model.name} (${model.altName})` : model.name) || model.id);
-    const license = escapeHtml(model.license && String(model.license) ? String(model.license) : "CC BY-SA 4.0");
-    const creditName = escapeHtml(model.creditText && String(model.creditText) ? String(model.creditText) : "Wikimedia Commons");
-    const sourceHref = escapeHtml(model.creditUrl || "https://commons.wikimedia.org/");
-    return `<li><span class="credit-model">${displayName}</span><span class="credit-license">${license}</span><a href="${sourceHref}" target="_blank" rel="noopener noreferrer">${creditName}</a></li>`;
-  });
-  const rendered = aboutHtml.replace(placeholder, items.join(""));
-  await writeFile(aboutPath, rendered, "utf8");
-}
-
 export async function buildPages() {
   assertDistPath();
   await rm(distDir, { recursive: true, force: true });
@@ -123,12 +98,10 @@ export async function buildPages() {
 
   await prepareModelsData({ projectRoot, distDir });
 
-  await injectPhotoCredits(distDir);
-
   await applyCacheBust({
     projectRoot,
     distDir,
-    htmlFiles: ["index.html", "model.html", "playground.html", "gallery.html", "about.html", "privacy.html", "terms.html", "404.html"],
+    htmlFiles: ["index.html", "model.html", "about.html", "privacy.html", "terms.html", "404.html"],
   });
 
   const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);

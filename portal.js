@@ -602,8 +602,8 @@ emptyState.hidden = displayedCards.length !== 0;
     // Subtle photo attribution: where the photo came from + its license. Per-model
     // license/credit so a copyrighted photo is never mislabelled CC; models without
     // those fields fall back to the CC/Wikimedia default. Attribution is kept OFF
-    // the card (a noisy per-card footnote) and consolidated on the about page's
-    // "프로필 사진 출처" section at build time, so a card stays clean and focused.
+    // the card (a noisy per-card footnote) and summarized on the about page, so a
+    // card stays clean and focused.
     var cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
 

@@ -217,10 +217,9 @@ test('0001 then 0002 executes in SQLite, preserves votes, and retains compatibil
   }
 });
 
-test('data source, about links, and migration metadata agree on every profile mapping', async () => {
-  const [modelsRaw, about, migration] = await Promise.all([
+test('data source and migration metadata agree on every official profile mapping', async () => {
+  const [modelsRaw, migration] = await Promise.all([
     readFile(new URL('../data/models.json', import.meta.url), 'utf8'),
-    readFile(new URL('../about.html', import.meta.url), 'utf8'),
     readFile(new URL('../migrations/0002_real_profiles.sql', import.meta.url), 'utf8')
   ]);
   const profiles = [
@@ -241,7 +240,6 @@ test('data source, about links, and migration metadata agree on every profile ma
       continue;
     }
     assert.match(model.officialUrl, new RegExp(escapeRegex(url)), `${id} officialUrl must match`);
-    assert.match(about, new RegExp(`href="${escapeRegex(url)}"[^>]*>${escapeRegex(name)}`));
     assert.match(migration, new RegExp(`'${id}'[\\s\\S]{0,500}'${escapeRegex(url)}'`));
   }
 });

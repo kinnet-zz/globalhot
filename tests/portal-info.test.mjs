@@ -50,13 +50,13 @@ test('information pages retain the shared accented brand, footer, and legal link
   }
 });
 
-test('about page lists the six official-source profiles and documents a licensed-photo policy', () => {
-  for (const name of ['Enako', 'Umi Shinonome', 'Nashiko Momotsuki', 'Ai Shinozaki', 'Kiko Mizuhara', 'Elaiza Ikeda']) {
-    assert.match(about, new RegExp(name));
-  }
-  assert.match(about, /https:\/\/ppe\.jp\/talent\/enako\//);
+test('about page documents a licensed-photo policy and has no bulk source lists', () => {
+  assert.doesNotMatch(about, /ppe\.jp/, 'the removed official-sources list is gone');
+  assert.doesNotMatch(about, /프로필 사진 출처/, 'the removed credits list is gone');
+  assert.doesNotMatch(about, /credit-model/, 'no per-model credit list remains');
   assert.match(about, /mailto:admin@globalhot\.net/);
   assert.match(about, /CC\b|라이선스/);
+  assert.match(about, /Wikimedia Commons/);
   assert.match(about, /모노그램/);
   assert.doesNotMatch(about, /\/posts\//i);
 });
@@ -107,19 +107,17 @@ test('legacy publisher is manual only and does not schedule automatic post creat
   assert.match(workflow, /Legacy manual news:/);
 });
 
-test('sitemap exposes exactly six current portal pages with their intended change frequencies', () => {
+test('sitemap exposes exactly four current portal pages with their intended change frequencies', () => {
   const locations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
   const expected = new Set([
     'https://globalhot.net/',
-    'https://globalhot.net/playground.html',
-    'https://globalhot.net/gallery.html',
     'https://globalhot.net/about.html',
     'https://globalhot.net/privacy.html',
     'https://globalhot.net/terms.html'
   ]);
-  assert.equal(locations.length, 6);
+  assert.equal(locations.length, 4);
   assert.deepEqual(new Set(locations), expected);
-  assert.doesNotMatch(sitemap, /\/posts\//i);
+  assert.doesNotMatch(sitemap, /playground|gallery|editor|posts/i);
   assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/<\/loc>\s*<lastmod>2026-08-01<\/lastmod>\s*<changefreq>daily<\/changefreq>\s*<priority>1\.0<\/priority>/s);
   assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/about\.html<\/loc>[\s\S]*?<changefreq>monthly<\/changefreq>/);
   assert.equal((sitemap.match(/<changefreq>yearly<\/changefreq>/g) || []).length, 2);

@@ -315,25 +315,18 @@ test('cards stay clean — no per-card photo credit, verified date, or registere
   assert.ok(card.querySelector('.source-links'), 'official source links remain on the card');
 });
 
-test('attribution is consolidated on the about page, not scattered on every card', async () => {
-  // Credits move off the cards and onto the about page's "프로필 사진 출처" list,
-  // generated at build time from the reconciled photo-bearing models.
+test('photo licensing is summarized on the about page, not listed or scattered on cards', async () => {
+  // Per-card photo credits are gone, and the about page's long "프로필 사진 출처"
+  // and "확인한 공식 출처" lists have been removed; only a short licensing summary remains.
   await buildPages();
   const about = await readFile(path.join(projectRoot, 'dist', 'about.html'), 'utf8');
-  assert.match(about, /프로필 사진 출처/);
-  assert.match(about, /credit-model/);
-  assert.doesNotMatch(about, /<!-- PHOTO-CREDITS -->/, 'the placeholder must be replaced by real list items');
-  const published = allModels.filter((m) => m.photoAvailable === true);
-  assert.ok(published.length >= 1, 'fixture must include photo-bearing models');
-  for (const model of published) {
-    const display = model.altName ? `${model.name} (${model.altName})` : model.name;
-    assert.match(about, new RegExp(escapeRegex(display)), `${display} is listed in the about credits`);
-  }
-  // The default CC/Wikimedia fallback is present for models without explicit license.
-  assert.match(about, /CC BY-SA 4\.0/);
+  assert.doesNotMatch(about, /프로필 사진 출처/, 'the removed credits list heading is gone');
+  assert.doesNotMatch(about, /credit-model/, 'no per-model credit list items remain');
+  assert.doesNotMatch(about, /<!-- PHOTO-CREDITS -->/, 'the placeholder must no longer exist');
+  assert.doesNotMatch(about, /ppe\.jp/, 'the removed official-sources list is gone');
+  const card = dyn.createModelCard(allModels.find((m) => m.photoAvailable === true) || allModels[0], 0);
+  assert.equal(card.querySelector('.photo-credit'), null, 'no per-card photo-credit footnote');
+  // The CC/Wikimedia summary line remains on the about page.
   assert.match(about, /Wikimedia Commons/);
+  assert.match(about, /라이선스/);
 });
-
-function escapeRegex(input) {
-  return input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
