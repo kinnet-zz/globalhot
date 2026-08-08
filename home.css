@@ -95,13 +95,14 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 .registry-mast-inner {
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
   gap: 18px;
-  padding: 40px 0 34px;
+  padding: 40px 24px 34px;
 }
 .registry-badge {
   position: absolute;
@@ -365,9 +366,9 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 .modal-stats dd { color: var(--h-ink); }
 .modal-close { color: var(--h-ink); border-color: var(--h-rule); background: var(--h-card); }
 .modal-close:hover { background: var(--h-verm); color: #fff; border-color: var(--h-verm); }
-.shell .profile-actions a { color: var(--h-muted); border-color: var(--h-rule); }
-.shell .profile-actions a:hover { color: var(--h-verm); border-color: var(--h-verm); }
-.shell .profile-actions a:after { color: var(--h-verm); }
+.profile-actions a { color: var(--h-muted); border-color: var(--h-rule); }
+.profile-actions a:hover { color: var(--h-verm); border-color: var(--h-verm); }
+.profile-actions a:after { color: var(--h-verm); }
 .modal-copy .photo-credit { border-top-color: var(--h-rule); }
 
 /* ── 08 푸터 ── */
@@ -418,7 +419,7 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   .filter-button { flex: 1; min-width: 68px; min-height: 42px; padding: 0 8px; }
   .sort-control { margin-left: auto; }
   .results-count { width: 100%; }
-  .registry-mast-inner { padding: 30px 0 26px; gap: 14px; }
+  .registry-mast-inner { padding: 30px 24px 26px; gap: 14px; }
   .registry-title { font-size: 1.8rem; }
   .registry-meta { gap: 18px; }
   .registry-badge { top: 12px; height: 62px; }
