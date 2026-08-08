@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-08-08T03:44:07.859Z",
+  "candidatesExamined": 22,
+  "published": [
+    "yoko-kumada",
+    "mayuko-iwasawa",
+    "k-sjua",
+    "k-yeo",
+    "w-irina",
+    "w-chrissy",
+    "w-georgia",
+    "w-alix",
+    "w-cecil"
+  ],
+  "failed": [
+    {
+      "id": "elaiza-ikeda",
+      "name": "Elaiza Ikeda",
+      "country": "JAPAN",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "k-biroha",
+      "name": "Son Bi-ro-ha",
+      "country": "KOREA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "k-hari",
+      "name": "Ban Ha-ri",
+      "country": "KOREA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "k-nagyeong",
+      "name": "Mok Na-kyeong",
+      "country": "KOREA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "k-dyeon",
+      "name": "E Da-yeon",
+      "country": "KOREA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "k-bb",
+      "name": "Bobby-ang",
+      "country": "KOREA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "w-jena-frumes",
+      "name": "Jena Frumes",
+      "country": "USA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "w-millane",
+      "name": "Sommer Ray",
+      "country": "USA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "w-izzy",
+      "name": "Erin Gilfoy",
+      "country": "USA",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "w-hanabe",
+      "name": "Elena Knoeferl",
+      "country": "GERMANY",
+      "reason": "no_search_results"
+    },
+    {
+      "id": "w-nat",
+      "name": "Natalia Narganes",
+      "country": "SPAIN",
+      "reason": "no_name_match"
+    },
+    {
+      "id": "w-linne",
+      "name": "Linn Aamdal",
+      "country": "NORWAY",
+      "reason": "no_search_results"
+    },
+    {
+      "id": "w-lena",
+      "name": "Lena Mantler",
+      "country": "GERMANY",
+      "reason": "no_name_match"
+    }
+  ]
+}

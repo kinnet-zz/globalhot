@@ -142,14 +142,18 @@
       "altName": "榎原依那",
       "country": "JAPAN",
       "tags": "gravure magazine tiktok youtube",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Mti",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "cocoro-toyoshima",
@@ -172,14 +176,18 @@
       "altName": "白濱美兎",
       "country": "JAPAN",
       "tags": "gravure magazine tiktok instagram",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "mti",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "mizuki-hoshina",
@@ -337,14 +345,18 @@
       "altName": "横野すみれ",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Reggaeman",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "kokoro-shinozaki",
@@ -742,14 +754,18 @@
       "altName": "桐山瑠衣",
       "country": "JAPAN",
       "tags": "gravure dvd magazine",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Sammy0629",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "io-iori",
@@ -817,14 +833,18 @@
       "altName": "三宅美羽",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "聖石大戦ぶぅぶぅ",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "tomoka-takenaka",
@@ -832,14 +852,18 @@
       "altName": "竹中知華",
       "country": "JAPAN",
       "tags": "gravure magazine announcer",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Hu Bing",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "mao-takano",
@@ -1117,14 +1141,18 @@
       "altName": "藤乃あおい",
       "country": "JAPAN",
       "tags": "gravure dvd magazine legend",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "Unknown author Unknown author",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "rina-hashimoto",
@@ -1387,14 +1415,18 @@
       "altName": "熊田曜子",
       "country": "JAPAN",
       "tags": "gravure variety legend",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "リニモ１号",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "waka-inoue",
@@ -1492,14 +1524,18 @@
       "altName": "岩佐真悠子",
       "country": "JAPAN",
       "tags": "gravure actress variety",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "creditText": "（ Songsknow ）",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "fumie-hosokawa",
@@ -1507,14 +1543,18 @@
       "altName": "細川ふみえ",
       "country": "JAPAN",
       "tags": "gravure legend 90s",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "creditText": "内閣官房内閣広報室",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "akiko-hinagata",
@@ -1522,14 +1562,18 @@
       "altName": "雛形あきこ",
       "country": "JAPAN",
       "tags": "gravure legend 90s actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Ismoon ( talk )",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "kiko-mizuhara",
@@ -1569,14 +1613,18 @@
       "altName": "三峰真由花",
       "country": "JAPAN",
       "tags": "gravure actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Mayuno",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "mika-kimura",
@@ -1584,14 +1632,18 @@
       "altName": "木村ウルハナ",
       "country": "JAPAN",
       "tags": "gravure idol",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "Clementine space probe",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "miyuki-irie",
@@ -1599,14 +1651,18 @@
       "altName": "入江みいな",
       "country": "JAPAN",
       "tags": "gravure actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "FlickerJab",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-inkyung",
@@ -1614,14 +1670,18 @@
       "altName": "강인경",
       "country": "KOREA",
       "tags": "web-gravure maxim model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "Amber I. Smith - U.S. Secretary of Defense",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-dahye",
@@ -1629,14 +1689,18 @@
       "altName": "이다혜",
       "country": "KOREA",
       "tags": "cheerleader",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Solomon203",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-soyeon",
@@ -1644,14 +1708,18 @@
       "altName": "소이",
       "country": "KOREA",
       "tags": "racing model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "K-POPIT 케이팝잇",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-chaesia",
@@ -1659,14 +1727,18 @@
       "altName": "채시아",
       "country": "KOREA",
       "tags": "racing model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "( Kirk Stauffer )",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-biroha",
@@ -1719,14 +1791,18 @@
       "altName": "최미수아",
       "country": "KOREA",
       "tags": "miss earth solo parade swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "Arlington National Cemetery",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-suhyun",
@@ -1734,14 +1810,18 @@
       "altName": "이수현",
       "country": "KOREA",
       "tags": "actress swimwear barrel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "NewsInStar",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-jain",
@@ -1749,14 +1829,18 @@
       "altName": "한재인",
       "country": "KOREA",
       "tags": "actress swimwear barrel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Dltl2010",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-euni",
@@ -1764,14 +1848,18 @@
       "altName": "정은이",
       "country": "KOREA",
       "tags": "model maxim fitness",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "PARKJAEHWAN kinocine.com",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-dyeon",
@@ -1794,14 +1882,18 @@
       "altName": "송주아",
       "country": "KOREA",
       "tags": "cosplay racing model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "Philip Saumarez",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-seol",
@@ -1809,14 +1901,18 @@
       "altName": "첼설아",
       "country": "KOREA",
       "tags": "model maxim bikini",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "CNTV 역사극채널",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "k-bb",
@@ -1839,14 +1935,18 @@
       "altName": "서여진",
       "country": "KOREA",
       "tags": "cheer maxim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Marie Claire Korea",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-emrata",
@@ -1854,14 +1954,18 @@
       "altName": "",
       "country": "USA",
       "tags": "bikini inamorata actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Rogue Artists",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-kupton",
@@ -1869,14 +1973,18 @@
       "altName": "",
       "country": "USA",
       "tags": "swimsuit actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Agape Lataillade",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-irina",
@@ -1884,14 +1992,18 @@
       "altName": "Ирина Шейк",
       "country": "RUSSIA",
       "tags": "supermodel swimsuit",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "Joan Hernandez Mir",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-kendall",
@@ -1899,14 +2011,18 @@
       "altName": "",
       "country": "USA",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Adanola",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-gigi",
@@ -1914,14 +2030,18 @@
       "altName": "",
       "country": "USA",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "Eva Rinaldi",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-bella",
@@ -1929,14 +2049,18 @@
       "altName": "",
       "country": "USA",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Georges Biard",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-cara",
@@ -1944,14 +2068,18 @@
       "altName": "",
       "country": "UK",
       "tags": "supermodel actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Gage Skidmore",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-rosie",
@@ -1959,14 +2087,18 @@
       "altName": "",
       "country": "UK",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "Christian Sorge of Covino and Rich at https://www.covinoandrich.com/",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-candice",
@@ -1974,14 +2106,18 @@
       "altName": "",
       "country": "SOUTH_AFRICA",
       "tags": "supermodel vs angel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Nomadic",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-adriana",
@@ -1989,14 +2125,18 @@
       "altName": "",
       "country": "BRAZIL",
       "tags": "supermodel vs angel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Toglenn",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-aless",
@@ -2004,14 +2144,18 @@
       "altName": "",
       "country": "BRAZIL",
       "tags": "supermodel vs angel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Joey Pasion, M.D. Original uploader was Number1spygirl at en.wikipedia",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-gisele",
@@ -2019,14 +2163,18 @@
       "altName": "",
       "country": "BRAZIL",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "Renan Katayama",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-barbara",
@@ -2034,14 +2182,18 @@
       "altName": "",
       "country": "HUNGARY",
       "tags": "supermodel swimsuit",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Georges Biard",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-chrissy",
@@ -2049,14 +2201,18 @@
       "altName": "",
       "country": "USA",
       "tags": "swimsuit model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "David Shankbone",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-nina",
@@ -2064,14 +2220,18 @@
       "altName": "",
       "country": "DENMARK",
       "tags": "swimsuit model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "Arturo Pardavila III from Hoboken, NJ, USA",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-katebock",
@@ -2079,14 +2239,18 @@
       "altName": "",
       "country": "CANADA",
       "tags": "swimsuit model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Behind The Velvet Rope TV",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-charlotte",
@@ -2094,14 +2258,18 @@
       "altName": "",
       "country": "USA",
       "tags": "model actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "Web Summit",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-demirose",
@@ -2109,14 +2277,18 @@
       "altName": "",
       "country": "UK",
       "tags": "glamour model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "OnlyFans",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-rebecca",
@@ -2124,14 +2296,18 @@
       "altName": "",
       "country": "USA",
       "tags": "model actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Gage Skidmore",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-rose",
@@ -2139,14 +2315,18 @@
       "altName": "",
       "country": "BELGIUM",
       "tags": "bikini model swimsuit",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Stan Shebs",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-doutzen",
@@ -2154,14 +2334,18 @@
       "altName": "",
       "country": "NETHERLANDS",
       "tags": "supermodel vs angel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Mrslyd",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-emilys",
@@ -2169,14 +2353,18 @@
       "altName": "",
       "country": "USA",
       "tags": "swimsuit model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Behind The Velvet Rope TV",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-georgia",
@@ -2184,14 +2372,18 @@
       "altName": "",
       "country": "SPAIN",
       "tags": "model influencer",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "The White House",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-kelly",
@@ -2199,14 +2391,18 @@
       "altName": "",
       "country": "USA",
       "tags": "bikini model actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "creditText": "Faye Sadou",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-hailey",
@@ -2214,14 +2410,18 @@
       "altName": "Hailey Baldwin",
       "country": "USA",
       "tags": "model rhode",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "creditText": "Kevin Paul",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-naomi",
@@ -2229,14 +2429,18 @@
       "altName": "",
       "country": "UK",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Georges Biard",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-taylor",
@@ -2244,14 +2448,18 @@
       "altName": "",
       "country": "USA",
       "tags": "vs angel model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Yvan Fabing",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-georgina2",
@@ -2259,14 +2467,18 @@
       "altName": "",
       "country": "MEXICO",
       "tags": "model si swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Nardisoero",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-olivia",
@@ -2274,14 +2486,18 @@
       "altName": "",
       "country": "USA",
       "tags": "gymnast si swim model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "CCS Pictures",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-lauren",
@@ -2289,14 +2505,18 @@
       "altName": "",
       "country": "CANADA",
       "tags": "plus-size model si swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "CHROMAT",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-salma",
@@ -2304,14 +2524,18 @@
       "altName": "",
       "country": "MEXICO",
       "tags": "actress si swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "John Sears",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-alix",
@@ -2319,14 +2543,18 @@
       "altName": "",
       "country": "USA",
       "tags": "influencer si swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "Adam Cuerden",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-haley-kalil",
@@ -2334,14 +2562,18 @@
       "altName": "Haley Baylee",
       "country": "USA",
       "tags": "model si swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "creditText": "Kevin Paul",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-jena-frumes",
@@ -2364,14 +2596,18 @@
       "altName": "",
       "country": "USA",
       "tags": "bikini model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "EvaMrázová",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-kara",
@@ -2379,14 +2615,18 @@
       "altName": "",
       "country": "USA",
       "tags": "bikini model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Jl FilpoC",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-demibae",
@@ -2394,14 +2634,18 @@
       "altName": "",
       "country": "ITALY",
       "tags": "bikini model si swim",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "FGphotographic",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-yasmine",
@@ -2409,14 +2653,18 @@
       "altName": "",
       "country": "NETHERLANDS",
       "tags": "swimsuit model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "nikontino",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-anok",
@@ -2424,14 +2672,18 @@
       "altName": "",
       "country": "USA",
       "tags": "supermodel",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Paco Rabanne",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-lamecia",
@@ -2439,14 +2691,18 @@
       "altName": "",
       "country": "UK",
       "tags": "model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Yoann Lothaire / other viewnewsmedia",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-linds",
@@ -2454,14 +2710,18 @@
       "altName": "",
       "country": "USA",
       "tags": "skier si swim model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "U.S. Mission Korea",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-marta",
@@ -2469,14 +2729,18 @@
       "altName": "",
       "country": "POLAND",
       "tags": "bikini fitness model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "I99pema",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-amanda",
@@ -2484,14 +2748,18 @@
       "altName": "",
       "country": "USA",
       "tags": "model influencer actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "Drifta Beatz",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-millane",
@@ -2514,14 +2782,18 @@
       "altName": "",
       "country": "USA",
       "tags": "model singer",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "Public domain",
+      "licenseUrl": "",
+      "creditText": "Credit: NSF (National Science Foundation, United States)",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-izzy",
@@ -2559,14 +2831,18 @@
       "altName": "",
       "country": "BRITISH_TERRITORY",
       "tags": "bikini model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Aaj2545",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-tiaru",
@@ -2574,14 +2850,18 @@
       "altName": "",
       "country": "AUSTRALIA",
       "tags": "bikini model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "Arild Vågen",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-nat",
@@ -2604,14 +2884,18 @@
       "altName": "",
       "country": "CANADA",
       "tags": "bikini model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "DatraxMada",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-linne",
@@ -2634,14 +2918,18 @@
       "altName": "",
       "country": "USA",
       "tags": "si swim model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "John Benson",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-ry",
@@ -2649,14 +2937,18 @@
       "altName": "",
       "country": "AUSTRALIA",
       "tags": "bikini model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Stefan Krause, Germany",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "w-lena",
@@ -2679,14 +2971,18 @@
       "altName": "",
       "country": "BRAZIL",
       "tags": "singer si swim model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Attractive Mindset",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "suzu-hirose",
