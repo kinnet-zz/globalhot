@@ -6,6 +6,7 @@
   var VALID_CATEGORIES = ['all', 'model', 'cosplay', 'gravure'];
   var VALID_COUNTRIES = ['all', 'JAPAN', 'KOREA', 'WORLD'];
   var VALID_SORTS = ['popular', 'latest', 'name'];
+  var PAGE_SIZE = 20;
 
   function isSafeCount(value) {
     return typeof value === 'number' && isFinite(value) && Math.floor(value) === value && value >= 0 && value <= Number.MAX_SAFE_INTEGER;
@@ -69,11 +70,13 @@
     var filterButtons = Array.prototype.slice.call(document.querySelectorAll('.filter-button[data-category]'));
     var countryButtons = Array.prototype.slice.call(document.querySelectorAll('.filter-button[data-country]'));
     var parameters = new URLSearchParams(window.location.search);
+    var requestedPage = parseInt(parameters.get('page') || '1', 10);
     var state = {
       query: parameters.get('q') || '',
       category: isValid(parameters.get('category') || 'all', VALID_CATEGORIES, 'all'),
       country: isValid(parameters.get('country') || 'all', VALID_COUNTRIES, 'all'),
-      sort: isValid(parameters.get('sort') || 'popular', VALID_SORTS, 'popular')
+      sort: isValid(parameters.get('sort') || 'popular', VALID_SORTS, 'popular'),
+      page: isSafeCount(requestedPage) && requestedPage > 0 ? requestedPage : 1
     };
     var localRecommendations = getStoredRecommendations(LOCAL_STORAGE_KEY, validModelIds);
     var serverRecommendations = getStoredRecommendations(SERVER_STORAGE_KEY, validModelIds);
@@ -252,10 +255,65 @@
         next.set('category', state.category);
         next.set('country', state.country);
         next.set('sort', state.sort);
+        next.set('page', String(state.page));
         window.history.replaceState(null, '', window.location.pathname + '?' + next.toString() + window.location.hash);
       } catch (error) {
         // Browsers without History API can still use the portal.
       }
+    }
+
+    function goToPage(pageNumber, totalPages) {
+      if (pageNumber < 1 || pageNumber > totalPages || pageNumber === state.page) return;
+      state.page = pageNumber;
+      render({ sync: true });
+      var feed = document.getElementById('models');
+      if (feed && typeof feed.scrollIntoView === 'function') feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderPagination(totalItems, totalPages) {
+      var pagination = document.getElementById('pagination');
+      if (!pagination) return;
+      pagination.replaceChildren();
+      if (totalItems === 0 || totalPages <= 1) return;
+
+      var control = document.createElement('div');
+      control.className = 'pagination-control';
+
+      var prev = document.createElement('button');
+      prev.type = 'button';
+      prev.className = 'pagination-arrow';
+      prev.setAttribute('aria-label', '이전 페이지');
+      prev.textContent = '‹';
+      prev.disabled = state.page <= 1;
+      prev.addEventListener('click', function () { goToPage(state.page - 1, totalPages); });
+      control.append(prev);
+
+      for (var index = 1; index <= totalPages; index += 1) {
+        var pageButton = document.createElement('button');
+        pageButton.type = 'button';
+        pageButton.className = 'pagination-page';
+        pageButton.textContent = String(index);
+        pageButton.setAttribute('aria-label', index + ' 페이지');
+        if (index === state.page) {
+          pageButton.classList.add('is-active');
+          pageButton.setAttribute('aria-current', 'page');
+        }
+        (function (pageNumber) {
+          pageButton.addEventListener('click', function () { goToPage(pageNumber, totalPages); });
+        }(index));
+        control.append(pageButton);
+      }
+
+      var next = document.createElement('button');
+      next.type = 'button';
+      next.className = 'pagination-arrow';
+      next.setAttribute('aria-label', '다음 페이지');
+      next.textContent = '›';
+      next.disabled = state.page >= totalPages;
+      next.addEventListener('click', function () { goToPage(state.page + 1, totalPages); });
+      control.append(next);
+
+      pagination.append(control);
     }
 
     function render(options) {
@@ -274,8 +332,13 @@
       });
       cards.forEach(updateRecommendationButton);
       var displayedCards = cards.filter(matches).sort(compareCards);
-      cards.forEach(function (card) { card.hidden = displayedCards.indexOf(card) === -1; });
-      displayedCards.forEach(function (card) { grid.append(card); });
+      var totalPages = Math.max(1, Math.ceil(displayedCards.length / PAGE_SIZE));
+      state.page = Math.min(Math.max(1, state.page), totalPages);
+      var pageStart = (state.page - 1) * PAGE_SIZE;
+      var pageCards = displayedCards.slice(pageStart, pageStart + PAGE_SIZE);
+      cards.forEach(function (card) { card.hidden = pageCards.indexOf(card) === -1; });
+      pageCards.forEach(function (card) { grid.append(card); });
+      renderPagination(displayedCards.length, totalPages);
       resultsCount.textContent = String(displayedCards.length) + ' profiles found';
 emptyState.hidden = displayedCards.length !== 0;
         renderRanking(displayedCards);
@@ -368,17 +431,19 @@ emptyState.hidden = displayedCards.length !== 0;
     filterButtons.forEach(function (button) {
       button.addEventListener('click', function () {
         state.category = isValid(button.dataset.category, VALID_CATEGORIES, 'all');
+        state.page = 1;
         render();
       });
     });
     countryButtons.forEach(function (button) {
       button.addEventListener('click', function () {
         state.country = isValid(button.dataset.country, VALID_COUNTRIES, 'all');
+        state.page = 1;
         render();
       });
     });
-    search.addEventListener('input', function () { state.query = search.value; render(); });
-    sortSelect.addEventListener('change', function () { state.sort = isValid(sortSelect.value, VALID_SORTS, 'popular'); render(); });
+    search.addEventListener('input', function () { state.query = search.value; state.page = 1; render(); });
+    sortSelect.addEventListener('change', function () { state.sort = isValid(sortSelect.value, VALID_SORTS, 'popular'); state.page = 1; render(); });
     grid.addEventListener('click', function (event) {
       var button = event.target.closest('.recommend-button[data-recommend-model]');
       if (!button || button.disabled) return;

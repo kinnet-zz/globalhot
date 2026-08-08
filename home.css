@@ -335,8 +335,32 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 .recommend-button:hover { background: var(--h-verm); color: #fff; }
 .recommend-button:disabled { opacity: .5; cursor: default; }
 
-/* ── 06 빈 상태 / 로딩 ── */
+/* ── 06 빈 상태 / 로딩 / 페이지네이션 ── */
 .board-loading { grid-column: 1 / -1; text-align: center; color: var(--h-faint); padding: 40px 0; font-size: .82rem; }
+.pagination { margin-top: 26px; display: flex; justify-content: center; }
+.pagination-control { display: inline-flex; align-items: center; gap: 4px; }
+.pagination-button, .pagination-page, .pagination-arrow {
+  min-width: 38px; height: 38px; padding: 0 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--h-rule); border-radius: 4px;
+  background: var(--h-card); color: var(--h-muted);
+  font-size: .8rem; font-weight: 800; font-family: var(--font-sans);
+  cursor: pointer; user-select: none;
+  transition: border-color .16s, color .16s, background .16s;
+}
+.pagination-arrow { font-size: 1rem; }
+.pagination-button:hover:not(:disabled),
+.pagination-page:hover:not(:disabled),
+.pagination-arrow:hover:not(:disabled) {
+  border-color: var(--h-verm); color: var(--h-verm);
+}
+.pagination-page.is-active {
+  background: var(--h-verm); border-color: var(--h-verm); color: #fff;
+}
+.pagination-page.is-active:hover { color: #fff; }
+.pagination-button:disabled, .pagination-arrow:disabled {
+  opacity: .35; cursor: default; pointer-events: none;
+}
 .empty-state { grid-column: 1 / -1; text-align: center; padding: 42px 20px; color: var(--h-muted); border: 1px solid var(--h-rule); border-radius: 6px; background: var(--h-card); }
 .empty-state strong { color: var(--h-ink); font-weight: 900; }
 .empty-state p { margin: 8px 0 14px; }
@@ -408,6 +432,8 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   .model-grid.board-list { grid-template-columns: 1fr; gap: 14px; }
 }
 @media (max-width: 640px) {
+  .pagination-control { gap: 3px; }
+  .pagination-button, .pagination-page, .pagination-arrow { min-width: 34px; height: 34px; font-size: .78rem; }
   .shell { width: min(100% - 28px, 1180px); }
   .header-inner { min-height: 56px; gap: 12px; }
   .brand { font-size: 1.34rem; }
