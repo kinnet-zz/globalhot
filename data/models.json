@@ -1,8 +1,8 @@
 {
   "title": "GlobalHot Unified Model Directory",
   "description": "gravure-models.json + world-models.json 의 canonical 병합 명단. 중복 ID 제거, country/officialUrl/sns 필드 표준화.",
-  "generated": "2026-08-02",
-  "source": "merge of data/gravure-models.json (102) + data/world-models.json (102) with 27 shared IDs deduped",
+  "generated": "2026-08-08",
+  "source": "merge of data/gravure-models.json (102) + data/world-models.json (101) with 27 shared IDs deduped; k-inkyung (unverified photo) removed",
   "schemaVersion": 1,
   "fields": [
     "id",
@@ -25,7 +25,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 192,
+  "modelCount": 191,
   "models": [
     {
       "id": "enako",
@@ -1884,26 +1884,6 @@
       "licenseUrl": "",
       "creditText": "",
       "creditUrl": ""
-    },
-    {
-      "id": "k-inkyung",
-      "name": "Kang In-kyung",
-      "altName": "강인경",
-      "country": "KOREA",
-      "tags": "web-gravure maxim model",
-      "photoAvailable": false,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      },
-      "license": "",
-      "licenseUrl": "",
-      "creditText": "",
-      "creditUrl": "",
-      "photoUrl": ""
     },
     {
       "id": "k-dahye",
