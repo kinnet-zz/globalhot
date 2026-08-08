@@ -50,7 +50,7 @@
     .profile-section h2:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
     .profile-rail a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-    @media(max-width:700px){.profile-header{flex-direction:column}.profile-photo{flex:0 0 220px;max-width:220px}.profile-section{grid-template-columns:1fr;gap:18px}.profile-shell{width:min(100% - 28px,980px)}}
+    @media(max-width:700px){.profile-header{flex-direction:column}.profile-photo{flex:0 0 auto;width:min(220px,46%)}.profile-section{grid-template-columns:1fr;gap:18px}.profile-shell{width:min(100% - 28px,980px)}}
   </style>
 </head>
 <body>
@@ -135,6 +135,19 @@
         if (el) el.setAttribute('content', value);
       }
 
+      function applyMonogramFallback() {
+        var monogram = buildMonogram(model.name);
+        portrait.setAttribute('data-monogram', monogram);
+        portrait.setAttribute('aria-label', model.name + ' 프로필 사진 (모노그램)');
+        var brokenImg = portrait.querySelector('img');
+        if (brokenImg && brokenImg.parentNode) brokenImg.parentNode.removeChild(brokenImg);
+        if (!portrait.querySelector('span')) {
+          var noPhotoSpan = document.createElement('span');
+          noPhotoSpan.textContent = 'NO PHOTO';
+          portrait.appendChild(noPhotoSpan);
+        }
+      }
+
       function safeAnchor(href, label, ghost) {
         var a = document.createElement('a');
         a.href = href;
@@ -152,20 +165,25 @@
         return 'model';
       }
 
-      function categoryPriority(model) {
-        var category = categoryOf(model);
-        if (category === 'gravure') return 0;
-        if (category === 'cosplay') return 1;
+      // Mirrors portal.js priorityOf: gravure > cosplay/bikini/swimsuit/racing > rest.
+      function priorityOf(model) {
+        if (!model || typeof model.tags !== 'string') return 3;
+        var tags = model.tags.toLowerCase();
+        if (tags.indexOf('gravure') !== -1) return 0;
+        if (tags.indexOf('cosplay') !== -1) return 1;
+        if (tags.indexOf('bikini') !== -1 || tags.indexOf('swimsuit') !== -1 || tags.indexOf('racing') !== -1) return 1;
         return 2;
       }
 
-      // Rank mirrors the homepage directory order: gravure-class first, then
-      // cosplay, then the rest, with name (ko) as the deterministic tiebreak.
+      // Rank mirrors the homepage directory order with the same tiebreak
+      // (name, ko) so a model's detail badge matches its home feed position.
       function computeRank(model, models) {
         if (!model || !Array.isArray(models)) return null;
         var published = models.filter(function (m) { return m && m.photoAvailable === true; });
         published.sort(function (a, b) {
-          return categoryPriority(a) - categoryPriority(b);
+          var diff = priorityOf(a) - priorityOf(b);
+          if (diff !== 0) return diff;
+          return String((a && a.name) || '').localeCompare(String((b && b.name) || ''), 'ko');
         });
         for (var i = 0; i < published.length; i += 1) {
           if (published[i].id === model.id) return i + 1;
@@ -190,13 +208,10 @@
           var img = document.createElement('img');
           img.src = profileImgSrc(model);
           img.alt = model.name + ' 프로필 사진';
+          img.addEventListener('error', applyMonogramFallback);
           portrait.appendChild(img);
         } else {
-          portrait.setAttribute('data-monogram', buildMonogram(model.name));
-          portrait.setAttribute('aria-label', model.name + ' (모노그램)');
-          var mo = document.createElement('span');
-          mo.textContent = 'NO PHOTO';
-          portrait.appendChild(mo);
+          applyMonogramFallback();
         }
         photo.appendChild(portrait);
 
@@ -253,14 +268,17 @@
 
         var section = document.createElement('section');
         section.className = 'profile-section';
-        var bioCol = document.createElement('div');
-        var bioTitle = document.createElement('h2');
-        bioTitle.textContent = '모델 소개';
-        bioCol.appendChild(bioTitle);
-        var bio = document.createElement('p');
-        bio.className = 'profile-bio';
-        bio.textContent = model.bio || (model.name + '의 공식 프로필입니다.');
-        bioCol.appendChild(bio);
+        if (model.bio) {
+          var bioCol = document.createElement('div');
+          var bioTitle = document.createElement('h2');
+          bioTitle.textContent = '모델 소개';
+          bioCol.appendChild(bioTitle);
+          var bio = document.createElement('p');
+          bio.className = 'profile-bio';
+          bio.textContent = model.bio;
+          bioCol.appendChild(bio);
+          section.appendChild(bioCol);
+        }
         if (model.tags) {
           var tags = document.createElement('div');
           tags.className = 'profile-tags';
@@ -269,27 +287,50 @@
             span.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
             tags.appendChild(span);
           });
-          bioCol.appendChild(tags);
+          section.appendChild(tags);
         }
-        section.appendChild(bioCol);
 
         var rail = document.createElement('aside');
         rail.className = 'profile-rail';
         var dl = document.createElement('dl');
-        var facts = [
-          ['카테고리', String(categoryOf(model)).toUpperCase()],
-          ['국가', model.country],
-          ['라이선스', (model.license && String(model.license)) || 'CC BY-SA 4.0'],
-        ];
-        facts.forEach(function (pair) {
-          var term = document.createElement('dt');
-          term.textContent = pair[0];
-          var value = document.createElement('dd');
-          value.textContent = pair[1];
-          dl.appendChild(term);
-          dl.appendChild(value);
-        });
+        var categoryTerm = document.createElement('dt');
+        categoryTerm.textContent = '카테고리';
+        var categoryValue = document.createElement('dd');
+        categoryValue.textContent = String(categoryOf(model)).toUpperCase();
+        dl.appendChild(categoryTerm);
+        dl.appendChild(categoryValue);
+
+        var countryTerm = document.createElement('dt');
+        countryTerm.textContent = '국가';
+        var countryValue = document.createElement('dd');
+        countryValue.textContent = model.country;
+        dl.appendChild(countryTerm);
+        dl.appendChild(countryValue);
+
+        if (model.photoUrl && model.license) {
+          var licenseTerm = document.createElement('dt');
+          licenseTerm.textContent = '라이선스';
+          var licenseValue = document.createElement('dd');
+          licenseValue.textContent = model.license;
+          dl.appendChild(licenseTerm);
+          dl.appendChild(licenseValue);
+        }
+
         rail.appendChild(dl);
+
+        // Photo attribution only for remote (Wikimedia) images where we have a
+        // real license + credit. Local downloads publish no per-photo credit.
+        if (model.photoUrl && model.creditText) {
+          var credit = document.createElement('p');
+          credit.className = 'photo-credit';
+          credit.appendChild(document.createTextNode('사진 출처: '));
+          if (model.creditUrl) {
+            credit.appendChild(safeAnchor(model.creditUrl, model.creditText));
+          } else {
+            credit.appendChild(document.createTextNode(model.creditText));
+          }
+          rail.appendChild(credit);
+        }
 
         section.appendChild(rail);
         header.after(section);
