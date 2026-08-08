@@ -20,7 +20,7 @@
     .profile-header{display:flex;gap:26px;align-items:flex-start;margin-bottom:34px}
     .profile-photo{flex:0 0 260px;max-width:260px}
     .profile-photo .portrait{width:100%;aspect-ratio:3/4;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
-    .profile-photo .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+    .profile-photo .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
     .profile-copy{flex:1;min-width:0}
     .profile-copy .eyebrow{color:var(--coral-soft);letter-spacing:.15em;font-size:.68rem;font-weight:900;margin:0 0 10px}
     .profile-copy h1{margin:0;color:var(--ink);font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.05em}
@@ -102,10 +102,15 @@
         return parts.slice(0, 2).map(function (p) { return p.charAt(0); }).join('').toUpperCase();
       }
 
+      function profileImgSrc(model) {
+        if (model && typeof model.photoUrl === 'string' && model.photoUrl.indexOf('/assets/profiles/') === -1 && /^https:\/\//.test(model.photoUrl)) {
+          return model.photoUrl;
+        }
+        return model && model.id ? '/assets/profiles/' + encodeURIComponent(model.id) + '.jpg' : '';
+      }
+
       function syncMeta(model) {
-        var photoUrl = model.photoAvailable
-          ? 'https://globalhot.net/assets/profiles/' + encodeURIComponent(model.id) + '.jpg'
-          : '';
+        var photoUrl = model.photoAvailable ? ('https://globalhot.net' + profileImgSrc(model)) : '';
         var desc = (model.bio || model.name + ' GlobalHot 공식 프로필').slice(0, 160);
         setMeta('og:title', 'property', model.name + ' | GlobalHot');
         setMeta('og:description', 'property', desc);
@@ -180,7 +185,7 @@
         if (model.photoAvailable) {
           portrait.setAttribute('aria-label', model.name + ' 프로필 사진');
           var img = document.createElement('img');
-          img.src = '/assets/profiles/' + model.id + '.jpg';
+          img.src = profileImgSrc(model);
           img.alt = model.name + ' 프로필 사진';
           portrait.appendChild(img);
         } else {

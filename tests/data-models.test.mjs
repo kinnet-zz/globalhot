@@ -21,7 +21,7 @@ const REQUIRED_FIELDS = ['id', 'name', 'altName', 'country', 'tags', 'photoAvail
 // auto-add pipeline sets these on every model it adds; legacy models omit them
 // and fall back to the CC/Wikimedia default in createModelCard. They are
 // documented in the `fields` array but not required on every model.
-const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl', 'bio'];
+const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl', 'bio', 'photoUrl'];
 const SNS_FIELDS = ['x', 'instagram', 'youtube', 'tiktok'];
 const FEATURED_IDS = ['enako', 'umi-shinonome', 'nashiko-momotsuki', 'ai-shinozaki', 'kiko-mizuhara', 'elaiza-ikeda'];
 
@@ -114,7 +114,7 @@ test('country distribution covers the documented regions and every country is no
   }
 });
 
-test('build reconciles photoAvailable to match real profile photos in dist', async () => {
+test('build reconciles photoAvailable to match local photos + remote photoUrl in dist', async () => {
   await buildPages();
   const distRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
   const built = JSON.parse(await readFile(path.join(distRoot, 'data', 'models.json'), 'utf8'));
@@ -123,12 +123,19 @@ test('build reconciles photoAvailable to match real profile photos in dist', asy
   const set = new Set(available);
   for (const model of built.models) {
     const fileExists = set.has(`${model.id}.jpg`);
-    assert.equal(model.photoAvailable, fileExists, `${model.id}: photoAvailable must match file existence`);
+    const remotePhoto = typeof model.photoUrl === 'string' && model.photoUrl.startsWith('https://upload.wikimedia.org/');
+    assert.equal(model.photoAvailable, fileExists || remotePhoto, `${model.id}: photoAvailable must match a real photo source`);
   }
-  // photoAvailable count must equal the number of real .jpg files in
-  // assets/profiles. The directory grows over time via the gravure auto-add
-  // pipeline, so the count is self-consistent rather than pinned to a snapshot.
-  const jpgCount = available.filter((file) => file.endsWith('.jpg')).length;
-  const trueCount = built.models.filter((m) => m.photoAvailable).length;
-  assert.equal(trueCount, jpgCount, 'photoAvailable count must equal the number of .jpg profile files');
+  // photoAvailable must be exactly the models that can render a photo, either
+  // a local assets/profiles file OR a remote Wikimedia photoUrl. Both can be
+  // true at once (a vendored file plus a hosted URL), so the union matters,
+  // not a simple sum.
+  const publishedSet = new Set(built.models.filter((m) => m.photoAvailable).map((m) => m.id));
+  const publishable = built.models.filter((m) => {
+    const fileExists = set.has(`${m.id}.jpg`);
+    const remotePhoto = typeof m.photoUrl === 'string' && m.photoUrl.startsWith('https://upload.wikimedia.org/');
+    return fileExists || remotePhoto;
+  });
+  assert.equal(publishedSet.size, publishable.length, 'photoAvailable set must equal the publishable model union');
+  for (const model of publishable) assert.ok(publishedSet.has(model.id), `${model.id}: publishable model must be published`);
 });

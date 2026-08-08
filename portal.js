@@ -533,7 +533,11 @@ emptyState.hidden = displayedCards.length !== 0;
     if (model.photoAvailable) {
       portrait.setAttribute('aria-label', model.name + ' photo');
       var img = document.createElement('img');
-      img.src = '/assets/profiles/' + model.id + '.jpg';
+      // Local vendored file wins; models published via a remote CC-licensed
+      // Wikimedia image (photoUrl) render that URL directly from the CDN.
+      img.src = model.photoUrl && model.photoUrl.indexOf('/assets/profiles/') === -1
+        ? model.photoUrl
+        : '/assets/profiles/' + model.id + '.jpg';
       img.alt = model.name + ' photo';
       img.setAttribute('loading', 'lazy');
       // Defense-in-depth: if the photo 404s or fails to load, recover to the
