@@ -6,8 +6,12 @@
 - 모델 데이터의 단일 원천은 `data/models.json`. 여기만 고친다.
   - 전체 192명, **게시(photoAvailable=true) 105명**.
   - `data/gravure-queue.json`은 비어 있음 — 후보는 스크립트로만 발굴.
-- `fields`는 `id,name,altName,country,tags,photoAvailable,officialUrl,sns,license,creditText,creditUrl`.
+- `fields`는 `id,name,altName,country,tags,photoAvailable,officialUrl,sns,license,creditText,creditUrl,bio,photoUrl`.
   - 새 필드(예: `bio`)를 쓰면 반드시 최상위 `fields` 목록에도 추가한다.
+
+## 신규 모델 추가 규칙 (반드시)
+- **상세프로필(bio)은 필수 작성** 후에만 추가한다. `scripts/gravure-add.mjs`는 bio(비어있지 않고 20자 이상)가 없는 큐 항목을 **추가하지 않는다**. 게시 페이지가 빈 상태로 배포되는 것을 원천 차단.
+- bio는 위키(영/일)에서 검증한 생년월일·출신·데뷔·대표 활동을 1~2문장으로 작성. 추측·허위·빈 플레이스홀더 금지.
 
 ## 반드시 해야 할 일 (MUST/DO)
 1. **게시 모델 bio는 반드시 실제 정보**로 작성. 출처는 **Wikipedia(영/일**, 필요시 나무위키 교차)에서 확인한 생년월일·출신·데뷔·대표 활동을 간결하게(1~2문장 이내).
@@ -28,5 +32,5 @@
 6. 코드에 불필요한 주석을 추가하지 않는다(주석은 요청 시에만).
 
 ## 기타 플로우
-- 새 모델 추가: `scripts/gravure-add.mjs` 파이프라인(다운로드+검증+추가). 다운로드 실패/非JPEG는 추가하지 않는다.
+- 새 모델 추가: `scripts/gravure-add.mjs` 파이프라인(다운로드+검증+추가). 다운로드 실패/非JPEG는 추가하지 않는다. **bio 미작성 항목은 추가하지 않는다.**
 - 랭킹: 로컬 추천 카운트 0부터 → 카테고리(gravure→cosplay→기타) → 이름(ko) 순 타이브레이크.

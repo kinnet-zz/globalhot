@@ -1,0 +1,706 @@
+[
+  {
+    "id": "aika-sawaguchi",
+    "name": "Aika Sawaguchi",
+    "altName": "沢口愛華",
+    "country": "JAPAN",
+    "wiki": "沢口愛華",
+    "summary": "沢口 愛華 は、日本のグラビアアイドル、タレント、女優。愛知県名古屋市出身。名古屋のご当地アイドルユニット・delaの元メンバー（5期生）。名古屋美少女ファクトリー、インセントを経て、ホリプロ所属。"
+  },
+  {
+    "id": "hina-kikuchi",
+    "name": "Hina Kikuchi",
+    "altName": "菊地姫奈",
+    "country": "JAPAN",
+    "wiki": "菊地姫奈",
+    "summary": "菊地 姫奈 は、日本のグラビアアイドル、女優、ファッションモデル。茨城県出身。BLUE LABEL所属。"
+  },
+  {
+    "id": "miku-tanaka",
+    "name": "Miku Tanaka",
+    "altName": "田中美久",
+    "country": "JAPAN",
+    "wiki": "田中美久",
+    "summary": "田中 美久 は、日本のグラビアアイドル、タレント、女優であり、女性アイドルグループHKT48の元メンバーである。熊本県出身。am合同会社所属。"
+  },
+  {
+    "id": "moe-iori",
+    "name": "Moe Iori",
+    "altName": "伊織もえ",
+    "country": "JAPAN",
+    "wiki": "伊織もえ",
+    "summary": "伊織 もえ は、日本のコスプレイヤー、グラビアアイドル、ストリーマー、ラジオパーソナリティ、YouTuber。"
+  },
+  {
+    "id": "yuzuha-hongo",
+    "name": "Yuzuha Hongo",
+    "altName": "本郷柚巴",
+    "country": "JAPAN",
+    "wiki": "本郷柚巴",
+    "summary": "本郷 柚巴 は、日本のグラビアモデル、タレントであり、女性アイドルグループNMB48の元メンバーである。"
+  },
+  {
+    "id": "kokoro-shinozaki",
+    "name": "Kokoro Shinozaki",
+    "altName": "篠崎こころ",
+    "country": "JAPAN",
+    "wiki": "篠崎こころ",
+    "summary": "篠崎 こころ は、日本のアイドル、DJ、女性ファッションモデル兼プロデューサー、コスプレイヤー。神奈川県出身。身長152cm。PPエンタープライズ 所属。"
+  },
+  {
+    "id": "mizuki-setoguchi",
+    "name": "Mizuki Setoguchi",
+    "altName": "瀬戸口心月",
+    "country": "JAPAN",
+    "wiki": "瀬戸口駅",
+    "summary": "瀬戸口駅（せとぐちえき）は、愛知県瀬戸市東赤重町二丁目にある愛知環状鉄道・愛知環状鉄道線の駅である。駅番号は20。"
+  },
+  {
+    "id": "hinano-okoshi",
+    "name": "Hinano Okoshi",
+    "altName": "大越ひなの",
+    "country": "JAPAN",
+    "wiki": "乃木坂46",
+    "summary": "乃木坂46（のぎざかフォーティーシックス、Nogizaka46）は、日本の女性アイドルグループである。秋元康の総合プロデュースにより、2011年8月21日に結成した。"
+  },
+  {
+    "id": "kokoro-atago",
+    "name": "Kokoro Atago",
+    "altName": "愛宕心響",
+    "country": "JAPAN",
+    "wiki": "乃木坂的フラクタル",
+    "summary": "『乃木坂的フラクタル』 は、アピリッツより配信されるスマートフォン用ゲームアプリ。内容は乃木坂46を主題とした育成ゲーム。2021年8月12日サービス開始。基本プレイ無料（アイテム課金制）。"
+  },
+  {
+    "id": "rei-morihei",
+    "name": "Rei Morihei",
+    "altName": "森平麗心",
+    "country": "JAPAN",
+    "wiki": "乃木坂46",
+    "summary": "乃木坂46（のぎざかフォーティーシックス、Nogizaka46）は、日本の女性アイドルグループである。秋元康の総合プロデュースにより、2011年8月21日に結成した。"
+  },
+  {
+    "id": "kana-nakada",
+    "name": "Kana Nakada",
+    "altName": "中田花奈",
+    "country": "JAPAN",
+    "wiki": "中田花奈",
+    "summary": "中田 花奈 は、日本のタレント、プロ雀士、雀荘カフェ経営者、グラビアモデルであり、女性アイドルグループ乃木坂46の元メンバー。大阪府生まれ、埼玉県出身。乃木坂46合同会社所属。日本プロ麻雀連盟およびBEAST X所属。"
+  },
+  {
+    "id": "kasumi-mori",
+    "name": "Kasumi Mori",
+    "altName": "森香澄",
+    "country": "JAPAN",
+    "wiki": "森香澄",
+    "summary": "森 香澄 は、日本のグラビアアイドル、女優であり、元テレビ東京のアナウンサーである。seju（GROVE株式会社）所属。東京都出身。"
+  },
+  {
+    "id": "runa-toyota",
+    "name": "Runa Toyota",
+    "altName": "豊田ルナ",
+    "country": "JAPAN",
+    "wiki": "豊田ルナ",
+    "summary": "豊田 ルナ は、日本の女優、タレント、アイドル、グラビアアイドルであり、AND CaaaLLのメンバー。広島県福山市出生、埼玉県深谷市出身。プラチナムプロダクション所属。かつてはNEWSエンターテインメントで子役として活動していた。"
+  },
+  {
+    "id": "mizuki-yamashita",
+    "name": "Mizuki Yamashita",
+    "altName": "山下美月",
+    "country": "JAPAN",
+    "wiki": "山下美月",
+    "summary": "山下 美月 は、日本の女優、ファッションモデルであり、『CanCam』の専属モデル。女性アイドルグループ乃木坂46の元メンバー。東京都出身。乃木坂46合同会社所属。"
+  },
+  {
+    "id": "nao-kosaka",
+    "name": "Nao Kosaka",
+    "altName": "小坂菜緒",
+    "country": "JAPAN",
+    "wiki": "小坂菜緒",
+    "summary": "小坂 菜緒 は、日本のアイドル、ファッションモデル、女優であり、女性アイドルグループ日向坂46のメンバー、『Seventeen』の元専属モデル、『non-no』の専属モデルである。大阪府出身。Seed & Flower所属。"
+  },
+  {
+    "id": "ayana-nishinaga",
+    "name": "Ayana Nishinaga",
+    "altName": "西永彩奈",
+    "country": "JAPAN",
+    "wiki": "西永彩奈",
+    "summary": "西永 彩奈 は、日本の雑誌編集者、元グラビアアイドル。岡山県出身。元SPJ Entertainment所属。"
+  },
+  {
+    "id": "saki-yanase",
+    "name": "Saki Yanase",
+    "altName": "柳瀬さき",
+    "country": "JAPAN",
+    "wiki": "柳瀬さき",
+    "summary": "柳瀬 さき は、日本のグラビアアイドル。千葉県出身。旧芸名は柳瀬 早紀（読み同じ）。愛称は「やなパイ」。フリーランスで活動中。かつて、10-POINT、FORZA RECORDに所属していた。"
+  },
+  {
+    "id": "yasuyo-saito",
+    "name": "Yasuyo Saito",
+    "altName": "斎藤恭代",
+    "country": "JAPAN",
+    "wiki": "斎藤恭代",
+    "summary": "斎藤 恭代 は、日本のグラビアモデル、俳優、タレント、元アイドル。女性アイドルグループ「いちご姫」の元メンバー・元リーダー、女性アイドルグループ「FUSION」の元メンバー。ミス・アース・ジャパン2017グランプリ。"
+  },
+  {
+    "id": "jun-amaki",
+    "name": "Jun Amaki",
+    "altName": "天木じゅん",
+    "country": "JAPAN",
+    "wiki": "天木じゅん",
+    "summary": "天木 じゅん は、日本のタレント、女優、グラビアアイドル。兵庫県伊丹市出身。愛称は「じゅんちゃん」。本名非公開。"
+  },
+  {
+    "id": "hinako-sano",
+    "name": "Hinako Sano",
+    "altName": "佐野ひなこ",
+    "country": "JAPAN",
+    "wiki": "佐野ひなこ",
+    "summary": "佐野 ひなこ は、日本のグラビアアイドル、女優、競技麻雀のプロ雀士。東京都杉並区出身。"
+  },
+  {
+    "id": "sayaka-isoyama",
+    "name": "Sayaka Isoyama",
+    "altName": "磯山さやか",
+    "country": "JAPAN",
+    "wiki": "磯山さやか",
+    "summary": "磯山 さやか は、日本のグラビアアイドル、タレント、女優、司会者、スポーツライター、ファッションモデル。Lifika所属。2000年から2021年9月までホリ・エージェンシーに所属していた。"
+  },
+  {
+    "id": "fumika-baba",
+    "name": "Fumika Baba",
+    "altName": "馬場ふみか",
+    "country": "JAPAN",
+    "wiki": "馬場ふみか",
+    "summary": "馬場 ふみか は、日本の女優、グラビアモデル、ファッションモデル、タレント。新潟県新潟市出身。ネイムマネジメント（旧エリートジャパン）所属。"
+  },
+  {
+    "id": "rena-takeda",
+    "name": "Rena Takeda",
+    "altName": "武田玲奈",
+    "country": "JAPAN",
+    "wiki": "武田玲奈",
+    "summary": "武田 玲奈 は、日本の女優、ファッションモデル、元グラビアモデル。本名同じ。愛称はれなれな。福島県いわき市出身。TRUSTAR所属。"
+  },
+  {
+    "id": "anri-sugihara",
+    "name": "Anri Sugihara",
+    "altName": "杉原杏璃",
+    "country": "JAPAN",
+    "wiki": "杉原杏璃",
+    "summary": "杉原 杏璃 は、日本のタレント、投資家、実業家、元グラビアアイドル。広島県福山市出身。スターダストプロモーション、ARIMAX、フィットを経てフリー。"
+  },
+  {
+    "id": "ikumi-hisamatsu",
+    "name": "Ikumi Hisamatsu",
+    "altName": "久松郁実",
+    "country": "JAPAN",
+    "wiki": "久松郁実",
+    "summary": "久松 郁実 は、日本のタレント、モデル、女優。東京都出身。イリューム（インセントグループ）所属。"
+  },
+  {
+    "id": "rio-teramoto",
+    "name": "Rio Teramoto",
+    "altName": "寺本莉緒",
+    "country": "JAPAN",
+    "wiki": "寺本莉緒",
+    "summary": "寺本 莉緒 は、日本の女優、タレント、グラビアアイドル。"
+  },
+  {
+    "id": "miwako-kakehi",
+    "name": "Miwako Kakehi",
+    "altName": "筧美和子",
+    "country": "JAPAN",
+    "wiki": "筧美和子",
+    "summary": "筧 美和子 は、日本の女優、タレント、元グラビアアイドル。東京都世田谷区池尻出身。sui所属（プラチナムプロダクション業務提携）。"
+  },
+  {
+    "id": "mikie-hara",
+    "name": "Mikie Hara",
+    "altName": "原幹恵",
+    "country": "JAPAN",
+    "wiki": "原幹恵",
+    "summary": "原 幹恵 は、日本の女優、タレント、グラビアアイドル。新潟県岩船郡神林村（現・村上市）出身。2003年にオスカープロモーションからデビューし、2025年からはViivo所属。"
+  },
+  {
+    "id": "rena-asakawa",
+    "name": "Rena Asakawa",
+    "altName": "浅川梨奈",
+    "country": "JAPAN",
+    "wiki": "浅川梨奈",
+    "summary": "浅川 梨奈 は、日本の女優、グラビアアイドル。女性アイドルグループSUPER☆GiRLSの元メンバー。埼玉県出身。エイベックス・マネジメント・エージェンシー所属。"
+  },
+  {
+    "id": "rina-hashimoto",
+    "name": "Rina Hashimoto",
+    "altName": "橋本梨菜",
+    "country": "JAPAN",
+    "wiki": "橋本梨菜",
+    "summary": "橋本 梨菜 は、日本のグラビアアイドル、タレント、YouTuber。女性アイドルグループ「sherbet」のメンバー。"
+  },
+  {
+    "id": "nanoka",
+    "name": "Nanoka",
+    "altName": "菜乃花",
+    "country": "JAPAN",
+    "wiki": "菜乃花",
+    "summary": "菜乃花 は、日本のタレント、モデル、元グラビアアイドル。広島県福山市出身。本名は非公表。現在、フリーランスとして活動している。福山アンバサダー。過去、フィットに所属、株式会社ricela（リセラ）と業務提携していた。"
+  },
+  {
+    "id": "hitomi-yasueda",
+    "name": "Hitomi Yasueda",
+    "altName": "安枝瞳",
+    "country": "JAPAN",
+    "wiki": "安枝瞳",
+    "summary": "安枝 瞳 は、日本の女性モデル、タレント、元レースクイーン、元グラビアアイドルである。愛称は、みぃちゃん、やっさん。"
+  },
+  {
+    "id": "natsuki-kawamura",
+    "name": "Natsuki Kawamura",
+    "altName": "川村那月",
+    "country": "JAPAN",
+    "wiki": "川村那月",
+    "summary": "川村 那月 は、日本のタレント、女優、元ラウンドガール、元レースクイーン。ティースタイルマネージメント所属。RIZINガール。本名は「堀口 直央」。夫は格闘家の堀口恭司。"
+  },
+  {
+    "id": "marina-nagasawa",
+    "name": "Marina Nagasawa",
+    "altName": "長澤茉里奈",
+    "country": "JAPAN",
+    "wiki": "長澤茉里奈",
+    "summary": "長澤 茉里奈 は、日本のグラビアアイドル、タレント、女優、プロ雀士。放課後プリンセスの元メンバー。愛称はまりちゅう。埼玉県熊谷市出身。TRUSTAR所属。Chuu♡Cuteのプロデューサー。"
+  },
+  {
+    "id": "tomomi-morisaki",
+    "name": "Tomomi Morisaki",
+    "altName": "森咲智美",
+    "country": "JAPAN",
+    "wiki": "森咲智美",
+    "summary": "森咲 智美 は、日本のタレント、女優、YouTuber、元グラビアアイドル。女性アイドルグループ「OS☆U」の元メンバーである。"
+  },
+  {
+    "id": "yuka-kuramochi",
+    "name": "Yuka Kuramochi",
+    "altName": "倉持由香",
+    "country": "JAPAN",
+    "wiki": "倉持由香",
+    "summary": "倉持 由香 は、日本のタレント、グラビアアイドル、女優。ジースター・プロ所属。"
+  },
+  {
+    "id": "haruka-arai",
+    "name": "Haruka Arai",
+    "altName": "新井遥",
+    "country": "JAPAN",
+    "wiki": "新井遥",
+    "summary": "新井 遥 は、日本のモデル、タレント、元グラビアアイドル。"
+  },
+  {
+    "id": "yotsuba-kominato",
+    "name": "Yotsuba Kominato",
+    "altName": "小湊よつ葉",
+    "country": "JAPAN",
+    "wiki": "小湊よつ葉",
+    "summary": "小湊 よつ葉 は、日本のAV女優、歌手、作詞家。ティーパワーズ所属。女性ボーカル&ダンスユニットフェアリーズの元メンバー。旧芸名は井上 理香子。"
+  },
+  {
+    "id": "mariya-nagao",
+    "name": "Mariya Nagao",
+    "altName": "永尾まりや",
+    "country": "JAPAN",
+    "wiki": "永尾まりや",
+    "summary": "永尾 まりや は、日本のモデル、女優、グラビアアイドルであり、女性アイドルグループAKB48の元メンバーである。神奈川県横浜市出身（広島県生まれ）。"
+  },
+  {
+    "id": "momoka-ishida",
+    "name": "Momoka Ishida",
+    "altName": "石田桃香",
+    "country": "JAPAN",
+    "wiki": "石田桃香",
+    "summary": "石田 桃香 は、日本の元タレント、元女優、元グラビアアイドル。大阪府出身。愛称は浪速のピーチ姫、ちゃんもも。"
+  },
+  {
+    "id": "kyoka",
+    "name": "Kyoka",
+    "altName": "京佳",
+    "country": "JAPAN",
+    "wiki": "京佳",
+    "summary": "京佳 は、日本の女優、歌手、YouTuber、元アイドル、元グラビアアイドル。埼玉県出身。フリーランスで活動している。"
+  },
+  {
+    "id": "aki-hoshino",
+    "name": "Aki Hoshino",
+    "altName": "ほしのあき",
+    "country": "JAPAN",
+    "wiki": "ほしのあき",
+    "summary": "ほしの あき は、日本の女性タレント、女優、グラビアアイドル。エー・プラス所属。2000年代に「最年長グラビアアイドル」をキャッチコピーにブレイク。夫は騎手の三浦皇成。東京都出身。"
+  },
+  {
+    "id": "saki-suzuki",
+    "name": "Saki Suzuki",
+    "altName": "鈴木咲",
+    "country": "JAPAN",
+    "wiki": "鈴木咲",
+    "summary": "鈴木 咲 は、日本のグラビアアイドル、バラエティタレント、女優。本名は細川 ちひろ。2012年結成のアイドルユニット「persolate」（パソラッテ）および、「persolate」が改名した「教育的指導!!せんせ〜しょん's 」の元メンバー。現在はフリー。"
+  },
+  {
+    "id": "yumiko-shaku",
+    "name": "Yumiko Shaku",
+    "altName": "釈由美子",
+    "country": "JAPAN",
+    "wiki": "釈由美子",
+    "summary": "釈 由美子（しゃく ゆみこ、 は、日本の女優、タレント。元グラビアアイドル。プラチナムプロダクション所属。"
+  },
+  {
+    "id": "haruka-igawa",
+    "name": "Haruka Igawa",
+    "altName": "井川遥",
+    "country": "JAPAN",
+    "wiki": "井川遥",
+    "summary": "井川 遥 は、日本の女優。東京都出身。エフ・エム・ジー所属。"
+  },
+  {
+    "id": "k-inkyung",
+    "name": "Kang In-kyung",
+    "altName": "강인경",
+    "country": "KOREA",
+    "wiki": "Kang Min-kyung",
+    "summary": "Kang Min-kyung is a South Korean singer and actress. She is one half of the duo Davichi, who rose to fame upon the release of their debut album Amaranth in 2008. Davichi has since released 3 studio albums, 6 extended plays and several hit songs such as \"Don't Say Goodbye\", \"Turtle\", \"Missing You Today\" and \"8282\". Kang has also pursued acting, appearing in television dramas such as Smile, Mom (2010), Vampire Idol (2011), Haeundae Lovers (2012) and family drama The Dearest Lady (2015). On February 27, 2019, she debuted as a solo artist with her first extended play Kang Min Kyung Vol. 1."
+  },
+  {
+    "id": "k-dahye",
+    "name": "Lee Da-hye",
+    "altName": "이다혜",
+    "country": "KOREA",
+    "wiki": "Dreaming of a Freaking Fairy Tale",
+    "summary": "Dreaming of a Freaking Fairy Tale is a 2024 South Korean romantic comedy television series created by Baek Mi-kyung, written by Yoo Ja, directed by Kim Min-kyung, and starring Pyo Ye-jin and Lee Jun-young. The series portray a 21st-century Cinderella who climbs on a white horse and overcomes the world and its limitations. It was released on TVING from May 31, to June 28, 2024, every Friday at 12:00 (KST). It is also available for streaming on Viu and Paramount+ in selected regions."
+  },
+  {
+    "id": "k-soyeon",
+    "name": "Soyeon",
+    "altName": "소이",
+    "country": "KOREA",
+    "wiki": "T.T.Ma",
+    "summary": "T.T.Ma was a five-member South Korean girl group that debuted in 1999. The group, which was referred to as the female version of NRG, disbanded in 2002."
+  },
+  {
+    "id": "k-suhyun",
+    "name": "Lee Su-hyun",
+    "altName": "이수현",
+    "country": "KOREA",
+    "wiki": "Lee Su-hyun",
+    "summary": "Lee Su-hyun, is a South Korean singer. Following her appearance on the SBS audition program K-pop Star 2 alongside her brother Lee Chan-hyuk, she debuted as the vocalist of the sibling duo AKMU on April 7, 2014, under YG Entertainment after winning the show. She was also part of the duo Hi Suhyun - formed in 2014 with Lee Hi. She debuted as a solo artist on October 16, 2020, with the digital single \"Alien\"."
+  },
+  {
+    "id": "w-emrata",
+    "name": "Emily Ratajkowski",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Emily Ratajkowski",
+    "summary": "Emily O'Hara Ratajkowski, known occasionally as EmRata, is an American model and actress. Born in London to American parents and raised in Encinitas, California, she signed to Ford Models at a young age. Her modeling debut was on the cover of the March 2012 issue of the erotic magazine treats!, which led to her appearance in several music videos, including Robin Thicke's \"Blurred Lines\", which catapulted her to global fame."
+  },
+  {
+    "id": "w-kupton",
+    "name": "Kate Upton",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Kate Upton",
+    "summary": "Katherine Elizabeth Upton is an American model and actress. She first appeared in the Sports Illustrated Swimsuit Issue in 2011, and was the cover model for the 2012, 2013, and 2017 issues. In addition, she was the subject of the 100th-anniversary Vanity Fair cover. Upton has also appeared in the films Tower Heist (2011), The Other Woman (2014), and The Layover (2017)."
+  },
+  {
+    "id": "w-irina",
+    "name": "Irina Shayk",
+    "altName": "Ирина Шейк",
+    "country": "RUSSIA",
+    "wiki": "Irina Shayk",
+    "summary": "Irina Valeryevna Shaykhlislamova, also known as Irina Shayk, is a Russian fashion model and actress. She received international recognition when she appeared as the first Russian model on the cover of the 2011 Sports Illustrated Swimsuit Issue. In 2022, the website Models.com placed her on their list of the New Supers."
+  },
+  {
+    "id": "w-kendall",
+    "name": "Kendall Jenner",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Kendall Jenner",
+    "summary": "Kendall Nicole Jenner is an American model, socialite and media personality. She rose to fame in the reality television show Keeping Up with the Kardashians, in which she starred for 20 seasons and nearly 15 years from 2007 to 2021. The success of the show led to the creation of multiple spin-off series including Kourtney and Khloe Take Miami (2009), Kourtney and Kim Take New York (2011), Khloé & Lamar (2011), Rob & Chyna (2016) and Life of Kylie (2017). Following the decision to end their reality show, in 2022 she and her family starred in the reality television series The Kardashians on Hulu."
+  },
+  {
+    "id": "w-gigi",
+    "name": "Gigi Hadid",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Gigi Hadid",
+    "summary": "Jelena Noura \"Gigi\" Hadid is an American fashion model and television personality. In 2016, she was named International Model of the Year by the British Fashion Council. Throughout her career, Hadid has made at least 50 appearances in international Vogue. Models.com ranks her as one of the \"New Supers\". Since 2017, Hadid has been one of the highest-paid models in the world, earning $20 million."
+  },
+  {
+    "id": "w-bella",
+    "name": "Bella Hadid",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Bella Hadid",
+    "summary": "Isabella Khair Hadid is an American fashion model. In 2022, she was named Model of the Year by the British Fashion Council. Throughout her career, Hadid has made at least 35 appearances on international Vogue covers. Time magazine named her one of the 100 most influential people in the world on its annual list in 2023."
+  },
+  {
+    "id": "w-cara",
+    "name": "Cara Delevingne",
+    "altName": "",
+    "country": "UK",
+    "wiki": "Cara Delevingne",
+    "summary": "Cara Jocelyn Delevingne is an English model, actress, and musician. Delevingne won Model of the Year at the British Fashion Awards in 2012 and 2014, and has also received three Teen Choice Awards and nominations for a British Independent Film Award and an MTV Movie & TV Award."
+  },
+  {
+    "id": "w-rosie",
+    "name": "Rosie Huntington-Whiteley",
+    "altName": "",
+    "country": "UK",
+    "wiki": "Rosie Huntington-Whiteley",
+    "summary": "Rosie Alice Huntington-Whiteley is an English model. She is best known for her work for lingerie retailer Victoria's Secret, formerly being one of their brand \"Angels\". She is also known for being the face of Burberry's 2011 brand fragrance Burberry Body, her work with Marks & Spencer, and her artistic collaboration with denim-focused fashion brand Paige. She also had acting roles in Transformers: Dark of the Moon (2011) and Mad Max: Fury Road (2015)."
+  },
+  {
+    "id": "w-candice",
+    "name": "Candice Swanepoel",
+    "altName": "",
+    "country": "SOUTH_AFRICA",
+    "wiki": "Candice Swanepoel",
+    "summary": "Candice Susan Swanepoel is a South African model. She is best known for her work with Victoria's Secret. She became a Victoria's Secret Angel in 2010. In 2016, she was listed 8th on the Forbes top-earning models list."
+  },
+  {
+    "id": "w-adriana",
+    "name": "Adriana Lima",
+    "altName": "",
+    "country": "BRAZIL",
+    "wiki": "Adriana Lima",
+    "summary": "Adriana Lima is a Brazilian model. She was a Victoria's Secret Angel from 2000 to 2018, having made her Victoria's Secret Fashion Show debut in 1999, making her the longest-running Victoria's Secret Angel and model. In 2017, she was named \"the most valuable Victoria's Secret Angel\" by American analytics company D’Marie. She is also known for her Super Bowl and Kia Motors commercials."
+  },
+  {
+    "id": "w-aless",
+    "name": "Alessandra Ambrosio",
+    "altName": "",
+    "country": "BRAZIL",
+    "wiki": "Alessandra Ambrosio",
+    "summary": "Alessandra Corine Ambrósio is a Brazilian model. She is known for her work with Victoria's Secret and was chosen as the first spokesmodel for the company's PINK line. She was a Victoria's Secret Angel from 2004 to 2017 and has modeled for fashion houses such as Christian Dior, Armani, Ralph Lauren, and Next."
+  },
+  {
+    "id": "w-gisele",
+    "name": "Gisele Bundchen",
+    "altName": "",
+    "country": "BRAZIL",
+    "wiki": "Gisele Bündchen",
+    "summary": "Gisele Caroline Bündchen is a Brazilian model and activist. Since 2001, she has been one of the highest-paid models in the world. In 2007, Bündchen was the 16th-richest woman in the entertainment industry and earned the top spot on Forbes highest-paid models list from 2005 to 2016. In 2014, she was listed as the 89th most powerful woman in Media and Entertainment by Forbes."
+  },
+  {
+    "id": "w-barbara",
+    "name": "Barbara Palvin",
+    "altName": "",
+    "country": "HUNGARY",
+    "wiki": "Barbara Palvin",
+    "summary": "Barbara Sprouse is a Hungarian model and actress. She first appeared in the Sports Illustrated Swimsuit Issue in 2016. In 2019, she became a Victoria's Secret Angel, although she first walked in 2012. She is also an ambassador for Longines and Armani Beauty."
+  },
+  {
+    "id": "w-chrissy",
+    "name": "Chrissy Teigen",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Chrissy Teigen",
+    "summary": "Christine Diane Teigen is an American model, television personality, and author. She made her professional modeling debut in the annual Sports Illustrated Swimsuit Issue, in 2010, and appeared on the 50th-anniversary cover alongside Nina Agdal and Lily Aldridge, in 2014."
+  },
+  {
+    "id": "w-nina",
+    "name": "Nina Agdal",
+    "altName": "",
+    "country": "DENMARK",
+    "wiki": "Nina Agdal",
+    "summary": "Nina Brohus Agdal Paul is a Danish model. She is known for her appearances in the Sports Illustrated Swimsuit Issue. In 2014, she appeared on the magazine's 50th anniversary cover alongside Chrissy Teigen and Lily Aldridge."
+  },
+  {
+    "id": "w-katebock",
+    "name": "Kate Bock",
+    "altName": "",
+    "country": "CANADA",
+    "wiki": "Kate Bock",
+    "summary": "Kate Lynne Love is a Canadian model. She is known for her appearances in the Sports Illustrated Swimsuit Issue since 2013. In 2020, she appeared on the cover, alongside Olivia Culpo and Jasmine Sanders."
+  },
+  {
+    "id": "w-charlotte",
+    "name": "Charlotte McKinney",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Charlotte McKinney",
+    "summary": "Charlotte Ann McKinney is an American model and actress who first gained attention as an Instagram personality, eventually achieving wider recognition for her appearance in a Carl's Jr. commercial which aired regionally during Super Bowl XLIX in 2015."
+  },
+  {
+    "id": "w-demirose",
+    "name": "Demi Rose",
+    "altName": "",
+    "country": "UK",
+    "wiki": "Demi Rose",
+    "summary": "Demi Rose Mawby is a British model and social media personality."
+  },
+  {
+    "id": "w-rebecca",
+    "name": "Rebecca Romijn",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Rebecca Romijn",
+    "summary": "Rebecca Alie Romijn is an American actress and former model. She is known for her roles as Mystique in the X-Men film series and as Una Chin-Riley on Star Trek: Discovery (2019) and Star Trek: Strange New Worlds (2022–present)."
+  },
+  {
+    "id": "w-rose",
+    "name": "Rose Bertram",
+    "altName": "",
+    "country": "BELGIUM",
+    "wiki": "Rose Bertram",
+    "summary": "Stephanie Rose Bertram, known as Rose Bertram, is a Belgian model."
+  },
+  {
+    "id": "w-doutzen",
+    "name": "Doutzen Kroes",
+    "altName": "",
+    "country": "NETHERLANDS",
+    "wiki": "Doutzen Kroes",
+    "summary": "Doutzen Kroes is a Dutch fashion model. She began her modelling career in 2003, in the Netherlands and was quickly sent by her agency to New York where she was cast by lingerie brand Victoria’s Secret. She was a Victoria's Secret Angel from 2008 until 2014, making her the second Dutch to earn the coveted title after Karen Mulder. She has been a brand ambassador for L'Oréal Paris since 2006. Kroes has been one of the highest-paid models, with an estimated income of more than $5 million per year, since 2008. In 2014, she came in second on the Forbes top-earning models list, estimated to have earned $8 million in one year. In 2013, she became the first model to land four different solo internat…"
+  },
+  {
+    "id": "w-emilys",
+    "name": "Emily DiDonato",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Emily DiDonato",
+    "summary": "Emily DiDonato is an American model. She began her career in modeling at the age of 10 and has since worked with major brands such as Guess, Ralph Lauren, Maybeline New York, Giorgio Armani, L'Oreal and Oysho. She made her Sports Illustrated Swimsuit Issue debut in 2013."
+  },
+  {
+    "id": "w-georgia",
+    "name": "Georgina Rodriguez",
+    "altName": "",
+    "country": "SPAIN",
+    "wiki": "Georgina Rodríguez",
+    "summary": "Georgina Rodríguez Hernández is an Argentine and Spanish social media personality, model, and entrepreneur. She rose to fame through her relationship with Portuguese footballer Cristiano Ronaldo, which garnered her significant media attention and helped her build a massive following across Instagram and other social media channels. In addition to her success as a model, Georgina also pursued ventures in fashion, collaborating with high-end brands and launching her own clothing line. She was the subject of a 2022 Netflix documentary, I Am Georgina, in which she was credited as the producer."
+  },
+  {
+    "id": "w-kelly",
+    "name": "Kelly Rohrbach",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Kelly Rohrbach",
+    "summary": "Kelly Rohrbach Walton is an American fashion model and actress, best known for her role as C. J. Parker in the action comedy film Baywatch (2017)."
+  },
+  {
+    "id": "w-hailey",
+    "name": "Hailey Bieber",
+    "altName": "Hailey Baldwin",
+    "country": "USA",
+    "wiki": "Hailey Bieber",
+    "summary": "Hailey Rhode Bieber is an American model, socialite, media personality, and businesswoman. She is the founder and chief creative officer (CCO) of the skincare brand Rhode, which was acquired by e.l.f. in a $1 billion deal. As a model, Bieber featured in campaigns for Guess, Ralph Lauren, and Tommy Hilfiger. In 2023, she was selected for the Forbes 30 under 30 list in the Art & Style category."
+  },
+  {
+    "id": "w-naomi",
+    "name": "Naomi Campbell",
+    "altName": "",
+    "country": "UK",
+    "wiki": "Naomi Campbell",
+    "summary": "Naomi Elaine Campbell is a British model and actress. Beginning her career at the age of eight, Campbell was one of six models of her generation declared supermodels by the fashion industry and the international press. She was the first black woman to appear as a model on the covers of Time and Vogue France."
+  },
+  {
+    "id": "w-taylor",
+    "name": "Taylor Hill",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Taylor Hill",
+    "summary": "Taylor Hill may refer to:"
+  },
+  {
+    "id": "w-olivia",
+    "name": "Olivia Dunne",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Livvy Dunne",
+    "summary": "Olivia Paige Dunne is an American actress, model, social media personality, and former artistic gymnast. She is currently part of the cast of Fox's Baywatch television series and is also a Sports Illustrated swimsuit model and former member of the LSU Tigers women's gymnastics team. In 2017, she was named as a member of the US Junior Women's National Team. Dunne has a social media following of over 10 million."
+  },
+  {
+    "id": "w-lauren",
+    "name": "Lauren Chan",
+    "altName": "",
+    "country": "CANADA",
+    "wiki": "Lauren Chan",
+    "summary": "Lauren Chan is a Canadian model, editor and entrepreneur. She is the founder of the plus-size clothing brand Henning."
+  },
+  {
+    "id": "w-salma",
+    "name": "Salma Hayek",
+    "altName": "",
+    "country": "MEXICO",
+    "wiki": "Salma Hayek",
+    "summary": "Salma Valgarma Hayek Pinault is a Mexican and American actress and film producer. She began her career in Mexico with starring roles in the telenovela Teresa (1989–1991) as well as the romantic drama Midaq Alley (1995). She soon established herself in Hollywood with appearances in films such as Desperado (1995), From Dusk till Dawn (1996), Wild Wild West (1999), and Dogma (1999)."
+  },
+  {
+    "id": "w-alix",
+    "name": "Alix Earle",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Alix Earle",
+    "summary": "Alix Ashley Earle is an American social media personality who rose to popularity posting \"Get Ready With Me\" videos on TikTok in which she shares details of her personal life. She is known by online communities for promoting products in a way that rapidly increases sales, which has been dubbed by users as the \"Alix Earle effect\"."
+  },
+  {
+    "id": "w-haley-kalil",
+    "name": "Haley Kalil",
+    "altName": "Haley Baylee",
+    "country": "USA",
+    "wiki": "Haley Kalil",
+    "summary": "Haley Bea Kalil, also known as Haley Baylee, is an American model, social media influencer, and former beauty pageant titleholder. In 2018, Kalil was featured in the Sports Illustrated Swimsuit Issue as a contestant in the first ever Sports Illustrated Swim Search. As one of the two winners of the competition, alongside Camille Kostek, she officially appeared in the 2019 edition as a rookie. Prior to her career as a model, Kalil competed in beauty pageants. As a teenager, she was crowned Miss Minnesota Teen USA 2010 and later competed in Miss Teen USA 2010. Afterwards, Kalil was crowned Miss Minnesota USA 2014, and placed in the top twenty in Miss USA 2014."
+  },
+  {
+    "id": "w-anok",
+    "name": "Anok Yai",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Anok Yai",
+    "summary": "Anok Yai is an American fashion model. She is the second Black model, after Naomi Campbell, to open a Prada show. She has made several appearances on Vogue covers, including American Vogue three times. TIME named her one of the 100 most influential people in world in 2026."
+  },
+  {
+    "id": "w-lamecia",
+    "name": "Iris Law",
+    "altName": "",
+    "country": "UK",
+    "wiki": "Iris Law",
+    "summary": "Iris Tallulah Elizabeth Law is a British-American model and actress."
+  },
+  {
+    "id": "w-linds",
+    "name": "Lindsey Vonn",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Lindsey Vonn",
+    "summary": "Lindsey Caroline Vonn is an American alpine ski racer. She won four World Cup overall championships with titles in 2008, 2009, 2010, and 2012. Vonn won the gold medal in downhill at the 2010 Winter Olympics, the first one for an American woman. She also won a record eight World Cup season titles in the downhill discipline, five titles in super-G, and three consecutive titles in the combined (2010–2012). In 2016, she won her 20th World Cup crystal globe title, the overall record for men or women, surpassing Ingemar Stenmark of Sweden, who won 19 globes from 1975 to 1984. She has the third highest super ranking of all skiers, men or women."
+  },
+  {
+    "id": "w-amanda",
+    "name": "Amanda Cerny",
+    "altName": "",
+    "country": "USA",
+    "wiki": "Amanda Cerny",
+    "summary": "Amanda Rachelle Cerny is an American internet personality. She is best known for her YouTube channel and formerly her Vine profile on which she had over 4 million followers. She was Playboy magazine's Playmate of the Month for October 2011."
+  },
+  {
+    "id": "w-cecil",
+    "name": "Celine Farach",
+    "altName": "",
+    "country": "USA",
+    "wiki": "",
+    "summary": ""
+  },
+  {
+    "id": "w-asund",
+    "name": "Anitta",
+    "altName": "",
+    "country": "BRAZIL",
+    "wiki": "Anitta (singer)",
+    "summary": "Larissa de Macedo Machado, known professionally as Anitta, is a Brazilian singer-songwriter, dancer, actress, and occasional television host. One of Brazil's most prominent artists, she became known for her versatile style and mixing genres such as pop, funk, reggaeton and electronic music. She has received numerous accolades, including one Brazilian Music Award, four Latin American Music Awards, three MTV Music Video Awards, nine MTV Europe Music Awards, two Guinness World Records, and nominations for two Grammy Award and ten Latin Grammy Awards, in addition to being the Brazilian female singer with the most entries on the Billboard Hot 100. She has been referred to as the \"Queen of Brazili…"
+  },
+  {
+    "id": "yukari-fukui",
+    "name": "Yukari Fukui",
+    "altName": "",
+    "country": "JAPAN",
+    "wiki": "Running High",
+    "summary": "「Running High」（ランニング・ハイ）は、下野紘の3枚目のシングル。2017年4月19日にポニーキャニオンから発売された。"
+  }
+]

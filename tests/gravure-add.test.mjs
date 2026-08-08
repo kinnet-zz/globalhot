@@ -22,6 +22,7 @@ function entry(id, opts = {}) {
     altName: '',
     country: 'JAPAN',
     tags: 'gravure model',
+    bio: opts.bio === undefined ? '1995년생 도쿄 출신의 그라비어 모델로, 2015년 데뷔 후 화보와 패션지 활동을 이어가고 있습니다.' : opts.bio,
     officialUrl: '',
     sns: { x: '', instagram: '', youtube: '', tiktok: '' },
     photoUrl: opts.photoUrl || `https://example.com/${id}.jpg`,
@@ -79,6 +80,23 @@ test('planAdd rejects entries with unsafe ids or missing photo urls', () => {
   ];
   const { toAdd } = planAdd(queue, [], 10);
   assert.deepEqual(toAdd.map((e) => e.id), ['good']);
+});
+
+test('a model may never be added without a written bio (detail pages must not ship blank)', () => {
+  const queue = [
+    entry('with-bio'),
+    { ...entry('no-bio'), bio: '' },
+    { ...entry('blank-bio'), bio: '   ' },
+    { ...entry('tiny-bio'), bio: '짧음' },
+    { ...entry('real-bio'), bio: '1998년생 사이타마 출신. 2016년 데뷔 후 그라비어 화보와 다양한 미디어 활동을 이어가고 있다.' },
+  ];
+  const { toAdd } = planAdd(queue, [], 10);
+  assert.deepEqual(toAdd.map((e) => e.id), ['with-bio', 'real-bio']);
+});
+
+test('buildModelObject carries the bio onto the model record', () => {
+  const m = buildModelObject(entry('suzu-hirose', { bio: '2000년생 아이치현 출신으로 2018년 데뷔한 여성 아이돌·그라비어 모델이다.' }));
+  assert.equal(m.bio, '2000년생 아이치현 출신으로 2018년 데뷔한 여성 아이돌·그라비어 모델이다.');
 });
 
 test('addGravureModels downloads, appends models, consumes entries, and updates modelCount', async () => {

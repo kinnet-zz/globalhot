@@ -10,6 +10,10 @@
 // Design rules (this runs unattended and pushes to master):
 //   * Never add a model without a successfully downloaded, valid photo. A
 //     failed download marks the entry `status: "error"` and moves on.
+//   * A model may ONLY be added with a written `bio` (real information about
+//     birth date / origin / debut / flagship work, 1-2 sentences). Queue
+//     entries without one are skipped, never added — detail pages must never
+//     ship blank. AGENTS.md: profile bio and stats use verified values only.
 //   * Idempotent: an entry whose id is already in models.json is consumed, not
 //     re-added.
 //   * Loud summary; atomic file writes (temp + rename) so a crash never leaves
@@ -97,13 +101,19 @@ export function planAdd(queue, existingIds, limit) {
   return { toAdd, alreadyPresent };
 }
 
-function isValidEntry(entry) {
+// Decide which a queue entry is addable. `bio` is mandatory: a published model
+// must have a written, substantive profile (self-authoring an empty detail page
+// never happens). non-Bio entries are dropped from the run; they stay `ready`
+// in the queue until an author fills the bio in.
+const MIN_BIO_LENGTH = 20;
+export function isValidEntry(entry) {
   if (!entry || typeof entry !== "object") return false;
   if (typeof entry.id !== "string" || !SAFE_ID.test(entry.id)) return false;
   if (typeof entry.name !== "string" || !entry.name) return false;
   if (typeof entry.country !== "string" || !entry.country) return false;
   if (typeof entry.tags !== "string" && !Array.isArray(entry.tags)) return false;
   if (typeof entry.photoUrl !== "string" || !/^https?:\/\//.test(entry.photoUrl)) return false;
+  if (typeof entry.bio !== "string" || entry.bio.trim().length < MIN_BIO_LENGTH) return false;
   return true;
 }
 
@@ -128,6 +138,7 @@ export function buildModelObject(entry) {
     country: entry.country,
     tags: entry.tags,
     photoAvailable: true,
+    bio: typeof entry.bio === "string" ? entry.bio.trim() : "",
     officialUrl: typeof entry.officialUrl === "string" ? entry.officialUrl : "",
     sns: normalizeSns(entry.sns),
     license: entry.license || DEFAULT_LICENSE,

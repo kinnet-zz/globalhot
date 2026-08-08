@@ -41,7 +41,11 @@
         "youtube": "https://www.youtube.com/channel/UCrUdiKv9LERZmG_MKh63Xgg",
         "tiktok": ""
       },
-      "bio": "일본을 대표하는 코스프레 모델 겸 그라비어 아티스트. 대형 코스프레 작품, 주간지 표지, TV·라디오 출연, 포토북 발간까지 활동 영역을 넓히며 코스프레 문화의 상징으로 자리잡았습니다."
+      "bio": "일본을 대표하는 코스프레 모델 겸 그라비어 아티스트. 대형 코스프레 작품, 주간지 표지, TV·라디오 출연, 포토북 발간까지 활동 영역을 넓히며 코스프레 문화의 상징으로 자리잡았습니다.",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "Danny Choo",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "umi-shinonome",
@@ -57,7 +61,11 @@
         "youtube": "https://www.youtube.com/channel/UCLnac6g3R8YcGOisZxsVIpw",
         "tiktok": ""
       },
-      "bio": "그라비어 모델로 주간지·화보 중심으로 활약합니다. 프라모델 조립을 비롯한 다채로운 취미와 유튜브 활동으로도 잘 알려져 있으며, 잡지·TV·영화로 영역을 확장한 멀티 탤런트입니다."
+      "bio": "그라비어 모델로 주간지·화보 중심으로 활약합니다. 프라모델 조립을 비롯한 다채로운 취미와 유튜브 활동으로도 잘 알려져 있으며, 잡지·TV·영화로 영역을 확장한 멀티 탤런트입니다.",
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "ai-shinozaki",
@@ -73,7 +81,11 @@
         "youtube": "https://www.youtube.com/channel/UCKiLOWcSyFZjRLAY1IsZzjA",
         "tiktok": ""
       },
-      "bio": "십대에 그라비어 아이돌로 데뷔해 오랫동안 잡지 표지를 장식해온 모델 겸 가수. 노래, 영화, 방송까지 활동 범위를 넓히며 꾸준히 인기를 이어왔습니다."
+      "bio": "십대에 그라비어 아이돌로 데뷔해 오랫동안 잡지 표지를 장식해온 모델 겸 가수. 노래, 영화, 방송까지 활동 범위를 넓히며 꾸준히 인기를 이어왔습니다.",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/gezellig_light/\">gezellig light</a>",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "nashiko-momotsuki",
@@ -89,7 +101,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "코스프레 모델로 시작해 모델 겸 배우로 활동 영역을 넓힌 탤런트. 게임, 영화, 방송 등 다양한 장르를 넘나들며 자신만의 존재감을 드러냅니다."
+      "bio": "코스프레 모델로 시작해 모델 겸 배우로 활동 영역을 넓힌 탤런트. 게임, 영화, 방송 등 다양한 장르를 넘나들며 자신만의 존재감을 드러냅니다.",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/31029865@N06\">Dick Thomas Johnson</a> from Tokyo, Japan",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "aika-sawaguchi",
@@ -104,7 +120,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 탤런트, 여배우. 아이치현 나고야 출신으로 지역 아이돌 유닛 dela의 전 멤버이며, 현재는 호리프로 소속으로 화보와 방송에서 활약하고 있습니다."
     },
     {
       "id": "yuno-ohara",
@@ -112,14 +129,18 @@
       "altName": "大原優乃",
       "country": "JAPAN",
       "tags": "gravure actress dream5 magazine tv",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "miku-kuwashima",
@@ -127,14 +148,18 @@
       "altName": "桑島海空",
       "country": "JAPAN",
       "tags": "gravure tiktok instagram magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "ina-enohara",
@@ -142,7 +167,7 @@
       "altName": "榎原依那",
       "country": "JAPAN",
       "tags": "gravure magazine tiktok youtube",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -150,10 +175,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Mti",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "cocoro-toyoshima",
@@ -161,22 +186,7 @@
       "altName": "豊島心桜",
       "country": "JAPAN",
       "tags": "gravure actress magazine ballet",
-      "photoAvailable": true,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      }
-    },
-    {
-      "id": "miu-shirahama",
-      "name": "Miu Shirahama",
-      "altName": "白濱美兎",
-      "country": "JAPAN",
-      "tags": "gravure magazine tiktok instagram",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -184,10 +194,29 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "mti",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
+    },
+    {
+      "id": "miu-shirahama",
+      "name": "Miu Shirahama",
+      "altName": "白濱美兎",
+      "country": "JAPAN",
+      "tags": "gravure magazine tiktok instagram",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mizuki-hoshina",
@@ -195,14 +224,18 @@
       "altName": "星名美津紀",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "sayaka-tomaru",
@@ -210,14 +243,18 @@
       "altName": "都丸紗也華",
       "country": "JAPAN",
       "tags": "gravure magazine actor",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "asuka-kishi",
@@ -225,14 +262,18 @@
       "altName": "岸明日香",
       "country": "JAPAN",
       "tags": "gravure magazine variety osaka",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "hina-kikuchi",
@@ -247,7 +288,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 여배우, 패션 모델. 이바라키현 출신으로 BLUE LABEL 소속이며, 잡지 그래비어와 드라마 등에서 활동하고 있습니다."
     },
     {
       "id": "ririka-fukui",
@@ -255,14 +297,18 @@
       "altName": "福井梨莉華",
       "country": "JAPAN",
       "tags": "gravure magazine rookie",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "miku-tanaka",
@@ -277,7 +323,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 탤런트, 여배우. 아이돌 그룹 HKT48의 전 멤버 출신으로, 쿠마모토현 출신이며 졸업 후 화보와 방송을 중심으로 활동합니다."
     },
     {
       "id": "kanami-takasaki",
@@ -285,14 +332,18 @@
       "altName": "高崎かなみ",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "moe-iori",
@@ -307,7 +358,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본 대표 코스프레러 겸 그래비어 아이돌. 스트리머, 라디오 퍼스낼리티, 유튜버 등 다방면으로 활동하며 코스프레 문화의 아이콘으로 자리 잡았습니다."
     },
     {
       "id": "koto-hoshino",
@@ -315,14 +367,18 @@
       "altName": "星野琴",
       "country": "JAPAN",
       "tags": "gravure magazine dvd rookie",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "yuzuha-hongo",
@@ -337,7 +393,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "여성 아이돌 그룹 NMB48 출신의 그래비어 모델이자 탤런트. 아이돌 졸업 후 화보와 이벤트, 방송 등으로 활동 폭을 넓히고 있습니다."
     },
     {
       "id": "sumire-yokono",
@@ -345,7 +402,7 @@
       "altName": "横野すみれ",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -353,10 +410,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Reggaeman",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "kokoro-shinozaki",
@@ -371,7 +428,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 아이돌, DJ, 패션 모델 겸 프로듀서, 코스프레러. 가나가와현 출신으로 PP엔터프라이즈 소속이며 여러 장르를 넘나들며 활동합니다."
     },
     {
       "id": "ami-minami",
@@ -379,14 +437,18 @@
       "altName": "南あみ",
       "country": "JAPAN",
       "tags": "gravure magazine rookie",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "yokyun",
@@ -394,14 +456,18 @@
       "altName": "よきゅーん",
       "country": "JAPAN",
       "tags": "gravure magazine tiktok",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "honoka-sasaki",
@@ -409,14 +475,18 @@
       "altName": "佐々木ほのか",
       "country": "JAPAN",
       "tags": "gravure magazine singer upupgirls",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mizuki-setoguchi",
@@ -431,7 +501,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 아이돌로 여성 그룹 노기자카46의 6기생 멤버. 가고시마현 출신, 2005년생으로 패션지 화보와 예능 등에서 활약하는 신예 멤버입니다."
     },
     {
       "id": "moeka-yada",
@@ -439,14 +510,18 @@
       "altName": "矢田萌華",
       "country": "JAPAN",
       "tags": "gravure magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "hinano-okoshi",
@@ -461,7 +536,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 아이돌로 여성 그룹 노기자카46의 6기생 멤버. 시즈오카현 출신, 2004년생으로 서예 실력 등으로 화제가 되며 미디어에서 활동합니다."
     },
     {
       "id": "rio-nagashima",
@@ -469,14 +545,18 @@
       "altName": "長嶋凛桜",
       "country": "JAPAN",
       "tags": "gravure magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "akina-kawabata",
@@ -484,14 +564,18 @@
       "altName": "川端晃菜",
       "country": "JAPAN",
       "tags": "gravure magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "kokoro-atago",
@@ -506,7 +590,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 아이돌로 여성 그룹 노기자카46의 6기생 멤버. 효고현 출신, 2005년생으로 정갈한 이미지와 꽃꽂이 등 특기를 살려 활약합니다."
     },
     {
       "id": "reina-ozu",
@@ -514,14 +599,18 @@
       "altName": "小津玲奈",
       "country": "JAPAN",
       "tags": "gravure magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "yuna-suzuki",
@@ -529,14 +618,18 @@
       "altName": "鈴木佑捺",
       "country": "JAPAN",
       "tags": "gravure magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "rei-morihei",
@@ -551,7 +644,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 아이돌로 여성 그룹 노기자카46의 6기생 멤버. 도쿄 출신, 2008년생으로 스킵과 홉핑 등 특기를 가진 신예 멤버입니다."
     },
     {
       "id": "miyuka-minami",
@@ -559,14 +653,18 @@
       "altName": "南みゆか",
       "country": "JAPAN",
       "tags": "gravure magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "kana-nakada",
@@ -581,7 +679,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 프로 마작 선수, 그래비어 모델로 여성 아이돌 그룹 노기자카46의 전 멤버. 졸업 후 라디오, 예능, 마작 대회 등에서 활동합니다."
     },
     {
       "id": "nene-shida",
@@ -589,14 +688,18 @@
       "altName": "志田音々",
       "country": "JAPAN",
       "tags": "gravure magazine announcer",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "kasumi-mori",
@@ -611,7 +714,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 모델, 여배우로 전 테레비도쿄 아나운서. 도쿄 출신이며 아나운서 재직 중 화보로 화제가 되어 퇴사 후에도 그래비어와 연기로 활약합니다."
     },
     {
       "id": "runa-toyota",
@@ -626,7 +730,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 탤런트, 아이돌, 그래비어 아이돌. 유닛 AND CaaaLL 멤버로 히로시마 출생, 사이타마 출신이며 어린 시절부터 아역으로 활동했습니다."
     },
     {
       "id": "mizuki-yamashita",
@@ -641,7 +746,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 패션 모델. 여성 아이돌 그룹 노기자카46의 전 멤버로 패션지 CanCam 전속 모델을 지냈으며 화보와 드라마에서 활약합니다."
     },
     {
       "id": "nao-kosaka",
@@ -656,7 +762,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 아이돌, 패션 모델, 여배우. 여성 아이돌 그룹 히나타자카46의 멤버로 Seventeen 전속 모델을 지낸 후 non-no 전속 모델로 활동합니다."
     },
     {
       "id": "yui-iruma",
@@ -664,14 +771,18 @@
       "altName": "入間ゆい",
       "country": "JAPAN",
       "tags": "gravure dvd magazine bestseller",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "miki-ide",
@@ -679,14 +790,18 @@
       "altName": "井手美希",
       "country": "JAPAN",
       "tags": "gravure dvd magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "ayana-nishinaga",
@@ -701,7 +816,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 잡지 편집자, 전 그래비어 아이돌. 오카야마현 출신으로 아이돌 활동 후 미디어 분야로 전향해 활약했습니다."
     },
     {
       "id": "minami-hori",
@@ -709,52 +825,7 @@
       "altName": "堀みなみ",
       "country": "JAPAN",
       "tags": "gravure dvd magazine rookie",
-      "photoAvailable": true,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      }
-    },
-    {
-      "id": "yuki-mita",
-      "name": "Yuki Mita",
-      "altName": "三田悠貴",
-      "country": "JAPAN",
-      "tags": "gravure dvd magazine",
-      "photoAvailable": true,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      }
-    },
-    {
-      "id": "yoshino-chitose",
-      "name": "Yoshino Chitose",
-      "altName": "ちとせよしの",
-      "country": "JAPAN",
-      "tags": "gravure magazine eating talent",
-      "photoAvailable": true,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      }
-    },
-    {
-      "id": "rui-kiriyama",
-      "name": "Rui Kiriyama",
-      "altName": "桐山瑠衣",
-      "country": "JAPAN",
-      "tags": "gravure dvd magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -762,10 +833,67 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Sammy0629",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
+    },
+    {
+      "id": "yuki-mita",
+      "name": "Yuki Mita",
+      "altName": "三田悠貴",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
+    },
+    {
+      "id": "yoshino-chitose",
+      "name": "Yoshino Chitose",
+      "altName": "ちとせよしの",
+      "country": "JAPAN",
+      "tags": "gravure magazine eating talent",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
+    },
+    {
+      "id": "rui-kiriyama",
+      "name": "Rui Kiriyama",
+      "altName": "桐山瑠衣",
+      "country": "JAPAN",
+      "tags": "gravure dvd magazine",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "io-iori",
@@ -773,14 +901,18 @@
       "altName": "伊織いお",
       "country": "JAPAN",
       "tags": "gravure dvd magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "memori-tsukihana",
@@ -788,14 +920,18 @@
       "altName": "月花めもり",
       "country": "JAPAN",
       "tags": "gravure dvd magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "saki-yanase",
@@ -810,7 +946,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌. 치바현 출신으로 야나파라는 애칭으로 알려져 있으며 프리랜스로 화보와 이벤트에서 활약하고 있습니다."
     },
     {
       "id": "yasuyo-saito",
@@ -825,7 +962,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 모델, 배우, 탤런트, 전 아이돌. 아이돌 그룹 멤버를 거쳐 미스 어스 재팬 2017 그랑프리를 수상했습니다."
     },
     {
       "id": "miu-miyake",
@@ -833,7 +971,7 @@
       "altName": "三宅美羽",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -841,10 +979,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "聖石大戦ぶぅぶぅ",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "tomoka-takenaka",
@@ -852,7 +990,7 @@
       "altName": "竹中知華",
       "country": "JAPAN",
       "tags": "gravure magazine announcer",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -860,10 +998,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "Hu Bing",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mao-takano",
@@ -871,14 +1009,18 @@
       "altName": "髙野真央",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "jun-amaki",
@@ -893,7 +1035,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 여배우, 그래비어 아이돌. 효고현 이타미시 출신으로 큰 매력이 화제가 되며 화보와 방송에서 활약하고 있습니다."
     },
     {
       "id": "hinako-sano",
@@ -908,7 +1051,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 여배우, 프로 마작 선수. 도쿄 출신으로 화보, 드라마, 마작 대회 등 다양한 분야에서 활동합니다."
     },
     {
       "id": "mio-imada",
@@ -916,14 +1060,18 @@
       "altName": "今田美桜",
       "country": "JAPAN",
       "tags": "gravure actress magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "sayaka-isoyama",
@@ -938,7 +1086,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 탤런트, 여배우, 스포츠 라이터. 2000년부터 호리 프로덕션에서 활동하며 화보와 방송, 스포츠 중계에서 활약했습니다."
     },
     {
       "id": "fumika-baba",
@@ -953,7 +1102,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 그래비어 모델, 패션 모델. 니가타현 출신으로 화보와 드라마, 영화에서 활동하는 대표적인 그래비어 배우입니다."
     },
     {
       "id": "yuka-ogura",
@@ -961,14 +1111,18 @@
       "altName": "小倉ゆうか",
       "country": "JAPAN",
       "tags": "gravure actress model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "rena-takeda",
@@ -983,7 +1137,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 패션 모델, 전 그래비어 모델. 후쿠시마현 이와키시 출신으로 화보로 데뷔해 드라마와 영화로 활동 영역을 넓혔습니다."
     },
     {
       "id": "rika-izumi",
@@ -991,14 +1146,18 @@
       "altName": "泉里香",
       "country": "JAPAN",
       "tags": "gravure model actress",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "shizuka-nakamura",
@@ -1006,14 +1165,18 @@
       "altName": "中村静香",
       "country": "JAPAN",
       "tags": "gravure variety actress",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "anri-sugihara",
@@ -1028,7 +1191,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 투자가, 사업가, 전 그래비어 아이돌. 히로시마현 후쿠야마시 출신으로 화보 활동 후 사업과 투자 분야로 전향했습니다."
     },
     {
       "id": "ikumi-hisamatsu",
@@ -1043,7 +1207,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 모델, 여배우. 도쿄 출신으로 이르뷰 소속이며 화보와 패션, 방송에서 활약하고 있습니다."
     },
     {
       "id": "rio-teramoto",
@@ -1058,7 +1223,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 탤런트, 그래비어 아이돌. 큰 매력을 앞세운 화보로 주목받으며 드라마와 방송에서도 활동하고 있습니다."
     },
     {
       "id": "miwako-kakehi",
@@ -1073,7 +1239,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 탤런트, 전 그래비어 아이돌. 도쿄 출신으로 화보 활동 후 연기와 방송으로 전환해 활약하고 있습니다."
     },
     {
       "id": "yukie-kawamura",
@@ -1081,14 +1248,18 @@
       "altName": "川村ゆきえ",
       "country": "JAPAN",
       "tags": "gravure actress magazine",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "nono-ono",
@@ -1096,14 +1267,18 @@
       "altName": "おのののか",
       "country": "JAPAN",
       "tags": "gravure race-queen variety",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mikie-hara",
@@ -1118,7 +1293,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 탤런트, 그래비어 아이돌. 니가타현 출신으로 2003년 오스카 프로모션에서 데뷔해 화보와 연기, 방송에서 활약했습니다."
     },
     {
       "id": "rena-asakawa",
@@ -1133,7 +1309,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 그래비어 아이돌. 여성 아이돌 그룹 SUPER☆GiRLS의 전 멤버로, 사이타마 출신이며 졸업 후 화보와 연기에서 활약합니다."
     },
     {
       "id": "aoi-fujino",
@@ -1141,7 +1318,7 @@
       "altName": "藤乃あおい",
       "country": "JAPAN",
       "tags": "gravure dvd magazine legend",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1149,10 +1326,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
+      "license": "",
       "licenseUrl": "",
-      "creditText": "Unknown author Unknown author",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "rina-hashimoto",
@@ -1167,7 +1344,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 탤런트, 유튜버. 여성 아이돌 그룹 sherbet의 멤버로 화보와 영상 콘텐츠에서 활약하고 있습니다."
     },
     {
       "id": "nanoka",
@@ -1182,7 +1360,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 모델, 전 그래비어 아이돌. 히로시마현 후쿠야마시 출신으로 현지 앰배서더를 지내며 화보와 방송에서 활약했습니다."
     },
     {
       "id": "saya-okada",
@@ -1190,14 +1369,18 @@
       "altName": "岡田紗佳",
       "country": "JAPAN",
       "tags": "gravure pro-mahjong model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "hitomi-yasueda",
@@ -1212,7 +1395,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 모델, 탤런트, 전 레이스퀸, 전 그래비어 아이돌. 레이스퀸 활동과 화보로 이름을 알렸습니다."
     },
     {
       "id": "natsuki-kawamura",
@@ -1227,7 +1411,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 여배우, 전 라운드걸, 전 레이스퀸. RIZIN걸로 활약했으며 격투기 중계의 링걸로도 유명합니다."
     },
     {
       "id": "marina-nagasawa",
@@ -1242,7 +1427,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 탤런트, 여배우, 프로 마작 선수. 사이타마현 쿠마가야시 출신으로 화보와 마작, 방송에서 다각도로 활약합니다."
     },
     {
       "id": "tomomi-morisaki",
@@ -1257,7 +1443,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 여배우, 유튜버, 전 그래비어 아이돌. 아이돌 그룹 OS☆U의 전 멤버로 화보와 영상 콘텐츠에서 활약했습니다."
     },
     {
       "id": "aya-kawasaki",
@@ -1265,14 +1452,18 @@
       "altName": "川崎あや",
       "country": "JAPAN",
       "tags": "gravure magazine photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "yuka-kuramochi",
@@ -1287,7 +1478,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 그래비어 아이돌, 여배우. 지스타프로 소속으로 화보와 예능, 프로페셔널 방송에서 활약하고 있습니다."
     },
     {
       "id": "haruka-arai",
@@ -1302,7 +1494,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 모델, 탤런트, 전 그래비어 아이돌. 화보 활동 후 패션 모델과 방송으로 활동 영역을 넓혔습니다."
     },
     {
       "id": "yotsuba-kominato",
@@ -1317,7 +1510,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 가수, 작사가. 여성 보컬·댄스 유닛 페어리즈의 전 멤버로, 그룹 활동 후 솔로 활동을 이어가고 있습니다."
     },
     {
       "id": "nana-owada",
@@ -1325,14 +1519,18 @@
       "altName": "大和田南那",
       "country": "JAPAN",
       "tags": "gravure actress akb48 photobook",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mariya-nagao",
@@ -1347,7 +1545,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 모델, 여배우, 그래비어 아이돌. 여성 아이돌 그룹 AKB48의 전 멤버로, 가나가와 출신이며 졸업 후 화보와 연기에서 활약합니다."
     },
     {
       "id": "momoka-ishida",
@@ -1362,7 +1561,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 전 탤런트, 전 여배우, 전 그래비어 아이돌. 오사카 출신으로 모모카라는 애칭으로 알려졌으며 화보와 예능에서 활약했습니다."
     },
     {
       "id": "kyoka",
@@ -1377,7 +1577,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 가수, 유튜버, 전 아이돌, 전 그래비어 아이돌. 사이타마 출신으로 화보와 음악, 영상 콘텐츠 등에서 다각도로 활동했습니다."
     },
     {
       "id": "aki-hoshino",
@@ -1392,7 +1593,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 탤런트, 여배우, 그래비어 아이돌. 2000년대 최고령 그래비어 아이돌로 화제가 되며 화보와 방송에서 크게 활약했습니다."
     },
     {
       "id": "saki-suzuki",
@@ -1407,7 +1609,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 그래비어 아이돌, 버라이어티 탤런트, 여배우. 아이돌 유닛 persolate 전 멤버로 현재는 프리랜스로 화보와 예능에서 활약합니다."
     },
     {
       "id": "yoko-kumada",
@@ -1415,7 +1618,7 @@
       "altName": "熊田曜子",
       "country": "JAPAN",
       "tags": "gravure variety legend",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1423,10 +1626,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "リニモ１号",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "waka-inoue",
@@ -1434,14 +1637,18 @@
       "altName": "井上和香",
       "country": "JAPAN",
       "tags": "gravure actress legend",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "misako-yasuda",
@@ -1449,14 +1656,18 @@
       "altName": "安田美沙子",
       "country": "JAPAN",
       "tags": "gravure actress legend",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "akina-minami",
@@ -1464,14 +1675,18 @@
       "altName": "南明奈",
       "country": "JAPAN",
       "tags": "gravure variety actress",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "yumiko-shaku",
@@ -1486,7 +1701,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우, 탤런트, 전 그래비어 아이돌. 플래티넘 프로덕션 소속으로 화보 활동 후 드라마와 영화에서 주연급 배우로 활약했습니다."
     },
     {
       "id": "haruka-igawa",
@@ -1501,7 +1717,8 @@
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "bio": "일본의 여배우. 도쿄 출신으로 패션 모델과 화보를 거쳐 드라마와 영화에서 활약하는 대표 여배우입니다."
     },
     {
       "id": "miho-yoshioka",
@@ -1509,14 +1726,18 @@
       "altName": "吉岡美穂",
       "country": "JAPAN",
       "tags": "gravure variety legend",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
         "instagram": "",
         "youtube": "",
         "tiktok": ""
-      }
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mayuko-iwasawa",
@@ -1524,7 +1745,7 @@
       "altName": "岩佐真悠子",
       "country": "JAPAN",
       "tags": "gravure actress variety",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1532,10 +1753,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-      "creditText": "（ Songsknow ）",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "fumie-hosokawa",
@@ -1543,7 +1764,7 @@
       "altName": "細川ふみえ",
       "country": "JAPAN",
       "tags": "gravure legend 90s",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1551,10 +1772,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-      "creditText": "内閣官房内閣広報室",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "akiko-hinagata",
@@ -1562,7 +1783,7 @@
       "altName": "雛形あきこ",
       "country": "JAPAN",
       "tags": "gravure legend 90s actress",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1570,10 +1791,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Ismoon ( talk )",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "kiko-mizuhara",
@@ -1613,7 +1834,7 @@
       "altName": "三峰真由花",
       "country": "JAPAN",
       "tags": "gravure actress",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1621,10 +1842,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Mayuno",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "mika-kimura",
@@ -1632,7 +1853,45 @@
       "altName": "木村ウルハナ",
       "country": "JAPAN",
       "tags": "gravure idol",
-      "photoAvailable": true,
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
+    },
+    {
+      "id": "miyuki-irie",
+      "name": "Miyuki Irie",
+      "altName": "入江みいな",
+      "country": "JAPAN",
+      "tags": "gravure actress",
+      "photoAvailable": false,
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
+    },
+    {
+      "id": "k-inkyung",
+      "name": "Kang In-kyung",
+      "altName": "강인경",
+      "country": "KOREA",
+      "tags": "web-gravure maxim model",
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1642,46 +1901,9 @@
       },
       "license": "Public domain",
       "licenseUrl": "",
-      "creditText": "Clementine space probe",
-      "creditUrl": "https://commons.wikimedia.org/"
-    },
-    {
-      "id": "miyuki-irie",
-      "name": "Miyuki Irie",
-      "altName": "入江みいな",
-      "country": "JAPAN",
-      "tags": "gravure actress",
-      "photoAvailable": true,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "FlickerJab",
-      "creditUrl": "https://commons.wikimedia.org/"
-    },
-    {
-      "id": "k-inkyung",
-      "name": "Kang In-kyung",
-      "altName": "강인경",
-      "country": "KOREA",
-      "tags": "web-gravure maxim model",
-      "photoAvailable": true,
-      "officialUrl": "",
-      "sns": {
-        "x": "",
-        "instagram": "",
-        "youtube": "",
-        "tiktok": ""
-      },
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "Amber I. Smith - U.S. Secretary of Defense",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "",
+      "creditUrl": "",
+      "photoUrl": ""
     },
     {
       "id": "k-dahye",
@@ -1697,10 +1919,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Solomon203",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://m.youtube.com/@user-jy1zp3bm6m\">알콩달콩</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "대한민국의 치어리더이자 레이싱 모델. KBO 프로야구 구단 치어리더로 데뷔해 화제가 되었으며 화보와 이벤트 모델로도 활동합니다."
     },
     {
       "id": "k-soyeon",
@@ -1719,7 +1942,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "K-POPIT 케이팝잇",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "대한민국의 레이싱 모델. 1992년 4월 3일생으로, CJ대한통운 슈퍼레이스 본부팀 전속 모델 등으로 활동했으며, SNS를 통해 활발한 팔로워를 보유하고 있습니다."
     },
     {
       "id": "k-chaesia",
@@ -1727,7 +1951,7 @@
       "altName": "채시아",
       "country": "KOREA",
       "tags": "racing model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1735,10 +1959,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "( Kirk Stauffer )",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "k-biroha",
@@ -1791,7 +2015,7 @@
       "altName": "최미수아",
       "country": "KOREA",
       "tags": "miss earth solo parade swim",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1799,10 +2023,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
+      "license": "",
       "licenseUrl": "",
-      "creditText": "Arlington National Cemetery",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "k-suhyun",
@@ -1821,7 +2045,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "NewsInStar",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "대한민국의 가수. 오디션 프로그램 우승 후 남매 듀오 AKMU의 보컬로 데뷔했으며 이후 솔로로도 앨범을 발표했습니다."
     },
     {
       "id": "k-jain",
@@ -1829,7 +2054,7 @@
       "altName": "한재인",
       "country": "KOREA",
       "tags": "actress swimwear barrel",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1837,10 +2062,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Dltl2010",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "k-euni",
@@ -1848,7 +2073,7 @@
       "altName": "정은이",
       "country": "KOREA",
       "tags": "model maxim fitness",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1856,10 +2081,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "PARKJAEHWAN kinocine.com",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "k-dyeon",
@@ -1882,7 +2107,7 @@
       "altName": "송주아",
       "country": "KOREA",
       "tags": "cosplay racing model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1890,10 +2115,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
+      "license": "",
       "licenseUrl": "",
-      "creditText": "Philip Saumarez",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "k-seol",
@@ -1901,7 +2126,7 @@
       "altName": "첼설아",
       "country": "KOREA",
       "tags": "model maxim bikini",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1909,10 +2134,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "CNTV 역사극채널",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "k-bb",
@@ -1935,7 +2160,7 @@
       "altName": "서여진",
       "country": "KOREA",
       "tags": "cheer maxim",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1943,10 +2168,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "Marie Claire Korea",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-emrata",
@@ -1965,7 +2190,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Rogue Artists",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 패션 모델이자 배우. 로빈 시크의 뮤직비디오 출연으로 전 세계적 주목을 받았으며, 스포츠 일러스트레이티드 수영복호 등 유명 매체의 표지를 장식했습니다."
     },
     {
       "id": "w-kupton",
@@ -1984,7 +2210,8 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "creditText": "Agape Lataillade",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델이자 배우. 2011년 스포츠 일러스트레이티드 수영복호에 데뷔한 뒤 2012·2013·2017년 커버를 장식하며 대표적인 미국 스윔슈트 모델로 자리 잡았습니다."
     },
     {
       "id": "w-irina",
@@ -2003,7 +2230,8 @@
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
       "creditText": "Joan Hernandez Mir",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "러시아의 패션 모델, 배우. 2011년 스포츠 일러스트레이티드 수영복호 표지의 첫 러시아 모델로 국제적 인지도를 쌓았으며, 2022년 모델스닷컴 뉴 수퍼스에 선정되었습니다."
     },
     {
       "id": "w-kendall",
@@ -2022,7 +2250,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Adanola",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델이자 리얼리티 TV 스타. 카다시안 패밀리 쇼로 유명해졌으며, 세계 최고 수입 모델 명단에 오르는 등 패션계에서 활발히 활동하고 있습니다."
     },
     {
       "id": "w-gigi",
@@ -2041,7 +2270,8 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "creditText": "Eva Rinaldi",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 패션 모델. 2016년 영국 패션 어워드 국제 모델상을 받았고, 50회 이상의 국제 보그에 등장하며 세계에서 가장 수입이 높은 모델 중 한 명으로 꼽힙니다."
     },
     {
       "id": "w-bella",
@@ -2059,8 +2289,9 @@
       },
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Georges Biard",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:Gabriel_Hutchinson\" title=\"User:Gabriel Hutchinson\">Gabriel Hutchinson</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 패션 모델. 2022년 영국 패션 어워드 올해의 모델로 선정되었으며, 35회 이상의 보그 표지를 장식하고 타임 100인에 이름을 올렸습니다."
     },
     {
       "id": "w-cara",
@@ -2076,10 +2307,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Gage Skidmore",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:Brandnewlover\" title=\"User:Brandnewlover\">Christopher Macsurak</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "영국의 모델이자 배우, 음악가. 2012년과 2014년 영국 패션 어워드에서 올해의 모델을 수상하며 패션계의 아이콘으로 자리 잡았고, 이후 배우로 활동 영역을 넓혔습니다."
     },
     {
       "id": "w-rosie",
@@ -2095,10 +2327,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "Christian Sorge of Covino and Rich at https://www.covinoandrich.com/",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:LucaFazPhoto\" title=\"User:LucaFazPhoto\">LucaFazPhoto</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "영국의 모델. 빅토리아 시크릿의 엔젤로 활동하며 브랜드의 대표 얼굴이 되었고, 버버리, 마크 앤 스펜서 등의 캠페인과 영화 출연으로도 알려져 있습니다."
     },
     {
       "id": "w-candice",
@@ -2117,7 +2350,8 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "creditText": "Nomadic",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "남아프리카공화국 출신 모델. 2010년 빅토리아 시크릿 엔젤이 되었으며, 2016년 포브스 최고 수입 모델 리스트에 이름을 올렸습니다."
     },
     {
       "id": "w-adriana",
@@ -2133,10 +2367,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Toglenn",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creditText": "Georges Biard",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "브라질의 모델. 1999년부터 2018년까지 빅토리아 시크릿 패션쇼에 출연한 최장수 엔젤로, 2017년 최고 가치의 엔젤로 평가받았습니다."
     },
     {
       "id": "w-aless",
@@ -2152,10 +2387,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Joey Pasion, M.D. Original uploader was Number1spygirl at en.wikipedia",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:LucaFazPhoto\" title=\"User:LucaFazPhoto\">LucaFazPhoto</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "브라질 출신 모델. 빅토리아 시크릿의 첫 PINK 라인 대표 모델로 선정되었고 2004년부터 2017년까지 엔젤로 활동하며 크리스찬 디올, 아르마니 등 하이패션 브랜드에서도 활약했습니다."
     },
     {
       "id": "w-gisele",
@@ -2174,7 +2410,8 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "creditText": "Renan Katayama",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "브라질의 모델이자 환경운동가. 2005년부터 2016년까지 포브스 최고 수입 모델 1위에 오르며 슈퍼모델 시대를 대표했습니다."
     },
     {
       "id": "w-barbara",
@@ -2193,7 +2430,8 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "creditText": "Georges Biard",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "헝가리 출신 모델. 2016년 스포츠 일러스트레이티드 스윔슈트 이슈에 첫 등장하고 2019년 빅토리아 시크릿 엔젤이 되었으며, 론진과 아르마니 뷰티의 앰버서더로 활동합니다."
     },
     {
       "id": "w-chrissy",
@@ -2211,8 +2449,9 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "David Shankbone",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UCKhCJRTHHLuW2iW7XQtcfyQ\">Adweek</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델, TV 퍼스낼리티, 저자. 2010년 스포츠 일러스트레이티드 스윔슈트 이슈로 모델로 데뷔했으며, 요리책 저자와 소셜 미디어 인플루언서로 유명합니다."
     },
     {
       "id": "w-nina",
@@ -2228,10 +2467,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "Arturo Pardavila III from Hoboken, NJ, USA",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "Haole Punk",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "덴마크의 모델. 스포츠 일러스트레이티드 스윔슈트 이슈에 여러 차례 등장하며 국제적으로 이름을 알린 슈퍼모델입니다."
     },
     {
       "id": "w-katebock",
@@ -2250,7 +2490,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Behind The Velvet Rope TV",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "캐나다의 모델. 2013년부터 스포츠 일러스트레이티드 스윔슈트 이슈에 출연했으며, 2020년 올리비아 컬포 등과 함께 커버를 장식했습니다."
     },
     {
       "id": "w-charlotte",
@@ -2269,7 +2510,8 @@
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
       "creditText": "Web Summit",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델이자 배우. 인스타그램을 통해 유명해졌고, 2015년 칼스 주니어 광고에 출연하며 전 세계적으로 화제가 되었습니다."
     },
     {
       "id": "w-demirose",
@@ -2288,7 +2530,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "OnlyFans",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "영국의 모델이자 소셜 미디어 스타. 대표적인 바디 포지티브 모델로 인스타그램에서 수백만 팔로워를 보유하고 있습니다."
     },
     {
       "id": "w-rebecca",
@@ -2307,7 +2550,8 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "creditText": "Gage Skidmore",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 배우, 전 모델. 엑스맨 시리즈의 미스틱 역과 스타트렉 시리즈에서 활동하며 할리우드에서 두각을 나타냈습니다."
     },
     {
       "id": "w-rose",
@@ -2323,10 +2567,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Stan Shebs",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UCYXogPyO5YNzxFhaOqmjVoQ\">LOVE Magazine </a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "벨기에의 모델. 스포츠 일러스트레이티드 스윔슈트 이슈와 빅토리아 시크릿 등에서 활약한 국제 패션 모델입니다."
     },
     {
       "id": "w-doutzen",
@@ -2345,7 +2590,8 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "creditText": "Mrslyd",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "네덜란드의 패션 모델. 2008년부터 2014년까지 빅토리아 시크릿 엔젤로 활동했으며, 2006년부터 로레알 파리 앰버서더로도 활약했습니다."
     },
     {
       "id": "w-emilys",
@@ -2364,7 +2610,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Behind The Velvet Rope TV",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델. 10살 때 모델을 시작해 게스, 랄프 로렌, 아르마니, 로레알 등 대형 브랜드 캠페인에 출연했습니다."
     },
     {
       "id": "w-georgia",
@@ -2380,10 +2627,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
-      "licenseUrl": "",
-      "creditText": "The White House",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://vimeo.com/lucacaon\">Luca Caon</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "스페인·아르헨티나의 모델, 인플루언서. 축구선수 크리스티아누 호날두의 연인으로 널리 알려졌으며 소셜 미디어에서 거대한 팔로워를 보유하고 있습니다."
     },
     {
       "id": "w-kelly",
@@ -2402,7 +2650,8 @@
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
       "creditText": "Faye Sadou",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 패션 모델이자 배우. 영화 베이워치에서 C.J. 파커 역으로 잘 알려져 있으며 스포츠 일러스트레이티드 스윔슈트 모델로도 활동했습니다."
     },
     {
       "id": "w-hailey",
@@ -2418,10 +2667,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-      "creditText": "Kevin Paul",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Eric Ita",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델, 사업가, 미디어 퍼스낼리티. 스킨케어 브랜드 로드의 설립자이며 게스, 랄프 로렌, 토미 힐피거 캠페인에 출연했습니다."
     },
     {
       "id": "w-naomi",
@@ -2440,7 +2690,8 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "creditText": "Georges Biard",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "영국의 모델이자 배우. 8살 때부터 활동을 시작해 패션 산업이 인정한 6인의 슈퍼모델 중 한 명이며, 타임과 보그 프랑스 표지에 오른 최초의 흑인 모델입니다."
     },
     {
       "id": "w-taylor",
@@ -2456,10 +2707,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "Yvan Fabing",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:Berlination\" title=\"User:Berlination\">Bryan Berlin</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 패션 모델. 빅토리아 시크릿 엔젤로 활동하며 스포츠 일러스트레이티드 스윔슈트 이슈에서도 활약한 대표적인 신세대 모델입니다."
     },
     {
       "id": "w-georgina2",
@@ -2467,7 +2719,7 @@
       "altName": "",
       "country": "MEXICO",
       "tags": "model si swim",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2475,10 +2727,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Nardisoero",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-olivia",
@@ -2497,7 +2749,8 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "creditText": "CCS Pictures",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델, 배우, 인플루언서. 전 기계체조 선수로, 스포츠 일러스트레이티드 스윔슈트 모델과 TV 시리즈 출연으로 활동 영역을 넓혔습니다."
     },
     {
       "id": "w-lauren",
@@ -2516,7 +2769,8 @@
       "license": "CC BY-SA 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
       "creditText": "CHROMAT",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "캐나다의 모델, 편집자, 사업가. 플러스 사이즈 의류 브랜드 헤닝의 설립자로, 패션과 언론 분야에서 두각을 나타냈습니다."
     },
     {
       "id": "w-salma",
@@ -2535,7 +2789,8 @@
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "creditText": "John Sears",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "멕시코 출신의 배우이자 영화 프로듀서. 테레사로 멕시코에서 스타가 된 뒤 할리우드에서 데스페라도, 프롬 더스트 틸 던 등에 출연하며 세계적 배우로 자리 잡았습니다."
     },
     {
       "id": "w-alix",
@@ -2551,10 +2806,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
-      "licenseUrl": "",
-      "creditText": "Adam Cuerden",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "Sonali Prabhu",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 인플루언서. 틱톡에서 메이크업 준비 과정 영상으로 유명해졌으며, 제품 홍보로 소비를 촉진하는 소위 알릭스 이펙트로 알려졌습니다."
     },
     {
       "id": "w-haley-kalil",
@@ -2573,7 +2829,8 @@
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
       "creditText": "Kevin Paul",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 모델, 인플루언서. 스포츠 일러스트레이티드 스윔서치에서 우승해 2019년판에 신인 모델로 등장하며 유명해졌습니다."
     },
     {
       "id": "w-jena-frumes",
@@ -2596,7 +2853,7 @@
       "altName": "",
       "country": "USA",
       "tags": "bikini model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2604,10 +2861,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "EvaMrázová",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-kara",
@@ -2615,7 +2872,7 @@
       "altName": "",
       "country": "USA",
       "tags": "bikini model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2623,10 +2880,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Jl FilpoC",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-demibae",
@@ -2634,7 +2891,7 @@
       "altName": "",
       "country": "ITALY",
       "tags": "bikini model si swim",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2642,10 +2899,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "FGphotographic",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-yasmine",
@@ -2653,7 +2910,7 @@
       "altName": "",
       "country": "NETHERLANDS",
       "tags": "swimsuit model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2661,10 +2918,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "nikontino",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-anok",
@@ -2683,7 +2940,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Paco Rabanne",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 패션 모델. 나오미 캠벨 이후 두 번째로 프라다 쇼를 연 흑인 모델로, 미국 보그 표지를 여러 차례 장식하고 타임 100인에 선정되었습니다."
     },
     {
       "id": "w-lamecia",
@@ -2702,7 +2960,8 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Yoann Lothaire / other viewnewsmedia",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "영국-미국의 모델, 배우. 배우 주드 로의 딸로, 브리티시 보그와 버버리 등에서 활동한 신세대 패션 모델입니다."
     },
     {
       "id": "w-linds",
@@ -2718,10 +2977,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
-      "licenseUrl": "",
-      "creditText": "U.S. Mission Korea",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/9556827@N02\">Keith HInkle</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 알파인 스키 선수. 2010년 밴쿠버 올림픽 다운힐 금메달 등 4차례 월드컵 종합 우승과 다운힐 통산 8회 우승을 기록한 전설적인 선수입니다."
     },
     {
       "id": "w-marta",
@@ -2729,7 +2989,7 @@
       "altName": "",
       "country": "POLAND",
       "tags": "bikini fitness model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2737,10 +2997,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "I99pema",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-amanda",
@@ -2759,7 +3019,8 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "creditText": "Drifta Beatz",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국의 인플루언서, 배우. 바인과 유튜브로 유명해졌으며, 2011년 플레이보이 올해의 플레이메이트로 선정되었습니다."
     },
     {
       "id": "w-millane",
@@ -2790,10 +3051,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
-      "licenseUrl": "",
-      "creditText": "Credit: NSF (National Science Foundation, United States)",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UCCSQ7uuawlBzhi_7JnQbnAw\">RecPlay Records</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "미국 마이애미 출신의 모델이자 가수, 작곡가. 어린 시절 모델을 시작해 마크 앤 스펜서, 디올 등 브랜드 캠페인과 뮤직비디오에서 활약했습니다."
     },
     {
       "id": "w-izzy",
@@ -2831,7 +3093,7 @@
       "altName": "",
       "country": "BRITISH_TERRITORY",
       "tags": "bikini model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2839,10 +3101,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Aaj2545",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-tiaru",
@@ -2850,7 +3112,7 @@
       "altName": "",
       "country": "AUSTRALIA",
       "tags": "bikini model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2858,10 +3120,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Arild Vågen",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-nat",
@@ -2884,7 +3146,7 @@
       "altName": "",
       "country": "CANADA",
       "tags": "bikini model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2892,10 +3154,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "DatraxMada",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-linne",
@@ -2918,7 +3180,7 @@
       "altName": "",
       "country": "USA",
       "tags": "si swim model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2926,10 +3188,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "John Benson",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-ry",
@@ -2937,7 +3199,7 @@
       "altName": "",
       "country": "AUSTRALIA",
       "tags": "bikini model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2945,10 +3207,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Stefan Krause, Germany",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": ""
     },
     {
       "id": "w-lena",
@@ -2981,8 +3243,9 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "Attractive Mindset",
-      "creditUrl": "https://commons.wikimedia.org/"
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UC11JFCoslUUMTuAsUPH8RdQ\">Humor Multishow</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
+      "bio": "브라질의 가수, 작곡가, 댄서. 라틴 그래미상 등 수상 경력을 가진 브라질 대표 아티스트로 팝, 펑크, 레게톤 등 다양한 장르를 넘나듭니다."
     },
     {
       "id": "suzu-hirose",
@@ -2998,11 +3261,12 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:MKr377554_Suzu_Hirose_(A_Pale_View_of_Hills,_Cannes_2025).jpg",
+      "license": "CC BY-SA 3.0",
+      "creditText": "Georges Biard",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "수수하고 명랑한 매력으로 영화·드라마를 넘나들며 활약하는 여배우 겸 모델. 안정적인 연기와 폭넓은 작품 선택으로 주목받습니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/MKr377554_Suzu_Hirose_%28A_Pale_View_of_Hills%2C_Cannes_2025%29.jpg/1280px-MKr377554_Suzu_Hirose_%28A_Pale_View_of_Hills%2C_Cannes_2025%29.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/MKr377554_Suzu_Hirose_%28A_Pale_View_of_Hills%2C_Cannes_2025%29.jpg/1280px-MKr377554_Suzu_Hirose_%28A_Pale_View_of_Hills%2C_Cannes_2025%29.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
     },
     {
       "id": "yuzuki-aikawa",
@@ -3018,11 +3282,12 @@
         "youtube": "https://www.youtube.com/channel/UCyQYuGYcuqG-0r6tCwSSdiQ",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg",
+      "license": "CC BY-SA 3.0",
+      "creditText": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cingulata_Illiger&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cingulata Illiger (page does not exist)\">Cingulata Illiger</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "그라비어 아이돌로 데뷔해 다수의 주간지와 화보 표지를 장식했으며, 방송·국제 활동까지 인기를 넓힌 대표적인 아이돌 모델입니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
     },
     {
       "id": "tsukasa-fujimoto",
@@ -3039,10 +3304,11 @@
         "tiktok": ""
       },
       "license": "CC BY-SA 4.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg",
+      "creditText": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:2for6&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:2for6 (page does not exist)\">2for6</a>",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "그라비어 활동과 프로레슬링 무대를 넘나드는 독특한 이력을 가진 탤런트. 강인한 존재감과 근성 있는 매력으로 폭넓은 응원을 받습니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
     },
     {
       "id": "sola-aoi",
@@ -3050,7 +3316,7 @@
       "altName": "蒼井そら",
       "country": "JAPAN",
       "tags": "gravure model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "https://aoisola.jp/",
       "sns": {
         "x": "https://x.com/aoi_sola",
@@ -3058,11 +3324,12 @@
         "youtube": "https://www.youtube.com/@aoisolanet",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_(22241441840)_(cropped).jpg",
+      "license": "",
+      "creditText": "",
+      "creditUrl": "",
       "bio": "일본 엔터테인먼트계의 상징적 인물. 그라비어 활동을 비롯해 여러 매체에서 오랫동안 대중의 사랑을 받아온 아이콘입니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_%2822241441840%29_%28cropped%29.jpg/1280px-Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_%2822241441840%29_%28cropped%29.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_%2822241441840%29_%28cropped%29.jpg/1280px-Aoi_Sora_%22Lazy_Hazy_Crazy%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_%2822241441840%29_%28cropped%29.jpg",
+      "licenseUrl": ""
     },
     {
       "id": "mitsu-dan",
@@ -3087,7 +3354,7 @@
     {
       "id": "mao-ichimichi",
       "name": "Mao Ichimichi",
-      "altName": "",
+      "altName": "市道真央",
       "country": "JAPAN",
       "tags": "gravure model",
       "photoAvailable": true,
@@ -3110,7 +3377,7 @@
       "altName": "",
       "country": "JAPAN",
       "tags": "gravure model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "http://www.stardust.co.jp/section3/profile/hinamikyooko.html",
       "sns": {
         "x": "https://x.com/kyooko_hinami",
@@ -3118,11 +3385,12 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_(44894003194).jpg",
+      "license": "",
+      "creditText": "",
+      "creditUrl": "",
       "bio": "청초한 분위기와 안정된 표현력으로 그라비어 씬에서 주목받는 모델. 매거진과 이벤트를 중심으로 활동합니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_%2844894003194%29.jpg/1280px-Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_%2844894003194%29.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_%2844894003194%29.jpg/1280px-Hinami_Kyooko_from_%2221st_Century_Girl%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_%2844894003194%29.jpg",
+      "licenseUrl": ""
     },
     {
       "id": "alice-hirose",
@@ -3139,10 +3407,11 @@
         "tiktok": ""
       },
       "license": "CC BY 2.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_(49013313561)_(cropped).jpg",
+      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/31029865@N06\">Dick Thomas Johnson</a> from Tokyo, Japan",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "밝은 이미지와 친근한 분위기로 사랑받는 여배우 겸 모델. 드라마, 광고, 잡지에서 폭넓은 활동을 이어갑니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_%2849013313561%29_%28cropped%29.jpg/1280px-Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_%2849013313561%29_%28cropped%29.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_%2849013313561%29_%28cropped%29.jpg/1280px-Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_%2849013313561%29_%28cropped%29.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
     },
     {
       "id": "tsukasa-aoi",
@@ -3159,10 +3428,11 @@
         "tiktok": ""
       },
       "license": "CC BY 4.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:%EC%95%84%EC%98%A4%EC%9D%B4%EC%B8%A0%EC%B9%B4%EC%82%AC(Aoi_Tsukasa)_%EA%B5%AD%EB%82%B4_%ED%8C%AC%EB%AF%B8%ED%8C%85_5.jpg",
+      "creditText": "SJ",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "뚜렷한 개성과 안정된 균형으로 화제가 된 그라비어 모델. 화보와 주간지에서 독특한 세계관을 구축해왔습니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/%EC%95%84%EC%98%A4%EC%9D%B4%EC%B8%A0%EC%B9%B4%EC%82%AC%28Aoi_Tsukasa%29_%EA%B5%AD%EB%82%B4_%ED%8C%AC%EB%AF%B8%ED%8C%85_5.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/%EC%95%84%EC%98%A4%EC%9D%B4%EC%B8%A0%EC%B9%B4%EC%82%AC%28Aoi_Tsukasa%29_%EA%B5%AD%EB%82%B4_%ED%8C%AC%EB%AF%B8%ED%8C%85_5.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
     },
     {
       "id": "marie-iitoyo",
@@ -3178,11 +3448,12 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 2.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Iitoyo_Marie_from_%22The_Tunnel_to_Summer,_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_(52461345204).jpg",
+      "license": "CC BY 4.0",
+      "creditText": "警察庁",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "그라비어 모델 겸 탤런트. 잡지·화보 작업과 함께 블로그, SNS로 팬들과의 교류를 유지하며 꾸준히 활동합니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg/1280px-Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg/1280px-Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
     },
     {
       "id": "akemi-darenogare",
@@ -3199,10 +3470,11 @@
         "tiktok": ""
       },
       "license": "CC BY 2.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg",
+      "creditText": "Dick Thomas Johnson",
+      "creditUrl": "https://commons.wikimedia.org/",
       "bio": "강렬한 분위기와 뚜렷한 개성으로 주목받은 그래비어·패션 모델. 다수의 매체와 화보에서 존재감을 보여줍니다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg/1280px-Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg/1280px-Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
     },
     {
       "id": "yukari-fukui",
@@ -3221,7 +3493,8 @@
       "license": "CC BY-SA 3.0",
       "creditText": "Wikimedia Commons",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Yukari_in_ACE_(cropped).jpg",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Fukui_Yukari_in_ACE_%28cropped%29.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Fukui_Yukari_in_ACE_%28cropped%29.jpg",
+      "bio": "일본의 성우, 여배우, 가수, 전 그래비어 아이돌. 가나가와현 히라츠카시 출신으로 1997년 데뷔해 성우와 화보를 병행했습니다."
     },
     {
       "id": "rin-aoki",
@@ -3249,7 +3522,7 @@
       "altName": "",
       "country": "JAPAN",
       "tags": "gravure model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -3260,12 +3533,13 @@
       "license": "",
       "creditText": "",
       "creditUrl": "",
-      "bio": "일본의 그라비아 모델 겸 배우. 주간지·디지털 그라비아에서 활동하며 사진집 발매와 이벤트 참여로 이름을 알렸다."
+      "bio": "일본의 그라비아 모델 겸 배우. 주간지·디지털 그라비아에서 활동하며 사진집 발매와 이벤트 참여로 이름을 알렸다.",
+      "licenseUrl": ""
     },
     {
       "id": "aya-asahina",
       "name": "Aya Asahina",
-      "altName": "",
+      "altName": "朝比奈彩",
       "country": "JAPAN",
       "tags": "gravure model",
       "photoAvailable": true,
