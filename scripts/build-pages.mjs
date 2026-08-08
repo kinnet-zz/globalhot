@@ -22,6 +22,7 @@ export const STATIC_FILES = [
   "sitemap.xml",
   "_headers",
   "_redirects",
+  "main_202608081044.mp4",
 ];
 
 const SCAN_DIRS = ["assets/profiles"];

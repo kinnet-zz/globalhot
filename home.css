@@ -77,14 +77,48 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 .primary-nav a:hover { color: var(--h-ink); }
 
 /* ── 03 레지스트리 마스트헤드 ── */
-.registry-mast { border-bottom: 1px solid var(--h-rule); background: linear-gradient(180deg, #ffffff, var(--page)); }
+.registry-mast {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--h-rule);
+  background: #14171d;
+}
+.registry-media { position: absolute; inset: 0; z-index: 0; }
+.registry-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.registry-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13, 15, 19, .52), rgba(13, 15, 19, .78));
+}
 .registry-mast-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 96px minmax(0, 1fr) minmax(240px, 320px);
   gap: 34px;
   align-items: end;
   padding: 42px 0 38px;
+  min-height: 320px;
 }
+.registry-mast .registry-kicker { color: #ffb7a8; }
+.registry-mast .registry-title { color: #fff; }
+.registry-mast .registry-title em { color: #ff8a73; }
+.registry-mast .registry-lead { color: #d8d2ca; }
+.registry-mast .registry-badge {
+  border-color: rgba(255, 165, 140, .7);
+  color: #ffc4b3;
+}
+.registry-mast .registry-badge-no { border-top-color: rgba(255, 165, 140, .45); }
+.registry-mast .registry-meta {
+  border-top: 1px solid rgba(255, 255, 255, .28);
+  border-left: 1px solid rgba(255, 255, 255, .28);
+}
+.registry-mast .registry-meta > div {
+  border-right: 1px solid rgba(255, 255, 255, .28);
+  border-bottom: 1px solid rgba(255, 255, 255, .28);
+  background: rgba(13, 15, 19, .34);
+}
+.registry-mast .registry-meta dt { color: rgba(255, 255, 255, .55); }
+.registry-mast .registry-meta dd { color: #fff; }
 .registry-badge {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 4px;
@@ -400,7 +434,7 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   .filter-button { flex: 1; min-width: 68px; min-height: 42px; padding: 0 8px; }
   .sort-control { margin-left: auto; }
   .results-count { width: 100%; }
-  .registry-mast-inner { padding: 30px 0 26px; }
+  .registry-mast-inner { padding: 30px 0 26px; min-height: 0; }
   .registry-title { font-size: 1.8rem; }
   .model-card { grid-template-columns: 56px minmax(0, 1fr); gap: 0 13px; padding: 12px 14px 9px; }
   .portrait { width: 56px; min-height: 68px; }
@@ -409,4 +443,7 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
+  .registry-video { display: none; }
+  .registry-mast { background: linear-gradient(180deg, #1c1f26, #14171d); }
+  .registry-overlay { background: linear-gradient(180deg, rgba(13, 15, 19, .35), rgba(13, 15, 19, .7)); }
 }
