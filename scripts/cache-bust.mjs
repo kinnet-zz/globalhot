@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 // dist HTML 에서 버전 부여할 로컬 asset 들. source 루트 기준 파일명.
-const VERSIONED_ASSETS = ["portal.css", "info.css", "portal.js", "analytics.js"];
+const VERSIONED_ASSETS = ["portal.css", "home.css", "info.css", "portal.js", "analytics.js"];
 
 function escapeRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
