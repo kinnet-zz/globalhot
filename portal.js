@@ -405,9 +405,13 @@ emptyState.hidden = displayedCards.length !== 0;
     render({ sync: true });
     loadServerRecommendations();
 
-    document.addEventListener('portal-models-loaded', function () {
+    document.addEventListener('portal-models-loaded', function (event) {
       updateValidModelIds();
       render({ sync: false });
+      var registryCount = document.querySelector('[data-registry-count]');
+      if (registryCount && event.detail && event.detail.count) {
+        registryCount.textContent = String(event.detail.count) + ' NAMES';
+      }
     });
   }
 

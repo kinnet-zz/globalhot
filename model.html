@@ -11,53 +11,56 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://globalhot.net/model.html">
   <link rel="stylesheet" href="/portal.css?v=20260802-3">
+  <link rel="stylesheet" href="/home.css?v=20260808-2">
   <script src="/analytics.js?v=20260718-2" defer></script>
   <script src="/portal.js?v=20260802-3" defer></script>
   <title>GlobalHot | 모델 프로필</title>
   <style>
-    .profile-main{min-height:calc(100vh - 220px);background:linear-gradient(145deg,#0d0d10 8%,#16161a 100%);padding:52px 0 86px}
+    .profile-main{min-height:calc(100vh - 220px);background:#fff;padding:40px 0 72px}
     .profile-shell{width:min(980px,calc(100% - 40px));margin:0 auto}
-    .profile-header{display:flex;gap:26px;align-items:flex-start;margin-bottom:34px}
-    .profile-photo{flex:0 0 260px;max-width:260px}
-    .profile-photo .portrait{width:100%;aspect-ratio:3/4;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+    .profile-header{display:flex;gap:26px;align-items:flex-start;margin-bottom:30px}
+    .profile-photo{flex:0 0 200px;max-width:200px}
+    .profile-photo .portrait{width:100%;aspect-ratio:3/4;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#eae6dc}
     .profile-photo .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
     .profile-copy{flex:1;min-width:0}
     .profile-copy .eyebrow{color:var(--coral-soft);letter-spacing:.15em;font-size:.68rem;font-weight:900;margin:0 0 10px}
-    .profile-copy h1{margin:0;color:var(--ink);font-size:clamp(1.8rem,4vw,2.9rem);line-height:1.08;letter-spacing:-.05em}
-    .profile-copy h1 small{display:block;margin-top:6px;color:var(--muted);font-size:.92rem;letter-spacing:0}
-    .profile-meta{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0;color:var(--muted);font-size:.85rem}
-    .profile-meta span{display:inline-block;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}.profile-rank{display:inline-flex;align-items:baseline;gap:10px;margin-top:18px;padding:8px 16px;border:1px solid rgba(255,73,56,.5);border-radius:6px;background:rgba(255,73,56,.08)}.profile-rank span{color:var(--coral-soft);font-size:.68rem;font-weight:900;letter-spacing:.16em}.profile-rank strong{color:#fff;font-size:1.05rem;font-weight:950}
-    .profile-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .profile-copy h1{margin:0;color:var(--ink);font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.1;letter-spacing:-.03em}
+    .profile-copy h1 small{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;letter-spacing:0}
+    .profile-meta{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;color:var(--muted);font-size:.85rem}
+    .profile-meta span{display:inline-block;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
+    .profile-rank{display:inline-flex;align-items:baseline;gap:10px;margin-top:16px;padding:8px 16px;border:1px solid rgba(201,66,44,.5);border-radius:6px;background:rgba(201,66,44,.06)}.profile-rank span{color:var(--coral-soft);font-size:.68rem;font-weight:900;letter-spacing:.16em}.profile-rank strong{color:var(--coral-soft);font-size:1.05rem;font-weight:950}
+    .profile-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
     .profile-actions a{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;background:var(--coral);border:1px solid var(--coral);color:#fff;font-size:.82rem;font-weight:800;text-decoration:none;border-radius:6px}
     .profile-actions a.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
-    .profile-actions a:hover{background:var(--coral-soft);border-color:var(--coral-soft);color:#16110d}
-    .profile-section{border-top:1px solid var(--line);padding:28px 0;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:34px}
-    .profile-section h2{color:var(--ink);font-size:1.15rem;letter-spacing:-.04em;margin:0 0 14px}
-    .profile-bio{color:#cfc9c4;font-size:.96rem;line-height:1.82;white-space:pre-line}
+    .profile-actions a:hover{background:var(--coral-soft);border-color:var(--coral-soft);color:#fff}
+    .profile-section{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:34px}
+    .profile-section h2{color:var(--ink);font-size:1.12rem;font-weight:900;margin:0 0 14px}
+    .profile-bio{color:var(--muted);font-size:.96rem;line-height:1.82;white-space:pre-line}
     .profile-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-    .profile-tags span{padding:4px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.75rem;background:rgba(255,255,255,.03)}
+    .profile-tags span{padding:4px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.75rem;background:#fff}
     .profile-rail dl{display:grid;gap:12px;margin:0}
-    .profile-rail .photo-credit{margin:18px 0 0;color:var(--muted);font-size:.72rem;line-height:1.7;border-top:1px solid var(--line);padding-top:14px}
+    .profile-rail .photo-credit{margin:18px 0 0;color:var(--quiet);font-size:.72rem;line-height:1.7;border-top:1px solid var(--line);padding-top:14px}
     .profile-rail .photo-credit a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
-    .profile-rail dt{color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.06em}
+    .profile-rail dt{color:var(--quiet);font-size:.7rem;font-weight:700;letter-spacing:.06em}
     .profile-rail dd{margin:3px 0 0;color:var(--ink);font-size:.9rem;line-height:1.5}
-    .back-link{display:inline-block;margin-bottom:26px;color:var(--muted);font-size:.84rem;text-decoration:none}
+    .back-link{display:inline-block;margin-bottom:24px;color:var(--muted);font-size:.84rem;text-decoration:none}
     .back-link:hover{color:var(--coral-soft)}
     .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
     .profile-actions a:focus-visible,.back-link:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
     .profile-section h2:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
     .profile-rail a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-    @media(max-width:700px){.profile-header{flex-direction:column}.profile-section{grid-template-columns:1fr;gap:20px}.profile-shell{width:min(100% - 28px,980px)}}
+    @media(max-width:700px){.profile-header{flex-direction:column}.profile-photo{flex:0 0 220px;max-width:220px}.profile-section{grid-template-columns:1fr;gap:18px}.profile-shell{width:min(100% - 28px,980px)}}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
-  <header class="site-header">
+  <header class="site-header" data-theme="light">
     <div class="shell header-inner">
       <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
       <nav class="primary-nav" aria-label="주요 메뉴">
         <a href="/#models">프로필</a>
+        <a href="/about.html">소개</a>
       </nav>
     </div>
   </header>
@@ -71,9 +74,9 @@
     <div class="shell footer-grid">
       <div>
         <a class="brand" href="/">GLOBAL<span>HOT</span></a>
-        <p>Official-source profile directory. Profile photos use CC-licensed images with attribution.</p>
+        <p class="footer-copy">공식 출처 확인 프로필 레지스트리 · CC 라이선스 사진 사용</p>
         <p class="rights-note">콘텐츠·성명·상표 권리는 각 권리자에게 있습니다. 수정/삭제 요청: admin@globalhot.net</p>
-        <a class="support-cta" href="https://patreon.com/globalhot" target="_blank" rel="noopener noreferrer" aria-label="Patreon으로 GlobalHot 후원 (새 창)"><span class="support-icon" aria-hidden="true">⭐</span><span>Become a Patron</span></a>
+        <a class="support-cta" href="https://patreon.com/globalhot" target="_blank" rel="noopener noreferrer" aria-label="Patreon으로 GlobalHot 후원 (새 창)"><span class="support-icon" aria-hidden="true">◈</span><span>후원하기</span></a>
       </div>
       <nav aria-label="푸터 메뉴">
         <a href="/about.html">소개</a>
