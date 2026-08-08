@@ -15,6 +15,7 @@
   <meta name="juicyads-site-verification" content="27f69021d49193a367a805727719a2a5">
   <link rel="stylesheet" href="/portal.css?v=20260802-3">
   <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="/home.css?v=20260808-1">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"GlobalHot","url":"https://globalhot.net/","potentialAction":{"@type":"SearchAction","target":"https://globalhot.net/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <script src="/analytics.js?v=20260718-2" defer></script>
   <script src="/portal.js?v=20260802-3" defer></script>
@@ -25,16 +26,33 @@
   <header class="site-header">
     <div class="shell header-inner">
       <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
+      <span class="brand-sub">VERIFIED INDEX</span>
       <nav class="primary-nav" aria-label="주요 메뉴">
         <a href="#models">프로필</a>
+        <a href="/about.html">소개</a>
       </nav>
     </div>
   </header>
   <main id="main-content">
+    <section class="mast" aria-label="GlobalHot 소개">
+      <div class="mast-shell">
+        <p class="mast-kicker">GLOBALHOT — VERIFIED PROFILES · 2026</p>
+        <div class="mast-line">
+          <h1 class="mast-title">공식 출처로 확인한,<br>프로필 <i>인덱스</i></h1>
+          <div class="mast-aside">
+            <p>프로필 사진은 CC 라이선스 이미지로 게재합니다. 정보는 공개된 공식 출처(Wikipedia 등)에서 확인한 값만 수록했습니다.</p>
+            <dl class="mast-table">
+              <div><dt>FIELD</dt><dd>Gravure · Cosplay · Model</dd></div>
+              <div><dt>SOURCE</dt><dd>Official · Agency · CC Photos</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="feed-section" id="models" aria-labelledby="models-title">
       <div class="shell">
         <div class="section-heading">
-          <div><p class="eyebrow">PROFILES</p><h2 id="models-title">모델 프로필</h2></div>
+          <div><p class="eyebrow">INDEX</p><h2 id="models-title">모델 프로필</h2></div>
           <p>공식 출처로 확인한 정보와 발췌 소개입니다.</p>
         </div>
         <section class="discovery-bar" id="discover" aria-label="프로필 검색">
@@ -66,8 +84,9 @@
             <p id="resultsCount" class="results-count" role="status" aria-live="polite">0 profiles</p>
           </div>
         </section>
-<div id="modelGrid" class="model-grid board-list" aria-label="모델 게시판">
-          <p class="board-loading" id="boardLoading">프로필을 불러오는 중입니다…</p></div>
+        <div id="modelGrid" class="model-grid board-list" aria-label="모델 게시판">
+          <p class="board-loading" id="boardLoading">프로필을 불러오는 중입니다…</p>
+        </div>
         <div id="emptyState" class="empty-state" hidden><strong>조건에 맞는 프로필이 없습니다.</strong><p>다른 검색어나 카테고리로 시도해 보세요.</p><button id="clearSearch" class="text-button" type="button">검색 초기화</button></div>
       </div>
     </section>

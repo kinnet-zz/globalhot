@@ -13,6 +13,7 @@ export const STATIC_FILES = [
   "404.html",
   "portal.css",
   "app.css",
+  "home.css",
   "info.css",
   "portal.js",
   "analytics.js",
