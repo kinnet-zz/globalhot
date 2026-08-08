@@ -1899,7 +1899,7 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "Public domain",
+      "license": "",
       "licenseUrl": "",
       "creditText": "",
       "creditUrl": "",
@@ -2034,7 +2034,7 @@
       "altName": "이수현",
       "country": "KOREA",
       "tags": "actress swimwear barrel",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -2042,11 +2042,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "NewsInStar",
-      "creditUrl": "https://commons.wikimedia.org/",
-      "bio": "대한민국의 가수. 오디션 프로그램 우승 후 남매 듀오 AKMU의 보컬로 데뷔했으며 이후 솔로로도 앨범을 발표했습니다."
+      "license": "",
+      "licenseUrl": "",
+      "creditText": "",
+      "creditUrl": "",
+      "photoUrl": ""
     },
     {
       "id": "k-jain",

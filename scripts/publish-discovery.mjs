@@ -91,19 +91,40 @@ export function normalizeName(value) {
     .trim();
 }
 
-// Cross-check layer 1: the file title must mention the model's latin name
-// (or altName). Uses normalized tokens: at least one significant (len>=3)
-// token of the primary name must appear in the title.
+// Full-name identity gate shared by every pipeline (publish-discovery,
+// verify-matches, match-audit). The name must appear in the file title as a
+// CONTIGUOUS run of normalized tokens, in the stated order OR reversed
+// ("Sora Aoi" files being titled "Aoi Sora"). Order/contiguity is the
+// discriminator that stops a chance surname overlap ("Kang In-kyung" must not
+// match "Kang Kyung-" titles that merely share the stray tokens kang/kyung/in).
+export function nameTokensContain(fileTitle, fullName) {
+  const title = normalizeName(fileTitle).split(" ").filter(Boolean);
+  const tokens = normalizeName(fullName).split(" ").filter(Boolean);
+  if (!tokens.length || tokens.length > title.length) return false;
+  const sequences = [tokens, [...tokens].reverse()];
+  for (const seq of sequences) {
+    for (let i = 0; i + seq.length <= title.length; i++) {
+      let ok = true;
+      for (let k = 0; k < seq.length; k++) {
+        if (title[i + k] !== seq[k]) {
+          ok = false;
+          break;
+        }
+      }
+      if (ok) return true;
+    }
+  }
+  return false;
+}
+
+// Cross-check layer 1: the file title must mention the model's latin name or
+// altName. A full contiguous token run (order or reversed) is required, never
+// a single shared surname token.
 export function titleMatchesModel(fileTitle, model) {
-  const title = normalizeName(fileTitle);
-  if (!title) return false;
-  const primaryTokens = normalizeName(model.name).split(" ").filter((t) => t.length >= 3);
-  const altTokens = normalizeName(model.altName).split(" ").filter((t) => t.length >= 3);
-  const candidates = primaryTokens.length ? primaryTokens : altTokens;
-  if (!candidates.length) return false;
-  // Last-name match is the strongest signal: require the final token.
-  const lastName = candidates[candidates.length - 1];
-  return title.split(" ").indexOf(lastName) !== -1;
+  const name = normalizeName(model && model.name);
+  if (name && nameTokensContain(fileTitle, name)) return true;
+  const alt = normalizeName(model && model.altName);
+  return !!alt && alt !== name && nameTokensContain(fileTitle, alt);
 }
 
 async function commonsFetch(url) {

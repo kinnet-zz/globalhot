@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir, unlink, rename } from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
-import { searchQueriesFor, normalizeName, isCcLicense } from "./publish-discovery.mjs";
+import { searchQueriesFor, normalizeName, nameTokensContain, isCcLicense } from "./publish-discovery.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 export const projectRoot = path.resolve(scriptDir, "..");
@@ -27,20 +27,19 @@ export function fullTokensOf(model) {
 }
 
 // Returns true when the Commons file title carries the model's identity:
-//   1. EVERY latin name token present (order-independent) — the strict gate,
-//      which is what caught Chae Sia (singer), Han Jae-in (football), etc.
+//   1. The latin name (or altName) appears as a CONTIGUOUS token run in the
+//      title (see nameTokensContain) — this is what stops "Kang In-kyung"
+//      from matching a "Kang Kyung-" politician file that merely shares the
+//      stray tokens kang/kyung/in in a different order/spread.
 //   2. OR the altName as native script appears verbatim in the title, which is
 //      near-certain identity for Japanese/Korean spellings (e.g. 東雲うみ).
 export function titleCarriesIdentity(title, model) {
   const raw = String(title || "");
   const alt = (model.altName || "").trim();
   if (alt && /[\u3040-\u30FF\uAC00-\uD7AF\u4E00-\u9FFF]/.test(alt) && raw.indexOf(alt) !== -1) return true;
-  const t = normalizeName(raw);
-  if (!t) return false;
-  const sets = fullTokensOf(model);
-  if (sets.length) return sets.some((tok) => tok.every((w) => t.split(" ").indexOf(w) !== -1));
-  const single = normalizeName(model.name).split(" ").filter(Boolean);
-  return single.length === 1 && t.split(" ").indexOf(single[0]) !== -1;
+  if (nameTokensContain(raw, model.name)) return true;
+  if (alt && alt !== (model.name || "").trim() && nameTokensContain(raw, alt)) return true;
+  return false;
 }
 
 // Heuristic female guard for auto-publish: reject titles strongly implying a
@@ -61,6 +60,11 @@ const NON_PERSON_WORDS = [
   "airport", "port", "building", "house", "plate", "signature", "song",
   "lyrics", "sheet", "almanac", "calendar", "coin", "award", "album",
   "flag", "map", "diagram", "chart", "warship", "plane", "jet", "car seat",
+  // This directory is explicitly a sexy-model registry. A photo whose title
+  // announces a musician or singer is, by definition, not a model portfolio
+  // shot — reject it so a composer/artist photo is never published.
+  "singer", "vocalist", "musician", "rapper", "songwriter", "composer", "band",
+  "duet", "orchestra", "record label", "album cover",
 ];
 export function isFemalePlausible(title, model) {
   const raw = String(title || "");

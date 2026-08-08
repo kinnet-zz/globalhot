@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
-import { searchQueriesFor, titleMatchesModel, normalizeName, isCcLicense } from "./publish-discovery.mjs";
+import { searchQueriesFor, titleMatchesModel, nameTokensContain, isCcLicense } from "./publish-discovery.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -73,21 +73,16 @@ async function fileInfo(title) {
   };
 }
 
-// Full-name coverage: title, after normalization, must contain EVERY token of
-// the model's latin name (order-independent). No length filter (drop the 2-char
-// tokens like "in" in "Han Jae-in", which are the discriminator against
-// lookalike files like "Han Jae-woong"). Falls back to altName when the latin
-// name is a single token so reversed/suffixed filenames like "Aoi Sora" still
-// match "Sora Aoi".
+// Full-name coverage: the model's latin name (or altName) must appear in the
+// title as a contiguous token run, in the stated order or reversed. This is
+// the discriminator that stops a surname/stray-token overlap (e.g. "Kang
+// In-kyung" must not match "Kang Kyung-" politician files; a 2-char "in"
+// inside a name is a real syllable, not a stray word in the title).
 export function fullNameMatches(title, model) {
-  const t = normalizeName(title);
-  if (!t) return false;
-  const candidateTokenSets = [];
-  const nameTokens = normalizeName(model.name).split(" ").filter(Boolean);
-  const altTokens = normalizeName(model.altName).split(" ").filter(Boolean);
-  candidateTokenSets.push(nameTokens);
-  if (altTokens.length && altTokens.join(" ") !== nameTokens.join(" ")) candidateTokenSets.push(altTokens);
-  return candidateTokenSets.some((tokens) => tokens.length > 0 && tokens.every((tok) => t.split(" ").indexOf(tok) !== -1));
+  const name = (model && model.name || "").trim();
+  if (nameTokensContain(title, name)) return true;
+  const alt = (model && model.altName || "").trim();
+  return !!alt && alt !== name && nameTokensContain(title, alt);
 }
 const fullNameCover = fullNameMatches;
 
