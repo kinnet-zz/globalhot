@@ -12,6 +12,7 @@
   //   존 ID는 페이지 마크업의 data-ad-zone 속성이 우선하며, 없으면 기본값을 쓴다.
 
   var DEFAULT_ZONE_ID = 1123909;
+  var INTERSTITIAL_ZONE_ID = 1124196;
   var JUICY_LOADER_URL = 'https://poweredby.jads.co/js/jads.js';
   var FALLBACK_DELAY_MS = 4000;
   var juicy = null;
@@ -115,8 +116,28 @@
     return observer;
   }
 
+  // 인터스티셥 존: 세션당 한 번만, 콘텐츠가 준비된 뒤 짧은 지연을 두고 요청한다.
+  // 만 오픈 때마다 떠서 화면을 가리는 사고를 막기 위해 localStorage로 쿨다운한다.
+  function scheduleInterstitial() {
+    if (!INTERSTITIAL_ZONE_ID) return;
+    var key = 'globalhot-interstitial-shown';
+    var tryStored = function () {
+      try { return window.localStorage.getItem(key) === '1'; }
+      catch (e) { return false; }
+    };
+    var markStored = function () {
+      try { window.localStorage.setItem(key, '1'); } catch (e) { /* private mode */ }
+    };
+    if (tryStored()) return;
+    window.setTimeout(function () {
+      ensureJuicy().push({ adzone: INTERSTITIAL_ZONE_ID });
+      markStored();
+    }, 2000);
+  }
+
   function init() {
     if (!('IntersectionObserver' in window)) return;
+    window.addEventListener('load', scheduleInterstitial);
     createSlotObserver();
   }
 
