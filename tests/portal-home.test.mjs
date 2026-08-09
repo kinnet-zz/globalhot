@@ -192,14 +192,9 @@ test('filtered cards using hidden are removed from the grid layout', () => {
   assert.match(css, /\[hidden\]\{display:none!important\}/);
 });
 
-test('homepage renders the Patreon support button with safe new-tab attributes', () => {
-  assert.match(html, /class=["'][^"']*\bsupport-cta\b[^"']*["']/i);
-  const supportMatch = html.match(/<a\s+[^>]*class=["'][^"']*\bsupport-cta\b[^"']*["'][^>]*>/i);
-  assert.ok(supportMatch, 'support-cta anchor must exist');
-  assert.match(supportMatch[0], /href=["']https:\/\/patreon\.com\/[^"']+["']/i);
-  assert.match(supportMatch[0], /target="_blank"/);
-  assert.match(supportMatch[0], /rel="noopener noreferrer"/);
-  assert.match(supportMatch[0], /aria-label=/);
+test('homepage drops the Patreon support button from the footer', () => {
+  assert.doesNotMatch(html, /class=["'][^"']*\bsupport-cta\b[^"']*["']/i);
+  assert.doesNotMatch(html, /patreon\.com/i);
 });
 
 test('homepage carries no affiliate or ad surfaces in the blog format', () => {

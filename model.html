@@ -19,7 +19,7 @@
     .profile-main{min-height:calc(100vh - 220px);background:#fff;padding:40px 0 72px}
     .profile-shell{width:min(980px,calc(100% - 40px));margin:0 auto}
     .profile-header{display:flex;gap:26px;align-items:flex-start;margin-bottom:30px}
-    .profile-photo{flex:0 0 200px;max-width:200px}
+    .profile-photo{flex:0 0 300px;max-width:300px}
     .profile-photo .portrait{width:100%;aspect-ratio:3/4;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#eae6dc}
     .profile-photo .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
     .profile-copy{flex:1;min-width:0}
@@ -31,9 +31,12 @@
     .profile-rank{display:inline-flex;align-items:baseline;gap:10px;margin-top:16px;padding:8px 16px;border:1px solid rgba(201,66,44,.5);border-radius:6px;background:rgba(201,66,44,.06)}.profile-rank span{color:var(--coral-soft);font-size:.68rem;font-weight:900;letter-spacing:.16em}.profile-rank strong{color:var(--coral-soft);font-size:1.05rem;font-weight:950}
     .profile-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
     .profile-actions a{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;background:var(--coral);border:1px solid var(--coral);color:#fff;font-size:.82rem;font-weight:800;text-decoration:none;border-radius:6px}
+    .photo-open{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--muted);font-size:.74rem;font-weight:700;text-decoration:none}
+    .photo-open:hover{color:var(--coral-soft)}
+    .photo-open svg{width:.92rem;height:.92rem;flex-shrink:0}
     .profile-actions a.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
     .profile-actions a:hover{background:var(--coral-soft);border-color:var(--coral-soft);color:#fff}
-    .profile-section{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:34px}
+    .profile-section{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:34px}
     .profile-section h2{color:var(--ink);font-size:1.12rem;font-weight:900;margin:0 0 14px}
     .profile-bio{color:var(--muted);font-size:.96rem;line-height:1.82;white-space:pre-line}
     .profile-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
@@ -61,7 +64,7 @@
     .related-copy em{color:var(--h-faint);font-size:.7rem;font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .profile-related .related-card:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-    @media(max-width:700px){.profile-header{flex-direction:column}.profile-photo{flex:0 0 auto;width:min(220px,46%)}.profile-section{grid-template-columns:1fr;gap:18px}.profile-shell{width:min(100% - 28px,980px)}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:700px){.profile-header{flex-direction:column}.profile-photo{flex:0 0 auto;width:min(280px,58%)}.profile-section{grid-template-columns:1fr;gap:18px}.profile-shell{width:min(100% - 28px,980px)}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
 </head>
 <body>
@@ -98,9 +101,9 @@
     <p class="shell copyright">© 2026 GlobalHot.</p>
   </footer>
   <nav class="mobile-nav" aria-label="모바일 메뉴">
-    <a class="mobile-nav-item" href="/"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a>
-    <a class="mobile-nav-item" href="/#models"><span class="mobile-nav-icon" aria-hidden="true">◈</span><span>프로필</span></a>
-    <a class="mobile-nav-item" href="/about.html"><span class="mobile-nav-icon" aria-hidden="true">ⓘ</span><span>소개</span></a>
+    <a class="mobile-nav-item" href="/"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></span><span>홈</span></a>
+    <a class="mobile-nav-item" href="/#models"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12h18M12 3v18M7.5 9.5 12 17l4.5-7.5"/></svg></span><span>프로필</span></a>
+    <a class="mobile-nav-item" href="/about.html"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></span><span>소개</span></a>
   </nav>
 
   <script>
@@ -118,7 +121,7 @@
 
       function profileImgSrc(model) {
         if (model && typeof model.photoUrl === 'string' && model.photoUrl.indexOf('/assets/profiles/') === -1 && /^https:\/\//.test(model.photoUrl)) {
-          return model.photoUrl;
+          return model.photoUrl.replace(/\/thumb\/(.+?)\/(\d+)px-/, '/thumb/$1/640px-');
         }
         return model && model.id ? '/assets/profiles/' + encodeURIComponent(model.id) + '.jpg' : '';
       }
@@ -225,6 +228,34 @@
           applyMonogramFallback();
         }
         photo.appendChild(portrait);
+
+        // New-tab shortcut to the original file: CC photos are worth seeing at
+        // full resolution when the profile layout only shows a 300px crop.
+        if (model.photoAvailable) {
+          var openLink = document.createElement('a');
+          openLink.className = 'photo-open';
+          openLink.href = profileImgSrc(model);
+          openLink.target = '_blank';
+          openLink.rel = 'noopener noreferrer';
+          openLink.setAttribute('aria-label', model.name + ' 원본 사진 열기 (새 창)');
+          var openIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          openIcon.setAttribute('viewBox', '0 0 24 24');
+          openIcon.setAttribute('fill', 'none');
+          openIcon.setAttribute('stroke', 'currentColor');
+          openIcon.setAttribute('stroke-width', '2');
+          openIcon.setAttribute('stroke-linecap', 'round');
+          openIcon.setAttribute('stroke-linejoin', 'round');
+          openIcon.setAttribute('aria-hidden', 'true');
+          var iconCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          iconCircle.setAttribute('cx', '11'); iconCircle.setAttribute('cy', '11'); iconCircle.setAttribute('r', '7');
+          openIcon.appendChild(iconCircle);
+          var iconLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          iconLine.setAttribute('x1', '16.5'); iconLine.setAttribute('y1', '16.5'); iconLine.setAttribute('x2', '21'); iconLine.setAttribute('y2', '21');
+          openIcon.appendChild(iconLine);
+          openLink.appendChild(openIcon);
+          openLink.appendChild(document.createTextNode('원본 사진'));
+          photo.appendChild(openLink);
+        }
 
         var copy = document.createElement('div');
         copy.className = 'profile-copy';

@@ -70,13 +70,13 @@
               <label for="portalSearch">이름, 일본어 표기, 태그로 검색</label>
               <input id="portalSearch" type="search" placeholder="예: Enako, えなこ, cosplay" autocomplete="off">
             </div>
-            <div class="filter-group" role="group" aria-label="카테고리">
+            <div class="filter-group filter-category" role="group" aria-label="카테고리">
               <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">All</button>
               <button class="filter-button" type="button" data-category="model" aria-pressed="false">Model</button>
               <button class="filter-button" type="button" data-category="cosplay" aria-pressed="false">Cosplay</button>
               <button class="filter-button" type="button" data-category="gravure" aria-pressed="false">Gravure</button>
             </div>
-            <div class="filter-group" role="group" aria-label="국가">
+            <div class="filter-group filter-country" role="group" aria-label="국가">
               <button class="filter-button is-active" type="button" data-country="all" aria-pressed="true">All Countries</button>
               <button class="filter-button" type="button" data-country="JAPAN" aria-pressed="false">Japan</button>
               <button class="filter-button" type="button" data-country="KOREA" aria-pressed="false">Korea</button>
@@ -107,7 +107,6 @@
         <a class="brand" href="/">GLOBAL<span>HOT</span></a>
         <p class="footer-copy">공식 출처 확인 프로필 레지스트리 · CC 라이선스 사진 사용</p>
         <p class="rights-note">콘텐츠·성명·상표 권리는 각 권리자에게 있습니다. 수정/삭제 요청: admin@globalhot.net</p>
-        <a class="support-cta" href="https://patreon.com/globalhot" target="_blank" rel="noopener noreferrer" aria-label="Patreon으로 GlobalHot 후원 (새 창)"><span class="support-icon" aria-hidden="true">◈</span><span>후원하기</span></a>
       </div>
       <nav aria-label="푸터 메뉴">
         <a href="/about.html">소개</a>
@@ -118,9 +117,9 @@
     <p class="shell copyright">© 2026 GlobalHot.</p>
   </footer>
   <nav class="mobile-nav" aria-label="모바일 메뉴">
-    <a class="mobile-nav-item is-active" href="#main-content"><span class="mobile-nav-icon" aria-hidden="true">⌂</span><span>홈</span></a>
-    <a class="mobile-nav-item" href="#models"><span class="mobile-nav-icon" aria-hidden="true">◈</span><span>프로필</span></a>
-    <a class="mobile-nav-item" href="/about.html"><span class="mobile-nav-icon" aria-hidden="true">ⓘ</span><span>소개</span></a>
+    <a class="mobile-nav-item is-active" href="#main-content"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></span><span>홈</span></a>
+    <a class="mobile-nav-item" href="#models"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12h18M12 3v18M7.5 9.5 12 17l4.5-7.5"/></svg></span><span>프로필</span></a>
+    <a class="mobile-nav-item" href="/about.html"><span class="mobile-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></span><span>소개</span></a>
   </nav>
   <div id="profileModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-modal-close></div>

@@ -556,6 +556,14 @@ emptyState.hidden = displayedCards.length !== 0;
   }
 
   function createModelCard(model, baseRecommendations) {
+    // Wikimedia thumbnails are requested at an exact width via the URL path
+    // (/…/thumb/<dir>/<file>/<W>px-<file>). Cards render at 160px and the modal
+    // at most ~440px, so a 640px transcode is sharp without shipping a 1280px
+    // source for a thumbnail-sized surface.
+    function thumbOf(url) {
+      return String(url).replace(/\/thumb\/(.+?)\/(\d+)px-/, '/thumb/$1/640px-');
+    }
+
     var card = document.createElement('article');
     card.className = 'model-card story-card';
     card.dataset.modelId = model.id;
@@ -578,9 +586,8 @@ emptyState.hidden = displayedCards.length !== 0;
     else if (tags.indexOf('gravure') !== -1) category = 'gravure';
     card.dataset.category = category;
 
-    var portraitClass = 'portrait portrait-' + ['luna', 'hana', 'aria', 'mio', 'noa', 'sora'][Math.floor(Math.random() * 6)];
     var portrait = document.createElement('div');
-    portrait.className = portraitClass;
+    portrait.className = 'portrait';
     portrait.setAttribute('role', 'img');
 
     // Swaps a portrait to its monogram fallback. Used both for models with no
@@ -604,9 +611,11 @@ emptyState.hidden = displayedCards.length !== 0;
       var img = document.createElement('img');
       // Local vendored file wins; models published via a remote CC-licensed
       // Wikimedia image (photoUrl) render that URL directly from the CDN.
-      img.src = model.photoUrl && model.photoUrl.indexOf('/assets/profiles/') === -1
-        ? model.photoUrl
-        : '/assets/profiles/' + model.id + '.jpg';
+      img.src = thumbOf(
+        model.photoUrl && model.photoUrl.indexOf('/assets/profiles/') === -1
+          ? model.photoUrl
+          : '/assets/profiles/' + model.id + '.jpg'
+      );
       img.alt = model.name + ' photo';
       img.setAttribute('loading', 'lazy');
       // Defense-in-depth: if the photo 404s or fails to load, recover to the
