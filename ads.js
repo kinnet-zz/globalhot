@@ -7,139 +7,118 @@
   //   1. 광고 네트워크 스크립트는 HTML에 하드코딩하지 않고 런타임에만 주입한다
   //      (홈페이지 정적 마크업 테스트는 <script src="https://...">를 금지).
   //   2. 뷰포트 근접 시에만 로더를 내려 받는다 (IntersectionObserver 지연 로드).
-  //   3. 광고 차단/네트워크 실패가 감지되면 화면을 깨지 않도록 후원 CTA로 대체한다.
+  //   3. 광고 차단/네트워크 실패가 감지되면 화면을 깨지 않도록 중립 폴백으로 대체한다.
   //   4. 각 광고 슬롯은 <aside class="ad-slot" data-ad-zone> 형식으로 마운트한다.
-  //   실제 광고 네트워크와 의존 관계 없이 페이지 구조가 먼저 증명되도록
-  //   "데모 머신" 모드일 때는 슬롯이 로컬 목업 광고 레이블로 채워진다.
+  //   존 ID는 페이지 마크업의 data-ad-zone 속성이 우선하며, 없으면 기본값을 쓴다.
 
-  var JUICY_ZONE_ID = 1123909;
+  var DEFAULT_ZONE_ID = 1123909;
   var JUICY_LOADER_URL = 'https://poweredby.jads.co/js/jads.js';
   var FALLBACK_DELAY_MS = 4000;
+  var juicy = null;
 
-  // 광고 차단 감지: 네트워크 로더가 FALLBACK_DELAY_MS 안에 준비되지 못하면
-  // 슬롯을 후원 CTA로 바꿔 광고 대신 사이트 지지 기회를 보여준다.
+  // JuicyAds 로더 준비 상태를 추적한다. 스크립트 로드 완료(또는 이미 로드됨) 시
+  // true가 되어 폴백이 빈 슬롯을 덮지 않는다.
+  var loaderReady = 'idle'; // idle | loading | ready | failed
+
+  function ensureJuicy() {
+    if (juicy) return juicy;
+    juicy = window.adsbyjuicy || [];
+    window.adsbyjuicy = juicy;
+    return juicy;
+  }
+
+  function readMeta(slot) {
+    var zone = parseInt(slot.getAttribute('data-ad-zone'), 10) || DEFAULT_ZONE_ID;
+    var width = parseInt(slot.getAttribute('data-width'), 10) || 300;
+    var height = parseInt(slot.getAttribute('data-height'), 10) || 250;
+    return { zone: zone, width: width, height: height };
+  }
+
+  // 광고 차단이 감지된 슬롯을 깨진 박스 대신 중립 안내로 대체한다.
   function mountFallback(slot, meta) {
     if (!slot || slot.getAttribute('data-fallback-mounted') === '1') return;
     slot.setAttribute('data-fallback-mounted', '1');
     slot.classList.add('has-fallback');
-
     var fallback = document.createElement('div');
     fallback.className = 'ad-fallback';
     var heading = document.createElement('span');
     heading.className = 'ad-fallback-label';
-    heading.textContent = '광고 대신 후원으로 GlobalHot을 지지해 주세요';
-    var support = document.createElement('a');
-    support.className = 'support-cta';
-    support.href = 'https://patreon.com/globalhot';
-    support.target = '_blank';
-    support.rel = 'noopener noreferrer';
-    support.setAttribute('aria-label', 'Patreon으로 GlobalHot 후원 (새 창)');
-    support.textContent = 'Become a Patron';
+    heading.textContent = 'Sponsored';
+    var note = document.createElement('p');
+    note.textContent = '광고를 불러오는 중입니다. 광고 차단 기능을 끄면 이 영역이 표시됩니다.';
     fallback.appendChild(heading);
-    fallback.appendChild(support);
+    fallback.appendChild(note);
     slot.appendChild(fallback);
   }
 
-  function scheduleFallback(slot, meta) {
-    if (typeof window === 'undefined') return;
-    window.setTimeout(function () {
-      var loaded = window.adsbyjuicy && window.adsbyjuicy.ready === true;
-      mountFallback(slot, meta);
-    }, FALLBACK_DELAY_MS);
+  // JuicyAds 스크립트를 한 번만 주입한다.
+  function loadJuicy() {
+    if (loaderState() !== 'idle') return;
+    loaderState('loading');
+    var loader = document.createElement('script');
+    loader.id = 'juicyads-loader';
+    loader.src = JUICY_LOADER_URL;
+    loader.async = true;
+    loader.onload = function () { loaderState('ready'); enqueueFlush(); };
+    loader.onerror = function () { loaderState('error'); window.jadsLoadFailed = true; };
+    (document.head || document.getElementsByTagName('head')[0]).appendChild(loader);
   }
 
-  function loadJuicy() {
-    var loader = document.getElementById('juicyads-loader');
-    if (loader || window.adsbyjuicy !== undefined) {
-      markReady();
-      return;
-    }
-    loader = document.createElement('script');
-    loader.id = 'juicyads-loader';
-    loader.type = 'text/javascript';
-    loader.setAttribute('data-cfasync', 'false');
-    loader.async = true;
-    loader.src = JUICY_LOADER_URL;
-    var head = document.head || document.body;
-    if (head) head.appendChild(loader);
-    markReady();
+  function loaderState(next) {
+    if (typeof next === 'string') { loaderReady = next; return next; }
+    return loaderReady;
+  }
+
+  function enqueueFlush() {
+    window.setTimeout(function () {
+      var juicy = ensureJuicy();
+      if (typeof juicy.flush === 'function') juicy.flush();
+    }, 600);
   }
 
   function mountJuicySlot(slot, meta) {
-    if (!slot || slot.getAttribute('data-juicy-mounted') === '1') return;
-    slot.setAttribute('data-juicy-mounted', '1');
-
+    var juicy = ensureJuicy();
     var ins = document.createElement('ins');
-    ins.setAttribute('id', String(meta.zone));
+    ins.className = 'adsbyjuicy';
+    ins.setAttribute('data-ad-zone', String(meta.zone));
     ins.setAttribute('data-width', String(meta.width));
     ins.setAttribute('data-height', String(meta.height));
     slot.appendChild(ins);
-
-    window.adsbyjuicy = window.adsbyjuicy || [];
-    window.adsbyjuicy.push({ adzone: meta.zone });
+    juicy.push({ adzone: meta.zone });
+    return ins;
   }
 
-  function activatedSlot(slot) {
-    if (!slot) return;
-    var meta = {
-      zone: slot.getAttribute('data-zone') || JUICY_ZONE_ID,
-      width: Number(slot.getAttribute('data-width')) || 300,
-      height: Number(slot.getAttribute('data-height')) || 250,
-    };
-    loadJuicy();
-    mountJuicySlot(slot, meta);
-    scheduleFallback(slot, meta);
+  function scheduleFallback(slot) {
+    window.setTimeout(function () {
+      if (loaderState() === 'ready') return;
+      if (slot.querySelector('.adsbyjuicy iframe, .adsbyjuicy img, .adsbyjuicy > div')) return;
+      mountFallback(slot, {});
+    }, FALLBACK_DELAY_MS);
   }
 
-  function observe(meta) {
-    var containers = typeof document !== 'undefined' && document.querySelectorAll
-      ? Array.prototype.slice.call(document.querySelectorAll(meta.selector))
-      : [];
-    if (!containers.length) return;
-    if (!window.IntersectionObserver) {
-      containers.forEach(activatedSlot);
-      return;
-    }
-    var observer = new window.IntersectionObserver(function (entries) {
+  function createSlotObserver() {
+    var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          activatedSlot(entry.target);
-          observer.unobserve(entry.target);
+        if (entry.isIntersecting && !entry.target.getAttribute('data-mount-attempted')) {
+          entry.target.setAttribute('data-mount-attempted', '1');
+          var slot = entry.target;
+          var meta = readMeta(slot);
+          loadJuicy();
+          var ins = mountJuicySlot(slot, meta);
+          if (ins) scheduleFallback(slot, meta);
         }
       });
-    }, { rootMargin: '220px 0px' });
-    containers.forEach(function (slot) { observer.observe(slot); });
+    }, { rootMargin: '160px 0px' });
+    document.querySelectorAll('[data-ads-config].ad-slot').forEach(function (slot) {
+      observer.observe(slot);
+    });
+    return observer;
   }
 
   function init() {
-    if (typeof document === 'undefined' || typeof window === 'undefined') return;
-
-    // data-ads-config="slots" 스코프 안의 요소를 관찰한다. 페이지에는 슬롯만
-    // 두고, 네트워크 로더는 첫 슬롯이 뷰포트에 들어올 때만 실행된다.
-    document.querySelectorAll('[data-ads-config]').forEach(function (container) {
-      var selector = container.getAttribute('data-ads-config') || '.ad-spot';
-      observe({ selector: selector });
-    });
-
-    var rootFallback = document.querySelectorAll('[data-ads-config]').length;
-    if (rootFallback === 0) {
-      observe({ selector: '.ad-spot,.ad-slot' });
-    }
+    if (!('IntersectionObserver' in window)) return;
+    createSlotObserver();
   }
 
-  if (typeof window !== 'undefined') {
-    window.globalhotAds = {
-      active: true,
-      zoneId: JUICY_ZONE_ID,
-      mountFallback: mountFallback,
-    };
-  }
-
-  if (typeof document !== 'undefined') {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init, { once: true });
-    } else {
-      init();
-    }
-  }
-}());
+  init();
+})();
