@@ -2,18 +2,27 @@
 // Only writes bio for published models that currently have an empty bio.
 // Also unpublishes k-inkyung: its current photo is the former ROK foreign
 // minister (U.S. State Dept photo), not the art-gravure model 강인경.
+// Usage:
+//   node scripts/bio-apply.mjs              fill empty bios only
+//   node scripts/bio-apply.mjs --overwrite  replace bio for every id present in
+//                                           data/bios-extended.json (the report-
+//                                           driven, 2-4 sentence profiles)
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(scriptDir, "..");
+const overwrite = process.argv.includes("--overwrite");
 
 const bios = {
   ...JSON.parse(await readFile(path.join(root, "data", "bios.json"), "utf8")),
   ...JSON.parse(await readFile(path.join(root, "data", "bios-west.json"), "utf8")),
   ...JSON.parse(await readFile(path.join(root, "data", "bios-more.json"), "utf8")),
 };
+if (overwrite) {
+  Object.assign(bios, JSON.parse(await readFile(path.join(root, "data", "bios-extended.json"), "utf8")));
+}
 
 const data = JSON.parse(await readFile(path.join(root, "data", "models.json"), "utf8"));
 
@@ -27,7 +36,7 @@ for (const m of data.models || []) {
     process.stdout.write(`unpublished ${m.id} (wrong person photo)\n`);
   }
   if (!m.photoAvailable) continue;
-  if (m.bio && m.bio.trim()) continue;
+  if (!overwrite && m.bio && m.bio.trim()) continue;
   const b = bios[m.id];
   if (!b) {
     process.stdout.write(`NO BIO: ${m.id}\n`);
