@@ -38,10 +38,40 @@ function titleCarriesIdentity(title, row) {
 }
 
 function cleanRange(v) {
-  const s = String(v || "").trim();
-  if (!s) return "";
+  let s = String(v || "")
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<ref[\s\S]*?<\/ref>/gi, "")
+    .replace(/<ref[^>]*\/>/gi, "")
+    .replace(/\{\{[^{}]*\}\}/g, "")
+    .trim();
+  // Reflow "2020年 10月 -" style Japanese activity ranges into "2020 -".
+  s = s
+    .replace(/(?:19|20)\d{2}年?\s*[0-9]{1,2}月/g, (m) => m.slice(0, 4))
+    .replace(/年/g, "") // stray Japanese year kanji ("2021年" -> "2021")
+    .replace(/\s+/g, " ")
+    .trim();
   // "1994 -" kind of stray year marker is not a usable activity range.
   if (RANGE_RE.test(s)) return "";
+  return s.replace(/\s?-\s?/g, " - ").replace(/\s+-\s*$/, " -").trim();
+}
+
+const TEMPLATE_BLOCK_RE = /\{\{[\s\S]*?\}\}/g;
+const HTML_COMMENT_RE = /<!--[\s\S]*?-->/g;
+const WIKI_JUNK_RE = /[|{}=<>]/g;
+
+function stripWiki(value) {
+  let s = String(value || "")
+    .replace(HTML_COMMENT_RE, " ")
+    .replace(/<ref[\s\S]*?<\/ref>/gi, " ")
+    .replace(/<ref[^>]*\/>/gi, " ")
+    .replace(/\{\{(?:flatlist|plainlist|ubil)\b[\s\S]*?\}\}/gi, " ")
+    .replace(TEMPLATE_BLOCK_RE, " ")
+    .replace(/\[\s*\[(?:[^\]|]*\|)?([^\]]*?)\]\]/g, "$1")
+    .replace(/\s+/g, " ")
+    .replace(/^[,，;；\s]+|[,，;；\s]+$/g, "")
+    .replace(WIKI_JUNK_RE, "")
+    .replace(/\s+/g, " ")
+    .trim();
   return s;
 }
 
@@ -64,8 +94,22 @@ for (const f of SCHEMA_FIELDS) {
 if (!dryRun) data.fields = declared;
 
 let applied = 0;
+const CLEAN_FIELDS = ["origin", "occupation", "agency"];
 for (const model of data.models) {
   if (!(model && model.photoAvailable)) continue;
+  // Normalize pre-existing values so previously merged rows are cleaned too.
+  const yearsClean = model.yearsActive ? cleanRange(model.yearsActive) : "";
+  if (model.yearsActive && yearsClean !== model.yearsActive) {
+    if (!dryRun) model.yearsActive = yearsClean;
+    applied += 1;
+  }
+  for (const f of CLEAN_FIELDS) {
+    const c = model[f] ? stripWiki(model[f]) : "";
+    if (model[f] && c !== model[f]) {
+      if (!dryRun) model[f] = c;
+      applied += 1;
+    }
+  }
   const row = byId.get(model.id);
   if (!row || !row.wiki) continue;
   if (!titleCarriesIdentity(row.wiki, row)) {
@@ -76,6 +120,7 @@ for (const model of data.models) {
     let value = row[src] || "";
     if (dst === "yearsActive") value = cleanRange(value);
     if (dst === "birth") value = cleanBirth(value);
+    if (dst === "origin" || dst === "occupation" || dst === "agency") value = stripWiki(value);
     if (value && String(model[dst] || "") !== value) {
       if (!dryRun) model[dst] = value;
       applied += 1;

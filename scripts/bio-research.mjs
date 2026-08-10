@@ -113,19 +113,39 @@ function infoboxFields(text) {
   const out = {};
   const year = {};
   const lines = block.split("\n");
-  for (const line of lines) {
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
     const kv = line.match(/^\s*\|([^=]+)=\s*(.*)$/);
     if (!kv) continue;
-    const raw = (kv[2] || "").trim();
+    let raw = (kv[2] || "").trim();
     if (!raw) continue;
+    // A value may span several lines inside a multi-line template such as
+    // {{Plainlist|\n* agency A\n* agency B\n}} — keep appending lines until
+    // the braces are balanced again.
+    if (raw.indexOf("{{") !== -1) {
+      let depth = 0;
+      for (const ch of raw) {
+        if (ch === "{") depth += 1;
+        else if (ch === "}") depth -= 1;
+      }
+      while (depth > 0 && i + 1 < lines.length) {
+        const next = lines[i + 1].trim();
+        raw += " " + next;
+        i += 1;
+        for (const ch of next) {
+          if (ch === "{") depth += 1;
+          else if (ch === "}") depth -= 1;
+        }
+      }
+    }
     const key = kv[1].trim().toLowerCase().replace(/\s+/g, "_");
-    const val = clean(kv[2]);
-    if (key === "birth_date") out.birthDate = parseDate(kv[2]);
+    const val = clean(raw);
+    if (key === "birth_date") out.birthDate = parseDate(raw);
     else if (key === "生年") year.birthYear = val;
     else if (key === "生月") year.birthMonth = val;
     else if (key === "生日") year.birthDay = val;
     else if (key === "birth_place" || key === "出身地") {
-      let p = String(kv[2] || "");
+      let p = String(raw || "");
       p = p.replace(/\{\{[^{}]*\}\}\s*/g, ""); // {{JPN}} flag templates
       out.birthPlace = clean(p).replace(/^[・,，、\s]+|[,，、\s]+$/g, "");
     } else if (key === "occupation" || key === "職業") out.occupation = val.replace(/^\{\{[^}]*\}\}\s*/g, "").replace(/^\[/, "").replace(/\]$/, "");

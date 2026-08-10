@@ -86,6 +86,25 @@ test('structured profile fields follow the documented types when present', () =>
   }
 });
 
+test('structured values are free of raw wiki markup (comments, refs, templates)', () => {
+  const junk = /<!--|<ref|\{\{|\[\[|}}|\]\]/;
+  const fields = ['birth', 'origin', 'occupation', 'yearsActive', 'agency'];
+  for (const model of merged.models) {
+    if (!model.photoAvailable) continue;
+    for (const field of fields) {
+      const value = model[field];
+      if (value === undefined || value === '') continue;
+      assert.equal(typeof value, 'string', `${model.id} ${field} must be a string`);
+      assert.doesNotMatch(String(value), junk, `${model.id} ${field} leaks wiki markup: "${value}"`);
+    }
+    for (const field of ['notable', 'awards', 'recent']) {
+      for (const item of Array.isArray(model[field]) ? model[field] : []) {
+        assert.doesNotMatch(String(item), junk, `${model.id} ${field} leaks wiki markup: "${item}"`);
+      }
+    }
+  }
+});
+
 test('the six official-source featured profiles are present with rich source data', () => {
   const byId = new Map(merged.models.map((model) => [model.id, model]));
   for (const id of FEATURED_IDS) {
