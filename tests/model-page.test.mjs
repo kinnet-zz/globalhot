@@ -55,8 +55,8 @@ function shim(tag) {
       })(this);
       return out;
     },
-    replaceWith(node) { this.replacedWith = node; },
-    after(node) { this.afterNode = node; },
+    replaceWith(node) { this.replacedWith = node; node.parentNode = this.parentNode; },
+    after(node) { this.afterNode = node; node.parentNode = this; },
     replaceChildren(...nodes) { this.children = nodes; },
   };
   return node;
@@ -158,7 +158,7 @@ test('detail page mounts a published profile header with a working monogram fall
   assert.ok(portrait.querySelector('span'), 'NO PHOTO span appears');
 });
 
-test('detail page renders the structured profile rail and highlight sections', async () => {
+test('detail page renders the minimal profile rail without structured-field duplication', async () => {
   const { evalPromise, stateEl } = run();
   await evalPromise;
   await new Promise((resolve) => setTimeout(resolve, 30));
@@ -178,24 +178,11 @@ test('detail page renders the structured profile rail and highlight sections', a
     }
     return acc;
   })(rail, []).join(' ');
-  for (const label of ['출생', '출신', '직업', '활동 기간', '소속사']) assert.ok(railText.includes(label), `rail shows ${label}`);
+  assert.ok(railText.includes('카테고리') && railText.includes('국가'), 'rail keeps category + country');
+  // The bio already narrates birth/origin/agency; the rail must not duplicate them.
+  for (const label of ['출생', '출신', '직업', '활동 기간', '소속사']) assert.ok(!railText.includes(label), `rail must not repeat ${label}`);
 
-  const detail = section.afterNode;
-  assert.ok(detail, 'highlight section follows the bio section');
-  assert.equal(detail.className, 'profile-detail-section');
-  const grid = detail.querySelector('.profile-detail-grid');
-  assert.ok(grid, 'highlight grid present');
-  const text = (function collect(n, acc) {
-    acc = acc || [];
-    for (const child of n.children || []) {
-      if (child.textContent) acc.push(child.textContent);
-      collect(child, acc);
-    }
-    return acc;
-  })(grid, []).join(' ');
-  assert.ok(text.includes('대표 활동') && text.includes('주간 영점프 표지'), 'notable works rendered');
-  assert.ok(text.includes('수상·표창') && text.includes('탑커버 어워드'), 'awards rendered');
-  assert.ok(text.includes('최근 활동') && text.includes('유튜브·Twitch'), 'recent activity rendered');
+  assert.equal(section.afterNode, undefined, 'no highlight section rendered');
 });
 
 test('remote photoUrl produces a single-host absolute og:image', async () => {
@@ -232,4 +219,31 @@ test('a no-photo model renders the monogram immediately without throwing', async
   assert.ok(portrait.querySelector('span'), 'NO PHOTO span present');
   assert.equal(portrait.querySelector('img'), null);
   void layers;
+});
+
+test('detail page renders a functional comments section per model', async () => {
+  const comments = [
+    { authorName: '테스터', content: '멋진 프로필이네요.', createdAt: '2026-08-11T01:00:00.000Z' },
+  ];
+  const fetchImpl = (url) => {
+    if (String(url).includes('/api/comments/')) {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({ ok: true, comments }),
+      });
+    }
+    return Promise.resolve({ ok: true, json: () => Promise.resolve({ models: [remoteModel] }) });
+  };
+  const { evalPromise, stateEl, layers } = run({ fetch: fetchImpl });
+  await evalPromise;
+  await new Promise((resolve) => setTimeout(resolve, 30));
+
+  const header = stateEl.replacedWith;
+  const commentsSection = header.querySelector('.profile-comments');
+  assert.ok(commentsSection, 'comments section exists');
+  assert.equal(commentsSection.className, 'profile-comments');
+  assert.ok(commentsSection.querySelector('.comments-form'), 'comment form present');
+  assert.ok(commentsSection.querySelector('.comment-list'), 'comment list present');
+  assert.ok(commentsSection.querySelector('.comment-item'), 'comment list renders an item');
+  assert.equal(commentsSection.querySelector('.comment-item .comment-body').textContent, '멋진 프로필이네요.');
 });

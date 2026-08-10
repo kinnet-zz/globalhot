@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>GlobalHot 관리자</title>
+  <link rel="stylesheet" href="/portal.css?v=20260802-3">
+  <style>
+    .admin-shell { width: min(1180px, calc(100% - 40px)); margin-inline: auto; padding: 44px 0 70px; }
+    .admin-h1 { margin: 0 0 4px; font-size: 1.6rem; font-weight: 950; letter-spacing: -.05em; }
+    .admin-sub { margin: 0 0 26px; color: var(--muted); font-size: .82rem; }
+    .admin-card { padding: 22px; background: var(--panel); border: 1px solid var(--line); }
+    .admin-login { max-width: 420px; margin: 60px auto 0; }
+    .admin-login h2 { margin: 0 0 16px; font-size: 1.15rem; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .field label { color: var(--muted); font-size: .72rem; font-weight: 800; }
+    .field input { min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 4px; background: rgba(255,255,255,.05); color: var(--ink); }
+    .field input:focus { border-color: var(--coral); outline: none; }
+    .admin-btn { min-height: 42px; padding: 0 18px; border: 1px solid rgba(255,73,56,.66); border-radius: 4px; background: var(--coral); color: #fff; font-weight: 900; cursor: pointer; }
+    .admin-btn.ghost { background: transparent; color: var(--coral-soft); }
+    .admin-btn.danger { border-color: rgba(255,73,56,.66); background: transparent; color: var(--coral-soft); }
+    .admin-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .admin-tabs { display: flex; gap: 6px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .admin-tab { padding: 10px 16px; border: 0; background: transparent; color: var(--muted); font-weight: 900; cursor: pointer; border-bottom: 2px solid transparent; }
+    .admin-tab.is-active { color: var(--coral-soft); border-bottom-color: var(--coral); }
+    .admin-toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+    .admin-toolbar input, .admin-toolbar select { min-height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 4px; background: rgba(255,255,255,.05); color: var(--ink); }
+    .admin-toolbar input { flex: 1; max-width: 300px; }
+    .count-badge { display: inline-flex; align-items: center; gap: 6px; padding: 12px 16px; background: var(--navy); border: 1px solid var(--line); border-top: 3px solid var(--coral); margin-bottom: 18px; }
+    .count-badge strong { font-size: 1.3rem; }
+    .count-badge span { color: var(--muted); font-size: .7rem; font-weight: 800; }
+    table.admin-table { width: 100%; border-collapse: collapse; }
+    .admin-table th, .admin-table td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .admin-table th { color: var(--muted); font-size: .66rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .admin-table td { font-size: .8rem; }
+    .admin-table td.comment-text { white-space: pre-wrap; word-break: break-word; color: #d8d1cd; min-width: 240px; }
+    .comment-meta { color: var(--muted); font-size: .72rem; }
+    .status-pill { display: inline-block; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: .66rem; font-weight: 900; }
+    .status-pill.inactive { color: #e5b3aa; border-color: rgba(255,73,56,.45); }
+    .row-actions { display: flex; gap: 6px; align-items: center; }
+    .row-actions button { min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--coral-soft); font-weight: 800; cursor: pointer; font-size: .72rem; }
+    .row-actions button:hover { border-color: var(--coral); }
+    .admin-message { margin: 14px 0 0; min-height: 1.2em; font-size: .78rem; font-weight: 800; }
+    .admin-message.ok { color: #9fd0a6; }
+    .admin-message.err { color: var(--coral-soft); }
+    .admin-hidden { display: none; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; }
+    .topbar .admin-btn { min-height: 36px; font-size: .76rem; }
+    .load-state { padding: 34px 0; color: var(--muted); font-size: .82rem; }
+  </style>
+</head>
+<body>
+  <main class="shell admin-shell">
+    <div id="login-view" class="admin-card admin-login admin-hidden">
+      <h2>GlobalHot 관리자 로그인</h2>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="password">관리자 비밀번호</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="admin-btn" type="submit">로그인</button>
+        <p class="admin-message" id="login-message" role="status"></p>
+      </form>
+    </div>
+
+    <div id="admin-view" class="admin-hidden">
+      <div class="topbar">
+        <div>
+          <h1 class="admin-h1">관리자</h1>
+          <p class="admin-sub">댓글·모델의 삭제와 상태 관리를 위한 전용 페이지입니다.</p>
+        </div>
+        <button class="admin-btn ghost" id="logout-btn" type="button">로그아웃</button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab is-active" data-tab="stats" type="button">통계</button>
+        <button class="admin-tab" data-tab="comments" type="button">댓글 관리</button>
+        <button class="admin-tab" data-tab="models" type="button">모델 관리</button>
+      </div>
+
+      <section id="tab-stats">
+        <div class="count-badge"><strong id="total-comments">0</strong><span>전체 댓글</span></div>
+        <table class="admin-table">
+          <thead><tr><th>모델</th><th>상태</th><th>댓글 수</th></tr></thead>
+          <tbody id="stats-body"></tbody>
+        </table>
+      </section>
+
+      <section id="tab-comments" class="admin-hidden">
+        <div class="admin-toolbar">
+          <input id="comment-model" type="search" placeholder="모델 ID로 필터 (예: enako)">
+          <input id="comment-q" type="search" placeholder="내용/작성자 검색">
+          <button class="admin-btn ghost" id="comment-filter" type="button">검색</button>
+        </div>
+        <table class="admin-table">
+          <thead><tr><th>ID</th><th>모델</th><th>작성자</th><th>내용</th><th>작성일</th><th>관리</th></tr></thead>
+          <tbody id="comments-body"></tbody>
+        </table>
+        <p class="admin-message" id="comments-message" role="status"></p>
+      </section>
+
+      <section id="tab-models" class="admin-hidden">
+        <div class="admin-toolbar">
+          <input id="model-filter" type="search" placeholder="모델 ID 검색">
+        </div>
+        <table class="admin-table">
+          <thead><tr><th>모델 ID</th><th>이름</th><th>상태</th><th>댓글 수</th><th>관리</th></tr></thead>
+          <tbody id="models-body"></tbody>
+        </table>
+        <p class="admin-message" id="models-message" role="status"></p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+      var API = '/api/admin';
+      var token = sessionStorage.getItem('gh_admin_token') || '';
+
+      function $(id) { return document.getElementById(id); }
+
+      function message(node, text, ok) {
+        node.className = 'admin-message ' + (ok ? 'ok' : 'err');
+        node.textContent = text || '';
+      }
+
+      function authHeaders() {
+        return { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token };
+      }
+
+      function request(url, options) {
+        options = options || {};
+        options.headers = Object.assign(authHeaders(), options.headers || {});
+        return window.fetch(url, options).then(function (response) {
+          if (response.status === 401) { logout(); throw new Error('인증이 만료되었습니다.'); }
+          return response.json().then(function (payload) {
+            if (!response.ok) {
+              var err = new Error(payload && payload.error ? payload.error.message : '요청에 실패했습니다.');
+              err.status = response.status;
+              throw err;
+            }
+            return payload;
+          });
+        });
+      }
+
+      function escapeHtml(value) {
+        return String(value == null ? '' : value)
+          .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      }
+
+      function switchTab(name) {
+        var tabs = document.querySelectorAll('.admin-tab');
+        for (var i = 0; i < tabs.length; i += 1) {
+          tabs[i].classList.toggle('is-active', tabs[i].getAttribute('data-tab') === name);
+        }
+        ['stats', 'comments', 'models'].forEach(function (key) {
+          $('tab-' + key).classList.toggle('admin-hidden', key !== name);
+        });
+
+        if (token) {
+          if (name === 'stats') loadStats();
+          else if (name === 'comments') loadComments();
+          else loadModels();
+        }
+      }
+
+      function logout() {
+        token = '';
+        sessionStorage.removeItem('gh_admin_token');
+        $('admin-view').classList.add('admin-hidden');
+        $('login-view').classList.remove('admin-hidden');
+      }
+
+      function loadStats() {
+        request(API + '/stats').then(function (payload) {
+          $('total-comments').textContent = String(payload.totalComments || 0);
+          var body = $('stats-body');
+          body.replaceChildren();
+          (payload.models || []).forEach(function (model) {
+            var tr = document.createElement('tr');
+            var statusClass = model.status === 'active' ? 'active' : 'inactive';
+            tr.innerHTML =
+              '<td>' + escapeHtml(model.modelId) + '</td>' +
+              '<td><span class="status-pill ' + statusClass + '">' + escapeHtml(model.status) + '</span></td>' +
+              '<td>' + Number(model.commentCount) + '</td>';
+            body.appendChild(tr);
+          });
+        }).catch(function (err) { message($('comments-message'), err.message, false); });
+      }
+
+      function formatDate(iso) {
+        if (!iso) return '-';
+        var date = new Date(iso);
+        if (isNaN(date.getTime())) return escapeHtml(iso);
+        return date.toLocaleString('ko-KR', { dateStyle: 'medium', timeStyle: 'short' });
+      }
+
+      function loadComments() {
+        var params = new URLSearchParams();
+        var modelFilter = $('comment-model').value.trim();
+        var q = $('comment-q').value.trim();
+        if (modelFilter) params.set('modelId', modelFilter);
+        if (q) params.set('q', q);
+        var query = params.toString();
+        request(API + '/comments' + (query ? '?' + query : '')).then(function (payload) {
+          var body = $('comments-body');
+          body.replaceChildren();
+          var comments = payload.comments || [];
+          message($('comments-message'), '', true);
+          if (!comments.length) {
+            body.innerHTML = '<tr><td colspan="6" class="load-state">댓글이 없습니다.</td></tr>';
+            return;
+          }
+          comments.forEach(function (comment) {
+            var tr = document.createElement('tr');
+            tr.innerHTML =
+              '<td>' + escapeHtml(comment.id) + '</td>' +
+              '<td class="comment-text">' + escapeHtml(comment.modelId) + '</td>' +
+              '<td>' + escapeHtml(comment.authorName) + '</td>' +
+              '<td class="comment-text">' + escapeHtml(comment.content) + '</td>' +
+              '<td class="comment-meta">' + formatDate(comment.createdAt) + '</td>' +
+              '<td><div class="row-actions"><button type="button" data-del="' + escapeHtml(comment.id) + '">삭제</button></div></td>';
+            body.appendChild(tr);
+          });
+        }).catch(function (err) { message($('comments-message'), err.message, false); });
+      }
+
+      function loadModels() {
+        request(API + '/stats').then(function (payload) {
+          var q = $('model-filter').value.trim().toLowerCase();
+          var body = $('models-body');
+          body.replaceChildren();
+          var models = (payload.models || []).filter(function (model) {
+            return !q || model.modelId.toLowerCase().includes(q);
+          });
+          if (!models.length) {
+            body.innerHTML = '<tr><td colspan="5" class="load-state">모델이 없습니다.</td></tr>';
+            return;
+          }
+          models.forEach(function (model) {
+            var tr = document.createElement('tr');
+            var badge = '<span class="status-pill ' + (model.status === 'active' ? 'active' : 'inactive') + '">' + escapeHtml(model.status) + '</span>';
+            var toggleLabel = model.status === 'active' ? '숨김' : '복원';
+            var toggleAction = model.status === 'active' ? 'hide' : 'restore';
+            tr.innerHTML =
+              '<td>' + escapeHtml(model.modelId) + '</td>' +
+              '<td>' + escapeHtml(model.displayName) + '</td>' +
+              '<td>' + badge + '</td>' +
+              '<td>' + Number(model.commentCount) + '</td>' +
+              '<td><div class="row-actions">' +
+              '<button type="button" data-model-toggle="' + escapeHtml(model.modelId) + '" data-action="' + toggleAction + '">' + toggleLabel + '</button>' +
+              '<button type="button" data-model-del="' + escapeHtml(model.modelId) + '">모델 삭제</button>' +
+              '</div></td>';
+            body.appendChild(tr);
+          });
+        }).catch(function (err) { message($('models-message'), err.message, false); });
+      }
+
+      $('login-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var passwordInput = $('password');
+        var button = this.querySelector('button[type="submit"]');
+        button.disabled = true;
+        message($('login-message'), '로그인 중...', true);
+        window.fetch('/api/admin/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: passwordInput.value })
+        }).then(function (response) {
+          return response.json().then(function (payload) {
+            if (!response.ok) throw new Error(payload && payload.error ? payload.error.message : '로그인에 실패했습니다.');
+            return payload;
+          });
+        }).then(function (payload) {
+          token = payload.token;
+          sessionStorage.setItem('gh_admin_token', token);
+          passwordInput.value = '';
+          $('login-view').classList.add('admin-hidden');
+          $('admin-view').classList.remove('admin-hidden');
+          switchTab('stats');
+        }).catch(function (err) {
+          message($('login-message'), err.message, false);
+        }).finally(function () { button.disabled = false; });
+      });
+
+      $('logout-btn').addEventListener('click', logout);
+
+      $('comment-filter').addEventListener('click', loadComments);
+      $('comment-model').addEventListener('keydown', function (event) { if (event.key === 'Enter') loadComments(); });
+      $('comment-q').addEventListener('keydown', function (event) { if (event.key === 'Enter') loadComments(); });
+      $('model-filter').addEventListener('input', loadModels);
+
+      document.querySelector('.admin-tabs').addEventListener('click', function (event) {
+        var tab = event.target.closest('.admin-tab');
+        if (tab) switchTab(tab.getAttribute('data-tab'));
+      });
+
+      $('comments-body').addEventListener('click', function (event) {
+        var button = event.target.closest('[data-del]');
+        if (!button || !window.confirm('이 댓글을 삭제할까요?')) return;
+        request(API + '/comments/' + encodeURIComponent(button.getAttribute('data-del')), { method: 'DELETE' })
+          .then(function () {
+            message($('comments-message'), '댓글을 삭제했습니다.', true);
+            loadComments();
+          })
+          .catch(function (err) { message($('comments-message'), err.message, false); });
+      });
+
+      $('models-body').addEventListener('click', function (event) {
+        var toggle = event.target.closest('[data-model-toggle]');
+        if (toggle) {
+          var modelId = toggle.getAttribute('data-model-toggle');
+          var action = toggle.getAttribute('data-action');
+          request(API + '/models/' + encodeURIComponent(modelId), {
+            method: 'POST',
+            body: JSON.stringify({ action: action })
+          }).then(function () { loadModels(); })
+            .catch(function (err) { message($('models-message'), err.message, false); });
+          return;
+        }
+        var del = event.target.closest('[data-model-del]');
+        if (!del || !window.confirm('모델을 삭제하면 연결된 댓글도 모두 사라집니다.\n계속할까요?')) return;
+        request(API + '/models/' + encodeURIComponent(del.getAttribute('data-model-del')), { method: 'DELETE' })
+          .then(function () { loadModels(); })
+          .catch(function (err) { message($('models-message'), err.message, false); });
+      });
+
+      if (token) {
+        $('login-view').classList.add('admin-hidden');
+        $('admin-view').classList.remove('admin-hidden');
+        switchTab('stats');
+      } else {
+        $('login-view').classList.remove('admin-hidden');
+      }
+    })();
+  </script>
+</body>
+</html>

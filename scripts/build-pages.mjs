@@ -11,6 +11,7 @@ export const STATIC_FILES = [
   "privacy.html",
   "terms.html",
   "404.html",
+  "admin.html",
   "portal.css",
   "app.css",
   "home.css",

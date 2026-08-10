@@ -47,11 +47,6 @@
     .profile-rail .photo-credit a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
     .profile-rail dt{color:var(--quiet);font-size:.7rem;font-weight:700;letter-spacing:.06em}
     .profile-rail dd{margin:3px 0 0;color:var(--ink);font-size:.9rem;line-height:1.5}
-    .profile-detail-section{border-top:1px solid var(--line);padding:26px 0}
-    .profile-detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
-    .profile-detail-grid h3{color:var(--quiet);font-size:.7rem;font-weight:800;letter-spacing:.08em;margin:0 0 10px;text-transform:uppercase}
-    .profile-detail-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;color:var(--ink);font-size:.9rem;line-height:1.6}
-    .profile-detail-grid li::before{content:"—";color:var(--h-verm);margin-right:8px}
     .back-link{display:inline-block;margin-bottom:24px;color:var(--muted);font-size:.84rem;text-decoration:none}
     .back-link:hover{color:var(--coral-soft)}
     .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
@@ -61,6 +56,26 @@
     .profile-rail a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
     .profile-related{border-top:1px solid var(--line);padding:26px 0 0;margin-top:26px}
     .profile-related h2{color:var(--ink);font-size:1.12rem;font-weight:900;margin:0 0 18px}
+    .profile-comments{border-top:1px solid var(--line);padding:26px 0 0;margin-top:26px}
+    .profile-comments h2{color:var(--ink);font-size:1.12rem;font-weight:900;margin:0 0 16px}
+    .comments-form{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+    .comments-form input,.comments-form textarea{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:6px;padding:10px 12px;font:inherit;color:var(--ink);background:#fff}
+    .comments-form textarea{min-height:90px;resize:vertical}
+    .comments-form input:focus,.comments-form textarea:focus{outline:2px solid var(--focus);outline-offset:1px}
+    .comments-form .comment-actions{display:flex;align-items:center;gap:12px}
+    .comments-form button{border:1px solid var(--coral);background:var(--coral);color:#fff;font-size:.82rem;font-weight:800;padding:0 16px;min-height:40px;border-radius:6px;cursor:pointer}
+    .comments-form button:disabled{opacity:.55;cursor:not-allowed}
+    .comments-form .comment-status{color:var(--muted);font-size:.8rem;font-weight:700}
+    .comments-form .comment-error{color:var(--coral-soft);font-size:.8rem;font-weight:700}
+    .comment-list{display:flex;flex-direction:column;gap:16px}
+    .comment-item{border-bottom:1px solid var(--line);padding-bottom:14px}
+    .comment-item:last-child{border-bottom:none}
+    .comment-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+    .comment-head strong{color:var(--ink);font-size:.86rem;font-weight:800}
+    .comment-head time{color:var(--quiet);font-size:.72rem}
+    .comment-body{color:var(--muted);font-size:.9rem;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+    .comments-empty{color:var(--quiet);font-size:.86rem;padding:8px 0}
+    .comments-load{color:var(--quiet);font-size:.84rem;padding:6px 0}
     .related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
     .related-card{display:flex;align-items:center;gap:12px;min-width:0;padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none}
     .related-card:hover{border-color:var(--h-verm);box-shadow:0 0 0 1px var(--h-verm)}
@@ -362,21 +377,6 @@
         dl.appendChild(countryTerm);
         dl.appendChild(countryValue);
 
-        var railPairs = [];
-        if (model.birth) railPairs.push(['출생', model.birth]);
-        if (model.origin) railPairs.push(['출신', model.origin]);
-        if (model.occupation) railPairs.push(['직업', model.occupation]);
-        if (model.yearsActive) railPairs.push(['활동 기간', model.yearsActive]);
-        if (model.agency) railPairs.push(['소속사', model.agency]);
-        railPairs.forEach(function (pair) {
-          var term = document.createElement('dt');
-          term.textContent = pair[0];
-          var value = document.createElement('dd');
-          value.textContent = pair[1];
-          dl.appendChild(term);
-          dl.appendChild(value);
-        });
-
         if (model.photoUrl && model.license) {
           var licenseTerm = document.createElement('dt');
           licenseTerm.textContent = '라이선스';
@@ -399,43 +399,12 @@
           } else {
             credit.appendChild(document.createTextNode(model.creditText));
           }
-          rail.appendChild(credit);
+rail.appendChild(credit);
         }
 
         section.appendChild(rail);
         header.after(section);
-
-        var detailTerms = [];
-        var detailTerm = function (value, title) {
-          if (!value || !value.length) return;
-          var col = document.createElement('div');
-          var h = document.createElement('h3');
-          h.textContent = title;
-          col.appendChild(h);
-          var ul = document.createElement('ul');
-          value.forEach(function (item) {
-            var li = document.createElement('li');
-            li.textContent = item;
-            ul.appendChild(li);
-          });
-          col.appendChild(ul);
-          detailTerms.push(col);
-        };
-        detailTerm(model.notable, '대표 활동');
-        detailTerm(model.awards, '수상·표창');
-        detailTerm(model.recent, '최근 활동');
-        if (detailTerms.length) {
-          var detailSection = document.createElement('section');
-          detailSection.className = 'profile-detail-section';
-          var heading = document.createElement('h2');
-          heading.textContent = '프로필 하이라이트';
-          detailSection.appendChild(heading);
-          var grid = document.createElement('div');
-          grid.className = 'profile-detail-grid';
-          detailTerms.forEach(function (col) { grid.appendChild(col); });
-          detailSection.appendChild(grid);
-          section.after(detailSection);
-        }
+        return section;
       }
 
       // Same-field navigation: up to four published profiles in the same
@@ -502,19 +471,158 @@
 
       function renderModel(model, rank, models) {
         model.category = categoryOf(model);
-        mount(model, rank);
+        var section = mount(model, rank);
+        var anchor = section || document.querySelector('.profile-section') || document.querySelector('.profile-header');
+        if (!anchor || !anchor.parentNode) return;
         var related = relatedProfilesOf(model, models || [], 4);
-        if (!related.length) return;
-        var nav = document.createElement('section');
-        nav.className = 'profile-related';
-        nav.setAttribute('aria-labelledby', 'related-title');
+        if (related.length) {
+          var nav = document.createElement('section');
+          nav.className = 'profile-related';
+          nav.setAttribute('aria-labelledby', 'related-title');
+          var heading = document.createElement('h2');
+          heading.id = 'related-title';
+          heading.textContent = '같은 분야 등록 프로필';
+          nav.appendChild(heading);
+          buildRelatedGrid(related, nav);
+          anchor.parentNode.appendChild(nav);
+        }
+        anchor.parentNode.appendChild(buildCommentsSection(model));
+      }
+
+      function formatCommentDate(iso) {
+        var date = new Date(iso);
+        if (isNaN(date.getTime())) return '';
+        return date.toLocaleString('ko-KR', { dateStyle: 'medium', timeStyle: 'short' });
+      }
+
+      function buildCommentsSection(model) {
+        var section = document.createElement('section');
+        section.className = 'profile-comments';
+        section.setAttribute('aria-labelledby', 'comments-title');
         var heading = document.createElement('h2');
-        heading.id = 'related-title';
-        heading.textContent = '같은 분야 등록 프로필';
-        nav.appendChild(heading);
-        buildRelatedGrid(related, nav);
-        var anchor = document.querySelector('.profile-section') || document.querySelector('.profile-header');
-        if (anchor && anchor.parentNode) anchor.parentNode.appendChild(nav);
+        heading.id = 'comments-title';
+        heading.textContent = '댓글';
+        section.appendChild(heading);
+
+        var form = document.createElement('form');
+        form.className = 'comments-form';
+        form.setAttribute('novalidate', '');
+
+        var nameInput = document.createElement('input');
+        nameInput.type = 'text';
+        nameInput.name = 'authorName';
+        nameInput.placeholder = '닉네임 (1~24자)';
+        nameInput.maxLength = 24;
+        nameInput.autocomplete = 'nickname';
+        form.appendChild(nameInput);
+
+        var contentInput = document.createElement('textarea');
+        contentInput.name = 'content';
+        contentInput.placeholder = '모델 프로필에 대한 댓글을 남겨 주세요.';
+        contentInput.maxLength = 2000;
+        form.appendChild(contentInput);
+
+        var actions = document.createElement('div');
+        actions.className = 'comment-actions';
+        var submit = document.createElement('button');
+        submit.type = 'submit';
+        submit.textContent = '댓글 등록';
+        actions.appendChild(submit);
+        var status = document.createElement('span');
+        status.className = 'comment-status';
+        status.setAttribute('role', 'status');
+        actions.appendChild(status);
+        form.appendChild(actions);
+
+        var list = document.createElement('div');
+        list.className = 'comment-list';
+        var listState = document.createElement('p');
+        listState.className = 'comments-load';
+        listState.textContent = '댓글을 불러오는 중...';
+        list.appendChild(listState);
+        section.appendChild(form);
+        section.appendChild(list);
+
+        var endpoint = '/api/comments/' + encodeURIComponent(model.id);
+        function renderList(comments) {
+          list.replaceChildren();
+          if (!comments || !comments.length) {
+            var empty = document.createElement('p');
+            empty.className = 'comments-empty';
+            empty.textContent = '아직 댓글이 없습니다. 첫 번째 댓글을 남겨 보세요.';
+            list.appendChild(empty);
+            return;
+          }
+          comments.forEach(function (comment) {
+            var item = document.createElement('div');
+            item.className = 'comment-item';
+            var head = document.createElement('div');
+            head.className = 'comment-head';
+            var strong = document.createElement('strong');
+            strong.textContent = comment && comment.authorName ? comment.authorName : '익명';
+            head.appendChild(strong);
+            if (comment && comment.createdAt) {
+              var time = document.createElement('time');
+              time.textContent = formatCommentDate(comment.createdAt);
+              time.dateTime = comment.createdAt;
+              head.appendChild(time);
+            }
+            item.appendChild(head);
+            var body = document.createElement('p');
+            body.className = 'comment-body';
+            body.textContent = (comment && comment.content) || '';
+            item.appendChild(body);
+            list.appendChild(item);
+          });
+        }
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          var name = nameInput.value.trim();
+          var content = contentInput.value.trim();
+          submit.disabled = true;
+          status.textContent = '';
+          window.fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ authorName: name, content: content }),
+          }).then(function (response) {
+            if (!response.ok) {
+              return response.json().then(function (payload) {
+                var message = payload && payload.error ? payload.error.message : '댓글을 등록하지 못했습니다.';
+                throw new Error(message);
+              });
+            }
+            return response.json();
+          }).then(function () {
+            nameInput.value = '';
+            contentInput.value = '';
+            status.textContent = '댓글이 등록되었습니다.';
+            return window.fetch(endpoint, { cache: 'no-cache' });
+          }).then(function (response) { return response.json(); })
+            .then(function (payload) { renderList(payload && payload.comments); })
+            .catch(function (error) {
+              status.className = 'comment-error';
+              status.textContent = (error && error.message) || '댓글을 등록하지 못했습니다.';
+            })
+            .finally(function () { submit.disabled = false; });
+        });
+
+        window.fetch(endpoint, { cache: 'no-cache' })
+          .then(function (response) {
+            if (!response.ok) throw new Error('load_failed');
+            return response.json();
+          })
+          .then(function (payload) { renderList(payload && payload.comments); })
+          .catch(function () {
+            list.replaceChildren();
+            var fallback = document.createElement('p');
+            fallback.className = 'comments-load';
+            fallback.textContent = '댓글을 불러올 수 없습니다.';
+            list.appendChild(fallback);
+          });
+
+        return section;
       }
 
       function showMissing() {
