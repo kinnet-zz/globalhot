@@ -132,7 +132,10 @@
       }
 
       function syncMeta(model) {
-        var photoUrl = model.photoAvailable ? ('https://globalhot.net' + profileImgSrc(model)) : '';
+        var imgSrc = profileImgSrc(model);
+        var photoUrl = model.photoAvailable && imgSrc
+          ? (/^https?:\/\//.test(imgSrc) ? imgSrc : 'https://globalhot.net' + imgSrc)
+          : '';
         var desc = (model.bio || model.name + ' GlobalHot 공식 프로필').slice(0, 160);
         setMeta('og:title', 'property', model.name + ' | GlobalHot');
         setMeta('og:description', 'property', desc);
@@ -154,7 +157,7 @@
         if (el) el.setAttribute('content', value);
       }
 
-      function applyMonogramFallback() {
+      function applyMonogramFallback(model, portrait) {
         var monogram = buildMonogram(model.name);
         portrait.setAttribute('data-monogram', monogram);
         portrait.setAttribute('aria-label', model.name + ' 프로필 사진 (모노그램)');
@@ -227,10 +230,10 @@
           var img = document.createElement('img');
           img.src = profileImgSrc(model);
           img.alt = model.name + ' 프로필 사진';
-          img.addEventListener('error', applyMonogramFallback);
+          img.addEventListener('error', function () { applyMonogramFallback(model, portrait); });
           portrait.appendChild(img);
         } else {
-          applyMonogramFallback();
+          applyMonogramFallback(model, portrait);
         }
         photo.appendChild(portrait);
 
