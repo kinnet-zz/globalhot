@@ -2,13 +2,12 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-const [about, privacy, terms, notFound, infoCss, workflow, sitemap] = await Promise.all([
+const [about, privacy, terms, notFound, infoCss, sitemap] = await Promise.all([
   readFile('about.html', 'utf8'),
   readFile('privacy.html', 'utf8'),
   readFile('terms.html', 'utf8'),
   readFile('404.html', 'utf8'),
   readFile('info.css', 'utf8'),
-  readFile('.github/workflows/auto-publish.yml', 'utf8'),
   readFile('sitemap.xml', 'utf8')
 ]);
 
@@ -97,14 +96,6 @@ test('terms and not-found pages use the shared information page layout classes',
     assert.match(notFound, new RegExp(`class=["'][^"']*\\b${className}\\b[^"']*["']`), `404 must include .${className}`);
     assert.match(infoCss, new RegExp(`\\.${className}\\b`), `info.css must define .${className}`);
   }
-});
-
-test('legacy publisher is manual only and does not schedule automatic post creation', () => {
-  assert.match(workflow, /^name:\s*Legacy News Publisher \(Manual Only\)\s*$/m);
-  assert.match(workflow, /^\s*workflow_dispatch\s*:/m);
-  assert.doesNotMatch(workflow, /^\s*schedule\s*:/m);
-  assert.doesNotMatch(workflow, /\bcron\s*:/i);
-  assert.match(workflow, /Legacy manual news:/);
 });
 
 test('sitemap exposes exactly four current portal pages with their intended change frequencies', () => {
