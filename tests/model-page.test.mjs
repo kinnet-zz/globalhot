@@ -74,6 +74,14 @@ const remoteModel = {
   creditText: 'Some photographer',
   creditUrl: 'https://example.com',
   bio: 'Japanese cosplayer and gravure model.',
+  birth: '1994-01-22',
+  origin: '아이치현 나고야',
+  occupation: '코스프레 모델',
+  yearsActive: '2008 -',
+  agency: 'PP 엔터프라이즈',
+  notable: ['주간 영점프 표지', '사진집 《에나코 cosplayer》'],
+  awards: ['탑커버 어워드'],
+  recent: ['유튜브·Twitch 게임 방송'],
   officialUrl: '',
   sns: {},
 };
@@ -148,6 +156,46 @@ test('detail page mounts a published profile header with a working monogram fall
   assert.equal(portrait.getAttribute('data-monogram'), 'E', 'monogram set on error');
   assert.equal(portrait.querySelector('img'), null, 'broken img is removed');
   assert.ok(portrait.querySelector('span'), 'NO PHOTO span appears');
+});
+
+test('detail page renders the structured profile rail and highlight sections', async () => {
+  const { evalPromise, stateEl } = run();
+  await evalPromise;
+  await new Promise((resolve) => setTimeout(resolve, 30));
+
+  const header = stateEl.replacedWith;
+  const section = header.afterNode;
+  assert.ok(section, 'bio section follows the header');
+  assert.equal(section.className, 'profile-section');
+
+  const rail = section.querySelector('.profile-rail');
+  assert.ok(rail, 'rail present');
+  const railText = (function collect(n, acc) {
+    acc = acc || [];
+    for (const child of n.children || []) {
+      if (child.textContent) acc.push(child.textContent);
+      collect(child, acc);
+    }
+    return acc;
+  })(rail, []).join(' ');
+  for (const label of ['출생', '출신', '직업', '활동 기간', '소속사']) assert.ok(railText.includes(label), `rail shows ${label}`);
+
+  const detail = section.afterNode;
+  assert.ok(detail, 'highlight section follows the bio section');
+  assert.equal(detail.className, 'profile-detail-section');
+  const grid = detail.querySelector('.profile-detail-grid');
+  assert.ok(grid, 'highlight grid present');
+  const text = (function collect(n, acc) {
+    acc = acc || [];
+    for (const child of n.children || []) {
+      if (child.textContent) acc.push(child.textContent);
+      collect(child, acc);
+    }
+    return acc;
+  })(grid, []).join(' ');
+  assert.ok(text.includes('대표 활동') && text.includes('주간 영점프 표지'), 'notable works rendered');
+  assert.ok(text.includes('수상·표창') && text.includes('탑커버 어워드'), 'awards rendered');
+  assert.ok(text.includes('최근 활동') && text.includes('유튜브·Twitch'), 'recent activity rendered');
 });
 
 test('remote photoUrl produces a single-host absolute og:image', async () => {

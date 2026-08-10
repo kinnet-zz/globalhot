@@ -47,6 +47,11 @@
     .profile-rail .photo-credit a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
     .profile-rail dt{color:var(--quiet);font-size:.7rem;font-weight:700;letter-spacing:.06em}
     .profile-rail dd{margin:3px 0 0;color:var(--ink);font-size:.9rem;line-height:1.5}
+    .profile-detail-section{border-top:1px solid var(--line);padding:26px 0}
+    .profile-detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+    .profile-detail-grid h3{color:var(--quiet);font-size:.7rem;font-weight:800;letter-spacing:.08em;margin:0 0 10px;text-transform:uppercase}
+    .profile-detail-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;color:var(--ink);font-size:.9rem;line-height:1.6}
+    .profile-detail-grid li::before{content:"—";color:var(--h-verm);margin-right:8px}
     .back-link{display:inline-block;margin-bottom:24px;color:var(--muted);font-size:.84rem;text-decoration:none}
     .back-link:hover{color:var(--coral-soft)}
     .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
@@ -357,6 +362,21 @@
         dl.appendChild(countryTerm);
         dl.appendChild(countryValue);
 
+        var railPairs = [];
+        if (model.birth) railPairs.push(['출생', model.birth]);
+        if (model.origin) railPairs.push(['출신', model.origin]);
+        if (model.occupation) railPairs.push(['직업', model.occupation]);
+        if (model.yearsActive) railPairs.push(['활동 기간', model.yearsActive]);
+        if (model.agency) railPairs.push(['소속사', model.agency]);
+        railPairs.forEach(function (pair) {
+          var term = document.createElement('dt');
+          term.textContent = pair[0];
+          var value = document.createElement('dd');
+          value.textContent = pair[1];
+          dl.appendChild(term);
+          dl.appendChild(value);
+        });
+
         if (model.photoUrl && model.license) {
           var licenseTerm = document.createElement('dt');
           licenseTerm.textContent = '라이선스';
@@ -384,6 +404,38 @@
 
         section.appendChild(rail);
         header.after(section);
+
+        var detailTerms = [];
+        var detailTerm = function (value, title) {
+          if (!value || !value.length) return;
+          var col = document.createElement('div');
+          var h = document.createElement('h3');
+          h.textContent = title;
+          col.appendChild(h);
+          var ul = document.createElement('ul');
+          value.forEach(function (item) {
+            var li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+          });
+          col.appendChild(ul);
+          detailTerms.push(col);
+        };
+        detailTerm(model.notable, '대표 활동');
+        detailTerm(model.awards, '수상·표창');
+        detailTerm(model.recent, '최근 활동');
+        if (detailTerms.length) {
+          var detailSection = document.createElement('section');
+          detailSection.className = 'profile-detail-section';
+          var heading = document.createElement('h2');
+          heading.textContent = '프로필 하이라이트';
+          detailSection.appendChild(heading);
+          var grid = document.createElement('div');
+          grid.className = 'profile-detail-grid';
+          detailTerms.forEach(function (col) { grid.appendChild(col); });
+          detailSection.appendChild(grid);
+          section.after(detailSection);
+        }
       }
 
       // Same-field navigation: up to four published profiles in the same

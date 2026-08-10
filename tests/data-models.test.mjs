@@ -21,7 +21,7 @@ const REQUIRED_FIELDS = ['id', 'name', 'altName', 'country', 'tags', 'photoAvail
 // auto-add pipeline sets these on every model it adds; legacy models omit them
 // and fall back to the CC/Wikimedia default in createModelCard. They are
 // documented in the `fields` array but not required on every model.
-const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl', 'bio', 'photoUrl'];
+const OPTIONAL_FIELDS = ['license', 'creditText', 'creditUrl', 'bio', 'photoUrl', 'birth', 'origin', 'debut', 'occupation', 'yearsActive', 'agency', 'notable', 'awards', 'recent'];
 const SNS_FIELDS = ['x', 'instagram', 'youtube', 'tiktok'];
 const FEATURED_IDS = ['enako', 'umi-shinonome', 'nashiko-momotsuki', 'ai-shinozaki', 'kiko-mizuhara', 'elaiza-ikeda'];
 
@@ -62,6 +62,26 @@ test('every merged model has the required fields with the correct types', () => 
     assert.ok(model.sns !== null);
     for (const field of SNS_FIELDS) {
       assert.equal(typeof model.sns[field], 'string', `${model.id} sns.${field} must be a string`);
+    }
+  }
+});
+
+test('structured profile fields follow the documented types when present', () => {
+  const byId = new Map(merged.models.map((model) => [model.id, model]));
+  // The three expanded sample profiles carry the standard structured fields.
+  for (const id of ['enako', 'ai-shinozaki', 'umi-shinonome']) {
+    const model = byId.get(id);
+    assert.ok(model, `expanded id ${id} must exist`);
+    assert.ok((model.bio || '').length >= 120, `${model.id} bio must be a full 2-4 sentence profile`);
+    for (const field of ['birth', 'origin', 'debut', 'occupation', 'yearsActive', 'agency']) {
+      if (field in model && model[field] !== '') {
+        assert.equal(typeof model[field], 'string', `${model.id} ${field} must be a string when present`);
+      }
+    }
+    for (const field of ['notable', 'awards', 'recent']) {
+      if (field in model && Array.isArray(model[field])) {
+        for (const item of model[field]) assert.equal(typeof item, 'string');
+      }
     }
   }
 });

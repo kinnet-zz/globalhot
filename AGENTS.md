@@ -4,10 +4,22 @@
 
 ## 소스 오브 트루스
 - 모델 데이터의 단일 원천은 `data/models.json`. 여기만 고친다.
-  - 전체 192명, **게시(photoAvailable=true) 105명**.
+  - 전체 192명, **게시(photoAvailable=true) 102명**.
   - `data/gravure-queue.json`은 비어 있음 — 후보는 스크립트로만 발굴.
-- `fields`는 `id,name,altName,country,tags,photoAvailable,officialUrl,sns,license,creditText,creditUrl,bio,photoUrl`.
-  - 새 필드(예: `bio`)를 쓰면 반드시 최상위 `fields` 목록에도 추가한다.
+- `fields`는 `id,name,altName,country,tags,photoAvailable,officialUrl,sns,license,creditText,creditUrl,bio,photoUrl,birth,origin,debut,occupation,yearsActive,agency,notable,awards,recent`.
+  - 새 필드를 쓰면 반드시 최상위 `fields` 목록에도 추가한다.
+
+## 상세 프로필 표준 규격 (게시 모델 전원 적용)
+게시(bio·프로필 확장) 단계는 **플랫폼 기준 없이 문단을 늘리지 않는다**. 아래 구조화 필드와 bio 서술 구조가 **표준**이다. 검증 안 된 값은 절대 채우지 않는다(빈 문자열 유지).
+
+- **구조화 필드** (models.json 각 모델에 추가, 비어 있어도 무방):
+  - `birth`(생년월일, `YYYY-MM-DD`), `origin`(출신지), `debut`(데뷔), `occupation`(직업), `yearsActive`(활동기간), `agency`(소속), `notable`(대표 활동/작품 문자열 배열), `awards`(수상/표창 문자열 배열), `recent`(최근 활동 문자열 배열).
+- **bio 서술 구조 (2~4문장 고정)**:
+  1. [출생·출신 + 직업/아이덴티티]
+  2. [데뷔·대표 활동(잡지·사진집·무대·방송)]
+  3. [최근 활동·수상·특기 (있으면)]
+- **데이터 파이프라인**: `scripts/bio-research.mjs`가 위키에서 구조화 필드 원본(생년월일·출신·직업·활동기간·소속·최근 활동)을 `data/bio-report.json`으로 수집 → 작성자는 이 리포트만 보고 페이지에 반영. 리포트에 없는 사실은 추가 금지, 리포트 매칭이 의심되면(제목 불일치) 반영하지 않는다.
+- **model.html 렌더링**: 좌측 "모델 소개"(bio 문단) + 레일(출생·출신·활동기간·소속사) + 하단 구조화 섹션(대표 활동/수상/최근 활동)을 표준으로 출력. 값이 빈 필드는 렌더링에서 제외.
 
 ## 신규 모델 추가 규칙 (반드시)
 - **상세프로필(bio)은 필수 작성** 후에만 추가한다. `scripts/gravure-add.mjs`는 bio(비어있지 않고 20자 이상)가 없는 큐 항목을 **추가하지 않는다**. 게시 페이지가 빈 상태로 배포되는 것을 원천 차단.
@@ -16,9 +28,9 @@
 - **사진 검증 규칙:** 파일 제목을 성(姓) 하나나 토큰만으로 매치하지 않는다. 풀네임 전체가 제목에 **연속 토큰**으로(정순 또는 성-이름 역순) 등장해야 한다(`nameTokensContain`). "Kang In-kyung"이 "Kang Kyung-wha in Tokyo" 같은 외교부 장관 사진과 엮이는 재발을 차단한다.
 
 ## 반드시 해야 할 일 (MUST/DO)
-1. **게시 모델 bio는 반드시 실제 정보**로 작성. 출처는 **Wikipedia(영/일**, 필요시 나무위키 교차)에서 확인한 생년월일·출신·데뷔·대표 활동을 간결하게(1~2문장 이내).
+1. **게시 모델 bio는 반드시 실제 정보**로 작성. 출처는 **Wikipedia(영/일**, 필요시 나무위키 교차)에서 확인한 생년월일·출신·데뷔·대표 활동을 **표준 규격(2~4문장)** 으로 작성.
 2. 프로필의 bio와 stats(생년월일 등)는 **검증된 값만** 넣는다.
-3. 배포 전 반드시 검증: `npm test`(**92/92 통과**) → `npm run build:pages`(**121 files**) 모두 성공해야 한다.
+3. 배포 전 반드시 검증: `npm test`(**94/94 통과**) → `npm run build:pages`(**124 files**) 모두 성공해야 한다.
 4. 배포는 `git push origin master` → GitHub Actions deploy.yml → Cloudflare Pages(프로젝트 `globalhot`). 커밋 메시지는 feat(chore로 구분, 예: `feat(ranking): ...`).
 5. 원격에 크론/자동 커밋이 쌓여 있으면 `git pull --rebase` 후 푸시.
 6. 공식 링크는 실존 확인된 것만. people: `officialUrl`·SNS(x/insta/youtube/tiktok)에 진짜 URL만, 미확인은 빈 문자열 유지.
@@ -35,4 +47,5 @@
 
 ## 기타 플로우
 - 새 모델 추가: `scripts/gravure-add.mjs` 파이프라인(다운로드+검증+추가). 다운로드 실패/非JPEG는 추가하지 않는다. **bio 미작성 항목은 추가하지 않는다.**
+- 상세 프로필 확장: `scripts/bio-research.mjs`로 리포트 생성 → `data/bios-extended.json`에 표준 규격 bio 작성 → `scripts/bio-apply.mjs --overwrite` 병합.
 - 랭킹: 로컬 추천 카운트 0부터 → 카테고리(gravure→cosplay→기타) → 이름(ko) 순 타이브레이크.

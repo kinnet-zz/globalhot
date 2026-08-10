@@ -96,7 +96,20 @@ function collectTemplate(input, tagName) {
 }
 
 function infoboxFields(text) {
-  const block = collectTemplate(text, "Infobox");
+  // De facto profile templates: English/global models publish infoboxes;
+  // Japanese gravure/cosplay pages commonly use {{女性モデル}} (female model)
+  // which carries the same 生年/生月/生日/出身地/職業/事務所 keys. A page may
+  // carry several (e.g. {{女性モデル}} + {{Infobox YouTube personality}}), so
+  // collect all and pick the one with the most profile keys.
+  const blocks = [];
+  for (const tpl of ["Infobox", "女性モデル", "アイドル", "俳優", "人物"]) {
+    const b = collectTemplate(text, tpl);
+    if (b) blocks.push(b);
+  }
+  const keys = ["生年", "生月", "生日", "birth_date", "生年月日", "出生地", "出身地", "birth_place", "職業", "occupation", "活動期間", "years_active", "事務所", "agency"];
+  const score = (b) => keys.reduce((acc, k) => acc + (b.indexOf(k) !== -1 ? 1 : 0), 0);
+  blocks.sort((a, z) => score(z) - score(a));
+  const block = blocks.length ? blocks[0] : "";
   const out = {};
   const year = {};
   const lines = block.split("\n");
@@ -111,8 +124,11 @@ function infoboxFields(text) {
     else if (key === "生年") year.birthYear = val;
     else if (key === "生月") year.birthMonth = val;
     else if (key === "生日") year.birthDay = val;
-    else if (key === "birth_place" || key === "出身地") out.birthPlace = val.replace(/^\{\{[^}]*\}\}\s*/g, "").replace(/^[,，\s]+/, "").replace(/[,，\s]+$/, "");
-    else if (key === "occupation" || key === "職業") out.occupation = val.replace(/^\{\{[^}]*\}\}\s*/g, "").replace(/^\[/, "").replace(/\]$/, "");
+    else if (key === "birth_place" || key === "出身地") {
+      let p = String(kv[2] || "");
+      p = p.replace(/\{\{[^{}]*\}\}\s*/g, ""); // {{JPN}} flag templates
+      out.birthPlace = clean(p).replace(/^[・,，、\s]+|[,，、\s]+$/g, "");
+    } else if (key === "occupation" || key === "職業") out.occupation = val.replace(/^\{\{[^}]*\}\}\s*/g, "").replace(/^\[/, "").replace(/\]$/, "");
     else if (key === "years_active" || key === "yearsactive") out.yearsActive = val;
     else if (key === "agency" || key === "事務所") out.agency = val;
     else if (key === "spouse") out.spouse = val;
