@@ -486,6 +486,35 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 }
 .ad-fallback p { margin: 0; font-size: .78rem; line-height: 1.6; color: var(--h-faint); }
 
+/* 홈 리더보드(728x90) — 데스크톱은 풀 리더보드, 모바일은 폭에 맞춰 중앙 정렬.
+   모델/갤러리 슬롯은 data-width="300"이므로 아래 규칙이 적용되지 않는다. */
+.home-ad-band .ad-slot[data-width="728"] {
+  width: 728px;
+  max-width: 100%;
+  min-height: 90px;
+}
+.home-ad-band .ad-slot[data-width="728"] .adsbyjuicy {
+  width: 728px !important;
+  height: 90px !important;
+  max-width: 100%;
+}
+.home-ad-band .ad-slot[data-width="728"] .ad-fallback {
+  width: 728px;
+  height: 90px;
+  max-width: 100%;
+}
+/* 모바일: 728px 크리에이브가 뷰포트보다 넓으면 슬롯이 잘라내고 중앙 정렬(가로 스크롤 방지).
+   존이 모바일용(예: 320x50)을 서빙하면 그대로 전체 노출된다. */
+@media (max-width: 767px) {
+  .home-ad-band .ad-slot[data-width="728"] {
+    width: 100%;
+    overflow: hidden;
+  }
+  .home-ad-band .ad-slot[data-width="728"] .adsbyjuicy {
+    max-width: none;
+  }
+}
+
 /* ── 11 반응형 ── */
 @media (max-width: 820px) {
   .registry-badge { top: 16px; height: 72px; padding: 0 12px; }
