@@ -10,6 +10,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://globalhot.net/model.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/portal.css?v=20260802-3">
   <link rel="stylesheet" href="/home.css?v=20260808-2">
   <script src="/analytics.js?v=20260718-2" defer></script>
@@ -105,7 +106,6 @@
       <a class="back-link" href="/#models">← 모든 프로필 보기</a>
       <div id="profileState" class="load-state">로딩 중...</div>
       <aside class="ad-slot profile-ad" data-ad-zone="1123909" data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고">
-        <p class="ad-spot-label">Sponsored</p>
       </aside>
     </div>
   </main>
@@ -363,6 +363,7 @@
         var rail = document.createElement('aside');
         rail.className = 'profile-rail';
         var dl = document.createElement('dl');
+
         var categoryTerm = document.createElement('dt');
         categoryTerm.textContent = '카테고리';
         var categoryValue = document.createElement('dd');
@@ -385,7 +386,6 @@
           dl.appendChild(licenseTerm);
           dl.appendChild(licenseValue);
         }
-
         rail.appendChild(dl);
 
         // Photo attribution only for remote (Wikimedia) images where we have a

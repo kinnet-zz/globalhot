@@ -42,12 +42,8 @@
     slot.classList.add('has-fallback');
     var fallback = document.createElement('div');
     fallback.className = 'ad-fallback';
-    var heading = document.createElement('span');
-    heading.className = 'ad-fallback-label';
-    heading.textContent = 'Sponsored';
     var note = document.createElement('p');
     note.textContent = '광고를 불러오는 중입니다. 광고 차단 기능을 끄면 이 영역이 표시됩니다.';
-    fallback.appendChild(heading);
     fallback.appendChild(note);
     slot.appendChild(fallback);
   }

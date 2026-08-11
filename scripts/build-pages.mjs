@@ -19,6 +19,7 @@ export const STATIC_FILES = [
   "portal.js",
   "analytics.js",
   "ads.js",
+  "favicon.svg",
   "gallery.html",
   "playground.html",
   "ads.txt",

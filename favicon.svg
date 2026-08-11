@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GlobalHot">
+  <rect width="64" height="64" rx="13" fill="#101319"/>
+  <rect x="3.5" y="3.5" width="57" height="57" rx="11" fill="none" stroke="#c9422c" stroke-width="1.5" opacity="0.55"/>
+  <text x="32" y="45" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="900" text-anchor="middle" fill="#c9422c">G</text>
+</svg>

@@ -9,6 +9,9 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   # HTTPS 강제 (1년)
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # 콘텐츠 보안 정책: 플러그인/<base> 주입 차단, 외부 사이트에서의 프레이밍 차단,
+  # 폼 제출은 동일 출처로 제한. (광고 iframe은 frame-src 제어 영역이라 영향 없음)
+  Content-Security-Policy: object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'
 /*.css
   Cache-Control: no-cache, must-revalidate
 /*.js
