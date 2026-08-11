@@ -101,7 +101,7 @@
       "bio": "1992년 2월 26일 도쿄 출생의 그래비어 아이돌 겸 가수, 유튜버. 주간 영점프 제콜레GP 준그랑프리를 거쳐 십대부터 잡지 표지와 사진집으로 주목받았고, 가수와 배우로도 활동하며 아이돌 그룹 AeLL.의 멤버로도 알려졌다. 2023년에는 방송을 통해 다시금 존재감을 알리는 등 그라비아 현장에서 꾸준히 자리를 지켜온 멀티 탤런트이다.",
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/gezellig_light/\">gezellig light</a>",
+      "creditText": "gezellig light",
       "creditUrl": "https://commons.wikimedia.org/",
       "birth": "1992-02-26",
       "origin": "東京都",
@@ -125,7 +125,7 @@
       "bio": "1995년 11월 8일 아이치현 도요하시에서 태어난 일본의 코스프레 모델, 모델, 배우 겸 유튜버로, 전직 준간호사 출신이기도 하다. 애칭은 '나시코타소'이며 제로이치 파밀리아 소속으로 활동하고 있다. 강단샤에서 사진집 『미완』과 『무스비』를 발매하며 활약했고, 2021년 원형탈모증 발병을 공개했으며 2024년에는 재발 사실도 밝혔다.",
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/31029865@N06\">Dick Thomas Johnson</a> from Tokyo, Japan",
+      "creditText": "Dick Thomas Johnson, Japan",
       "creditUrl": "https://commons.wikimedia.org/",
       "yearsActive": "202226日 -",
       "birth": "1995-11-08",
@@ -212,7 +212,26 @@
       "country": "JAPAN",
       "tags": "gravure actress magazine ballet",
       "photoAvailable": false,
-      "officialUrl": "",
+      "officialUrl": "https://toyoshimacocoro.com",
+      "bio": "Cocoro Toyoshima is a Japanese gravure model and actress born September 25, 2003, in Gosen, Niigata Prefecture. She trained in classical ballet from kindergarten for ten years before debuting as a model and actress in 2018. Known for her photobook \"Only Cherry Blossoms\" (2023) and appearances in \"Cooking Way\" (2022), \"From the Dust\" (2024), and \"My Dress-Up Darling\" (2024).",
+      "birth": "2003-09-25",
+      "origin": "Gosen, Niigata, Japan",
+      "debut": "2018",
+      "occupation": "Gravure model, actress",
+      "yearsActive": "2018–present",
+      "agency": "Irving",
+      "notable": [
+        "Only Cherry Blossoms (photobook, 2023)",
+        "Cooking Way (drama, 2022)",
+        "From the Dust (film, 2024)",
+        "My Dress-Up Darling (live-action, 2024)"
+      ],
+      "awards": [],
+      "recent": [
+        "Salaryman Shigeru Yamazaki (short drama, 2025)",
+        "The Mole (short drama, 2026)",
+        "Zakken!: The Cosmos Beneath Our Feet (film, 2026)"
+      ],
       "sns": {
         "x": "",
         "instagram": "",
@@ -286,7 +305,7 @@
       "name": "Asuka Kishi",
       "altName": "岸明日香",
       "country": "JAPAN",
-      "tags": "gravure magazine variety osaka",
+      "tags": "gravure idol actress",
       "photoAvailable": false,
       "officialUrl": "",
       "sns": {
@@ -298,7 +317,8 @@
       "license": "",
       "licenseUrl": "",
       "creditText": "",
-      "creditUrl": ""
+      "creditUrl": "",
+      "bio": "1991년 4월 11일 일본 오사카부堺市 출생의 탤런트, 그래비어 아이돌, 여배우입니다. 스타더스트프로모션 제3사업부 소속으로 활동하고 있습니다."
     },
     {
       "id": "hina-kikuchi",
@@ -359,7 +379,7 @@
       "name": "Kanami Takasaki",
       "altName": "高崎かなみ",
       "country": "JAPAN",
-      "tags": "gravure magazine photobook",
+      "tags": "gravure idol actress",
       "photoAvailable": false,
       "officialUrl": "",
       "sns": {
@@ -371,7 +391,8 @@
       "license": "",
       "licenseUrl": "",
       "creditText": "",
-      "creditUrl": ""
+      "creditUrl": "",
+      "bio": "1997년 7월 14일 일본 가나가와현 요코하마시 출생의 그래비어 아이돌, 여배우입니다. 에이ジア프로모션 소속으로 Miss GENIC 2019 대회 우승을 비롯하여 그래비어 활동으로 이름을 알렸습니다."
     },
     {
       "id": "moe-iori",
@@ -1098,7 +1119,7 @@
       "name": "Mio Imada",
       "altName": "今田美桜",
       "country": "JAPAN",
-      "tags": "gravure actress magazine",
+      "tags": "gravure actress model",
       "photoAvailable": false,
       "officialUrl": "",
       "sns": {
@@ -1110,7 +1131,8 @@
       "license": "",
       "licenseUrl": "",
       "creditText": "",
-      "creditUrl": ""
+      "creditUrl": "",
+      "bio": "1997년 3월 5일 일본 후쿠오카현 후쿠오카시 출생의 배우, 패션 모델, 탤런트입니다. 콘텐츠스리(구 BIGFACE) 소속으로, 2022년 NHK 연속드라마 《기반(火花)》과 드라마 《야마다타로》에서 주요 역을 맡으며 연기 활동을 펼쳤습니다."
     },
     {
       "id": "sayaka-isoyama",
@@ -1525,7 +1547,7 @@
       "name": "Aya Kawasaki",
       "altName": "川崎あや",
       "country": "JAPAN",
-      "tags": "gravure magazine photobook",
+      "tags": "gravure model racequeen",
       "photoAvailable": false,
       "officialUrl": "",
       "sns": {
@@ -1537,7 +1559,8 @@
       "license": "",
       "licenseUrl": "",
       "creditText": "",
-      "creditUrl": ""
+      "creditUrl": "",
+      "bio": "1991년 1월 3일 일본 가나가와현 출생의 패션 모델, 탤런트입니다. 제로이치파밀리아 소속으로 《ミスFLASH2016》 그랑프리 수상으로 그래비어 활동을 시작했으며, 레이스퀸 유닛 Pacific Fairies 2017 멤버로도 활동했습니다."
     },
     {
       "id": "yuka-kuramochi",
@@ -1598,7 +1621,7 @@
       "name": "Nana Owada",
       "altName": "大和田南那",
       "country": "JAPAN",
-      "tags": "gravure actress akb48 photobook",
+      "tags": "gravure actress akb48",
       "photoAvailable": false,
       "officialUrl": "",
       "sns": {
@@ -1610,7 +1633,8 @@
       "license": "",
       "licenseUrl": "",
       "creditText": "",
-      "creditUrl": ""
+      "creditUrl": "",
+      "bio": "1999년 9월 15일 일본 지바현 출생의 배우, 유튜버, 그래비어 아이돌입니다. AKB48 전 멤버로 OOO 엔터테인먼트 소속이며, 아이돌 활동 이후 배우와 그래비어 모델로活動を 확장했습니다."
     },
     {
       "id": "mariya-nagao",
@@ -1993,7 +2017,7 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://m.youtube.com/@user-jy1zp3bm6m\">알콩달콩</a>",
+      "creditText": "알콩달콩",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "대한민국의 치어리더이자 레이싱 모델. KBO 프로야구 구단 치어리더로 데뷔해 화제가 되었으며 화보와 이벤트 모델로도 활동합니다."
     },
@@ -2574,7 +2598,7 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UCKhCJRTHHLuW2iW7XQtcfyQ\">Adweek</a>",
+      "creditText": "Adweek",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "1985년 11월 30일 미국 유타주 델타에서 태어난 미국의 모델 겸 TV 퍼스낼리티, 저자입니다. 2010년 스포츠 일러스트레이티드 수영복호로 프로 모델로서 데뷔했고, 2014년에는 니나 아그달, 릴리 앨드리지와 함께 50주년 기념 커버를 장식하며 수영복 모델로서의 입지를 확고히 했습니다. 이후에는 방송과 저술 활동도 병행해 오고 있습니다.",
       "birth": "1985-11-30",
@@ -2716,7 +2740,7 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UCYXogPyO5YNzxFhaOqmjVoQ\">LOVE Magazine </a>",
+      "creditText": "LOVE Magazine",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "1994년 10월 26일 벨기에 코르트레이크에서 태어난 벨기에의 모델입니다. 뉴욕 원 매니지먼트, 밀란 패션 모델 매니지먼트, 런던 더 스쿼드, 브뤼셀 도미니크 모델스, 함부르크 SPIN 모델 매니지먼트 등 세계 여러 모델 에이전시에 소속되어 국제 패션 시장에서 활발히 활동하고 있습니다.",
       "birth": "1994-10-26",
@@ -2788,7 +2812,7 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://vimeo.com/lucacaon\">Luca Caon</a>",
+      "creditText": "Luca Caon",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "1994년 1월 27일 아르헨티나 부에노스아이레스에서 태어난 아르헨티나·스페인 국적의 소셜 미디어 퍼스낼리티 겸 모델, 사업가입니다. 축구선수 크리스티아누 호날두와의 관계로 큰 주목을 받으며 인스타그램 등에서 거대한 팔로워를 모았고, 자체 의류 라인 출시 등 패션 사업을 펼치며 2022년 넷플릭스 다큐멘터리 '아임 조지나'의 프로듀서로도 참여했습니다.",
       "birth": "1994-01-27",
@@ -3175,7 +3199,7 @@
       },
       "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/9556827@N02\">Keith HInkle</a>",
+      "creditText": "Keith HInkle",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "미국의 알파인 스키 선수. 2010년 밴쿠버 올림픽 다운힐 금메달 등 4차례 월드컵 종합 우승과 다운힐 통산 8회 우승을 기록한 전설적인 선수입니다.",
       "birth": "1984-10-18",
@@ -3253,7 +3277,7 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UCCSQ7uuawlBzhi_7JnQbnAw\">RecPlay Records</a>",
+      "creditText": "RecPlay Records",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "미국 마이애미 출신의 모델이자 가수, 작곡가. 어린 시절 모델을 시작해 마크 앤 스펜서, 디올 등 브랜드 캠페인과 뮤직비디오에서 활약했습니다."
     },
@@ -3443,7 +3467,7 @@
       },
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/channel/UC11JFCoslUUMTuAsUPH8RdQ\">Humor Multishow</a>",
+      "creditText": "Humor Multishow",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "브라질의 가수, 작곡가, 댄서. 라틴 그래미상 등 수상 경력을 가진 브라질 대표 아티스트로 팝, 펑크, 레게톤 등 다양한 장르를 넘나듭니다.",
       "birth": "1993-03-30",
@@ -3610,7 +3634,7 @@
         "tiktok": ""
       },
       "license": "CC BY 2.0",
-      "creditText": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/31029865@N06\">Dick Thomas Johnson</a> from Tokyo, Japan",
+      "creditText": "Dick Thomas Johnson, Japan",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "일본의 여배우로, 과거에는 패션 모델로 활동한 이력을 지니고 있습니다. 2020년 1월 개봉한 영화 『AI붕괴』에서는 역할 준비를 위해 머리카락을 30cm 이상 자르고 촬영에 임한 것으로 알려져 있으며, 현재도 드라마와 영화, 광고를 오가며 연기 활동을 중심으로 활약 중입니다.",
       "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_%2849013313561%29_%28cropped%29.jpg/1280px-Alice_Hirose_at_the_Tokyo_International_Film_Festival_-_2019_%2849013313561%29_%28cropped%29.jpg",
