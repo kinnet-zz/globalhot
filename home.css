@@ -424,7 +424,7 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 
 /* ── 10 광고 영역 ── */
 .home-ad-band {
-  padding: 22px 0 4px;
+  padding: 28px 0 24px;
   background: transparent;
   border: 0;
   display: flex;
@@ -436,15 +436,23 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   width: 300px;
+  max-width: 100%;
   min-height: 250px;
-  background: var(--h-card);
-  border: 1px dashed var(--h-rule);
-  border-radius: 6px;
   color: var(--h-faint);
 }
+/* JuicyAds 로더(jads2.js)가 ins를 0x0 인라인 스타일로 축소하므로,
+   !important로 300x250 자리를 확보해 광고가 렌더링되기 전후 레이아웃
+   시프트와 인접 섹션과의 겹침을 막는다. */
+.ad-slot .adsbyjuicy {
+  display: block;
+  width: 300px !important;
+  height: 250px !important;
+  max-width: 100%;
+  line-height: 0;
+}
+.ad-slot .adsbyjuicy iframe { display: block; max-width: 100%; border: 0; }
 .ad-spot-label {
   margin: 0;
   font-family: var(--font-display);
@@ -453,13 +461,21 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   color: var(--h-faint);
   text-transform: uppercase;
 }
+/* 점선 프레임은 광고가 비었을(폴백) 때만 보이도록 폴백 박스로 옮긴다. */
 .ad-fallback {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  width: 300px;
+  height: 250px;
   padding: 20px 16px;
+  border: 1px dashed var(--h-rule);
+  border-radius: 6px;
+  background: var(--h-card);
   text-align: center;
+  box-sizing: border-box;
 }
 .ad-fallback-label {
   font-family: var(--font-display);

@@ -81,6 +81,9 @@
     var juicy = ensureJuicy();
     var ins = document.createElement('ins');
     ins.className = 'adsbyjuicy';
+    // JuicyAds 로더(jads2.js)는 getElementById(adzone번호)로 컨테이너를 찾아
+    // iframe을 주입한다. 따라서 ins에 id=존ID가 반드시 있어야 광고가 렌더링된다.
+    ins.setAttribute('id', String(meta.zone));
     ins.setAttribute('data-ad-zone', String(meta.zone));
     ins.setAttribute('data-width', String(meta.width));
     ins.setAttribute('data-height', String(meta.height));
