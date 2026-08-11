@@ -486,33 +486,44 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
 }
 .ad-fallback p { margin: 0; font-size: .78rem; line-height: 1.6; color: var(--h-faint); }
 
-/* 홈 리더보드(728x90) — 데스크톱은 풀 리더보드, 모바일은 폭에 맞춰 중앙 정렬.
-   모델/갤러리 슬롯은 data-width="300"이므로 아래 규칙이 적용되지 않는다. */
-.home-ad-band .ad-slot[data-width="728"] {
+/* 홈 광고: 데스크톱 리더보드(728x90) + 모바일 배너(300x50) 한 쌍.
+   display:none 슬롯은 IntersectionObserver에 교차하지 않아 로드되지 않는다(불필요한
+   광고 요청 없음). 모델/갤러리 슬롯은 단일 data-width="300"이라 아래 규칙과 무관. */
+.home-ad-band .ad-slot--mobile { display: none; }
+.home-ad-band .ad-slot--desktop[data-width="728"] {
   width: 728px;
   max-width: 100%;
   min-height: 90px;
 }
-.home-ad-band .ad-slot[data-width="728"] .adsbyjuicy {
+.home-ad-band .ad-slot--desktop[data-width="728"] .adsbyjuicy {
   width: 728px !important;
   height: 90px !important;
   max-width: 100%;
 }
-.home-ad-band .ad-slot[data-width="728"] .ad-fallback {
+.home-ad-band .ad-slot--desktop[data-width="728"] .ad-fallback {
   width: 728px;
   height: 90px;
   max-width: 100%;
 }
-/* 모바일: 728px 크리에이브가 뷰포트보다 넓으면 슬롯이 잘라내고 중앙 정렬(가로 스크롤 방지).
-   존이 모바일용(예: 320x50)을 서빙하면 그대로 전체 노출된다. */
+.home-ad-band .ad-slot--mobile[data-width="300"] {
+  width: 300px;
+  max-width: 100%;
+  min-height: 50px;
+}
+.home-ad-band .ad-slot--mobile[data-width="300"] .adsbyjuicy {
+  width: 300px !important;
+  height: 50px !important;
+  max-width: 100%;
+}
+.home-ad-band .ad-slot--mobile[data-width="300"] .ad-fallback {
+  width: 300px;
+  height: 50px;
+  max-width: 100%;
+}
+/* 768px 미만에서 데스크톱 슬롯 숨기고 모바일 슬롯 노출. */
 @media (max-width: 767px) {
-  .home-ad-band .ad-slot[data-width="728"] {
-    width: 100%;
-    overflow: hidden;
-  }
-  .home-ad-band .ad-slot[data-width="728"] .adsbyjuicy {
-    max-width: none;
-  }
+  .home-ad-band .ad-slot--desktop { display: none; }
+  .home-ad-band .ad-slot--mobile { display: flex; }
 }
 
 /* ── 11 반응형 ── */
