@@ -362,22 +362,11 @@
 
         var rail = document.createElement('aside');
         rail.className = 'profile-rail';
+
+        // 카테고리·국가는 헤더(eyebrow "{CATEGORY} PROFILE" + profile-meta "국가")에
+        // 이미 표시되므로 rail에서는 중복하지 않는다. rail에는 라이선스·사진 출처처럼
+        // 헤더에 없는 고유 정보만 담는다.
         var dl = document.createElement('dl');
-
-        var categoryTerm = document.createElement('dt');
-        categoryTerm.textContent = '카테고리';
-        var categoryValue = document.createElement('dd');
-        categoryValue.textContent = String(categoryOf(model)).toUpperCase();
-        dl.appendChild(categoryTerm);
-        dl.appendChild(categoryValue);
-
-        var countryTerm = document.createElement('dt');
-        countryTerm.textContent = '국가';
-        var countryValue = document.createElement('dd');
-        countryValue.textContent = model.country;
-        dl.appendChild(countryTerm);
-        dl.appendChild(countryValue);
-
         if (model.photoUrl && model.license) {
           var licenseTerm = document.createElement('dt');
           licenseTerm.textContent = '라이선스';
@@ -386,7 +375,7 @@
           dl.appendChild(licenseTerm);
           dl.appendChild(licenseValue);
         }
-        rail.appendChild(dl);
+        if (dl.children.length) rail.appendChild(dl);
 
         // Photo attribution only for remote (Wikimedia) images where we have a
         // real license + credit. Local downloads publish no per-photo credit.
@@ -399,10 +388,11 @@
           } else {
             credit.appendChild(document.createTextNode(model.creditText));
           }
-rail.appendChild(credit);
+          rail.appendChild(credit);
         }
 
-        section.appendChild(rail);
+        // 라이선스·크레딧(고유 정보)이 있을 때만 rail을 렌더링한다.
+        if (rail.children.length) section.appendChild(rail);
         header.after(section);
         return section;
       }

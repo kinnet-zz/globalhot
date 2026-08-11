@@ -178,7 +178,21 @@ test('detail page renders the minimal profile rail without structured-field dupl
     }
     return acc;
   })(rail, []).join(' ');
-  assert.ok(railText.includes('카테고리') && railText.includes('국가'), 'rail keeps category + country');
+  // 카테고리·국가는 헤더(eyebrow/profile-meta)에 표시되므로 rail에서는 중복하지 않는다.
+  assert.ok(!railText.includes('카테고리') && !railText.includes('국가'), 'rail must not duplicate category/country (shown in header)');
+  // rail에는 라이선스(헤더에 없는 고유 정보)가 남아 있다.
+  assert.ok(railText.includes('라이선스'), 'rail keeps license');
+  // 헤더에는 카테고리(eyebrow)·국가(profile-meta)가 표시된다.
+  const headerText = (function collect(n, acc) {
+    acc = acc || [];
+    for (const child of n.children || []) {
+      if (child.textContent) acc.push(child.textContent);
+      collect(child, acc);
+    }
+    return acc;
+  })(header, []).join(' ');
+  assert.match(headerText, /PROFILE/, 'header eyebrow shows the category');
+  assert.ok(headerText.includes('국가'), 'header profile-meta shows the country');
   // The bio already narrates birth/origin/agency; the rail must not duplicate them.
   for (const label of ['출생', '출신', '직업', '활동 기간', '소속사']) assert.ok(!railText.includes(label), `rail must not repeat ${label}`);
 
