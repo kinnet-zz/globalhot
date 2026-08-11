@@ -1,7 +1,7 @@
 {
   "title": "GlobalHot gravure auto-add queue",
-  "description": "Candidate gravure models for the daily 06:00 KST drip. status:'ready' = resolved, license-verified FREE photo (CC/PD/GFDL on Wikimedia Commons), added by scripts/gravure-add.mjs. 'pending' = await a cleared photo. Newest-first by Wikipedia last-edit recency.",
+  "description": "Candidate gravure models for the daily 06:00 KST drip.",
   "schemaVersion": 1,
-  "source": "en.wikipedia.org Category:Japanese gravure models + Wikimedia Commons extmetadata licensing",
+  "source": "Wikimedia Commons CC licensed photos",
   "queue": []
 }

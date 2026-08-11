@@ -306,7 +306,7 @@
       "altName": "岸明日香",
       "country": "JAPAN",
       "tags": "gravure idol actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -380,7 +380,7 @@
       "altName": "高崎かなみ",
       "country": "JAPAN",
       "tags": "gravure idol actress",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -392,7 +392,7 @@
       "licenseUrl": "",
       "creditText": "",
       "creditUrl": "",
-      "bio": "1997년 7월 14일 일본 가나가와현 요코하마시 출생의 그래비어 아이돌, 여배우입니다. 에이ジア프로모션 소속으로 Miss GENIC 2019 대회 우승을 비롯하여 그래비어 활동으로 이름을 알렸습니다."
+      "bio": "1997년 7월 14일 일본 가나가와현 요코하마시 출생의 그래비어 아이돌, 여배우입니다. 에이시아프로모션 소속으로 Miss GENIC 2019 대회 우승을 비롯하여 그래비어 활동으로 이름을 알렸습니다."
     },
     {
       "id": "moe-iori",
@@ -1120,7 +1120,7 @@
       "altName": "今田美桜",
       "country": "JAPAN",
       "tags": "gravure actress model",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -1548,7 +1548,7 @@
       "altName": "川崎あや",
       "country": "JAPAN",
       "tags": "gravure model racequeen",
-      "photoAvailable": false,
+      "photoAvailable": true,
       "officialUrl": "",
       "sns": {
         "x": "",

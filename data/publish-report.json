@@ -1,94 +1,36 @@
 {
-  "generatedAt": "2026-08-08T03:44:07.859Z",
-  "candidatesExamined": 22,
-  "published": [
-    "yoko-kumada",
-    "mayuko-iwasawa",
-    "k-sjua",
-    "k-yeo",
-    "w-irina",
-    "w-chrissy",
-    "w-georgia",
-    "w-alix",
-    "w-cecil"
-  ],
+  "generatedAt": "2026-08-11T06:55:41.623Z",
+  "candidatesExamined": 5,
+  "published": [],
   "failed": [
     {
-      "id": "elaiza-ikeda",
-      "name": "Elaiza Ikeda",
+      "id": "yuno-ohara",
+      "name": "Yuno Ohara",
       "country": "JAPAN",
       "reason": "no_name_match"
     },
     {
-      "id": "k-biroha",
-      "name": "Son Bi-ro-ha",
-      "country": "KOREA",
+      "id": "miku-kuwashima",
+      "name": "Miku Kuwashima",
+      "country": "JAPAN",
       "reason": "no_name_match"
     },
     {
-      "id": "k-hari",
-      "name": "Ban Ha-ri",
-      "country": "KOREA",
+      "id": "ina-enohara",
+      "name": "Ina Enohara",
+      "country": "JAPAN",
       "reason": "no_name_match"
     },
     {
-      "id": "k-nagyeong",
-      "name": "Mok Na-kyeong",
-      "country": "KOREA",
+      "id": "cocoro-toyoshima",
+      "name": "Cocoro Toyoshima",
+      "country": "JAPAN",
       "reason": "no_name_match"
     },
     {
-      "id": "k-dyeon",
-      "name": "E Da-yeon",
-      "country": "KOREA",
-      "reason": "no_name_match"
-    },
-    {
-      "id": "k-bb",
-      "name": "Bobby-ang",
-      "country": "KOREA",
-      "reason": "no_name_match"
-    },
-    {
-      "id": "w-jena-frumes",
-      "name": "Jena Frumes",
-      "country": "USA",
-      "reason": "no_name_match"
-    },
-    {
-      "id": "w-millane",
-      "name": "Sommer Ray",
-      "country": "USA",
-      "reason": "no_name_match"
-    },
-    {
-      "id": "w-izzy",
-      "name": "Erin Gilfoy",
-      "country": "USA",
-      "reason": "no_name_match"
-    },
-    {
-      "id": "w-hanabe",
-      "name": "Elena Knoeferl",
-      "country": "GERMANY",
-      "reason": "no_search_results"
-    },
-    {
-      "id": "w-nat",
-      "name": "Natalia Narganes",
-      "country": "SPAIN",
-      "reason": "no_name_match"
-    },
-    {
-      "id": "w-linne",
-      "name": "Linn Aamdal",
-      "country": "NORWAY",
-      "reason": "no_search_results"
-    },
-    {
-      "id": "w-lena",
-      "name": "Lena Mantler",
-      "country": "GERMANY",
+      "id": "miu-shirahama",
+      "name": "Miu Shirahama",
+      "country": "JAPAN",
       "reason": "no_name_match"
     }
   ]
