@@ -12,7 +12,7 @@ export async function onRequestGet({ request, env }) {
   const modelId = (url.searchParams.get('modelId') || '').trim();
   const query = (url.searchParams.get('q') || '').trim();
 
-  let sql = 'SELECT c.id, c.model_id AS modelId, c.author_name AS authorName, c.content, c.created_at AS createdAt FROM model_comments c JOIN models m ON m.id = c.model_id';
+  let sql = 'SELECT c.id, c.model_id AS modelId, c.author_name AS authorName, c.content, c.created_at AS createdAt FROM model_comments c';
   const conditions = [];
   const params = [];
   if (modelId) {

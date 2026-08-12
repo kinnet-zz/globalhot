@@ -2,7 +2,6 @@ const JSON_HEADERS = {
   'content-type': 'application/json; charset=UTF-8',
   'cache-control': 'no-store',
 };
-const ACTIVE = 'active';
 const MODEL_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const AUTHOR_MAX = 24;
 const CONTENT_MAX = 2000;
@@ -44,12 +43,6 @@ function commenterIp(request) {
   if (host !== 'localhost' && host !== '127.0.0.1' && host !== '::1') return null;
   const forwarded = request.headers.get('X-Forwarded-For');
   return forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
-}
-
-async function activeModel(db, modelId) {
-  return db.prepare(
-    'SELECT id FROM models WHERE id = ? AND status = ? AND is_demo = ?'
-  ).bind(modelId, ACTIVE, 0).first();
 }
 
 function cleanText(value) {

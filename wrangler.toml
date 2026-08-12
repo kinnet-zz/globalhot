@@ -7,6 +7,10 @@ compatibility_date = "2026-07-18"
 # RECOMMENDATION_SALT 는 추천 해시용 솔트이며 32자 이상의 무작위 문자열이어야 합니다.
 # 참고: functions/_lib/recommendations.js 가 이 값을 검증합니다.
 #
+#   wrangler pages secret put COMMENTS_SALT --project-name globalhot
+# COMMENTS_SALT 는 댓글 IP 해싱용 솔트이며 32자 이상의 무작위 문자열이어야 합니다.
+# 참고: functions/_lib/comments.js 가 이 값을 검증합니다.
+#
 #   wrangler pages secret put ADMIN_SECRET --project-name globalhot
 # ADMIN_SECRET 은 관리자 페이지(/admin.html) 로그인 비밀번호이자 토큰 서명 키입니다.
 # 32자 이상의 무작위 문자열이어야 하며, 반드시 기밀로 유지합니다.
