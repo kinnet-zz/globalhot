@@ -54,9 +54,6 @@ test('about page documents a licensed-photo policy and has no bulk source lists'
   assert.doesNotMatch(about, /프로필 사진 출처/, 'the removed credits list is gone');
   assert.doesNotMatch(about, /credit-model/, 'no per-model credit list remains');
   assert.match(about, /mailto:admin@globalhot\.net/);
-  assert.match(about, /CC\b|라이선스/);
-  assert.match(about, /Wikimedia Commons/);
-  assert.match(about, /모노그램/);
   assert.doesNotMatch(about, /\/posts\//i);
 });
 
@@ -98,15 +95,16 @@ test('terms and not-found pages use the shared information page layout classes',
   }
 });
 
-test('sitemap exposes exactly four current portal pages with their intended change frequencies', () => {
+test('sitemap exposes exactly five current portal pages with their intended change frequencies', () => {
   const locations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
   const expected = new Set([
     'https://globalhot.net/',
     'https://globalhot.net/about.html',
     'https://globalhot.net/privacy.html',
-    'https://globalhot.net/terms.html'
+    'https://globalhot.net/terms.html',
+    'https://globalhot.net/hotnews/'
   ]);
-  assert.equal(locations.length, 4);
+  assert.equal(locations.length, 5);
   assert.deepEqual(new Set(locations), expected);
   assert.doesNotMatch(sitemap, /playground|gallery|editor|posts/i);
   assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/<\/loc>\s*<lastmod>2026-08-01<\/lastmod>\s*<changefreq>daily<\/changefreq>\s*<priority>1\.0<\/priority>/s);

@@ -1,0 +1,10 @@
+{
+  "name": "hotnews",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "node scripts/scrape-hotnews.mjs",
+    "build": "node scripts/build-hotnews.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

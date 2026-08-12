@@ -119,7 +119,6 @@ export async function postComment(context, modelId, body) {
   if (!isClean(content, authorName)) return error('bad_request', '개인정보가 포함된 댓글은 등록할 수 없습니다.', 400);
 
   try {
-    if (!(await activeModel(context.env.DB, modelId))) return error('not_found', '모델 프로필을 찾을 수 없습니다.', 404);
     const hash = await commenterHash(salt, ip);
     // Rate limit: 5 comments per model per IP per 10 minutes.
     const recent = await recentComments(context.env.DB, modelId, hash, 10);

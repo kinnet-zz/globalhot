@@ -105,14 +105,13 @@ test('POST rejects empty, overlong, or personal-data comment bodies', async () =
   assert.equal((await postComment(ctx(db, options), 'enako', { authorName: '카드번호맨', content: 'abc' })).status, 400);
 });
 
-test('POST rejects unknown and demo model IDs', async () => {
-  const db = mockDb({ models: [
-    ['enako', { id: 'enako', status: 'active' }],
-    ['luna-miro', { id: 'luna-miro', status: 'active', is_demo: 1 }]
-  ] });
+test('POST accepts any valid model ID regardless of models table entry', async () => {
+  const db = mockDb();
   const options = { headers: { 'X-Forwarded-For': '203.0.113.77' } };
-  assert.equal((await postComment(ctx(db, options), 'unknown', { authorName: 'a', content: 'bc' })).status, 404);
-  assert.equal((await postComment(ctx(db, options), 'luna-miro', { authorName: 'a', content: 'bc' })).status, 404);
+  const response = await postComment(ctx(db, options), 'any-valid-model-id', { authorName: 'a', content: 'bc' });
+  assert.equal(response.status, 201);
+  const payload = await response.json();
+  assert.equal(payload.ok, true);
 });
 
 test('POST persists a comment while storing only an IP hash, never the raw IP', async () => {

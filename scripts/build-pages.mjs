@@ -1,8 +1,11 @@
-import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { prepareModelsData } from "./prepare-data.mjs";
 import { applyCacheBust } from "./cache-bust.mjs";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+const execFileAsync = promisify(execFile);
 
 export const STATIC_FILES = [
   "index.html",
@@ -105,6 +108,29 @@ export async function buildPages() {
 
   await prepareModelsData({ projectRoot, distDir });
 
+  // Build hotnews and copy to dist/hotnews
+  const hotnewsSrc = path.resolve(projectRoot, "hotnews");
+  const hotnewsDist = path.resolve(hotnewsSrc, "dist");
+  const nodeBin = process.execPath;
+  const hotnewsBuildScript = path.resolve(hotnewsSrc, "scripts", "build-hotnews.mjs");
+  try {
+    await execFileAsync(nodeBin, ["scripts/build-hotnews.mjs"], { cwd: hotnewsSrc });
+    const hnEntries = await readdir(hotnewsDist);
+    const destHotnews = path.join(distDir, "hotnews");
+    await mkdir(destHotnews, { recursive: true });
+    for (const entry of hnEntries) {
+      const srcPath = path.join(hotnewsDist, entry);
+      const destPath = path.join(destHotnews, entry);
+      const info = await stat(srcPath);
+      if (info.isFile()) {
+        await mkdir(path.dirname(destPath), { recursive: true });
+        await copyFile(srcPath, destPath);
+      }
+    }
+  } catch (e) {
+    console.warn("hotnews build skipped:", e.message);
+  }
+
   await applyCacheBust({
     projectRoot,
     distDir,
@@ -116,8 +142,9 @@ export async function buildPages() {
   const isAllowedOutput = (file) =>
     staticSet.has(file) ||
     file === "data/models.json" ||
+    file.startsWith("hotnews/") ||
     SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
-  const allowedDirRoots = new Set(["data", "assets", "assets/profiles"]);
+  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "hotnews"]);
   const isAllowedDir = (d) => allowedDirRoots.has(d) || SCAN_DIRS.some((dir) => d.startsWith(`${dir}/`));
 
   const unexpectedFiles = outputFiles.filter((f) => !isAllowedOutput(f));

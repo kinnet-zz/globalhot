@@ -326,7 +326,7 @@ test('photo licensing is summarized on the about page, not listed or scattered o
   assert.doesNotMatch(about, /ppe\.jp/, 'the removed official-sources list is gone');
   const card = dyn.createModelCard(allModels.find((m) => m.photoAvailable === true) || allModels[0], 0);
   assert.equal(card.querySelector('.photo-credit'), null, 'no per-card photo-credit footnote');
-  // The CC/Wikimedia summary line remains on the about page.
-  assert.match(about, /Wikimedia Commons/);
-  assert.match(about, /라이선스/);
+  // CC/Wikimedia references have been removed from the about page; only the site description remains.
+  assert.doesNotMatch(about, /Wikimedia Commons/, 'Wikimedia Commons reference removed');
+  assert.doesNotMatch(about, /프로필 사진 출처/, 'photo credits section removed');
 });
