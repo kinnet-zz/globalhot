@@ -1,0 +1,91 @@
+/* =========================================================
+   GlobalHot – community.css
+   19+ 커뮤니티 링크 보드. 베이스는 portal.css + home.css + issue.css.
+   성인 인증 게이트 + 링크 전용 카드 렌더.
+   ========================================================= */
+
+/* ── 성인 인증 게이트 ── */
+.adult-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--h-ink, #15121c) none;
+  background-image: radial-gradient(1200px 500px at 50% -10%, rgba(198, 40, 40, 0.22), transparent 60%);
+  color: var(--h-paper, #fff);
+}
+.adult-gate[hidden] { display: none; }
+.adult-gate-card {
+  width: min(480px, 92vw);
+  padding: 34px 30px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  text-align: center;
+}
+.gate-kicker {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.adult-gate-card h2 { margin: 0 0 14px; font-size: 1.6rem; font-weight: 900; }
+.gate-rule {
+  width: 44px;
+  height: 3px;
+  margin: 0 auto 18px;
+  border-radius: 3px;
+  background: #c62828;
+}
+.gate-desc { margin: 0 0 26px; font-size: 0.92rem; line-height: 1.7; color: rgba(255, 255, 255, 0.78); }
+.gate-actions { display: flex; flex-direction: column; gap: 10px; }
+.gate-actions button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-family: inherit;
+}
+.gate-accept { background: #c62828; color: #fff; }
+.gate-accept:hover { background: #a61c1c; }
+.gate-reject { background: transparent; color: rgba(255, 255, 255, 0.85); border: 1px solid rgba(255, 255, 255, 0.3); }
+.gate-reject:hover { background: rgba(255, 255, 255, 0.08); }
+.gate-rejected .adult-gate-card { border-color: rgba(255, 255, 255, 0.2); }
+.gate-rejected .gate-actions { display: none; }
+
+/* ── 게이트 활성 시 스크롤 잠금 ── */
+body.gate-locked { overflow: hidden; }
+
+/* ── 커뮤니티 링크 카드: 출처 칩 + 글쓴이/시간 ── */
+.model-card.comm-card {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 5px 0;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.model-card.comm-card .portrait { display: none; }
+.model-card.comm-card .category-label { margin: 0; }
+.model-card.comm-card h3 { font-size: 1.02rem; font-weight: 800; line-height: 1.4; }
+.model-card.comm-card h3 small { color: var(--h-faint, #666); font-weight: 700; }
+.model-card.comm-card .card-footer { margin-top: 8px; gap: 8px; flex-wrap: wrap; }
+.model-card.comm-card .comm-source {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: rgba(198, 40, 40, 0.1);
+  color: #c62828;
+}
+.model-card.comm-card .card-detail-link { margin: 0; }
+
+@media (max-width: 640px) {
+  .model-card.comm-card { grid-template-columns: minmax(0, 1fr); }
+}

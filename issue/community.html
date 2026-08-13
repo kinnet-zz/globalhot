@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="커뮤니티 19+ 링크 수집 보드. 회원 커뮤니티에 올라온 성인 테마 글의 링크만 모읍니다. 19세 이상만 열람할 수 있습니다.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/portal.css?v=20260802-3">
+  <link rel="stylesheet" href="/home.css?v=20260808-3">
+  <link rel="stylesheet" href="issue.css?v=20260813-6">
+  <link rel="stylesheet" href="community.css?v=20260813-1">
+  <script src="/analytics.js?v=20260718-2" defer></script>
+  <title>커뮤니티 19+ 링크 보드 | GlobalHot</title>
+</head>
+<body>
+  <header class="site-header" data-theme="light">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="GlobalHot 홈">GLOBAL<span>HOT</span></a>
+      <span class="brand-sub">VERIFIED DIRECTORY</span>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="/#models">프로필</a>
+        <a href="/about.html">소개</a>
+        <a href="/issue/" aria-current="page">이슈</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="registry-main">
+    <section class="feed-section" id="posts" aria-labelledby="posts-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="eyebrow">19+ COMMUNITY</p><h2 id="posts-title">커뮤니티 링크 보드</h2></div>
+          <p>회원 커뮤니티에 올라온 성인 테마 글의 링크만 수집합니다. 원문과 저작권은 각 사이트에 있습니다.</p>
+        </div>
+        <section class="discovery-bar" id="discover" aria-label="링크 필터">
+          <div class="shell controls-wrap">
+            <div class="search-form" role="search">
+              <label for="search">제목 검색</label>
+              <input id="search" type="search" placeholder="제목 검색…" autocomplete="off">
+            </div>
+            <p id="resultsCount" class="results-count" role="status" aria-live="polite">0건</p>
+          </div>
+        </section>
+        <div id="postGrid" class="model-grid board-list" aria-label="커뮤니티 링크 목록">
+          <p class="board-loading" id="boardLoading">성인 인증 후 목록이 표시됩니다.</p>
+        </div>
+        <div id="emptyState" class="empty-state" hidden><strong>조건에 맞는 링크가 없습니다.</strong><p>검색어를 바꿔 다시 시도해 보세요.</p><button id="clearSearch" class="text-button" type="button">조건 초기화</button></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" data-theme="light">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand" href="/">GLOBAL<span>HOT</span></a>
+        <p class="footer-copy">공식 출처 확인 프로필 레지스트리</p>
+        <p class="rights-note">콘텐츠·성명·상표 권리는 각 권리자에게 있습니다. 수정/삭제 요청: admin@globalhot.net</p>
+      </div>
+      <nav aria-label="푸터 메뉴">
+        <a href="/about.html">소개</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/terms.html">이용약관</a>
+      </nav>
+    </div>
+    <p class="shell copyright">© 2026 GlobalHot.</p>
+  </footer>
+  <div id="adultGate" class="adult-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <div class="adult-gate-card">
+      <p class="gate-kicker">19+ ADULT</p>
+      <h2 id="gate-title">성인 인증</h2>
+      <div class="gate-rule" role="presentation"></div>
+      <p id="gate-desc" class="gate-desc">본 보드는 19세 이상 성인만 열람할 수 있는 콘텐츠의 링크를 다룹니다. 미성년자는 접근할 수 없으며, 열람 목적과 결과에 대한 책임은 본인에게 있습니다.</p>
+      <div class="gate-actions">
+        <button id="gateAccept" class="gate-accept" type="button">성인이며 동의합니다</button>
+        <button id="gateReject" class="gate-reject" type="button">동의하지 않습니다</button>
+      </div>
+    </div>
+  </div>
+  <!-- 수집 데이터는 빌드 시 인라인 삽입됨 -->
+  <script id="community-meta" type="application/json">{}</script>
+  <script id="community-data" type="application/json">[]</script>
+  <script src="community.js?v=20260813-1"></script>
+</body>
+</html>
