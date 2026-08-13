@@ -25,7 +25,7 @@
       items = [];
     }
     items = items.filter(function (i) { return i.platform === 'news'; });
-    if (items.length) firstScrapedAt = items[0].created_utc || 0;
+    firstScrapedAt = readScrapedAt();
 
     var metaCount = document.querySelector('[data-registry-count]');
     if (metaCount) metaCount.textContent = items.length;
@@ -38,6 +38,20 @@
 
     applyFilters(params);
     bindControls();
+  }
+
+  function readScrapedAt() {
+    var metaEl = document.getElementById('issue-meta');
+    if (metaEl) {
+      try {
+        var meta = JSON.parse(metaEl.textContent);
+        if (meta && meta.scraped_at) {
+          var t = Date.parse(meta.scraped_at);
+          if (!Number.isNaN(t)) return Math.floor(t / 1000);
+        }
+      } catch (e) { /* fallback */ }
+    }
+    return items.length ? (items[0].created_utc || 0) : 0;
   }
 
   function bindControls() {
@@ -193,7 +207,7 @@
     var el = document.getElementById('resultsCount');
     if (el) {
       var txt = count + '건';
-      if (firstScrapedAt) txt += ' · 수집 ' + timeAgo(firstScrapedAt);
+      if (firstScrapedAt) txt += ' · 수집 ' + timeAgo(firstScrapedAt) + ' 갱신';
       el.textContent = txt;
     }
   }

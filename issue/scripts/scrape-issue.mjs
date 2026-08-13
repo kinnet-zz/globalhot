@@ -1,7 +1,8 @@
-// scrape-issue.mjs — 글로벌 이슈 수집기
-// RSS/Atom(Flickr·DeviantArt·Mastodon·YouTube) + Booru JSON(Safebooru·yande.re) 를
-// 통합 파싱해 issue/data/issue.json 을 만든다. 링크만 수집(이미지 복사 없음).
+// scrape-issue.mjs — 글로벌 이슈 뉴스 수집기
+// Google News RSS 검색을 성인테마(그라비아·비키니·글래머·OnlyFans 등) 쿼리로 모아
+// issue/data/issue.json 을 만든다. 링크만 수집(이미지 복사 없음).
 // 익명 GET 만 사용: 차단/로그인 필요 소스는 자동 건너뛴다.
+// 수집 기준: 타이틀에 테마어(TIER_A)가 반드시 1개 이상 + 안전차단/오프토픽(SAFETY·OFF_TOPIC) 없음.
 
 import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -10,35 +11,81 @@ const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const RATE_LIMIT_MS = 900; // 소스 간 요청 간격
 const MAX_PER_SOURCE = 20;
+const MAX_TOTAL = 150; // 게시판 최대 보관 건수 (최신순 유지)
 
-// 안전 필터: 타이틀/태그에 이 키워드가 있으면 제외 (비동의/미성년/노골적)
-const EXCLUDE_KEYWORDS = [
+// 안전 필터 (전 플랫폼): 미성년/비동의 관련 내용은 절대 수집하지 않는다.
+const SAFETY_KEYWORDS = [
   'loli', 'shota', 'lolicon', 'shotacon', 'toddler',
   'child', 'underage', 'preteen', 'minor',
-  'areola', 'nipple', 'nipples', 'topless', 'genitalia', 'penis',
+  'teen', 'teens', 'teenage', 'schoolgirl', 'school girl', 'high school girl',
+  'junior', 'elementary', 'sixteen', 'seventeen',
 ];
 
-// Google News 전용 노이즈 필터 (제조업/행사/스팸). platform==='news' 일 때만 적용.
+// 뉴스 전용: 이 도메인의 리다이렉트/스팸은 제외
 const NEWS_EXCLUDE_DOMAINS = ['packman.in', 'foodsspectrum.com', 'plastindia'];
+
+// 뉴스 전용 테마어(Tier A) — 타이틀에 이 중 하나가 있으면 본 테마(성인/그라비아)로 판정.
+const NEWS_MUST_KEYWORDS = [
+  'gravure', 'gravura', '그라비아', 'グラビア',
+  'photo book', 'photobook', '写真集', '화보',
+  'bikini', '비키니', 'swimsuit', '수영복',
+  'lingerie', '란제리', '잠옷',
+  'glamour', '글래머', 'boudoir',
+  'pinup', 'pin-up',
+  'maxim model', 'maxim magazine',
+  'nude', '누드', 'naked', 'topless', 'nipple', 'areola', '나체',
+  'strips down', 'strips off', 'strip down', 'bares',
+  'onlyfans', 'fansly', 'adult model', 'adult star', 'adult idol',
+  'cosplay model', 'cosplayer',
+  '노출 사진', '노출 화보', '수영복 화보', '비키니 화보',
+];
+
+// 뉴스 전용 오프토픽 필터 — 이 키워드가 있으면(테마어와는 무관하게) 제외.
+// 정치·범죄·사망·돈/리스트·AI/IT·패션/연예·종교·학술·컨벤션·잡지식류.
 const NEWS_EXCLUDE_KEYWORDS = [
-  'printing', 'press', 'machine', 'flex', 'packaging', 'flexo',
+  // 정치
+  'lawmaker', 'lawmakers', 'election', 'politician', 'politicians',
+  'parliament', 'senate', 'party chief', 'party leader', 'candidacy',
+  'presidency', 'presidential', 'slams', 'iran', 'sanction',
+  '국회', '총선', '정계', '출마', '당선', '낙선', '국회의원',
+  // 범죄/법조/사망
+  'arrest', 'arrested', 'police', 'stab', 'stabb', 'dismembered', 'murder', 'murdered',
+  'manslaughter', 'lawsuit', 'court', 'trial', 'sentenced', 'jail', 'prison',
+  'cartel', 'drug', 'cocaine', 'smuggling', 'found dead', 'passed away', 'dead',
+  'death', 'obituary', '사망', '별세', '경찰', '구속', '수사', '기소', '범죄',
+  'consent', 'catfish', 'stolen', 'fraud', 'defraud',
+  // 돈/리스트/순위
+  'top earner', 'top earners', 'earns', 'earned', 'millions', 'million',
+  'money', 'income', 'revenue', 'salary', 'net worth', 'richest', 'fortune',
+  'highest-paid', 'top models', 'best onlyfans', 'top onlyfans', '10 best',
+  'top 10', 'ranked', 'ranking', 'most-followed', 'most followed', 'best accounts',
+  'top accounts', 'guide', 'what is', 'explainer', 'paid', 'unpaid', 'auction',
+  // AI/IT/사업
+  'ai model', 'ai image', 'ai photo', 'ai companion', 'ai influencer',
+  'ai generated', 'ai fodder', 'ai 걸', 'ai 이미지', 'ai 사진', 'ai 모델',
+  'ai 생성', 'ai 그림', 'ai to', 'uses ai', 'artificial intelligence', 'subscription',
+  'business model', '유료', '구독', '광고 모델', '인스타그램 광고', '상표',
+  '특허', 'uxui', 'ux design', 'metaverse', 'algorithm', 'loreal', 'makeup',
+  'cosmetic', 'instagram premium', 'instagram business', 'whatsapp',
+  // 패션/연예/아이돌(비그라비아)
+  'k-pop', 'kpop', 'girl group', 'boy band', 'korean actress', 'k-drama',
+  'kdrama', 'runway', 'fashion week', 'street style', 'skincare',
+  'celebrities', 'celebrity', 'singer', '가수', '배우', '연예인', '걸그룹', '보이그룹',
+  'male idol', 'male model', 'male models', 'prince', 'royal',
+  // 종교/학술/잡지식
+  'pope', 'vatican', 'christian', 'church', 'pastor', '교황', '바티칸',
+  'academic', 'research', 'university', 'campus', 'college', 'essay', 'thesis',
+  'scholar', '논문', '연구', 'husband', 'mom', 'mum', 'baby', 'single mother',
+  'scandal', 'affair', 'castle', 'airline', '콘테스트',
+  // 컨벤션/이벤트 (기존)
   'comic-con', 'anime expo', 'comic con', 'comiccon', 'convention',
   'expo', 'festival', 'anime india', 'anime ottawa',
   'best cosplay', 'top cosplay', 'cosplay gallery', 'cosplay contest',
   'cosplay cup', 'cosplay summit', 'cosplay championship',
   'comicpalooza', 'wondercon', 'liverpool comic', 'c2e2', 'mcm birmingham',
-  'gamestop', 'game awards',
+  'gamestop', 'game awards', 'contest', 'championship',
   'meta instagram', 'meta starts', 'meta muse', 'algorithm',
-  'virat kohli', 'kohli',
-  'ai photos', 'ai fodder', 'ai 이미지', 'ai 그림', 'ai 생성', 'ai 사진', '뮤즈', 'gen con', 'magwest',
-  'instagram premium', 'instagram business',
-  'pokemon', 'pickleball',
-];
-// 뉴스 타이틀은 최소 하나 이상의 관련 키워드를 포함해야 통과
-const NEWS_MUST_KEYWORDS = [
-  'gravure', 'model', 'idol', 'gravura', '그라비아', '인스타',
-  '모델', '아이돌', 'onlyfans', 'insta', '写真', 'グラビア',
-  'sexy', 'bikini', 'swimsuit', 'glamour', 'cosplay', 'cosplayer',
+  'virat kohli', 'kohli', 'pokemon', 'pickleball', 'anifest', 'ani fest',
 ];
 
 function sleep(ms) {
@@ -171,17 +218,32 @@ function toUnix(pub) {
 }
 
 function isExcluded(title) {
-  const t = (title || '').toLowerCase();
-  return EXCLUDE_KEYWORDS.some((k) => t.includes(k));
+  return isUnsafe.test((title || '').toLowerCase());
 }
 
-// Google News 노이즈/관련성 필터 (platform==='news' 전용)
+// 키워드 매처: 영문/아스키 구문은 단어경계(\b), 한글·일어·기호 키워드는 부분일치.
+function makeKeywordMatcher(list) {
+  const parts = list.map((k) => {
+    const escaped = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const ascii = /^[\w\s'-]+$/.test(k);
+    return ascii ? `(?:^|[^a-z])${escaped}(?:[^a-z]|$)` : escaped;
+  });
+  return new RegExp(parts.join('|'), 'i');
+}
+
+const isOffTopic = makeKeywordMatcher(NEWS_EXCLUDE_KEYWORDS);
+const hasTheme = makeKeywordMatcher(NEWS_MUST_KEYWORDS);
+const isUnsafe = makeKeywordMatcher(SAFETY_KEYWORDS);
+
+// Google News 관련성 필터 (platform==='news' 전용):
+// 테마어 ≥1개 AND 안전차단 없음 AND 오프토픽 없음
 function isNewsRelevant(it) {
   const t = (it.title || '').toLowerCase();
   const u = (it.url || '').toLowerCase();
   if (NEWS_EXCLUDE_DOMAINS.some((d) => u.includes(d))) return false;
-  if (NEWS_EXCLUDE_KEYWORDS.some((k) => t.includes(k))) return false;
-  return NEWS_MUST_KEYWORDS.some((k) => t.includes(k.toLowerCase()));
+  if (isExcluded(it.title)) return false;
+  if (!hasTheme.test(t)) return false;
+  return !isOffTopic.test(t);
 }
 
 async function fetchText(url) {
@@ -265,15 +327,23 @@ async function main() {
     return a.source.localeCompare(b.source);
   });
 
+  // 게시판 상한까지 보관 (최신 항목 유지)
+  const capped = unique.slice(0, MAX_TOTAL);
+
+  if (!capped.length) {
+    console.warn('\n⚠ 수집 결과가 0건. 기존 issue.json 을 유지하고 종료합니다.');
+    return;
+  }
+
   const output = {
     meta: {
       scraped_at: new Date().toISOString(),
-      total_items: unique.length,
+      total_items: capped.length,
       source_count: enabled.length,
-      categories: [...new Set(unique.map((i) => i.category))].sort(),
-      platforms: [...new Set(unique.map((i) => i.platform))].sort(),
+      categories: [...new Set(capped.map((i) => i.category))].sort(),
+      platforms: [...new Set(capped.map((i) => i.platform))].sort(),
     },
-    items: unique,
+    items: capped,
   };
 
   const outDir = join(import.meta.dirname, '..', 'data');
@@ -281,7 +351,7 @@ async function main() {
   const outPath = join(outDir, 'issue.json');
   writeFileSync(outPath, JSON.stringify(output, null, 2), 'utf-8');
 
-  console.log(`\n✓ 저장: ${unique.length}건 → data/issue.json`);
+  console.log(`\n✓ 저장: ${capped.length}건 → data/issue.json`);
   console.log(`  카테고리: ${output.meta.categories.join(', ') || '(없음)'}`);
   console.log(`  플랫폼: ${output.meta.platforms.join(', ') || '(없음)'}`);
 }

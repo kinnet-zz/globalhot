@@ -33,10 +33,16 @@ async function build() {
   const template = readFileSync(join(ROOT, 'index.html'), 'utf-8');
 
   const dataScript = `<script id="issue-data" type="application/json">${JSON.stringify(items)}</script>`;
-  let html = template.replace(
-    '<script id="issue-data" type="application/json">[]</script>',
-    dataScript,
-  );
+  const metaScript = `<script id="issue-meta" type="application/json">${JSON.stringify(meta)}</script>`;
+  let html = template
+    .replace(
+      '<script id="issue-data" type="application/json">[]</script>',
+      dataScript,
+    )
+    .replace(
+      '<script id="issue-meta" type="application/json">{}</script>',
+      metaScript,
+    );
 
   const outPath = join(DIST, 'index.html');
   writeFileSync(outPath, html, 'utf-8');
