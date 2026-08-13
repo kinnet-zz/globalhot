@@ -139,7 +139,7 @@ test('POST cleans whitespace before storing and rate-limits after five per IP pe
   assert.equal((await limited.json()).error.code, 'rate_limited');
 });
 
-test('list and post speak the same DB table as the 0003 migration', async () => {
+test('0003 defines the comments table and 0004 removes the models() foreign key', async () => {
   const sql = await readFile(new URL('../migrations/0003_model_comments.sql', import.meta.url), 'utf8');
   assert.match(sql, /CREATE TABLE IF NOT EXISTS model_comments/);
   assert.match(sql, /author_name TEXT NOT NULL/);
@@ -147,29 +147,58 @@ test('list and post speak the same DB table as the 0003 migration', async () => 
   assert.match(sql, /commenter_hash TEXT NOT NULL/);
   assert.match(sql, /idx_model_comments_model_id_created_at/);
   assert.match(sql, /idx_model_comments_model_id_id/);
-  assert.match(sql, /REFERENCES models\(id\) ON DELETE CASCADE/);
+  assert.match(sql, /REFERENCES models\(id\) ON DELETE CASCADE/, '0003 still declares the FK (history)');
+
+  // 0004 가 FK 를 제거(모든 모델 ID 의 댓글을 허용)하며 REFERENCES 를 재도입하지 않는다.
+  const drop = await readFile(new URL('../migrations/0004_model_comments_drop_fk.sql', import.meta.url), 'utf8');
+  assert.match(drop, /DROP TABLE model_comments/);
+  assert.match(drop, /RENAME TO model_comments/);
+  assert.doesNotMatch(drop, /REFERENCES/i, '0004 must not reintroduce a foreign key');
 });
 
-test('0003 migration executes in SQLite and supports listing after a real insert', async () => {
+test('migrations build model_comments without a models() FK so any model ID is commentable', async () => {
   const database = new DatabaseSync(':memory:');
   try {
     database.exec('PRAGMA foreign_keys = ON');
-    const first = await readFile(new URL('../migrations/0001_recommendations.sql', import.meta.url), 'utf8');
-    const second = await readFile(new URL('../migrations/0002_real_profiles.sql', import.meta.url), 'utf8');
-    const third = await readFile(new URL('../migrations/0003_model_comments.sql', import.meta.url), 'utf8');
-    database.exec(first);
-    database.exec(second);
-    database.exec(third);
+    const m1 = await readFile(new URL('../migrations/0001_recommendations.sql', import.meta.url), 'utf8');
+    const m2 = await readFile(new URL('../migrations/0002_real_profiles.sql', import.meta.url), 'utf8');
+    const m3 = await readFile(new URL('../migrations/0003_model_comments.sql', import.meta.url), 'utf8');
+    const m4 = await readFile(new URL('../migrations/0004_model_comments_drop_fk.sql', import.meta.url), 'utf8');
+    database.exec(m1);
+    database.exec(m2);
+    database.exec(m3);
 
-    const inserted = database.prepare(
+    // 0003 까지는 FK 가 있어 models 테이블에 없는 ID 의 INSERT 가 막힌다.
+    assert.notEqual(database.prepare('PRAGMA foreign_key_list(model_comments)').all().length, 0, '0003 defines the FK');
+    assert.throws(
+      () => database.prepare(
+        'INSERT INTO model_comments (model_id, author_name, content, commenter_hash, created_at) VALUES (?, ?, ?, ?, ?)'
+      ).run('not-a-real-model', '댓글러', '멋져요', 'hash1', '2026-08-11T01:00:00.000Z'),
+      /FOREIGN KEY constraint failed/,
+      'before 0004, comments on unregistered models are blocked by the FK',
+    );
+
+    // 0004 가 FK 를 제거한다.
+    database.exec(m4);
+    assert.equal(database.prepare('PRAGMA foreign_key_list(model_comments)').all().length, 0, '0004 drops the FK');
+
+    // FK 제거 후엔 models 테이블에 없는 ID 도 댓글이 등록된다(실제 버그 수정).
+    const seeded = database.prepare(
       'INSERT INTO model_comments (model_id, author_name, content, commenter_hash, created_at) VALUES (?, ?, ?, ?, ?)'
     ).run('enako', '댓글러', '멋져요', 'hash123', '2026-08-11T01:00:00.000Z');
-    assert.equal(Number(inserted.lastInsertRowid), 1);
+    assert.equal(Number(seeded.lastInsertRowid), 1);
+    const unregistered = database.prepare(
+      'INSERT INTO model_comments (model_id, author_name, content, commenter_hash, created_at) VALUES (?, ?, ?, ?, ?)'
+    ).run('any-unregistered-model', '방문객', '안녕', 'hash456', '2026-08-11T02:00:00.000Z');
+    assert.equal(Number(unregistered.lastInsertRowid), 2, 'unregistered model comment now persists');
 
     const rows = database.prepare(
-      'SELECT author_name AS authorName, content, created_at AS createdAt FROM model_comments WHERE model_id = ? ORDER BY id DESC'
-    ).all('enako').map((row) => ({ authorName: row.authorName, content: row.content, createdAt: row.createdAt }));
-    assert.deepEqual(rows, [{ authorName: '댓글러', content: '멋져요', createdAt: '2026-08-11T01:00:00.000Z' }]);
+      'SELECT model_id, author_name AS authorName, content, created_at AS createdAt FROM model_comments ORDER BY id DESC'
+    ).all().map((row) => ({ modelId: row.model_id, authorName: row.authorName, content: row.content, createdAt: row.createdAt }));
+    assert.deepEqual(rows, [
+      { modelId: 'any-unregistered-model', authorName: '방문객', content: '안녕', createdAt: '2026-08-11T02:00:00.000Z' },
+      { modelId: 'enako', authorName: '댓글러', content: '멋져요', createdAt: '2026-08-11T01:00:00.000Z' },
+    ]);
 
     const columns = database.prepare('PRAGMA table_info(model_comments)').all().map((column) => column.name);
     for (const column of ['id', 'model_id', 'author_name', 'content', 'commenter_hash', 'created_at']) {
