@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="전 세계 섹시 모델·그라비아·코스프레 포스트 링크 수집기. 타 사이트 공개 피드의 링크만 모읍니다.">
+<title>글로벌 이슈 - 모델 포스트 링크 수집기</title>
+<link rel="stylesheet" href="issue.css">
+</head>
+<body>
+
+<div id="header">
+  <h1><a href="/" class="home-link">GLOBAL<span>HOT</span></a> · 글로벌 이슈</h1>
+  <p class="subtitle">Flickr · DeviantArt · Mastodon · Booru 공개 피드 링크 수집기</p>
+</div>
+
+<div id="search-bar">
+  <input type="text" id="search" placeholder="제목 검색..." aria-label="검색">
+</div>
+
+<div id="container">
+  <aside id="sidebar">
+    <div class="filter-section">
+      <h3>📂 카테고리</h3>
+      <div class="cat-list" id="cat-list">
+        <a href="#cat=all" class="cat-btn on" data-cat="all">전체</a>
+        <a href="#cat=gravure" class="cat-btn" data-cat="gravure">그라비아/아이돌</a>
+        <a href="#cat=cosplay" class="cat-btn" data-cat="cosplay">코스프레</a>
+        <a href="#cat=model" class="cat-btn" data-cat="model">모델/글래머</a>
+        <a href="#cat=upload" class="cat-btn" data-cat="upload">셀프 업로드</a>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <h3>🌐 출처</h3>
+      <div class="src-list" id="src-list">
+        <a href="#src=all" class="src-btn on" data-src="all">전체</a>
+        <!-- 플랫폼 버튼은 데이터로 주입 -->
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <h3>⏰ 시간대</h3>
+      <div class="time-list">
+        <a href="#time=all" class="time-btn on" data-time="all">전체</a>
+        <a href="#time=24h" class="time-btn" data-time="24h">24시간</a>
+        <a href="#time=week" class="time-btn" data-time="week">1주일</a>
+        <a href="#time=month" class="time-btn" data-time="month">1달</a>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <h3>📊 정렬</h3>
+      <div class="sort-list">
+        <a href="#sort=time" class="sort-btn on" data-sort="time">최신순</a>
+        <a href="#sort=src" class="sort-btn" data-sort="src">출처별</a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div class="post-count">
+      <span id="post-count">로딩중...</span>
+      <span id="updated-info" class="updated-info"></span>
+    </div>
+
+    <table class="post-list">
+      <thead>
+        <tr>
+          <th class="rank">#</th>
+          <th class="content">제목</th>
+          <th class="meta">정보</th>
+        </tr>
+      </thead>
+      <tbody id="post-tbody">
+        <tr><td colspan="3" class="empty">로딩중...</td></tr>
+      </tbody>
+    </table>
+
+    <p class="disclaimer">
+      본 게시판은 타 사이트의 <strong>공개 피드 링크만</strong> 수집합니다. 이미지·원문 저작권은 각 출처에 있습니다.
+      초상권·저작권·삭제 요청: <a href="mailto:admin@globalhot.net">admin@globalhot.net</a>
+    </p>
+  </main>
+</div>
+
+<!-- 수집 데이터는 빌드 시 인라인 삽입됨 -->
+<script id="issue-data" type="application/json">[]</script>
+<script src="issue.js"></script>
+
+</body>
+</html>
