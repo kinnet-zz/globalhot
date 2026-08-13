@@ -13,6 +13,13 @@
     { "id": "masto-boudoir",   "platform": "mastodon",   "type": "rss", "label": "Mastodon · 부두어",     "feed": "https://mastodon.social/tags/boudoir.rss",  "category": "model",   "enabled": true },
     { "id": "yandere-cosplay", "platform": "yandere",    "type": "booru-json", "label": "yande.re · 코스프레", "feed": "https://yande.re/post.json?tags=cosplay+rating:safe&limit=20",            "category": "cosplay", "enabled": true },
     { "id": "safebooru-cosplay","platform": "safebooru", "type": "booru-json", "label": "Safebooru · 코스프레","feed": "https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1&tags=cosplay&limit=20","category": "cosplay", "enabled": true },
+    { "id": "news-gravure-idol", "platform": "news", "type": "rss", "label": "Google News · 그라비아",   "feed": "https://news.google.com/rss/search?q=gravure+idol+japanese&hl=en&gl=US&ceid=US:en",   "category": "gravure", "enabled": true },
+    { "id": "news-gravure-model","platform": "news", "type": "rss", "label": "Google News · 그라비아 모델","feed": "https://news.google.com/rss/search?q=gravure+model+2026&hl=en&gl=US&ceid=US:en",        "category": "gravure", "enabled": true },
+    { "id": "news-cosplay",      "platform": "news", "type": "rss", "label": "Google News · 코스프레",   "feed": "https://news.google.com/rss/search?q=cosplay+popular+2026&hl=en&gl=US&ceid=US:en",     "category": "cosplay", "enabled": true },
+    { "id": "news-onlyfans",     "platform": "news", "type": "rss", "label": "Google News · 모델",       "feed": "https://news.google.com/rss/search?q=OnlyFans+model+popular&hl=en&gl=US&ceid=US:en",  "category": "model",   "enabled": true },
+    { "id": "news-idol-book",    "platform": "news", "type": "rss", "label": "Google News · 아이돌",     "feed": "https://news.google.com/rss/search?q=japanese+idol+photo+book&hl=en&gl=US&ceid=US:en","category": "gravure", "enabled": true },
+    { "id": "news-kr-model",     "platform": "news", "type": "rss", "label": "Google News · 모델(KR)",   "feed": "https://news.google.com/rss/search?q=korean+instagram+model&hl=en&gl=US&ceid=US:en",  "category": "model",   "enabled": true },
+    { "id": "news-kr-insta",     "platform": "news", "type": "rss", "label": "Google News · 인스타(KR)", "feed": "https://news.google.com/rss/search?q=%EC%9D%B8%EC%8A%A4%ED%83%80+%EB%AA%A8%EB%8D%B8&hl=ko&gl=KR&ceid=KR:ko", "category": "model", "enabled": true },
     { "id": "yt-cosplay",      "platform": "youtube",    "type": "rss", "label": "YouTube · 코스프레", "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=REPLACE_WITH_CHANNEL_ID", "category": "cosplay", "enabled": false }
   ]
 }

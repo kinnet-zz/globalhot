@@ -108,30 +108,9 @@ export async function buildPages() {
 
   await prepareModelsData({ projectRoot, distDir });
 
-  // Build hotnews and copy to dist/hotnews
-  const hotnewsSrc = path.resolve(projectRoot, "hotnews");
-  const hotnewsDist = path.resolve(hotnewsSrc, "dist");
   const nodeBin = process.execPath;
-  const hotnewsBuildScript = path.resolve(hotnewsSrc, "scripts", "build-hotnews.mjs");
-  try {
-    await execFileAsync(nodeBin, ["scripts/build-hotnews.mjs"], { cwd: hotnewsSrc });
-    const hnEntries = await readdir(hotnewsDist);
-    const destHotnews = path.join(distDir, "hotnews");
-    await mkdir(destHotnews, { recursive: true });
-    for (const entry of hnEntries) {
-      const srcPath = path.join(hotnewsDist, entry);
-      const destPath = path.join(destHotnews, entry);
-      const info = await stat(srcPath);
-      if (info.isFile()) {
-        await mkdir(path.dirname(destPath), { recursive: true });
-        await copyFile(srcPath, destPath);
-      }
-    }
-  } catch (e) {
-    console.warn("hotnews build skipped:", e.message);
-  }
 
-  // Build issue (링크 수집기) and copy to dist/issue
+  // Build issue (통합 링크 수집기) and copy to dist/issue
   const issueSrc = path.resolve(projectRoot, "issue");
   const issueDist = path.resolve(issueSrc, "dist");
   const issueBuildScript = path.resolve(issueSrc, "scripts", "build-issue.mjs");
@@ -164,10 +143,9 @@ export async function buildPages() {
   const isAllowedOutput = (file) =>
     staticSet.has(file) ||
     file === "data/models.json" ||
-    file.startsWith("hotnews/") ||
     file.startsWith("issue/") ||
     SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
-  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "hotnews", "issue"]);
+  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue"]);
   const isAllowedDir = (d) => allowedDirRoots.has(d) || SCAN_DIRS.some((dir) => d.startsWith(`${dir}/`));
 
   const unexpectedFiles = outputFiles.filter((f) => !isAllowedOutput(f));

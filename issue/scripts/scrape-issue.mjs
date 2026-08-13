@@ -18,6 +18,29 @@ const EXCLUDE_KEYWORDS = [
   'areola', 'nipple', 'nipples', 'topless', 'genitalia', 'penis',
 ];
 
+// Google News 전용 노이즈 필터 (제조업/행사/스팸). platform==='news' 일 때만 적용.
+const NEWS_EXCLUDE_DOMAINS = ['packman.in', 'foodsspectrum.com', 'plastindia'];
+const NEWS_EXCLUDE_KEYWORDS = [
+  'printing', 'press', 'machine', 'flex', 'packaging', 'flexo',
+  'comic-con', 'anime expo', 'comic con', 'comiccon', 'convention',
+  'expo', 'festival', 'anime india', 'anime ottawa',
+  'best cosplay', 'top cosplay', 'cosplay gallery', 'cosplay contest',
+  'cosplay cup', 'cosplay summit', 'cosplay championship',
+  'comicpalooza', 'wondercon', 'liverpool comic', 'c2e2', 'mcm birmingham',
+  'gamestop', 'game awards',
+  'meta instagram', 'meta starts', 'meta muse', 'algorithm',
+  'virat kohli', 'kohli',
+  'ai photos', 'ai fodder', 'ai 이미지', 'ai 그림', 'ai 생성', 'ai 사진', '뮤즈', 'gen con', 'magwest',
+  'instagram premium', 'instagram business',
+  'pokemon', 'pickleball',
+];
+// 뉴스 타이틀은 최소 하나 이상의 관련 키워드를 포함해야 통과
+const NEWS_MUST_KEYWORDS = [
+  'gravure', 'model', 'idol', 'gravura', '그라비아', '인스타',
+  '모델', '아이돌', 'onlyfans', 'insta', '写真', 'グラビア',
+  'sexy', 'bikini', 'swimsuit', 'glamour', 'cosplay', 'cosplayer',
+];
+
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
@@ -77,7 +100,8 @@ function parseRss(xml) {
       clean(firstMatch(item, /<dc:date\b[^>]*>([\s\S]*?)<\/dc:date>/i));
     const author =
       clean(firstMatch(item, /<dc:creator\b[^>]*>([\s\S]*?)<\/dc:creator>/i)) ||
-      clean(firstMatch(item, /<author\b[^>]*>([\s\S]*?)<\/author>/i));
+      clean(firstMatch(item, /<author\b[^>]*>([\s\S]*?)<\/author>/i)) ||
+      clean(firstMatch(item, /<source\b[^>]*>([\s\S]*?)<\/source>/i));
     const guid =
       clean(firstMatch(item, /<guid\b[^>]*>([\s\S]*?)<\/guid>/i)) || link;
     const desc = clean(firstMatch(item, /<description\b[^>]*>([\s\S]*?)<\/description>/i));
@@ -151,6 +175,15 @@ function isExcluded(title) {
   return EXCLUDE_KEYWORDS.some((k) => t.includes(k));
 }
 
+// Google News 노이즈/관련성 필터 (platform==='news' 전용)
+function isNewsRelevant(it) {
+  const t = (it.title || '').toLowerCase();
+  const u = (it.url || '').toLowerCase();
+  if (NEWS_EXCLUDE_DOMAINS.some((d) => u.includes(d))) return false;
+  if (NEWS_EXCLUDE_KEYWORDS.some((k) => t.includes(k))) return false;
+  return NEWS_MUST_KEYWORDS.some((k) => t.includes(k.toLowerCase()));
+}
+
 async function fetchText(url) {
   const resp = await fetch(url, {
     headers: { 'User-Agent': USER_AGENT, Accept: '*/*' },
@@ -197,7 +230,8 @@ async function scrapeSource(src) {
       author: it.author || src.platform,
       created_utc: toUnix(it.pub),
     }))
-    .filter((it) => !isExcluded(it.title) && !isExcluded(it.desc || ''));
+    .filter((it) => !isExcluded(it.title) && !isExcluded(it.desc || ''))
+    .filter((it) => src.platform !== 'news' || isNewsRelevant(it));
 
   console.log(`    ✓ ${items.length} items`);
   return items;
