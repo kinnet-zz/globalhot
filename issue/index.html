@@ -49,12 +49,12 @@
           <p class="registry-kicker">VERIFIED PROFILE DIRECTORY</p>
           <h1 class="registry-title">공식 출처로만 <em>검증</em>한<br>프로필 레지스트리</h1>
           <div class="registry-rule" role="presentation"></div>
-          <p class="registry-lead">GlobalHot은 공식 홈페이지·소속사·공개 SNS에서 확인한 사실만 수록합니다. 이슈 게시판은 타 사이트의 공개 피드 링크만 수집합니다.</p>
+          <p class="registry-lead">GlobalHot은 공식 홈페이지·소속사·공개 SNS에서 확인한 사실만 수록합니다. 이슈 게시판은 Google News 기반 글로벌 핫 뉴스를 수집합니다.</p>
         </div>
         <dl class="registry-meta">
-          <div><dt>등록</dt><dd><span data-registry-count>—</span></dd></div>
+          <div><dt>기사</dt><dd><span data-registry-count>—</span></dd></div>
           <div><dt>접수국</dt><dd>GLOBAL</dd></div>
-          <div><dt>링크</dt><dd>LINKS</dd></div>
+          <div><dt>종류</dt><dd>NEWS</dd></div>
         </dl>
       </div>
     </section>
@@ -69,23 +69,20 @@
     <section class="feed-section" id="posts" aria-labelledby="posts-title">
       <div class="shell">
         <div class="section-heading">
-          <div><p class="eyebrow">INDEX</p><h2 id="posts-title">링크 게시판</h2></div>
-          <p>Flickr · Mastodon · yande.re · Safebooru — 공개 피드 링크만 수집합니다.</p>
+          <div><p class="eyebrow">INDEX</p><h2 id="posts-title">핫이슈 뉴스</h2></div>
+          <p>Google News 기반 글로벌 이슈 — 그라비아·코스프레·모델 관련 핫 뉴스를 한눈에 확인하세요.</p>
         </div>
-        <section class="discovery-bar" id="discover" aria-label="포스트 필터">
+        <section class="discovery-bar" id="discover" aria-label="뉴스 필터">
           <div class="shell controls-wrap">
             <div class="search-form" role="search">
               <label for="search">제목 검색</label>
-              <input id="search" type="search" placeholder="포스트 제목 검색…" autocomplete="off">
+              <input id="search" type="search" placeholder="뉴스 제목 검색…" autocomplete="off">
             </div>
             <div class="filter-group filter-category" role="group" aria-label="카테고리">
               <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">All</button>
               <button class="filter-button" type="button" data-category="gravure" aria-pressed="false">그라비아</button>
               <button class="filter-button" type="button" data-category="cosplay" aria-pressed="false">코스프레</button>
               <button class="filter-button" type="button" data-category="model" aria-pressed="false">모델</button>
-              <button class="filter-button" type="button" data-category="upload" aria-pressed="false">셀프</button>
-            </div>
-            <div class="filter-group filter-platform" role="group" aria-label="출처">
             </div>
             <div class="filter-group filter-time" role="group" aria-label="시간대">
               <button class="filter-button is-active" type="button" data-time="all" aria-pressed="true">전체</button>
@@ -100,13 +97,13 @@
                 <option value="src">출처별</option>
               </select>
             </div>
-            <p id="resultsCount" class="results-count" role="status" aria-live="polite">0 posts</p>
+            <p id="resultsCount" class="results-count" role="status" aria-live="polite">0건</p>
           </div>
         </section>
-        <div id="postGrid" class="model-grid board-list" aria-label="포스트 링크 목록">
-          <p class="board-loading" id="boardLoading">포스트를 불러오는 중입니다…</p>
+        <div id="postGrid" class="model-grid board-list" aria-label="핫이슈 뉴스 목록">
+          <p class="board-loading" id="boardLoading">뉴스를 불러오는 중입니다…</p>
         </div>
-        <div id="emptyState" class="empty-state" hidden><strong>조건에 맞는 포스트가 없습니다.</strong><p>검색어나 필터를 바꿔 다시 시도해 보세요.</p><button id="clearSearch" class="text-button" type="button">조건 초기화</button></div>
+        <div id="emptyState" class="empty-state" hidden><strong>조건에 맞는 뉴스가 없습니다.</strong><p>검색어나 필터를 바꿔 다시 시도해 보세요.</p><button id="clearSearch" class="text-button" type="button">조건 초기화</button></div>
       </div>
     </section>
   </main>

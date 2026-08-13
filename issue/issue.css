@@ -1,30 +1,30 @@
 /* =========================================================
    GlobalHot – issue.css
-   링크 게시판 전용 오버라이드. 베이스는 portal.css + home.css
+   핫이슈 뉴스 전용 오버라이드. 베이스는 portal.css + home.css
    (라이트 레지스트리). 홈의 마스트헤드·발견바·카드 뼈대를 그대로
-   재사용하고, 프로필 카드 대신 이미지 없는 포스트 카드를 렌더한다.
+   재사용하고, 프로필 카드 대신 이미지 없는 뉴스 헤드라인 카드를 렌더한다.
    ========================================================= */
 
-/* ── 발견바 그리드: 검색 / 카테고리·출처·시간 필터 / 정렬 ── */
+/* ── 발견바 그리드: 검색 / 카테고리·시간 필터 / 정렬 ── */
 #posts .controls-wrap { grid-template-columns: minmax(230px, 1fr) auto; }
 #posts .controls-wrap > .search-form { grid-column: 1; grid-row: 1; }
 #posts .controls-wrap > .sort-control { grid-column: 2; grid-row: 1; }
 #posts .controls-wrap > .filter-category { grid-column: 1; grid-row: 2; }
-#posts .controls-wrap > .filter-platform { grid-column: 2; grid-row: 2; justify-self: start; }
 #posts .controls-wrap > .filter-time { grid-column: 1 / -1; grid-row: 3; }
 #posts .controls-wrap > .results-count { grid-column: 1 / -1; grid-row: 4; margin-top: 6px; }
 
-/* ── 포스트 카드: 이미지 없는 단일 컬럼 레지스트리 카드 ── */
+/* ── 뉴스 카드: 이미지 없는 단일 컬럼 헤드라인 ── */
 .model-card.post-card {
   grid-template-columns: minmax(0, 1fr);
-  gap: 4px 0;
+  gap: 5px 0;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 .model-card.post-card .portrait { display: none; }
 .model-card.post-card .category-label { margin: 0; }
-.model-card.post-card h3 { font-size: .98rem; line-height: 1.35; }
-.model-card.post-card h3 small { color: var(--h-faint); }
-.model-card.post-card .card-footer { margin-top: 7px; }
+.model-card.post-card h3 { font-size: 1.02rem; font-weight: 800; line-height: 1.4; }
+.model-card.post-card h3 small { color: var(--h-faint); font-weight: 700; }
+.model-card.post-card .card-footer { margin-top: 8px; }
 .model-card.post-card .card-detail-link { margin: 0; }
 
 /* ── 모바일: home.css의 2컬럼 카드 규칙을 포스트 카드에선 원복 ── */

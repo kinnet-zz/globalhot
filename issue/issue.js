@@ -1,5 +1,5 @@
-// issue.js — 글로벌 이슈 수집기 클라이언트 필터/렌더 (링크 전용)
-// 홈과 동일한 발견바(카테고리/출처/시간/정렬) + 포스트 카드 렌더.
+// issue.js — 글로벌 이슈 수집기 클라이언트 필터/렌더 (핫이슈 뉴스 전용)
+// 홈과 동일한 발견바(카테고리/시간/정렬/검색) + 뉴스 헤드라인 카드 렌더.
 
 (function () {
   'use strict';
@@ -24,12 +24,11 @@
       console.error('issue data parse 실패:', e);
       items = [];
     }
+    items = items.filter(function (i) { return i.platform === 'news'; });
     if (items.length) firstScrapedAt = items[0].created_utc || 0;
 
     var metaCount = document.querySelector('[data-registry-count]');
     if (metaCount) metaCount.textContent = items.length;
-
-    buildPlatformButtons();
 
     var params = getParams();
     var searchEl = document.getElementById('search');
@@ -41,24 +40,6 @@
     bindControls();
   }
 
-  function buildPlatformButtons() {
-    var platforms = [];
-    var seen = {};
-    items.forEach(function (it) {
-      if (!seen[it.platform]) {
-        seen[it.platform] = true;
-        platforms.push(it.platform);
-      }
-    });
-    var group = document.querySelector('.filter-platform');
-    if (!group) return;
-    var html = '<button type="button" class="filter-button is-active" data-platform="all" aria-pressed="true">All</button>';
-    platforms.forEach(function (p) {
-      html += '<button type="button" class="filter-button" data-platform="' + escapeHtml(p) + '" aria-pressed="false">' + escapeHtml(p) + '</button>';
-    });
-    group.innerHTML = html;
-  }
-
   function bindControls() {
     var bar = document.getElementById('discover');
     if (bar) {
@@ -68,7 +49,6 @@
         var attr = null;
         var value = null;
         if (t.hasAttribute('data-category')) { attr = 'cat'; value = t.getAttribute('data-category'); }
-        else if (t.hasAttribute('data-platform')) { attr = 'pl'; value = t.getAttribute('data-platform'); }
         else if (t.hasAttribute('data-time')) { attr = 'time'; value = t.getAttribute('data-time'); }
         if (!attr) return;
         var params = getParams();
@@ -120,7 +100,6 @@
   function hashFor(params) {
     var parts = [];
     if (params.cat && params.cat !== 'all') parts.push('cat=' + params.cat);
-    if (params.pl && params.pl !== 'all') parts.push('pl=' + params.pl);
     if (params.time && params.time !== 'all') parts.push('time=' + params.time);
     if (params.sort && params.sort !== 'time') parts.push('sort=' + params.sort);
     if (params.q) parts.push('q=' + params.q);
@@ -142,7 +121,6 @@
 
   function applyFilters(params) {
     var cat = params.cat || 'all';
-    var pl = params.pl || 'all';
     var time = params.time || 'all';
     var sort = params.sort || 'time';
     var text = params.q || '';
@@ -151,9 +129,6 @@
 
     if (cat !== 'all') {
       filtered = filtered.filter(function (i) { return i.category === cat; });
-    }
-    if (pl !== 'all') {
-      filtered = filtered.filter(function (i) { return i.platform === pl; });
     }
     if (time !== 'all') {
       var now = Date.now();
@@ -172,7 +147,7 @@
 
     filtered.sort(function (a, b) {
       if (sort === 'src') {
-        if (a.platform !== b.platform) return a.platform.localeCompare(b.platform);
+        if (a.source !== b.source) return a.source.localeCompare(b.source);
         return b.created_utc - a.created_utc;
       }
       return b.created_utc - a.created_utc;
@@ -180,7 +155,7 @@
 
     renderPosts(filtered);
     renderCount(filtered.length);
-    updateActive(cat, pl, time, sort);
+    updateActive(cat, time, sort);
   }
 
   function renderPosts(list) {
@@ -203,12 +178,13 @@
   function renderCard(idx, it) {
     var catLabel = CAT_LABEL[it.category] || it.category || '기타';
     var time = it.created_utc ? timeAgo(it.created_utc) : '시간 미상';
+    var author = it.author || it.source || '';
     return '<a class="model-card post-card" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener nofollow">'
       + '<p class="category-label">' + escapeHtml(catLabel) + '</p>'
-      + '<h3>' + escapeHtml(it.title) + '<small>' + escapeHtml(it.platform) + '</small></h3>'
+      + '<h3>' + escapeHtml(it.title) + '<small>' + escapeHtml(author) + '</small></h3>'
       + '<div class="card-footer">'
         + '<span class="recommend-count">' + time + '</span>'
-        + '<span class="card-detail-link">원문 보기 →</span>'
+        + '<span class="card-detail-link">기사 읽기 →</span>'
       + '</div>'
     + '</a>';
   }
@@ -216,20 +192,15 @@
   function renderCount(count) {
     var el = document.getElementById('resultsCount');
     if (el) {
-      var txt = count + ' posts';
+      var txt = count + '건';
       if (firstScrapedAt) txt += ' · 수집 ' + timeAgo(firstScrapedAt);
       el.textContent = txt;
     }
   }
 
-  function updateActive(cat, pl, time, sort) {
+  function updateActive(cat, time, sort) {
     document.querySelectorAll('[data-category]').forEach(function (btn) {
       var active = btn.getAttribute('data-category') === cat;
-      btn.classList.toggle('is-active', active);
-      btn.setAttribute('aria-pressed', String(active));
-    });
-    document.querySelectorAll('[data-platform]').forEach(function (btn) {
-      var active = btn.getAttribute('data-platform') === pl;
       btn.classList.toggle('is-active', active);
       btn.setAttribute('aria-pressed', String(active));
     });
