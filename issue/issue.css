@@ -27,21 +27,6 @@
 .model-card.post-card .card-footer { margin-top: 8px; }
 .model-card.post-card .card-detail-link { margin: 0; }
 
-/* ── 커뮤니티 보드 진입 링크 ── */
-.board-link {
-  display: inline-block;
-  margin-left: 6px;
-  font-weight: 800;
-  color: #c62828;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.board-link:hover { text-decoration: underline; }
-
-@media (max-width: 640px) {
-  .board-link { display: block; margin: 8px 0 0; }
-}
-
 /* ── 모바일: home.css의 2컬럼 카드 규칙을 포스트 카드에선 원복 ── */
 @media (max-width: 640px) {
   .model-card.post-card { grid-template-columns: minmax(0, 1fr); }

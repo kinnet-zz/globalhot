@@ -56,39 +56,6 @@ async function build() {
     }
   }
 
-  // 19+ 커뮤니티 링크 보드 (community.html)
-  const communityData = loadJSON(join(ROOT, 'data', 'community.json'));
-  const communityItems = (communityData?.items ?? []).filter((it) => it.url);
-  const commMeta = communityData?.meta ?? {
-    scraped_at: new Date().toISOString(),
-    total_items: communityItems.length,
-    source_count: 0,
-    categories: [],
-    platforms: [],
-  };
-
-  const commTemplate = readFileSync(join(ROOT, 'community.html'), 'utf-8');
-  const commHtml = commTemplate
-    .replace(
-      '<script id="community-data" type="application/json">[]</script>',
-      `<script id="community-data" type="application/json">${JSON.stringify(communityItems)}</script>`,
-    )
-    .replace(
-      '<script id="community-meta" type="application/json">{}</script>',
-      `<script id="community-meta" type="application/json">${JSON.stringify(commMeta)}</script>`,
-    );
-  const commOutPath = join(DIST, 'community.html');
-  writeFileSync(commOutPath, commHtml, 'utf-8');
-  console.log(`✓ Built ${commOutPath} (${communityItems.length} community links)`);
-
-  for (const asset of ['community.css', 'community.js']) {
-    const src = join(ROOT, asset);
-    if (existsSync(src)) {
-      cpSync(src, join(DIST, asset));
-      console.log(`✓ Copied ${asset}`);
-    }
-  }
-
   const favSrc = join(ROOT, '..', 'favicon.svg');
   if (existsSync(favSrc)) {
     cpSync(favSrc, join(DIST, 'favicon.svg'));

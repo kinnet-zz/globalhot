@@ -42,20 +42,17 @@ jobs:
       - name: 이슈 뉴스 수집
         run: node issue/scripts/scrape-issue.mjs
 
-      - name: 커뮤니티 19+ 링크 수집
-        run: node issue/scripts/scrape-community.mjs
-
       - name: 데이터 검증
-        run: node -e "const j=require('./issue/data/issue.json'); if(!j.items||!j.items.length){process.exit(1)}; if(!j.meta.scraped_at){process.exit(1)}; console.log('OK', j.items.length, 'items'); const c=require('./issue/data/community.json'); if(!c.meta||!c.meta.scraped_at){process.exit(1)}; console.log('OK community', (c.items||[]).length, 'items');"
+        run: node -e "const j=require('./issue/data/issue.json'); if(!j.items||!j.items.length){process.exit(1)}; if(!j.meta.scraped_at){process.exit(1)}; console.log('OK', j.items.length, 'items');"
 
       - name: Commit and push
         run: |
           git config user.name "GlobalHot Bot"
           git config user.email "bot@globalhot.net"
-          git add issue/data/issue.json issue/data/community.json
+          git add issue/data/issue.json
           if git diff --cached --quiet; then
             echo "No changes to commit (data unchanged)."
           else
-            git commit -m "chore(issue): daily issue scrape (news + community)"
+            git commit -m "chore(issue): daily issue news scrape"
             git push
           fi
