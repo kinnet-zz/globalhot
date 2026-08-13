@@ -6,6 +6,8 @@
 
   var items = [];
   var filtered = [];
+  var page = 1;
+  var PAGE_SIZE = 10;
   var ADULT_KEY = 'gh_adult';
 
   function init() {
@@ -89,7 +91,64 @@
     if (text) {
       filtered = filtered.filter(function (i) { return (i.title || '').toLowerCase().indexOf(text) !== -1; });
     }
+    page = 1;
     render();
+  }
+
+  function goToPage(number, totalPages) {
+    if (number < 1 || number > totalPages || number === page) return;
+    page = number;
+    render();
+    var posts = document.getElementById('posts');
+    if (posts && typeof posts.scrollIntoView === 'function') {
+      posts.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function renderPagination(totalItems, totalPages) {
+    var nav = document.getElementById('pagination');
+    if (!nav) return;
+    nav.replaceChildren();
+    if (!totalItems || totalPages <= 1) return;
+
+    var control = document.createElement('div');
+    control.className = 'pagination-control';
+
+    var prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'pagination-arrow';
+    prev.setAttribute('aria-label', '이전 페이지');
+    prev.textContent = '‹';
+    prev.disabled = page <= 1;
+    prev.addEventListener('click', function () { goToPage(page - 1, totalPages); });
+    control.append(prev);
+
+    for (var index = 1; index <= totalPages; index += 1) {
+      var pageButton = document.createElement('button');
+      pageButton.type = 'button';
+      pageButton.className = 'pagination-page';
+      pageButton.textContent = String(index);
+      pageButton.setAttribute('aria-label', index + ' 페이지');
+      if (index === page) {
+        pageButton.classList.add('is-active');
+        pageButton.setAttribute('aria-current', 'page');
+      }
+      (function (number) {
+        pageButton.addEventListener('click', function () { goToPage(number, totalPages); });
+      }(index));
+      control.append(pageButton);
+    }
+
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'pagination-arrow';
+    next.setAttribute('aria-label', '다음 페이지');
+    next.textContent = '›';
+    next.disabled = page >= totalPages;
+    next.addEventListener('click', function () { goToPage(page + 1, totalPages); });
+    control.append(next);
+
+    nav.append(control);
   }
 
   function render() {
@@ -100,6 +159,7 @@
 
     if (loading) loading.hidden = true;
 
+    var totalPages = 1;
     if (!items.length) {
       grid.innerHTML = '<p class="board-loading">아직 수집된 링크가 없습니다. 다음 수집 주기에 갱신됩니다.</p>';
       if (empty) empty.hidden = true;
@@ -108,10 +168,16 @@
       if (empty) empty.hidden = false;
     } else {
       if (empty) empty.hidden = true;
+      totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      page = Math.min(Math.max(1, page), totalPages);
+      var start = (page - 1) * PAGE_SIZE;
+      var slice = filtered.slice(start, start + PAGE_SIZE);
       var html = '';
-      filtered.forEach(function (it) { html += cardHtml(it); });
+      slice.forEach(function (it) { html += cardHtml(it); });
       grid.innerHTML = html;
     }
+
+    renderPagination(filtered.length, totalPages);
 
     var countEl = document.getElementById('resultsCount');
     if (countEl) countEl.textContent = filtered.length + '건';
