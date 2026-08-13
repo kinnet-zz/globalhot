@@ -1,4 +1,5 @@
 // issue.js — 글로벌 이슈 수집기 클라이언트 필터/렌더 (링크 전용)
+// 홈과 동일한 발견바(카테고리/출처/시간/정렬) + 포스트 카드 렌더.
 
 (function () {
   'use strict';
@@ -24,31 +25,23 @@
       items = [];
     }
     if (items.length) firstScrapedAt = items[0].created_utc || 0;
-    buildSourceButtons();
+
+    var metaCount = document.querySelector('[data-registry-count]');
+    if (metaCount) metaCount.textContent = items.length;
+
+    buildPlatformButtons();
+
     var params = getParams();
-    // 검색창 반영
     var searchEl = document.getElementById('search');
     if (searchEl && params.q) searchEl.value = params.q;
+    var sortEl = document.getElementById('sortSelect');
+    if (sortEl && params.sort) sortEl.value = params.sort;
+
     applyFilters(params);
-    bindSearch();
+    bindControls();
   }
 
-  function bindSearch() {
-    var el = document.getElementById('search');
-    if (!el) return;
-    var timer;
-    el.addEventListener('input', function () {
-      clearTimeout(timer);
-      var val = el.value;
-      timer = setTimeout(function () {
-        var params = getParams();
-        params.q = val;
-        applyFilters(params);
-      }, 180);
-    });
-  }
-
-  function buildSourceButtons() {
+  function buildPlatformButtons() {
     var platforms = [];
     var seen = {};
     items.forEach(function (it) {
@@ -57,13 +50,81 @@
         platforms.push(it.platform);
       }
     });
-    var list = document.getElementById('src-list');
-    if (!list) return;
-    var html = '<a href="#src=all" class="src-btn on" data-src="all">전체</a>';
+    var group = document.querySelector('.filter-platform');
+    if (!group) return;
+    var html = '<button type="button" class="filter-button is-active" data-platform="all" aria-pressed="true">All</button>';
     platforms.forEach(function (p) {
-      html += '<a href="#src=' + escapeHtml(p) + '" class="src-btn" data-src="' + escapeHtml(p) + '">' + escapeHtml(p) + '</a>';
+      html += '<button type="button" class="filter-button" data-platform="' + escapeHtml(p) + '" aria-pressed="false">' + escapeHtml(p) + '</button>';
     });
-    list.innerHTML = html;
+    group.innerHTML = html;
+  }
+
+  function bindControls() {
+    var bar = document.getElementById('discover');
+    if (bar) {
+      bar.addEventListener('click', function (e) {
+        var t = e.target;
+        if (!t || t.tagName !== 'BUTTON') return;
+        var attr = null;
+        var value = null;
+        if (t.hasAttribute('data-category')) { attr = 'cat'; value = t.getAttribute('data-category'); }
+        else if (t.hasAttribute('data-platform')) { attr = 'pl'; value = t.getAttribute('data-platform'); }
+        else if (t.hasAttribute('data-time')) { attr = 'time'; value = t.getAttribute('data-time'); }
+        if (!attr) return;
+        var params = getParams();
+        if (value === 'all') delete params[attr];
+        else params[attr] = value;
+        location.hash = hashFor(params);
+        applyFilters(params);
+      });
+    }
+
+    var searchEl = document.getElementById('search');
+    if (searchEl) {
+      var timer;
+      searchEl.addEventListener('input', function () {
+        clearTimeout(timer);
+        var val = searchEl.value;
+        timer = setTimeout(function () {
+          var params = getParams();
+          if (val) params.q = val; else delete params.q;
+          location.hash = hashFor(params);
+          applyFilters(params);
+        }, 180);
+      });
+    }
+
+    var sortEl = document.getElementById('sortSelect');
+    if (sortEl) {
+      sortEl.addEventListener('change', function () {
+        var params = getParams();
+        params.sort = sortEl.value;
+        location.hash = hashFor(params);
+        applyFilters(params);
+      });
+    }
+
+    var clearBtn = document.getElementById('clearSearch');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        var searchEl2 = document.getElementById('search');
+        if (searchEl2) searchEl2.value = '';
+        location.hash = '';
+        applyFilters(getParams());
+      });
+    }
+
+    window.addEventListener('popstate', function () { applyFilters(getParams()); });
+  }
+
+  function hashFor(params) {
+    var parts = [];
+    if (params.cat && params.cat !== 'all') parts.push('cat=' + params.cat);
+    if (params.pl && params.pl !== 'all') parts.push('pl=' + params.pl);
+    if (params.time && params.time !== 'all') parts.push('time=' + params.time);
+    if (params.sort && params.sort !== 'time') parts.push('sort=' + params.sort);
+    if (params.q) parts.push('q=' + params.q);
+    return parts.length ? '#' + parts.join('&') : '';
   }
 
   function getParams() {
@@ -81,7 +142,7 @@
 
   function applyFilters(params) {
     var cat = params.cat || 'all';
-    var src = params.src || 'all';
+    var pl = params.pl || 'all';
     var time = params.time || 'all';
     var sort = params.sort || 'time';
     var text = params.q || '';
@@ -91,8 +152,8 @@
     if (cat !== 'all') {
       filtered = filtered.filter(function (i) { return i.category === cat; });
     }
-    if (src !== 'all') {
-      filtered = filtered.filter(function (i) { return i.platform === src; });
+    if (pl !== 'all') {
+      filtered = filtered.filter(function (i) { return i.platform === pl; });
     }
     if (time !== 'all') {
       var now = Date.now();
@@ -119,58 +180,66 @@
 
     renderPosts(filtered);
     renderCount(filtered.length);
-    updateActive(cat, src, time, sort);
+    updateActive(cat, pl, time, sort);
   }
 
   function renderPosts(list) {
-    var tbody = document.getElementById('post-tbody');
-    if (!tbody) return;
+    var grid = document.getElementById('postGrid');
+    var empty = document.getElementById('emptyState');
+    if (!grid) return;
     if (!list.length) {
-      tbody.innerHTML = '<tr><td colspan="3" class="empty">조건에 맞는 포스트가 없습니다</td></tr>';
+      grid.innerHTML = '';
+      if (empty) empty.hidden = false;
       return;
     }
+    if (empty) empty.hidden = true;
     var html = '';
     list.forEach(function (it, idx) {
-      html += renderRow(idx + 1, it);
+      html += renderCard(idx + 1, it);
     });
-    tbody.innerHTML = html;
+    grid.innerHTML = html;
   }
 
-  function renderRow(idx, it) {
-    var catClass = 'cat-' + (CAT_LABEL[it.category] ? it.category : 'other');
-    var catLabel = CAT_LABEL[it.category] || it.category;
+  function renderCard(idx, it) {
+    var catLabel = CAT_LABEL[it.category] || it.category || '기타';
     var time = it.created_utc ? timeAgo(it.created_utc) : '시간 미상';
-    return '<tr class="post-row">'
-      + '<td class="rank">' + idx + '</td>'
-      + '<td class="content">'
-        + '<a class="title" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener nofollow">' + escapeHtml(it.title) + '</a>'
-      + '</td>'
-      + '<td class="meta">'
-        + '<div class="stats">'
-          + '<span class="badge cat ' + catClass + '">' + escapeHtml(catLabel) + '</span>'
-          + '<span class="badge">' + escapeHtml(it.platform) + '</span>'
-          + '<span class="time">' + time + '</span>'
-        + '</div>'
-        + '<div class="author">' + escapeHtml(it.author || '') + '</div>'
-      + '</td>'
-    + '</tr>';
+    return '<a class="model-card post-card" href="' + escapeHtml(it.url) + '" target="_blank" rel="noopener nofollow">'
+      + '<p class="category-label">' + escapeHtml(catLabel) + '</p>'
+      + '<h3>' + escapeHtml(it.title) + '<small>' + escapeHtml(it.platform) + '</small></h3>'
+      + '<div class="card-footer">'
+        + '<span class="recommend-count">' + time + '</span>'
+        + '<span class="card-detail-link">원문 보기 →</span>'
+      + '</div>'
+    + '</a>';
   }
 
   function renderCount(count) {
-    var el = document.getElementById('post-count');
-    if (el) el.textContent = '총 ' + count + '건';
-    var upd = document.getElementById('updated-info');
-    if (upd && firstScrapedAt) upd.textContent = '수집 ' + timeAgo(firstScrapedAt) + '';
+    var el = document.getElementById('resultsCount');
+    if (el) {
+      var txt = count + ' posts';
+      if (firstScrapedAt) txt += ' · 수집 ' + timeAgo(firstScrapedAt);
+      el.textContent = txt;
+    }
   }
 
-  function updateActive(cat, src, time, sort) {
-    [['cat', cat, 'cat-btn'], ['src', src, 'src-btn'], ['time', time, 'time-btn'], ['sort', sort, 'sort-btn']].forEach(function (tuple) {
-      var attr = tuple[0], val = tuple[1], cls = tuple[2];
-      document.querySelectorAll('.' + cls).forEach(function (btn) {
-        var v = btn.getAttribute('data-' + attr) || 'all';
-        btn.className = cls + (v === val ? ' on' : '');
-      });
+  function updateActive(cat, pl, time, sort) {
+    document.querySelectorAll('[data-category]').forEach(function (btn) {
+      var active = btn.getAttribute('data-category') === cat;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
     });
+    document.querySelectorAll('[data-platform]').forEach(function (btn) {
+      var active = btn.getAttribute('data-platform') === pl;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    document.querySelectorAll('[data-time]').forEach(function (btn) {
+      var active = btn.getAttribute('data-time') === time;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    var sortEl = document.getElementById('sortSelect');
+    if (sortEl && sortEl.value !== sort) sortEl.value = sort;
   }
 
   function timeAgo(unix) {
@@ -195,5 +264,4 @@
   } else {
     init();
   }
-  window.addEventListener('popstate', function () { applyFilters(getParams()); });
 })();
