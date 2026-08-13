@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const RATE_LIMIT_MS = 900; // 소스 간 요청 간격
-const MAX_PER_SOURCE = 20;
+const MAX_PER_SOURCE = 15;
 const MAX_TOTAL = 150; // 게시판 최대 보관 건수 (최신순 유지)
 
 // 안전 필터 (전 플랫폼): 미성년/비동의 관련 내용은 절대 수집하지 않는다.
@@ -48,35 +48,55 @@ const NEWS_EXCLUDE_KEYWORDS = [
   'parliament', 'senate', 'party chief', 'party leader', 'candidacy',
   'presidency', 'presidential', 'slams', 'iran', 'sanction',
   '국회', '총선', '정계', '출마', '당선', '낙선', '국회의원',
-  // 범죄/법조/사망
+  // 범죄/법조/사망/드라마
   'arrest', 'arrested', 'police', 'stab', 'stabb', 'dismembered', 'murder', 'murdered',
   'manslaughter', 'lawsuit', 'court', 'trial', 'sentenced', 'jail', 'prison',
   'cartel', 'drug', 'cocaine', 'smuggling', 'found dead', 'passed away', 'dead',
   'death', 'obituary', '사망', '별세', '경찰', '구속', '수사', '기소', '범죄',
   'consent', 'catfish', 'stolen', 'fraud', 'defraud',
-  // 돈/리스트/순위
+  'killing', 'killed', 'married', 'marriage', 'marries', 'wedding', 'engaged', 'mafs',
+  'boyfriend', 'girlfriend', 'reality star', 'dating', 'relationship', 'love life', 'bullied',
+  'airbnb', 'flight', 'airplane', 'airport', 'booted', 'kicked', 'thrown out',
+  'reddit', 'deepfake', 'swapped',
+  'sydney sweeney', 'euphoria', 'kardashian', 'skims', 'campaign', 'obsessed',
+  'tiffany haddish', '장윤주', '안정환', '현빈', 'learn japanese',
+  // 돈/리스트/순위/갤러리/페이지
   'top earner', 'top earners', 'earns', 'earned', 'millions', 'million',
   'money', 'income', 'revenue', 'salary', 'net worth', 'richest', 'fortune',
   'highest-paid', 'top models', 'best onlyfans', 'top onlyfans', '10 best',
   'top 10', 'ranked', 'ranking', 'most-followed', 'most followed', 'best accounts',
   'top accounts', 'guide', 'what is', 'explainer', 'paid', 'unpaid', 'auction',
-  // AI/IT/사업
+  'news & galleries', 'galleries', 'gallery', 'best photos of', 'most viewed',
+  'cover models', '10 photos of', 'photos of', 'pics of', 'roundup', 'to try',
+  'sets', 'section', 'profile', 'trend hunter', 'trends',
+  // AI/IT/사업/게임
   'ai model', 'ai image', 'ai photo', 'ai companion', 'ai influencer',
   'ai generated', 'ai fodder', 'ai 걸', 'ai 이미지', 'ai 사진', 'ai 모델',
   'ai 생성', 'ai 그림', 'ai to', 'uses ai', 'artificial intelligence', 'subscription',
   'business model', '유료', '구독', '광고 모델', '인스타그램 광고', '상표',
   '특허', 'uxui', 'ux design', 'metaverse', 'algorithm', 'loreal', 'makeup',
   'cosmetic', 'instagram premium', 'instagram business', 'whatsapp',
-  // 패션/연예/아이돌(비그라비아)
-  'k-pop', 'kpop', 'girl group', 'boy band', 'korean actress', 'k-drama',
-  'kdrama', 'runway', 'fashion week', 'street style', 'skincare',
+  'crypto', 'blockchain', '게임', '블록체인', '게임사', 'game', 'gaming', 'gta', 'ceo', 'app', 'apps',
+  'startup', 'strategy', 'business', 'interview', 'photographer', 'crocodile',
+  // 패션/연예/아이돌(비그라비아) 및 남성 콘텐츠
+  'k-pop', 'kpop', 'girl group', 'boy band', 'boyband', 'korean actress', 'k-drama',
+  'kdrama', 'runway', 'fashion week', 'street style', 'skincare', 'fashion',
   'celebrities', 'celebrity', 'singer', '가수', '배우', '연예인', '걸그룹', '보이그룹',
-  'male idol', 'male model', 'male models', 'prince', 'royal',
-  // 종교/학술/잡지식
+  'male', 'male idol', 'male model', 'male models', '남성', '남자', '남돌', '남자 아이돌',
+  'monsta x', 'shinhwa', 'minhyuk', 'bangtan', 'bts ', 'exo', 'got7', 'seventeen',
+  'stray kids', 'nct ', 'super junior', 'shinee', 'bigbang', 'wanna one', 'treasure',
+  'enhypen', 'ateez', 'ikon', 'winner', 'astro', 'golden child', 'ab6ix', '2pm',
+  '2am', 'cnblue', 'ftisland',
+  'prince', 'royal',
+  // 종교/학술/잡지식/사회 논란
   'pope', 'vatican', 'christian', 'church', 'pastor', '교황', '바티칸',
   'academic', 'research', 'university', 'campus', 'college', 'essay', 'thesis',
   'scholar', '논문', '연구', 'husband', 'mom', 'mum', 'baby', 'single mother',
-  'scandal', 'affair', 'castle', 'airline', '콘테스트',
+  'scandal', 'affair', 'castle', 'airline', '항공', '콘테스트',
+  'backlash', 'controversy', 'row', 'outrage', 'sparks', 'wise up', 'council',
+  'protest', 'crackdown', 'ban', 'banned', '논란', '반발', '단속', '금지', '조사',
+  '시민', '주민', '미투', '폭로', 'awards', 'tennis', 'baseball',
+  'modelling', 'the full picture', 'how to', 'why ',
   // 컨벤션/이벤트 (기존)
   'comic-con', 'anime expo', 'comic con', 'comiccon', 'convention',
   'expo', 'festival', 'anime india', 'anime ottawa',
@@ -123,6 +143,23 @@ function titleFromDesc(desc) {
   if (!desc) return '';
   const t = desc.replace(/\s+/g, ' ').trim();
   return t.length > 120 ? t.slice(0, 120) + '…' : t;
+}
+
+// 뉴스 타이틀의 " - 출처" 접미사 제거 (Option A).
+// Google News 는 "헤드라인 - 출처" 형태이고, 출처는 <source> 태그로 author 에
+// 이미 들어있다. 출처가 본문 헤드라인에도 붙어 2회 이상 중복되는 경우(예:
+// "... - 머니투데이 - 머니투데이")와 대소문자가 다른 경우(... - CHOSUNBIZ - Chosunbiz)가
+// 있으므로, trailing " - {author}" 가 남지 않을 때까지 반복해 뗀다(대소문자 무시).
+// 헤드라인 내 정당한 대시는 author 와 일치하지 않으므로 그대로 남는다.
+function stripPublisher(title, author) {
+  if (!title || !author) return title;
+  const suffix = ' - ' + author.trim();
+  const suffixLower = suffix.toLowerCase();
+  let t = title;
+  while (t.toLowerCase().endsWith(suffixLower)) {
+    t = t.slice(0, t.length - suffix.length).trim();
+  }
+  return t;
 }
 function firstMatch(xml, regex) {
   const m = xml.match(regex);
@@ -222,11 +259,17 @@ function isExcluded(title) {
 }
 
 // 키워드 매처: 영문/아스키 구문은 단어경계(\b), 한글·일어·기호 키워드는 부분일치.
+// 공백으로 끝나는 키워드(예: 'bts ', 'why ')는 접두어(단어 시작) 매칭으로 처리.
 function makeKeywordMatcher(list) {
   const parts = list.map((k) => {
     const escaped = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const ascii = /^[\w\s'-]+$/.test(k);
-    return ascii ? `(?:^|[^a-z])${escaped}(?:[^a-z]|$)` : escaped;
+    if (!ascii) return escaped;
+    if (/ $/.test(k)) {
+      const core = k.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return `(?:^|[^a-z])${core}`;
+    }
+    return `(?:^|[^a-z])${escaped}(?:[^a-z]|$)`;
   });
   return new RegExp(parts.join('|'), 'i');
 }
@@ -236,13 +279,16 @@ const hasTheme = makeKeywordMatcher(NEWS_MUST_KEYWORDS);
 const isUnsafe = makeKeywordMatcher(SAFETY_KEYWORDS);
 
 // Google News 관련성 필터 (platform==='news' 전용):
-// 테마어 ≥1개 AND 안전차단 없음 AND 오프토픽 없음
+// 테마어 ≥1개 AND 안전차단 없음 AND 오프토픽 없음 AND 갤러리/페이지 패턴 없음
+const GALLERY_PATTERN = /\b20\d{2}:\s|news & galleries|galleries|best photos of|most viewed|cover models/;
+
 function isNewsRelevant(it) {
   const t = (it.title || '').toLowerCase();
   const u = (it.url || '').toLowerCase();
   if (NEWS_EXCLUDE_DOMAINS.some((d) => u.includes(d))) return false;
-  if (isExcluded(it.title)) return false;
+  if (isUnsafe.test(t)) return false;
   if (!hasTheme.test(t)) return false;
+  if (GALLERY_PATTERN.test(t)) return false;
   return !isOffTopic.test(t);
 }
 
@@ -282,16 +328,22 @@ async function scrapeSource(src) {
   const items = raw
     .filter((it) => (it.title || it.desc) && it.link)
     .slice(0, MAX_PER_SOURCE)
-    .map((it) => ({
-      id: it.guid || it.link,
-      title: (it.title || titleFromDesc(it.desc)) || '(제목 없음)',
-      url: it.link,
-      platform: src.platform,
-      source: src.label,
-      category: src.category,
-      author: it.author || src.platform,
-      created_utc: toUnix(it.pub),
-    }))
+    .map((it) => {
+      const author = it.author || src.platform;
+      let title = (it.title || titleFromDesc(it.desc)) || '(제목 없음)';
+      // 뉴스: 타이틀의 "- 출처" 접미사 제거 (출처는 author 배지로 표시)
+      if (src.platform === 'news') title = stripPublisher(title, author);
+      return {
+        id: it.guid || it.link,
+        title,
+        url: it.link,
+        platform: src.platform,
+        source: src.label,
+        category: src.category,
+        author,
+        created_utc: toUnix(it.pub),
+      };
+    })
     .filter((it) => !isExcluded(it.title) && !isExcluded(it.desc || ''))
     .filter((it) => src.platform !== 'news' || isNewsRelevant(it));
 
@@ -321,14 +373,39 @@ async function main() {
   }
   const unique = Array.from(seen.values());
 
+  // 근접 중복 제거: 정규화 제목 앞부분이 같은 항목은 최신 것만 남긴다
+  // (예: 하연수 그라비아 데뷔 5건, SI 스윔슈트 갤러리 등 반복 유입 방지)
+  const seenTitle = new Map();
+  const normalizeTitle = (t) =>
+    (t || '').toLowerCase().replace(/[^a-z0-9가-힣\s]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 45);
+  for (const it of unique) {
+    const key = normalizeTitle(it.title);
+    if (key && !seenTitle.has(key)) seenTitle.set(key, it);
+  }
+  const uniqueTitles = Array.from(seenTitle.values());
+
   // 최신순 정렬 (시간 미상 항목은 하단)
-  unique.sort((a, b) => {
+  uniqueTitles.sort((a, b) => {
     if (a.created_utc !== b.created_utc) return b.created_utc - a.created_utc;
     return a.source.localeCompare(b.source);
   });
 
+  // 유사 그룹 버킷 캡: 정규화 제목 첫 5어절이 같은 항목은 최대 3건만 보관
+  // (예: 아시아경제 [포토] 글래머 모델 시리즈 과다 유입 방지)
+  const BUCKET_MAX = 3;
+  const bucketCount = new Map();
+  const bucketed = [];
+  for (const it of uniqueTitles) {
+    const norm = normalizeTitle(it.title);
+    const bucket = norm.split(/\s+/).slice(0, 5).join(' ');
+    const n = bucketCount.get(bucket) || 0;
+    if (n >= BUCKET_MAX) continue;
+    bucketCount.set(bucket, n + 1);
+    bucketed.push(it);
+  }
+
   // 게시판 상한까지 보관 (최신 항목 유지)
-  const capped = unique.slice(0, MAX_TOTAL);
+  const capped = bucketed.slice(0, MAX_TOTAL);
 
   if (!capped.length) {
     console.warn('\n⚠ 수집 결과가 0건. 기존 issue.json 을 유지하고 종료합니다.');

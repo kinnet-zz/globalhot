@@ -32,7 +32,17 @@ async function build() {
 
   const template = readFileSync(join(ROOT, 'index.html'), 'utf-8');
 
-  const dataScript = `<script id="issue-data" type="application/json">${JSON.stringify(items)}</script>`;
+  // 토큰 최적화: 임베드 시 클라이언트가 사용하는 필드만 남긴다.
+  // id(=guid, Google News 불투명 토큰)는 렌더에 안 쓰이므로 제외 → payload 축소.
+  const EMBED_FIELDS = ['title', 'url', 'platform', 'source', 'category', 'author', 'created_utc'];
+  const embedItems = items.map((it) => {
+    const out = {};
+    for (const k of EMBED_FIELDS) if (it[k] !== undefined) out[k] = it[k];
+    return out;
+  });
+
+  const dataScript = `<script id="issue-data" type="application/json">${JSON.stringify(embedItems)}</script>`;
+  const dataBytes = Buffer.byteLength(dataScript, 'utf-8');
   const metaScript = `<script id="issue-meta" type="application/json">${JSON.stringify(meta)}</script>`;
   let html = template
     .replace(
@@ -46,7 +56,7 @@ async function build() {
 
   const outPath = join(DIST, 'index.html');
   writeFileSync(outPath, html, 'utf-8');
-  console.log(`✓ Built ${outPath} (${items.length} items)`);
+  console.log(`✓ Built ${outPath} (${items.length} items, data ${(dataBytes / 1024).toFixed(1)}KB inline)`);
 
   for (const asset of ['issue.css', 'issue.js']) {
     const src = join(ROOT, asset);
