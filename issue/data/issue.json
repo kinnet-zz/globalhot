@@ -1,6 +1,6 @@
 {
   "meta": {
-    "scraped_at": "2026-08-13T23:30:09.897Z",
+    "scraped_at": "2026-08-14T03:08:06.142Z",
     "total_items": 55,
     "source_count": 11,
     "categories": [
@@ -40,7 +40,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "us.oricon-group.com",
+      "author": "Japan Anime News",
       "created_utc": 1780297200
     },
     {
@@ -60,7 +60,7 @@
       "platform": "news",
       "source": "Google News · 란제리",
       "category": "model",
-      "author": "MARCA",
+      "author": "marca.com",
       "created_utc": 1778050800
     },
     {
@@ -110,7 +110,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "us.oricon-group.com",
+      "author": "Japan Anime News",
       "created_utc": 1772092800
     },
     {
@@ -130,7 +130,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "us.oricon-group.com",
+      "author": "Japan Anime News",
       "created_utc": 1770624000
     },
     {
@@ -160,7 +160,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "kukinews.com",
+      "author": "쿠키뉴스",
       "created_utc": 1767479669
     },
     {
@@ -214,14 +214,14 @@
       "created_utc": 1705651200
     },
     {
-      "id": "CBMidkFVX3lxTFBZRWZrSF9TeGlCTi1lWWt0T1NOczlPWWZFaGM1ZmJRek9nYW9lV1NKajB2NmxDSW1qb1U3Yk95N2dfVGM4c2NXNkJ2Zm9CSzExTDNRcV9mTU9SbmJmRGo2ZDRubmxmTlNkUVp2Q3dBYzRlUm5CbVE",
-      "title": "AI-generated model’s photo book taken down",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBZRWZrSF9TeGlCTi1lWWt0T1NOczlPWWZFaGM1ZmJRek9nYW9lV1NKajB2NmxDSW1qb1U3Yk95N2dfVGM4c2NXNkJ2Zm9CSzExTDNRcV9mTU9SbmJmRGo2ZDRubmxmTlNkUVp2Q3dBYzRlUm5CbVE?oc=5",
+      "id": "CBMi1AFBVV95cUxPOGpfQnd4aFRveE45Zkd1TExzcWNvcDJvTnk0eDJmTjhweFN5TmxfaDNsUWtOZ25Idk9SSEY5dlVaWnJCU051eGNEdjFNeGVhbjNuU2QzZWNhbkRkdFdYT040Q3d4ektHZXVuNlZQYlpPcG80VmdrRllBZUU2ZHVNUVlNLWRzSGI1V0RWQkVXWXl2TzJreGoteEJ0S3pqTmNLUXQ2SXdTVmE2SGFNXzZiLWdWbi1kaFd2aTFiT1Y3WTUtaklvNGw0dG4xaVMzaU9XSXZpbg",
+      "title": "Love Live! Lanzhu Zhong VA Akina Homoto to Release 1st Photo Book in December",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPOGpfQnd4aFRveE45Zkd1TExzcWNvcDJvTnk0eDJmTjhweFN5TmxfaDNsUWtOZ25Idk9SSEY5dlVaWnJCU051eGNEdjFNeGVhbjNuU2QzZWNhbkRkdFdYT040Q3d4ektHZXVuNlZQYlpPcG80VmdrRllBZUU2ZHVNUVlNLWRzSGI1V0RWQkVXWXl2TzJreGoteEJ0S3pqTmNLUXQ2SXdTVmE2SGFNXzZiLWdWbi1kaFd2aTFiT1Y3WTUtaklvNGw0dG4xaVMzaU9XSXZpbg?oc=5",
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "Asia News Network",
-      "created_utc": 1686294000
+      "author": "Crunchyroll",
+      "created_utc": 1696834800
     },
     {
       "id": "CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI",
@@ -240,7 +240,7 @@
       "platform": "news",
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
-      "author": "enews.imbc.com",
+      "author": "iMBC 연예",
       "created_utc": 1682492400
     },
     {
@@ -290,7 +290,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1631602800
     },
     {
@@ -310,7 +310,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 누드",
       "category": "gravure",
-      "author": "aramajapan.com",
+      "author": "arama! japan",
       "created_utc": 1587689288
     },
     {
@@ -334,13 +334,23 @@
       "created_utc": 1561618800
     },
     {
+      "id": "CBMiwgFBVV95cUxOd2s3b3RycFZiYzR3S2FDamYxM2oyMkt5M0k0TGhIb2pncW5ZRHdaQ2xqYnRmQ2NBTG5COG1ST1YyN3pWeno1UmRTLXJsWEpzb1J1NmlFSHBvNThYV2liUTdKTW0xOG85b0ljbXk4MFZ0aXM2MENvTG5MdW1VbG9NS3NSR2J5S2RveVRMU0RfeWxxREtIRng4MDBILUtFbUJjU1FLMW54cDZNLVhVTTdPdnQzU19kVW40bmtSVi1MLTh2d9IBxwFBVV95cUxNUXE5dTVTMHVfRTBkdVNxX0tHRmxJMU9IVmtwSlB2YndYd0pEcUlKelFzcjFtTk9GWi1PaDA2QXlUenJkWXFrR0NUNVpQT2VJZkRYaktGa1VseHhpdWVuMHlEODJmR21ubmRwMXNVMXFET25XU1lSc0tSWHdjRDhPVDFzU0FMRzR5SDZfN3l3V0FIWUZ6VzFRZmh2UjBqc0FtaDVqbzJJWXlUejVEcW1aaHZaMHJ1RzJXdG9lTzM4NFlBV2NNWHZZ",
+      "title": "Japanese manga magazine promises to double its number of bikini model pages going forward",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOd2s3b3RycFZiYzR3S2FDamYxM2oyMkt5M0k0TGhIb2pncW5ZRHdaQ2xqYnRmQ2NBTG5COG1ST1YyN3pWeno1UmRTLXJsWEpzb1J1NmlFSHBvNThYV2liUTdKTW0xOG85b0ljbXk4MFZ0aXM2MENvTG5MdW1VbG9NS3NSR2J5S2RveVRMU0RfeWxxREtIRng4MDBILUtFbUJjU1FLMW54cDZNLVhVTTdPdnQzU19kVW40bmtSVi1MLTh2d9IBxwFBVV95cUxNUXE5dTVTMHVfRTBkdVNxX0tHRmxJMU9IVmtwSlB2YndYd0pEcUlKelFzcjFtTk9GWi1PaDA2QXlUenJkWXFrR0NUNVpQT2VJZkRYaktGa1VseHhpdWVuMHlEODJmR21ubmRwMXNVMXFET25XU1lSc0tSWHdjRDhPVDFzU0FMRzR5SDZfN3l3V0FIWUZ6VzFRZmh2UjBqc0FtaDVqbzJJWXlUejVEcW1aaHZaMHJ1RzJXdG9lTzM4NFlBV2NNWHZZ?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아 화보",
+      "category": "gravure",
+      "author": "SoraNews24",
+      "created_utc": 1532588400
+    },
+    {
       "id": "CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3",
       "title": "피트니스모델 홍민아 블랙비키니 화보 공개",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3?oc=5",
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "국제신문",
+      "author": "kookje.co.kr",
       "created_utc": 1504767600
     },
     {
@@ -390,7 +400,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "경향신문",
+      "author": "khan.co.kr",
       "created_utc": 1476342000
     },
     {
@@ -400,7 +410,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "경향신문",
+      "author": "khan.co.kr",
       "created_utc": 1468566000
     },
     {
@@ -410,7 +420,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 화보",
       "category": "gravure",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1467788400
     },
     {
@@ -470,7 +480,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "동아일보",
+      "author": "donga.com",
       "created_utc": 1436252400
     },
     {
@@ -520,18 +530,8 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "스포츠동아",
+      "author": "sports.donga.com",
       "created_utc": 1392624000
-    },
-    {
-      "id": "CBMisgFBVV95cUxPX0JZN1kyX1BtOUpvYkFoSlBURmNkUW5JOXh1a3I5OWxmbFJsMUJfWVgyUnFmUDVkOUlfSDZNYldzTGxRSWdOLXUyRVl1NWdPa01UNFNQaTFXWkEySmlkdm12S084aVNYa1BEZTN3dDVILVp2SHRnSTdnRFhDa0gta3NBWU4yMXBnams0Ykk4akNVYm1KUnBzaDVuTlFVY0NZRTRWTjVqbHA0amo1OHJMblB3",
-      "title": "[NSFW] Gravure Idols vs Chicken?! Selfie War Breaks Out On Twitter",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPX0JZN1kyX1BtOUpvYkFoSlBURmNkUW5JOXh1a3I5OWxmbFJsMUJfWVgyUnFmUDVkOUlfSDZNYldzTGxRSWdOLXUyRVl1NWdPa01UNFNQaTFXWkEySmlkdm12S084aVNYa1BEZTN3dDVILVp2SHRnSTdnRFhDa0gta3NBWU4yMXBnams0Ykk4akNVYm1KUnBzaDVuTlFVY0NZRTRWTjVqbHA0amo1OHJMblB3?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "Crunchyroll",
-      "created_utc": 1390464000
     },
     {
       "id": "CBMi2gFBVV95cUxPOTZMbEVPY0ZrRndYMUNMRExFQjU0WU1Sdm92MThWeTI4X1FQLVNHbnU4N3BaeFpfazNSZnZjdXBVTFBjSXlVZnBTODU4VGdxN0ltVFprU2RPbEFxaWxoYlBDdllLcGRDR0FNWk1uNXlSdllqRkxkZkYzU3pmV1QxaXZzZFNPai1COUVjTEhzSklrTnFHajM1TTlnaUhzWEMwSXVJdHk0TGl5NFotU29IR0NMZzN6c2tKcHpleWdYNjh0Tml4RWY1Y1F0QmJZbVFOeHRpRFJ4SzlTQQ",
