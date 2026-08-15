@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-08-14T13:54:20.680Z",
-    "total_items": 55,
+    "scraped_at": "2026-08-15T01:58:08.727Z",
+    "total_items": 58,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -32,6 +32,16 @@
       "category": "model",
       "author": "v.daum.net",
       "created_utc": 1785481200
+    },
+    {
+      "id": "CBMinwFBVV95cUxPbkRDMVJxOXdEZEZ3VGZDSFY4a3JpcmdsZlgxaS1ocy1JMEdFM3RfMmRyX1RLNnlRMFFBQkNwQ3V2WmNjcjFuVEFGQzNBbkhlaS1pUDBVY3BGSXFvVF85V2FEMTloUUNBd0k3SXlBaUZSMHNSdkg5aGZZQXdGRWZxd25BSDFVTWQ0d2lBYmhpNV9ZdlVQSTdUeUhGMWtPSWM",
+      "title": "Kumiko Takeda, 57, to release first photo book in 23 years",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPbkRDMVJxOXdEZEZ3VGZDSFY4a3JpcmdsZlgxaS1ocy1JMEdFM3RfMmRyX1RLNnlRMFFBQkNwQ3V2WmNjcjFuVEFGQzNBbkhlaS1pUDBVY3BGSXFvVF85V2FEMTloUUNBd0k3SXlBaUZSMHNSdkg5aGZZQXdGRWZxd25BSDFVTWQ0d2lBYmhpNV9ZdlVQSTdUeUhGMWtPSWM?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아",
+      "category": "gravure",
+      "author": "The Tokyo Reporter",
+      "created_utc": 1782198000
     },
     {
       "id": "CBMiT0FVX3lxTE9ENnBUM21nbENtSERZZEU5SEJMVGhreHFjZTl6WmkxU3NlWFB5aVZpZFFHX0NtQXRNd1BVRmM2UmpFbXZUNEl6VDJsOVgxOTQ",
@@ -160,7 +170,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "쿠키뉴스",
+      "author": "kukinews.com",
       "created_utc": 1767479669
     },
     {
@@ -200,7 +210,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "News On Japan",
+      "author": "newsonjapan.com",
       "created_utc": 1705651200
     },
     {
@@ -290,8 +300,18 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1631602800
+    },
+    {
+      "id": "CBMiRkFVX3lxTFBwWV96RDItR0JSdHdNaFg2VHJmVm13VGpnbU54M29GZ3RQUUZkTHJsVEdHeXMtR2pTUk45cWtzY05ZQ0M3OFE",
+      "title": "모노키니vs비키니..맥심 모델 화보 대결",
+      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBwWV96RDItR0JSdHdNaFg2VHJmVm13VGpnbU54M29GZ3RQUUZkTHJsVEdHeXMtR2pTUk45cWtzY05ZQ0M3OFE?oc=5",
+      "platform": "news",
+      "source": "Google News · 비키니(KR)",
+      "category": "model",
+      "author": "v.daum.net",
+      "created_utc": 1627714800
     },
     {
       "id": "CBMiS0FVX3lxTE5UQ2piWHA0bFU0OVFQUXZKcjJ1SWxJQlFwUkZxdnlhdXFoRVdzdUw5bk5EU0J2QnVBZ0FIYS1JTHdreVl1N1RObGQ1cw",
@@ -334,16 +354,6 @@
       "created_utc": 1561618800
     },
     {
-      "id": "CBMiwgFBVV95cUxOd2s3b3RycFZiYzR3S2FDamYxM2oyMkt5M0k0TGhIb2pncW5ZRHdaQ2xqYnRmQ2NBTG5COG1ST1YyN3pWeno1UmRTLXJsWEpzb1J1NmlFSHBvNThYV2liUTdKTW0xOG85b0ljbXk4MFZ0aXM2MENvTG5MdW1VbG9NS3NSR2J5S2RveVRMU0RfeWxxREtIRng4MDBILUtFbUJjU1FLMW54cDZNLVhVTTdPdnQzU19kVW40bmtSVi1MLTh2d9IBxwFBVV95cUxNUXE5dTVTMHVfRTBkdVNxX0tHRmxJMU9IVmtwSlB2YndYd0pEcUlKelFzcjFtTk9GWi1PaDA2QXlUenJkWXFrR0NUNVpQT2VJZkRYaktGa1VseHhpdWVuMHlEODJmR21ubmRwMXNVMXFET25XU1lSc0tSWHdjRDhPVDFzU0FMRzR5SDZfN3l3V0FIWUZ6VzFRZmh2UjBqc0FtaDVqbzJJWXlUejVEcW1aaHZaMHJ1RzJXdG9lTzM4NFlBV2NNWHZZ",
-      "title": "Japanese manga magazine promises to double its number of bikini model pages going forward",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOd2s3b3RycFZiYzR3S2FDamYxM2oyMkt5M0k0TGhIb2pncW5ZRHdaQ2xqYnRmQ2NBTG5COG1ST1YyN3pWeno1UmRTLXJsWEpzb1J1NmlFSHBvNThYV2liUTdKTW0xOG85b0ljbXk4MFZ0aXM2MENvTG5MdW1VbG9NS3NSR2J5S2RveVRMU0RfeWxxREtIRng4MDBILUtFbUJjU1FLMW54cDZNLVhVTTdPdnQzU19kVW40bmtSVi1MLTh2d9IBxwFBVV95cUxNUXE5dTVTMHVfRTBkdVNxX0tHRmxJMU9IVmtwSlB2YndYd0pEcUlKelFzcjFtTk9GWi1PaDA2QXlUenJkWXFrR0NUNVpQT2VJZkRYaktGa1VseHhpdWVuMHlEODJmR21ubmRwMXNVMXFET25XU1lSc0tSWHdjRDhPVDFzU0FMRzR5SDZfN3l3V0FIWUZ6VzFRZmh2UjBqc0FtaDVqbzJJWXlUejVEcW1aaHZaMHJ1RzJXdG9lTzM4NFlBV2NNWHZZ?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "soranews24.com",
-      "created_utc": 1532588400
-    },
-    {
       "id": "CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3",
       "title": "피트니스모델 홍민아 블랙비키니 화보 공개",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3?oc=5",
@@ -362,6 +372,16 @@
       "category": "gravure",
       "author": "v.daum.net",
       "created_utc": 1501225200
+    },
+    {
+      "id": "CBMilwFBVV95cUxPRXcweGxsRW42U09sUTl4UERISEdvRF9OOWZ2aGYxcXlaWjR0eDVQNUNyWHp3bHcxc3B3aC1vaXU1ZFA3N01BQlotRncwcy1zYTRMRnV1dlpZZmlLZ3BYSVMzSFpDVm5TWUJ2Y3kzZTBQYU55Y0h4c2FqVXlIdGRKY3Z5Q0E1bzJycEFnZDJUTUVDcnlWc1VZ0gGcAUFVX3lxTFAtTnV5Z255WjZJWS10OW00MDRxSGQ2eDBWbEF3UDFRcWliczl4cllfcDhsQm04RmFIVnhlOTlqc1FjYzNXeHJZLTg0T0FPUDl6UTNMS2tieS12VGlvWjd6R0hsU3ZSNmhuYlQ3RnVtTjVXNVNhbm1iWnNwRWFHTFBGOGZsZS1qcW5sY05Mems4TjItT0V3enVoMjI5bw",
+      "title": "Glamour model Danielle Sellers prepares to shake things up on Love Island with racy topless photo shoot",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPRXcweGxsRW42U09sUTl4UERISEdvRF9OOWZ2aGYxcXlaWjR0eDVQNUNyWHp3bHcxc3B3aC1vaXU1ZFA3N01BQlotRncwcy1zYTRMRnV1dlpZZmlLZ3BYSVMzSFpDVm5TWUJ2Y3kzZTBQYU55Y0h4c2FqVXlIdGRKY3Z5Q0E1bzJycEFnZDJUTUVDcnlWc1VZ0gGcAUFVX3lxTFAtTnV5Z255WjZJWS10OW00MDRxSGQ2eDBWbEF3UDFRcWliczl4cllfcDhsQm04RmFIVnhlOTlqc1FjYzNXeHJZLTg0T0FPUDl6UTNMS2tieS12VGlvWjd6R0hsU3ZSNmhuYlQ3RnVtTjVXNVNhbm1iWnNwRWFHTFBGOGZsZS1qcW5sY05Mems4TjItT0V3enVoMjI5bw?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머",
+      "category": "model",
+      "author": "Daily Mirror",
+      "created_utc": 1498719600
     },
     {
       "id": "CBMi3AFBVV95cUxPNHJCblpLa2Y1WG5aLWhrU0Z6UXNfdEQzVUVrUGZ6cnd3YkN5M0ZzcGVqNUdQUzdaaVRXRmpXcXBvQ1JjOTJ4QUtxWm1xeEJueFlPWnVLdUJPNThzV2VveVJpMjNlRzE1S0tsVU9MaUdGaHRTV3h1TXdhc3EyZnBnSko5Q1dRMTNFVXprN2Jud3gzNXJycGFMbTlncmcwejBjVm9qZldJbEY3Qm1JckdPYXJvUlgydTVtS19KUHEwMXdaNGZtUUw4aGp0LS1EYXJIbDBZUTRYT1ZuTGZZ",
@@ -390,7 +410,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "khan.co.kr",
+      "author": "경향신문",
       "created_utc": 1476342000
     },
     {
@@ -400,8 +420,18 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "khan.co.kr",
+      "author": "경향신문",
       "created_utc": 1468566000
+    },
+    {
+      "id": "CBMipgFBVV95cUxNQ1hkaEpNMlVZNVV6M0V0QkN4QmpFN24yajEzSE1JMm40ME5MZ2hKNXEzRnZ5UTJSOFo1bkFQU1BkdjJOcXFxVDhHTTd5bkhBdFhyLWpqZ3RJbnJkNnpIMjlDSm9fOXk1VnY3RE1PeEFuam5idHl2cHd0Y2NGU0dlbnVuQ0hYRnloX0k0SDlvWFNHZzVNaHl6U09JaVpyeWRPNS1paHhn",
+      "title": "Cosplayers and models share selfies to celebrate Bikini Day in Japan",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQ1hkaEpNMlVZNVV6M0V0QkN4QmpFN24yajEzSE1JMm40ME5MZ2hKNXEzRnZ5UTJSOFo1bkFQU1BkdjJOcXFxVDhHTTd5bkhBdFhyLWpqZ3RJbnJkNnpIMjlDSm9fOXk1VnY3RE1PeEFuam5idHl2cHd0Y2NGU0dlbnVuQ0hYRnloX0k0SDlvWFNHZzVNaHl6U09JaVpyeWRPNS1paHhn?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아 화보",
+      "category": "gravure",
+      "author": "SoraNews24",
+      "created_utc": 1467788400
     },
     {
       "id": "CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B",
@@ -444,16 +474,6 @@
       "created_utc": 1449734400
     },
     {
-      "id": "CBMiYkFVX3lxTE9SVXk5NDVrYUJPRk9sOU9ydUpQQ2pCZmRjdHY0OWctMUhnZkowX1pnWl80cF9mZGd6VHktLWFzZGZSSHJ3VVlSbWRFSnNVRUZMLTIyMHo4S0VLa3BCTEtvQWFn",
-      "title": "[포토] 글래머 모델, 비키니 입고 요가 삼매경",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9SVXk5NDVrYUJPRk9sOU9ydUpQQ2pCZmRjdHY0OWctMUhnZkowX1pnWl80cF9mZGd6VHktLWFzZGZSSHJ3VVlSbWRFSnNVRUZMLTIyMHo4S0VLa3BCTEtvQWFn?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "아시아경제",
-      "created_utc": 1445497200
-    },
-    {
       "id": "CBMiYkFVX3lxTFB0YzN4a25NQmkwY0JISVRIYnJ1aWFBUmluTDBkRXBNMUFlWHFEMUJfal9pT3dRTm93VlBhSDdkZW5xMjJRbUU0VHp6MjJzZUF6cGN4NUQ5QUJCeElzSDltMzNR",
       "title": "[포토] 글래머 모델, 시선둘 곳 없는 비키니 몸매",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB0YzN4a25NQmkwY0JISVRIYnJ1aWFBUmluTDBkRXBNMUFlWHFEMUJfal9pT3dRTm93VlBhSDdkZW5xMjJRbUU0VHp6MjJzZUF6cGN4NUQ5QUJCeElzSDltMzNR?oc=5",
@@ -480,7 +500,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "joongang.co.kr",
+      "author": "중앙일보",
       "created_utc": 1435734000
     },
     {
@@ -490,7 +510,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "경기일보",
+      "author": "kyeonggi.com",
       "created_utc": 1435561200
     },
     {
@@ -530,7 +550,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "The Telegraph",
+      "author": "telegraph.co.uk",
       "created_utc": 1351839600
     },
     {
@@ -562,6 +582,16 @@
       "category": "gravure",
       "author": "아시아경제",
       "created_utc": 1279004400
+    },
+    {
+      "id": "CBMidEFVX3lxTFA4TENfUXFrRFpMR1d0YXF6Q25tNVhTWFdpNGk0Snc0NnZjMEJGT0l1OFdLeVdIM1lPaHBEdHI4Y0F6aU1aYlZ6VmdQN2g5SExINV9ySi1GU2FYSFFvdEhyc3AyWXVxbGVGbElTNDBoQkRQTzhf",
+      "title": "Komukai Minako goes nude",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFA4TENfUXFrRFpMR1d0YXF6Q25tNVhTWFdpNGk0Snc0NnZjMEJGT0l1OFdLeVdIM1lPaHBEdHI4Y0F6aU1aYlZ6VmdQN2g5SExINV9ySi1GU2FYSFFvdEhyc3AyWXVxbGVGbElTNDBoQkRQTzhf?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아 누드",
+      "category": "gravure",
+      "author": "Tokyohive",
+      "created_utc": 1278140400
     }
   ]
 }
