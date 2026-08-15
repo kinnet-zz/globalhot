@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-08-15T01:58:08.727Z",
-    "total_items": 58,
+    "scraped_at": "2026-08-15T13:08:32.646Z",
+    "total_items": 61,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -34,6 +34,16 @@
       "created_utc": 1785481200
     },
     {
+      "id": "CBMiW0FVX3lxTE9ieXV2YTFhTy10V2lsY29vblVua0syaDBkOUlJR1IzaERiUWIweXAwV2NXaVMzeXhxTTBGNmlIdlNFVTVyRFlyS0djbk01Uk52STY0Tm10bkpFM2c",
+      "title": "화보 보는 줄…기희현, ♥모델 남친도 반할 구릿빛 비키니 몸매",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ieXV2YTFhTy10V2lsY29vblVua0syaDBkOUlJR1IzaERiUWIweXAwV2NXaVMzeXhxTTBGNmlIdlNFVTVyRFlyS0djbk01Uk52STY0Tm10bkpFM2c?oc=5",
+      "platform": "news",
+      "source": "Google News · 비키니(KR)",
+      "category": "model",
+      "author": "tenasia.co.kr",
+      "created_utc": 1783494000
+    },
+    {
       "id": "CBMinwFBVV95cUxPbkRDMVJxOXdEZEZ3VGZDSFY4a3JpcmdsZlgxaS1ocy1JMEdFM3RfMmRyX1RLNnlRMFFBQkNwQ3V2WmNjcjFuVEFGQzNBbkhlaS1pUDBVY3BGSXFvVF85V2FEMTloUUNBd0k3SXlBaUZSMHNSdkg5aGZZQXdGRWZxd25BSDFVTWQ0d2lBYmhpNV9ZdlVQSTdUeUhGMWtPSWM",
       "title": "Kumiko Takeda, 57, to release first photo book in 23 years",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPbkRDMVJxOXdEZEZ3VGZDSFY4a3JpcmdsZlgxaS1ocy1JMEdFM3RfMmRyX1RLNnlRMFFBQkNwQ3V2WmNjcjFuVEFGQzNBbkhlaS1pUDBVY3BGSXFvVF85V2FEMTloUUNBd0k3SXlBaUZSMHNSdkg5aGZZQXdGRWZxd25BSDFVTWQ0d2lBYmhpNV9ZdlVQSTdUeUhGMWtPSWM?oc=5",
@@ -50,7 +60,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "Japan Anime News powered by ORICON NEWS",
+      "author": "Japan Anime News",
       "created_utc": 1780297200
     },
     {
@@ -120,7 +130,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "Japan Anime News powered by ORICON NEWS",
+      "author": "Japan Anime News",
       "created_utc": 1772092800
     },
     {
@@ -140,18 +150,8 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "Japan Anime News powered by ORICON NEWS",
+      "author": "Japan Anime News",
       "created_utc": 1770624000
-    },
-    {
-      "id": "CBMid0FVX3lxTE9zSUtnQTk4WFVlUDAxTHdlN2QtcGJsYWprajFzc01hS3hMN0dIYlFjWUpGTkJfZ3I2UTczVDNfaW5mTmhTNEZLVjdaYUo2cjhRUjFuNVJrdHFnaTZuck12QTFQeDRoLWpGWnFseTVadFhXQy16RkJv",
-      "title": "트와이스 지효, 글래머 몸매로 속옷 모델 됐다",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9zSUtnQTk4WFVlUDAxTHdlN2QtcGJsYWprajFzc01hS3hMN0dIYlFjWUpGTkJfZ3I2UTczVDNfaW5mTmhTNEZLVjdaYUo2cjhRUjFuNVJrdHFnaTZuck12QTFQeDRoLWpGWnFseTVadFhXQy16RkJv?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "네이트",
-      "created_utc": 1770537600
     },
     {
       "id": "CBMiU0FVX3lxTFBWMGhhblJEOURzbndyTmppZ0VmTGFtREpvdDZSLTQtNFpKM2duNVFpWHNWc3FmZWlEOEltZU93b19xbjFzZDlsbmhGaDNUVVVMQmln",
@@ -210,7 +210,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "newsonjapan.com",
+      "author": "News On Japan",
       "created_utc": 1705651200
     },
     {
@@ -222,6 +222,16 @@
       "category": "gravure",
       "author": "Crunchyroll",
       "created_utc": 1696834800
+    },
+    {
+      "id": "CBMiYkFVX3lxTE5XclYtUkF4YTVMeDRCYno3M3RkaXpDQnBhZ3MwSzkyYVYxUHRTLWdJTEM3YVZ2VnZqX2NveWFXcGVwbzVvUnpIbEJza1cyeTNYQlhJN3ltLUZhc0RwU2M2YmR30gFnQVVfeXFMTTllNEZZcDBpaDVfbUJHLUdvRDQ2emRueDJNdFZGSElJeHJiaG1lT0F4Tm82YnhpN1VJYkd0ZGx5QVNWaDBYTGRqQmZKRlViaFBVdHJ5eVlXVzlKd081SXhOb21VTDZjYw",
+      "title": "그라비아 모델 \"중요부위 X고 영상 촬영\"…대표 \"성폭행? 서로 몸푸는 관계\"",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5XclYtUkF4YTVMeDRCYno3M3RkaXpDQnBhZ3MwSzkyYVYxUHRTLWdJTEM3YVZ2VnZqX2NveWFXcGVwbzVvUnpIbEJza1cyeTNYQlhJN3ltLUZhc0RwU2M2YmR30gFnQVVfeXFMTTllNEZZcDBpaDVfbUJHLUdvRDQ2emRueDJNdFZGSElJeHJiaG1lT0F4Tm82YnhpN1VJYkd0ZGx5QVNWaDBYTGRqQmZKRlViaFBVdHJ5eVlXVzlKd081SXhOb21VTDZjYw?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "뉴스1",
+      "created_utc": 1692342000
     },
     {
       "id": "CBMidkFVX3lxTFBZRWZrSF9TeGlCTi1lWWt0T1NOczlPWWZFaGM1ZmJRek9nYW9lV1NKajB2NmxDSW1qb1U3Yk95N2dfVGM4c2NXNkJ2Zm9CSzExTDNRcV9mTU9SbmJmRGo2ZDRubmxmTlNkUVp2Q3dBYzRlUm5CbVE",
@@ -304,14 +314,14 @@
       "created_utc": 1631602800
     },
     {
-      "id": "CBMiRkFVX3lxTFBwWV96RDItR0JSdHdNaFg2VHJmVm13VGpnbU54M29GZ3RQUUZkTHJsVEdHeXMtR2pTUk45cWtzY05ZQ0M3OFE",
-      "title": "모노키니vs비키니..맥심 모델 화보 대결",
-      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBwWV96RDItR0JSdHdNaFg2VHJmVm13VGpnbU54M29GZ3RQUUZkTHJsVEdHeXMtR2pTUk45cWtzY05ZQ0M3OFE?oc=5",
+      "id": "CBMiRkFVX3lxTFAwWURsaHhZQVQ3dmtNMXFfVDM2VnRFWS1fSWFRdGdnclFHQmFJdEpTcFktaDY0RW03aEprb2RlcmxZWWQ0dUE",
+      "title": "'난 글래머 모델 여자친구가 좋아' 네이마르의 일관된 여성취향",
+      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFAwWURsaHhZQVQ3dmtNMXFfVDM2VnRFWS1fSWFRdGdnclFHQmFJdEpTcFktaDY0RW03aEprb2RlcmxZWWQ0dUE?oc=5",
       "platform": "news",
-      "source": "Google News · 비키니(KR)",
+      "source": "Google News · 글래머(KR)",
       "category": "model",
       "author": "v.daum.net",
-      "created_utc": 1627714800
+      "created_utc": 1619852400
     },
     {
       "id": "CBMiS0FVX3lxTE5UQ2piWHA0bFU0OVFQUXZKcjJ1SWxJQlFwUkZxdnlhdXFoRVdzdUw5bk5EU0J2QnVBZ0FIYS1JTHdreVl1N1RObGQ1cw",
@@ -340,7 +350,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Yahoo Life UK",
+      "author": "uk.style.yahoo.com",
       "created_utc": 1566889200
     },
     {
@@ -380,7 +390,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Daily Mirror",
+      "author": "The Mirror",
       "created_utc": 1498719600
     },
     {
@@ -392,16 +402,6 @@
       "category": "gravure",
       "author": "Japan Today",
       "created_utc": 1497250800
-    },
-    {
-      "id": "CBMidkFVX3lxTE5QQ1diVmstaWJJc0loQ0dvT1NKMGhQOEFndXNJSXFpTWNtQTJHRWRYdUxTNmx1X1BxSlZ0MlhlbjNYZVBvNXJDbXlHYVlaSkpLbjFMamdWSDhIZWJmSEJucU1aVXVHVEs2cUE0M0VZV3J6UlRINVHSAXtBVV95cUxONDVDVXFqSHZiMDFBcVRiT1htQjA3a3F6R0hIQ3JQMWZXbk9Qb1g3LUVMQmJ5WjQzNzRoZ0dNWC13eFBBMUZXdXI0cjBZWmhhQlpkejJpaTV0aFRsdURDWW4xclVkLS1vSlhJWjFTcFQzVmszTVYwLW4yMk0",
-      "title": "Jeremy Kyle in awe of 64-year-old glamour model who poses naked in photoshoots",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5QQ1diVmstaWJJc0loQ0dvT1NKMGhQOEFndXNJSXFpTWNtQTJHRWRYdUxTNmx1X1BxSlZ0MlhlbjNYZVBvNXJDbXlHYVlaSkpLbjFMamdWSDhIZWJmSEJucU1aVXVHVEs2cUE0M0VZV3J6UlRINVHSAXtBVV95cUxONDVDVXFqSHZiMDFBcVRiT1htQjA3a3F6R0hIQ3JQMWZXbk9Qb1g3LUVMQmJ5WjQzNzRoZ0dNWC13eFBBMUZXdXI0cjBZWmhhQlpkejJpaTV0aFRsdURDWW4xclVkLS1vSlhJWjFTcFQzVmszTVYwLW4yMk0?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머",
-      "category": "model",
-      "author": "Daily Mirror",
-      "created_utc": 1488182400
     },
     {
       "id": "CBMidEFVX3lxTE9GanpCOW5TR0xfdlBvNnJKcllJUmM4MFoxVGphbVVKaW1SeC1tVzcwdGlCVmJTVFZyOGlfUU9VN0RHc041NGVYNmhmQWRXSmoyVFlIRno5c2JRX2hobVlsTDljZ0lQaWN1M01ueFU3SXZPVGJZ",
@@ -440,7 +440,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1453708800
     },
     {
@@ -450,7 +450,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1452153600
     },
     {
@@ -460,18 +460,18 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1450684800
     },
     {
-      "id": "CBMiYkFVX3lxTE42aXNjTGV4MXloaWZVZ3NUQl85eWNXM1pNWVpJX210Y3lscl8tU2xFYXFOMEljclVQUlpnOW5aUV9paWNfQjhXWFdGM21lZGlMSlZIdDd5LVVTc3NQWjdDUFp3",
-      "title": "[포토] 'H컵' 글래머 모델, 아슬아슬한 끈 비키니",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE42aXNjTGV4MXloaWZVZ3NUQl85eWNXM1pNWVpJX210Y3lscl8tU2xFYXFOMEljclVQUlpnOW5aUV9paWNfQjhXWFdGM21lZGlMSlZIdDd5LVVTc3NQWjdDUFp3?oc=5",
+      "id": "CBMibkFVX3lxTE4yQzgwdHlDay05WnFBWUstRkRGUkVfdVdwS1QySGhwN1ZoVGNXTE41VkcwdTBEdTBIVW1qT25TZG9pWE1oMXdZVVA1UVVjeDlHVzNFWjlFOUs2MUQ2ZWlHdVBUOUVtdjdtdEt2bk5B",
+      "title": "[포토] 글래머 모델, 한줌 허리+G컵 볼륨…'섹시'",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yQzgwdHlDay05WnFBWUstRkRGUkVfdVdwS1QySGhwN1ZoVGNXTE41VkcwdTBEdTBIVW1qT25TZG9pWE1oMXdZVVA1UVVjeDlHVzNFWjlFOUs2MUQ2ZWlHdVBUOUVtdjdtdEt2bk5B?oc=5",
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
-      "created_utc": 1449734400
+      "author": "view.asiae.co.kr",
+      "created_utc": 1448438400
     },
     {
       "id": "CBMiYkFVX3lxTFB0YzN4a25NQmkwY0JISVRIYnJ1aWFBUmluTDBkRXBNMUFlWHFEMUJfal9pT3dRTm93VlBhSDdkZW5xMjJRbUU0VHp6MjJzZUF6cGN4NUQ5QUJCeElzSDltMzNR",
@@ -480,8 +480,28 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1444806000
+    },
+    {
+      "id": "CBMiYkFVX3lxTE9peEJNazFHQ09SOHllQUEyRl9OQnNOU3BUd3ItbUlIUUpOckdBTkRDckktZWk5aG5KS1h6Ti1kSEZ6cVZmVk5Hay11TXUtZDA1ZWQwYTJ4RFgxenVSRVNFRGxB",
+      "title": "[포토] 글래머 모델, 초밀착 원피스 자태…'역대급 S라인'",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9peEJNazFHQ09SOHllQUEyRl9OQnNOU3BUd3ItbUlIUUpOckdBTkRDckktZWk5aG5KS1h6Ti1kSEZ6cVZmVk5Hay11TXUtZDA1ZWQwYTJ4RFgxenVSRVNFRGxB?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "view.asiae.co.kr",
+      "created_utc": 1444374000
+    },
+    {
+      "id": "CBMiYkFVX3lxTE5qc3JlNzJjRXZ4alctQ2dnTzZHdnlYZTNxN2xvY29OcXkwLXM0bXZIMEFLRXdsejlzTXA2WEJKbGk1dk02T0hPdzlObEpOM29VRUtDdEdDbG0tekdCZG9sQm1B",
+      "title": "[포토] 글래머 모델, 젖은 티셔츠 사이로 '섹시'",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5qc3JlNzJjRXZ4alctQ2dnTzZHdnlYZTNxN2xvY29OcXkwLXM0bXZIMEFLRXdsejlzTXA2WEJKbGk1dk02T0hPdzlObEpOM29VRUtDdEdDbG0tekdCZG9sQm1B?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "view.asiae.co.kr",
+      "created_utc": 1442300400
     },
     {
       "id": "CBMieEFVX3lxTE54MW15NnVVa1JiSURkQzhHWFRDbTktX002WmFOWW1pY3VBVzZKVWhUTmJlZFowZXJDZFIzU0E5ZTBocC00YkUyQjFPeGlFR0FEdDEyeEtsNXlqXzkwUGFRZjJrellQQUVqanB3NURZVXNnUDd5WkIxRdIBZEFVX3lxTE9MTjdCZmtnT2xRdjZBZmFXVkV3ZHhLVVZmcWl3VzAzT1I1azAyNmNob1NVMGxNZnhRLVN4ZTEyaktnVEZDRkRxMXZud1NaOHFOcjE1bjRqZzNVSzBOSnNfMmlWb0w",
@@ -500,7 +520,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "중앙일보",
+      "author": "joongang.co.kr",
       "created_utc": 1435734000
     },
     {
@@ -510,8 +530,18 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "kyeonggi.com",
+      "author": "경기일보",
       "created_utc": 1435561200
+    },
+    {
+      "id": "CBMiW0FVX3lxTE9HaWhkTUNNWXkwTHdtQnM4SGJpMF9QZWxWREdVbjkwUkRmOHA0R0M0anJfY3hsMXhac2hRSk9rV2xDMnBzZnlpeDFGb3FKTFgtMkZ1eC1vekxRdnfSAWBBVV95cUxObVJWQkJnTUtKUEZUQlBXRHFZQ2lDQ0dzdnNOMFBfd3JRLVJ6TzdEdzlrRzJvakFYQl93ZWotOVluaFpKd1NiVW9SSm5JcmNoRVZ3WFJZcWpTMnRPZ2VOR0I",
+      "title": "이홍기, 日 그라비아 모델과 열애설…\"연인 아닌 친구\"",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9HaWhkTUNNWXkwTHdtQnM4SGJpMF9QZWxWREdVbjkwUkRmOHA0R0M0anJfY3hsMXhac2hRSk9rV2xDMnBzZnlpeDFGb3FKTFgtMkZ1eC1vekxRdnfSAWBBVV95cUxObVJWQkJnTUtKUEZUQlBXRHFZQ2lDQ0dzdnNOMFBfd3JRLVJ6TzdEdzlrRzJvakFYQl93ZWotOVluaFpKd1NiVW9SSm5JcmNoRVZ3WFJZcWpTMnRPZ2VOR0I?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "연합뉴스",
+      "created_utc": 1428649200
     },
     {
       "id": "CBMixAFBVV95cUxPcWJERkpwTWRYRkg3VVI4TjgzU0dNTFYxNDBqMURGTmtqOEVUZXBpMVFEcE5FSlllNUIwVGtHci0xMmZtMHRVUWNST2NGM2phNUJiRm5LaEZRMVBLTEhheTA0VGY5azJadWQtcUJfUlZOQ1ZwekZKQk9iZW9DU1VxWDhsdVdLdjFnYnNZLXk1anhyRlpYXzVHZGNoa1hZSFZSYk5udklsbHdnenlLSndqZWZtS3psUWUzRGlZYjFkZUZ2Z0Jo",
@@ -520,7 +550,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Irish Independent",
+      "author": "independent.ie",
       "created_utc": 1399014000
     },
     {
@@ -530,7 +560,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "스포츠동아",
+      "author": "sports.donga.com",
       "created_utc": 1392624000
     },
     {
@@ -550,7 +580,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "telegraph.co.uk",
+      "author": "The Telegraph",
       "created_utc": 1351839600
     },
     {
@@ -580,7 +610,7 @@
       "platform": "news",
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1279004400
     },
     {
