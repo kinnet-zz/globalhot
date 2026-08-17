@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-08-17T02:05:27.827Z",
-    "total_items": 60,
+    "scraped_at": "2026-08-17T13:22:13.948Z",
+    "total_items": 62,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -120,7 +120,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "weeklytoday.com",
+      "author": "위클리오늘",
       "created_utc": 1774422000
     },
     {
@@ -130,7 +130,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Teesside Live",
+      "author": "gazettelive.co.uk",
       "created_utc": 1773212400
     },
     {
@@ -140,7 +140,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "us.oricon-group.com",
+      "author": "Japan Anime News",
       "created_utc": 1772092800
     },
     {
@@ -160,18 +160,8 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "us.oricon-group.com",
+      "author": "Japan Anime News",
       "created_utc": 1770624000
-    },
-    {
-      "id": "CBMid0FVX3lxTE9zSUtnQTk4WFVlUDAxTHdlN2QtcGJsYWprajFzc01hS3hMN0dIYlFjWUpGTkJfZ3I2UTczVDNfaW5mTmhTNEZLVjdaYUo2cjhRUjFuNVJrdHFnaTZuck12QTFQeDRoLWpGWnFseTVadFhXQy16RkJv",
-      "title": "트와이스 지효, 글래머 몸매로 속옷 모델 됐다",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9zSUtnQTk4WFVlUDAxTHdlN2QtcGJsYWprajFzc01hS3hMN0dIYlFjWUpGTkJfZ3I2UTczVDNfaW5mTmhTNEZLVjdaYUo2cjhRUjFuNVJrdHFnaTZuck12QTFQeDRoLWpGWnFseTVadFhXQy16RkJv?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "네이트",
-      "created_utc": 1770537600
     },
     {
       "id": "CBMiT0FVX3lxTE1HajV2aHl3ZmlZZ252QmV2R0VuMUNIMnp4Y1V5MGJuVi03TS1WeGFTWGdDOXYxWDlLY1h6YUZfVlVoTUpYWVRXak9lSTN1dms",
@@ -180,7 +170,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "us.oricon-group.com",
+      "author": "Japan Anime News",
       "created_utc": 1770105600
     },
     {
@@ -234,16 +224,6 @@
       "created_utc": 1763884800
     },
     {
-      "id": "CBMiU0FVX3lxTFB2a3JacnFlbjVHbVE0MEFoZjdSLWZfUjFOOXRVc1JzcVRQQ1ctVFdfZUZkNXdPdzZpcWJCRjRGM3VfdkphRHI2OU9mclJKbm9WZjZz",
-      "title": "글래머 '간호사 여신' 대만 女인플루언서, 호텔 욕조서 숨진채 발견 [헬스톡]",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB2a3JacnFlbjVHbVE0MEFoZjdSLWZfUjFOOXRVc1JzcVRQQ1ctVFdfZUZkNXdPdzZpcWJCRjRGM3VfdkphRHI2OU9mclJKbm9WZjZz?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "네이트",
-      "created_utc": 1762416000
-    },
-    {
       "id": "CBMiVEFVX3lxTE5zUXNUblRNd2Y1NHBKQ3V0RHBEUzRFcmRNVHZnNThoOUpBSEg4VjlhUnZwV3BDQ19ESXhjbFhtZld0ZUNCMkFsdEo5Tl9JaHJZT0F2Mw",
       "title": "Idol's First Foray into Glamour Photography: Celebrating Graduation with a Special Photo Book",
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5zUXNUblRNd2Y1NHBKQ3V0RHBEUzRFcmRNVHZnNThoOUpBSEg4VjlhUnZwV3BDQ19ESXhjbFhtZld0ZUNCMkFsdEo5Tl9JaHJZT0F2Mw?oc=5",
@@ -264,16 +244,6 @@
       "created_utc": 1686294000
     },
     {
-      "id": "CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI",
-      "title": "하연수 그라비아 모델 데뷔 보도 발끈...한국 연예 기자 역시는 역시",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "아주경제",
-      "created_utc": 1682492400
-    },
-    {
       "id": "CBMiVEFVX3lxTE9lUGZwdWV4SkdpYU5MWlRHZ2JpRjZ0M2RnM0ZqclRGTEFfZVhwVkYzSmVCblNZR0NRejFQbmhmVXNRTmhGVGtCMmdPdjRKYlcxUHFmbg",
       "title": "\"모국 언론이 가장 적대적…\" 하연수, 日 그라비아 모델 데뷔설 반박",
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9lUGZwdWV4SkdpYU5MWlRHZ2JpRjZ0M2RnM0ZqclRGTEFfZVhwVkYzSmVCblNZR0NRejFQbmhmVXNRTmhGVGtCMmdPdjRKYlcxUHFmbg?oc=5",
@@ -284,13 +254,23 @@
       "created_utc": 1682492400
     },
     {
+      "id": "CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI",
+      "title": "하연수 그라비아 모델 데뷔 보도 발끈...한국 연예 기자 역시는 역시",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "아주경제",
+      "created_utc": 1682492400
+    },
+    {
       "id": "CBMiYEFVX3lxTE9zRUFvY2NHSE5ZbDFkbEh5SlVOd0g2MTRQbFpXZmFXN3hkU3JKRXZJUGtjVWd5VkttQVA5M2paNk1abHpPR2VzU0NPY2s1VDZxMkdDb3JfYjg2TllaR1pyMw",
       "title": "\"죽길 바라나\"…하연수, 日그라비아 모델 데뷔 보도에 분노 [종합]",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9zRUFvY2NHSE5ZbDFkbEh5SlVOd0g2MTRQbFpXZmFXN3hkU3JKRXZJUGtjVWd5VkttQVA5M2paNk1abHpPR2VzU0NPY2s1VDZxMkdDb3JfYjg2TllaR1pyMw?oc=5",
       "platform": "news",
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
-      "author": "enews.imbc.com",
+      "author": "iMBC 연예",
       "created_utc": 1682492400
     },
     {
@@ -310,7 +290,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "straightnews.co.kr",
+      "author": "스트레이트뉴스",
       "created_utc": 1673683200
     },
     {
@@ -394,6 +374,16 @@
       "created_utc": 1561618800
     },
     {
+      "id": "CBMiqAFBVV95cUxPUmxkYTZscVB1dV9iTXc2aHlPcS1ZNHNzS1Z5Ukd1bGc5QnRZNE1kSkY3bk1vQ2JXeGR0RjdGRjU5SXdNbFNqWWtSTDg4SC1VQklKOFRDVDhtRkdDYVNMelh1R0ZCSThkSExTQk4tVzdvMEZaSWR0SVRkLXVJMkVsWERxZFBoa0pFazBLYlEtREMxNEJPSVM5UXh0aXFfNENhM09SSlQ2TFPSAa4BQVVfeXFMTUo1VG5oQkpuNTMzTS1jRVFYajlxRlF0QnFSYVppSTllR0Y1bnlYZkhYcDJBaWk0TFpRWVZTdHpVZE1WWTJURDFnVVNHWXdybXptdDR2dXNJMDZjcDg5Q3dlZ3dGT2txWW5aM2xGbGxicVJYUkJHYm1OZVVlZTZvQjktdXFtVW5aUHRXWGg0MmNiVTlfcV96bVVCYllkSUFWVmhIQ1AwMF9SY1lIUE93",
+      "title": "Japanese bikini model bursts fan’s nude hot spring video fantasy bubble",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUmxkYTZscVB1dV9iTXc2aHlPcS1ZNHNzS1Z5Ukd1bGc5QnRZNE1kSkY3bk1vQ2JXeGR0RjdGRjU5SXdNbFNqWWtSTDg4SC1VQklKOFRDVDhtRkdDYVNMelh1R0ZCSThkSExTQk4tVzdvMEZaSWR0SVRkLXVJMkVsWERxZFBoa0pFazBLYlEtREMxNEJPSVM5UXh0aXFfNENhM09SSlQ2TFPSAa4BQVVfeXFMTUo1VG5oQkpuNTMzTS1jRVFYajlxRlF0QnFSYVppSTllR0Y1bnlYZkhYcDJBaWk0TFpRWVZTdHpVZE1WWTJURDFnVVNHWXdybXptdDR2dXNJMDZjcDg5Q3dlZ3dGT2txWW5aM2xGbGxicVJYUkJHYm1OZVVlZTZvQjktdXFtVW5aUHRXWGg0MmNiVTlfcV96bVVCYllkSUFWVmhIQ1AwMF9SY1lIUE93?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아 화보",
+      "category": "gravure",
+      "author": "SoraNews24",
+      "created_utc": 1546675200
+    },
+    {
       "id": "CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3",
       "title": "피트니스모델 홍민아 블랙비키니 화보 공개",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3?oc=5",
@@ -430,7 +420,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "The Mirror",
+      "author": "Daily Mirror",
       "created_utc": 1488182400
     },
     {
@@ -464,6 +454,16 @@
       "created_utc": 1467788400
     },
     {
+      "id": "CBMiYkFVX3lxTE13bWJpSU0zSlNnemdwb3Jkc21UMjZHQThMb1QzTW1RR1I5aFg4bWFtal9vNk05VW4wbjVwUjU3SVFWVkZhaDM5RHhxM3JQcEEzWGhFSnAycmZ4Y1BNdHdicFBR",
+      "title": "[포토] 글래머 모델, 손바닥만 한 끈 비키니",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE13bWJpSU0zSlNnemdwb3Jkc21UMjZHQThMb1QzTW1RR1I5aFg4bWFtal9vNk05VW4wbjVwUjU3SVFWVkZhaDM5RHhxM3JQcEEzWGhFSnAycmZ4Y1BNdHdicFBR?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "아시아경제",
+      "created_utc": 1455523200
+    },
+    {
       "id": "CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B",
       "title": "[포토] 글래머 모델, 범접불가 풍만한 몸매",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B?oc=5",
@@ -494,6 +494,36 @@
       "created_utc": 1449734400
     },
     {
+      "id": "CBMibkFVX3lxTE4yQzgwdHlDay05WnFBWUstRkRGUkVfdVdwS1QySGhwN1ZoVGNXTE41VkcwdTBEdTBIVW1qT25TZG9pWE1oMXdZVVA1UVVjeDlHVzNFWjlFOUs2MUQ2ZWlHdVBUOUVtdjdtdEt2bk5B",
+      "title": "[포토] 글래머 모델, 한줌 허리+G컵 볼륨…'섹시'",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yQzgwdHlDay05WnFBWUstRkRGUkVfdVdwS1QySGhwN1ZoVGNXTE41VkcwdTBEdTBIVW1qT25TZG9pWE1oMXdZVVA1UVVjeDlHVzNFWjlFOUs2MUQ2ZWlHdVBUOUVtdjdtdEt2bk5B?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "아시아경제",
+      "created_utc": 1448438400
+    },
+    {
+      "id": "CBMiYkFVX3lxTFB0YzN4a25NQmkwY0JISVRIYnJ1aWFBUmluTDBkRXBNMUFlWHFEMUJfal9pT3dRTm93VlBhSDdkZW5xMjJRbUU0VHp6MjJzZUF6cGN4NUQ5QUJCeElzSDltMzNR",
+      "title": "[포토] 글래머 모델, 시선둘 곳 없는 비키니 몸매",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB0YzN4a25NQmkwY0JISVRIYnJ1aWFBUmluTDBkRXBNMUFlWHFEMUJfal9pT3dRTm93VlBhSDdkZW5xMjJRbUU0VHp6MjJzZUF6cGN4NUQ5QUJCeElzSDltMzNR?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "아시아경제",
+      "created_utc": 1444806000
+    },
+    {
+      "id": "CBMiYkFVX3lxTE9peEJNazFHQ09SOHllQUEyRl9OQnNOU3BUd3ItbUlIUUpOckdBTkRDckktZWk5aG5KS1h6Ti1kSEZ6cVZmVk5Hay11TXUtZDA1ZWQwYTJ4RFgxenVSRVNFRGxB",
+      "title": "[포토] 글래머 모델, 초밀착 원피스 자태…'역대급 S라인'",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9peEJNazFHQ09SOHllQUEyRl9OQnNOU3BUd3ItbUlIUUpOckdBTkRDckktZWk5aG5KS1h6Ti1kSEZ6cVZmVk5Hay11TXUtZDA1ZWQwYTJ4RFgxenVSRVNFRGxB?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "아시아경제",
+      "created_utc": 1444374000
+    },
+    {
       "id": "CBMieEFVX3lxTE54MW15NnVVa1JiSURkQzhHWFRDbTktX002WmFOWW1pY3VBVzZKVWhUTmJlZFowZXJDZFIzU0E5ZTBocC00YkUyQjFPeGlFR0FEdDEyeEtsNXlqXzkwUGFRZjJrellQQUVqanB3NURZVXNnUDd5WkIxRdIBZEFVX3lxTE9MTjdCZmtnT2xRdjZBZmFXVkV3ZHhLVVZmcWl3VzAzT1I1azAyNmNob1NVMGxNZnhRLVN4ZTEyaktnVEZDRkRxMXZud1NaOHFOcjE1bjRqZzNVSzBOSnNfMmlWb0w",
       "title": "[화보] 루디빈 사냐, 다 벗은듯한 착시 비키니 ‘모델답네’",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE54MW15NnVVa1JiSURkQzhHWFRDbTktX002WmFOWW1pY3VBVzZKVWhUTmJlZFowZXJDZFIzU0E5ZTBocC00YkUyQjFPeGlFR0FEdDEyeEtsNXlqXzkwUGFRZjJrellQQUVqanB3NURZVXNnUDd5WkIxRdIBZEFVX3lxTE9MTjdCZmtnT2xRdjZBZmFXVkV3ZHhLVVZmcWl3VzAzT1I1azAyNmNob1NVMGxNZnhRLVN4ZTEyaktnVEZDRkRxMXZud1NaOHFOcjE1bjRqZzNVSzBOSnNfMmlWb0w?oc=5",
@@ -510,7 +540,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "중앙일보",
+      "author": "joongang.co.kr",
       "created_utc": 1435734000
     },
     {
@@ -520,18 +550,8 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "경기일보",
+      "author": "kyeonggi.com",
       "created_utc": 1435561200
-    },
-    {
-      "id": "CBMiW0FVX3lxTE9HaWhkTUNNWXkwTHdtQnM4SGJpMF9QZWxWREdVbjkwUkRmOHA0R0M0anJfY3hsMXhac2hRSk9rV2xDMnBzZnlpeDFGb3FKTFgtMkZ1eC1vekxRdnfSAWBBVV95cUxObVJWQkJnTUtKUEZUQlBXRHFZQ2lDQ0dzdnNOMFBfd3JRLVJ6TzdEdzlrRzJvakFYQl93ZWotOVluaFpKd1NiVW9SSm5JcmNoRVZ3WFJZcWpTMnRPZ2VOR0I",
-      "title": "이홍기, 日 그라비아 모델과 열애설…\"연인 아닌 친구\"",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9HaWhkTUNNWXkwTHdtQnM4SGJpMF9QZWxWREdVbjkwUkRmOHA0R0M0anJfY3hsMXhac2hRSk9rV2xDMnBzZnlpeDFGb3FKTFgtMkZ1eC1vekxRdnfSAWBBVV95cUxObVJWQkJnTUtKUEZUQlBXRHFZQ2lDQ0dzdnNOMFBfd3JRLVJ6TzdEdzlrRzJvakFYQl93ZWotOVluaFpKd1NiVW9SSm5JcmNoRVZ3WFJZcWpTMnRPZ2VOR0I?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "연합뉴스",
-      "created_utc": 1428649200
     },
     {
       "id": "CBMixAFBVV95cUxPcWJERkpwTWRYRkg3VVI4TjgzU0dNTFYxNDBqMURGTmtqOEVUZXBpMVFEcE5FSlllNUIwVGtHci0xMmZtMHRVUWNST2NGM2phNUJiRm5LaEZRMVBLTEhheTA0VGY5azJadWQtcUJfUlZOQ1ZwekZKQk9iZW9DU1VxWDhsdVdLdjFnYnNZLXk1anhyRlpYXzVHZGNoa1hZSFZSYk5udklsbHdnenlLSndqZWZtS3psUWUzRGlZYjFkZUZ2Z0Jo",
