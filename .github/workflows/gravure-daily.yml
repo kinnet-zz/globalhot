@@ -3,8 +3,9 @@ name: Gravure Daily Add
 # Adds up to 10 license-verified gravure models per day from
 # data/gravure-queue.json (status: "ready" entries, newest-first). Downloads
 # each photo, appends the model to data/models.json, runs the test suite as a
-# gate, then commits + pushes. The push triggers deploy.yml, which builds and
-# ships the new cards.
+# gate, then commits + pushes. GITHUB_TOKEN pushes don't fire deploy.yml's push
+# trigger (recursion guard), so deployment is handled by deploy.yml's
+# workflow_run trigger watching this workflow's completion.
 #
 # Schedule: 20:50 UTC daily = 05:50 KST (just before the 06:00 KST target; the
 # :50 mark avoids the global :00 cron stampede). workflow_dispatch lets a human
