@@ -15,17 +15,17 @@
   var INTERSTITIAL_ZONE_ID = 1124196;
   var JUICY_LOADER_URL = 'https://poweredby.jads.co/js/jads.js';
   var FALLBACK_DELAY_MS = 4000;
-  var juicy = null;
 
   // JuicyAds 로더 준비 상태를 추적한다. 스크립트 로드 완료(또는 이미 로드됨) 시
   // true가 되어 폴백이 빈 슬롯을 덮지 않는다.
   var loaderReady = 'idle'; // idle | loading | ready | failed
 
+  // window.adsbyjuicy 는 레퍼런스를 캐시하지 않는다 — jads.js 로드 후 전역을
+  // 자기 객체(push/flush 포함)로 교체하면 캐시된 옛 배열은 죽은 참조가 되어
+  // 이후 push/flush 가 전부 조용히 무시된다. 항상 살아 있는 전역을 반환한다.
   function ensureJuicy() {
-    if (juicy) return juicy;
-    juicy = window.adsbyjuicy || [];
-    window.adsbyjuicy = juicy;
-    return juicy;
+    if (!window.adsbyjuicy) window.adsbyjuicy = [];
+    return window.adsbyjuicy;
   }
 
   function readMeta(slot) {
@@ -88,10 +88,26 @@
     return ins;
   }
 
+  // 로더는 정상인데 광고가 들어오지 않은 슬롯 — 빈 밴드가 레이아웃을
+  // 하얀 공백으로 깨뜨리지 않도록 밴드째로 접는다. 밴드 안 다른 슬롯이라도
+  // 광고가 채워져 있으면 접지 않는다.
+  function collapseEmptyBand(slot) {
+    if (!slot || !slot.offsetParent) return; // 반응형으로 숨겨진 슬롯은 대상 아님
+    var band = slot.closest('.ad-zone-band');
+    var scope = band || slot;
+    var filled = scope.querySelectorAll('.ad-slot .adsbyjuicy iframe, .ad-slot .adsbyjuicy img, .ad-slot .adsbyjuicy > div');
+    if (filled.length === 0) {
+      scope.setAttribute('data-ad-collapsed', '1');
+    }
+  }
+
   function scheduleFallback(slot) {
     window.setTimeout(function () {
-      if (loaderState() === 'ready') return;
       if (slot.querySelector('.adsbyjuicy iframe, .adsbyjuicy img, .adsbyjuicy > div')) return;
+      if (loaderState() === 'ready') {
+        collapseEmptyBand(slot);
+        return;
+      }
       mountFallback(slot, {});
     }, FALLBACK_DELAY_MS);
   }

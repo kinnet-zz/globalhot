@@ -473,9 +473,18 @@ emptyState.hidden = displayedCards.length !== 0;
     document.addEventListener('portal-models-loaded', function (event) {
       updateValidModelIds();
       render({ sync: false });
+      var detail = (event && event.detail) || {};
       var registryCount = document.querySelector('[data-registry-count]');
-      if (registryCount && event.detail && event.detail.count) {
-        registryCount.textContent = String(event.detail.count) + ' NAMES';
+      if (registryCount && detail.count) {
+        registryCount.textContent = String(detail.count);
+      }
+      var photoCount = document.querySelector('[data-photo-count]');
+      if (photoCount && typeof detail.photoCount === 'number') {
+        photoCount.textContent = String(detail.photoCount);
+      }
+      var categoryCount = document.querySelector('[data-category-count]');
+      if (categoryCount && typeof detail.categoryCount === 'number') {
+        categoryCount.textContent = String(detail.categoryCount);
       }
     });
   }
@@ -581,9 +590,7 @@ emptyState.hidden = displayedCards.length !== 0;
     card.dataset.updated = '2026-08-02';
     card.dataset.baseRecommendations = String(baseRecommendations || 0);
 
-    var category = 'model';
-    if (tags.indexOf('cosplay') !== -1) category = 'cosplay';
-    else if (tags.indexOf('gravure') !== -1) category = 'gravure';
+    var category = deriveCategoryFromModel(model);
     card.dataset.category = category;
 
     var portrait = document.createElement('div');
@@ -654,32 +661,24 @@ emptyState.hidden = displayedCards.length !== 0;
     sourceLinks.className = 'source-links';
 
     // Only render links for sources the model actually has. We never fabricate
-    // "Find on X" search links — a card shows real channels, or (when a profile
-    // has zero real links) a single honest "Search" escape hatch.
-    function addSourceLink(href, label) {
+    // search-link escape hatches — a card shows real channels, or nothing.
+    // 링크는 칩(알약) 형태로 한 줄 안에 정리한다 — 밑줄 텍스트 나열은 카드를
+    // 지저분하게 만든다.
+    function addSourceLink(href, label, fullLabel) {
       var link = document.createElement('a');
       link.target = '_blank';
       link.href = href;
       link.rel = 'noopener noreferrer';
       link.textContent = label;
+      link.title = fullLabel || label;
+      link.setAttribute('aria-label', (fullLabel || label) + ' (새 창)');
       sourceLinks.appendChild(link);
     }
 
-    var realSourceCount = 0;
-    if (model.officialUrl) { addSourceLink(model.officialUrl, 'Official Profile'); realSourceCount++; }
-    if (model.sns && model.sns.x) { addSourceLink(model.sns.x, 'X'); realSourceCount++; }
-    if (model.sns && model.sns.instagram) { addSourceLink(model.sns.instagram, 'Instagram'); realSourceCount++; }
-    if (model.sns && model.sns.youtube) { addSourceLink(model.sns.youtube, 'YouTube'); realSourceCount++; }
-
-    if (realSourceCount === 0) {
-      var searchQuery = encodeURIComponent((model.name + ' ' + (model.altName || '')).trim());
-      var searchLink = document.createElement('a');
-      searchLink.target = '_blank';
-      searchLink.href = 'https://www.google.com/search?q=' + searchQuery;
-      searchLink.rel = 'noopener noreferrer nofollow';
-      searchLink.textContent = 'Search';
-      sourceLinks.appendChild(searchLink);
-    }
+    if (model.officialUrl) { addSourceLink(model.officialUrl, 'Official', 'Official Profile'); }
+    if (model.sns && model.sns.x) { addSourceLink(model.sns.x, 'X', 'X (Twitter)'); }
+    if (model.sns && model.sns.instagram) { addSourceLink(model.sns.instagram, 'IG', 'Instagram'); }
+    if (model.sns && model.sns.youtube) { addSourceLink(model.sns.youtube, 'YT', 'YouTube'); }
 
     // Subtle photo attribution: where the photo came from + its license. Per-model
     // license/credit so a copyrighted photo is never mislabelled CC; models without
@@ -723,7 +722,9 @@ emptyState.hidden = displayedCards.length !== 0;
     detailLink.textContent = '상세 프로필 보기 →';
     cardBody.appendChild(detailLink);
 
-    cardBody.appendChild(sourceLinks);
+    if (sourceLinks.children.length > 0) {
+      cardBody.appendChild(sourceLinks);
+    }
     cardBody.appendChild(cardFooter);
 
     card.appendChild(portrait);
@@ -786,6 +787,17 @@ emptyState.hidden = displayedCards.length !== 0;
     });
   }
 
+  // 태그 기반 카테고리 결정 — 카드 렌더와 마스트헤드 통계가 같은 규칙을 쓴다.
+  function deriveCategoryFromModel(model) {
+    var raw = model && model.tags;
+    var tags = typeof raw === 'string'
+      ? raw.split(/\s+/).filter(Boolean)
+      : (Array.isArray(raw) ? raw : []);
+    if (tags.indexOf('cosplay') !== -1) return 'cosplay';
+    if (tags.indexOf('gravure') !== -1) return 'gravure';
+    return 'model';
+  }
+
   function initDynamicModels() {
     var grid = document.getElementById('modelGrid');
     if (!grid) return;
@@ -799,6 +811,7 @@ emptyState.hidden = displayedCards.length !== 0;
     }
 
     var allModels = [];
+    var registryTotal = 0;
 
     function renderAll() {
       renderCards(allModels, grid, 0);
@@ -808,7 +821,18 @@ emptyState.hidden = displayedCards.length !== 0;
         loading.parentNode.removeChild(loading);
       }
 
-      var portalEvent = new CustomEvent('portal-models-loaded', { detail: { count: allModels.length } });
+      // 마스트헤드 통계는 전부 실제 데이터에서 계산한다 — 라벨과 값이 어긋나는
+      // 장식 통계(예: "사진 PROFILES")는 표시하지 않는다.
+      // 등록 = 레지스트리 전체 모델 수, 사진 검증 = 그중 사진으로 게재되는 수.
+      var categories = {};
+      allModels.forEach(function (m) { categories[deriveCategoryFromModel(m)] = true; });
+      var portalEvent = new CustomEvent('portal-models-loaded', {
+        detail: {
+          count: registryTotal || allModels.length,
+          photoCount: allModels.length,
+          categoryCount: Object.keys(categories).length
+        }
+      });
       document.dispatchEvent(portalEvent);
     }
 
@@ -821,6 +845,7 @@ emptyState.hidden = displayedCards.length !== 0;
         return response.json();
       }).then(function (data) {
         if (!data || !Array.isArray(data.models)) throw new Error('invalid_models_json');
+        registryTotal = data.models.length;
         allModels = selectPublishedModels(data.models);
         renderAll();
       }).catch(function (error) {

@@ -95,16 +95,15 @@ test('terms and not-found pages use the shared information page layout classes',
   }
 });
 
-test('sitemap exposes exactly five current portal pages with their intended change frequencies', () => {
+test('sitemap exposes exactly four current portal pages with their intended change frequencies', () => {
   const locations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
   const expected = new Set([
     'https://globalhot.net/',
     'https://globalhot.net/about.html',
     'https://globalhot.net/privacy.html',
-    'https://globalhot.net/terms.html',
-    'https://globalhot.net/issue/'
+    'https://globalhot.net/terms.html'
   ]);
-  assert.equal(locations.length, 5);
+  assert.equal(locations.length, 4);
   assert.deepEqual(new Set(locations), expected);
   assert.doesNotMatch(sitemap, /playground|gallery|editor|posts/i);
   assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/<\/loc>\s*<lastmod>2026-08-01<\/lastmod>\s*<changefreq>daily<\/changefreq>\s*<priority>1\.0<\/priority>/s);

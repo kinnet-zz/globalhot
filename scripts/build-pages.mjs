@@ -3,9 +3,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { prepareModelsData } from "./prepare-data.mjs";
 import { applyCacheBust } from "./cache-bust.mjs";
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
-const execFileAsync = promisify(execFile);
 
 export const STATIC_FILES = [
   "index.html",
@@ -107,30 +104,6 @@ export async function buildPages() {
   }
 
   await prepareModelsData({ projectRoot, distDir });
-
-  const nodeBin = process.execPath;
-
-  // Build issue (통합 링크 수집기) and copy to dist/issue
-  const issueSrc = path.resolve(projectRoot, "issue");
-  const issueDist = path.resolve(issueSrc, "dist");
-  const issueBuildScript = path.resolve(issueSrc, "scripts", "build-issue.mjs");
-  try {
-    await execFileAsync(nodeBin, ["scripts/build-issue.mjs"], { cwd: issueSrc });
-    const issueEntries = await readdir(issueDist);
-    const destIssue = path.join(distDir, "issue");
-    await mkdir(destIssue, { recursive: true });
-    for (const entry of issueEntries) {
-      const srcPath = path.join(issueDist, entry);
-      const destPath = path.join(destIssue, entry);
-      const info = await stat(srcPath);
-      if (info.isFile()) {
-        await mkdir(path.dirname(destPath), { recursive: true });
-        await copyFile(srcPath, destPath);
-      }
-    }
-  } catch (e) {
-    console.warn("issue build skipped:", e.message);
-  }
 
   await applyCacheBust({
     projectRoot,

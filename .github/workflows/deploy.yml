@@ -1,9 +1,9 @@
 name: Deploy Cloudflare Pages
 
-# workflow_run 트리거 이유: 일일 스크레이프(issue/gravure)가 GITHUB_TOKEN 으로
-# push 하는데, GitHub Actions 정책상 GITHUB_TOKEN push 는 push 이벤트를 발화하지
-# 않는다(재귀 방지). 따라서 스크레이프 "워크플로우 완료"를 감지해 배포한다.
-# 체크아웃은 기본 브랜치(master) 최신 커밋 기준이라 방금 push 된 데이터가 포함된다.
+# workflow_run 트리거 이유: 일일 gravure 추가가 GITHUB_TOKEN 으로 push 하는데,
+# GitHub Actions 정책상 GITHUB_TOKEN push 는 push 이벤트를 발화하지 않는다(재귀
+# 방지). 따라서 해당 워크플로우의 "완료"를 감지해 배포한다. 체크아웃은 기본
+# 브랜치(master) 최신 커밋 기준이라 방금 push 된 데이터가 포함된다.
 
 on:
   push:
@@ -11,7 +11,6 @@ on:
       - master
   workflow_run:
     workflows:
-      - Issue Daily Scrape
       - Gravure Daily Add
     types:
       - completed

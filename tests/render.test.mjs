@@ -242,7 +242,7 @@ test('models with real source data render official links, nofollow-free', () => 
   const sourceLinks = card.querySelector('.source-links');
   assert.ok(sourceLinks, 'source-links block exists');
   const labels = sourceLinks.children.map((anchor) => anchor.textContent);
-  assert.deepEqual(labels, ['Official Profile', 'X', 'Instagram', 'YouTube']);
+  assert.deepEqual(labels, ['Official', 'X', 'IG', 'YT']);
   for (const anchor of sourceLinks.children) {
     // Links are built via property assignment (anchor.target/rel/href), matching
     // the existing createModelCard style, so assert on the properties directly.
@@ -252,16 +252,14 @@ test('models with real source data render official links, nofollow-free', () => 
   }
 });
 
-test('source links show only real channels — no fabricated "Find on" search links', () => {
-  // A profile with zero real links gets a single honest "Search" escape hatch.
+test('source links show only real channels — no fabricated or search links', () => {
+  // A profile with zero real links shows NO links block at all — not even a
+  // search-engine escape hatch (구글 검색 폴백 제거).
   const bare = { id: 'bare-test', name: 'Bare Test', altName: '', country: 'JAPAN', tags: 'model', sns: {} };
   const bareCard = dyn.createModelCard(bare, 0);
-  const bareLinks = bareCard.querySelector('.source-links');
-  assert.deepEqual(bareLinks.children.map((anchor) => anchor.textContent), ['Search']);
-  for (const anchor of bareLinks.children) {
-    assert.equal(anchor.target, '_blank');
-    assert.match(anchor.rel, /nofollow/, 'the sole Search escape hatch is nofollow');
-    assert.match(anchor.href, /^https?:\/\//, 'search href is absolute');
+  assert.equal(bareCard.querySelector('.source-links'), null, 'no source-links block for a link-less profile');
+  for (const anchor of bareCard.querySelectorAll('a')) {
+    assert.doesNotMatch(String(anchor.href || ''), /google\./i, 'no Google search fallback');
   }
 
   // A profile with SOME (not all) channels shows exactly those — never a
@@ -272,7 +270,7 @@ test('source links show only real channels — no fabricated "Find on" search li
   };
   const partialCard = dyn.createModelCard(partial, 0);
   const partialLinks = partialCard.querySelector('.source-links');
-  assert.deepEqual(partialLinks.children.map((anchor) => anchor.textContent), ['Official Profile', 'X']);
+  assert.deepEqual(partialLinks.children.map((anchor) => anchor.textContent), ['Official', 'X']);
   for (const anchor of partialLinks.children) {
     assert.doesNotMatch(anchor.rel, /nofollow/, 'real source links are followed');
   }

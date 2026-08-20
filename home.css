@@ -312,11 +312,16 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   background: var(--page); color: var(--h-muted); font-size: .66rem; font-weight: 500;
 }
 .source-links {
-  display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0;
-  font-size: .74rem; font-weight: 700;
+  display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 0;
 }
-.source-links a { color: var(--h-faint); text-decoration: underline; text-underline-offset: .2em; }
-.source-links a:hover { color: var(--h-verm); }
+/* 채널 링크는 밑줄 텍스트 나열 대신 태그와 같은 알약 칩으로 — 카드가 한결 정돈된다. */
+.source-links a {
+  padding: 2px 8px; border: 1px solid var(--h-rule); border-radius: 999px;
+  background: var(--page); color: var(--h-faint);
+  font-size: .62rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+  text-decoration: none;
+}
+.source-links a:hover { color: var(--h-verm); border-color: var(--h-verm); }
 .card-detail-link {
   display: inline-block; margin: 3px 0 0;
   color: var(--h-verm); font-size: .76rem; font-weight: 800;
@@ -430,6 +435,8 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   display: flex;
   justify-content: center;
 }
+/* 광고가 끝내 들어오지 않은 밴드는 하얀 공백으로 남기지 않고 접는다 (ads.js). */
+.ad-zone-band[data-ad-collapsed="1"] { display: none; }
 .ad-zone-band .shell { display: flex; justify-content: center; }
 .ad-slot {
   position: relative;
