@@ -1,7 +1,9 @@
 name: Gravure Daily Add
 
 # Adds up to 10 license-verified gravure models per day from
-# data/gravure-queue.json (status: "ready" entries, newest-first). Downloads
+# data/gravure-queue.json (status: "ready" entries). Asian gravure entries are
+# consumed first (scripts/gravure-add.mjs entryPriority — site content policy:
+# 아시아인 그라비아 모델 우선 등록). Downloads
 # each photo, appends the model to data/models.json, runs the test suite as a
 # gate, then commits + pushes. GITHUB_TOKEN pushes don't fire deploy.yml's push
 # trigger (recursion guard), so deployment is handled by deploy.yml's

@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   addGravureModels,
   planAdd,
+  entryPriority,
   buildModelObject,
   isJpeg,
   wikimediaApiHost,
@@ -70,6 +71,33 @@ test('planAdd selects only ready entries up to the limit and drops already-prese
   const { toAdd, alreadyPresent } = planAdd(queue, ['d'], 2);
   assert.deepEqual(toAdd.map((e) => e.id), ['a', 'c']);
   assert.deepEqual(alreadyPresent.map((e) => e.id), ['d']);
+});
+
+test('entryPriority ranks Asian gravure entries above everything else', () => {
+  assert.equal(entryPriority({ ...entry('x'), country: undefined }), 1);
+  const asGrav = entry('g1');
+  asGrav.country = 'JAPAN';
+  assert.equal(entryPriority(asGrav), 0);
+  const asGravArray = { ...entry('g2'), country: 'KOREA', tags: ['gravure', 'model'] };
+  assert.equal(entryPriority(asGravArray), 0);
+  const westernGrav = { ...entry('g3'), country: 'USA', tags: 'gravure model' };
+  assert.equal(entryPriority(westernGrav), 1);
+  const asianNonGrav = { ...entry('g4'), country: 'JAPAN', tags: 'fashion model' };
+  assert.equal(entryPriority(asianNonGrav), 1);
+});
+
+test('planAdd drains Asian gravure entries before non-Asian ones regardless of queue order', () => {
+  const queue = [
+    { ...entry('usa-1'), country: 'USA' },
+    entry('jp-1'),                                  // JAPAN gravure (default fixture)
+    { ...entry('uk-1'), country: 'UK' },
+    { ...entry('kr-1'), country: 'KOREA' },
+  ];
+  const { toAdd } = planAdd(queue, [], 10);
+  assert.deepEqual(toAdd.map((e) => e.id), ['jp-1', 'kr-1', 'usa-1', 'uk-1']);
+  // With a tight limit the Asian gravure entries still come first.
+  const limited = planAdd(queue, [], 1);
+  assert.deepEqual(limited.toAdd.map((e) => e.id), ['jp-1']);
 });
 
 test('planAdd rejects entries with unsafe ids or missing photo urls', () => {

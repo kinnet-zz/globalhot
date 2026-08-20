@@ -79,15 +79,41 @@ export function isJpeg(buffer) {
   );
 }
 
-// Decide which ready entries to process, preserving queue order (newest-first).
-// Entries already present in the directory are dropped (idempotent) rather than
-// re-added. Returns only `ready` candidates up to `limit`.
+// Asian-gravure-first registration priority (site content policy). Countries
+// whose gravure scenes the site targets; matched case-insensitively.
+const ASIAN_COUNTRIES = [
+  "japan", "korea", "taiwan", "china", "hong kong", "hong_kong", "vietnam",
+  "thailand", "philippines", "singapore", "malaysia", "indonesia",
+];
+
+function hasGravureTag(entry) {
+  if (Array.isArray(entry.tags)) return entry.tags.some((t) => String(t).toLowerCase().includes("gravure"));
+  return String(entry.tags || "").toLowerCase().includes("gravure");
+}
+
+// 0 = Asian gravure (highest priority), 1 = everything else. planAdd consumes
+// lower numbers first; ties keep queue order (stable sort).
+export function entryPriority(entry) {
+  const country = String((entry && entry.country) || "").toLowerCase();
+  if (hasGravureTag(entry) && ASIAN_COUNTRIES.includes(country)) return 0;
+  return 1;
+}
+
+// Decide which ready entries to process. Asian gravure entries are consumed
+// before others (stable within each priority tier), so a mixed queue always
+// drains Asian gravure models first. Entries already present in the directory
+// are dropped (idempotent) rather than re-added. Returns only `ready`
+// candidates up to `limit`.
 export function planAdd(queue, existingIds, limit) {
   const existing = new Set(existingIds);
   const ready = Array.isArray(queue) ? queue.filter((e) => e && e.status === "ready") : [];
+  const ordered = ready
+    .map((entry, index) => ({ entry, index }))
+    .sort((a, b) => entryPriority(a.entry) - entryPriority(b.entry) || a.index - b.index)
+    .map(({ entry }) => entry);
   const toAdd = [];
   const alreadyPresent = [];
-  for (const entry of ready) {
+  for (const entry of ordered) {
     if (!isValidEntry(entry)) continue;
     // Already-present ids are stale queue entries: collect them for consumption
     // regardless of the limit, so the queue does not accumulate dupes. Only NEW

@@ -1,7 +1,323 @@
 {
   "title": "GlobalHot gravure auto-add queue",
-  "description": "Candidate gravure models for the daily 06:00 KST drip.",
+  "description": "Candidate gravure models for the daily 06:00 KST drip. Asian gravure models are the registration priority.",
   "schemaVersion": 1,
   "source": "Wikimedia Commons CC licensed photos",
-  "queue": []
+  "queue": [
+    {
+      "id": "moeka-arai",
+      "name": "Moeka Arai",
+      "altName": "新井萌花",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "2002년 9월 29일 사이타마현 출신의 일본 그라비아 아이돌 겸 배우, 모델. SNS를 계기로 사무소 NAVY 소속이 되어 활동을 시작했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Moeka_Arai_IMG_0184.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Moeka_Arai_IMG_0184.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Moeka Arai; license=CC BY-SA 4.0; by Bject; bio from ja:新井萌花"
+    },
+    {
+      "id": "tsukasa-arai",
+      "name": "Tsukasa Arai",
+      "altName": "荒井つかさ",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1994년 11월 29일 군마현 다테바야시시 출신의 일본 탤런트 겸 레이스 퀸. 캠프 프로모션 소속으로 K-point와 업무 제휴를 맺고 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Nishiguchi_Pro_Wrestling_February_17,_2023,_Shinjuku_Face_Tournament_IMG_5006-2.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Nishiguchi_Pro_Wrestling_February_17%2C_2023%2C_Shinjuku_Face_Tournament_IMG_5006-2.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Tsukasa Arai; license=CC BY-SA 4.0; by Bject; bio from ja:荒井つかさ"
+    },
+    {
+      "id": "nanami-asahi",
+      "name": "Nanami Asahi",
+      "altName": "朝日ななみ",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1999년 1월 22일생의 일본 그라비아 모델 겸 배우. 옛 예명 '사쿠라 나나미'로 데뷔했고 터치업 엔터테인먼트를 거쳐 에이지아 프로모션 소속이다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E3%80%90%E5%92%B2%E8%89%AF%E4%B8%83%E6%B5%B7%E3%80%911stDVD%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%86%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC2_CUT.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/%E3%80%90%E5%92%B2%E8%89%AF%E4%B8%83%E6%B5%B7%E3%80%911stDVD%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%86%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC2_CUT.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Nanami Asahi; license=CC BY-SA 4.0; by リバプール公式YouTube; bio from ja:朝日ななみ"
+    },
+    {
+      "id": "nao-asahi",
+      "name": "Nao Asahi",
+      "altName": "朝日奈央",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1994년 4월 21일 사이타마현 출신의 일본 탤런트 겸 배우, 아이돌. 아이돌 그룹 아이돌링!!! 전 멤버이며 라이징 프로덕션 소속으로 지금은 Maintenance에서 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:RD0A0460%E3%83%BCASAHI.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/RD0A0460%E3%83%BCASAHI.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Nao Asahi; license=CC BY-SA 4.0; by KAKERUTV; bio from en:Nao Asahi"
+    },
+    {
+      "id": "yumi-asahina",
+      "name": "Yumi Asahina",
+      "altName": "朝比奈祐未",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1991년 12월 9일 가나가와현 출신의 일본 탤런트 겸 그라비아 아이돌, 코스프레이어. 다마 미술대학 출신으로 이츠다이브 엔터테인먼트 소속이다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Shirakobato_Water_Park_IMG_0313.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Shirakobato_Water_Park_IMG_0313.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Yumi Asahina; license=CC BY-SA 4.0; by Bject; bio from ja:朝比奈祐未"
+    },
+    {
+      "id": "nana-asakawa",
+      "name": "Nana Asakawa",
+      "altName": "浅川梨奈",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1999년 4월 3일 사이타마현 출신의 일본 배우 겸 전 가수. 아이돌 그룹 슈퍼걸스의 전 멤버이며 에이벡스 뱅가드 소속으로 배우 활동을 이어가고 있다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E6%B2%BC%E9%9B%84%E4%B8%80%E7%9B%A3%E7%9D%A3%E4%BD%9C%E5%93%81%EF%BC%86%E6%B5%9C%E8%BE%BA%E7%BE%8E%E6%B3%A2%E4%B8%BB%E6%BC%94%E3%80%8E%E5%92%B2-Saki-%E3%80%8F.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/%E5%B0%8F%E6%B2%BC%E9%9B%84%E4%B8%80%E7%9B%A3%E7%9D%A3%E4%BD%9C%E5%93%81%EF%BC%86%E6%B5%9C%E8%BE%BA%E7%BE%8E%E6%B3%A2%E4%B8%BB%E6%BC%94%E3%80%8E%E5%92%B2-Saki-%E3%80%8F.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Nana Asakawa; license=CC BY-SA 4.0; by 映画小僧呪師; bio from en:Nana Asakawa"
+    },
+    {
+      "id": "hinako-asakura",
+      "name": "Hinako Asakura",
+      "altName": "麻倉ひな子",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "2월 12일생의 일본 그라비아 아이돌로 아오모리현 아오모리시 출신. 옛 예명 '이치노헤 히나코'로 브레이크스루 프로모션에서 활동한 뒤 프리랜서가 되었다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:ASAKURA_Miss_genic_2019CIMG2060.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/ASAKURA_Miss_genic_2019CIMG2060.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Hinako Asakura; license=CC BY-SA 4.0; by Bject; bio from ja:麻倉ひな子"
+    },
+    {
+      "id": "haruka-ayase",
+      "name": "Haruka Ayase",
+      "altName": "綾瀬はるか",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1985년 3월 24일생의 일본 배우. 본명은 타데마루 아야이며 2000년 모델로 시작해 드라마와 영화의 주연 배우로 성장했고, 그라비아와 광고에서도 오랜 활약을 이어왔다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 2.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Ayase_Haruka_from_%22Route29%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2024_(54578012419).jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Ayase_Haruka_from_%22Route29%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2024_%2854578012419%29.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Haruka Ayase; license=CC BY 2.0; by Dick Thomas Johnson from Tokyo, Japan; bio from en:Haruka Ayase"
+    },
+    {
+      "id": "uta-azumi",
+      "name": "Uta Azumi",
+      "altName": "茜紬うた",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1996년 6월 24일 가고시마현 출신의 일본 그라비아 아이돌 겸 탤런트. 애칭은 '우타치'이며 GDL 엔터테인먼트 소속이다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Female_model_for_pool_photo_session_2022_IMG_7881Azumi.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Female_model_for_pool_photo_session_2022_IMG_7881Azumi.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Uta Azumi; license=CC BY-SA 4.0; by Bject; bio from ja:茜紬うた"
+    },
+    {
+      "id": "mai-chonan",
+      "name": "Mai Chōnan",
+      "altName": "長南舞",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1997년 11월 21일 홋카이도 출신의 일본 배우. 아이돌 유닛 '난키니!' 전 멤버로 2015년 무대 '앨리스 인 데드 스쿨 비욘드'로 데뷔한 뒤 프리랜서로 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:August_15,_2024,_%E2%80%9CModern_Mahjong_Academy%E2%80%9D,_Konosu_City,_Saitama_Prefecture_IMG_7628.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/August_15%2C_2024%2C_%E2%80%9CModern_Mahjong_Academy%E2%80%9D%2C_Konosu_City%2C_Saitama_Prefecture_IMG_7628.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Mai Chōnan; license=CC BY 4.0; by Bject; bio from ja:長南舞"
+    },
+    {
+      "id": "anna-demachi",
+      "name": "Anna Demachi",
+      "altName": "出町杏奈",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "2001년 4월 4일생의 일본 탤런트 겸 라운드 걸, 그라비아 아이돌, 모델. 레이스 앰버서더로도 활약하며 그라비아 이벤트 무대에 꾸준히 서고 있다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kindai_Mahjong_Swimsuit_Festival_(April_29,_2024)051919.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Kindai_Mahjong_Swimsuit_Festival_%28April_29%2C_2024%29051919.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Anna Demachi; license=CC BY 4.0; by Bject; bio from ja:出町杏奈"
+    },
+    {
+      "id": "ruriko-doko",
+      "name": "Ruriko Dokō",
+      "altName": "土光瑠璃子",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1999년 10월 7일 가나가와현 출신의 일본 아이돌. 2013년 도쿄 치어2 파티로 데뷔해 2018년부터 FES☆TIVE 멤버로 활동했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kindai_Mahjong_Swimsuit_Festival_20220910_IMG_2296.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Kindai_Mahjong_Swimsuit_Festival_20220910_IMG_2296.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Ruriko Dokō; license=CC BY-SA 4.0; by Bject; bio from ja:土光瑠璃子"
+    },
+    {
+      "id": "mame-endo",
+      "name": "Mame Endō",
+      "altName": "遠藤まめ",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "도쿄도 출신의 일본 그라비아 아이돌 겸 탤런트. 2022년 근대마작 수영복 축제를 계기로 발탁되어 2024년 미스 FLASH 그랑프리를 차지했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Miss_Flash_2024_photo_session_IMG_0792.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Miss_Flash_2024_photo_session_IMG_0792.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Mame Endō; license=CC BY 4.0; by Bject; bio from ja:遠藤まめ"
+    },
+    {
+      "id": "minami-fukuoka",
+      "name": "Minami Fukuoka",
+      "altName": "福岡みなみ",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1995년 5월 1일 히로시마현 출신의 일본 탤런트 겸 모델, 실업가. 개인 사무소 elu를 설립해 운영하며 활동 범위를 넓히고 있다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Minami_Fukuoka_%E7%A6%8F%E5%B2%A1_%E3%81%BF%E3%81%AA%E3%81%BF_03.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Minami_Fukuoka_%E7%A6%8F%E5%B2%A1_%E3%81%BF%E3%81%AA%E3%81%BF_03.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Minami Fukuoka; license=CC BY 3.0; by バイラチャンネル; bio from ja:福岡みなみ"
+    },
+    {
+      "id": "saki-funaoka",
+      "name": "Saki Funaoka",
+      "altName": "船岡咲",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "bio": "1993년 3월 2일생의 일본 배우 겸 그라비아 아이돌, 전 패션 모델. 오스카 프로모션 소속으로 어린 시절 모델 활동을 시작해 배우와 그라비아로 영역을 넓혔다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Smiling_Saki_Funaoka.jpg",
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Smiling_Saki_Funaoka.jpg",
+      "status": "ready",
+      "sourceNote": "Commons Category:Saki Funaoka; license=CC BY 4.0; by Bject; bio from ja:船岡咲"
+    }
+  ]
 }

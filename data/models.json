@@ -34,7 +34,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 191,
+  "modelCount": 201,
   "models": [
     {
       "id": "enako",
@@ -3786,6 +3786,196 @@
       "birth": "1993-10-06",
       "origin": "兵庫県洲本市",
       "agency": "FIRST AGENT"
+    },
+    {
+      "id": "oto-abe",
+      "name": "Oto Abe",
+      "altName": "安倍乙",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "2000년 1월 18일 오사카부 출신의 일본 배우 겸 그라비아 아이돌. 극단 4달러 50센트 단원으로 무대에 서며 에이벡스 AY 팩토리 소속이다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Oto_Abe_2021.jpg"
+    },
+    {
+      "id": "jurii-aida",
+      "name": "Jurii Aida",
+      "altName": "逢田珠里依",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "2005년 9월 13일 도쿄도 출신의 일본 아이돌 겸 그라비아 아이돌. 여성 아이돌 그룹 ≒JOY 멤버이며 요요기 애니메이션 학원 소속이다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Jurii_Aida_@Japan_Expo_Thailand_2026.jpg"
+    },
+    {
+      "id": "momo-akabane",
+      "name": "Momo Akabane",
+      "altName": "赤羽もも",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1996년 2월 13일 후쿠시마현 출신의 일본 코스프레이어 겸 그라비아 아이돌, DJ. DVD 발매 기념 이벤트 등 그라비아 무대를 중심으로 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E3%80%90%E8%B5%A4%E7%BE%BD%E3%82%82%E3%82%82%E3%80%91DVD%E7%99%BA%E5%A3%B2%E8%A8%98%E5%BF%B5%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%BB%E7%B5%82%E4%BA%86%E5%BE%8C%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88@%E3%82%BD%E3%83%95%E3%83%9E%E3%83%83%E3%83%97%E2%99%AA.jpg"
+    },
+    {
+      "id": "narumi-amaha",
+      "name": "Narumi Amaha",
+      "altName": "百花梅",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1999년 12월 26일 가나가와현 출신의 일본 그라비아 아이돌. 옛 예명 '아마하 나루미'로 활약했으며 지금은 백화 매(百花梅) 이름으로 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Narumi_Amaha_IMG_0009.jpg"
+    },
+    {
+      "id": "miruki-amemiya",
+      "name": "Miruki Amemiya",
+      "altName": "雨宮未苺",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "2005년 9월 2일생의 일본 패션 모델 겸 탤런트. 소속사 러버즈(Lovers)에 재적하며 야마나시현 거주를 기반으로 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kindai_Mahjong_Swimsuit_Festival_(April_29,_2024)051960.jpg"
+    },
+    {
+      "id": "runa-amemiya",
+      "name": "Runa Amemiya",
+      "altName": "雨宮留菜",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1993년 7월 14일 오사카부 출신의 일본 그라비아 아이돌 겸 코스프레이어. IMS 엔터테인먼트를 거쳐 지금은 프리랜서로 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E9%9B%A8%E5%AE%AE%E7%95%99%E8%8F%9C_%E5%AE%A3%E6%9D%90PV_Screenshot.jpg"
+    },
+    {
+      "id": "ancham",
+      "name": "Ancham",
+      "altName": "藤木杏奈",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "일본의 프로레슬러 겸 그라비아 아이돌. 본명은 후지키 안나(藤木杏奈)이며 아이스 리본과 가토 무브 프로레슬링에서 활약한 뒤 프리랜서로 전향했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E6%9D%8F%E3%81%A1%E3%82%83%E3%82%80.jpg"
+    },
+    {
+      "id": "emi-ando",
+      "name": "Emi Andō",
+      "altName": "安藤笑",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1995년 8월 7일 아이치현 도요타시 출신의 일본 아이돌 탤런트 겸 모델. 아이치 교육대학 교육학부를 졸업하고 프리랜서로 활동한다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Emi_Ando2024_IMG_0329.jpg"
+    },
+    {
+      "id": "hinari-aoba",
+      "name": "Hinari Aoba",
+      "altName": "青葉ひなり",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "일본의 아이돌로 여성 아이돌 그룹 FES☆TIVE의 전 멤버. 지바현 출신으로 그룹 활동과 함께 그라비아 무대에서도 활약했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Hinari_Aoba_IMG_4474.jpg"
+    },
+    {
+      "id": "hikaru-aoyama",
+      "name": "Hikaru Aoyama",
+      "altName": "青山ひかる",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1993년 6월 13일생의 일본 그라비아 모델. 잡지 화보와 이벤트 무대를 중심으로 활동해 왔다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Trend_Girls_Photo_Session_(September_28,_2025)_IMG_4180_(cropped).jpg"
     }
   ]
 }
