@@ -1,0 +1,59 @@
+name: Issue Daily Scrape
+
+# 핫이슈 뉴스 수집 자동화. issue/scripts/scrape-issue.mjs 로 Google News RSS를
+# 수집해 issue/data/issue.json 을 갱신하고 커밋/푸시한다. GITHUB_TOKEN push 는
+# deploy.yml 의 push 트리거를 발화하지 않으므로(재귀 방지 정책), 배포는 이
+# 워크플로우의 완료를 감지하는 deploy.yml 의 workflow_run 트리거가 담당한다.
+#
+# Schedule: 00:30 / 12:30 UTC = KST 09:30 / 21:30 (뉴스 2회 갱신. :00 스탬피드 회피).
+# 실패 시 이전 데이터 유지(0건이면 기록 안 함). gravure-daily 와 분리 실행.
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+    - cron: "30 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 스크레이프가 꼬여도 기존 배포는 건드리지 않도록 별도 그룹
+concurrency:
+  group: issue-scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: 이슈 뉴스 수집
+        run: node issue/scripts/scrape-issue.mjs
+
+      - name: 데이터 검증
+        run: node -e "const j=require('./issue/data/issue.json'); if(!j.items||!j.items.length){process.exit(1)}; if(!j.meta.scraped_at){process.exit(1)}; console.log('OK', j.items.length, 'items');"
+
+      - name: Commit and push
+        run: |
+          git config user.name "GlobalHot Bot"
+          git config user.email "bot@globalhot.net"
+          git add issue/data/issue.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit (data unchanged)."
+          else
+            git commit -m "chore(issue): daily issue news scrape"
+            git push
+          fi

@@ -48,7 +48,7 @@ test("Pages build contains the static files, every source profile photo, and mod
   assert.ok(srcPhotos.length >= 5, "expected the seed profile photos to be present");
 
   // 허용되지 않은 파일/디렉토리 없음
-  const allowedRoots = new Set(["data", "assets", "assets/profiles"]);
+  const allowedRoots = new Set(["data", "assets", "assets/profiles", "issue"]);
   for (const d of distDirs) {
     assert.ok(allowedRoots.has(d) || d.startsWith("assets/profiles/"), `unexpected dir: ${d}`);
   }
