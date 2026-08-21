@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-08-20T13:27:58.206Z",
-    "total_items": 60,
+    "scraped_at": "2026-08-21T02:09:02.515Z",
+    "total_items": 61,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -13,16 +13,6 @@
     ]
   },
   "items": [
-    {
-      "id": "CBMibkFVX3lxTFBVZUQ0U2hkdVZGc25oNmVlX3p3YnNTMHNkUDVSMU9Sd2tleGZWWFZOWHRVSTVWOGJPR2FsblNJQTAwSGVNNkVOd29qaUEyZUxzWG1scXBGZmh5bUZJY0xzSnN5VExOR3plall6Y0tB",
-      "title": "See Right Through Emily Sears' Lime Green Lingerie",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBVZUQ0U2hkdVZGc25oNmVlX3p3YnNTMHNkUDVSMU9Sd2tleGZWWFZOWHRVSTVWOGJPR2FsblNJQTAwSGVNNkVOd29qaUEyZUxzWG1scXBGZmh5bUZJY0xzSnN5VExOR3plall6Y0tB?oc=5",
-      "platform": "news",
-      "source": "Google News · 란제리",
-      "category": "model",
-      "author": "TMZ",
-      "created_utc": 1787165377
-    },
     {
       "id": "CBMiygFBVV95cUxQNkxMa25vZERnY2ZuWEU5Y2tKb2hPd1VFNFlJeWtDWDQ5OEcxRUxPaGRDZWZxZ1RtSnhrZE4zZTdJempXZG44TFVjSGx4ZTd6cjRNRzFQWFIwRjVVNkNRN3gxbktfTWF5S3Y2YTF5TGFtUWIxZFdDcHU5bkJiTzh6Q3NuNnVyY3EzYWd1Ukt5em5RTVROTlFrcXhfTkVnZHFDVEJqN1kwanE0aG9xVzJQdXBjQUJQUlhVRmlpaVdCTzNTRDhVRlUxUXNB",
       "title": "Morning Musume’s Sakura Oda flaunts bikini figure in final photo book ahead of graduation",
@@ -55,7 +45,7 @@
     },
     {
       "id": "CBMifkFVX3lxTE9EZ2dWdXhPY211Y19Ca2Y3WXRUVHRYUjRtOTkzbVdqZlFYYkdDajJEdHBaeUFlWXFXYVJJMDNPWVRDOTFrRGFvbmZaLXluQ1hxc0VaTmpDTTdNR0tnR1pkSmFMVU05ZmR2V0w5U2RlWHM5d2J6VXZac0RuTkVaUQ",
-      "title": "Mindy Kaling reacts to speculation that she models lingerie",
+      "title": "Mindy Kaling reacts to rumors she models lingerie",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9EZ2dWdXhPY211Y19Ca2Y3WXRUVHRYUjRtOTkzbVdqZlFYYkdDajJEdHBaeUFlWXFXYVJJMDNPWVRDOTFrRGFvbmZaLXluQ1hxc0VaTmpDTTdNR0tnR1pkSmFMVU05ZmR2V0w5U2RlWHM5d2J6VXZac0RuTkVaUQ?oc=5",
       "platform": "news",
       "source": "Google News · 란제리",
@@ -92,6 +82,16 @@
       "category": "gravure",
       "author": "The Tokyo Reporter",
       "created_utc": 1782198000
+    },
+    {
+      "id": "CBMiT0FVX3lxTE9ENnBUM21nbENtSERZZEU5SEJMVGhreHFjZTl6WmkxU3NlWFB5aVZpZFFHX0NtQXRNd1BVRmM2UmpFbXZUNEl6VDJsOVgxOTQ",
+      "title": "Yuka Iguchi Reveals Stunning Body Line as New Photobook",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9ENnBUM21nbENtSERZZEU5SEJMVGhreHFjZTl6WmkxU3NlWFB5aVZpZFFHX0NtQXRNd1BVRmM2UmpFbXZUNEl6VDJsOVgxOTQ?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아",
+      "category": "gravure",
+      "author": "Japan Anime News powered by ORICON NEWS",
+      "created_utc": 1780297200
     },
     {
       "id": "CBMiiwFBVV95cUxPLWlMQTRodkRGc1RWVmlGOXhnTmlzVTdqZWpXcy1tZE4tcmIzWXdqQ1NQMG5DZTFZek9fX1M4eEZCa284aHZZQzgxd2FucDJHVy1jaTlQYnN1akN6U19yVHQ1eDd4ckNzX3FWaVNQUWZPdDJ2MHpkOTRDTWViWGduUm16bzRYSkdfQ20w",
@@ -160,7 +160,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "Japan Anime News",
+      "author": "Japan Anime News powered by ORICON NEWS",
       "created_utc": 1772092800
     },
     {
@@ -180,18 +180,18 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "Japan Anime News",
+      "author": "Japan Anime News powered by ORICON NEWS",
       "created_utc": 1770624000
     },
     {
-      "id": "CBMiT0FVX3lxTE1HajV2aHl3ZmlZZ252QmV2R0VuMUNIMnp4Y1V5MGJuVi03TS1WeGFTWGdDOXYxWDlLY1h6YUZfVlVoTUpYWVRXak9lSTN1dms",
-      "title": "Top Gravure Idol in the Voice Acting World: Yuka Iguchi Appears on the Cover and Opening Pages of Manga Action",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1HajV2aHl3ZmlZZ252QmV2R0VuMUNIMnp4Y1V5MGJuVi03TS1WeGFTWGdDOXYxWDlLY1h6YUZfVlVoTUpYWVRXak9lSTN1dms?oc=5",
+      "id": "CBMid0FVX3lxTE9zSUtnQTk4WFVlUDAxTHdlN2QtcGJsYWprajFzc01hS3hMN0dIYlFjWUpGTkJfZ3I2UTczVDNfaW5mTmhTNEZLVjdaYUo2cjhRUjFuNVJrdHFnaTZuck12QTFQeDRoLWpGWnFseTVadFhXQy16RkJv",
+      "title": "트와이스 지효, 글래머 몸매로 속옷 모델 됐다",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9zSUtnQTk4WFVlUDAxTHdlN2QtcGJsYWprajFzc01hS3hMN0dIYlFjWUpGTkJfZ3I2UTczVDNfaW5mTmhTNEZLVjdaYUo2cjhRUjFuNVJrdHFnaTZuck12QTFQeDRoLWpGWnFseTVadFhXQy16RkJv?oc=5",
       "platform": "news",
-      "source": "Google News · 그라비아",
-      "category": "gravure",
-      "author": "Japan Anime News",
-      "created_utc": 1770105600
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "네이트",
+      "created_utc": 1770537600
     },
     {
       "id": "CBMiRkFVX3lxTFBuazByaDEyT1drVG1ZckRhOXd1bGswSGduVzB0eml3b3JjX3lZYzAzWU9oZUlLa2RzRDlNdnZ0bjhoT0ZTdEE",
@@ -222,6 +222,16 @@
       "category": "cosplay",
       "author": "HELLO! Magazine",
       "created_utc": 1767427200
+    },
+    {
+      "id": "CBMiS0FVX3lxTE15cUNNLVJnNFdZS1lfRjZkQWgwM2Zzc3RvOHE0ekgxYWpycGVDTTZtRmY1SGkzQUVzdGRiNEhJR3pKNmhXOGR0XzFYOA",
+      "title": "시노자키 아이 한정판 화보집 - 몽환",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE15cUNNLVJnNFdZS1lfRjZkQWgwM2Zzc3RvOHE0ekgxYWpycGVDTTZtRmY1SGkzQUVzdGRiNEhJR3pKNmhXOGR0XzFYOA?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "브런치",
+      "created_utc": 1765353600
     },
     {
       "id": "CBMiU0FVX3lxTE0yOHdrWG0tamNnZzVZVmcxX3RkcFJ2cUdycFdRMGNTck9QenE0VkJIc3ZobmszLTNJd25LLTlHaHRaZC1jcEhDbDE1a3NNMWh4cTFV",
@@ -314,9 +324,9 @@
       "created_utc": 1673683200
     },
     {
-      "id": "CBMi4AFBVV95cUxNZXhtUGRlNzM4UzJ0UDN6UFNJV2cxSEhobGRrdlJjQVZRanI5Qk0ybWt6WlpLS3ZtQ1VtMmk0eUdEX0JmYUxqMDYyTzFCZ2N3YXpqa05UX1FFQXY1bW5jQ2RVTFlHZURmMXIzWFlxX3UxU2F4SWFEYlZmMGU3UHVWQ2d1NEFWbnRpb3hZbEIwazBnWUVNdUdVbV9KX29YbnoteS1ORExfMWVqT0RTODZQRE9lcmZTWXdSdFR0UGlaWmU0QWJMNnNLU3NKc2NxTGlSbW5zUDV0NWJ0ZEdNcFRMYg",
+      "id": "CBMi_AFBVV95cUxOTFlVM25jLWRXZVJWbThPNEdMRDdSbTRMSjdBZGRwMGlGbXZxektFaGhNWjhPQV9Md1NZUFd0czhNT2Z2S19WcWZIZEpEV25wWG5DSExoT1c1NGRHblh3RndWclEzeFMtb29UbEVCdlZwWnhUbnZfaHhVbDNYNDBtalVaVmVWNk1uUmFsNzJPMmJLZUZzOXBFX0lGaHlpR284U2ZfMUs3SmhvalJMUGUxSm5LSVNrWjdHOFBGUUgxSzVJaEUydXNRbDFpMnNna1dfenE4bFFGaXRoU28tT3Rodlc0YjlfN2RLanJsSlJBNmltYV9iNk1vZlhtTUg",
       "title": "Gravure model NFT series wants to attract online investors, real-world visitors for hot springs",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNZXhtUGRlNzM4UzJ0UDN6UFNJV2cxSEhobGRrdlJjQVZRanI5Qk0ybWt6WlpLS3ZtQ1VtMmk0eUdEX0JmYUxqMDYyTzFCZ2N3YXpqa05UX1FFQXY1bW5jQ2RVTFlHZURmMXIzWFlxX3UxU2F4SWFEYlZmMGU3UHVWQ2d1NEFWbnRpb3hZbEIwazBnWUVNdUdVbV9KX29YbnoteS1ORExfMWVqT0RTODZQRE9lcmZTWXdSdFR0UGlaWmU0QWJMNnNLU3NKc2NxTGlSbW5zUDV0NWJ0ZEdNcFRMYg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOTFlVM25jLWRXZVJWbThPNEdMRDdSbTRMSjdBZGRwMGlGbXZxektFaGhNWjhPQV9Md1NZUFd0czhNT2Z2S19WcWZIZEpEV25wWG5DSExoT1c1NGRHblh3RndWclEzeFMtb29UbEVCdlZwWnhUbnZfaHhVbDNYNDBtalVaVmVWNk1uUmFsNzJPMmJLZUZzOXBFX0lGaHlpR284U2ZfMUs3SmhvalJMUGUxSm5LSVNrWjdHOFBGUUgxSzVJaEUydXNRbDFpMnNna1dfenE4bFFGaXRoU28tT3Rodlc0YjlfN2RLanJsSlJBNmltYV9iNk1vZlhtTUg?oc=5",
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
@@ -352,16 +362,6 @@
       "category": "gravure",
       "author": "SoraNews24",
       "created_utc": 1631602800
-    },
-    {
-      "id": "CBMiRkFVX3lxTFAwWURsaHhZQVQ3dmtNMXFfVDM2VnRFWS1fSWFRdGdnclFHQmFJdEpTcFktaDY0RW03aEprb2RlcmxZWWQ0dUE",
-      "title": "'난 글래머 모델 여자친구가 좋아' 네이마르의 일관된 여성취향",
-      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFAwWURsaHhZQVQ3dmtNMXFfVDM2VnRFWS1fSWFRdGdnclFHQmFJdEpTcFktaDY0RW03aEprb2RlcmxZWWQ0dUE?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "v.daum.net",
-      "created_utc": 1619852400
     },
     {
       "id": "CBMiS0FVX3lxTE5UQ2piWHA0bFU0OVFQUXZKcjJ1SWxJQlFwUkZxdnlhdXFoRVdzdUw5bk5EU0J2QnVBZ0FIYS1JTHdreVl1N1RObGQ1cw",
@@ -402,16 +402,6 @@
       "category": "cosplay",
       "author": "nextshark.com",
       "created_utc": 1561618800
-    },
-    {
-      "id": "CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3",
-      "title": "피트니스모델 홍민아 블랙비키니 화보 공개",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3?oc=5",
-      "platform": "news",
-      "source": "Google News · 비키니(KR)",
-      "category": "model",
-      "author": "국제신문",
-      "created_utc": 1504767600
     },
     {
       "id": "CBMiS0FVX3lxTE9ENk5IMGhmQWt0MGcyQnN2eUhiUFdiUGEwVE9jRGZNWnZYQTBDSmpES3lJdzh5RTUtYTNZRG1zNlc2N0ZMTDRhWlNkUQ",
@@ -474,24 +464,24 @@
       "created_utc": 1467788400
     },
     {
-      "id": "CBMiYkFVX3lxTE9WUVM5RTRoRDJSUnNPOWNBSUVNTHBMcWhxa0hzbXNRWmtVeUxoYmRfYlpsZGFDZE00ODdtQ1Njd2tYU1g5bGt6ZzBWUzU5RFRhcDZCaENPZVRVR1cwb1p3ZUtB",
+      "id": "CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B",
       "title": "[포토] 글래머 모델, 범접불가 풍만한 몸매",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9WUVM5RTRoRDJSUnNPOWNBSUVNTHBMcWhxa0hzbXNRWmtVeUxoYmRfYlpsZGFDZE00ODdtQ1Njd2tYU1g5bGt6ZzBWUzU5RFRhcDZCaENPZVRVR1cwb1p3ZUtB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B?oc=5",
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
       "author": "아시아경제",
-      "created_utc": 1451289600
+      "created_utc": 1453708800
     },
     {
-      "id": "CBMiYkFVX3lxTE9Nal92NWtjTjhlTTB1ZjZxWDRjci1mb01JOVM5cTZocG9HU0FnUkxTUlFSNVp3NVUtcUE0Qm5pTUp3T3poVllyeFhtQkQxVUhiTEJWODF4LUc1TW9QaEZFM3h3",
-      "title": "[포토] 글래머 모델, 남심 사로잡은 볼륨감",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9Nal92NWtjTjhlTTB1ZjZxWDRjci1mb01JOVM5cTZocG9HU0FnUkxTUlFSNVp3NVUtcUE0Qm5pTUp3T3poVllyeFhtQkQxVUhiTEJWODF4LUc1TW9QaEZFM3h3?oc=5",
+      "id": "CBMiYkFVX3lxTFBJY3ZPcTBEU1N2NVk5RzBYaDVhRmwyaXpYTnRPTjZCY0xnRmFlTzJIY0VwSnplMnpaZlNIQTJPbW1nSGtiZXVhNjNCTWJhSWNpTml2bm8za0ZTVWJBbl9ZVmRn",
+      "title": "[포토] 글래머 모델, 시선둘 곳 없는 '풍만한 몸매'",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJY3ZPcTBEU1N2NVk5RzBYaDVhRmwyaXpYTnRPTjZCY0xnRmFlTzJIY0VwSnplMnpaZlNIQTJPbW1nSGtiZXVhNjNCTWJhSWNpTml2bm8za0ZTVWJBbl9ZVmRn?oc=5",
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
       "author": "아시아경제",
-      "created_utc": 1450684800
+      "created_utc": 1449734400
     },
     {
       "id": "CBMiYkFVX3lxTE42aXNjTGV4MXloaWZVZ3NUQl85eWNXM1pNWVpJX210Y3lscl8tU2xFYXFOMEljclVQUlpnOW5aUV9paWNfQjhXWFdGM21lZGlMSlZIdDd5LVVTc3NQWjdDUFp3",
@@ -502,6 +492,16 @@
       "category": "model",
       "author": "아시아경제",
       "created_utc": 1449734400
+    },
+    {
+      "id": "CBMieEFVX3lxTE54MW15NnVVa1JiSURkQzhHWFRDbTktX002WmFOWW1pY3VBVzZKVWhUTmJlZFowZXJDZFIzU0E5ZTBocC00YkUyQjFPeGlFR0FEdDEyeEtsNXlqXzkwUGFRZjJrellQQUVqanB3NURZVXNnUDd5WkIxRdIBZEFVX3lxTE9MTjdCZmtnT2xRdjZBZmFXVkV3ZHhLVVZmcWl3VzAzT1I1azAyNmNob1NVMGxNZnhRLVN4ZTEyaktnVEZDRkRxMXZud1NaOHFOcjE1bjRqZzNVSzBOSnNfMmlWb0w",
+      "title": "[화보] 루디빈 사냐, 다 벗은듯한 착시 비키니 ‘모델답네’",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE54MW15NnVVa1JiSURkQzhHWFRDbTktX002WmFOWW1pY3VBVzZKVWhUTmJlZFowZXJDZFIzU0E5ZTBocC00YkUyQjFPeGlFR0FEdDEyeEtsNXlqXzkwUGFRZjJrellQQUVqanB3NURZVXNnUDd5WkIxRdIBZEFVX3lxTE9MTjdCZmtnT2xRdjZBZmFXVkV3ZHhLVVZmcWl3VzAzT1I1azAyNmNob1NVMGxNZnhRLVN4ZTEyaktnVEZDRkRxMXZud1NaOHFOcjE1bjRqZzNVSzBOSnNfMmlWb0w?oc=5",
+      "platform": "news",
+      "source": "Google News · 비키니(KR)",
+      "category": "model",
+      "author": "동아일보",
+      "created_utc": 1436252400
     },
     {
       "id": "CBMiVkFVX3lxTFA5dnR6SlN3anBJZ1BPam1XLWoxR0lxZ1praHNNTDBXMHl2QkdMVWRZdTgzMFd3RHg0bXE0MGRXbldTREp3elNCcHg3YzNobS10MS1OVjZB",
@@ -592,6 +592,16 @@
       "category": "model",
       "author": "나우뉴스",
       "created_utc": 1350025200
+    },
+    {
+      "id": "CBMinAFBVV95cUxQZTVpekltZFFSZnNvQVpCN25NUjFxcFpsRi1veTFHY0o0aXJhUVdDMlJ3VW5WZkpfS1J6ZVVkODdJOVpTZXdrdVRYcFlNZ3hLRnJfTS1MNXdONzFvWldKNEVwRTJfVFJGOXItSFMyX29oY1ZlMXdWR0RjQjlsSVBJZmhPRVlabE54SU9QZkozUnh1dmxGMmxHdndqYUU",
+      "title": "Actress Mitsuya Yoko to go nude for new photo book '27+3'",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZTVpekltZFFSZnNvQVpCN25NUjFxcFpsRi1veTFHY0o0aXJhUVdDMlJ3VW5WZkpfS1J6ZVVkODdJOVpTZXdrdVRYcFlNZ3hLRnJfTS1MNXdONzFvWldKNEVwRTJfVFJGOXItSFMyX29oY1ZlMXdWR0RjQjlsSVBJZmhPRVlabE54SU9QZkozUnh1dmxGMmxHdndqYUU?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아 누드",
+      "category": "gravure",
+      "author": "tokyohive",
+      "created_utc": 1344495600
     },
     {
       "id": "CBMivwFBVV95cUxNQUxPNUh6VE5TN293dmNBanFpRWRoOGVVMEJTWk96YzlkOG9rM2piSlJMUjV2VXgzSklOaThveFF6Z1BQVDhDOUVaUlVzQTBvOC1mc3lxTEpyYkhWS1NEYmpZZktmQ3FGS21qdWxJaGVLbGVMOHRQVjZtd0wzVjRyQXZQSXljMDI0QktGMEl2US1NYXMyeGIwa3VzM2k2ZVAyZk1IUDZ0ME9DdTdMMmFNN0RPQXFzVkViZVN1MHBSTQ",
