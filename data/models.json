@@ -34,7 +34,7 @@
     "youtube",
     "tiktok"
   ],
-  "modelCount": 211,
+  "modelCount": 216,
   "models": [
     {
       "id": "enako",
@@ -4166,6 +4166,101 @@
       "license": "CC BY 4.0",
       "creditText": "Wikimedia Commons",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:August_15,_2024,_%E2%80%9CModern_Mahjong_Academy%E2%80%9D,_Konosu_City,_Saitama_Prefecture_IMG_7628.jpg"
+    },
+    {
+      "id": "anna-demachi",
+      "name": "Anna Demachi",
+      "altName": "出町杏奈",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "2001년 4월 4일생의 일본 탤런트 겸 라운드 걸, 그라비아 아이돌, 모델. 레이스 앰버서더로도 활약하며 그라비아 이벤트 무대에 꾸준히 서고 있다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kindai_Mahjong_Swimsuit_Festival_(April_29,_2024)051919.jpg"
+    },
+    {
+      "id": "ruriko-doko",
+      "name": "Ruriko Dokō",
+      "altName": "土光瑠璃子",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1999년 10월 7일 가나가와현 출신의 일본 아이돌. 2013년 도쿄 치어2 파티로 데뷔해 2018년부터 FES☆TIVE 멤버로 활동했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY-SA 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kindai_Mahjong_Swimsuit_Festival_20220910_IMG_2296.jpg"
+    },
+    {
+      "id": "mame-endo",
+      "name": "Mame Endō",
+      "altName": "遠藤まめ",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "도쿄도 출신의 일본 그라비아 아이돌 겸 탤런트. 2022년 근대마작 수영복 축제를 계기로 발탁되어 2024년 미스 FLASH 그랑프리를 차지했다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Miss_Flash_2024_photo_session_IMG_0792.jpg"
+    },
+    {
+      "id": "minami-fukuoka",
+      "name": "Minami Fukuoka",
+      "altName": "福岡みなみ",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1995년 5월 1일 히로시마현 출신의 일본 탤런트 겸 모델, 실업가. 개인 사무소 elu를 설립해 운영하며 활동 범위를 넓히고 있다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 3.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Minami_Fukuoka_%E7%A6%8F%E5%B2%A1_%E3%81%BF%E3%81%AA%E3%81%BF_03.jpg"
+    },
+    {
+      "id": "saki-funaoka",
+      "name": "Saki Funaoka",
+      "altName": "船岡咲",
+      "country": "JAPAN",
+      "tags": "gravure model",
+      "photoAvailable": true,
+      "bio": "1993년 3월 2일생의 일본 배우 겸 그라비아 아이돌, 전 패션 모델. 오스카 프로모션 소속으로 어린 시절 모델 활동을 시작해 배우와 그라비아로 영역을 넓혔다.",
+      "officialUrl": "",
+      "sns": {
+        "x": "",
+        "instagram": "",
+        "youtube": "",
+        "tiktok": ""
+      },
+      "license": "CC BY 4.0",
+      "creditText": "Wikimedia Commons",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Smiling_Saki_Funaoka.jpg"
     }
   ]
 }
