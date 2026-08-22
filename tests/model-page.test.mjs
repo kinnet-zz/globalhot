@@ -158,7 +158,7 @@ test('detail page mounts a published profile header with a working monogram fall
   assert.ok(portrait.querySelector('span'), 'NO PHOTO span appears');
 });
 
-test('detail page renders the minimal profile rail without structured-field duplication', async () => {
+test('detail page renders the standard rail and structured sections', async () => {
   const { evalPromise, stateEl } = run();
   await evalPromise;
   await new Promise((resolve) => setTimeout(resolve, 30));
@@ -170,33 +170,35 @@ test('detail page renders the minimal profile rail without structured-field dupl
 
   const rail = section.querySelector('.profile-rail');
   assert.ok(rail, 'rail present');
-  const railText = (function collect(n, acc) {
-    acc = acc || [];
-    for (const child of n.children || []) {
-      if (child.textContent) acc.push(child.textContent);
-      collect(child, acc);
-    }
-    return acc;
-  })(rail, []).join(' ');
+  const collectText = (n) => {
+    const acc = [];
+    (function walk(node) {
+      for (const child of node.children || []) {
+        if (child.textContent) acc.push(child.textContent);
+        walk(child);
+      }
+    })(n);
+    return acc.join(' ');
+  };
+  const railText = collectText(rail);
   // 카테고리·국가는 헤더(eyebrow/profile-meta)에 표시되므로 rail에서는 중복하지 않는다.
   assert.ok(!railText.includes('카테고리') && !railText.includes('국가'), 'rail must not duplicate category/country (shown in header)');
+  // 표준 규격: 값이 있는 출생·출신·활동기간·소속사는 rail에 표시된다.
+  for (const label of ['출생', '출신', '활동기간', '소속사']) assert.ok(railText.includes(label), `rail must show ${label}`);
+  assert.ok(railText.includes('1994년 1월 22일'), 'birth is formatted for display');
   // rail에는 라이선스(헤더에 없는 고유 정보)가 남아 있다.
   assert.ok(railText.includes('라이선스'), 'rail keeps license');
   // 헤더에는 카테고리(eyebrow)·국가(profile-meta)가 표시된다.
-  const headerText = (function collect(n, acc) {
-    acc = acc || [];
-    for (const child of n.children || []) {
-      if (child.textContent) acc.push(child.textContent);
-      collect(child, acc);
-    }
-    return acc;
-  })(header, []).join(' ');
+  const headerText = collectText(header);
   assert.match(headerText, /PROFILE/, 'header eyebrow shows the category');
   assert.ok(headerText.includes('국가'), 'header profile-meta shows the country');
-  // The bio already narrates birth/origin/agency; the rail must not duplicate them.
-  for (const label of ['출생', '출신', '직업', '활동 기간', '소속사']) assert.ok(!railText.includes(label), `rail must not repeat ${label}`);
 
-  assert.equal(section.afterNode, undefined, 'no highlight section rendered');
+  // 하단 구조화 섹션: 대표 활동·수상·최근 활동 블록이 bio 섹션 뒤에 렌더링된다.
+  const structured = section.afterNode;
+  assert.ok(structured, 'structured section follows the profile section');
+  assert.equal(structured.className, 'profile-structured');
+  const structText = collectText(structured);
+  for (const label of ['대표 활동', '수상', '최근 활동']) assert.ok(structText.includes(label), `structured must show ${label}`);
 });
 
 test('remote photoUrl produces a single-host absolute og:image', async () => {

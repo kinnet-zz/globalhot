@@ -58,7 +58,11 @@
       "yearsActive": "202111日 -",
       "birth": "1994-01-22",
       "origin": "愛知県 名古屋市",
-      "agency": "Carnivalbr /（2016年 - 2018年）br /PPエンタープライズbr /（2019年 - ）br /業務提携br /CAT entertainmentbr /（2020年 - ）br /プラチナムプロダクションbr /（2022年 - ）"
+      "agency": "Carnival（2016年 - 2018年）; PPエンタープライズ（2019年 - ）; 業務提携; CAT entertainment（2020年 - ）; プラチナムプロダクション（2022年 - ）",
+      "notable": [
+        "주간 영점프 그라비아",
+        "사진집 《에나코 cosplayer》"
+      ]
     },
     {
       "id": "umi-shinonome",
@@ -82,7 +86,13 @@
       "yearsActive": "2020 -",
       "birth": "1996-09-26",
       "origin": "埼玉県",
-      "agency": "PPエンタープライズ"
+      "agency": "PPエンタープライズ",
+      "notable": [
+        "사진집 《힙립!》"
+      ],
+      "awards": [
+        "미尻 그래비어 아이돌 총선거 2020 그랑프리 (주간포스트 × NEWS포스트세븐)"
+      ]
     },
     {
       "id": "ai-shinozaki",
@@ -106,7 +116,17 @@
       "birth": "1992-02-26",
       "origin": "東京都",
       "occupation": "グラドル",
-      "yearsActive": "2021 -"
+      "yearsActive": "2021 -",
+      "notable": [
+        "아이돌 그룹 AeLL. 멤버",
+        "CD 《M》"
+      ],
+      "awards": [
+        "제콜레GP 준그랑프리 (주간 영점프 독자투표 오디션)"
+      ],
+      "recent": [
+        "《FNS 27시간TV 귀라희제》 산마 러브메이트 선정 (2023년 7월)"
+      ]
     },
     {
       "id": "nashiko-momotsuki",
@@ -130,7 +150,10 @@
       "yearsActive": "202226日 -",
       "birth": "1995-11-08",
       "origin": "愛知県豊橋市",
-      "agency": "ゼロイチファミリア"
+      "agency": "ゼロイチファミリア",
+      "notable": [
+        "사진집 《미완》(강담사)"
+      ]
     },
     {
       "id": "aika-sawaguchi",
@@ -146,7 +169,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본 나고야 출신의 그래비어 아이돌 겸 탤런트, 여배우로, 나고야의 로컬 아이돌 유닛 dela의 전 5기생 출신이다. 나고야 미소녀 팩토리와 인센트를 거쳐 현재 홀리프로에 소속되어 있으며, 주간지 FRIDAY와 주간 플레이보이 등에서 표지와 그래비어 화보를 다수 장식했다. 첫 사진집 『でらあいか』는 오리콘 주간 사진집 랭킹 5위를 기록했다."
+      "bio": "일본 나고야 출신의 그래비어 아이돌 겸 탤런트, 여배우로, 나고야의 로컬 아이돌 유닛 dela의 전 5기생 출신이다. 나고야 미소녀 팩토리와 인센트를 거쳐 현재 홀리프로에 소속되어 있으며, 주간지 FRIDAY와 주간 플레이보이 등에서 표지와 그래비어 화보를 다수 장식했다. 첫 사진집 『でらあいか』는 오리콘 주간 사진집 랭킹 5위를 기록했다.",
+      "notable": [
+        "나고야 고타이 아이돌 유닛 dela 전 멤버 (5기생)"
+      ]
     },
     {
       "id": "yuno-ohara",
@@ -337,7 +363,10 @@
       "bio": "2004년 10월 19일 이바라키현 출생의 일본 그래비어 아이돌 겸 여배우, 패션 모델입니다. BLUE LABEL 소속으로 수영복 그래비어 화보를 중심으로 활동 중이며, 2024년 이후에는 여성 패션지와 남성용 그래비어 잡지에서 각각의 연출 방식이 다른 수영복 모델로 활동을 병행하고 있습니다.",
       "birth": "2004-10-19",
       "origin": "茨城県",
-      "agency": "BLUE LABEL"
+      "agency": "BLUE LABEL",
+      "recent": [
+        "여성 패션지·그라비아지 모델 활동 (2024년~)"
+      ]
     },
     {
       "id": "ririka-fukui",
@@ -372,7 +401,14 @@
         "youtube": "",
         "tiktok": "https://www.tiktok.com/@mikurin48"
       },
-      "bio": "일본의 그래비아 아이돌, 탤런트, 배우이자 여성 아이돌 그룹 HKT48의 전 멤버인 다나카 미쿠는 구마모토현 출신으로 am합동회사 소속이다. 2018년 주간 영점프 1월호에서 첫 수영복 그래비아를 선보였으며, 2023년 제9회 커버걸 대상 예능·음악 부문 종합 2위에 오르며 그래비아 활동에서도 두각을 나타냈다."
+      "bio": "일본의 그래비아 아이돌, 탤런트, 배우이자 여성 아이돌 그룹 HKT48의 전 멤버인 다나카 미쿠는 구마모토현 출신으로 am합동회사 소속이다. 2018년 주간 영점프 1월호에서 첫 수영복 그래비아를 선보였으며, 2023년 제9회 커버걸 대상 예능·음악 부문 종합 2위에 오르며 그래비아 활동에서도 두각을 나타냈다.",
+      "notable": [
+        "HKT48 전 멤버",
+        "주간 영점프 2018년 1호 첫 수영복 그라비아"
+      ],
+      "awards": [
+        "제9회 커버걸 대상 연예·음악 부문 + 종합 2위 (2023)"
+      ]
     },
     {
       "id": "kanami-takasaki",
@@ -444,7 +480,11 @@
         "youtube": "",
         "tiktok": "https://www.tiktok.com/@hongo.yuzuha"
       },
-      "bio": "일본의 그래비어 모델 겸 탤런트로, 여성 아이돌 그룹 NMB48의 전 멤버입니다. 그룹 졸업 이후에는 사진집 『아름다운 열매』와 『어디를 보면 돼?』를 잇달아 발매하며 그래비어 모델로서의 입지를 굳혔고, 2023년 9월에는 몸 상태가 좋지 않아 잠시 활동을 쉬었다가 복귀해 사진과 영상 콘텐츠 전반에서 꾸준히 모습을 보여주고 있습니다."
+      "bio": "일본의 그래비어 모델 겸 탤런트로, 여성 아이돌 그룹 NMB48의 전 멤버입니다. 그룹 졸업 이후에는 사진집 『아름다운 열매』와 『어디를 보면 돼?』를 잇달아 발매하며 그래비어 모델로서의 입지를 굳혔고, 2023년 9월에는 몸 상태가 좋지 않아 잠시 활동을 쉬었다가 복귀해 사진과 영상 콘텐츠 전반에서 꾸준히 모습을 보여주고 있습니다.",
+      "notable": [
+        "NMB48 전 멤버",
+        "사진집 《아름다운 과일》(강담사)"
+      ]
     },
     {
       "id": "sumire-yokono",
@@ -482,7 +522,10 @@
       "bio": "1993년 7월 7일 가나가와현 요코스카시에서 태어난 일본의 아이돌, DJ, 여성 패션 모델 겸 프로듀서이자 코스프레어이다. 신장 152cm로 PP엔터프라이즈 소속이며, 주간 플레이보이와 점프SQ에 그래비아 게재 경력이 있다. 2025년 1월 결혼설이 확산됐으나 본인이 '결혼의 사실은 없다'고 직접 부인했다.",
       "birth": "1993-07-07",
       "origin": "神奈川県横須賀市",
-      "agency": "PPエンタープライズ"
+      "agency": "PPエンタープライズ",
+      "notable": [
+        "주간 플레이보이·Jump SQ 그라비아 게재"
+      ]
     },
     {
       "id": "ami-minami",
@@ -733,7 +776,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "오사카에서 태어나 사이타마현에서 성장한 일본의 탤런트 겸 그래비어 모델로, 여성 아이돌 그룹 노기자카46의 전 멤버입니다. 현재는 프로 마작사 겸 마작 카페 경영자로도 활동하며 일본프로마작연맹과 BEAST X에 소속되어 있고, 주간지 그래비어와 TV 방송을 넘나들며 탤런트로서 다채로운 활동을 이어가고 있습니다."
+      "bio": "오사카에서 태어나 사이타마현에서 성장한 일본의 탤런트 겸 그래비어 모델로, 여성 아이돌 그룹 노기자카46의 전 멤버입니다. 현재는 프로 마작사 겸 마작 카페 경영자로도 활동하며 일본프로마작연맹과 BEAST X에 소속되어 있고, 주간지 그래비어와 TV 방송을 넘나들며 탤런트로서 다채로운 활동을 이어가고 있습니다.",
+      "notable": [
+        "노기자카46 전 멤버",
+        "프로 마작사"
+      ]
     },
     {
       "id": "nene-shida",
@@ -768,7 +815,14 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본의 그래비아 아이돌, 배우로 도쿄도 출신이며 전직 TV도쿄 아나운서이다. seju(GROVE) 소속으로, 2023년 주간 플레이보이를 통해 남성지 첫 그래비아에 도전하며 본격적으로 그래비아 아이돌 활동을 시작했다. 2024년 2월 28일 첫 사진집 『스노카스미.』(겐토샤)를 발매했으며, 2025년 10월 쓰시 츠마츠리에서 안노츠마루 하루 선장을 맡기도 했다."
+      "bio": "일본의 그래비아 아이돌, 배우로 도쿄도 출신이며 전직 TV도쿄 아나운서이다. seju(GROVE) 소속으로, 2023년 주간 플레이보이를 통해 남성지 첫 그래비아에 도전하며 본격적으로 그래비아 아이돌 활동을 시작했다. 2024년 2월 28일 첫 사진집 『스노카스미.』(겐토샤)를 발매했으며, 2025년 10월 쓰시 츠마츠리에서 안노츠마루 하루 선장을 맡기도 했다.",
+      "notable": [
+        "TV도쿄 전 아나운서",
+        "주간 플레이보이로 남성지 첫 그라비아"
+      ],
+      "recent": [
+        "쓰마츠리 하루 선장 (2025년 10월)"
+      ]
     },
     {
       "id": "runa-toyota",
@@ -784,7 +838,15 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "히로시마현 후쿠야마시에서 태어나 사이타마현 후카야시에서 자란 일본의 여배우, 탤런트, 아이돌 겸 그래비어 아이돌. 걸 그룹 AND CaaaLL의 멤버이며 플라티나무 프로덕션에 소속되어 있다. 과거에는 NEWS 엔터테인먼트 소속 아역으로 활동했고, 주간 영매거진 등에서 그래비어 화보를 게재했다."
+      "bio": "히로시마현 후쿠야마시에서 태어나 사이타마현 후카야시에서 자란 일본의 여배우, 탤런트, 아이돌 겸 그래비어 아이돌. 걸 그룹 AND CaaaLL의 멤버이며 플라티나무 프로덕션에 소속되어 있다. 과거에는 NEWS 엔터테인먼트 소속 아역으로 활동했고, 주간 영매거진 등에서 그래비어 화보를 게재했다.",
+      "notable": [
+        "AND CaaaLL 멤버",
+        "NEWS 엔터테인먼트 전 자역 (아역)"
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "ウィ貴公子",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "mizuki-yamashita",
@@ -800,7 +862,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "도쿄도 출신의 일본 여배우 겸 패션 모델로, 여성 아이돌 그룹 노기자카46의 전 멤버이자 여성 패션지 『CanCam』의 전속 모델입니다. 2019년 사진집 『잊을 수 없는 사람』을 발매해 사진집으로는 사상 최다인 초판 14만 부를 기록하며 큰 화제를 모았고, 노기자카46 졸업 이후에도 여배우로서 폭넓게 활동하고 있습니다."
+      "bio": "도쿄도 출신의 일본 여배우 겸 패션 모델로, 여성 아이돌 그룹 노기자카46의 전 멤버이자 여성 패션지 『CanCam』의 전속 모델입니다. 2019년 사진집 『잊을 수 없는 사람』을 발매해 사진집으로는 사상 최다인 초판 14만 부를 기록하며 큰 화제를 모았고, 노기자카46 졸업 이후에도 여배우로서 폭넓게 활동하고 있습니다.",
+      "notable": [
+        "《CanCam》 전속 모델",
+        "노기자카46 전 멤버"
+      ]
     },
     {
       "id": "nao-kosaka",
@@ -816,7 +882,13 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본의 아이돌, 패션 모델, 배우인 코사카 나오는 여성 아이돌 그룹 히나타자카46의 멤버이며 오사카부 출신이다. 집영사의 'Seventeen' 전속 모델을 거쳐 'non-no'의 전속 모델로 활동하고 있으며 소속사는 Seed & Flower이다. 첫 사진집 『너는 누구?』는 초판 15만 부로 사카미치 그룹 멤버 솔로 1st 사진집 중 당시 최다 기록을 세웠다."
+      "bio": "일본의 아이돌, 패션 모델, 배우인 코사카 나오는 여성 아이돌 그룹 히나타자카46의 멤버이며 오사카부 출신이다. 집영사의 'Seventeen' 전속 모델을 거쳐 'non-no'의 전속 모델로 활동하고 있으며 소속사는 Seed & Flower이다. 첫 사진집 『너는 누구?』는 초판 15만 부로 사카미치 그룹 멤버 솔로 1st 사진집 중 당시 최다 기록을 세웠다.",
+      "notable": [
+        "히나타자카46 멤버",
+        "《non-no》 전속 모델",
+        "《Seventeen》 전 전속 모델",
+        "사진집 《너는 누구?》"
+      ]
     },
     {
       "id": "yui-iruma",
@@ -871,7 +943,17 @@
         "tiktok": ""
       },
       "bio": "오카야마현 출신의 일본의 전직 그래비어 아이돌이자 현역 잡지 편집자. 전 SPJ 엔터테인먼트 소속이었으며, 2019년 산스포 GoGo 퀸 그랑프리를 공동 수상하기도 했다. 2022년 6월부터 잡지 부편집장으로 취임해 실제 편집 업무를 수행했고, 2023년 12월부터 아이돌·그라비어 아이돌을 인터뷰하는 연재 『Ayana's Room』을 시작했다.",
-      "yearsActive": "2020 -"
+      "yearsActive": "2020 -",
+      "notable": [
+        "전 그라비아 아이돌, 현 잡지 부편집장"
+      ],
+      "awards": [
+        "산스포 GoGo 퀸 그랑프리 (2019)"
+      ],
+      "recent": [
+        "부편집장에 취임 (2022년 6월)",
+        "연재 《Ayana's Room》 시작 (2023년 12월호)"
+      ]
     },
     {
       "id": "minami-hori",
@@ -1003,7 +1085,13 @@
       },
       "bio": "1988년 4월 23일 지바현 출생의 일본 그래비어 아이돌로, 애칭은 '야나파이'입니다. 과거 10-POINT와 FORZA RECORD에 소속했으며 현재는 프리랜서로 활동하고 있고, 2024년부터 2026년까지 매년 연간 캘린더를 발매하며 꾸준히 그래비어 활동을 이어가고 있습니다.",
       "birth": "1988-04-23",
-      "origin": "千葉県"
+      "origin": "千葉県",
+      "notable": [
+        "사진집 《blessing》(신유사)"
+      ],
+      "recent": [
+        "2026년 캘린더 발매 (2025년 9월)"
+      ]
     },
     {
       "id": "yasuyo-saito",
@@ -1022,7 +1110,17 @@
       "bio": "1996년 4월 22일 도치기현에서 태어난 일본의 그래비아 모델, 배우, 탤런트이며 전직 아이돌이다. 여성 아이돌 그룹 '이치고히메'의 전 멤버 겸 전 리더이자 'FUSION'의 전 멤버로, 미스 어스 재팬 2017 그랜드프라이즈 수상자이기도 하다. 사진집 『EarthFUL』을 발매하고 2024년 루키나 이미지걸로 활동했으며, 2025년 6월부터 호리프로에 소속되어 있다.",
       "birth": "1996-04-22",
       "origin": "栃木県",
-      "agency": "アルト（2022年 - 2024年）br/ホリプロ（2025年6月 - ）"
+      "agency": "アルト（2022年 - 2024年）; ホリプロ（2025年6月 - ）",
+      "notable": [
+        "\"이치고히메\" 전 멤버·전 리더",
+        "사진집 《꿈이었다》"
+      ],
+      "awards": [
+        "미스 아스 재팬 2017 그랑프리"
+      ],
+      "recent": [
+        "루키나 이미지 걸 (2024)"
+      ]
     },
     {
       "id": "miu-miyake",
@@ -1096,7 +1194,13 @@
         "tiktok": ""
       },
       "bio": "효고현 이타미시 출신의 일본의 탤런트, 여배우로, 전직 그래비어 아이돌이다. 주간 영점프 모바일 사이트의 '푸르루룬 서바이벌' 투표 배틀에서 20대째 푸르루룬 퀸으로 선정됐으며, 주간 SPA!의 '그라비안 혼 어워드 2018'에서 릴리 프랭키상을 수상했다. 2022년 캘린더 『めくったらいいじゅん』이 발매되기도 했다.",
-      "yearsActive": "201617日 -"
+      "yearsActive": "201617日 -",
+      "notable": [
+        "20대째 푸르룬 QUEEN (영점프 투표배틀 \"푸르룬 서바이벌\")"
+      ],
+      "recent": [
+        "캘린더 《메쿠트라 이이 준》 발매 (광문사, 2022)"
+      ]
     },
     {
       "id": "hinako-sano",
@@ -1112,7 +1216,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "도쿄도 스기나미구 출생의 일본 그래비어 아이돌 겸 여배우로, 경기마작 분야에서 프로 마작사로도 활동하고 있습니다. 주간 영매거진의 그래비어로 데뷔한 뒤 사진집 『맑음 뒤 트윈테일』 등을 발매하며 화보 활동으로 인기를 얻었고, 이후에도 여배우와 프로 마작사로서 다양한 영역에서 활약하고 있습니다."
+      "bio": "도쿄도 스기나미구 출생의 일본 그래비어 아이돌 겸 여배우로, 경기마작 분야에서 프로 마작사로도 활동하고 있습니다. 주간 영매거진의 그래비어로 데뷔한 뒤 사진집 『맑음 뒤 트윈테일』 등을 발매하며 화보 활동으로 인기를 얻었고, 이후에도 여배우와 프로 마작사로서 다양한 영역에서 활약하고 있습니다.",
+      "notable": [
+        "프로 마작사",
+        "사진집 《하레노치 트윙테일》(아스카신사)"
+      ]
     },
     {
       "id": "mio-imada",
@@ -1150,7 +1258,11 @@
       },
       "bio": "1983년 10월 23일 이바라키현 호코타시에서 태어난 일본의 그래비아 아이돌, 탤런트, 배우, 사회자, 스포츠 라이터, 패션 모델이다. 현재 Lifika 소속이며 2000년부터 2021년 9월까지 호리 에이전시에 소속돼 있었다. 6년 만에 발매한 사진집 『and more』가 발매 1년 후에도 중판 4쇄까지 가는 이례적 롱셀러를 기록했고, 주간 다이슈에 스포츠 에세이를 연재하고 있다.",
       "birth": "1983-10-23",
-      "origin": "茨城県鉾田市"
+      "origin": "茨城県鉾田市",
+      "notable": [
+        "스포츠 라이터·사회자",
+        "사진집 《and more》(39세, 중판 결정)"
+      ]
     },
     {
       "id": "fumika-baba",
@@ -1169,7 +1281,10 @@
       "bio": "1995년 6월 21일 니가타현 니가타시 출생의 일본의 여배우, 그래비어 모델, 패션 모델, 탤런트. 네임 매니지먼트(구 엘리트재팬) 소속으로, 주간 플레이보이에서 그래비어로 데뷔해 화제가 된 뒤 사진집 『色っぽょ』를 발매하는 등 활약했다.",
       "birth": "1995-06-21",
       "origin": "新潟県新潟市",
-      "agency": "ネイムマネジメント東京本社"
+      "agency": "ネイムマネジメント東京本社",
+      "notable": [
+        "주간 플레이보이 그라비아 데뷔"
+      ]
     },
     {
       "id": "yuka-ogura",
@@ -1205,7 +1320,10 @@
         "tiktok": ""
       },
       "bio": "후쿠시마현 이와키시 출신의 일본 여배우 겸 패션 모델로, 과거 그래비어 모델로 활동한 이력이 있습니다. 주간 영점프에서 첫 표지와 첫 수영복 사진으로 청년지 그래비어에 데뷔했고, 2011년 동일본 대지진의 피해 경험자이기도 한 그는 현재 TRUSTAR 소속으로 연기와 패션 모델 활동을 중심으로 폭넓게 활약하고 있습니다.",
-      "yearsActive": "2026 -"
+      "yearsActive": "2026 -",
+      "notable": [
+        "주간 영점프 첫 표지·첫 수영복 그라비아"
+      ]
     },
     {
       "id": "rika-izumi",
@@ -1259,7 +1377,14 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본의 탤런트, 투자자, 사업가이자 전직 그래비아 아이돌인 스기하라 안리는 히로시마현 후쿠야마시 출신이다. 스타더스트 프로모션, ARIMAX, 피트 등 소속사를 거쳐 현재는 프리랜서로 활동하고 있다. 2022년 12월에는 사진집 『그 후,』를 발매했다."
+      "bio": "일본의 탤런트, 투자자, 사업가이자 전직 그래비아 아이돌인 스기하라 안리는 히로시마현 후쿠야마시 출신이다. 스타더스트 프로모션, ARIMAX, 피트 등 소속사를 거쳐 현재는 프리랜서로 활동하고 있다. 2022년 12월에는 사진집 『그 후,』를 발매했다.",
+      "recent": [
+        "사진집 《그 후,》 발매 (2022년 12월)"
+      ],
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creditText": "杉原行里",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "ikumi-hisamatsu",
@@ -1299,7 +1424,11 @@
       "yearsActive": "20203日 -",
       "birth": "2001-11-05",
       "origin": "広島県広島市",
-      "agency": "レプロエンタテインメント（2016年 - 2025年） br /METEORA（2025年 - ）"
+      "agency": "レプロエンタテインメント（2016年 - 2025年）; METEORA（2025年 - ）",
+      "recent": [
+        "사진전 《백연》 개최 (2020년 1월)",
+        "Mokuben Special Zine Vol.1 (2019년 10월)"
+      ]
     },
     {
       "id": "miwako-kakehi",
@@ -1318,7 +1447,10 @@
       "bio": "1994년 3월 6일 도쿄도 세타가야구 이케지리에서 태어난 일본의 배우, 탤런트, 전 그래비아 아이돌이다. sui에 소속되어 있으며 플래티넘 프로덕션과 업무 제휴를 맺고 있다. 사진집 『비너스 탄생』(겐토샤)은 시노야마 기신이 촬영했고, 2024년 1월 주간 플레이보이 7호에서는 표지와 권두 그래비아를 장식했다.",
       "birth": "1994-03-06",
       "origin": "東京都",
-      "agency": "sui"
+      "agency": "sui",
+      "notable": [
+        "사진집 《비너스 탄생》(환동사)"
+      ]
     },
     {
       "id": "yukie-kawamura",
@@ -1372,7 +1504,12 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "니가타현 이와후네군 간무라(현 무라오카시) 출신의 일본의 여배우, 탤런트, 그래비어 아이돌. 2003년 오스카 프로모션에서 데뷔했으며 2025년부터는 Viivo 소속으로 활동하고 있다. 2017년 사진집 발매를 마지막으로 그래비어 졸업을 선언했지만, 이후 주간 플레이보이에서 약 8년 만에 그래비어 활동에 복귀했다."
+      "bio": "니가타현 이와후네군 간무라(현 무라오카시) 출신의 일본의 여배우, 탤런트, 그래비어 아이돌. 2003년 오스카 프로모션에서 데뷔했으며 2025년부터는 Viivo 소속으로 활동하고 있다. 2017년 사진집 발매를 마지막으로 그래비어 졸업을 선언했지만, 이후 주간 플레이보이에서 약 8년 만에 그래비어 활동에 복귀했다.",
+      "debut": "2003",
+      "notable": [
+        "사진집 《Perfect Chance》",
+        "사진집 《my treasure》로 그라비아 아이돌 졸업"
+      ]
     },
     {
       "id": "rena-asakawa",
@@ -1388,7 +1525,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "사이타마현 출신의 일본 여배우 겸 그래비어 아이돌로, 여성 아이돌 그룹 SUPER☆GiRLS의 전 멤버입니다. 주간 영매거진에 첫 등장 만에 표지·권두·권말 그래비어를 모두 차지하는 창간 이래 처음으로 있는 기록을 세우며 화제가 됐고, 현재는 에이벡스 매니지먼트 에이전시에 소속해 있습니다."
+      "bio": "사이타마현 출신의 일본 여배우 겸 그래비어 아이돌로, 여성 아이돌 그룹 SUPER☆GiRLS의 전 멤버입니다. 주간 영매거진에 첫 등장 만에 표지·권두·권말 그래비어를 모두 차지하는 창간 이래 처음으로 있는 기록을 세우며 화제가 됐고, 현재는 에이벡스 매니지먼트 에이전시에 소속해 있습니다.",
+      "notable": [
+        "SUPER☆GiRLS 전 멤버",
+        "주간 플레이보이 No.27 첫 본격 수영복 그라비아"
+      ]
     },
     {
       "id": "aoi-fujino",
@@ -1427,7 +1568,11 @@
       "yearsActive": "20203日 -",
       "birth": "1993-09-13",
       "origin": "大阪府枚方市",
-      "agency": "リップ"
+      "agency": "リップ",
+      "notable": [
+        "\"sherbet\" 멤버",
+        "사진집 《RINA×BLACK》"
+      ]
     },
     {
       "id": "nanoka",
@@ -1445,7 +1590,11 @@
       },
       "bio": "히로시마현 후쿠야마시 출신의 일본의 탤런트, 모델이자 전직 그래비어 아이돌. 현재 프리랜서로 활동하며 고향 후쿠야마의 앰버서더를 맡고 있고, 과거에는 피트 소속이었으며 주식회사 리셀라와 업무 제휴를 맺었다. 주간 플레이보이에서 수영복 화보가 게재되는 등 그래비어로 활약했고, 사진집 『nanoka』 발매와 롯데 'ザクリッチ' CM 출연 등 활동 범위를 넓혔다.",
       "birth": "1989-07-07",
-      "origin": "広島県福山市"
+      "origin": "広島県福山市",
+      "notable": [
+        "후쿠야마 앰배서더",
+        "주간 플레이보이 No.39 수영복 게재"
+      ]
     },
     {
       "id": "saya-okada",
@@ -1483,7 +1632,11 @@
       "bio": "1988년 3월 23일 오사카부 카이즈카시 출생의 일본 여성 모델 겸 탤런트로, 과거 레이스퀸과 그래비어 아이돌로 활동했습니다. 애칭은 '미짱'과 '야상'이며, 2017년 사진집 『야상』을 끝으로 그래비어 활동을 졸업하고 이후에는 원에이트 프로모션 소속으로 모델과 탤런트 활동을 이어가고 있습니다.",
       "birth": "1988-03-23",
       "origin": "大阪府貝塚市",
-      "agency": "ワンエイトプロモーション"
+      "agency": "ワンエイトプロモーション",
+      "notable": [
+        "전 레이스퀸",
+        "사진집 《야쓰산》으로 그라비아 졸업"
+      ]
     },
     {
       "id": "natsuki-kawamura",
@@ -1503,7 +1656,11 @@
       "yearsActive": "202115日 -",
       "birth": "1993-03-17",
       "origin": "福岡県北九州市",
-      "agency": "ティースタイル・マネージメント"
+      "agency": "ティースタイル・マネージメント",
+      "notable": [
+        "RIZIN 걸, 전 라운드걸·레이스퀸",
+        "릴리 프랭키 촬영 사진집 (무보정)"
+      ]
     },
     {
       "id": "marina-nagasawa",
@@ -1520,7 +1677,14 @@
         "tiktok": ""
       },
       "bio": "사이타마현 구마가야시 출신의 일본의 그래비어 아이돌, 탤런트, 여배우이자 프로 작사(마작 선수). 걸그룹 '방과후 프린세스'의 전 멤버이며 TRUSTAR 소속, 유닛 Chuu♡Cute의 프로듀서로도 활동하고 있다. 주간 플레이보이 2016 그래비어 아이돌 베스트50에서 5위에 오르고 주간 SPA! '그라비안 혼 2017'에서 부문상을 받는 등 화제를 모았다.",
-      "yearsActive": "20201日 - 現在"
+      "yearsActive": "20201日 - 現在",
+      "notable": [
+        "방과후 프린세스 전 멤버",
+        "프로 마작사"
+      ],
+      "awards": [
+        "주간 플레이보이 2016 그라비아 아이돌 베스트50 제5위"
+      ]
     },
     {
       "id": "tomomi-morisaki",
@@ -1540,7 +1704,17 @@
       "yearsActive": "2020 -",
       "birth": "1992-08-12",
       "origin": "愛知県 名古屋市",
-      "agency": "にぎわいファクトリー名古屋br /（2010年 - 2016年）br /リップbr /（2016年 - ）"
+      "agency": "にぎわいファクトリー名古屋（2010年 - 2016年）; リップ（2016年 - ）",
+      "notable": [
+        "OS☆U 전 멤버"
+      ],
+      "awards": [
+        "와치미나 2015 오디션 2위",
+        "주간SPA! 그라비안혼 어워드 2019 미우라쥰 개별상 \"캣츠아이상\""
+      ],
+      "recent": [
+        "사가미 오리지널 002 홍보대사에 취임 (2018)"
+      ]
     },
     {
       "id": "aya-kawasaki",
@@ -1576,7 +1750,14 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본의 탤런트, 그래비아 아이돌, 배우로 지스타 프로 소속이다. 주간 소년매거진의 그래비아를 보고 그래비아 아이돌이라는 직업에 동경을 품었다고 하며, 주간 플레이보이 등에서 그래비아 활동을 이어오고 있다. 2016년 AbemaTV '스핀핀 마작'에서 우승해 상금 100만엔을 획득했고, 2017년 일본 더비에서 삼연단을 적중시켜 '우마비 퀸'에 올랐다."
+      "bio": "일본의 탤런트, 그래비아 아이돌, 배우로 지스타 프로 소속이다. 주간 소년매거진의 그래비아를 보고 그래비아 아이돌이라는 직업에 동경을 품었다고 하며, 주간 플레이보이 등에서 그래비아 활동을 이어오고 있다. 2016년 AbemaTV '스핀핀 마작'에서 우승해 상금 100만엔을 획득했고, 2017년 일본 더비에서 삼연단을 적중시켜 '우마비 퀸'에 올랐다.",
+      "notable": [
+        "그라비아 아이돌 (지스타 프로)"
+      ],
+      "awards": [
+        "AbemaTV 《스핀마작》 우승 (2016년 12월)",
+        "우마비 퀸 (2017년 5월)"
+      ]
     },
     {
       "id": "haruka-arai",
@@ -1596,7 +1777,10 @@
       "yearsActive": "2019 -",
       "birth": "2000-07-31",
       "origin": "東京都",
-      "agency": "エーライツ"
+      "agency": "エーライツ",
+      "notable": [
+        "사진집 《Far away》"
+      ]
     },
     {
       "id": "yotsuba-kominato",
@@ -1614,7 +1798,12 @@
       },
       "bio": "일본의 가수, 작사가. 여성 보컬·댄스 유닛 페어리즈의 전 멤버로, 그룹 활동 후 솔로 활동을 이어가고 있습니다.",
       "origin": "長崎県",
-      "agency": "ライジングプロダクションBr（2011年 - 2020年）BrティーパワーズBr（2022年 - ）"
+      "agency": "ライジングプロダクションBr（2011年 - 2020年）BrティーパワーズBr（2022年 - ）",
+      "notable": [
+        "페어리즈 전 멤버",
+        "주간 플레이보이 그라비아 (2022년 4월호)",
+        "사진집 《RI0529》"
+      ]
     },
     {
       "id": "nana-owada",
@@ -1651,7 +1840,10 @@
         "tiktok": ""
       },
       "bio": "일본의 모델, 배우, 그래비아 아이돌이자 여성 아이돌 그룹 AKB48의 전 멤버인 나가오 마리야는 히로시마현 태생으로 가나가와현 요코하마시 출신이다. 22세 생일이던 2016년 3월 10일에 사진집을 발매했으며, 그래비아 모델이자 여배우로 활동 폭을 넓혀 왔다.",
-      "yearsActive": "202028日 -"
+      "yearsActive": "202028日 -",
+      "notable": [
+        "AKB48 전 멤버"
+      ]
     },
     {
       "id": "momoka-ishida",
@@ -1688,7 +1880,11 @@
       },
       "bio": "1999년 12월 2일 사이타마현 카와구치시 출생의 일본 여배우 겸 가수, 유튜버로, 전직 아이돌이자 전직 그래비어 아이돌입니다. 그래비어 활동의 일단락으로 2022년 풀누드 사진집 제작을 발표해 화제를 모았고, 앞서 2020년에는 미니 앨범 제작을 위한 크라우드펀딩을 진행한 이력이 있으며 2025년 4월에는 결혼을 발표했습니다.",
       "birth": "1999-12-02",
-      "origin": "埼玉県川口市"
+      "origin": "埼玉県川口市",
+      "recent": [
+        "마지막 사진집 발표·강담사 발매 (2022년 3월)",
+        "사진집 《Thankyouka!!!》 발매"
+      ]
     },
     {
       "id": "aki-hoshino",
@@ -1704,7 +1900,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본의 여성 탤런트, 배우, 그래비아 아이돌인 호시노 아키는 도쿄도 출신으로 에이플러스 소속이다. 2000년대에 '최연장 그래비아 아이돌'을 캐치프레이즈로 내세우며 브레이크했다. 남편은 기수 미우라 코세이로 알려져 있다."
+      "bio": "일본의 여성 탤런트, 배우, 그래비아 아이돌인 호시노 아키는 도쿄도 출신으로 에이플러스 소속이다. 2000년대에 '최연장 그래비아 아이돌'을 캐치프레이즈로 내세우며 브레이크했다. 남편은 기수 미우라 코세이로 알려져 있다.",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "creditText": "Norio Nakayama",
+      "creditUrl": "https://commons.wikimedia.org/"
     },
     {
       "id": "saki-suzuki",
@@ -1723,7 +1923,14 @@
       "bio": "1987년 11월 3일 아이치현 도요타시에서 태어난 일본의 그래비어 아이돌, 버라이어티 탤런트, 여배우. 본명은 호소카와 치히로로, 아이돌 유닛 persolate(후에 '교육적 지도!! 선생션's'로 개명)의 전 멤버이며 현재는 프리랜서로 활동한다. 주간 플레이보이×그라돌 자화상 부의 제1회 지가돌 콘테스트에서 그랑프리를 수상했고, 사진집 『サキミダレ』를 발매하기도 했다.",
       "birth": "1987-11-03",
       "origin": "愛知県豊田市",
-      "agency": "フリー"
+      "agency": "フリー",
+      "notable": [
+        "\"persolate\" 전 멤버",
+        "FUJI☆7GIRLs (2012-2014)"
+      ],
+      "awards": [
+        "제1회 \"지그돌\" 콘테스트 그랑프리 (주간 플레이보이, 2014)"
+      ]
     },
     {
       "id": "yoko-kumada",
@@ -1815,7 +2022,11 @@
         "youtube": "",
         "tiktok": ""
       },
-      "bio": "일본의 여배우 겸 탤런트로, 전직 그래비어 아이돌 출신입니다. 주간 영매거진의 미스 캠퍼스 그랑프리에 선발돼 연예계에 입문했고 주로 그래비어 아이돌로 활동했으며, 현재는 플라티넘 프로덕션 소속으로 2013년 온천 소믈리에 마스터 자격을 취득하고 2015년에는 엘리자베스 여왕배 시상식에서 처음 구입한 마권으로 20만 7천 엔을 당첨시키기도 했습니다."
+      "bio": "일본의 여배우 겸 탤런트로, 전직 그래비어 아이돌 출신입니다. 주간 영매거진의 미스 캠퍼스 그랑프리에 선발돼 연예계에 입문했고 주로 그래비어 아이돌로 활동했으며, 현재는 플라티넘 프로덕션 소속으로 2013년 온천 소믈리에 마스터 자격을 취득하고 2015년에는 엘리자베스 여왕배 시상식에서 처음 구입한 마권으로 20만 7천 엔을 당첨시키기도 했습니다.",
+      "notable": [
+        "미스캠퍼스 그랑프리 선발 (주간 영매거진)",
+        "사진집 《I am 샤쿠유미코》(2012)"
+      ]
     },
     {
       "id": "haruka-igawa",
@@ -1926,7 +2137,7 @@
       "bio": "1990년 10월 15일 미국 텍사스주 달라스에서 태어나 효고현 고베시에서 자란 일본의 패션 모델이자 여배우. 본명은 오드리 키코 다니엘이며 여동생은 모델 미즈하라 유카다. 주로 일본에서 활동하며, 2025년 2월에는 로스앤젤레스 인근 대규모 산불로 자택이 전소됐음을 SNS로 밝혔다.",
       "birth": "1990-10-15",
       "origin": "兵庫県神戸市",
-      "agency": "LDHbr/（2007年 - 2010年）br /エイジアクロスbr/（2010年 - 2018年）br /Office Kikobr/（2018年 - ）"
+      "agency": "LDH（2007年 - 2010年）; エイジアクロス（2010年 - 2018年）; Office Kiko（2018年 - ）"
     },
     {
       "id": "elaiza-ikeda",
@@ -2292,7 +2503,11 @@
       "origin": "London, England",
       "occupation": "",
       "yearsActive": "2004–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "debut": "2012",
+      "notable": [
+        "포드 모델즈 소속"
+      ]
     },
     {
       "id": "w-kupton",
@@ -2317,7 +2532,12 @@
       "origin": "St. Joseph, Michigan, U.S.",
       "occupation": "flatlist",
       "yearsActive": "2008–present",
-      "agency": "Flatlist"
+      "agency": "Flatlist",
+      "debut": "2011",
+      "notable": [
+        "SI 스윔수트 이슈 커버 모델 (2012, 2013, 2017)",
+        "바니티 페어 100주년 커버"
+      ]
     },
     {
       "id": "w-irina",
@@ -2340,7 +2560,10 @@
       "bio": "일리나 셰이크(이리나 샤이크)는 1986년 1월 6일 소련 러시아 SFSR의 옐만젤린스크에서 태어난 러시아 출신의 패션 모델이자 배우이다. 2011년 스포츠 일러스트레이티드 수영복 특집호 표지에 오른 최초의 러시아 모델이 되며 국제적 인지도를 얻었다. 2022년에는 모델스닷컴이 선정한 '뉴 슈퍼스' 목록에 이름을 올렸다.",
       "birth": "1986-01-06",
       "origin": "Yemanzhelinsk, Russian SFSR, Soviet Union",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "SI 스윔수트 2011 커버 첫 러시아 모델"
+      ]
     },
     {
       "id": "w-kendall",
@@ -2365,7 +2588,10 @@
       "origin": "Los Angeles, California, U.S.",
       "occupation": "Flatlist",
       "yearsActive": "2007–present",
-      "agency": "The Society Management (New York)"
+      "agency": "The Society Management (New York)",
+      "notable": [
+        "《Keeping Up with the Kardashians》 (20시즌, 2007-2021)"
+      ]
     },
     {
       "id": "w-gigi",
@@ -2389,7 +2615,13 @@
       "birth": "1995-04-23",
       "origin": "Los Angeles, California, U.S.",
       "yearsActive": "1997–present",
-      "agency": "IMG Models (New York)"
+      "agency": "IMG Models (New York)",
+      "notable": [
+        "국제 Vogue 50회 이상 등장"
+      ],
+      "awards": [
+        "영국 패션 평의회 인터내셔널 모델 오브 더 이어 (2016)"
+      ]
     },
     {
       "id": "w-bella",
@@ -2414,7 +2646,14 @@
       "origin": "Washington, D.C., U.S.",
       "occupation": "Model",
       "yearsActive": "2012–present",
-      "agency": "IMG Models"
+      "agency": "IMG Models",
+      "notable": [
+        "국제 Vogue 커버 35회 이상"
+      ],
+      "awards": [
+        "영국 패션 평의회 모델 오브 더 이어 (2022)",
+        "TIME 100 가장 영향력 있는 인물"
+      ]
     },
     {
       "id": "w-cara",
@@ -2436,7 +2675,11 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "영국 런던 출생의 잉글랜드 모델, 여배우, 뮤지션. 2002년부터 모델 활동을 시작했으며 2012년과 2014년 두 차례 브리티시 패션 어워드에서 올해의 모델(Model of the Year)을 수상했다. 또한 틴 초이스 어워드에서 3회 수상했고, 영국 독립 영화상과 MTV 무비 & TV 어워드 후보에 오르는 등 연기 활동에서도 활약했다.",
       "origin": "London, England",
-      "yearsActive": "2002–present"
+      "yearsActive": "2002–present",
+      "awards": [
+        "브리티시 패션 어워즈 모델 오브 더 이어 (2012, 2014)",
+        "틴 초이스 어워드 3회 수상"
+      ]
     },
     {
       "id": "w-rosie",
@@ -2461,7 +2704,11 @@
       "origin": "Plymouth, England",
       "occupation": "Model",
       "yearsActive": "2002–present",
-      "agency": "Creative Artists Agency (New York, Los Angeles)"
+      "agency": "Creative Artists Agency (New York, Los Angeles)",
+      "notable": [
+        "빅토리아 시크릿 \"엔젤\"",
+        "버버리 바디 얼굴 (2011)"
+      ]
     },
     {
       "id": "w-candice",
@@ -2486,7 +2733,13 @@
       "origin": "Mooi River, Natal, South Africa",
       "occupation": "Model",
       "yearsActive": "2003–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "빅토리아 시크릿 엔젤 (2010~)"
+      ],
+      "awards": [
+        "포브스 최고 수입 모델 8위 (2016)"
+      ]
     },
     {
       "id": "w-adriana",
@@ -2510,7 +2763,15 @@
       "origin": "Salvador, Bahia, Brazil",
       "occupation": "Model",
       "yearsActive": "1996–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "debut": "1999",
+      "notable": [
+        "최장수 빅토리아 시크릿 엔젤 (2000-2018)"
+      ],
+      "awards": [
+        "\"가장 가치 있는 VS 엔젤\" 선정 (2017)"
+      ],
+      "birth": "1981-06"
     },
     {
       "id": "w-aless",
@@ -2533,7 +2794,12 @@
       "bio": "1981년 4월 브라질 에레심에서 태어난 브라질의 국제적인 모델입니다. 빅토리아 시크릿의 PINK 라인 첫 대표 모델로 선정됐고 2004년부터 2017년까지 엔젤로 활동했으며, 크리스찬 디올, 아르마니, 랄프 로렌, 넥스트 등 여러 유명 패션 하우스의 모델로도 활약했습니다.",
       "origin": "Erechim, Rio Grande do Sul, Brazil",
       "yearsActive": "1996–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "PINK 라인 첫 스포크스모델",
+        "빅토리아 시크릿 엔젤 (2004-2017)"
+      ],
+      "birth": "1981-04"
     },
     {
       "id": "w-gisele",
@@ -2556,7 +2822,15 @@
       "bio": "지젤 번천은 1980년 7월 브라질 리우그란지두술주 오리존티나에서 태어난 브라질 출신의 모델이자 환경운동가이다. 2001년부터 세계에서 가장 고소득 모델 중 한 명으로 꼽혔으며, 2005년부터 2016년까지 포브스 최고 수입 모델 1위 자리를 지켰다. 2014년에는 포브스가 선정한 미디어·엔터테인먼트 분야에서 가장 영향력 있는 여성 중 89위에 오르기도 했다.",
       "origin": "Horizontina, Rio Grande do Sul, Brazil",
       "yearsActive": "1996–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "2001년 이후 세계 최고 수입 모델"
+      ],
+      "awards": [
+        "포브스 최고 수입 모델 1위 (2005~)",
+        "엔터테인먼트 산업 16위 부자 (2007)"
+      ],
+      "birth": "1980-07"
     },
     {
       "id": "w-barbara",
@@ -2580,7 +2854,11 @@
       "birth": "1993-10-08",
       "origin": "Budapest, Hungary",
       "yearsActive": "2006–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "빅토리아 시크릿 런웨이 데뷔 (2012), 엔젤 (2019)",
+        "SI 스윔수트 이슈 (2016~)"
+      ]
     },
     {
       "id": "w-chrissy",
@@ -2604,7 +2882,11 @@
       "birth": "1985-11-30",
       "origin": "Delta, Utah, U.S.",
       "yearsActive": "2006–present",
-      "agency": "IMG Models (Worldwide)"
+      "agency": "IMG Models (Worldwide)",
+      "debut": "2010",
+      "notable": [
+        "SI 스윔수트 50주년 커버 (2014)"
+      ]
     },
     {
       "id": "w-nina",
@@ -2629,7 +2911,11 @@
       "origin": "Hillerød, Denmark",
       "occupation": "Model",
       "yearsActive": "2010–present",
-      "agency": "ubil"
+      "agency": "ubil",
+      "notable": [
+        "SI 스윔수트 이슈",
+        "50주년 커버 (2014)"
+      ]
     },
     {
       "id": "w-katebock",
@@ -2651,7 +2937,11 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "캐나다 브리티시컬럼비아주 밴쿠버 출신의 캐나다 모델. 2013년부터 스포츠 일러스트레이티드 스윔수트 이슈에 등장하며 이름을 알리기 시작했다. 2020년에는 올리비아 컬포, 재스민 샌더스와 함께 해당 잡지의 표지에 등장했으며, 주로 수영복·스윔수트 계열에서 활약해 온 모델이다.",
       "origin": "Vancouver, British Columbia, Canada",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "debut": "2013",
+      "notable": [
+        "SI 스윔수트 커버 (2020, 올리비아 컬포·제이민 샌더스와 함께)"
+      ]
     },
     {
       "id": "w-charlotte",
@@ -2675,7 +2965,11 @@
       "birth": "1993-08-06",
       "origin": "Orlando, Florida, U.S.",
       "occupation": "flatlist",
-      "yearsActive": "2006–present"
+      "yearsActive": "2006–present",
+      "notable": [
+        "인스타그램 퍼스낼리티",
+        "Carl's Jr. 슈퍼볼 XLIX 광고 (2015)"
+      ]
     },
     {
       "id": "w-demirose",
@@ -2722,7 +3016,11 @@
       "bio": "1972년 11월 6일 미국 캘리포니아주 버클리에서 태어난 미국의 여배우이자 전직 모델. X-Men 영화 시리즈에서 미스틱 역으로 잘 알려져 있으며, 2019년 '스타트렉: 디스커버리'와 2022년부터 방영 중인 '스타트렉: 스트레인지 뉴 월드'에서 우나 친 라일리 역을 맡았다.",
       "birth": "1972-11-06",
       "origin": "Berkeley, California, U.S.",
-      "yearsActive": "1988–present"
+      "yearsActive": "1988–present",
+      "notable": [
+        "X-Men 시리즈 미스틱 역",
+        "스타트렉: 디스커버리/Strange New Worlds 우나 친-라이리 역"
+      ]
     },
     {
       "id": "w-rose",
@@ -2770,7 +3068,11 @@
       "birth": "1985-01-23",
       "origin": "Gytsjerk, Friesland, Netherlands",
       "yearsActive": "2003–present",
-      "agency": "DNA Models (New York)"
+      "agency": "DNA Models (New York)",
+      "debut": "2003",
+      "notable": [
+        "빅토리아 시크릿 엔젤 (2008-2014)"
+      ]
     },
     {
       "id": "w-emilys",
@@ -2794,7 +3096,12 @@
       "origin": "Goshen, New York, U.S.",
       "occupation": "Model",
       "yearsActive": "2009–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "SI 스윔수트 이슈 데뷔 (2013)",
+        "Guess·Ralph Lauren·Armani·L'Oréal 캠페인"
+      ],
+      "birth": "1991-02"
     },
     {
       "id": "w-georgia",
@@ -2841,7 +3148,10 @@
       "bio": "켈리 로어바흐는 1990년 1월 21일 미국 뉴욕시에서 태어난 미국의 패션 모델이자 배우이다. 2017년 액션 코미디 영화 '베이워치'에서 C.J. 파커 역을 맡은 것으로 가장 잘 알려져 있다. 2012년부터 모델 겸 배우로 활동해 왔다.",
       "birth": "1990-01-21",
       "origin": "New York City, U.S.",
-      "yearsActive": "2012–present"
+      "yearsActive": "2012–present",
+      "notable": [
+        "《베이워치》(2017) C.J. 파커 역"
+      ]
     },
     {
       "id": "w-hailey",
@@ -2865,7 +3175,11 @@
       "birth": "1996-11-22",
       "origin": "Tucson, Arizona, U.S.",
       "yearsActive": "2014–present",
-      "agency": "IMG Models"
+      "agency": "IMG Models",
+      "notable": [
+        "스킨케어 브랜드 Rhode 창업자·CCO",
+        "Guess·Ralph Lauren 캠페인"
+      ]
     },
     {
       "id": "w-naomi",
@@ -2888,7 +3202,14 @@
       "bio": "1970년 5월 영국 런던에서 태어난 영국의 모델 겸 배우입니다. 여덟 살 때 경력을 시작해 1978년부터 현재까지 수십 년간 활동하며, 패션 업계와 국제 언론이 '수퍼모델'로 선언한 당대의 6인 중 한 명이 됐습니다. 타임과 보그 프랑스의 표지를 장식한 최초의 흑인 모델로 기록되며 40년 넘게 정상을 지켜온 패션계의 이정표입니다.",
       "origin": "London, England",
       "yearsActive": "1978–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "동세대 6인의 슈퍼모델 중 한 명"
+      ],
+      "recent": [
+        "\"Every Girl You've Ever Loved\" (Miley Cyrus ft. Naomi Campbell) (2025)"
+      ],
+      "birth": "1970-05"
     },
     {
       "id": "w-taylor",
@@ -2913,7 +3234,11 @@
       "origin": "Palatine, Illinois, U.S.",
       "occupation": "Model",
       "yearsActive": "2012–present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "전 빅토리아 시크릿 엔젤 (패션쇼 2014-2018)",
+        "Ralph Lauren·Michael Kors·Carolina Herrera 캠페인"
+      ]
     },
     {
       "id": "w-georgina2",
@@ -2952,7 +3277,14 @@
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
       "creditText": "CCS Pictures",
       "creditUrl": "https://commons.wikimedia.org/",
-      "bio": "2002년 10월 1일 미국 뉴저지주 웨스트우드에서 태어난 미국의 여배우, 모델, 소셜미디어 인물이자 전직 기계체조 선수. 현재 Fox의 'Baywatch' 드라마 시리즈에 출연하고 있으며 스포츠 일러스트레이티드 스윔수트 모델로도 활동한다. 과거 LSU 타이거스 여자 체조팀 소속이었고 2017년 미국 주니어 여자 대표팀 일원으로 선정된 바 있으며, 소셜미디어 팔로워 1000만 명 이상을 보유하고 있다."
+      "bio": "2002년 10월 1일 미국 뉴저지주 웨스트우드에서 태어난 미국의 여배우, 모델, 소셜미디어 인물이자 전직 기계체조 선수. 현재 Fox의 'Baywatch' 드라마 시리즈에 출연하고 있으며 스포츠 일러스트레이티드 스윔수트 모델로도 활동한다. 과거 LSU 타이거스 여자 체조팀 소속이었고 2017년 미국 주니어 여자 대표팀 일원으로 선정된 바 있으며, 소셜미디어 팔로워 1000만 명 이상을 보유하고 있다.",
+      "notable": [
+        "Fox 《베이워치》 캐스트",
+        "SI 스윔수트 모델",
+        "LSU 타이거즈 여자 체조부 전 멤버"
+      ],
+      "birth": "2002-10-01",
+      "origin": "Westwood, New Jersey, U.S."
     },
     {
       "id": "w-lauren",
@@ -2975,7 +3307,10 @@
       "bio": "1990년 8월 9일 캐나다 온타리오주 브랜트퍼드에서 태어난 캐나다의 모델 겸 편집자, 사업가입니다. 2012년부터 모델 경력을 시작해 플러스사이즈 의류 브랜드 헤닝(Henning)을 설립한 설립자로서, 패션과 언론 분야에서 동시에 두각을 나타낸 인물로 평가받고 있습니다.",
       "birth": "1990-08-09",
       "origin": "Brantford, Ontario, Canada",
-      "yearsActive": "2012–present"
+      "yearsActive": "2012–present",
+      "notable": [
+        "플러스 사이즈 의류 브랜드 Henning 창업자"
+      ]
     },
     {
       "id": "w-salma",
@@ -2998,7 +3333,11 @@
       "bio": "멕시코 출신의 배우이자 영화 프로듀서. 테레사로 멕시코에서 스타가 된 뒤 할리우드에서 데스페라도, 프롬 더스트 틸 던 등에 출연하며 세계적 배우로 자리 잡았습니다.",
       "birth": "1966-09-02",
       "origin": "Coatzacoalcos, Veracruz, Mexico",
-      "yearsActive": "1988–present"
+      "yearsActive": "1988–present",
+      "debut": "1989",
+      "notable": [
+        "텔레노벨라 《테레사》(1989-1991)"
+      ]
     },
     {
       "id": "w-alix",
@@ -3021,7 +3360,10 @@
       "bio": "2000년 12월 16일 미국 뉴저지주 몬머스 카운티에서 태어난 미국의 소셜미디어 인물. TikTok에서 개인적인 삶을 공유하는 '게트 레디 위드 미(GRWM)' 영상으로 인기를 얻으며 유명세를 탔다. 온라인 커뮤니티에서는 그녀가 소개하는 제품의 판매가 급증하는 현상에 '알릭스 얼 이펙트(Alix Earle effect)'라는 별칭이 붙기도 했다.",
       "birth": "2000-12-16",
       "origin": "Monmouth County, New Jersey, U.S.",
-      "yearsActive": "2020–present"
+      "yearsActive": "2020–present",
+      "notable": [
+        "틱톡 \"Get Ready With Me\" 크리에이터"
+      ]
     },
     {
       "id": "w-haley-kalil",
@@ -3043,7 +3385,12 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "1992년 8월 미국 미네소타주 엑셀시어에서 태어난 미국의 모델 겸 소셜 미디어 인플루언서로, 전직 미인대회 수상자이기도 합니다. 2018년 스포츠 일러스트레이티드 스윔서치 경연에서 카밀 코스텍과 공동 우승해 2019년판 신인 모델로 등장했으며, 미스 미네소타 틴 USA 2010과 미스 미네소타 USA 2014에 등극한 이력이 있습니다.",
       "origin": "Excelsior, Minnesota, U.S.",
-      "yearsActive": "2008–present"
+      "yearsActive": "2008–present",
+      "debut": "2018",
+      "notable": [
+        "SI 스윔수트 이슈 (2018, 첫 Swim Search)"
+      ],
+      "birth": "1992-08"
     },
     {
       "id": "w-jena-frumes",
@@ -3159,7 +3506,14 @@
       "origin": "Cairo, Egypt",
       "occupation": "Model",
       "yearsActive": "2017 present",
-      "agency": "Plainlist"
+      "agency": "Plainlist",
+      "notable": [
+        "나오미 캠벨 이후 두 번째 프라다 쇼 오프닝 블랙 모델",
+        "아메리칸 Vogue 커버 3회"
+      ],
+      "awards": [
+        "TIME 100 가장 영향력 있는 인물 (2026)"
+      ]
     },
     {
       "id": "w-lamecia",
@@ -3189,7 +3543,7 @@
       "altName": "",
       "country": "USA",
       "tags": "skier si swim model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -3244,7 +3598,11 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "아만다 서니는 1991년 6월 26일 미국 펜실베이니아주 피츠버그에서 태어난 미국의 인터넷 유명인이다. 유튜브 채널과 과거 바인에서 400만 명 이상의 팔로워를 보유했던 프로필로 잘 알려져 있다. 2011년 10월 플레이보이 '그 달의 플레이메이트'로 선정되었다.",
       "birth": "1991-06-26",
-      "origin": "Pittsburgh, Pennsylvania, U.S."
+      "origin": "Pittsburgh, Pennsylvania, U.S.",
+      "notable": [
+        "플레이보이 플레이메이트 오브 더 먼스 (2011년 10월)",
+        "YouTube·Vine 크리에이터 (400만+ 팔로워)"
+      ]
     },
     {
       "id": "w-millane",
@@ -3457,7 +3815,7 @@
       "altName": "",
       "country": "BRAZIL",
       "tags": "singer si swim model",
-      "photoAvailable": true,
+      "photoAvailable": false,
       "officialUrl": "",
       "sns": {
         "x": "",
@@ -3510,11 +3868,17 @@
         "tiktok": ""
       },
       "license": "CC BY-SA 3.0",
-      "creditText": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Cingulata_Illiger&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Cingulata Illiger (page does not exist)\">Cingulata Illiger</a>",
+      "creditText": "Yoccy441",
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "1983년 5월 16일 에히메현 니이하마시 출생의 일본의 탤런트, 전직 그래비어 아이돌, 전직 프로레슬러. 애칭은 유즈폰으로, 탤런트로서는 플라티나무 프로덕션에, 프로레슬러로서는 스타담에 각각 소속돼 있었다. 주간 영점프에서 그래비어에 등장하며 이시이 메구루와 '유즈메구' 유닛을 결성하는 등 그래비어 아이돌로 활약한 이력이 있다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/4.29%E4%B8%A1%E5%9B%BD%E3%81%B8%E5%90%91%E3%81%91_%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/%E6%84%9B%E5%B7%9D%E3%82%86%E3%81%9A%E5%AD%A3.JPG",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "notable": [
+        "전 프로레슬러 (스타덤)",
+        "주간 플레이보이 그라비아"
+      ],
+      "birth": "1983-05-16",
+      "origin": "愛媛県新居浜市"
     },
     {
       "id": "tsukasa-fujimoto",
@@ -3535,7 +3899,13 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "그라비어 활동과 프로레슬링 무대를 넘나드는 독특한 이력을 가진 탤런트. 강인한 존재감과 근성 있는 매력으로 폭넓은 응원을 받습니다.",
       "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/%E8%97%A4%E6%9C%AC%E3%81%A4%E3%81%8B%E3%81%952024.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "notable": [
+        "아이스리본 이사회 선수대표",
+        "프로레슬링 WAVE \"클로스\" 멤버 (2012~)"
+      ],
+      "birth": "1983-07-30",
+      "origin": "宮城県宮城郡利府町"
     },
     {
       "id": "sola-aoi",
@@ -3596,7 +3966,11 @@
       "creditText": "Wikimedia Commons",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%B8%82%E9%81%93%E7%9C%9F%E5%A4%AE%EF%BC%91.jpg",
       "bio": "일본 오사카부 출신의 여배우이자 성우로 활동하고 있다. 옐로우캡 넥스트에 소속되어 있으며, 성우로서 활동할 때는 'M·A·O'라는 명의를 사용하는 것으로 알려져 있다. 주간소년점프의 독자 투고 코너 '잔혼G!'의 4대째 어시스턴트를 맡아 2014년 6월 최종회까지 해당 코너를 담당하기도 했다.",
-      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/%E5%B8%82%E9%81%93%E7%9C%9F%E5%A4%AE%EF%BC%91.jpg"
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/%E5%B8%82%E9%81%93%E7%9C%9F%E5%A4%AE%EF%BC%91.jpg",
+      "notable": [
+        "성우 명의로 활동 (M·A·O)",
+        "주간 소년점프 《잔혼G!》 4대째 어시스턴트 (2014년 6월까지)"
+      ]
     },
     {
       "id": "kyoko-hinami",
@@ -3680,7 +4054,10 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "일본 치바현 치바시 출신의 패션 모델, 여배우, 그래비어 모델. 본명 겸 옛 예명은 이이토요 마리에이며 에이벡스 매니지먼트 에이전시에 소속되어 있고 배우 타카하시 잇세이와 결혼했다. 20세 생일에 첫 사진집 『NO GAZPACHO』가 발매된 바 있다.",
       "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg/1280px-Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "notable": [
+        "첫 사진집 《NO GAZPACHO》(만 20세 생일 발매)"
+      ]
     },
     {
       "id": "akemi-darenogare",
@@ -3701,7 +4078,9 @@
       "creditUrl": "https://commons.wikimedia.org/",
       "bio": "1990년 7월 16일 브라질 상파울루 출생의 일본 여성 패션 모델 겸 탤런트로, 유튜버로서도 활발히 활동한 이력이 있습니다. 개인 사무소 QUEEN 소속으로 활동해 왔으며 브라질과 일본 양국의 배경을 바탕으로 패션, 방송, 온라인 콘텐츠 분야에서 다방면으로 활약하며 '다레짱'이라는 애칭으로 사랑받고 있습니다.",
       "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg/1280px-Suicide_Squad_Japan_Premiere-_Darenogare_Akemi.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "birth": "1990-07-16",
+      "origin": "サンパウロ州サンパウロ; 神奈川県横浜市瀬谷区"
     },
     {
       "id": "yukari-fukui",

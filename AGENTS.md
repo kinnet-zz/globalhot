@@ -4,7 +4,7 @@
 
 ## 소스 오브 트루스
 - 모델 데이터의 단일 원천은 `data/models.json`. 여기만 고친다.
-  - 전체 192명, **게시(photoAvailable=true) 102명**.
+  - 전체 201명, **게시(photoAvailable=true) 114명** (기준일 2026-08-22 — 모델 추가 시 갱신).
   - `data/gravure-queue.json`은 비어 있음 — 후보는 스크립트로만 발굴.
 - `fields`는 `id,name,altName,country,tags,photoAvailable,officialUrl,sns,license,creditText,creditUrl,bio,photoUrl,birth,origin,debut,occupation,yearsActive,agency,notable,awards,recent`.
   - 새 필드를 쓰면 반드시 최상위 `fields` 목록에도 추가한다.
@@ -33,10 +33,13 @@
 - **Unsplash** (unsplash.com): 감성적 느낌의 사진. "Download free" 아이콘이 있는 것만 상업 사용 가능.
 - **주의:** 최종 사용 사진의 라이선스를 반드시 최종 확인. 상업 사용 가능하다고 해도 모델 초상写真は 권리자의 요청에 따라 삭제해야 함.
 
+## 작업 승인 규칙 (반드시)
+**작업하기 전에 반드시 설명하고 승인을 받아야 한다.** 코드 수정, 파일 생성/삭제, 커밋/푸시, 스크립트 실행 등 모든 작업 전에 "무엇을 하려는지"를 명시하고 사용자의 승인을 받은 후 진행한다. 승인 없이 절대 먼저 코드를 건드리지 않는다.
+
 ## 반드시 해야 할 일 (MUST/DO)
 1. **게시 모델 bio는 반드시 실제 정보**로 작성. 출처는 **Wikipedia(영/일**, 필요시 나무위키 교차)에서 확인한 생년월일·출신·데뷔·대표 활동을 **표준 규격(2~4문장)** 으로 작성.
 2. 프로필의 bio와 stats(생년월일 등)는 **검증된 값만** 넣는다.
-3. 배포 전 반드시 검증: `npm test`(**94/94 통과**) → `npm run build:pages`(**124 files**) 모두 성공해야 한다.
+3. 배포 전 반드시 검증: `npm test`(**118/118 통과**) → `npm run build:pages`(**145 files**) 모두 성공해야 한다. (테스트·파일 수는 증가할 수 있음 — 기준값)
 4. 배포는 `git push origin master` → GitHub Actions deploy.yml → Cloudflare Pages(프로젝트 `globalhot`). 커밋 메시지는 feat(chore로 구분, 예: `feat(ranking): ...`).
 5. 원격에 크론/자동 커밋이 쌓여 있으면 `git pull --rebase` 후 푸시.
 6. 공식 링크는 실존 확인된 것만. people: `officialUrl`·SNS(x/insta/youtube/tiktok)에 진짜 URL만, 미확인은 빈 문자열 유지.

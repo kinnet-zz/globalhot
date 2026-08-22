@@ -48,6 +48,11 @@
     .profile-rail .photo-credit a{color:var(--coral-soft);text-decoration:underline;text-underline-offset:2px}
     .profile-rail dt{color:var(--quiet);font-size:.7rem;font-weight:700;letter-spacing:.06em}
     .profile-rail dd{margin:3px 0 0;color:var(--ink);font-size:.9rem;line-height:1.5}
+    .profile-rail dd.multi{white-space:pre-line}
+    .profile-structured{border-top:1px solid var(--line);padding:26px 0;margin-top:34px}
+    .profile-structured h2{color:var(--ink);font-size:1.12rem;font-weight:900;margin:0 0 10px}
+    .profile-structured ul{margin:0;padding-left:18px;color:var(--muted);font-size:.94rem;line-height:1.75}
+    .profile-structured .struct-block + .struct-block{margin-top:22px}
     .back-link{display:inline-block;margin-bottom:24px;color:var(--muted);font-size:.84rem;text-decoration:none}
     .back-link:hover{color:var(--coral-soft)}
     .load-state{display:grid;place-items:center;min-height:40vh;color:var(--muted)}
@@ -362,13 +367,44 @@
           section.appendChild(tags);
         }
 
+        function formatBirth(value) {
+          var v = String(value || '').trim();
+          var full = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+          if (full) return full[1] + '년 ' + Number(full[2]) + '월 ' + Number(full[3]) + '일';
+          var ym = /^(\d{4})-(\d{2})$/.exec(v);
+          if (ym) return ym[1] + '년 ' + Number(ym[2]) + '월';
+          return v;
+        }
+
+        function cleanYearsActive(value) {
+          var v = String(value || '').trim();
+          if (!v) return '';
+          if (/^\d{4}\s*[-–]\s*(\d{4}|present|현재|現在)?$/i.test(v)) return v;
+          if (/^\d{4}\s+present$/i.test(v)) return v;
+          return '';
+        }
+
         var rail = document.createElement('aside');
         rail.className = 'profile-rail';
 
         // 카테고리·국가는 헤더(eyebrow "{CATEGORY} PROFILE" + profile-meta "국가")에
-        // 이미 표시되므로 rail에서는 중복하지 않는다. rail에는 라이선스·사진 출처처럼
-        // 헤더에 없는 고유 정보만 담는다.
+        // 이미 표시되므로 rail에서는 중복하지 않는다. rail에는 구조화 프로필 필드와
+        // 라이선스·사진 출처처럼 헤더에 없는 고유 정보만 담는다. 값이 비어 있으면 제외.
         var dl = document.createElement('dl');
+        function railEntry(label, text, multi) {
+          if (!text) return;
+          var term = document.createElement('dt');
+          term.textContent = label;
+          var value = document.createElement('dd');
+          value.textContent = text;
+          if (multi) value.className = 'multi';
+          dl.appendChild(term);
+          dl.appendChild(value);
+        }
+        railEntry('출생', formatBirth(model.birth));
+        railEntry('출신', String(model.origin || '').trim());
+        railEntry('활동기간', cleanYearsActive(model.yearsActive));
+        railEntry('소속사', String(model.agency || '').trim(), true);
         if (model.photoUrl && model.license) {
           var licenseTerm = document.createElement('dt');
           licenseTerm.textContent = '라이선스';
@@ -393,9 +429,40 @@
           rail.appendChild(credit);
         }
 
-        // 라이선스·크레딧(고유 정보)이 있을 때만 rail을 렌더링한다.
+        // 구조화 필드·라이선스·크레딧 중 하나라도 있을 때만 rail을 렌더링한다.
         if (rail.children.length) section.appendChild(rail);
         header.after(section);
+
+        var structDefs = [
+          ['대표 활동', model.notable],
+          ['수상', model.awards],
+          ['최근 활동', model.recent]
+        ];
+        var structBlocks = [];
+        structDefs.forEach(function (def) {
+          var items = Array.isArray(def[1]) ? def[1].map(String).filter(Boolean) : [];
+          if (items.length) structBlocks.push([def[0], items]);
+        });
+        if (structBlocks.length) {
+          var structured = document.createElement('section');
+          structured.className = 'profile-structured';
+          structBlocks.forEach(function (block) {
+            var wrap = document.createElement('div');
+            wrap.className = 'struct-block';
+            var heading = document.createElement('h2');
+            heading.textContent = block[0];
+            wrap.appendChild(heading);
+            var list = document.createElement('ul');
+            block[1].forEach(function (text) {
+              var item = document.createElement('li');
+              item.textContent = text;
+              list.appendChild(item);
+            });
+            wrap.appendChild(list);
+            structured.appendChild(wrap);
+          });
+          section.after(structured);
+        }
         return section;
       }
 
