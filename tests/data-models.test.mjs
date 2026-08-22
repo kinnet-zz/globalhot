@@ -153,28 +153,27 @@ test('country distribution covers the documented regions and every country is no
   }
 });
 
-test('build reconciles photoAvailable to match local photos + remote photoUrl in dist', async () => {
+test('build reconciles photoAvailable: source flag is authoritative, photo required to publish', async () => {
   await buildPages();
   const distRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
   const built = JSON.parse(await readFile(path.join(distRoot, 'data', 'models.json'), 'utf8'));
   let available = [];
   try { available = await readdir(path.join(distRoot, 'assets', 'profiles')); } catch {}
   const set = new Set(available);
+  const sourceFlag = new Map(merged.models.map((m) => [m.id, m.photoAvailable]));
   for (const model of built.models) {
     const fileExists = set.has(`${model.id}.jpg`);
     const remotePhoto = typeof model.photoUrl === 'string' && model.photoUrl.startsWith('https://upload.wikimedia.org/');
-    assert.equal(model.photoAvailable, fileExists || remotePhoto, `${model.id}: photoAvailable must match a real photo source`);
+    // A model marked photoAvailable=false in the source stays unpublished even
+    // if a local file or remote photo exists; a true flag still requires a real
+    // photo source so no empty profile page can ship.
+    const expected = Boolean(sourceFlag.get(model.id)) && (fileExists || remotePhoto);
+    assert.equal(model.photoAvailable, expected, `${model.id}: photoAvailable must respect the source flag and require a real photo`);
   }
-  // photoAvailable must be exactly the models that can render a photo, either
-  // a local assets/profiles file OR a remote Wikimedia photoUrl. Both can be
-  // true at once (a vendored file plus a hosted URL), so the union matters,
-  // not a simple sum.
-  const publishedSet = new Set(built.models.filter((m) => m.photoAvailable).map((m) => m.id));
-  const publishable = built.models.filter((m) => {
-    const fileExists = set.has(`${m.id}.jpg`);
-    const remotePhoto = typeof m.photoUrl === 'string' && m.photoUrl.startsWith('https://upload.wikimedia.org/');
-    return fileExists || remotePhoto;
-  });
-  assert.equal(publishedSet.size, publishable.length, 'photoAvailable set must equal the publishable model union');
-  for (const model of publishable) assert.ok(publishedSet.has(model.id), `${model.id}: publishable model must be published`);
+  // Every published model in dist must have a renderable photo.
+  for (const model of built.models.filter((m) => m.photoAvailable)) {
+    const fileExists = set.has(`${model.id}.jpg`);
+    const remotePhoto = typeof model.photoUrl === 'string' && model.photoUrl.startsWith('https://upload.wikimedia.org/');
+    assert.ok(fileExists || remotePhoto, `${model.id}: published model must have a real photo source`);
+  }
 });

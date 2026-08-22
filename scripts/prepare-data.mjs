@@ -65,6 +65,8 @@ export async function prepareModelsData({ projectRoot, distDir }) {
 
   // 2. Reconcile photoAvailable against a real photo source: a local file in
   // assets/profiles/<id>.jpg OR a remote photoUrl (CC-licensed Wikimedia image).
+  // The source flag is authoritative for unpublishing: a model marked
+  // photoAvailable=false stays unpublished even if a photo file exists.
   let availableFiles = [];
   try {
     availableFiles = await readdir(assetsDir);
@@ -79,7 +81,7 @@ export async function prepareModelsData({ projectRoot, distDir }) {
       typeof model.photoUrl === "string" &&
       model.photoUrl.length > 0 &&
       /^https:\/\/upload\.wikimedia\.org\//.test(model.photoUrl);
-    const publishable = fileExists || hasRemotePhoto;
+    const publishable = Boolean(model.photoAvailable) && (fileExists || hasRemotePhoto);
     if (model.photoAvailable !== publishable) reconciledCount += 1;
     return { ...model, photoAvailable: publishable };
   });
