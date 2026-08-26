@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>globalhot.net — 실시간 화제 랭킹</title>
-<meta name="description" content="그라비아·화보·모델 계열 실시간 급상승 화제 랭킹. 매시간 집계.">
+<meta name="description" content="그라비아·화보·모델 계열 실시간 급상승 화제 랭킹. 매시간 집계. / Real-time trending gravure & photo-model topics, updated hourly. / グラビア・モデル系のリアルタイム急上昇ランキング、毎時更新。">
 <link rel="icon" href="/favicon.svg">
+<link rel="alternate" hreflang="ko" href="https://globalhot.net/rank.html?lang=ko">
+<link rel="alternate" hreflang="en" href="https://globalhot.net/rank.html?lang=en">
+<link rel="alternate" hreflang="ja" href="https://globalhot.net/rank.html?lang=ja">
+<link rel="alternate" hreflang="x-default" href="https://globalhot.net/rank.html">
 <style>
   :root {
     --bg: #0b0e14; --card: #141925; --card2: #1a2130; --border: #232d40;
@@ -13,16 +17,22 @@
     --text: #e8edf5; --muted: #8b97ab; --up: #ff4d6d; --down: #4cc9f0;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font-family:'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI','Apple SD Gothic Neo','Hiragino Sans','Malgun Gothic',sans-serif; }
   .layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 320px; gap:20px; padding:20px; }
   @media (max-width:900px){ .layout{grid-template-columns:1fr} .sidebar{display:none} }
   header { border-bottom:1px solid var(--border); background:rgba(11,14,20,.9); position:sticky; top:0; z-index:10; backdrop-filter:blur(8px); }
   .header-in { max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
   .logo { font-size:20px; font-weight:800; }
   .logo .fire { color:var(--accent); }
-  .header-in nav { margin-left:auto; display:flex; gap:14px; font-size:13px; }
+  .header-in nav { margin-left:auto; display:flex; gap:14px; font-size:13px; align-items:center; }
   .header-in nav a { color:var(--muted); text-decoration:none; }
   .header-in nav a:hover { color:var(--text); }
+  .lang-switch { display:flex; gap:2px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .lang-switch button {
+    background:none; border:none; color:var(--muted); font-size:12px; font-weight:700;
+    padding:6px 10px; cursor:pointer;
+  }
+  .lang-switch button.active { background:var(--card2); color:#fff; }
 
   .section-title { font-size:15px; font-weight:700; margin:4px 0 12px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .live { background:var(--accent); color:#fff; font-size:11px; padding:2px 8px; border-radius:4px; font-weight:600; }
@@ -54,6 +64,7 @@
   .side-item .sc { font-size:11px; color:var(--muted); }
   .ad-sticky { position:sticky; top:80px; min-height:480px; }
   footer { padding:30px 20px; text-align:center; color:var(--muted); font-size:12px; border-top:1px solid var(--border); line-height:1.8; }
+  footer a { color:inherit; }
   .loading, .empty { padding:60px; text-align:center; color:var(--muted); }
 </style>
 </head>
@@ -63,72 +74,172 @@
   <div class="header-in">
     <a href="/" style="text-decoration:none;color:inherit" class="logo">🔥 global<span class="fire">hot</span><span style="font-size:12px;color:var(--muted);font-weight:400">.net</span></a>
     <nav>
-      <a href="/">모델 프로필</a>
-      <a href="/issue/">이슈</a>
-      <a href="/about.html">소개</a>
+      <a href="/" data-i18n="navModels">모델 프로필</a>
+      <a href="/issue/" data-i18n="navIssue">이슈</a>
+      <a href="/about.html" data-i18n="navAbout">소개</a>
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="ko">한</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="ja">日</button>
+      </div>
     </nav>
   </div>
 </header>
 
 <div class="layout">
   <main>
-    <div class="section-title"><span class="live">LIVE</span> 지금 급상승 화제 TOP <span id="topn">50</span> <span class="updated" id="updatedAt"></span></div>
-    <div class="rank-list" id="rankList"><div class="loading">랭킹 데이터를 불러오는 중…</div></div>
+    <div class="section-title">
+      <span class="live">LIVE</span>
+      <span data-i18n="title">지금 급상승 화제 TOP</span> <span id="topn">50</span> <span class="updated" id="updatedAt"></span>
+    </div>
+    <div class="rank-list" id="rankList"><div class="loading" data-i18n="loading">랭킹 데이터를 불러오는 중…</div></div>
   </main>
 
   <aside class="sidebar">
     <div class="panel">
-      <h3>🔥 급상승 인물 TOP 10</h3>
+      <h3>🔥 <span data-i18n="personsTitle">급상승 인물 TOP 10</span></h3>
       <div id="personsTop"></div>
     </div>
     <div class="panel ad-sticky ad-infeed">
       <div class="adlabel">AD</div>
-      <div style="margin-top:60px">스티키 광고<br>300 x 600</div>
+      <div style="margin-top:60px"><span data-i18n="adSticky">스티키 광고</span><br>300 x 600</div>
     </div>
   </aside>
 </div>
 
 <footer>
-  globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)<br>
-  모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다 · <a href="/privacy.html" style="color:inherit">개인정보처리방침</a>
+  <span data-i18n="footer1">globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)</span><br>
+  <span data-i18n="footer2">모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다</span> · <a href="/privacy.html" data-i18n="privacy">개인정보처리방침</a>
 </footer>
 
 <script>
+// ── i18n ──────────────────────────────────────────────
+const I18N = {
+  ko: {
+    htmlLang: "ko",
+    docTitle: "globalhot.net — 실시간 화제 랭킹",
+    navModels: "모델 프로필", navIssue: "이슈", navAbout: "소개",
+    title: "지금 급상승 화제 TOP",
+    loading: "랭킹 데이터를 불러오는 중…",
+    loadFail: "랭킹 데이터를 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.",
+    emptyRank: "집계된 화제 항목이 없습니다.",
+    noPersons: "매칭 인물 없음",
+    personsTitle: "급상승 인물 TOP 10",
+    adSticky: "스티키 광고",
+    adInfeed: "네이티브 인피드 광고 슬롯",
+    mentions: "언급",
+    aggregatedAt: "집계",
+    collected: "수집",
+    footer1: "globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)",
+    footer2: "모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다",
+    privacy: "개인정보처리방침",
+  },
+  en: {
+    htmlLang: "en",
+    docTitle: "globalhot.net — Trending Now, Live Ranking",
+    navModels: "Model Profiles", navIssue: "Issues", navAbout: "About",
+    title: "Trending Now — TOP",
+    loading: "Loading ranking data…",
+    loadFail: "Could not load ranking data. Please try again shortly.",
+    emptyRank: "No trending items collected yet.",
+    noPersons: "No matched personalities",
+    personsTitle: "Top 10 Rising Personalities",
+    adSticky: "Sticky Ad",
+    adInfeed: "Native in-feed ad slot",
+    mentions: "mentions",
+    aggregatedAt: "aggregated",
+    collected: "collected",
+    footer1: "globalhot.net live trending ranking · auto-aggregated hourly (72h window)",
+    footer2: "All items link to the original source only — no content is copied or stored",
+    privacy: "Privacy Policy",
+  },
+  ja: {
+    htmlLang: "ja",
+    docTitle: "globalhot.net — リアルタイム急上昇ランキング",
+    navModels: "モデルプロフィール", navIssue: "イシュー", navAbout: "概要",
+    title: "今急上昇中の話題 TOP",
+    loading: "ランキングデータを読み込み中…",
+    loadFail: "ランキングデータを読み込めません。しばらくしてからもう一度お試しください。",
+    emptyRank: "集計された項目がまだありません。",
+    noPersons: "該当人物なし",
+    personsTitle: "急上昇人物 TOP 10",
+    adSticky: "スティッキー広告",
+    adInfeed: "ネイティブインフィード広告スロット",
+    mentions: "言及",
+    aggregatedAt: "集計",
+    collected: "収集",
+    footer1: "globalhot.net リアルタイム急上昇ランキング · 毎時自動集計（直近72時間）",
+    footer2: "すべての項目は元ソースへのリンクのみ提供し、コンテンツの複製・保存は行いません",
+    privacy: "プライバシーポリシー",
+  },
+};
+const LANGS = ["ko", "en", "ja"];
+const navLang = (navigator.language || "ko").slice(0, 2).toLowerCase();
+const urlLang = new URLSearchParams(location.search).get("lang");
+const storedLang = localStorage.getItem("gh-lang");
+let lang = LANGS.includes(urlLang) ? urlLang
+  : LANGS.includes(storedLang) ? storedLang
+  : LANGS.includes(navLang) ? navLang
+  : "ko";
+
+function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.ko[key] || key; }
+
+function applyLang() {
+  document.documentElement.lang = t("htmlLang");
+  document.title = t("docTitle");
+  for (const el of document.querySelectorAll("[data-i18n]")) el.textContent = t(el.dataset.i18n);
+  for (const b of document.querySelectorAll("#langSwitch button")) b.classList.toggle("active", b.dataset.lang === lang);
+}
+document.querySelectorAll("#langSwitch button").forEach((b) =>
+  b.addEventListener("click", () => {
+    lang = b.dataset.lang;
+    localStorage.setItem("gh-lang", lang);
+    const u = new URL(location); u.searchParams.set("lang", lang);
+    history.replaceState(null, "", u);
+    applyLang();
+    render();
+  })
+);
+applyLang();
+
+// ── 랭킹 데이터 ────────────────────────────────────────
 const esc = (s) => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+let DATA = null;
+
+function render() {
+  if (!DATA) return;
+  document.getElementById("topn").textContent = DATA.top.length;
+  document.getElementById("updatedAt").textContent =
+    `· ${new Date(DATA.generated_at).toLocaleString(lang === "ko" ? "ko-KR" : lang === "ja" ? "ja-JP" : "en-US")} ${t("aggregatedAt")} · ${t("collected")} ${DATA.collected_count}`;
+
+  const adSlot = `<div class="ad-infeed"><div class="adlabel">AD</div>${esc(t("adInfeed"))}</div>`;
+  const cards = DATA.top.map((item) => {
+    const badge = item.badge || { kind: "new", label: "NEW" };
+    const tags = (item.categories || []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ");
+    const persons = (item.persons || []).map((p) => `<span class="rtag">${esc(p.name)}</span>`).join(" ");
+    return `<a class="rank-card" href="${esc(item.url)}" target="_blank" rel="noopener nofollow">
+      <div class="rank-num"><span class="n">${item.rank}</span><span class="rank-badge ${badge.kind}">${esc(badge.label)}</span></div>
+      <div class="rank-body">
+        <div class="rank-title">${esc(item.title)}</div>
+        <div class="rank-sub">${esc((item.sources || []).join(" · "))} · score ${item.score}</div>
+        <div>${tags} ${persons}</div>
+      </div>
+    </a>`;
+  });
+  const out = [];
+  cards.forEach((c, i) => { out.push(c); if (i === 4 || (i >= 12 && (i - 4) % 8 === 7)) out.push(adSlot); });
+  document.getElementById("rankList").innerHTML = out.join("") || `<div class="empty">${esc(t("emptyRank"))}</div>`;
+
+  document.getElementById("personsTop").innerHTML = (DATA.persons_top || []).map((p, i) =>
+    `<div class="side-item"><span class="sn">${i + 1}</span><div><div class="st">${esc(p.name)}</div><div class="sc">${t("mentions")} ${p.mentions} · score ${p.score}</div></div></div>`
+  ).join("") || `<div class="side-item"><div class="st">${esc(t("noPersons"))}</div></div>`;
+}
 
 fetch("/data/ranking.json")
   .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-  .then((d) => {
-    document.getElementById("topn").textContent = d.top.length;
-    document.getElementById("updatedAt").textContent =
-      "· " + new Date(d.generated_at).toLocaleString("ko-KR") + " 집계 · 수집 " + d.collected_count + "건";
-
-    const adSlot = `<div class="ad-infeed"><div class="adlabel">AD · 인피드 네이티브</div>네이티브 인피드 광고 슬롯</div>`;
-    const cards = d.top.map((t) => {
-      const badge = t.badge || { kind: "new", label: "NEW" };
-      const tags = (t.categories || []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ");
-      const persons = (t.persons || []).map((p) => `<span class="rtag">${esc(p.name)}</span>`).join(" ");
-      return `<a class="rank-card" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">
-        <div class="rank-num"><span class="n">${t.rank}</span><span class="rank-badge ${badge.kind}">${esc(badge.label)}</span></div>
-        <div class="rank-body">
-          <div class="rank-title">${esc(t.title)}</div>
-          <div class="rank-sub">${esc((t.sources || []).join(" · "))} · score ${t.score}</div>
-          <div>${tags} ${persons}</div>
-        </div>
-      </a>`;
-    });
-    // 인피드 광고: 5위 뒤 1개, 이후 8개마다
-    const out = [];
-    cards.forEach((c, i) => { out.push(c); if (i === 4 || (i >= 12 && (i - 4) % 8 === 7)) out.push(adSlot); });
-    document.getElementById("rankList").innerHTML = out.join("") ||
-      '<div class="empty">집계된 화제 항목이 없습니다.</div>';
-
-    document.getElementById("personsTop").innerHTML = (d.persons_top || []).map((p, i) =>
-      `<div class="side-item"><span class="sn">${i + 1}</span><div><div class="st">${esc(p.name)}</div><div class="sc">언급 ${p.mentions}회 · score ${p.score}</div></div></div>`
-    ).join("") || '<div class="side-item"><div class="st">매칭 인물 없음</div></div>';
-  })
-  .catch((e) => {
-    document.getElementById("rankList").innerHTML = '<div class="empty">랭킹 데이터를 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>';
+  .then((d) => { DATA = d; render(); })
+  .catch(() => {
+    document.getElementById("rankList").innerHTML = `<div class="empty">${esc(t("loadFail"))}</div>`;
   });
 </script>
 
