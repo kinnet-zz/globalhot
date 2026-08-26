@@ -1,5 +1,5 @@
 {
-  "_comment": "실시간 화제 랭킹 전용 소스. issue/config/sources.json 과 달리 상시 갱신되는 공개 피드(Flickr/Mastodon/booru)를 활성화. 뉴스는 이 니치에서 발행이 희박해(중위 연령 수년) 랭킹 모멘텀용으로만 소수 유지. type: rss | booru-json. 링크만 수집.",
+  "_comment": "실시간 화제 랭킹 전용 소스. 상시 갱신되는 공개 피드 중심 (링크만 수집, 이미지 복제 없음). type: rss | booru-json | reddit-rss. booru는 SFW 등급(rating:safe/general)만. 사용: rank/scripts/collect-rank.mjs",
   "sources": [
     { "id": "news-gravure-idol",  "platform": "news",     "type": "rss",       "label": "Google News · 그라비아",     "feed": "https://news.google.com/rss/search?q=gravure+idol+photo+book&hl=en&gl=US&ceid=US:en",  "category": "gravure", "enabled": true },
     { "id": "news-kr-gravure",    "platform": "news",     "type": "rss",       "label": "Google News · 그라비아(KR)", "feed": "https://news.google.com/rss/search?q=%EA%B7%B8%EB%9D%BC%EB%B9%84%EC%95%84+%EB%AA%A8%EB%8D%B8&hl=ko&gl=KR&ceid=KR:ko",        "category": "gravure", "enabled": true },
@@ -8,12 +8,25 @@
     { "id": "flickr-bikini",   "platform": "flickr",   "type": "rss", "label": "Flickr · 비키니",   "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=bikini&format=rss_200",        "category": "model",   "enabled": true },
     { "id": "flickr-cosplay",  "platform": "flickr",   "type": "rss", "label": "Flickr · 코스프레", "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=cosplay&format=rss_200",       "category": "cosplay", "enabled": true },
     { "id": "flickr-lingerie", "platform": "flickr",   "type": "rss", "label": "Flickr · 란제리",   "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=lingerie&format=rss_200",      "category": "model",   "enabled": true },
+    { "id": "flickr-glamour",  "platform": "flickr",   "type": "rss", "label": "Flickr · 글래머",   "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=glamour+portrait&format=rss_200", "category": "model", "enabled": true },
+    { "id": "flickr-boudoir",  "platform": "flickr",   "type": "rss", "label": "Flickr · 부두어",   "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=boudoir&format=rss_200",       "category": "model",   "enabled": true },
 
     { "id": "masto-cosplay",   "platform": "mastodon", "type": "rss", "label": "Mastodon · 코스프레", "feed": "https://mastodon.social/tags/cosplay.rss",  "category": "cosplay", "enabled": true },
     { "id": "masto-boudoir",   "platform": "mastodon", "type": "rss", "label": "Mastodon · 부두어",   "feed": "https://mastodon.social/tags/boudoir.rss",  "category": "model",   "enabled": true },
     { "id": "masto-gravure",   "platform": "mastodon", "type": "rss", "label": "Mastodon · 그라비아", "feed": "https://mastodon.social/tags/gravure.rss",  "category": "gravure", "enabled": true },
+    { "id": "masto-art-photo", "platform": "mastodon", "type": "rss", "label": "Mastodon · 아트누드", "feed": "https://mastodon.art/tags/ArtisticNude.rss", "category": "gravure", "enabled": false, "_note": "피드 비어있음" },
 
-    { "id": "yandere-cosplay",  "platform": "yandere",   "type": "booru-json", "label": "yande.re · 코스프레",   "feed": "https://yande.re/post.json?tags=cosplay+rating:safe&limit=30",                          "category": "cosplay", "enabled": true },
-    { "id": "safebooru-cosplay","platform": "safebooru", "type": "booru-json", "label": "Safebooru · 코스프레", "feed": "https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1&tags=cosplay&limit=30", "category": "cosplay", "enabled": true }
+    { "id": "deviant-cosplay",   "platform": "deviantart", "type": "rss", "label": "DeviantArt · 코스프레", "feed": "https://backend.deviantart.com/rss.xml?q=cosplay",             "category": "cosplay", "enabled": true },
+    { "id": "deviant-gravure",   "platform": "deviantart", "type": "rss", "label": "DeviantArt · 그라비아", "feed": "https://backend.deviantart.com/rss.xml?q=gravure",             "category": "gravure", "enabled": true },
+    { "id": "deviant-glamour",   "platform": "deviantart", "type": "rss", "label": "DeviantArt · 글래머",   "feed": "https://backend.deviantart.com/rss.xml?q=glamour+portrait",    "category": "model",   "enabled": true },
+
+    { "id": "yandere-cosplay",   "platform": "yandere",   "type": "booru-json", "label": "yande.re · 코스프레",    "feed": "https://yande.re/post.json?tags=cosplay+rating:safe&limit=30",                          "category": "cosplay", "enabled": true },
+    { "id": "safebooru-cosplay", "platform": "safebooru", "type": "booru-json", "label": "Safebooru · 코스프레",  "feed": "https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1&tags=cosplay&limit=30", "category": "cosplay", "enabled": true },
+    { "id": "konachan-cosplay",  "platform": "konachan",  "type": "booru-json", "label": "Konachan · 코스프레",   "feed": "https://konachan.com/post.json?tags=cosplay+rating:safe&limit=30",                       "category": "cosplay", "enabled": false, "_note": "403 Cloudflare 차단" },
+    { "id": "danbooru-cosplay",  "platform": "danbooru",  "type": "booru-json", "label": "Danbooru · 코스프레",   "feed": "https://danbooru.donmai.us/posts.json?tags=cosplay+rating:g&limit=30",                   "category": "cosplay", "enabled": true },
+    { "id": "gelbooru-cosplay",  "platform": "gelbooru",  "type": "booru-json", "label": "Gelbooru · 코스프레",   "feed": "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=cosplay+rating:general&limit=30", "category": "cosplay", "enabled": false, "_note": "401 API 키 필요" },
+
+    { "id": "reddit-cosplay",  "platform": "reddit", "type": "rss", "label": "Reddit · r/cosplay",  "feed": "https://www.reddit.com/r/cosplay/.rss",  "category": "cosplay", "enabled": true },
+    { "id": "reddit-photog",   "platform": "reddit", "type": "rss", "label": "Reddit · r/glamourphotography", "feed": "https://www.reddit.com/r/glamourphotography/.rss", "category": "model", "enabled": true }
   ]
 }

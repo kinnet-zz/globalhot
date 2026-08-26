@@ -29,7 +29,7 @@ async function fetchText(url) {
   return res.text();
 }
 
-// 경량 RSS 파서 (의존성 없음) — <item> 의 title/link/pubDate 추출.
+// 경량 RSS 파서 (의존성 없음) — title/link/pubDate + 썸네일(media:thumbnail/media:content/enclosure) 추출.
 // Mastodon 태그 피드는 <title> 이 없으므로 <description> 에서 제목을 만든다.
 function parseRss(xml) {
   const items = [];
@@ -41,6 +41,15 @@ function parseRss(xml) {
       .replace(/<!\[CDATA\[|\]\]>/g, "")
       .replace(/<[^>]+>/g, "")
       .trim();
+  };
+  // 썸네일: media:thumbnail url=... | media:content url=...(image) | enclosure url=...(image)
+  const pickThumb = (block) => {
+    const media = block.match(/<media:(?:thumbnail|content)[^>]*\burl="([^"]+\.(?:jpg|jpeg|png|webp)[^"]*)"[^>]*>/i);
+    if (media) return media[1].replace(/&amp;/g, "&");
+    const enc = block.match(/<enclosure[^>]*\burl="([^"]+)"[^>]*\btype="image\/[^"]*"[^>]*>/i)
+      ?? block.match(/<enclosure[^>]*\btype="image\/[^"]*"[^>]*\burl="([^"]+)"[^>]*>/i);
+    if (enc) return enc[1].replace(/&amp;/g, "&");
+    return "";
   };
   const unescapeEntities = (s) =>
     s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
@@ -57,32 +66,63 @@ function parseRss(xml) {
     const pubDate = pick(block, "pubDate");
     const parsed = pubDate ? Date.parse(pubDate) : NaN;
     if (title && link) {
-      items.push({ title, url: link, publishedAt: Number.isNaN(parsed) ? "" : new Date(parsed).toISOString() });
+      items.push({ title, url: link, publishedAt: Number.isNaN(parsed) ? "" : new Date(parsed).toISOString(), thumb: pickThumb(block) });
+    }
+  }
+  // Atom(<entry>) 지원 — Reddit 등. link 는 href 속성, 날짜는 updated/published
+  const entryBlocks = xml.match(/<entry[\s\S]*?<\/entry>/g) ?? [];
+  for (const block of entryBlocks) {
+    const title = pick(block, "title");
+    const linkM = block.match(/<link[^>]*\brel="alternate"[^>]*\bhref="([^"]+)"/i)
+      ?? block.match(/<link[^>]*\bhref="([^"]+)"/i);
+    const dateRaw = pick(block, "updated") || pick(block, "published");
+    const parsed = dateRaw ? Date.parse(dateRaw) : NaN;
+    if (title && linkM) {
+      items.push({
+        title,
+        url: linkM[1].replace(/&amp;/g, "&"),
+        publishedAt: Number.isNaN(parsed) ? "" : new Date(parsed).toISOString(),
+        thumb: pickThumb(block),
+      });
     }
   }
   return items;
 }
 
-// booru-json 파서 — post 배열을 링크 항목으로 (이미지 복제 없음, 원글 페이지 링크만)
+// booru-json 파서 — post 배열을 링크 항목으로 (이미지 복제 없음, 원글 페이지 링크 + 미리보기 썸네일만)
+const BOORU_POST_URL = {
+  yandere: (id) => `https://yande.re/post/show/${id}`,
+  konachan: (id) => `https://konachan.com/post/show/${id}`,
+  danbooru: (id) => `https://danbooru.donmai.us/posts/${id}`,
+  gelbooru: (id) => `https://gelbooru.com/index.php?page=post&s=view&id=${id}`,
+  safebooru: (id) => `https://safebooru.org/index.php?page=post&s=view&id=${id}`,
+};
 function parseBooru(jsonText, src) {
   const posts = JSON.parse(jsonText);
   const items = [];
   for (const p of posts) {
     const id = p.id;
     if (!id) continue;
+    const buildUrl = BOORU_POST_URL[src.platform];
+    if (!buildUrl) continue;
     const tags = String(p.tags ?? "")
       .split(/\s+/)
       .filter(Boolean)
       .slice(0, 6)
       .map((t) => `#${t}`)
       .join(" ");
-    const base = src.platform === "yandere" ? "https://yande.re/post/show/" : "https://safebooru.org/index.php?page=post&s=view&id=";
-    const t = p.created_at ?? p.created_at_unix ?? p.change;
-    const publishedAt = typeof t === "number" && t > 1_000_000_000 ? new Date(t * (t < 1e11 ? 1000 : 1)).toISOString() : "";
+    // 발행일: 플랫폼별 unix 초/밀리초 또는 ISO 문자열
+    let publishedAt = "";
+    if (typeof p.created_at === "number" && p.created_at > 1_000_000_000) {
+      publishedAt = new Date(p.created_at * (p.created_at < 1e11 ? 1000 : 1)).toISOString();
+    } else if (typeof p.created_at === "string" && !Number.isNaN(Date.parse(p.created_at))) {
+      publishedAt = new Date(p.created_at).toISOString();
+    }
     items.push({
       title: `[${src.label}] ${tags || `post ${id}`}`,
-      url: `${base}${id}`,
+      url: buildUrl(id),
       publishedAt,
+      thumb: String(p.preview_url ?? p.preview_file_url ?? "").startsWith("http") ? p.preview_url ?? p.preview_file_url : "",
     });
   }
   return items;
@@ -132,15 +172,16 @@ async function main() {
   console.log(`window: ${windowHours}h → ${windowed.length} items`);
 
   // 중복(동일 정규화 제목) 묶기 → 소스 다양성 점수로 연결
-  const groups = new Map(); // normTitle -> { title, url, publishedAt, sources:Set, categories:Set }
+  const groups = new Map(); // normTitle -> { title, url, publishedAt, thumb, sources:Set, categories:Set }
   for (const c of windowed) {
     const key = normalizeTitle(c.title).slice(0, 80);
     if (!key) continue;
     let g = groups.get(key);
     if (!g) {
-      g = { title: c.title, url: c.url, publishedAt: c.publishedAt, sources: new Set(), categories: new Set() };
+      g = { title: c.title, url: c.url, publishedAt: c.publishedAt, thumb: c.thumb || "", sources: new Set(), categories: new Set() };
       groups.set(key, g);
     }
+    if (c.thumb && !g.thumb) g.thumb = c.thumb;
     g.sources.add(c.source);
     g.categories.add(c.category);
     if (c.publishedAt && (!g.publishedAt || Date.parse(c.publishedAt) > Date.parse(g.publishedAt))) g.publishedAt = c.publishedAt;
@@ -167,6 +208,7 @@ async function main() {
   const scored = [...groups.values()].map((g) => ({
     title: g.title,
     url: g.url,
+    thumb: g.thumb,
     publishedAt: g.publishedAt,
     sources: [...g.sources],
     categories: [...g.categories],

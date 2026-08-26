@@ -62,6 +62,10 @@
   .rank-badge { font-size:11px; font-weight:700; }
   .rank-badge.new{color:var(--accent)} .rank-badge.up{color:var(--up)} .rank-badge.down{color:var(--down)} .rank-badge.same{color:var(--muted)}
   .rank-body { display:flex; flex-direction:column; gap:5px; min-width:0; flex:1; }
+  .rank-thumb {
+    width:128px; height:72px; min-width:128px; border-radius:8px; object-fit:cover;
+    background:linear-gradient(135deg,#1b2436,#26334d);
+  }
   .rank-title { font-size:14px; font-weight:600; line-height:1.4; }
   .rank-sub { font-size:12px; color:var(--muted); }
   .rtag { font-size:11px; background:#1e2a3f; color:var(--blue); padding:2px 8px; border-radius:5px; }
@@ -307,6 +311,7 @@ function render() {
     const persons = (item.persons || []).map((p) => `<span class="rtag">${esc(p.name)}</span>`).join(" ");
     return `<a class="rank-card" href="${esc(item.url)}" target="_blank" rel="noopener nofollow">
       <div class="rank-num"><span class="n">${item.rank}</span><span class="rank-badge ${badge.kind}">${esc(badge.label)}</span></div>
+      ${item.thumb ? `<img class="rank-thumb" src="${esc(item.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
       <div class="rank-body">
         <div class="rank-title">${esc(item.title)}</div>
         <div class="rank-sub">${esc((item.sources || []).join(" · "))} · score ${item.score}</div>
