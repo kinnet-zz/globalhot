@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>globalhot.net — 실시간 화제 랭킹 (샘플)</title>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #141925;
+    --card2: #1a2130;
+    --border: #232d40;
+    --accent: #ff4d6d;
+    --accent2: #ffb703;
+    --blue: #4cc9f0;
+    --text: #e8edf5;
+    --muted: #8b97ab;
+    --up: #ff4d6d;
+    --down: #4cc9f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  }
+  .layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 20px; padding: 20px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+  /* 영상 백그라운드 히어로 */
+  .hero { position: relative; height: 420px; overflow: hidden; }
+  .hero-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(.55) saturate(1.1);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,14,20,.55) 0%, rgba(11,14,20,.2) 45%, var(--bg) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2; height: 100%;
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; flex-direction: column; justify-content: center; gap: 14px;
+  }
+  .hero-badge {
+    align-self: flex-start;
+    background: var(--accent); color: #fff; font-size: 12px; font-weight: 700;
+    padding: 4px 12px; border-radius: 6px; letter-spacing: 1px;
+  }
+  .hero-title { font-size: 38px; font-weight: 800; line-height: 1.25; text-shadow: 0 2px 20px rgba(0,0,0,.6); }
+  .hero-title span { color: var(--accent2); }
+  .hero-sub { font-size: 15px; color: #c9d3e0; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .hero-cta {
+    align-self: flex-start; margin-top: 8px;
+    background: var(--accent); color: #fff; font-weight: 700; font-size: 15px;
+    padding: 12px 26px; border-radius: 10px; cursor: pointer;
+    box-shadow: 0 4px 24px rgba(255,77,109,.4);
+    transition: transform .15s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } .hero { background: linear-gradient(135deg,#1b2436,#26334d); } }
+
+  /* 헤더 */
+  header {
+    border-bottom: 1px solid var(--border);
+    background: rgba(11,14,20,.9);
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: blur(8px);
+  }
+  .header-in { max-width: 1200px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 20px; }
+  .logo { font-size: 20px; font-weight: 800; }
+  .logo .fire { color: var(--accent); }
+  .tabs { display: flex; gap: 4px; margin-left: auto; }
+  .tab {
+    padding: 7px 14px; border-radius: 8px; font-size: 13px; color: var(--muted);
+    cursor: pointer; border: 1px solid transparent;
+  }
+  .tab.active { color: #fff; background: var(--card2); border-color: var(--border); }
+  .search {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); padding: 7px 12px; font-size: 13px; width: 180px; outline: none;
+  }
+
+  /* 랭킹 리스트 */
+  .section-title { font-size: 15px; font-weight: 700; margin: 4px 0 12px; display: flex; align-items: center; gap: 8px; }
+  .section-title .live {
+    background: var(--accent); color: #fff; font-size: 11px; padding: 2px 8px;
+    border-radius: 4px; font-weight: 600;
+  }
+  .rank-list { display: flex; flex-direction: column; gap: 10px; }
+  .rank-card {
+    display: flex; gap: 14px; background: var(--card);
+    border: 1px solid var(--border); border-radius: 12px; padding: 12px;
+    cursor: pointer; transition: border-color .15s, background .15s;
+  }
+  .rank-card:hover { border-color: #3a4a63; background: var(--card2); }
+  .rank-num {
+    width: 40px; min-width: 40px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2px;
+  }
+  .rank-num .n { font-size: 20px; font-weight: 800; color: var(--muted); }
+  .rank-card:nth-child(-n+3) .rank-num .n { color: var(--accent2); }
+  .rank-badge { font-size: 11px; font-weight: 700; }
+  .rank-badge.new { color: var(--accent); }
+  .rank-badge.up { color: var(--up); }
+  .rank-badge.down { color: var(--down); }
+  .thumb {
+    width: 128px; height: 72px; min-width: 128px; border-radius: 8px;
+    background: linear-gradient(135deg, #1b2436, #26334d);
+    display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 11px;
+    position: relative;
+  }
+  .thumb .mini-play {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255,77,109,.85); display: flex; align-items: center; justify-content: center;
+  }
+  .thumb .mini-play::after {
+    content: ''; border-style: solid; border-width: 7px 0 7px 11px;
+    border-color: transparent transparent transparent #fff; margin-left: 2px;
+  }
+  .rank-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; flex: 1; }
+  .rank-title { font-size: 14px; font-weight: 600; line-height: 1.4; }
+  .rank-sub { font-size: 12px; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
+  .rank-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .rtag { font-size: 11px; background: #1e2a3f; color: var(--blue); padding: 2px 8px; border-radius: 5px; }
+
+  /* 인피드 광고 */
+  .ad-infeed {
+    border: 1px dashed #3a4a63; border-radius: 12px; padding: 16px;
+    text-align: center; color: var(--muted); font-size: 12px; background: rgba(26,33,48,.4);
+  }
+  .ad-infeed .adlabel { font-size: 10px; letter-spacing: 1px; color: #5a6activation880; }
+  .ad-infeed .adlabel { font-size: 10px; letter-spacing: 1px; color: #5a6880; }
+
+  /* 사이드바 */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .panel h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+  .side-item { display: flex; gap: 10px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .side-item:last-child { border-bottom: none; }
+  .side-item .sn { font-size: 13px; font-weight: 800; color: var(--muted); width: 20px; }
+  .side-item:nth-child(-n+3) .sn { color: var(--accent); }
+  .side-item .st { font-size: 13px; }
+  .side-item .sc { font-size: 11px; color: var(--muted); }
+  .ad-sticky { position: sticky; top: 80px; min-height: 480px; }
+
+  footer { padding: 30px 20px; text-align: center; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="logo">🔥 global<span class="fire">hot</span><span style="font-size:12px;color:var(--muted);font-weight:400">.net</span></div>
+    <input class="search" placeholder="인물·태그 검색">
+    <div class="tabs">
+      <span class="tab active">실시간</span>
+      <span class="tab">1시간</span>
+      <span class="tab">24시간</span>
+      <span class="tab">주간</span>
+    </div>
+  </div>
+</header>
+
+<!-- 영상 백그라운드 히어로 -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline
+         poster="">
+    <source src="../main_202608081044.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">LIVE RANKING</div>
+    <div class="hero-title">지금 가장 뜨거운 화제,<br>실시간으로.</div>
+    <div class="hero-sub">매시간 집계되는 급상승 콘텐츠 · globalhot.net</div>
+    <div class="hero-cta" onclick="document.getElementById('rankList').scrollIntoView({behavior:'smooth'})">🔥 급상승 TOP 50 보기</div>
+  </div>
+</section>
+
+<div class="layout">
+  <main>
+    <div class="section-title"><span class="live">LIVE</span> 지금 급상승 화제 TOP 50</div>
+    <div class="rank-list" id="rankList"></div>
+  </main>
+
+  <aside class="sidebar">
+    <div class="panel">
+      <h3>급상승 인물 TOP 10</h3>
+      <div class="side-item"><span class="sn">1</span><div><div class="st">샘플 인물 A</div><div class="sc">언급 1.2k · 신작 영상</div></div></div>
+      <div class="side-item"><span class="sn">2</span><div><div class="st">샘플 인물 B</div><div class="sc">언급 890 · 화제 사진</div></div></div>
+      <div class="side-item"><span class="sn">3</span><div><div class="st">샘플 인물 C</div><div class="sc">언급 742 · 뉴스 언급</div></div></div>
+      <div class="side-item"><span class="sn">4</span><div><div class="st">샘플 인물 D</div><div class="sc">언급 521</div></div></div>
+      <div class="side-item"><span class="sn">5</span><div><div class="st">샘플 인물 E</div><div class="sc">언급 433</div></div></div>
+    </div>
+    <div class="panel ad-sticky ad-infeed">
+      <div class="adlabel">AD</div>
+      <div style="margin-top:60px">스티키 광고<br>300 x 600</div>
+    </div>
+  </aside>
+</div>
+
+<footer>globalhot.net 샘플 화면 · 모든 콘텐츠는 공식 임베드로만 제공되며 다운로드/복제하지 않습니다</footer>
+
+<script>
+// 목업 데이터 — 실제 서비스: 매시간 D1 순위 스냅샷에서 렌더링
+const items = [
+  { r: 1,  badge: ["new","NEW"],      title: "샘플 인물 A, 신작 화보 촬영 비하인드 영상 공개 — 1시간 만에 언급 폭주", tags: ["영상","화보"], sub: "언급 1,240 · 조회 89k · 3개 소스 동시 화제", video: true },
+  { r: 2,  badge: ["up","▲ 5"],       title: "샘플 인물 B 유튜브 라이브 다시보기 — 최근 최고 반응 기록", tags: ["영상","라이브"], sub: "언급 980 · 조회 152k", video: true },
+  { r: 3,  badge: ["down","▼ 1"],     title: "샘플 인물 C 잡지 표지 발표, 예고컷 화제", tags: ["화보"], sub: "언급 755 · 조회 44k", video: false },
+  { r: 4,  badge: ["up","▲ 12"],      title: "주간 그라비아 랭킹 발표 — 최대 순위 변동", tags: ["랭킹"], sub: "언급 640", video: false },
+  { r: 5,  badge: ["new","NEW"],      title: "샘플 인물 D, 팬미팅 현장 클립 확산", tags: ["영상","이벤트"], sub: "언급 590 · 조회 71k", video: true },
+];
+// AD: 5위 뒤 인피드 1개, 이후 8개마다
+const adHtml = `<div class="ad-infeed"><div class="adlabel">AD · 인피드 네이티브</div>네이티브 인피드 광고 슬롯 (Adsterra/ExoClick)</div>`;
+
+document.getElementById("rankList").innerHTML =
+  items.map(p => `
+    <div class="rank-card" onclick="alert('상세 페이지: 임베드 재생 + 왜 화제? AI 요약 + 순위 이력')">
+      <div class="rank-num"><span class="n">${p.r}</span><span class="rank-badge ${p.badge[0]}">${p.badge[1]}</span></div>
+      <div class="thumb">${p.video ? '<div class="mini-play"></div>' : 'IMAGE'}<span style="position:absolute;bottom:5px;right:7px;font-size:10px;">embed</span></div>
+      <div class="rank-body">
+        <div class="rank-title">${p.title}</div>
+        <div class="rank-sub"><span>${p.sub}</span></div>
+        <div class="rank-tags">${p.tags.map(t => `<span class="rtag">#${t}</span>`).join("")}</div>
+      </div>
+    </div>`).join("")
+  + adHtml
+  + `<div style="text-align:center;color:var(--muted);font-size:13px;padding:16px">… 6위~50위 계속 (인피드 광고 8개마다 삽입)</div>`;
+</script>
+
+</body>
+</html>
