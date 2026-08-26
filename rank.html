@@ -66,6 +66,26 @@
   footer { padding:30px 20px; text-align:center; color:var(--muted); font-size:12px; border-top:1px solid var(--border); line-height:1.8; }
   footer a { color:inherit; }
   .loading, .empty { padding:60px; text-align:center; color:var(--muted); }
+  .submit-form { display:flex; gap:8px; flex-wrap:wrap; }
+  .submit-form input {
+    background:var(--card); border:1px solid var(--border); color:var(--text);
+    border-radius:8px; padding:10px 14px; font-size:13px; outline:none;
+  }
+  .submit-form input:focus { border-color:var(--accent); }
+  #submitUrl { flex:2 1 320px; }
+  #submitNote { flex:1 1 160px; }
+  .submit-form button {
+    background:var(--accent); color:#fff; border:none; border-radius:8px;
+    padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer;
+  }
+  .submit-form button:hover { filter:brightness(1.1); }
+  .submit-msg { font-size:13px; margin-top:8px; min-height:18px; color:var(--muted); }
+  .submit-msg.ok { color:#4ade80; }
+  .submit-msg.err { color:var(--accent); }
+  .sub-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; }
+  .sub-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:12px; color:var(--muted); gap:8px; flex-wrap:wrap; }
+  .sub-embed { display:flex; justify-content:center; min-height:60px; }
+  .sub-embed iframe { max-width:100%; border-radius:8px; }
 </style>
 </head>
 <body>
@@ -107,6 +127,20 @@
   </aside>
 </div>
 
+<!-- 커뮤니티 화제 등록 (X/인스타/스레드 공식 임베드) -->
+<section class="layout" style="max-width:1200px;margin:0 auto;padding:0 20px 40px">
+  <main>
+    <div class="section-title">💬 <span data-i18n="submitTitle">화제 등록 — X·인스타·스레드 게시물</span></div>
+    <div class="submit-form">
+      <input id="submitUrl" type="url" data-i18n-ph="submitPlaceholder" placeholder="https://x.com/사용자/status/123... (X·인스타·스레드·유튜브)" />
+      <input id="submitNote" type="text" data-i18n-ph="notePlaceholder" placeholder="한줄 메모 (선택)" maxlength="200" />
+      <button id="submitBtn" onclick="submitPost()"><span data-i18n="submitBtn">등록</span></button>
+    </div>
+    <div id="submitMsg" class="submit-msg"></div>
+    <div id="submissions" class="rank-list" style="margin-top:14px"><div class="loading" data-i18n="loading">랭킹 데이터를 불러오는 중…</div></div>
+  </main>
+</section>
+
 <footer>
   <span data-i18n="footer1">globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)</span><br>
   <span data-i18n="footer2">모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다</span> · <a href="/privacy.html" data-i18n="privacy">개인정보처리방침</a>
@@ -133,6 +167,12 @@ const I18N = {
     footer1: "globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)",
     footer2: "모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다",
     privacy: "개인정보처리방침",
+    submitTitle: "화제 등록 — X·인스타·스레드 게시물",
+    submitPlaceholder: "https://x.com/사용자/status/123... (X·인스타·스레드·유튜브)",
+    notePlaceholder: "한줄 메모 (선택)",
+    submitBtn: "등록",
+    subEmpty: "아직 등록된 게시물이 없습니다. 첫 번째로 등록해 보세요!",
+    submitOk: "등록되었습니다 ✅",
   },
   en: {
     htmlLang: "en",
@@ -152,6 +192,12 @@ const I18N = {
     footer1: "globalhot.net live trending ranking · auto-aggregated hourly (72h window)",
     footer2: "All items link to the original source only — no content is copied or stored",
     privacy: "Privacy Policy",
+    submitTitle: "Submit a Topic — X · Instagram · Threads posts",
+    submitPlaceholder: "https://x.com/user/status/123... (X · Instagram · Threads · YouTube)",
+    notePlaceholder: "Short note (optional)",
+    submitBtn: "Submit",
+    subEmpty: "No submissions yet — be the first to share!",
+    submitOk: "Submitted ✅",
   },
   ja: {
     htmlLang: "ja",
@@ -171,6 +217,12 @@ const I18N = {
     footer1: "globalhot.net リアルタイム急上昇ランキング · 毎時自動集計（直近72時間）",
     footer2: "すべての項目は元ソースへのリンクのみ提供し、コンテンツの複製・保存は行いません",
     privacy: "プライバシーポリシー",
+    submitTitle: "話題を投稿 — X・Instagram・Threads",
+    submitPlaceholder: "https://x.com/user/status/123...（X・Instagram・Threads・YouTube）",
+    notePlaceholder: "ひとことメモ（任意）",
+    submitBtn: "投稿",
+    subEmpty: "まだ投稿がありません。最初の投稿をどうぞ！",
+    submitOk: "投稿されました ✅",
   },
 };
 const LANGS = ["ko", "en", "ja"];
@@ -188,6 +240,7 @@ function applyLang() {
   document.documentElement.lang = t("htmlLang");
   document.title = t("docTitle");
   for (const el of document.querySelectorAll("[data-i18n]")) el.textContent = t(el.dataset.i18n);
+  for (const el of document.querySelectorAll("[data-i18n-ph]")) el.placeholder = t(el.dataset.i18nPh);
   for (const b of document.querySelectorAll("#langSwitch button")) b.classList.toggle("active", b.dataset.lang === lang);
 }
 document.querySelectorAll("#langSwitch button").forEach((b) =>
@@ -241,6 +294,92 @@ fetch("/data/ranking.json")
   .catch(() => {
     document.getElementById("rankList").innerHTML = `<div class="empty">${esc(t("loadFail"))}</div>`;
   });
+
+// ── 커뮤니티 화제 등록 (공식 임베드만, 콘텐츠 복제 없음) ──
+let widgetsJsLoaded = false;
+function loadXWidgets() {
+  if (widgetsJsLoaded) return;
+  widgetsJsLoaded = true;
+  const s = document.createElement("script");
+  s.src = "https://platform.twitter.com/widgets.js";
+  s.async = true;
+  s.charset = "utf-8";
+  document.body.appendChild(s);
+}
+
+function embedFor(sub) {
+  if (sub.platform === "x") {
+    loadXWidgets();
+    return `<blockquote class="twitter-tweet" data-dnt="true"><a href="${esc(sub.url)}"></a></blockquote>`;
+  }
+  if (sub.platform === "instagram") {
+    const clean = sub.url.split("?")[0].replace(/\/$/, "");
+    return `<iframe src="${esc(clean)}/embed" width="420" height="540" loading="lazy" scrolling="no" frameborder="0"></iframe>`;
+  }
+  if (sub.platform === "threads") {
+    const clean = sub.url.split("?")[0].replace(/\/$/, "");
+    return `<iframe src="${esc(clean)}/embed/html" width="420" height="540" loading="lazy" scrolling="no" frameborder="0"></iframe>`;
+  }
+  if (sub.platform === "youtube") {
+    let id = "";
+    try {
+      const u = new URL(sub.url);
+      if (u.hostname.includes("youtu.be")) id = u.pathname.slice(1);
+      else id = new URLSearchParams(u.search).get("v") || u.pathname.split("/").pop();
+    } catch {}
+    return id
+      ? `<iframe src="https://www.youtube-nocookie.com/embed/${esc(id)}" width="560" height="315" loading="lazy" frameborder="0" allowfullscreen></iframe>`
+      : "";
+  }
+  return "";
+}
+
+function renderSubmissions(list) {
+  document.getElementById("submissions").innerHTML = list.length
+    ? list.map((s) => `
+      <div class="sub-card">
+        <div class="sub-meta">
+          <span>${esc((s.note || s.url).slice(0, 120))}</span>
+          <a href="${esc(s.url)}" target="_blank" rel="noopener nofollow" style="color:var(--blue);text-decoration:none">${esc(s.platform)} ↗</a>
+        </div>
+        <div class="sub-embed">${embedFor(s)}</div>
+      </div>`).join("")
+    : `<div class="empty">${esc(t("subEmpty"))}</div>`;
+}
+
+function loadSubmissions() {
+  fetch("/api/submissions")
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .then((d) => renderSubmissions(d.submissions || []))
+    .catch(() => renderSubmissions([]));
+}
+loadSubmissions();
+
+function submitPost() {
+  const url = document.getElementById("submitUrl").value.trim();
+  const note = document.getElementById("submitNote").value.trim();
+  const msg = document.getElementById("submitMsg");
+  msg.className = "submit-msg";
+  msg.textContent = "…";
+  fetch("/api/submissions", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ url, note }),
+  })
+    .then(async (r) => {
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || !d.ok) throw new Error((d.error && d.error.message) || t("loadFail"));
+      msg.className = "submit-msg ok";
+      msg.textContent = t("submitOk");
+      document.getElementById("submitUrl").value = "";
+      document.getElementById("submitNote").value = "";
+      loadSubmissions();
+    })
+    .catch((e) => {
+      msg.className = "submit-msg err";
+      msg.textContent = e.message;
+    });
+}
 </script>
 
 </body>
