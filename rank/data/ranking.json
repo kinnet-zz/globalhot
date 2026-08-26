@@ -1,152 +1,116 @@
 {
-  "generated_at": "2026-08-26T19:17:36.583Z",
+  "generated_at": "2026-08-26T23:25:30.089Z",
   "window_hours": 24,
-  "collected_count": 445,
+  "collected_count": 420,
   "top": [
     {
       "rank": 1,
+      "title": "Heavy Lifting",
+      "url": "https://www.flickr.com/photos/tracy4214/55490400728/",
+      "thumb": "https://live.staticflickr.com/65535/55490400728_1d9eaba6b0_b.jpg",
+      "publishedAt": "2026-08-26T22:56:28.000Z",
+      "sources": [
+        "Flickr · 부두어",
+        "Flickr · 란제리"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 28,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 2,
       "title": "IMG_9264  M",
       "url": "https://www.flickr.com/photos/itzkirb/55489758114/",
       "thumb": "https://live.staticflickr.com/65535/55489758114_b26e7ef84b_b.jpg",
       "publishedAt": "2026-08-26T16:12:38.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 비키니"
+        "Flickr · 비키니",
+        "Flickr · 란제리"
       ],
       "categories": [
         "model"
       ],
       "persons": [],
-      "score": 26,
+      "score": 24,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "down",
+        "label": "▼ 1"
       }
     },
     {
-      "rank": 2,
+      "rank": 3,
+      "title": "Charlie in stockings !!",
+      "url": "https://www.flickr.com/photos/pankajanand18/55489836010/",
+      "thumb": "https://live.staticflickr.com/65535/55489836010_300f7c5600_b.jpg",
+      "publishedAt": "2026-08-26T15:00:11.000Z",
+      "sources": [
+        "Flickr · 부두어",
+        "Flickr · 란제리"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 24,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 41"
+      }
+    },
+    {
+      "rank": 4,
       "title": "Handle with care",
       "url": "https://www.flickr.com/photos/zipzip98/55488271047/",
       "thumb": "https://live.staticflickr.com/65535/55488271047_30eb27a04c_b.jpg",
       "publishedAt": "2026-08-26T13:00:59.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 비키니"
+        "Flickr · 비키니",
+        "Flickr · 란제리"
       ],
       "categories": [
         "model"
       ],
       "persons": [],
-      "score": 25,
+      "score": 23,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "down",
+        "label": "▼ 2"
       }
     },
     {
-      "rank": 3,
+      "rank": 5,
       "title": "Perfectly imperfectly",
       "url": "https://www.flickr.com/photos/zipzip98/55489431134/",
       "thumb": "https://live.staticflickr.com/65535/55489431134_9892123660_b.jpg",
       "publishedAt": "2026-08-26T13:05:18.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 비키니"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 25,
-      "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 4,
-      "title": "Patio",
-      "url": "https://www.flickr.com/photos/147389223@N06/55489857571/",
-      "thumb": "https://live.staticflickr.com/65535/55489857571_b0b0d94787_b.jpg",
-      "publishedAt": "2026-08-26T18:44:57.000Z",
-      "sources": [
-        "Flickr · 부두어"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 5,
-      "title": "Willow",
-      "url": "https://www.flickr.com/photos/147389223@N06/55488905242/",
-      "thumb": "https://live.staticflickr.com/65535/55488905242_320d5547db_b.jpg",
-      "publishedAt": "2026-08-26T19:01:43.000Z",
-      "sources": [
+        "Flickr · 비키니",
         "Flickr · 란제리"
       ],
       "categories": [
         "model"
       ],
       "persons": [],
-      "score": 18,
+      "score": 23,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 2"
       }
     },
     {
       "rank": 6,
-      "title": "Look 121♥ by Sabbath Event",
-      "url": "https://www.flickr.com/photos/141346890@N07/55490245695/",
-      "thumb": "https://live.staticflickr.com/65535/55490245695_7e492e4978_b.jpg",
-      "publishedAt": "2026-08-26T18:47:01.000Z",
+      "title": "C63A4646",
+      "url": "https://www.flickr.com/photos/vodkaphotos/55490704490/",
+      "thumb": "https://live.staticflickr.com/65535/55490704490_072c7a54d5_b.jpg",
+      "publishedAt": "2026-08-26T23:16:28.000Z",
       "sources": [
-        "Flickr · 란제리"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 7,
-      "title": "Pool Girl-11",
-      "url": "https://www.flickr.com/photos/73189284@N00/55490029419/",
-      "thumb": "https://live.staticflickr.com/65535/55490029419_d9d2fabd36_b.jpg",
-      "publishedAt": "2026-08-26T18:44:16.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 8,
-      "title": "Japanese actress and cosplayer Himeoka Yuki went viral with an “old vs. now” photo, showing her childhood Minnie Mouse l…",
-      "url": "https://mastodon.social/@geekrealmhub/117163277976061002",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/163/277/037/704/038/original/ce5d7ac6a5e6e29b.jpg",
-      "publishedAt": "2026-08-26T18:42:24.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 코스프레"
       ],
       "categories": [
         "cosplay"
@@ -159,10 +123,48 @@
       }
     },
     {
+      "rank": 7,
+      "title": "C63A4607",
+      "url": "https://www.flickr.com/photos/vodkaphotos/55490311321/",
+      "thumb": "https://live.staticflickr.com/65535/55490311321_574e88efa6_b.jpg",
+      "publishedAt": "2026-08-26T23:16:23.000Z",
+      "sources": [
+        "Flickr · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 8,
+      "title": "The glass slipped from my hand and shattered on the porch. I gasped, stood barefoot in the mess, laughed with my arms sp…",
+      "url": "https://fed.brid.gy/r/https://bsky.app/profile/did:plc:cb7bfgg2jzxt2hbelfzhwlcd/post/3mtzgspniwz2q",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/164/301/098/875/983/original/5c055b5bafde6a1e.jpeg",
+      "publishedAt": "2026-08-26T23:00:59.000Z",
+      "sources": [
+        "Mastodon · 부두어"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
       "rank": 9,
-      "title": "[Safebooru · 코스프레] #:d #alternate_costume #blood #blood_on_weapon #blush #bow",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090115",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_5c37be4f0c5b345d815d717ecf912b578ad5a92e.jpg",
+      "title": "[Safebooru · 코스프레] #... #2girls #black_hair #black_jacket #closed_mouth #cosplay",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090778",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_1015c0787d1729bc13b1dceea8be20985a888a10.jpg",
       "publishedAt": "",
       "sources": [
         "Safebooru · 코스프레"
@@ -179,9 +181,9 @@
     },
     {
       "rank": 10,
-      "title": "[Safebooru · 코스프레] #2girls #:d #bespectacled #black_loincloth #blue_eyes #blush",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090111",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_518ed34cdf6b22b5252858151020c759a1556b4f.jpg",
+      "title": "[Safebooru · 코스프레] #2girls #alternate_eye_color #alternate_hair_color #aubrey_(faraway)_(omori) #aubrey_(omori) #blue_eyes",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090746",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_bfc09e6bf516ed995b53fba0a106f71abcca0006.jpg",
       "publishedAt": "",
       "sources": [
         "Safebooru · 코스프레"
@@ -198,6 +200,139 @@
     },
     {
       "rank": 11,
+      "title": "[Safebooru · 코스프레] #2girls #aubrey_(faraway)_(omori) #aubrey_(faraway)_(omori)_(cosplay) #aubrey_(omori) #baseball_bat #blue_hairband",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090736",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_5ed5c14651dd63c707b8cf3610a4fb5227793c14.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 12,
+      "title": "[Safebooru · 코스프레] #1girl #asiya_illusts #black_jacket #breasts #bright_pupils #closed_mouth",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090718",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_2a6820d5640403cc3203f7e1b84fb362137c7dda.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 13,
+      "title": "[Safebooru · 코스프레] #1boy #1girl #ankle_lace-up #arm_hug #bare_shoulders #blue_jacket",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090468",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_264063b9c54ea7f174e43c0bf8dd992eee4c2b06.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 14,
+      "title": "[Safebooru · 코스프레] #1boy #1girl #alternate_hair_length_(longer) #ankle_lace-up #arm_hug #bare_shoulders",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090466",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_ecc054cf2be1b6ef56e9b3735b38fe0543b2b981.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 15,
+      "title": "[Safebooru · 코스프레] #2girls #arm_up #black_background #boots #breasts #brown_cape",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090462",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_ea26596d733d3f506536d842b1aafe23f285eb87.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 16,
+      "title": "[Safebooru · 코스프레] #:d #alternate_costume #blood #blood_on_weapon #blush #bow",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090115",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_5c37be4f0c5b345d815d717ecf912b578ad5a92e.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 7"
+      }
+    },
+    {
+      "rank": 17,
+      "title": "[Safebooru · 코스프레] #2girls #:d #bespectacled #black_loincloth #blue_eyes #blush",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7090111",
+      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_518ed34cdf6b22b5252858151020c759a1556b4f.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 7"
+      }
+    },
+    {
+      "rank": 18,
       "title": "[Safebooru · 코스프레] #? #?? #brown_hair #celine_(path_to_nowhere) #chibi #chief_(path_to_nowhere)",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089981",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_9a83e5fa751051e6fee65e00afaf64a1a02be0e8.jpg",
@@ -212,11 +347,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 12,
+      "rank": 19,
       "title": "[Safebooru · 코스프레] #2girls #ahoge #belt #black_belt #black_choker #black_eyes",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089618",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_7a7c7b460c8a0f86b0f606b8d343ba67b54644fb.jpg",
@@ -231,11 +366,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 13,
+      "rank": 20,
       "title": "[Safebooru · 코스프레] #1girl #belt #blush #bow #bowtie #breasts",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089576",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_9e094b306df69d4506c8e16fcad9ed2eb72c7dc9.jpg",
@@ -250,11 +385,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 14,
+      "rank": 21,
       "title": "[Safebooru · 코스프레] #1girl #3d #alice&#039;s_adventures_in_wonderland #bare_arms #black_boots #black_hair",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089528",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_12ae10517fe024b8dae30ebfebe37968406ce41b.jpg",
@@ -269,11 +404,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 15,
+      "rank": 22,
       "title": "[Safebooru · 코스프레] #2girls #arm_at_side #belt #belt_buckle #black_belt #black_hat",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089480",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_b06730252fa1913f7a61109833b66e58a046a236.jpg",
@@ -288,11 +423,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 16,
+      "rank": 23,
       "title": "[Safebooru · 코스프레] #1girl #absurdres #adapted_costume #ahoge #armor #armored_dress",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089420",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_70affc07f11a951d627fb35c9f89cb93c0160f55.jpg",
@@ -307,11 +442,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 17,
+      "rank": 24,
       "title": "[Safebooru · 코스프레] #1boy #2girls #absurdres #ahoge #akechi_anna #akechi_anna&#039;s_mother",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089387",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_2f2322211b3a622ed782f41024e42ff89f5a11ce.jpg",
@@ -326,11 +461,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 18,
+      "rank": 25,
       "title": "[Safebooru · 코스프레] #1girl #aokaze_nana #bare_shoulders #black_hair #blue_eyes #blue_hair",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089220",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_57d84c21fa5a87c8760ee33ece17c061261957b9.jpg",
@@ -345,11 +480,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 19,
+      "rank": 26,
       "title": "[Safebooru · 코스프레] #adepta_sororitas #ahoge #armor #blush #breasts #chainsword",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089179",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_93afb158fe66651c3e78c7d791a057c3b97c6431.jpg",
@@ -364,11 +499,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 20,
+      "rank": 27,
       "title": "[Safebooru · 코스프레] #1girl #a544113 #absurdres #ahoge #armor #belt",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089147",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_1f49d60935ae9323ecbe6c871e382ca79b2ce64d.jpg",
@@ -383,11 +518,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 21,
+      "rank": 28,
       "title": "[Safebooru · 코스프레] #a544113 #absurdres #armor #breastplate #chaos_(warhammer) #cosplay",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089146",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_9b00ddd7fbaa8410430a5b53289ff447ae31e936.jpg",
@@ -402,11 +537,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 22,
+      "rank": 29,
       "title": "[Safebooru · 코스프레] #2girls #a544113 #absurdres #ahoge #armor #belt",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7089144",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_473b56a877ae68643a5d03aaa2316828a6b46384.jpg",
@@ -421,11 +556,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 23,
+      "rank": 30,
       "title": "[Safebooru · 코스프레] #1boy #2girls #black_hair #black_necktie #black_pants #black_suit",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088656",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_398dabd5a6030d5dddd8ab96d3ef13ef7d6cd3a2.jpg",
@@ -440,11 +575,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 24,
+      "rank": 31,
       "title": "[Safebooru · 코스프레] #1girl #absurdres #animal_ear_fluff #animal_ears #antenna_hair #bo_staff",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088534",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_0a67323a45e447b3ab7bb72debb7865ae1a5a408.jpg",
@@ -459,11 +594,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 25,
+      "rank": 32,
       "title": "[Safebooru · 코스프레] #2girls #absurdres #alternate_costume #animal_ear_fluff #animal_ears #antennae",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088431",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_1c842dc0190c8dbddfdddc54fb01a14d6ca4cca8.jpg",
@@ -478,11 +613,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 26,
+      "rank": 33,
       "title": "[Safebooru · 코스프레] #1girl #:d #absurdres #akane_lize #black_jacket #black_shirt",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088400",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_77db2de9ba170b6b33265377d73e27d92213eaa4.jpg",
@@ -497,11 +632,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 27,
+      "rank": 34,
       "title": "[Safebooru · 코스프레] #1girl #absurdres #black_capelet #bow #brown_hair #buttons",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088354",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_d682cb9f4c772c485fbe452eb88df8a6c9b41366.jpg",
@@ -516,11 +651,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 28,
+      "rank": 35,
       "title": "[Safebooru · 코스프레] #1girl #absurdres #animal_ears #aston_machan_(flare)_(umamusume) #aston_machan_(umamusume) #aston_machan_(umamusume)_(cosplay)",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088209",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_127069f8c54d807bc7fbd3d135876a599d465976.jpg",
@@ -535,11 +670,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 7"
       }
     },
     {
-      "rank": 29,
+      "rank": 36,
       "title": "[Safebooru · 코스프레] #1girl #animal_ears #antlers #antonymph #blonde_hair #blush",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7088169",
       "thumb": "https://safebooru.org/thumbnails/333/thumbnail_df737be4ccce1262b16289f3fc1f3f90ffdf24b7.jpg",
@@ -554,150 +689,17 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 30,
-      "title": "[Safebooru · 코스프레] #1boy #1girl #absurdres #beast_(disney) #beast_(disney)_(cosplay) #beauty_and_the_beast_(disney)",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7088141",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_6a8daf821a356eb3b4c2e1e90b2b2db5ba084784.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 31,
-      "title": "[Safebooru · 코스프레] #2girls #alternate_eye_color #alternate_hair_color #aubrey_(faraway)_(omori) #aubrey_(omori) #blue_eyes",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7088048",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_233b1fd9f994bc63852d00fe7e7f682e3b1cc25e.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 32,
-      "title": "[Safebooru · 코스프레] #1girl #? #animal_ears #blush #bow #bowtie",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7087701",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_6752ebf39cbe7d7358df929c45c7dd579c912b03.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 33,
-      "title": "[Safebooru · 코스프레] #1girl #absurdres #ahoge #armor #armored_boots #armored_dress",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7087664",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_bd72d0d7fc178639ea9a74160fd84a962de79109.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 34,
-      "title": "[Safebooru · 코스프레] #1girl #ahoge #alternate_costume #apron #aqua_ascot #aqua_eyes",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7087646",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_404bcbf3e64ba8b4cf4986c5454819e462e63846.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 35,
-      "title": "[Safebooru · 코스프레] #2girls #arm_freckles #bear_hair_ornament #black_boots #black_necktie #black_shirt",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7087609",
-      "thumb": "https://safebooru.org/thumbnails/333/thumbnail_b10a3a6dd697b52c48da4f8eb32acfa11c8bc2a0.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 36,
-      "title": "Tan Ultra Gloss Pantyhose with Black Stiletto Heels Leg Tour",
-      "url": "https://www.flickr.com/photos/emmaward49/55489824384/",
-      "thumb": "https://live.staticflickr.com/31337/55489824384_1279a325eb_s.jpg",
-      "publishedAt": "2026-08-26T16:49:27.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 30"
+        "label": "▼ 7"
       }
     },
     {
       "rank": 37,
-      "title": "# TheMetalDogArticleList # TheHardTimes Amazing!: When the Minneapolis Spider-Man Needed Legal Help, a Man Dressed as Ma…",
-      "url": "https://mastodon.themetaldog.net/@TheMetalDog/117163192159151726",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/163/192/984/763/488/original/fde92959c2b36067.png",
-      "publishedAt": "2026-08-26T18:20:35.000Z",
+      "title": "Shooting Misa - Death Note - Remu_chan_ - Antibes -2026-08-21- P1050883",
+      "url": "https://www.flickr.com/photos/styeb/55489282702/",
+      "thumb": "https://live.staticflickr.com/65535/55489282702_03c89f1bb7_b.jpg",
+      "publishedAt": "2026-08-26T22:35:43.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 코스프레"
       ],
       "categories": [
         "cosplay"
@@ -711,12 +713,12 @@
     },
     {
       "rank": 38,
-      "title": "Content warning: Non-sexual nudity Quote with your best booty pic 🍂🍁 (Idk if it’s my best, but I like it) #elf #elflov…",
-      "url": "https://fed.brid.gy/r/https://bsky.app/profile/did:plc:f3dcsz365o4zyt7uuqyliwgt/post/3mtyvx4kpbk24",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/163/109/184/849/140/original/854a31b09dabe0d5.jpeg",
-      "publishedAt": "2026-08-26T17:59:14.000Z",
+      "title": "Shooting Link - Zelda - Kili_oli_cosplay - Cascade Monumentale - Pont en Royans -2026-08-23- P1061284",
+      "url": "https://www.flickr.com/photos/styeb/55490358178/",
+      "thumb": "https://live.staticflickr.com/65535/55490358178_dbbef3e130_b.jpg",
+      "publishedAt": "2026-08-26T22:18:24.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 코스프레"
       ],
       "categories": [
         "cosplay"
@@ -730,12 +732,12 @@
     },
     {
       "rank": 39,
-      "title": "Eyyy Keyleth! What up fam! Photo taken at @derpycon_official 2025! # cosplay # amazonprimevideo # voxmachina # keyleth #…",
-      "url": "https://mastodon.social/@djranmas/117163019289921180",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/163/017/319/803/137/original/ad23601bb2a32afe.jpg",
-      "publishedAt": "2026-08-26T17:36:37.000Z",
+      "title": "Shooting Link - Zelda - Kili_oli_cosplay - Cascade Blanche - Sainte Eulalie en Royans -2026-08-23- P1061393",
+      "url": "https://www.flickr.com/photos/styeb/55490346453/",
+      "thumb": "https://live.staticflickr.com/65535/55490346453_834e8f0273_b.jpg",
+      "publishedAt": "2026-08-26T22:09:05.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 코스프레"
       ],
       "categories": [
         "cosplay"
@@ -749,12 +751,12 @@
     },
     {
       "rank": 40,
-      "title": "[Danbooru · 코스프레] post 12072628",
-      "url": "https://danbooru.donmai.us/posts/12072628",
-      "thumb": "https://cdn.donmai.us/180x180/d3/bf/d3bf24312f09b3dd675581d54aee5989.jpg",
-      "publishedAt": "2026-08-26T17:32:18.710Z",
+      "title": "Shooting Shinobu Kochô - Demon Slayer - Arlecchino_cosplay - Cascade Monumentale -2026-08-23- P1061270",
+      "url": "https://www.flickr.com/photos/styeb/55490221951/",
+      "thumb": "https://live.staticflickr.com/65535/55490221951_9248493b8f_b.jpg",
+      "publishedAt": "2026-08-26T22:01:43.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Flickr · 코스프레"
       ],
       "categories": [
         "cosplay"
@@ -768,12 +770,12 @@
     },
     {
       "rank": 41,
-      "title": "[Danbooru · 코스프레] post 12072619",
-      "url": "https://danbooru.donmai.us/posts/12072619",
-      "thumb": "https://cdn.donmai.us/180x180/b9/27/b92744cb6f94007320faed20363d8e57.jpg",
-      "publishedAt": "2026-08-26T17:30:33.252Z",
+      "title": "Shooting Shinobu Kochô - Demon Slayer - Arlecchino_cosplay - Grotte Du Brudour -2026-08-23- P1061574",
+      "url": "https://www.flickr.com/photos/styeb/55489229432/",
+      "thumb": "https://live.staticflickr.com/65535/55489229432_a0bbb5eb86_b.jpg",
+      "publishedAt": "2026-08-26T21:50:32.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Flickr · 코스프레"
       ],
       "categories": [
         "cosplay"
@@ -787,29 +789,10 @@
     },
     {
       "rank": 42,
-      "title": "The Reveal",
-      "url": "https://www.flickr.com/photos/paulhammond-photographer/55489584196/",
-      "thumb": "https://live.staticflickr.com/65535/55489584196_f78ba35724_b.jpg",
-      "publishedAt": "2026-08-26T16:12:58.000Z",
-      "sources": [
-        "Flickr · 부두어"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 38"
-      }
-    },
-    {
-      "rank": 43,
-      "title": "posing",
-      "url": "https://www.flickr.com/photos/194834445@N07/55489724824/",
-      "thumb": "https://live.staticflickr.com/65535/55489724824_ee2a7c1fd0_b.jpg",
-      "publishedAt": "2026-08-26T15:53:28.000Z",
+      "title": "Shooting Shinobu Kochô - Demon Slayer - Arlecchino_cosplay - Ruisseau Du Brudour -2026-08-23- P1061507",
+      "url": "https://www.flickr.com/photos/styeb/55490366739/",
+      "thumb": "https://live.staticflickr.com/65535/55490366739_e4de7cafcb_b.jpg",
+      "publishedAt": "2026-08-26T21:40:47.000Z",
       "sources": [
         "Flickr · 코스프레"
       ],
@@ -817,26 +800,45 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 7"
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 43,
+      "title": "Shooting Toji Fushiguro - Jujutsu Kaisen - Slaiyzi - Grotte Du Brudour -2026-08-23- P1061531",
+      "url": "https://www.flickr.com/photos/styeb/55490298914/",
+      "thumb": "https://live.staticflickr.com/65535/55490298914_ca817d34f1_b.jpg",
+      "publishedAt": "2026-08-26T21:03:12.000Z",
+      "sources": [
+        "Flickr · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 44,
-      "title": "Charlie in stockings !!",
-      "url": "https://www.flickr.com/photos/pankajanand18/55489836010/",
-      "thumb": "https://live.staticflickr.com/65535/55489836010_300f7c5600_b.jpg",
-      "publishedAt": "2026-08-26T15:00:11.000Z",
+      "title": "Shooting Toji Fushiguro - Jujutsu Kaisen - Slaiyzi - Ruisseau Du Brudour -2026-08-23- P1061464",
+      "url": "https://www.flickr.com/photos/styeb/55490524050/",
+      "thumb": "https://live.staticflickr.com/65535/55490524050_9391769264_b.jpg",
+      "publishedAt": "2026-08-26T21:06:50.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Flickr · 코스프레"
       ],
       "categories": [
-        "model"
+        "cosplay"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -844,10 +846,29 @@
     },
     {
       "rank": 45,
-      "title": "yrtpvope66 posted a photo:",
-      "url": "https://www.flickr.com/photos/203950521@N05/55489694483/",
-      "thumb": "https://live.staticflickr.com/65535/55489694483_4ae8173035_b.jpg",
-      "publishedAt": "2026-08-26T16:09:52.000Z",
+      "title": "Shooting Toji Fushiguro - Jujutsu Kaisen - Slaiyzi - Cascade Monumentale - Pont en Royans -2026-08-23- P1061211",
+      "url": "https://www.flickr.com/photos/styeb/55490230468/",
+      "thumb": "https://live.staticflickr.com/65535/55490230468_6b6ecf0f85_b.jpg",
+      "publishedAt": "2026-08-26T20:57:47.000Z",
+      "sources": [
+        "Flickr · 코스프레"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 46,
+      "title": "Tuner Empire Honolulu 2026",
+      "url": "https://www.flickr.com/photos/madmarv/55490252036/",
+      "thumb": "https://live.staticflickr.com/65535/55490252036_3fab390d3c_b.jpg",
+      "publishedAt": "2026-08-26T22:33:04.000Z",
       "sources": [
         "Flickr · 비키니"
       ],
@@ -855,105 +876,86 @@
         "model"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 40"
-      }
-    },
-    {
-      "rank": 46,
-      "title": "I didn't need a nap. I needed hands on the sweat-slicked skin of my inner thighs and fingers pressed hard against me thr…",
-      "url": "https://fed.brid.gy/r/https://bsky.app/profile/did:plc:cb7bfgg2jzxt2hbelfzhwlcd/post/3mtyrtlgxw52w",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/162/819/509/482/925/original/b53fd2a8ebda45fe.jpeg",
-      "publishedAt": "2026-08-26T16:45:40.000Z",
-      "sources": [
-        "Mastodon · 부두어"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 12"
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 47,
-      "title": "💐 # fineartphotography # alt4you # femme # model # Photo # alttxt # Boudoir # intimacy # selfloveclub # artmodel # body…",
-      "url": "https://mastodon.art/@fiscorb/117162369193946922",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/162/369/223/585/832/original/18a6dccbcdb7761d.jpg",
-      "publishedAt": "2026-08-26T14:51:17.000Z",
+      "title": "Black Party Dress Black Sheer Stockings Black Stilettos (26)",
+      "url": "https://www.flickr.com/photos/emmaward49/55490309844/",
+      "thumb": "https://live.staticflickr.com/65535/55490309844_0a3f0793c0_b.jpg",
+      "publishedAt": "2026-08-26T21:09:27.000Z",
       "sources": [
-        "Mastodon · 부두어"
+        "Flickr · 란제리"
       ],
       "categories": [
         "model"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 5"
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 48,
-      "title": "# kigurumi # cosplay 他SNSのアイコンを日菜子にしたので、こっちはせつ菜で",
-      "url": "https://costodon.social/@xxxxP_kig/117162668825117316",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/162/668/933/636/254/original/7573c456de280e11.png",
-      "publishedAt": "2026-08-26T16:07:29.000Z",
+      "title": "Black Party Dress Black Sheer Stockings Black Stilettos (27)",
+      "url": "https://www.flickr.com/photos/emmaward49/55490136181/",
+      "thumb": "https://live.staticflickr.com/65535/55490136181_9ec3775d9c_b.jpg",
+      "publishedAt": "2026-08-26T21:09:28.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 란제리"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 9"
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 49,
-      "title": "RBB | Der Tag | Gamescom-Sommer – Byterockers, Cosplay &amp; Spielehits https://www. rbb-online.de/der-tag/videos/- vide…",
-      "url": "https://mstdn.animexx.de/@ammm/117162643048123387",
-      "thumb": "",
-      "publishedAt": "2026-08-26T16:00:56.000Z",
+      "title": "Black Party Dress Black Sheer Stockings Black Stilettos (28)",
+      "url": "https://www.flickr.com/photos/emmaward49/55490253348/",
+      "thumb": "https://live.staticflickr.com/65535/55490253348_e83fd7d5db_b.jpg",
+      "publishedAt": "2026-08-26T21:09:28.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 란제리"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 9"
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 50,
-      "title": "[Danbooru · 코스프레] post 12072291",
-      "url": "https://danbooru.donmai.us/posts/12072291",
-      "thumb": "https://cdn.donmai.us/180x180/7d/0e/7d0e30997a16cbd31c2c85edd2c2ae16.jpg",
-      "publishedAt": "2026-08-26T16:21:34.775Z",
+      "title": "Black Party Dress Black Sheer Stockings Black Stilettos (32)",
+      "url": "https://www.flickr.com/photos/emmaward49/55490136166/",
+      "thumb": "https://live.staticflickr.com/65535/55490136166_9701224172_b.jpg",
+      "publishedAt": "2026-08-26T21:09:31.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Flickr · 란제리"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 16,
+      "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 15"
+        "kind": "new",
+        "label": "NEW"
       }
     }
   ],
