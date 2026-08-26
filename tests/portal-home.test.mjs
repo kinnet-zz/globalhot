@@ -4,7 +4,7 @@ import test from 'node:test';
 import vm from 'node:vm';
 
 const [html, css, script] = await Promise.all([
-  readFile('index.html', 'utf8'),
+  readFile('models.html', 'utf8'),
   readFile('portal.css', 'utf8'),
   readFile('portal.js', 'utf8')
 ]);
@@ -15,14 +15,14 @@ const attributes = (source, name) => Array.from(
   (match) => match[2]
 );
 
-test('homepage loads portal assets and excludes the legacy stylesheet and app', () => {
+test('models portal page loads portal assets and excludes the legacy stylesheet and app', () => {
   assert.match(html, /<link\b[^>]*\bhref\s*=\s*["'][^"']*portal\.css(?:[?#][^"']*)?["']/i);
   assert.match(html, /<script\b[^>]*\bsrc\s*=\s*["'][^"']*portal\.js(?:[?#][^"']*)?["']/i);
   assert.doesNotMatch(html, /(?:href|src)\s*=\s*["'][^"']*(?:style\.css|app\.js)(?:[?#][^"']*)?["']/i);
   assert.ok(css.trim().length > 0);
 });
 
-test('homepage retains discovery controls and structured search metadata', () => {
+test('models portal page retains discovery controls and structured search metadata', () => {
   for (const id of ['portalSearch', 'sortSelect', 'resultsCount', 'modelGrid', 'emptyState', 'clearSearch']) {
     assert.match(html, new RegExp(`\\bid\\s*=\\s*["']${id}["']`, 'i'));
   }
@@ -31,7 +31,7 @@ test('homepage retains discovery controls and structured search metadata', () =>
   assert.match(html, /<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*\bhref\s*=\s*["']https:\/\/globalhot\.net\/["']/i);
 });
 
-test('homepage has no placeholder ad slots, no comments UI, and only local CC-licensed profile photos', () => {
+test('models portal page has no placeholder ad slots, no comments UI, and only local CC-licensed profile photos', () => {
   assert.equal((html.match(/\bdata-ad-slot\b/gi) || []).length, 0);
   assert.doesNotMatch(html, /(?:id|class)\s*=\s*(["'])[^"']*comment[^"']*\1/i);
   assert.doesNotMatch(html, /<textarea\b/i);
@@ -192,12 +192,12 @@ test('filtered cards using hidden are removed from the grid layout', () => {
   assert.match(css, /\[hidden\]\{display:none!important\}/);
 });
 
-test('homepage drops the Patreon support button from the footer', () => {
+test('models portal page drops the Patreon support button from the footer', () => {
   assert.doesNotMatch(html, /class=["'][^"']*\bsupport-cta\b[^"']*["']/i);
   assert.doesNotMatch(html, /patreon\.com/i);
 });
 
-test('homepage carries no affiliate or ad surfaces in the blog format', () => {
+test('models portal page carries no affiliate or ad surfaces in the blog format', () => {
   assert.doesNotMatch(html, /class=["'][^"']*\bcard-affiliate\b[^"']*["']/i);
   assert.doesNotMatch(html, /data-ad-slot\b/i);
   assert.doesNotMatch(html, /AMAZON ASSOCIATE/i);

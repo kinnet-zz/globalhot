@@ -1,5 +1,7 @@
 https://www.globalhot.net/* https://globalhot.net/:splat 301
 /hotnews /issue/ 301
 /hotnews/* /issue/ 301
-/hot /rank.html 301
-/ranking /rank.html 301
+/hot / 301
+/ranking / 301
+/rank / 301
+/rank.html / 301

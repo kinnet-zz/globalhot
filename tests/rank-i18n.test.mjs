@@ -5,13 +5,13 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const rankHtml = await readFile(path.join(projectRoot, "rank.html"), "utf8");
+const rankHtml = await readFile(path.join(projectRoot, "index.html"), "utf8");
 
-test("rank page declares hreflang alternates for ko/en/ja and x-default", () => {
-  assert.match(rankHtml, /hreflang="ko" href="https:\/\/globalhot\.net\/rank\.html\?lang=ko"/);
-  assert.match(rankHtml, /hreflang="en" href="https:\/\/globalhot\.net\/rank\.html\?lang=en"/);
-  assert.match(rankHtml, /hreflang="ja" href="https:\/\/globalhot\.net\/rank\.html\?lang=ja"/);
-  assert.match(rankHtml, /hreflang="x-default" href="https:\/\/globalhot\.net\/rank\.html"/);
+test("rank main page declares hreflang alternates for ko/en/ja and x-default", () => {
+  assert.match(rankHtml, /hreflang="ko" href="https:\/\/globalhot\.net\/\?lang=ko"/);
+  assert.match(rankHtml, /hreflang="en" href="https:\/\/globalhot\.net\/\?lang=en"/);
+  assert.match(rankHtml, /hreflang="ja" href="https:\/\/globalhot\.net\/\?lang=ja"/);
+  assert.match(rankHtml, /hreflang="x-default" href="https:\/\/globalhot\.net\/"/);
 });
 
 test("rank page language switch covers ko/en/ja", () => {

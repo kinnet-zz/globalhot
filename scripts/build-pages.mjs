@@ -31,7 +31,7 @@ export const STATIC_FILES = [
   "_headers",
   "_redirects",
   "main_202608081044.mp4",
-  "rank.html",
+  "models.html",
 ];
 
 const SCAN_DIRS = ["assets/profiles"];
@@ -145,7 +145,7 @@ export async function buildPages() {
   await applyCacheBust({
     projectRoot,
     distDir,
-    htmlFiles: ["index.html", "model.html", "about.html", "privacy.html", "terms.html", "404.html"],
+    htmlFiles: ["index.html", "models.html", "about.html", "privacy.html", "terms.html", "404.html"],
   });
 
   const { files: outputFiles, dirs: outputDirs } = await collectDistFiles(distDir);

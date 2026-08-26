@@ -81,7 +81,7 @@ test('privacy describes IP-only recommendation hashing and does not promise loca
 
 test('not-found page remains non-indexable and returns visitors to discovery', () => {
   assert.match(notFound, /<meta\b[^>]*\bname=["']robots["'][^>]*\bcontent=["'][^"']*noindex/i);
-  assert.match(notFound, /href=["']\/#discover["']/);
+  assert.match(notFound, /href=["']\/models\.html#discover["']/);
   assert.match(notFound, /href=["']\/["']/);
   assert.doesNotMatch(notFound, /\/posts\//i);
 });
@@ -95,20 +95,19 @@ test('terms and not-found pages use the shared information page layout classes',
   }
 });
 
-test('sitemap exposes exactly six current portal pages with their intended change frequencies', () => {
+test('sitemap exposes exactly five current pages (ranking main + info + issue); models portal is hidden', () => {
   const locations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
   const expected = new Set([
     'https://globalhot.net/',
     'https://globalhot.net/about.html',
     'https://globalhot.net/privacy.html',
     'https://globalhot.net/terms.html',
-    'https://globalhot.net/rank.html',
     'https://globalhot.net/issue/'
   ]);
-  assert.equal(locations.length, 6);
+  assert.equal(locations.length, 5);
   assert.deepEqual(new Set(locations), expected);
-  assert.doesNotMatch(sitemap, /playground|gallery|editor|posts/i);
-  assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/<\/loc>\s*<lastmod>2026-08-01<\/lastmod>\s*<changefreq>daily<\/changefreq>\s*<priority>1\.0<\/priority>/s);
+  assert.doesNotMatch(sitemap, /playground|gallery|editor|posts|models\.html|rank\.html/i);
+  assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/<\/loc>\s*<lastmod>2026-08-27<\/lastmod>\s*<changefreq>hourly<\/changefreq>\s*<priority>1\.0<\/priority>/s);
   assert.match(sitemap, /<loc>https:\/\/globalhot\.net\/about\.html<\/loc>[\s\S]*?<changefreq>monthly<\/changefreq>/);
   assert.equal((sitemap.match(/<changefreq>yearly<\/changefreq>/g) || []).length, 2);
 });

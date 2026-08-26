@@ -26,7 +26,7 @@ test("the same asset uses the identical hash across all pages (no drift)", async
     return m ? m[1] : null;
   };
   // portal.css 는 index 와 about 모두에서 참조 — 같아야 함
-  const inIndex = await hashOf("index.html", "portal.css");
+  const inIndex = await hashOf("models.html", "portal.css");
   const inAbout = await hashOf("about.html", "portal.css");
   assert.ok(inIndex && inAbout, "portal.css must be referenced in both");
   assert.equal(inIndex, inAbout, "portal.css hash must match across pages");
@@ -34,16 +34,16 @@ test("the same asset uses the identical hash across all pages (no drift)", async
 
 test("cache-bust hash is deterministic across builds", async () => {
   await buildPages();
-  const h1 = (await readFile(path.join(distDir, "index.html"), "utf8"))
+  const h1 = (await readFile(path.join(distDir, "models.html"), "utf8"))
     .match(/portal\.js\?v=([0-9a-f]{10})/)[1];
   await buildPages();
-  const h2 = (await readFile(path.join(distDir, "index.html"), "utf8"))
+  const h2 = (await readFile(path.join(distDir, "models.html"), "utf8"))
     .match(/portal\.js\?v=([0-9a-f]{10})/)[1];
   assert.equal(h1, h2, "same content must yield same hash");
 });
 
 test("source HTML files are NOT modified by cache-bust", async () => {
   // source 는 여전히 수동 ?v= (예: 20260802-3) 를 유지 — dist 만 해시로 치환
-  const src = await readFile(path.join(projectRoot, "index.html"), "utf8");
-  assert.match(src, /portal\.css\?v=20260802-3/, "source index.html keeps its manual version");
+  const src = await readFile(path.join(projectRoot, "models.html"), "utf8");
+  assert.match(src, /portal.css\?v=20260802-3/, "source index.html keeps its manual version");
 });
