@@ -31,6 +31,7 @@ export const STATIC_FILES = [
   "_headers",
   "_redirects",
   "main_202608081044.mp4",
+  "rank.html",
 ];
 
 const SCAN_DIRS = ["assets/profiles"];
@@ -108,6 +109,15 @@ export async function buildPages() {
 
   await prepareModelsData({ projectRoot, distDir });
 
+  // 실시간 화제 랭킹 데이터 (rank/scripts/collect-rank.mjs 가 생성)
+  const rankingPath = path.resolve(projectRoot, "rank", "data", "ranking.json");
+  try {
+    await mkdir(path.join(distDir, "data"), { recursive: true });
+    await copyFile(rankingPath, path.join(distDir, "data", "ranking.json"));
+  } catch {
+    throw new Error("rank/data/ranking.json missing — run: node rank/scripts/collect-rank.mjs");
+  }
+
   const nodeBin = process.execPath;
 
   // Build issue (통합 링크 수집기) and copy to dist/issue
@@ -143,6 +153,7 @@ export async function buildPages() {
   const isAllowedOutput = (file) =>
     staticSet.has(file) ||
     file === "data/models.json" ||
+    file === "data/ranking.json" ||
     file.startsWith("issue/") ||
     SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
   const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue"]);

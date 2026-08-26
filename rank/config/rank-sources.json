@@ -1,0 +1,19 @@
+{
+  "_comment": "실시간 화제 랭킹 전용 소스. issue/config/sources.json 과 달리 상시 갱신되는 공개 피드(Flickr/Mastodon/booru)를 활성화. 뉴스는 이 니치에서 발행이 희박해(중위 연령 수년) 랭킹 모멘텀용으로만 소수 유지. type: rss | booru-json. 링크만 수집.",
+  "sources": [
+    { "id": "news-gravure-idol",  "platform": "news",     "type": "rss",       "label": "Google News · 그라비아",     "feed": "https://news.google.com/rss/search?q=gravure+idol+photo+book&hl=en&gl=US&ceid=US:en",  "category": "gravure", "enabled": true },
+    { "id": "news-kr-gravure",    "platform": "news",     "type": "rss",       "label": "Google News · 그라비아(KR)", "feed": "https://news.google.com/rss/search?q=%EA%B7%B8%EB%9D%BC%EB%B9%84%EC%95%84+%EB%AA%A8%EB%8D%B8&hl=ko&gl=KR&ceid=KR:ko",        "category": "gravure", "enabled": true },
+
+    { "id": "flickr-gravure",  "platform": "flickr",   "type": "rss", "label": "Flickr · 그라비아", "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=gravure&format=rss_200",  "category": "gravure", "enabled": true },
+    { "id": "flickr-bikini",   "platform": "flickr",   "type": "rss", "label": "Flickr · 비키니",   "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=bikini&format=rss_200",        "category": "model",   "enabled": true },
+    { "id": "flickr-cosplay",  "platform": "flickr",   "type": "rss", "label": "Flickr · 코스프레", "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=cosplay&format=rss_200",       "category": "cosplay", "enabled": true },
+    { "id": "flickr-lingerie", "platform": "flickr",   "type": "rss", "label": "Flickr · 란제리",   "feed": "https://www.flickr.com/services/feeds/photos_public.gne?tags=lingerie&format=rss_200",      "category": "model",   "enabled": true },
+
+    { "id": "masto-cosplay",   "platform": "mastodon", "type": "rss", "label": "Mastodon · 코스프레", "feed": "https://mastodon.social/tags/cosplay.rss",  "category": "cosplay", "enabled": true },
+    { "id": "masto-boudoir",   "platform": "mastodon", "type": "rss", "label": "Mastodon · 부두어",   "feed": "https://mastodon.social/tags/boudoir.rss",  "category": "model",   "enabled": true },
+    { "id": "masto-gravure",   "platform": "mastodon", "type": "rss", "label": "Mastodon · 그라비아", "feed": "https://mastodon.social/tags/gravure.rss",  "category": "gravure", "enabled": true },
+
+    { "id": "yandere-cosplay",  "platform": "yandere",   "type": "booru-json", "label": "yande.re · 코스프레",   "feed": "https://yande.re/post.json?tags=cosplay+rating:safe&limit=30",                          "category": "cosplay", "enabled": true },
+    { "id": "safebooru-cosplay","platform": "safebooru", "type": "booru-json", "label": "Safebooru · 코스프레", "feed": "https://safebooru.org/index.php?page=dapi&s=post&q=index&json=1&tags=cosplay&limit=30", "category": "cosplay", "enabled": true }
+  ]
+}
