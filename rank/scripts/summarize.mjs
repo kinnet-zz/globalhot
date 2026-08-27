@@ -14,9 +14,38 @@ const OUT_PATH = path.join(projectRoot, "rank", "data", "summaries.json");
 const MAX_NEW = 20; // 실행당 신규 요약 한도 (비용/레이트 보호)
 const CACHE_MAX = 500;
 
+let cachedModel = null;
+async function pickModel(apiKey) {
+  if (cachedModel) return cachedModel;
+  // 사용 가능한 모델 목록에서 flash 계열 우선 선택 (모델명 폐기에 강건)
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`, { signal: AbortSignal.timeout(15_000) });
+    if (res.ok) {
+      const data = await res.json();
+      const names = (data.models ?? []).map((m) => m.name.replace("models/", "")).filter((n) => n.includes("flash") && !n.includes("lite"));
+      cachedModel = names[0] ?? "gemini-flash-latest";
+      return cachedModel;
+    }
+  } catch {}
+  const fallbacks = ["gemini-flash-latest", "gemini-2.0-flash"];
+  for (const name of fallbacks) {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${name}:generateContent?key=${apiKey}`, {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ contents: [{ parts: [{ text: "ping" }] }] }),
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (res.ok) {
+      cachedModel = name;
+      return name;
+    }
+  }
+  throw new Error("no usable Gemini model");
+}
+
 async function callGemini(apiKey, prompt) {
+  const model = await pickModel(apiKey);
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
     {
       method: "POST",
       headers: { "content-type": "application/json" },
