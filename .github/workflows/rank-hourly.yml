@@ -35,6 +35,11 @@ jobs:
       - name: 랭킹 집계
         run: node rank/scripts/collect-rank.mjs
 
+      - name: AI 요약 생성 (신규 항목)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node rank/scripts/summarize.mjs
+
       - name: 데이터 검증
         run: node -e "const j=require('./rank/data/ranking.json'); if(!j.top||!j.top.length){process.exit(1)}; if(!j.generated_at){process.exit(1)}; console.log('OK', j.top.length, 'ranked items');"
 
@@ -42,7 +47,7 @@ jobs:
         run: |
           git config user.name "GlobalHot Bot"
           git config user.email "bot@globalhot.net"
-          git add rank/data/ranking.json rank/data/history.jsonl
+          git add rank/data/ranking.json rank/data/history.jsonl rank/data/summaries.json
           if git diff --cached --quiet; then
             echo "No changes to commit (ranking unchanged)."
           else

@@ -162,9 +162,10 @@ export async function buildPages() {
     file === "sitemap-pages.xml" ||
     /^r\/[0-9a-f]{8}\.html$/.test(file) ||
     /^t\/[a-z0-9-]+\.html$/.test(file) ||
+    /^archive\/(weekly|monthly)\.html$/.test(file) ||
     file.startsWith("issue/") ||
     SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
-  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue", "r", "t"]);
+  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue", "r", "t", "archive"]);
   const isAllowedDir = (d) => allowedDirRoots.has(d) || SCAN_DIRS.some((dir) => d.startsWith(`${dir}/`));
 
   const unexpectedFiles = outputFiles.filter((f) => !isAllowedOutput(f));

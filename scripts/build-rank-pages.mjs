@@ -90,6 +90,7 @@ const t = (k) => (I18N[lang] && I18N[lang][k]) || I18N.ko[k] || k;
 document.documentElement.lang = lang;
 document.title = document.documentElement.dataset.title || document.title;
 for (const el of document.querySelectorAll("[data-i18n]")) el.textContent = t(el.dataset.i18n);
+for (const el of document.querySelectorAll("[data-sum-lang]")) el.hidden = el.dataset.sumLang !== lang;
 for (const b of document.querySelectorAll("#langSwitch button")) {
   b.classList.toggle("active", b.dataset.lang === lang);
   b.onclick = () => { localStorage.setItem("gh-lang", b.dataset.lang); const u = new URL(location); u.searchParams.set("lang", b.dataset.lang); location.href = u; };
@@ -143,6 +144,7 @@ async function loadJson(p) {
 export async function buildRankPages({ projectRoot, distDir }) {
   const ranking = await loadJson(path.join(projectRoot, "rank", "data", "ranking.json"));
   if (!ranking?.top?.length) throw new Error("ranking.json missing or empty — run: node rank/scripts/collect-rank.mjs");
+  const summaries = (await loadJson(path.join(projectRoot, "rank", "data", "summaries.json"))) ?? {};
 
   // 히스토리 로드
   let history = [];
@@ -179,7 +181,14 @@ export async function buildRankPages({ projectRoot, distDir }) {
     <h1>${esc(item.title)}</h1>
     ${item.thumb ? `<img class="thumb" src="${esc(item.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
     <div class="tags">${(item.categories ?? []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ")} ${personLinks}</div>
-    <div class="why"><b><span data-i18n="whyTitle"></span></b><br>${whyHot(item, "ko")}</div>
+    ${(() => {
+      const s = summaries[item.url];
+      const ko = s?.ko ?? whyHot(item, "ko");
+      const en = s?.en ?? whyHot(item, "en");
+      const ja = s?.ja ?? whyHot(item, "ja");
+      const tag = s ? ' <span style="font-size:11px;color:var(--blue)">AI</span>' : "";
+      return `<div class="why"><b><span data-i18n="whyTitle"></span>${tag}</b><br><span data-sum-lang="ko">${esc(ko)}</span><span data-sum-lang="en" hidden>${esc(en)}</span><span data-sum-lang="ja" hidden>${esc(ja)}</span></div>`;
+    })()}
     ${hist.length > 1 ? `<div class="section" data-i18n="historyTitle"></div><div class="card"><table><tr>${hist.map((h) => `<th>${new Date(h.ts).toLocaleString("ko-KR", { month: "2-digit", day: "2-digit", hour: "2-digit" })}시</th>`).join("")}</tr><tr>${hist.map((h) => `<td><b>${h.rank}</b>위</td>`).join("")}</tr></table></div>` : ""}
     <div class="section" data-i18n="relatedTitle"></div>
     <ul class="related">
@@ -225,7 +234,41 @@ export async function buildRankPages({ projectRoot, distDir }) {
     urls.push(`https://globalhot.net/t/${m.id}`);
   }
 
-  // ── sitemap-pages.xml ──
+  // ── 아카이브 페이지 /archive/weekly.html, /archive/monthly.html ──
+  // history.jsonl 스냅샷을 URL별 집계: 평균 순위(낮을수록 상위) + 등장 횟수가 많은 항목 = 기간 내 최고 화제
+  await mkdir(path.join(distDir, "archive"), { recursive: true });
+  const rankedList = ranking.top; // 제목·썸네일 메타 소스
+  for (const [dir, days] of [["weekly", 7], ["monthly", 30]]) {
+    const cutoff = Date.now() - days * 24 * 3600 * 1000;
+    const acc = new Map(); // url -> {sum, count, best}
+    for (const snap of history) {
+      if (Date.parse(snap.ts) < cutoff) continue;
+      for (const it of snap.items ?? []) {
+        let a = acc.get(it.url);
+        if (!a) {
+          a = { sum: 0, count: 0, best: 999 };
+          acc.set(it.url, a);
+        }
+        a.sum += it.rank;
+        a.count++;
+        a.best = Math.min(a.best, it.rank);
+      }
+    }
+    const meta = new Map(rankedList.map((r) => [r.url, r]));
+    const top = [...acc.entries()]
+      .map(([url, a]) => ({ url, avg: a.sum / a.count, count: a.count, best: a.best, item: meta.get(url) }))
+      .sort((x, y) => y.count * 60 - y.avg - (x.count * 60 - x.avg)) // 등장수 우선, 평균순위 보정
+      .slice(0, 20);
+    const body = `
+    <h1>${days === 7 ? "주간" : "월간"} 화제 TOP 20</h1>
+    <p style="color:var(--muted);font-size:13px;margin:6px 0 16px">${history.length}개 스냅샷 집계 (최근 ${days}일)</p>
+    <ul class="related">
+      ${top.length ? top.map((x, i) => `<a href="/r/${slugOf(x.url)}"><span class="rn">${i + 1}</span><span class="tt">${esc((x.item?.title ?? x.url).slice(0, 90))}<br><span style="color:var(--muted);font-size:11px">최고 ${x.best}위 · ${x.count}회 노출</span></span></a>`).join("") : `<li style="color:var(--muted);font-size:13px" data-i18n="noRelated"></li>`}
+    </ul>
+    <p style="margin-top:16px"><a href="/" style="color:var(--blue);font-size:13px" data-i18n="navRank"></a></p>`;
+    await writeFile(path.join(distDir, "archive", `${dir}.html`), pageShell({ title: `${days === 7 ? "주간" : "월간"} 화제 TOP 20 — globalhot.net`, bodyHtml: body, canonical: `https://globalhot.net/archive/${dir}` }), "utf8");
+    urls.push(`https://globalhot.net/archive/${dir}`);
+  }
   const today = generated.slice(0, 10);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -38,15 +38,22 @@ export function normalizeTitle(title) {
     .trim();
 }
 
-// 인물명 매칭: models.json 의 name/altName 이 제목에 등장하면 매칭 (단어 경계)
+// 인물명 매칭: models.json 의 name/altName/sns 핸들이 제목에 등장하면 매칭.
+// 개선: 단어 경계 매칭(부분 문자열 오매칭 방지) + 구두점 정규화 + 대소문자 무시.
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 export function matchPersons(title, persons) {
-  const hay = ` ${String(title).toLowerCase()} `;
+  const hay = " " + String(title).toLowerCase().replace(/[.,!?'"“”『』「」()·|]/g, " ").replace(/\s+/g, " ") + " ";
   const hits = [];
   for (const p of persons) {
-    for (const name of [p.name, p.altName].filter(Boolean)) {
+    const candidates = [p.name, p.altName].filter(Boolean);
+    const xHandle = p.sns?.x ? String(p.sns.x).split("/").pop() : null;
+    if (xHandle) candidates.push("@" + xHandle);
+    for (const name of candidates) {
       const needle = String(name).toLowerCase().trim();
       if (needle.length < 3) continue;
-      if (hay.includes(` ${needle}`) || hay.includes(`${needle} `) || hay.includes(needle)) {
+      // 단어 경계 매칭 — 부분 문자열 오매칭 방지 (일본어 등 경계 없는 문자는 포함 검사)
+      if (new RegExp(`(^|\\s)${escapeRe(needle)}($|\\s|[!?.,:])`).test(hay) || /[\u3040-\u30ff\uac00-\ud7af]/.test(needle) && hay.includes(needle)) {
         hits.push({ id: p.id, name: p.name });
         break;
       }
