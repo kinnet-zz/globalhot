@@ -17,64 +17,74 @@
 <script src="/analytics.js?v=20260718-2" defer></script>
 <script src="/ads.js" defer></script>
 <style>
+  /* 디자인 시스템: Hands-On-Vibe-Coding/ToDoList (docs/design/frontend-design.md)
+     밝은 테마 · gray-50 바탕 + 흰 카드 · blue-600 프라이머리 · Inter · rounded-lg · 포커스 링 */
   :root {
-    --bg: #0b0e14; --card: #141925; --card2: #1a2130; --border: #232d40;
-    --accent: #ff4d6d; --accent2: #ffb703; --blue: #4cc9f0;
-    --text: #e8edf5; --muted: #8b97ab; --up: #ff4d6d; --down: #4cc9f0;
+    --bg: #f9fafb;            /* gray-50 */
+    --card: #ffffff;
+    --card-hover: #f3f4f6;    /* gray-100 */
+    --border: #e5e7eb;        /* gray-200 */
+    --primary: #2563eb;       /* blue-600 */
+    --primary-hover: #1d4ed8; /* blue-700 */
+    --primary-soft: #dbeafe;  /* blue-100 */
+    --accent: #dc2626;        /* red-600 — LIVE/급상승 */
+    --gold: #d97706;          /* amber-600 — TOP3 */
+    --down: #0284c7;          /* sky-600 */
+    --text: #111827;          /* gray-900 */
+    --muted: #6b7280;         /* gray-500 */
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font-family:'Segoe UI','Apple SD Gothic Neo','Hiragino Sans','Malgun Gothic',sans-serif; }
+  body { background:var(--bg); color:var(--text); font-family:'Inter','Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif; }
   .layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 320px; gap:20px; padding:20px; }
   @media (max-width:900px){ .layout{grid-template-columns:1fr} .sidebar{display:none} }
-  header { border-bottom:1px solid var(--border); background:rgba(11,14,20,.9); position:sticky; top:0; z-index:10; backdrop-filter:blur(8px); }
+  header { border-bottom:1px solid var(--border); background:rgba(255,255,255,.92); position:sticky; top:0; z-index:10; backdrop-filter:blur(8px); }
   .header-in { max-width:1200px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
   .logo { font-size:20px; font-weight:800; }
-  .logo .fire { color:var(--accent); }
+  .logo .fire { color:var(--primary); }
   .header-in nav { margin-left:auto; display:flex; gap:14px; font-size:13px; align-items:center; }
-  .header-in nav a { color:var(--muted); text-decoration:none; }
-  .header-in nav a:hover { color:var(--text); }
-  .lang-switch { display:flex; gap:2px; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .header-in nav a { color:var(--muted); text-decoration:none; font-weight:500; }
+  .header-in nav a:hover { color:var(--primary); }
+  .lang-switch { display:flex; gap:2px; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
   .lang-switch button { background:none; border:none; color:var(--muted); font-size:12px; font-weight:700; padding:6px 10px; cursor:pointer; }
-  .lang-switch button.active { background:var(--card2); color:#fff; }
+  .lang-switch button:hover { background:var(--card-hover); }
+  .lang-switch button.active { background:var(--primary); color:#fff; }
 
-  /* 영상 백그라운드 히어로 */
+  /* 영상 백그라운드 히어로 — 밝은 테마용 그라디언트 */
   .hero { position:relative; height:420px; overflow:hidden; }
-  .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.55) saturate(1.1); }
-  .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,14,20,.55) 0%, rgba(11,14,20,.2) 45%, var(--bg) 100%); }
+  .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.75) saturate(1.1); }
+  .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,24,39,.45) 0%, rgba(17,24,39,.15) 45%, var(--bg) 100%); }
   .hero-content { position:relative; z-index:2; height:100%; max-width:1200px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; justify-content:center; gap:14px; }
   .hero-badge { align-self:flex-start; background:var(--accent); color:#fff; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; letter-spacing:1px; }
-  .hero-title { font-size:38px; font-weight:800; line-height:1.25; text-shadow:0 2px 20px rgba(0,0,0,.6); }
-  .hero-sub { font-size:15px; color:#c9d3e0; text-shadow:0 1px 8px rgba(0,0,0,.6); }
-  .hero-cta { align-self:flex-start; margin-top:8px; background:var(--accent); color:#fff; font-weight:700; font-size:15px; padding:12px 26px; border-radius:10px; cursor:pointer; box-shadow:0 4px 24px rgba(255,77,109,.4); transition:transform .15s; }
-  .hero-cta:hover { transform:translateY(-2px); }
-  @media (prefers-reduced-motion: reduce) { .hero-video { display:none; } .hero { background:linear-gradient(135deg,#1b2436,#26334d); } }
+  .hero-title { font-size:38px; font-weight:800; line-height:1.25; color:#fff; text-shadow:0 2px 20px rgba(0,0,0,.45); }
+  .hero-sub { font-size:15px; color:#f9fafb; text-shadow:0 1px 8px rgba(0,0,0,.45); }
+  .hero-cta { align-self:flex-start; margin-top:8px; background:var(--primary); color:#fff; font-weight:600; font-size:15px; padding:12px 26px; border-radius:10px; cursor:pointer; box-shadow:0 4px 14px rgba(37,99,235,.35); transition:background .15s, transform .15s; }
+  .hero-cta:hover { background:var(--primary-hover); transform:translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .hero-video { display:none; } .hero { background:linear-gradient(135deg,var(--primary-soft),#fff); } .hero-title,.hero-sub{color:var(--text);text-shadow:none} }
 
   .section-title { font-size:15px; font-weight:700; margin:4px 0 12px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .live { background:var(--accent); color:#fff; font-size:11px; padding:2px 8px; border-radius:4px; font-weight:600; }
   .updated { font-size:12px; color:var(--muted); font-weight:400; }
 
   .rank-list { display:flex; flex-direction:column; gap:10px; }
-  .rank-card { display:flex; gap:14px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); transition:border-color .15s, background .15s; }
-  .rank-card:hover { border-color:#3a4a63; background:var(--card2); }
+  .rank-card { display:flex; gap:14px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); box-shadow:0 1px 2px rgba(0,0,0,.04); transition:border-color .15s, background .15s; }
+  .rank-card:hover { border-color:var(--primary); background:var(--card-hover); }
   .rank-num { width:44px; min-width:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
   .rank-num .n { font-size:20px; font-weight:800; color:var(--muted); }
-  .rank-card:nth-child(-n+3) .rank-num .n { color:var(--accent2); }
+  .rank-card:nth-child(-n+3) .rank-num .n { color:var(--gold); }
   .rank-badge { font-size:11px; font-weight:700; }
-  .rank-badge.new{color:var(--accent)} .rank-badge.up{color:var(--up)} .rank-badge.down{color:var(--down)} .rank-badge.same{color:var(--muted)}
+  .rank-badge.new{color:var(--accent)} .rank-badge.up{color:var(--accent)} .rank-badge.down{color:var(--down)} .rank-badge.same{color:var(--muted)}
   .rank-body { display:flex; flex-direction:column; gap:5px; min-width:0; flex:1; }
-  .rank-thumb {
-    width:128px; height:72px; min-width:128px; border-radius:8px; object-fit:cover;
-    background:linear-gradient(135deg,#1b2436,#26334d);
-  }
+  .rank-thumb { width:128px; height:72px; min-width:128px; border-radius:8px; object-fit:cover; background:var(--primary-soft); border:1px solid var(--border); }
   .rank-title { font-size:14px; font-weight:600; line-height:1.4; }
   .rank-sub { font-size:12px; color:var(--muted); }
-  .rtag { font-size:11px; background:#1e2a3f; color:var(--blue); padding:2px 8px; border-radius:5px; }
+  .rtag { font-size:11px; background:var(--primary-soft); color:#1e40af; padding:2px 8px; border-radius:5px; text-decoration:none; }
+  a.rtag:hover { background:#bfdbfe; }
 
-  .ad-infeed { border:1px dashed #3a4a63; border-radius:12px; padding:16px; text-align:center; color:var(--muted); font-size:12px; background:rgba(26,33,48,.4); }
-  .adlabel { font-size:10px; letter-spacing:1px; color:#5a6880; }
+  .ad-infeed { border:1px dashed var(--border); border-radius:12px; padding:16px; text-align:center; color:var(--muted); font-size:12px; background:#fff; }
+  .adlabel { font-size:10px; letter-spacing:1px; color:#9ca3af; }
   .sidebar { display:flex; flex-direction:column; gap:16px; }
-  .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; }
-  .panel h3 { font-size:13px; font-weight:700; margin-bottom:10px; color:var(--accent2); }
+  .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  .panel h3 { font-size:13px; font-weight:700; margin-bottom:10px; color:var(--text); }
   .side-item { display:flex; gap:10px; align-items:center; padding:7px 0; border-bottom:1px solid var(--border); }
   .side-item:last-child { border-bottom:none; }
   .side-item .sn { font-size:13px; font-weight:800; color:var(--muted); width:20px; }
@@ -86,19 +96,32 @@
   footer a { color:inherit; }
   .loading, .empty { padding:60px; text-align:center; color:var(--muted); }
   .submit-form { display:flex; gap:8px; flex-wrap:wrap; }
-  .submit-form input { background:var(--card); border:1px solid var(--border); color:var(--text); border-radius:8px; padding:10px 14px; font-size:13px; outline:none; }
-  .submit-form input:focus { border-color:var(--accent); }
+  .submit-form input { background:#fff; border:1px solid var(--border); color:var(--text); border-radius:8px; padding:10px 14px; font-size:13px; outline:none; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  .submit-form input:focus { border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-soft); }
   #submitUrl { flex:2 1 320px; }
   #submitNote { flex:1 1 160px; }
-  .submit-form button { background:var(--accent); color:#fff; border:none; border-radius:8px; padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; }
-  .submit-form button:hover { filter:brightness(1.1); }
+  .submit-form button { background:var(--primary); color:#fff; border:none; border-radius:8px; padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; transition:background .15s; }
+  .submit-form button:hover { background:var(--primary-hover); }
   .submit-msg { font-size:13px; margin-top:8px; min-height:18px; color:var(--muted); }
-  .submit-msg.ok { color:#4ade80; }
+  .submit-msg.ok { color:#16a34a; }
   .submit-msg.err { color:var(--accent); }
-  .sub-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; }
+  .sub-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
   .sub-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:12px; color:var(--muted); gap:8px; flex-wrap:wrap; }
   .sub-embed { display:flex; justify-content:center; min-height:60px; }
   .sub-embed iframe { max-width:100%; border-radius:8px; }
+
+  /* 모바일 하단 내비게이션 (ToDoList BottomNav 패턴) */
+  .bottom-nav { display:none; }
+  @media (max-width:640px) {
+    .bottom-nav {
+      display:flex; position:fixed; bottom:0; left:0; right:0; z-index:20;
+      background:#fff; border-top:1px solid var(--border);
+      justify-content:space-around; padding:8px 0 calc(8px + env(safe-area-inset-bottom));
+    }
+    .bottom-nav a { display:flex; flex-direction:column; align-items:center; gap:2px; font-size:11px; color:var(--muted); text-decoration:none; font-weight:500; }
+    .bottom-nav a.active { color:var(--primary); }
+    body { padding-bottom:64px; }
+  }
 </style>
 </head>
 <body>
@@ -169,6 +192,14 @@
   </main>
 </section>
 
+<!-- 모바일 하단 내비게이션 -->
+<nav class="bottom-nav">
+  <a href="/" class="active">🔥<span data-i18n="navRank2">랭킹</span></a>
+  <a href="/archive/weekly.html">📅<span data-i18n="navWeekly">주간 TOP</span></a>
+  <a href="/models.html">👤<span data-i18n="navModels">모델 프로필</span></a>
+  <a href="/issue/">📰<span data-i18n="navIssue">이슈</span></a>
+</nav>
+
 <footer>
   <span data-i18n="footer1">globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)</span><br>
   <span data-i18n="footer2">모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다</span> · <a href="/privacy.html" data-i18n="privacy">개인정보처리방침</a>
@@ -180,7 +211,7 @@ const I18N = {
   ko: {
     htmlLang: "ko",
     docTitle: "globalhot.net — 실시간 화제 랭킹",
-    navWeekly: "주간 TOP", navModels: "모델 프로필", navIssue: "이슈", navAbout: "소개",
+    navRank2: "랭킹", navWeekly: "주간 TOP", navModels: "모델 프로필", navIssue: "이슈", navAbout: "소개",
     heroTitle: "지금 가장 뜨거운 화제,<br>실시간으로.",
     heroSub: "매시간 집계되는 급상승 콘텐츠 · globalhot.net",
     heroCta: "🔥 급상승 TOP 50 보기",
@@ -208,7 +239,7 @@ const I18N = {
   en: {
     htmlLang: "en",
     docTitle: "globalhot.net — Trending Now, Live Ranking",
-    navWeekly: "Weekly TOP", navModels: "Model Profiles", navIssue: "Issues", navAbout: "About",
+    navRank2: "Ranking", navWeekly: "Weekly TOP", navModels: "Model Profiles", navIssue: "Issues", navAbout: "About",
     heroTitle: "The hottest topics right now,<br>in real time.",
     heroSub: "Rising content aggregated every hour · globalhot.net",
     heroCta: "🔥 See Trending TOP 50",
@@ -236,7 +267,7 @@ const I18N = {
   ja: {
     htmlLang: "ja",
     docTitle: "globalhot.net — リアルタイム急上昇ランキング",
-    navWeekly: "週間TOP", navModels: "モデルプロフィール", navIssue: "イシュー", navAbout: "概要",
+    navRank2: "ランキング", navWeekly: "週間TOP", navModels: "モデルプロフィール", navIssue: "イシュー", navAbout: "概要",
     heroTitle: "今いちばん熱い話題を、<br>リアルタイムに。",
     heroSub: "毎時集計の急上昇コンテンツ · globalhot.net",
     heroCta: "🔥 急上昇 TOP 50 を見る",
