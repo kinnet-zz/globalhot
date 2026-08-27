@@ -4,7 +4,7 @@
 > 사이트: https://globalhot.net (실시간 화제 랭킹 메인)
 > 설계서: docs/HOTRANK-DESIGN.md
 
-## ✅ 완료 (P0)
+## ✅ 완료 (P0 + P1 1차, 2026-08-27)
 
 - [x] 랭킹 엔진: 공개 피드 수집기 + 점수 모듈 + 매시간 자동 집계 (rank-hourly.yml)
 - [x] 이미지 소스 6개 플랫폼 16개 피드 (Flickr 6 / DeviantArt 3 / booru 3 / Mastodon 3 / Reddit 2 / News 2)
@@ -13,18 +13,18 @@
 - [x] 영상 백그라운드 히어로 (main_202608081044.mp4)
 - [x] 다국어 KO/EN/JA (언어 전환기, hreflang)
 - [x] 커뮤니티 화제 등록 (X/인스타/스레드/유튜브 공식 임베드, D1, 하루 10건/IP)
+- [x] **상세페이지 /r/\<slug\> 자동 생성** (TOP50, 왜 화제? 요약·순위 이력·관련 화제, 3개 언어)
+- [x] **인물페이지 /t/\<id\> 216명 자동 생성** (사진·bio·SNS·관련 화제 — 롱테일 SEO 허브)
+- [x] 순위 히스토리 스냅샷 적재 (history.jsonl, 30일 보존)
+- [x] sitemap-pages.xml 266 URL + robots.txt 등록 / 배포 파일 162→429개
 - [x] 테스트 129개 통과, GitHub Actions + Cloudflare Pages 배포
 
-## 🔜 P1 — 콘텐츠 심화 (다음 세션 추천)
+## 🔜 P1 — 남은 항목
 
-- [ ] **상세 페이지 (/r/[slug])**: 항목별 임베드 재생 + "왜 화제?" AI 요약 2~3문장 + 순위 이력 그래프
-  - 순위 스냅샷을 D1에 쌓는 구조부터 (현재는 ranking.json 최신본만 존재)
-- [ ] **인물 페이지 (/t/[name])**: "○○ 최신 화제 콘텐츠" — models.json(216명)을 롱테일 SEO 허브로 연결
-  - models.html 포털과 달리 "최신 화제" 중심 구성
-- [ ] **인물 매칭 개선**: 현재 persons_top=0 (뉴스 제목에 모델명이 잘 안 나옴)
-  - 소스 태그(booru 태그의 캐릭터/인물명) 매칭 추가, 한글/일본어/영문 이명 매칭 보강
-- [ ] **아카이브 자동 증식**: 주간/월간 순위 확정 페이지 자동 생성 → sitemap 자동 갱신 (SEO 페이지 무한 증식 구조)
-- [ ] **AI 요약 파이프라인**: 수집 항목 요약 + 3개 언어 번역 (Cloudflare Workers AI 또는 GitHub Actions 내 LLM)
+- [ ] **"왜 화제?" AI 요약으로 교체**: 현재 규칙 기반 템플릿 → LLM 요약 + 3개 언어 번역 (Cloudflare Workers AI 또는 Actions 내 LLM)
+- [ ] **인물 매칭 개선**: persons_top이 희박 (제목에 모델명이 잘 안 나옴)
+  - 소스 태그(booru 태그) 매칭 추가, 한글/일본어/영문 이명 매칭 보강
+- [ ] **아카이브 자동 증식**: 주간/월간 순위 확정 페이지 자동 생성 → history.jsonl 활용
 
 ## 💰 P2 — 광고 수익화 (트래픽 붙기 시작하면)
 
