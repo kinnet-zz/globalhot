@@ -74,8 +74,10 @@ const NAV = `
     <a href="/" class="logo">🔥 global<span class="fire">hot</span><span style="font-size:12px;color:var(--muted);font-weight:400">.net</span></a>
     <nav>
       <a href="/" data-i18n="navRank"></a>
+      <a href="/archive/weekly.html" data-i18n="navWeekly"></a>
       <a href="/models.html" data-i18n="navModels"></a>
       <a href="/issue/" data-i18n="navIssue"></a>
+      <a href="/about.html" data-i18n="navAbout"></a>
       <div class="lang-switch" id="langSwitch">
         <button data-lang="ko">한</button><button data-lang="en">EN</button><button data-lang="ja">日</button>
       </div>
@@ -84,9 +86,9 @@ const NAV = `
 
 const I18N_JS = `
 const I18N = {
-  ko: { navRank:"실시간 랭킹", navModels:"모델 프로필", navIssue:"이슈", whyTitle:"왜 화제인가요?", historyTitle:"순위 이력", relatedTitle:"같은 카테고리 화제", outBtn:"원본 보기 ↗", personsTitle:"인물 정보", latestTitle:"관련 최신 화제", noRelated:"관련 화제가 아직 없습니다.", footer:"모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다" },
-  en: { navRank:"Live Ranking", navModels:"Model Profiles", navIssue:"Issues", whyTitle:"Why is it trending?", historyTitle:"Rank History", relatedTitle:"Related Topics", outBtn:"View original ↗", personsTitle:"Profile", latestTitle:"Related Latest Topics", noRelated:"No related topics yet.", footer:"All items link to the original source only — no content is copied or stored" },
-  ja: { navRank:"リアルタイムランキング", navModels:"モデルプロフィール", navIssue:"イシュー", whyTitle:"なぜ話題？", historyTitle:"順位履歴", relatedTitle:"同じカテゴリの話題", outBtn:"元を見る ↗", personsTitle:"プロフィール", latestTitle:"関連の最新話題", noRelated:"関連する話題はまだありません。", footer:"すべての項目は元ソースへのリンクのみ提供し、コンテンツの複製・保存は行いません" },
+  ko: { navRank:"실시간 랭킹", navWeekly:"주간 TOP", navModels:"모델 프로필", navIssue:"이슈", whyTitle:"왜 화제인가요?", historyTitle:"순위 이력", relatedTitle:"같은 카테고리 화제", outBtn:"원본 보기 ↗", personsTitle:"인물 정보", latestTitle:"관련 최신 화제", noRelated:"관련 화제가 아직 없습니다.", footer:"모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다" },
+  en: { navRank:"Live Ranking", navWeekly:"Weekly TOP", navModels:"Model Profiles", navIssue:"Issues", whyTitle:"Why is it trending?", historyTitle:"Rank History", relatedTitle:"Related Topics", outBtn:"View original ↗", personsTitle:"Profile", latestTitle:"Related Latest Topics", noRelated:"No related topics yet.", footer:"All items link to the original source only — no content is copied or stored" },
+  ja: { navRank:"リアルタイムランキング", navWeekly:"週間TOP", navModels:"モデルプロフィール", navIssue:"イシュー", whyTitle:"なぜ話題？", historyTitle:"順位履歴", relatedTitle:"同じカテゴリの話題", outBtn:"元を見る ↗", personsTitle:"プロフィール", latestTitle:"関連の最新話題", noRelated:"関連する話題はまだありません。", footer:"すべての項目は元ソースへのリンクのみ提供し、コンテンツの複製・保存は行いません" },
 };
 const urlLang = new URLSearchParams(location.search).get("lang");
 let lang = ["ko","en","ja"].includes(urlLang) ? urlLang : (localStorage.getItem("gh-lang") || "ko");
