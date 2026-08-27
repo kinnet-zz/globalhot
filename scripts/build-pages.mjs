@@ -118,6 +118,11 @@ export async function buildPages() {
     throw new Error("rank/data/ranking.json missing — run: node rank/scripts/collect-rank.mjs");
   }
 
+  // 랭킹 상세(/r/*) + 인물(/t/*) 페이지 + sitemap-pages.xml
+  const { buildRankPages } = await import("./build-rank-pages.mjs");
+  const rankPages = await buildRankPages({ projectRoot, distDir });
+  console.log(`[rank-pages] detail=${rankPages.detailPages} persons=${rankPages.personPages} sitemap=${rankPages.sitemapUrls}`);
+
   const nodeBin = process.execPath;
 
   // Build issue (통합 링크 수집기) and copy to dist/issue
@@ -154,9 +159,12 @@ export async function buildPages() {
     staticSet.has(file) ||
     file === "data/models.json" ||
     file === "data/ranking.json" ||
+    file === "sitemap-pages.xml" ||
+    /^r\/[0-9a-f]{8}\.html$/.test(file) ||
+    /^t\/[a-z0-9-]+\.html$/.test(file) ||
     file.startsWith("issue/") ||
     SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
-  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue"]);
+  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue", "r", "t"]);
   const isAllowedDir = (d) => allowedDirRoots.has(d) || SCAN_DIRS.some((dir) => d.startsWith(`${dir}/`));
 
   const unexpectedFiles = outputFiles.filter((f) => !isAllowedOutput(f));

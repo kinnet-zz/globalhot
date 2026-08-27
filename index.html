@@ -298,6 +298,13 @@ applyLang();
 const esc = (s) => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 let DATA = null;
 
+// build-rank-pages.mjs 의 slugOf 와 동일한 FNV-1a 8hex (상세페이지 URL 일치 필수)
+function slugOf(url) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < url.length; i++) { h ^= url.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h.toString(16).padStart(8, "0");
+}
+
 function render() {
   if (!DATA) return;
   document.getElementById("topn").textContent = DATA.top.length;
@@ -308,8 +315,8 @@ function render() {
   const cards = DATA.top.map((item) => {
     const badge = item.badge || { kind: "new", label: "NEW" };
     const tags = (item.categories || []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ");
-    const persons = (item.persons || []).map((p) => `<span class="rtag">${esc(p.name)}</span>`).join(" ");
-    return `<a class="rank-card" href="${esc(item.url)}" target="_blank" rel="noopener nofollow">
+    const persons = (item.persons || []).map((p) => `<a class="rtag" href="/t/${esc(p.id)}">${esc(p.name)}</a>`).join(" ");
+    return `<a class="rank-card" href="/r/${slugOf(item.url)}">
       <div class="rank-num"><span class="n">${item.rank}</span><span class="rank-badge ${badge.kind}">${esc(badge.label)}</span></div>
       ${item.thumb ? `<img class="rank-thumb" src="${esc(item.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
       <div class="rank-body">

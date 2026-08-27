@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name "GlobalHot Bot"
           git config user.email "bot@globalhot.net"
-          git add rank/data/ranking.json
+          git add rank/data/ranking.json rank/data/history.jsonl
           if git diff --cached --quiet; then
             echo "No changes to commit (ranking unchanged)."
           else

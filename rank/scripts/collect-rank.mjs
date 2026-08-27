@@ -243,6 +243,20 @@ async function main() {
   await mkdir(path.dirname(OUT_PATH), { recursive: true });
   await writeFile(OUT_PATH, JSON.stringify(output, null, 2) + "\n", "utf8");
   console.log(`ranking.json updated: top=${output.top.length} persons=${output.persons_top.length}`);
+
+  // 히스토리 스냅샷 적재 (상세페이지 순위 이력용) — 시간당 1줄, 30일 초과분은 앞에서 잘라냄
+  const HISTORY_PATH = path.join(projectRoot, "rank", "data", "history.jsonl");
+  const MAX_LINES = 24 * 30;
+  let lines = [];
+  try {
+    lines = (await readFile(HISTORY_PATH, "utf8")).split("\n").filter(Boolean);
+  } catch {
+    /* 최초 */
+  }
+  lines.push(JSON.stringify({ ts: output.generated_at, items: output.top.map((t) => ({ rank: t.rank, url: t.url, score: t.score })) }));
+  if (lines.length > MAX_LINES) lines = lines.slice(lines.length - MAX_LINES);
+  await writeFile(HISTORY_PATH, lines.join("\n") + "\n", "utf8");
+  console.log(`history.jsonl: ${lines.length} snapshots`);
 }
 
 main().catch((e) => {
