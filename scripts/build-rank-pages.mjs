@@ -182,12 +182,12 @@ export async function buildRankPages({ projectRoot, distDir }) {
     ${item.thumb ? `<img class="thumb" src="${esc(item.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
     <div class="tags">${(item.categories ?? []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ")} ${personLinks}</div>
     ${(() => {
+      // "왜 화제?" 요약은 뉴스성 항목(소스 2개 이상 언급 = 실제 스토리 존재)에만 표시.
+      // 사진 단일 포스트는 스토리가 없어 요약이 메타데이터 반복에 그치므로 생략 (2026-08-27 제거 결정).
       const s = summaries[item.url];
-      const ko = s?.ko ?? whyHot(item, "ko");
-      const en = s?.en ?? whyHot(item, "en");
-      const ja = s?.ja ?? whyHot(item, "ja");
-      const tag = s ? ' <span style="font-size:11px;color:var(--blue)">AI</span>' : "";
-      return `<div class="why"><b><span data-i18n="whyTitle"></span>${tag}</b><br><span data-sum-lang="ko">${esc(ko)}</span><span data-sum-lang="en" hidden>${esc(en)}</span><span data-sum-lang="ja" hidden>${esc(ja)}</span></div>`;
+      const hasStory = s && (item.sources?.length ?? 0) >= 2;
+      if (!hasStory) return "";
+      return `<div class="why"><b><span data-i18n="whyTitle"></span> <span style="font-size:11px;color:var(--blue)">AI</span></b><br><span data-sum-lang="ko">${esc(s.ko)}</span><span data-sum-lang="en" hidden>${esc(s.en)}</span><span data-sum-lang="ja" hidden>${esc(s.ja)}</span></div>`;
     })()}
     ${hist.length > 1 ? `<div class="section" data-i18n="historyTitle"></div><div class="card"><table><tr>${hist.map((h) => `<th>${new Date(h.ts).toLocaleString("ko-KR", { month: "2-digit", day: "2-digit", hour: "2-digit" })}시</th>`).join("")}</tr><tr>${hist.map((h) => `<td><b>${h.rank}</b>위</td>`).join("")}</tr></table></div>` : ""}
     <div class="section" data-i18n="relatedTitle"></div>

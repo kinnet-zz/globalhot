@@ -83,7 +83,12 @@ async function main() {
     /* 최초 */
   }
 
-  const targets = ranking.top.filter((t) => !cache[t.url]).slice(0, MAX_NEW);
+  // 요약 대상: 실제 스토리가 있는 항목만 — 뉴스 링크이거나 2개 이상 소스에서 동시 언급된 경우.
+  // 단일 사진 포스트(Flickr/booru 등)는 요약이 메타데이터 반복에 그치므로 제외.
+  const targets = ranking.top
+    .filter((t) => !cache[t.url])
+    .filter((t) => (t.sources?.length ?? 0) >= 2 || /news\.google\.com|youtu\.?be/.test(t.url))
+    .slice(0, MAX_NEW);
   if (!targets.length) {
     console.log("summaries: no new items");
     return;
