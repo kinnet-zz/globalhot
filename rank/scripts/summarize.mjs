@@ -17,18 +17,9 @@ const CACHE_MAX = 500;
 let cachedModel = null;
 async function pickModel(apiKey) {
   if (cachedModel) return cachedModel;
-  // 사용 가능한 모델 목록에서 flash 계열 우선 선택 (모델명 폐기에 강건)
-  try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`, { signal: AbortSignal.timeout(15_000) });
-    if (res.ok) {
-      const data = await res.json();
-      const names = (data.models ?? []).map((m) => m.name.replace("models/", "")).filter((n) => n.includes("flash") && !n.includes("lite"));
-      cachedModel = names[0] ?? "gemini-flash-latest";
-      return cachedModel;
-    }
-  } catch {}
-  const fallbacks = ["gemini-flash-latest", "gemini-2.0-flash"];
-  for (const name of fallbacks) {
+  // 최신 모델부터 시도 — 404 응답이 안내하는 모델명으로 자동 승격도 지원
+  const candidates = ["gemini-3.6-flash", "gemini-flash-latest", "gemini-2.0-flash"];
+  for (const name of candidates) {
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${name}:generateContent?key=${apiKey}`, {
       method: "POST", headers: { "content-type": "application/json" },
       body: JSON.stringify({ contents: [{ parts: [{ text: "ping" }] }] }),
@@ -37,6 +28,13 @@ async function pickModel(apiKey) {
     if (res.ok) {
       cachedModel = name;
       return name;
+    }
+    // "use models/X instead" 안내 감지
+    const body = await res.text().catch(() => "");
+    const m = body.match(/use models\/([a-z0-9.\-]+) /i);
+    if (m) {
+      cachedModel = m[1];
+      return m[1];
     }
   }
   throw new Error("no usable Gemini model");
