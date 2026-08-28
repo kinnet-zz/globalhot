@@ -71,6 +71,10 @@
   .rank-num { width:44px; min-width:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
   .rank-num .n { font-size:20px; font-weight:800; color:var(--muted); }
   .rank-card:nth-child(-n+3) .rank-num .n { color:var(--gold); }
+  .rank-card.top1 { border-color:#f59e0b; background:linear-gradient(90deg,#fffbeb,#fff); }
+  .rank-card.top2 { border-color:#fbbf24; background:linear-gradient(90deg,#fffdf5,#fff); }
+  .rank-card.top3 { border-color:#fcd34d; background:linear-gradient(90deg,#fffef8,#fff); }
+  .rank-card.top1 .rank-num .n, .rank-card.top2 .rank-num .n, .rank-card.top3 .rank-num .n { font-size:24px; }
   .rank-badge { font-size:11px; font-weight:700; }
   .rank-badge.new{color:var(--accent)} .rank-badge.up{color:var(--accent)} .rank-badge.down{color:var(--down)} .rank-badge.same{color:var(--muted)}
   .rank-body { display:flex; flex-direction:column; gap:5px; min-width:0; flex:1; }
@@ -178,13 +182,11 @@
   </main>
 
   <aside class="sidebar">
-    <div class="panel">
+    <div class="panel" id="personsPanel">
       <h3>🔥 <span data-i18n="personsTitle">급상승 인물 TOP 10</span></h3>
       <div id="personsTop"></div>
     </div>
     <div class="panel ad-sticky"><aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250"></aside></div>
-      <div style="margin-top:60px"><span data-i18n="adSticky">스티키 광고</span><br>300 x 600</div>
-    </div>
   </aside>
 </div>
 
@@ -358,7 +360,7 @@ function render() {
     const badge = item.badge || { kind: "new", label: "NEW" };
     const tags = (item.categories || []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ");
     const persons = (item.persons || []).map((p) => `<a class="rtag" href="/t/${esc(p.id)}">${esc(p.name)}</a>`).join(" ");
-    return `<a class="rank-card" href="/r/${slugOf(item.url)}">
+    return `<a class="rank-card${item.rank <= 3 ? " top" + item.rank : ""}" href="/r/${slugOf(item.url)}">
       <div class="rank-num"><span class="n">${item.rank}</span><span class="rank-badge ${badge.kind}">${esc(badge.label)}</span></div>
       ${item.thumb ? `<img class="rank-thumb" src="${esc(item.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
       <div class="rank-body">
@@ -369,13 +371,14 @@ function render() {
     </a>`;
   });
   const out = [];
-  cards.forEach((c, i) => { out.push(c); if (i === 4 || (i >= 12 && (i - 4) % 8 === 7)) out.push(adSlot); });
+  cards.forEach((c, i) => { out.push(c); if (i === 5 || (i >= 12 && (i - 6) % 12 === 11)) out.push(adSlot); });
   document.getElementById("rankList").innerHTML = out.join("") || `<div class="empty">${esc(t("emptyRank"))}</div>`;
   if (window.GlobalHotAds) window.GlobalHotAds.rescan();
 
   document.getElementById("personsTop").innerHTML = (DATA.persons_top || []).map((p, i) =>
     `<div class="side-item"><span class="sn">${i + 1}</span><div><div class="st">${esc(p.name)}</div><div class="sc">${t("mentions")} ${p.mentions} · score ${p.score}</div></div></div>`
-  ).join("") || `<div class="side-item"><div class="st">${esc(t("noPersons"))}</div></div>`;
+  ).join("");
+  document.getElementById("personsPanel").style.display = (DATA.persons_top || []).length ? "" : "none";
 }
 
 fetch("/data/ranking.json")

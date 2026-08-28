@@ -52,11 +52,13 @@ function parseRss(xml) {
     return "";
   };
   const unescapeEntities = (s) =>
-    s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
+    s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&")
+     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)));
   for (const block of blocks) {
     // 성인 등급 표시(mature/adult)가 있는 RSS 항목은 제외 (DeviantArt 등)
     if (hasAdultRating(block)) continue;
-    let title = pick(block, "title");
+    let title = unescapeEntities(pick(block, "title")).replace(/\s+/g," ").trim();
     const link = pick(block, "link");
     if (!title) {
       const desc = unescapeEntities(pick(block, "description"))
@@ -74,7 +76,7 @@ function parseRss(xml) {
   // Atom(<entry>) 지원 — Reddit 등. link 는 href 속성, 날짜는 updated/published
   const entryBlocks = xml.match(/<entry[\s\S]*?<\/entry>/g) ?? [];
   for (const block of entryBlocks) {
-    const title = pick(block, "title");
+    const title = unescapeEntities(pick(block, "title")).replace(/\s+/g, " ").trim();
     const linkM = block.match(/<link[^>]*\brel="alternate"[^>]*\bhref="([^"]+)"/i)
       ?? block.match(/<link[^>]*\bhref="([^"]+)"/i);
     const dateRaw = pick(block, "updated") || pick(block, "published");

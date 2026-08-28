@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-28T14:47:26.930Z",
+  "generated_at": "2026-08-28T15:23:45.288Z",
   "window_hours": 24,
-  "collected_count": 720,
+  "collected_count": 700,
   "top": [
     {
       "rank": 1,
@@ -10,8 +10,8 @@
       "thumb": "https://live.staticflickr.com/65535/55493465323_bc9fd057f7_b.jpg",
       "publishedAt": "2026-08-28T14:37:23.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 부두어"
+        "Flickr · 부두어",
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -28,13 +28,13 @@
     },
     {
       "rank": 2,
-      "title": "Dark Lords Courtesan",
-      "url": "https://www.flickr.com/photos/ubercool69/55491211652/",
-      "thumb": "https://live.staticflickr.com/65535/55491211652_7d4e142616_b.jpg",
-      "publishedAt": "2026-08-27T22:27:19.000Z",
+      "title": "Late Summer Style",
+      "url": "https://www.flickr.com/photos/tracy4214/55492236464/",
+      "thumb": "https://live.staticflickr.com/65535/55492236464_6058de82ea_b.jpg",
+      "publishedAt": "2026-08-27T20:56:44.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 비키니"
+        "Flickr · 부두어",
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -46,41 +46,18 @@
       "score": 22,
       "badge": {
         "kind": "up",
-        "label": "▲ 2"
+        "label": "▲ 1"
       }
     },
     {
       "rank": 3,
-      "title": "Late Summer Style",
-      "url": "https://www.flickr.com/photos/tracy4214/55492236464/",
-      "thumb": "https://live.staticflickr.com/65535/55492236464_6058de82ea_b.jpg",
-      "publishedAt": "2026-08-27T20:56:44.000Z",
-      "sources": [
-        "Flickr · 란제리",
-        "Flickr · 부두어"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 22,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 1"
-      }
-    },
-    {
-      "rank": 4,
-      "title": "Black &amp; White",
+      "title": "Black & White",
       "url": "https://www.flickr.com/photos/tracy4214/55492059156/",
       "thumb": "https://live.staticflickr.com/65535/55492059156_d13d8d4e0e_z.jpg",
       "publishedAt": "2026-08-27T20:54:30.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 부두어"
+        "Flickr · 부두어",
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -91,8 +68,30 @@
       "persons": [],
       "score": 22,
       "badge": {
-        "kind": "down",
-        "label": "▼ 1"
+        "kind": "up",
+        "label": "▲ 1"
+      }
+    },
+    {
+      "rank": 4,
+      "title": "[Safebooru · 코스프레] animal_ears bandaged_arm bandaged_hand",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7095532",
+      "thumb": "https://safebooru.org/thumbnails/845/thumbnail_f98b24af8ae9e16c5f9662291994561ccd2645fc.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "platforms": [
+        "safebooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -113,8 +112,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -135,8 +134,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -157,8 +156,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -179,8 +178,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -201,8 +200,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -223,8 +222,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -245,8 +244,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -267,8 +266,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -289,8 +288,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -311,8 +310,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -333,8 +332,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -355,8 +354,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -377,8 +376,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
@@ -399,38 +398,60 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
       "rank": 19,
-      "title": "[Safebooru · 코스프레] android bare_shoulders bigsheezy",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7094513",
-      "thumb": "https://safebooru.org/thumbnails/589/thumbnail_816496b3663782f7b5e1de7a07c855705d269201.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 20,
       "title": "DSC_0275 WM",
       "url": "https://www.flickr.com/photos/71296134@N08/55493464618/",
       "thumb": "https://live.staticflickr.com/65535/55493464618_56e8c31f60_b.jpg",
       "publishedAt": "2026-08-28T14:37:22.000Z",
+      "sources": [
+        "Flickr · 부두어"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 4"
+      }
+    },
+    {
+      "rank": 20,
+      "title": "Quck dip",
+      "url": "https://www.flickr.com/photos/snapeverything/55493538293/",
+      "thumb": "https://live.staticflickr.com/65535/55493538293_ecc9b34b72_b.jpg",
+      "publishedAt": "2026-08-28T15:16:25.000Z",
+      "sources": [
+        "Flickr · 비키니"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 1"
+      }
+    },
+    {
+      "rank": 21,
+      "title": "Black Lace",
+      "url": "https://www.flickr.com/photos/grahamtownsend/55493400091/",
+      "thumb": "https://live.staticflickr.com/65535/55493400091_765a0de4ff_b.jpg",
+      "publishedAt": "2026-08-28T15:01:29.000Z",
       "sources": [
         "Flickr · 란제리"
       ],
@@ -443,56 +464,12 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 21,
-      "title": "https://www. cosphb.com/321233/ メイドの横側宙#メイド # コスプレ # cosplay # CosplayInJapan # コスプレ",
-      "url": "https://jpmstdn.com/@cosphb/117173264431531454",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/173/264/549/445/452/original/53daae4e0ea12f6e.jpg",
-      "publishedAt": "2026-08-28T13:02:05.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
         "kind": "up",
-        "label": "▲ 2"
+        "label": "▲ 1"
       }
     },
     {
       "rank": 22,
-      "title": "FAN EXPO Day 1",
-      "url": "https://www.flickr.com/photos/uyglz_yuudachi/55493302058/",
-      "thumb": "https://live.staticflickr.com/65535/55493302058_272820f872_b.jpg",
-      "publishedAt": "2026-08-28T12:48:21.000Z",
-      "sources": [
-        "Flickr · 코스프레"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 1"
-      }
-    },
-    {
-      "rank": 23,
       "title": "Seduction",
       "url": "https://www.flickr.com/photos/grahamtownsend/55493265146/",
       "thumb": "https://live.staticflickr.com/65535/55493265146_755669ab2a_b.jpg",
@@ -510,169 +487,59 @@
       "score": 17,
       "badge": {
         "kind": "up",
+        "label": "▲ 3"
+      }
+    },
+    {
+      "rank": 23,
+      "title": "https://www. cosphb.com/321233/ メイドの横側宙#メイド # コスプレ # cosplay # CosplayInJapan # コスプレ",
+      "url": "https://jpmstdn.com/@cosphb/117173264431531454",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/173/264/549/445/452/original/53daae4e0ea12f6e.jpg",
+      "publishedAt": "2026-08-28T13:02:05.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "up",
         "label": "▲ 1"
       }
     },
     {
       "rank": 24,
-      "title": "Armed and Naughty",
-      "url": "https://www.flickr.com/photos/201236896@N02/55493556625/",
-      "thumb": "https://live.staticflickr.com/65535/55493556625_d385133c65_b.jpg",
-      "publishedAt": "2026-08-28T12:35:35.000Z",
+      "title": "FAN EXPO Day 1",
+      "url": "https://www.flickr.com/photos/uyglz_yuudachi/55493302058/",
+      "thumb": "https://live.staticflickr.com/65535/55493302058_272820f872_b.jpg",
+      "publishedAt": "2026-08-28T12:48:21.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Flickr · 코스프레"
       ],
       "platforms": [
         "flickr"
       ],
       "categories": [
-        "model"
+        "cosplay"
       ],
       "persons": [],
-      "score": 17,
+      "score": 16,
       "badge": {
         "kind": "up",
-        "label": "▲ 1"
+        "label": "▲ 6"
       }
     },
     {
       "rank": 25,
-      "title": "Hina Chan",
-      "url": "https://www.flickr.com/photos/zerodark/55493271068/",
-      "thumb": "https://live.staticflickr.com/65535/55493271068_f01c5acfc0_b.jpg",
-      "publishedAt": "2026-08-28T12:28:14.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 3"
-      }
-    },
-    {
-      "rank": 26,
-      "title": "Selfies : les scans ! On est à 94% du seuil \"double ex-libris\"… Il est encore temps de venir me soutenir en ce mois d'ao…",
-      "url": "https://mast.eu.org/@BrunoBellamy/117172937196131706",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/172/937/307/021/411/original/00078a701a2a80e3.jpg",
-      "publishedAt": "2026-08-28T11:38:52.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 1"
-      }
-    },
-    {
-      "rank": 27,
-      "title": "https://www. cosphb.com/321231/ surges/あおい【伊波ライコスプレで歌ってみた # コスプレ # cosplay #歌ってみた # CosplayInJapan # コスプレ",
-      "url": "https://jpmstdn.com/@cosphb/117172910502286726",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/172/910/570/297/027/original/4a08eae26ebfaa78.jpg",
-      "publishedAt": "2026-08-28T11:32:05.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 1"
-      }
-    },
-    {
-      "rank": 28,
-      "title": "PRIN-027: Nene Tanaka’s H‑Cup Cosplay Paizuri – Za‑jiru Ooji Stream PRIN-027 starring Nene Tanaka, the H‑cup cosplayer d…",
-      "url": "https://mastodon.social/@javdo/117172816414001218",
-      "thumb": "",
-      "publishedAt": "2026-08-28T11:08:09.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 1"
-      }
-    },
-    {
-      "rank": 29,
-      "title": "# cosplay EWWWW DYRUS SMELLS DAT STAAAAANK who&#39;d work with asmon.",
-      "url": "https://mastodon.social/@chaoselite333/117172767025078487",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/766/323/132/368/original/0dd022c915f525c6.png",
-      "publishedAt": "2026-08-28T10:55:35.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 1"
-      }
-    },
-    {
-      "rank": 30,
-      "title": "ᕼᗩᗯTᕼOᖇᑎE",
-      "url": "https://www.flickr.com/photos/95117956@N05/55492143762/",
-      "thumb": "https://live.staticflickr.com/65535/55492143762_01eed030c1_b.jpg",
-      "publishedAt": "2026-08-28T12:12:00.000Z",
-      "sources": [
-        "Flickr · 부두어"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 31,
-      "title": "SUMMER STILL THERE [2]",
-      "url": "https://www.flickr.com/photos/195209606@N07/55491996622/",
-      "thumb": "https://live.staticflickr.com/65535/55491996622_eac19b1055_b.jpg",
-      "publishedAt": "2026-08-28T10:19:03.000Z",
+      "title": "The original paddle",
+      "url": "https://www.flickr.com/photos/186481046@N08/55493538180/",
+      "thumb": "https://live.staticflickr.com/65535/55493538180_01c0e1bfe1_b.jpg",
+      "publishedAt": "2026-08-28T12:19:45.000Z",
       "sources": [
         "Flickr · 비키니"
       ],
@@ -690,77 +557,33 @@
       }
     },
     {
-      "rank": 32,
-      "title": "# yorforger # cosplay",
-      "url": "https://mastodon.social/@Shiny_Ladies/117172515268678230",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/509/235/009/782/original/55679198814e0ff2.jpeg",
-      "publishedAt": "2026-08-28T09:51:34.000Z",
+      "rank": 26,
+      "title": "Armed and Naughty",
+      "url": "https://www.flickr.com/photos/201236896@N02/55493556625/",
+      "thumb": "https://live.staticflickr.com/65535/55493556625_d385133c65_b.jpg",
+      "publishedAt": "2026-08-28T12:35:35.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 란제리"
       ],
       "platforms": [
-        "mastodon"
+        "flickr"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 15,
+      "score": 16,
       "badge": {
         "kind": "up",
-        "label": "▲ 2"
+        "label": "▲ 7"
       }
     },
     {
-      "rank": 33,
-      "title": "Honestly, anything that looks cute. Then comfort if possible. I have wore some outfits that were so uncomfortable but I …",
-      "url": "https://mastodon.social/@Randibaby00/117172476526018607",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/476/321/363/314/original/381cdb063d4b290d.jpg",
-      "publishedAt": "2026-08-28T09:41:43.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 2"
-      }
-    },
-    {
-      "rank": 34,
-      "title": "Next I have a photo with LeLe and then some of me enjoying her show. Taken by - https://www. instagram.com/caspertrilbyp…",
-      "url": "https://mastodon.social/@MetalGearHazumu/117172208916551067",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/205/695/295/871/original/f628ad8c8a05275c.jpeg",
-      "publishedAt": "2026-08-28T08:33:39.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 2"
-      }
-    },
-    {
-      "rank": 35,
-      "title": "Soleil noir",
-      "url": "https://www.flickr.com/photos/gherm/55492982113/",
-      "thumb": "https://live.staticflickr.com/65535/55492982113_32aba4e8d4_b.jpg",
-      "publishedAt": "2026-08-28T08:11:00.000Z",
+      "rank": 27,
+      "title": "Hina Chan",
+      "url": "https://www.flickr.com/photos/zerodark/55493271068/",
+      "thumb": "https://live.staticflickr.com/65535/55493271068_f01c5acfc0_b.jpg",
+      "publishedAt": "2026-08-28T12:28:14.000Z",
       "sources": [
         "Flickr · 그라비아"
       ],
@@ -771,20 +594,108 @@
         "gravure"
       ],
       "persons": [],
-      "score": 15,
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 25"
+      }
+    },
+    {
+      "rank": 28,
+      "title": "Selfies : les scans ! On est à 94% du seuil \"double ex-libris\"… Il est encore temps de venir me soutenir en ce mois d'ao…",
+      "url": "https://mast.eu.org/@BrunoBellamy/117172937196131706",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/172/937/307/021/411/original/00078a701a2a80e3.jpg",
+      "publishedAt": "2026-08-28T11:38:52.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
       "badge": {
         "kind": "down",
         "label": "▼ 2"
       }
     },
     {
-      "rank": 36,
-      "title": "green hair, green lips",
-      "url": "https://www.flickr.com/photos/191878022@N04/55493106154/",
-      "thumb": "https://live.staticflickr.com/65535/55493106154_7c9a9cf7a3_b.jpg",
-      "publishedAt": "2026-08-28T10:00:55.000Z",
+      "rank": 29,
+      "title": "https://www. cosphb.com/321231/ surges/あおい【伊波ライコスプレで歌ってみた # コスプレ # cosplay #歌ってみた # CosplayInJapan # コスプレ",
+      "url": "https://jpmstdn.com/@cosphb/117172910502286726",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/172/910/570/297/027/original/4a08eae26ebfaa78.jpg",
+      "publishedAt": "2026-08-28T11:32:05.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 2"
+      }
+    },
+    {
+      "rank": 30,
+      "title": "PRIN-027: Nene Tanaka’s H‑Cup Cosplay Paizuri – Za‑jiru Ooji Stream PRIN-027 starring Nene Tanaka, the H‑cup cosplayer d…",
+      "url": "https://mastodon.social/@javdo/117172816414001218",
+      "thumb": "",
+      "publishedAt": "2026-08-28T11:08:09.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 2"
+      }
+    },
+    {
+      "rank": 31,
+      "title": "# cosplay EWWWW DYRUS SMELLS DAT STAAAAANK who'd work with asmon.",
+      "url": "https://mastodon.social/@chaoselite333/117172767025078487",
+      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/766/323/132/368/original/0dd022c915f525c6.png",
+      "publishedAt": "2026-08-28T10:55:35.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 2"
+      }
+    },
+    {
+      "rank": 32,
+      "title": "SUMMER STILL THERE [3]",
+      "url": "https://www.flickr.com/photos/195209606@N07/55493151584/",
+      "thumb": "https://live.staticflickr.com/65535/55493151584_9b3db8c771_b.jpg",
+      "publishedAt": "2026-08-28T10:19:02.000Z",
+      "sources": [
+        "Flickr · 비키니"
       ],
       "platforms": [
         "flickr"
@@ -800,13 +711,13 @@
       }
     },
     {
-      "rank": 37,
-      "title": "Jay Vision 2",
-      "url": "https://www.flickr.com/photos/199089000@N02/55492901211/",
-      "thumb": "https://live.staticflickr.com/31337/55492901211_f0bea2f5f5_s.jpg",
-      "publishedAt": "2026-08-28T09:01:44.000Z",
+      "rank": 33,
+      "title": "SUMMER STILL THERE [2]",
+      "url": "https://www.flickr.com/photos/195209606@N07/55493371110/",
+      "thumb": "https://live.staticflickr.com/65535/55493371110_65244c9e4d_b.jpg",
+      "publishedAt": "2026-08-28T10:19:03.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Flickr · 비키니"
       ],
       "platforms": [
         "flickr"
@@ -817,12 +728,12 @@
       "persons": [],
       "score": 15,
       "badge": {
-        "kind": "same",
-        "label": "—"
+        "kind": "up",
+        "label": "▲ 4"
       }
     },
     {
-      "rank": 38,
+      "rank": 34,
       "title": "178",
       "url": "https://www.flickr.com/photos/202259521@N02/55493086644/",
       "thumb": "https://live.staticflickr.com/65535/55493086644_e64e501067_b.jpg",
@@ -844,13 +755,13 @@
       }
     },
     {
-      "rank": 39,
-      "title": "JAWS - Les dents de la mer",
-      "url": "https://www.flickr.com/photos/195209606@N07/55493051419/",
-      "thumb": "https://live.staticflickr.com/65535/55493051419_ee073b5381_b.jpg",
-      "publishedAt": "2026-08-28T08:22:25.000Z",
+      "rank": 35,
+      "title": "green hair, green lips",
+      "url": "https://www.flickr.com/photos/191878022@N04/55493106154/",
+      "thumb": "https://live.staticflickr.com/65535/55493106154_7c9a9cf7a3_b.jpg",
+      "publishedAt": "2026-08-28T10:00:55.000Z",
       "sources": [
-        "Flickr · 비키니"
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -861,78 +772,100 @@
       "persons": [],
       "score": 15,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 4"
+      }
+    },
+    {
+      "rank": 36,
+      "title": "Jay Vision 2",
+      "url": "https://www.flickr.com/photos/199089000@N02/55492901211/",
+      "thumb": "https://live.staticflickr.com/31337/55492901211_f0bea2f5f5_s.jpg",
+      "publishedAt": "2026-08-28T09:01:44.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 4"
+      }
+    },
+    {
+      "rank": 37,
+      "title": "# yorforger # cosplay",
+      "url": "https://mastodon.social/@Shiny_Ladies/117172515268678230",
+      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/509/235/009/782/original/55679198814e0ff2.jpeg",
+      "publishedAt": "2026-08-28T09:51:34.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 3"
+      }
+    },
+    {
+      "rank": 38,
+      "title": "Honestly, anything that looks cute. Then comfort if possible. I have wore some outfits that were so uncomfortable but I …",
+      "url": "https://mastodon.social/@Randibaby00/117172476526018607",
+      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/476/321/363/314/original/381cdb063d4b290d.jpg",
+      "publishedAt": "2026-08-28T09:41:43.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 3"
+      }
+    },
+    {
+      "rank": 39,
+      "title": "Next I have a photo with LeLe and then some of me enjoying her show. Taken by - https://www. instagram.com/caspertrilbyp…",
+      "url": "https://mastodon.social/@MetalGearHazumu/117172208916551067",
+      "thumb": "https://files.mastodon.social/media_attachments/files/117/172/205/695/295/871/original/f628ad8c8a05275c.jpeg",
+      "publishedAt": "2026-08-28T08:33:39.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 3"
       }
     },
     {
       "rank": 40,
-      "title": "IMG_6988",
-      "url": "https://www.flickr.com/photos/204781083@N02/55491783387/",
-      "thumb": "https://live.staticflickr.com/65535/55491783387_74e8ffa508_b.jpg",
-      "publishedAt": "2026-08-28T06:34:09.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 41,
-      "title": "IMG_6989",
-      "url": "https://www.flickr.com/photos/204781083@N02/55492880868/",
-      "thumb": "https://live.staticflickr.com/65535/55492880868_b4c5156a54_b.jpg",
-      "publishedAt": "2026-08-28T06:37:57.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 42,
-      "title": "Tan Ultra Gloss Pantyhose High Neck Summer Mini Dress 1.mp4_thumbs",
-      "url": "https://www.flickr.com/photos/emmaward49/55492773103/",
-      "thumb": "https://live.staticflickr.com/65535/55492773103_a941017a6e_b.jpg",
-      "publishedAt": "2026-08-28T05:01:53.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "up",
-        "label": "▲ 1"
-      }
-    },
-    {
-      "rank": 43,
       "title": "Halle Berry in Die Another Day (2002)",
       "url": "https://www.flickr.com/photos/truusbobjantoo/55492911233/",
       "thumb": "https://live.staticflickr.com/65535/55492911233_2e1cb1a2e4_b.jpg",
@@ -949,13 +882,13 @@
       "persons": [],
       "score": 14,
       "badge": {
-        "kind": "up",
-        "label": "▲ 1"
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
-      "rank": 44,
-      "title": "Miriam &amp; Katherine",
+      "rank": 41,
+      "title": "Miriam & Katherine",
       "url": "https://www.flickr.com/photos/31291809@N05/55492905288/",
       "thumb": "https://live.staticflickr.com/65535/55492905288_de1d8aabf3_b.jpg",
       "publishedAt": "2026-08-28T07:23:29.000Z",
@@ -976,7 +909,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 42,
       "title": "Latin Beauties with Chinese Cabinet",
       "url": "https://www.flickr.com/photos/31291809@N05/55492790251/",
       "thumb": "https://live.staticflickr.com/65535/55492790251_9f403d0800_b.jpg",
@@ -998,8 +931,8 @@
       }
     },
     {
-      "rank": 46,
-      "title": "Verso l&#039;orizzonte",
+      "rank": 43,
+      "title": "Verso l'orizzonte",
       "url": "https://www.flickr.com/photos/87129989@N00/55492106382/",
       "thumb": "https://live.staticflickr.com/65535/55492106382_d6bb2d7dab_b.jpg",
       "publishedAt": "2026-08-28T06:46:28.000Z",
@@ -1020,13 +953,13 @@
       }
     },
     {
-      "rank": 47,
-      "title": "28062023-AH2B2098",
-      "url": "https://www.flickr.com/photos/focale74/55492705849/",
-      "thumb": "https://live.staticflickr.com/65535/55492705849_64b889ce31_b.jpg",
-      "publishedAt": "2026-08-28T03:01:44.000Z",
+      "rank": 44,
+      "title": "sunrise",
+      "url": "https://www.flickr.com/photos/197053127@N06/55493267110/",
+      "thumb": "https://live.staticflickr.com/65535/55493267110_04e9befbfd_b.jpg",
+      "publishedAt": "2026-08-28T08:15:20.000Z",
       "sources": [
-        "Flickr · 부두어"
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -1035,10 +968,76 @@
         "model"
       ],
       "persons": [],
-      "score": 13,
+      "score": 14,
       "badge": {
         "kind": "up",
         "label": "▲ 1"
+      }
+    },
+    {
+      "rank": 45,
+      "title": "IMG_6990",
+      "url": "https://www.flickr.com/photos/204781083@N02/55492756996/",
+      "thumb": "https://live.staticflickr.com/65535/55492756996_a29577b408_b.jpg",
+      "publishedAt": "2026-08-28T06:30:44.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 46,
+      "title": "IMG_6989",
+      "url": "https://www.flickr.com/photos/204781083@N02/55492880868/",
+      "thumb": "https://live.staticflickr.com/65535/55492880868_b4c5156a54_b.jpg",
+      "publishedAt": "2026-08-28T06:37:57.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 1"
+      }
+    },
+    {
+      "rank": 47,
+      "title": "Soleil noir",
+      "url": "https://www.flickr.com/photos/gherm/55492982113/",
+      "thumb": "https://live.staticflickr.com/65535/55492982113_32aba4e8d4_b.jpg",
+      "publishedAt": "2026-08-28T08:11:00.000Z",
+      "sources": [
+        "Flickr · 그라비아"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 6"
       }
     },
     {
@@ -1059,18 +1058,18 @@
       "persons": [],
       "score": 13,
       "badge": {
-        "kind": "up",
-        "label": "▲ 1"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
       "rank": 49,
-      "title": "At the Creek",
-      "url": "https://www.flickr.com/photos/grexsys/55491549807/",
-      "thumb": "https://live.staticflickr.com/65535/55491549807_776600c1b0_b.jpg",
-      "publishedAt": "2026-08-28T03:06:10.000Z",
+      "title": "28062023-AH2B2166",
+      "url": "https://www.flickr.com/photos/focale74/55491552732/",
+      "thumb": "https://live.staticflickr.com/65535/55491552732_ab95e1a744_b.jpg",
+      "publishedAt": "2026-08-28T03:01:45.000Z",
       "sources": [
-        "Flickr · 비키니"
+        "Flickr · 부두어"
       ],
       "platforms": [
         "flickr"
@@ -1087,10 +1086,10 @@
     },
     {
       "rank": 50,
-      "title": "anahi140 posted a photo:",
-      "url": "https://www.flickr.com/photos/204922596@N06/55491476437/",
-      "thumb": "https://live.staticflickr.com/65535/55491476437_45115e6053_b.jpg",
-      "publishedAt": "2026-08-28T01:57:02.000Z",
+      "title": "At the Creek",
+      "url": "https://www.flickr.com/photos/grexsys/55491549807/",
+      "thumb": "https://live.staticflickr.com/65535/55491549807_776600c1b0_b.jpg",
+      "publishedAt": "2026-08-28T03:06:10.000Z",
       "sources": [
         "Flickr · 비키니"
       ],
@@ -1103,8 +1102,8 @@
       "persons": [],
       "score": 13,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "same",
+        "label": "—"
       }
     }
   ],

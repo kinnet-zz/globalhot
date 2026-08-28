@@ -100,7 +100,7 @@ async function main() {
 
   let ok = 0;
   for (const item of targets) {
-    const prompt = `아래는 화제 랭킹 사이트의 항목이다. 왜 화제인지 1~2문장으로 요약해 3개 언어(JSON)로 답하라. 사실 과장 금지, 제목 정보만 근거. 키워드: ${JSON.stringify({
+    const prompt = `아래는 화제 랭킹 사이트의 항목이다. 왜 화제인지 1~2문장으로 요약해 3개 언어(JSON)로 답하라. 사실 과장 금지, 제목 정보만 근거. 각 언어 값에는 오직 그 언어만 사용하라 — "ko"는 한국어만, "en"은 영어만, "ja"는 일본어만. 다른 언어의 단어/문자 혼용 금지(고유명사 제외). 키워드: ${JSON.stringify({
       title: item.title.slice(0, 150),
       sources: item.sources,
       categories: item.categories,
@@ -110,7 +110,12 @@ async function main() {
     try {
       const text = await callGemini(apiKey, prompt);
       const parsed = parseJsonLoose(text);
-      if (parsed?.ko && parsed?.en && parsed?.ja) {
+      // 언어 순수성 검증: ja에 한글, ko에 가나/한자 과다 혼용이면 해당 언어 재생성 대신 스킵
+      const hasHangul = (s) => /[\uAC00-\uD7A3]/.test(s);
+      const hasKana = (s) => /[\u3040-\u30FF]/.test(s);
+      const valid = parsed?.ko && parsed?.en && parsed?.ja
+        && !hasHangul(parsed.en) && !hasKana(parsed.ko) && !hasHangul(parsed.ja);
+      if (valid) {
         cache[item.url] = { ko: parsed.ko, en: parsed.en, ja: parsed.ja, ts: new Date().toISOString() };
         ok++;
       } else {
