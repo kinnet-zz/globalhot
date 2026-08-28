@@ -224,6 +224,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
     const bucket = personIndex.get(person.id);
     const prev = bucket.get(item.url);
     bucket.set(item.url, {
+      url: item.url,
       title: item.title,
       thumb: item.thumb || prev?.thumb || "",
       lastTs: ts,
