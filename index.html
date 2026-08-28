@@ -82,6 +82,13 @@
 
   .ad-infeed { border:1px dashed var(--border); border-radius:12px; padding:16px; text-align:center; color:var(--muted); font-size:12px; background:#fff; }
   .adlabel { font-size:10px; letter-spacing:1px; color:#9ca3af; }
+  .ad-slot { display:flex; align-items:center; justify-content:center; min-height:60px; margin:0 auto; }
+  .ad-slot[data-height="90"] { min-height:100px; }
+  .ad-slot[data-height="250"], .ad-slot[data-height="600"] { min-height:260px; width:300px; max-width:100%; }
+  .ad-leaderboard { display:none; }
+  @media (min-width:768px) { .ad-leaderboard { display:block; margin:0 0 4px; } }
+  .ad-mobile { display:none; }
+  @media (max-width:767px) { .ad-mobile { display:flex; justify-content:center; } }
   .sidebar { display:flex; flex-direction:column; gap:16px; }
   .panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
   .panel h3 { font-size:13px; font-weight:700; margin-bottom:10px; color:var(--text); }
@@ -159,6 +166,10 @@
   </div>
 </section>
 
+<div class="ad-mobile"><aside class="ad-slot" data-ads-config data-ad-zone="1124352" data-width="300" data-height="50"></aside></div>
+
+<div class="ad-leaderboard"><aside class="ad-slot" data-ads-config data-ad-zone="1124349" data-width="728" data-height="90"></aside></div>
+
 <div class="layout">
   <main>
     <div class="section-title">
@@ -173,8 +184,7 @@
       <h3>🔥 <span data-i18n="personsTitle">급상승 인물 TOP 10</span></h3>
       <div id="personsTop"></div>
     </div>
-    <div class="panel ad-sticky ad-infeed">
-      <div class="adlabel">AD</div>
+    <div class="panel ad-sticky"><aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250"></aside></div>
       <div style="margin-top:60px"><span data-i18n="adSticky">스티키 광고</span><br>300 x 600</div>
     </div>
   </aside>
@@ -345,7 +355,7 @@ function render() {
   document.getElementById("updatedAt").textContent =
     `· ${new Date(DATA.generated_at).toLocaleString(lang === "ko" ? "ko-KR" : lang === "ja" ? "ja-JP" : "en-US")} ${t("aggregatedAt")} · ${t("collected")} ${DATA.collected_count}`;
 
-  const adSlot = `<div class="ad-infeed"><div class="adlabel">AD</div>${esc(t("adInfeed"))}</div>`;
+  const adSlot = `<aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250"></aside>`;
   const cards = DATA.top.map((item) => {
     const badge = item.badge || { kind: "new", label: "NEW" };
     const tags = (item.categories || []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ");
@@ -363,6 +373,7 @@ function render() {
   const out = [];
   cards.forEach((c, i) => { out.push(c); if (i === 4 || (i >= 12 && (i - 4) % 8 === 7)) out.push(adSlot); });
   document.getElementById("rankList").innerHTML = out.join("") || `<div class="empty">${esc(t("emptyRank"))}</div>`;
+  if (window.GlobalHotAds) window.GlobalHotAds.rescan();
 
   document.getElementById("personsTop").innerHTML = (DATA.persons_top || []).map((p, i) =>
     `<div class="side-item"><span class="sn">${i + 1}</span><div><div class="st">${esc(p.name)}</div><div class="sc">${t("mentions")} ${p.mentions} · score ${p.score}</div></div></div>`

@@ -65,9 +65,15 @@ const CSS = `
   .lang-switch button.active { background:var(--primary); color:#fff; }
   footer { padding:30px 20px; text-align:center; color:var(--muted); font-size:12px; border-top:1px solid var(--border); line-height:1.8; margin-top:30px; }
   footer a { color:inherit; }
+  .ad-slot { display:flex; align-items:center; justify-content:center; min-height:60px; margin:0 auto; }
+  .ad-slot[data-height="90"] { min-height:100px; }
+  .ad-slot[data-height="250"] { min-height:260px; width:300px; max-width:100%; }
+  .ad-leaderboard { margin:14px 0 4px; }
   [data-i18n] { }
   .hidden { display:none; }
 `;
+const AD_LEADERBOARD = '<div class="ad-leaderboard"><aside class="ad-slot" data-ads-config data-ad-zone="1124349" data-width="728" data-height="90"></aside></div>';
+const AD_INCONTENT = '<aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250" style="margin:18px auto"></aside>';
 
 const NAV = `
   <header><div class="header-in">
@@ -182,7 +188,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
       .slice(-24);
     const personLinks = (item.persons ?? []).map((p) => `<a class="rtag" href="/t/${esc(p.id)}">${esc(p.name)}</a>`).join(" ");
 
-    const body = `
+    const body = `${AD_LEADERBOARD}
     <div class="rankline"><span class="rank-n">#${item.rank}</span><span class="badge">${esc(item.badge?.label ?? "NEW")}</span><span style="color:var(--muted);font-size:13px">${esc((item.sources ?? []).join(" · "))}</span></div>
     <h1>${esc(item.title)}</h1>
     ${item.thumb ? `<img class="thumb" src="${esc(item.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
@@ -200,7 +206,8 @@ export async function buildRankPages({ projectRoot, distDir }) {
     <ul class="related">
       ${related.length ? related.map((r) => `<a href="/r/${slugOf(r.url)}"><span class="rn">${r.rank}</span><span class="tt">${esc(r.title.slice(0, 90))}</span></a>`).join("") : `<li style="color:var(--muted);font-size:13px" data-i18n="noRelated"></li>`}
     </ul>
-    <a class="out" href="${esc(item.url)}" target="_blank" rel="noopener nofollow" data-i18n="outBtn"></a>`;
+    <a class="out" href="${esc(item.url)}" target="_blank" rel="noopener nofollow" data-i18n="outBtn"></a>
+    ${AD_INCONTENT}`;
 
     await writeFile(path.join(distDir, "r", `${slug}.html`), pageShell({ title: `${item.title.slice(0, 60)} — globalhot.net`, bodyHtml: body, canonical: `https://globalhot.net/r/${slug}` }), "utf8");
     urls.push(`https://globalhot.net/r/${slug}`);
@@ -216,7 +223,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
     }).slice(0, 8);
     const photo = m.photoAvailable ? `/assets/profiles/${m.id}.jpg` : null;
     const sns = Object.entries(m.sns ?? {}).filter(([, v]) => v);
-    const body = `
+    const body = `${AD_LEADERBOARD}
     <div class="person-head">
       ${photo ? `<img class="person-photo" src="${esc(photo)}" alt="${esc(m.name)}" loading="lazy">` : ""}
       <div>
@@ -230,6 +237,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
       ${sns.map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener nofollow">${esc(k.toUpperCase())} ↗</a>`).join(" ")}
       ${m.officialUrl ? `<a href="${esc(m.officialUrl)}" target="_blank" rel="noopener nofollow">OFFICIAL ↗</a>` : ""}
     </div>
+    ${AD_INCONTENT}
     <div class="section" data-i18n="latestTitle"></div>
     <ul class="related">
       ${related.length ? related.map((r) => `<a href="/r/${slugMap.get(r.url) ?? slugOf(r.url)}"><span class="rn">${r.rank}</span><span class="tt">${esc(r.title.slice(0, 90))}</span></a>`).join("") : `<li style="color:var(--muted);font-size:13px" data-i18n="noRelated"></li>`}
@@ -265,7 +273,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
       .map(([url, a]) => ({ url, avg: a.sum / a.count, count: a.count, best: a.best, item: meta.get(url) }))
       .sort((x, y) => y.count * 60 - y.avg - (x.count * 60 - x.avg)) // 등장수 우선, 평균순위 보정
       .slice(0, 20);
-    const body = `
+    const body = `${AD_LEADERBOARD}
     <h1>${days === 7 ? "주간" : "월간"} 화제 TOP 20</h1>
     <p style="color:var(--muted);font-size:13px;margin:6px 0 16px">${history.length}개 스냅샷 집계 (최근 ${days}일)</p>
     <ul class="related">

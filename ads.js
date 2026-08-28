@@ -112,8 +112,10 @@
     }, FALLBACK_DELAY_MS);
   }
 
+  var slotObserver = null;
   function createSlotObserver() {
-    var observer = new IntersectionObserver(function (entries) {
+    if (slotObserver) return slotObserver;
+    slotObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting && !entry.target.getAttribute('data-mount-attempted')) {
           entry.target.setAttribute('data-mount-attempted', '1');
@@ -125,11 +127,21 @@
         }
       });
     }, { rootMargin: '160px 0px' });
-    document.querySelectorAll('[data-ads-config].ad-slot').forEach(function (slot) {
-      observer.observe(slot);
-    });
-    return observer;
+    observePendingSlots();
+    return slotObserver;
   }
+
+  function observePendingSlots() {
+    document.querySelectorAll('[data-ads-config].ad-slot').forEach(function (slot) {
+      if (!slot.getAttribute('data-observed')) {
+        slot.setAttribute('data-observed', '1');
+        slotObserver.observe(slot);
+      }
+    });
+  }
+
+  // 동적으로 삽입된 슬롯(인피드 등)을 렌더링 후 재스캔한다
+  window.GlobalHotAds = { rescan: observePendingSlots };
 
   // 인터스티셥 존: 세션당 한 번만, 콘텐츠가 준비된 뒤 짧은 지연을 두고 요청한다.
   // 만 오픈 때마다 떠서 화면을 가리는 사고를 막기 위해 localStorage로 쿨다운한다.
