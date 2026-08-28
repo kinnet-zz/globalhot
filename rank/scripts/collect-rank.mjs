@@ -135,9 +135,21 @@ async function main() {
   const now = Date.now();
   const collected = []; // { title, url, publishedAt, source, category }
 
+  // Reddit 는 연속 요청 시 429 속도 제한 — 같은 플랫폼 요청 사이 지연
+  const lastFetchAt = new Map();
+  const FETCH_GAP_MS = { reddit: 1200 };
+  const beforeFetch = async (platform) => {
+    const gap = FETCH_GAP_MS[platform] ?? 0;
+    if (!gap) return;
+    const wait = lastFetchAt.get(platform) + gap - Date.now();
+    if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+    lastFetchAt.set(platform, Date.now());
+  };
+
   await Promise.all(
     enabled.map(async (src) => {
       try {
+        await beforeFetch(src.platform);
         const text = await fetchText(src.feed);
         const items = src.type === "booru-json" ? parseBooru(text, src) : parseRss(text);
         for (const it of items) {

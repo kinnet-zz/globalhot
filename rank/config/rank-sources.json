@@ -41,6 +41,11 @@
     { "id": "reddit-photog",   "platform": "reddit", "type": "rss", "label": "Reddit · r/glamourphotography", "feed": "https://www.reddit.com/r/glamourphotography/.rss", "category": "model", "enabled": true },
     { "id": "reddit-gentboners", "platform": "reddit", "type": "rss", "label": "Reddit · r/GentlemanBoners", "feed": "https://www.reddit.com/r/GentlemanBoners/.rss", "category": "gravure", "enabled": true, "_note": "퀄리티 연예인/글래머 사진" },
     { "id": "reddit-cosplaygirls", "platform": "reddit", "type": "rss", "label": "Reddit · r/cosplaygirls", "feed": "https://www.reddit.com/r/cosplaygirls/.rss", "category": "cosplay", "enabled": true, "_note": "로컬 429 — Actions 러너에서 확인" },
-    { "id": "reddit-prettygirls", "platform": "reddit", "type": "rss", "label": "Reddit · r/prettygirls", "feed": "https://www.reddit.com/r/prettygirls/.rss", "category": "model", "enabled": true, "_note": "로컬 429 — Actions 러너에서 확인" }
+    { "id": "reddit-prettygirls", "platform": "reddit", "type": "rss", "label": "Reddit · r/prettygirls", "feed": "https://www.reddit.com/r/prettygirls/.rss", "category": "model", "enabled": true, "_note": "로컬 429 — Actions 러너에서 확인" },
+    { "id": "reddit-celebs",      "platform": "reddit", "type": "rss", "label": "Reddit · r/Celebs", "feed": "https://www.reddit.com/r/Celebs/.rss", "category": "gravure", "enabled": true, "_note": "연예인 화보 (로컬 429)" },
+    { "id": "reddit-beautfem",    "platform": "reddit", "type": "rss", "label": "Reddit · r/BeautifulFemales", "feed": "https://www.reddit.com/r/BeautifulFemales/.rss", "category": "model", "enabled": true, "_note": "퀄리티 초상 (로컬 429)" },
+    { "id": "reddit-kormodels",   "platform": "reddit", "type": "rss", "label": "Reddit · r/KoreanModels", "feed": "https://www.reddit.com/r/KoreanModels/.rss", "category": "model", "enabled": true, "_note": "한국 모델 (로컬 429)" },
+    { "id": "reddit-jpidols",     "platform": "reddit", "type": "rss", "label": "Reddit · r/JapaneseIdols", "feed": "https://www.reddit.com/r/JapaneseIdols/.rss", "category": "gravure", "enabled": true, "_note": "일본 아이돌 (로컬 429)" },
+    { "id": "reddit-boudoir",     "platform": "reddit", "type": "rss", "label": "Reddit · r/boudoir", "feed": "https://www.reddit.com/r/boudoir/.rss", "category": "model", "enabled": true, "_note": "부두어 사진 (로컬 429)" }
   ]
 }
