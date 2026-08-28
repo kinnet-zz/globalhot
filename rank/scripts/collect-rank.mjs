@@ -229,11 +229,14 @@ async function main() {
   }));
   scored.sort((a, b) => b.score - a.score);
 
-  // 뉴스 썸네일 보강: Google News URL에서 og:image 추출 (캐시 rank/data/thumbs.json)
+  // 뉴스 썸네일 보강: Google News URL 은 초기 HTML에 언론사 URL/이미지가 없어
+  // 구글 공통 로고만 잡히므로 제외. Bing 등 직접 링크 뉴스만 og:image 시도 (캐시 thumbs.json).
+  const GENERIC_THUMB = /(gstatic\.com|googleusercontent\.com|google_news|favicon)/i;
   const THUMB_CACHE_PATH = path.join(projectRoot, "rank", "data", "thumbs.json");
   let thumbCache = {};
   try { thumbCache = JSON.parse(await readFile(THUMB_CACHE_PATH, "utf8")); } catch { /* 최초 */ }
-  const newsNeedThumb = scored.filter((g) => !g.thumb && g.sources.some((s) => s.includes("News"))).slice(0, 12);
+  for (const k of Object.keys(thumbCache)) if (GENERIC_THUMB.test(thumbCache[k])) delete thumbCache[k];
+  const newsNeedThumb = scored.filter((g) => !g.thumb && g.sources.some((s) => s.includes("News")) && !g.url.includes("news.google.com")).slice(0, 12);
   let thumbFetched = 0;
   for (const g of newsNeedThumb) {
     if (thumbCache[g.url]) { g.thumb = thumbCache[g.url]; thumbFetched++; continue; }
@@ -241,13 +244,17 @@ async function main() {
       const r = await fetch(g.url, { headers: { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" }, signal: AbortSignal.timeout(9000) });
       const html = (await r.text()).slice(0, 600000);
       const og = html.match(/property=["']og:image["'][^>]*content=["']([^"']+)/i) || html.match(/content=["']([^"']+)["'][^>]*property=["']og:image/i);
-      if (og?.[1]?.startsWith("http")) {
+      if (og?.[1]?.startsWith("http") && !GENERIC_THUMB.test(og[1])) {
         g.thumb = og[1];
         thumbCache[g.url] = og[1];
         thumbFetched++;
       }
     } catch { /* best-effort */ }
   }
+  // 방어: 동일 썸네일이 여러 항목에 붙으면(집계 오류/공통 로고) 전부 제거 — 틀린 이미지보다 없는 게 낫다
+  const thumbCounts = new Map();
+  for (const g of scored) if (g.thumb) thumbCounts.set(g.thumb, (thumbCounts.get(g.thumb) ?? 0) + 1);
+  for (const g of scored) if (g.thumb && thumbCounts.get(g.thumb) > 1) g.thumb = "";
   const thumbKeys = Object.keys(thumbCache);
   if (thumbKeys.length > 800) thumbCache = Object.fromEntries(thumbKeys.slice(-800).map((k) => [k, thumbCache[k]]));
   await mkdir(path.dirname(THUMB_CACHE_PATH), { recursive: true });
