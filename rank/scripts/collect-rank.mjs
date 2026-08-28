@@ -7,7 +7,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { itemScore, personScore, normalizeTitle, matchPersons, rankBadge } from "./lib/score.mjs";
+import { itemScore, personScore, normalizeTitle, matchPersons, rankBadge, isCleanTitle, hasAdultRating } from "./lib/score.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..", "..");
@@ -54,6 +54,8 @@ function parseRss(xml) {
   const unescapeEntities = (s) =>
     s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
   for (const block of blocks) {
+    // 성인 등급 표시(mature/adult)가 있는 RSS 항목은 제외 (DeviantArt 등)
+    if (hasAdultRating(block)) continue;
     let title = pick(block, "title");
     const link = pick(block, "link");
     if (!title) {
@@ -153,6 +155,16 @@ async function main() {
   );
 
   console.log(`collected raw: ${collected.length}`);
+
+  // 성인 키워드 필터 — 포르노/노출 항목 제외 (차단 건수 로그)
+  const beforeAdultFilter = collected.length;
+  for (let i = collected.length - 1; i >= 0; i--) {
+    if (!isCleanTitle(collected[i].title)) collected.splice(i, 1);
+  }
+  if (collected.length !== beforeAdultFilter) {
+    console.log(`adult filter: removed ${beforeAdultFilter - collected.length} items`);
+  }
+
   if (!collected.length) {
     console.log("0 items — keep previous ranking.json");
     return;

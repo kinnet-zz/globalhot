@@ -69,3 +69,33 @@ test("rankBadge reports new/up/down/same", () => {
   assert.deepEqual(rankBadge(7, 5), { kind: "down", label: "▼ 2" });
   assert.deepEqual(rankBadge(4, 4), { kind: "same", label: "—" });
 });
+
+test("adult content filter blocks explicit titles and allows clean ones", async () => {
+  const { isCleanTitle, hasAdultRating } = await import("../rank/scripts/lib/score.mjs");
+  // 차단: 영어/한국어/일본어 노출·성인 표현
+  for (const bad of [
+    "Hot nude photoshoot on the beach",
+    "TOPLESS bikini slip moment",
+    "NSFW gravure compilation",
+    "누드 화보집 공개",
+    "ヌード撮影会",
+    "erotic boudoir session",
+    "xxx leaked onlyfans",
+  ]) {
+    assert.equal(isCleanTitle(bad), false, `must block: ${bad}`);
+  }
+  // 허용: 일반 화보/수영복/코스프레
+  for (const ok of [
+    "Bikini photoshoot in Bali",
+    "New cosplay photo book announced",
+    "Charlie in stockings !!",
+    "グラビアアイドル初の写真集",
+    "Boudoir portrait session behind the scenes",
+  ]) {
+    assert.equal(isCleanTitle(ok), true, `must allow: ${ok}`);
+  }
+  // RSS 등급 표시 감지 (DeviantArt)
+  assert.equal(hasAdultRating('<item><media:rating scheme="urn:simple">adult</media:rating></item>'), true);
+  assert.equal(hasAdultRating('<item><media:rating scheme="urn:mpaa">mature</media:rating></item>'), true);
+  assert.equal(hasAdultRating('<item><title>clean</title></item>'), false);
+});

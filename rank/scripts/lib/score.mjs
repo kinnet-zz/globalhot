@@ -69,3 +69,33 @@ export function rankBadge(rank, prevRank) {
   if (prevRank < rank) return { kind: "down", label: `▼ ${rank - prevRank}` };
   return { kind: "same", label: "—" };
 }
+
+// ── 성인 콘텐츠 차단 ─────────────────────────────────────
+// 본 사이트는 포르노 사이트가 아님 — 노출/성인 항목은 수집 단계에서 제외.
+// 제목·태그 기반 키워드 차단 + (제공 시) 피드 등급(mature/adult) 차단.
+const BLOCKED_TERMS = [
+  // 영어
+  "porn", "porno", "xxx", "nsfw", "nude", "nudes", "nudity", "naked", "topless",
+  "explicit", "hardcore", "softcore", "erotic", "sex", "sexual", "orgasm",
+  "fetish", "bdsm", "bondage", "dildo", "vagina", "pussy", "penis", "cum",
+  "blowjob", "handjob", "milf", "hentai", "onlyfans leak", "leaked nudes",
+  // 한국어
+  "누드", "포르노", "성인물", "노출", "야동", "섹스", "음란",
+  // 일본어
+  "ヌード", "ポルノ", "アダルト", "エロ", "セックス",
+];
+
+export function isCleanTitle(title) {
+  const t = String(title ?? "").toLowerCase();
+  return !BLOCKED_TERMS.some((term) => t.includes(term));
+}
+
+// RSS 항목 블록의 성인 등급 표시 감지 (DeviantArt media:rating 속성·요소 텍스트 모두)
+export function hasAdultRating(itemBlockXml) {
+  const xml = String(itemBlockXml ?? "");
+  return (
+    /<media:rating[^>]*>(adult|mature)</i.test(xml) ||
+    /<media:rating[^>]*(adult|mature)/i.test(xml) ||
+    /rating="(adult|mature)"/i.test(xml)
+  );
+}
