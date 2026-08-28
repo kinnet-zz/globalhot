@@ -38,6 +38,9 @@
     { "id": "gelbooru-cosplay",  "platform": "gelbooru",  "type": "booru-json", "label": "Gelbooru · 코스프레",   "feed": "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=cosplay+rating:general&limit=30", "category": "cosplay", "enabled": false, "_note": "401 API 키 필요" },
 
     { "id": "reddit-cosplay",  "platform": "reddit", "type": "rss", "label": "Reddit · r/cosplay",  "feed": "https://www.reddit.com/r/cosplay/.rss",  "category": "cosplay", "enabled": true },
-    { "id": "reddit-photog",   "platform": "reddit", "type": "rss", "label": "Reddit · r/glamourphotography", "feed": "https://www.reddit.com/r/glamourphotography/.rss", "category": "model", "enabled": true }
+    { "id": "reddit-photog",   "platform": "reddit", "type": "rss", "label": "Reddit · r/glamourphotography", "feed": "https://www.reddit.com/r/glamourphotography/.rss", "category": "model", "enabled": true },
+    { "id": "reddit-gentboners", "platform": "reddit", "type": "rss", "label": "Reddit · r/GentlemanBoners", "feed": "https://www.reddit.com/r/GentlemanBoners/.rss", "category": "gravure", "enabled": true, "_note": "퀄리티 연예인/글래머 사진" },
+    { "id": "reddit-cosplaygirls", "platform": "reddit", "type": "rss", "label": "Reddit · r/cosplaygirls", "feed": "https://www.reddit.com/r/cosplaygirls/.rss", "category": "cosplay", "enabled": true, "_note": "로컬 429 — Actions 러너에서 확인" },
+    { "id": "reddit-prettygirls", "platform": "reddit", "type": "rss", "label": "Reddit · r/prettygirls", "feed": "https://www.reddit.com/r/prettygirls/.rss", "category": "model", "enabled": true, "_note": "로컬 429 — Actions 러너에서 확인" }
   ]
 }

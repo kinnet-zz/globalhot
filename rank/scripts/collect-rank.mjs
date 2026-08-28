@@ -225,7 +225,7 @@ async function main() {
     platforms: [...(g.platforms ?? [])],
     categories: [...g.categories],
     persons: g.persons,
-    score: Math.round(itemScore({ publishedAt: g.publishedAt || new Date(now).toISOString(), sourceLabels: g.sources, personMentions: g.persons.length }, now) + g.sources.size * 4),
+    score: Math.round(itemScore({ publishedAt: g.publishedAt || new Date(now).toISOString(), sourceLabels: g.sources, personMentions: g.persons.length, title: g.title }, now) + g.sources.size * 4),
   }));
   scored.sort((a, b) => b.score - a.score);
 

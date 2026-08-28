@@ -17,9 +17,17 @@ export function diversityScore(sourceLabels) {
   return new Set(sourceLabels).size * 6;
 }
 
-// 항목 점수: 신선도 + 소스 다양성 (+ 인물 화제 부스트)
-export function itemScore({ publishedAt, sourceLabels = [], personMentions = 0 }, now = Date.now()) {
-  return freshnessScore(publishedAt, now) + diversityScore(sourceLabels) + Math.min(personMentions, 5) * 2;
+// 저퀄 제목 패턴 — 카메라 기본 파일명(DSC_1234, IMG_5678 등)은 콘텐츠 정보가 없어 랭킹 품질을 떨어뜨림
+const LOW_EFFORT_TITLE = /^(dsc[_-]?\d+|img[_-]?\d+|dscn\d+|p\d{6,}|20\d{6}[_-]|photo|untitled|untitled[- ]\d+|new photo|_mg_\d+)/i;
+export function isLowEffortTitle(title) {
+  const head = String(title).trim().slice(0, 24);
+  return LOW_EFFORT_TITLE.test(head) || /^[\w\-_]*\d{3,}[\w\-_ ]*(wm|edit|copy)?$/i.test(head);
+}
+
+// 항목 점수: 신선도 + 소스 다양성 (+ 인물 화제 부스트, − 저퀄 제목 페널티)
+export function itemScore({ publishedAt, sourceLabels = [], personMentions = 0, title = "" }, now = Date.now()) {
+  const base = freshnessScore(publishedAt, now) + diversityScore(sourceLabels) + Math.min(personMentions, 5) * 2;
+  return isLowEffortTitle(title) ? base - 8 : base;
 }
 
 // 인물 점수: 언급량 * 10 + 신선도 평균 + 소스 다양성
