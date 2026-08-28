@@ -180,9 +180,10 @@ async function main() {
   console.log(`window: ${windowHours}h → ${windowed.length} items`);
 
   // 중복(동일 정규화 제목) 묶기 → 소스 다양성 점수로 연결
+  // 키는 구두점·공백까지 제거한 60자 — 언론사 접미사(- Yahoo!ニュース 등)만 다른 동일 기사 통합
   const groups = new Map(); // normTitle -> { title, url, publishedAt, thumb, sources:Set, categories:Set }
   for (const c of windowed) {
-    const key = normalizeTitle(c.title).slice(0, 80);
+    const key = normalizeTitle(c.title).replace(/[\s'"「」『』()（）・。、，,.!?！？：:~～\-–—/\\|]/g, "").slice(0, 60);
     if (!key) continue;
     let g = groups.get(key);
     if (!g) {
@@ -227,6 +228,32 @@ async function main() {
     score: Math.round(itemScore({ publishedAt: g.publishedAt || new Date(now).toISOString(), sourceLabels: g.sources, personMentions: g.persons.length }, now) + g.sources.size * 4),
   }));
   scored.sort((a, b) => b.score - a.score);
+
+  // 뉴스 썸네일 보강: Google News URL에서 og:image 추출 (캐시 rank/data/thumbs.json)
+  const THUMB_CACHE_PATH = path.join(projectRoot, "rank", "data", "thumbs.json");
+  let thumbCache = {};
+  try { thumbCache = JSON.parse(await readFile(THUMB_CACHE_PATH, "utf8")); } catch { /* 최초 */ }
+  const newsNeedThumb = scored.filter((g) => !g.thumb && g.sources.some((s) => s.includes("News"))).slice(0, 12);
+  let thumbFetched = 0;
+  for (const g of newsNeedThumb) {
+    if (thumbCache[g.url]) { g.thumb = thumbCache[g.url]; thumbFetched++; continue; }
+    try {
+      const r = await fetch(g.url, { headers: { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" }, signal: AbortSignal.timeout(9000) });
+      const html = (await r.text()).slice(0, 600000);
+      const og = html.match(/property=["']og:image["'][^>]*content=["']([^"']+)/i) || html.match(/content=["']([^"']+)["'][^>]*property=["']og:image/i);
+      if (og?.[1]?.startsWith("http")) {
+        g.thumb = og[1];
+        thumbCache[g.url] = og[1];
+        thumbFetched++;
+      }
+    } catch { /* best-effort */ }
+  }
+  const thumbKeys = Object.keys(thumbCache);
+  if (thumbKeys.length > 800) thumbCache = Object.fromEntries(thumbKeys.slice(-800).map((k) => [k, thumbCache[k]]));
+  await mkdir(path.dirname(THUMB_CACHE_PATH), { recursive: true });
+  await writeFile(THUMB_CACHE_PATH, JSON.stringify(thumbCache), "utf8");
+  if (newsNeedThumb.length) console.log(`news thumbs: +${thumbFetched}/${newsNeedThumb.length}`);
+
   const top = applyQuotas(scored, TOP_N);
 
   const personsScored = [...personAgg.values()]

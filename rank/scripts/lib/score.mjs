@@ -104,8 +104,10 @@ export function hasAdultRating(itemBlockXml) {
 // 1) 애니 쿼터: booru 계열(일러스트 중심) 항목은 TOP의 MAX_BOORU_RATIO 까지만.
 //    실사(사진·화보·뉴스)가 메인인 사이트 성격 유지.
 // 2) 작가 캡: 동일 Flickr 작가/Mastodon 계정은 MAX_PER_AUTHOR 건까지 — 특정 계정 도배 방지.
+// 3) 피드 캡: 동일 소스 피드는 MAX_PER_FEED 건까지 — 특정 뉴스 쿼리 하나가 랭킹을 잠식하는 것 방지.
 export const MAX_BOORU_RATIO = 0.3;
 export const MAX_PER_AUTHOR = 2;
+export const MAX_PER_FEED = 4;
 
 const BOORU_PLATFORMS = new Set(["yandere", "safebooru", "danbooru", "konachan", "gelbooru"]);
 
@@ -123,6 +125,7 @@ export function applyQuotas(scored, topN) {
   const maxBooru = Math.round(topN * MAX_BOORU_RATIO);
   let booruCount = 0;
   const authorCounts = new Map();
+  const feedCounts = new Map();
   const selected = [];
   for (const item of scored) {
     if (selected.length >= topN) break;
@@ -134,8 +137,34 @@ export function applyQuotas(scored, topN) {
       if (c >= MAX_PER_AUTHOR) continue;
       authorCounts.set(author, c + 1);
     }
+    // 피드 캡: 소스 라벨(피드)별 최대 MAX_PER_FEED 건
+    const feed = (item.sources ?? [])[0];
+    if (feed) {
+      const fc = feedCounts.get(feed) ?? 0;
+      if (fc >= MAX_PER_FEED) continue;
+      feedCounts.set(feed, fc + 1);
+    }
     if (isBooru) booruCount++;
     selected.push(item);
+  }
+  // 2차 패스: 피드 캵 때문에 topN 을 못 채웠으면 나머지는 피드 캡 없이라도 채운다 (빈 랭킹 방지).
+  // 작가 캡·booru 쿼터는 2차에서도 유지.
+  if (selected.length < topN) {
+    const chosen = new Set(selected);
+    for (const item of scored) {
+      if (selected.length >= topN) break;
+      if (chosen.has(item)) continue;
+      const isBooru = (item.platforms ?? []).some((p) => BOORU_PLATFORMS.has(p));
+      if (isBooru && booruCount >= maxBooru) continue;
+      const author = authorKeyOf(item.url, item.platforms);
+      if (author) {
+        const c = authorCounts.get(author) ?? 0;
+        if (c >= MAX_PER_AUTHOR) continue;
+        authorCounts.set(author, c + 1);
+      }
+      if (isBooru) booruCount++;
+      selected.push(item);
+    }
   }
   return selected;
 }
