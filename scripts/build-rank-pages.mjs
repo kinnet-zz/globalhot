@@ -65,9 +65,7 @@ const CSS = `
   .lang-switch button.active { background:var(--primary); color:#fff; }
   footer { padding:30px 20px; text-align:center; color:var(--muted); font-size:12px; border-top:1px solid var(--border); line-height:1.8; margin-top:30px; }
   footer a { color:inherit; }
-  .ad-slot { display:flex; align-items:center; justify-content:center; min-height:60px; margin:0 auto; }
-  .ad-slot[data-height="90"] { min-height:100px; }
-  .ad-slot[data-height="250"] { min-height:260px; width:300px; max-width:100%; }
+  .ad-slot { display:flex; align-items:center; justify-content:center; margin:0 auto; }
   .ad-leaderboard { margin:14px 0 4px; }
   [data-i18n] { }
   .hidden { display:none; }
