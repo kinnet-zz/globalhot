@@ -264,7 +264,7 @@ async function main() {
   } catch {
     /* 최초 */
   }
-  lines.push(JSON.stringify({ ts: output.generated_at, items: output.top.map((t) => ({ rank: t.rank, url: t.url, score: t.score, title: t.title, thumb: t.thumb || "", categories: t.categories || [] })) }));
+  lines.push(JSON.stringify({ ts: output.generated_at, items: output.top.map((t) => ({ rank: t.rank, url: t.url, score: t.score, title: t.title, thumb: t.thumb || "", categories: t.categories || [], sources: (t.sources || []).slice(0, 3) })) }));
   if (lines.length > MAX_LINES) lines = lines.slice(lines.length - MAX_LINES);
   await writeFile(HISTORY_PATH, lines.join("\n") + "\n", "utf8");
   console.log(`history.jsonl: ${lines.length} snapshots`);

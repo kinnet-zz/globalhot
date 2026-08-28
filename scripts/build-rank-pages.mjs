@@ -175,9 +175,27 @@ export async function buildRankPages({ projectRoot, distDir }) {
   const urls = [];
 
   // ── 상세 페이지 /r/<slug> ──
+  // 색인 안정화: 현재 TOP50뿐 아니라 최근 7일 히스토리 URL도 생성 — 매시간 슬러그 세트가
+  // 통째로 바뀌어 어제 색인된 URL이 404가 되는 문제(색인 감소·크롤러 오류) 방지.
+  const cutoff7d = Date.now() - 7 * 24 * 3600 * 1000;
+  const historyOnly = new Map();
+  for (const snap of [...history].reverse()) {
+    if (Date.parse(snap.ts) < cutoff7d) break;
+    for (const it of snap.items ?? []) {
+      if (it.title && !historyOnly.has(it.url)) {
+        historyOnly.set(it.url, {
+          url: it.url, title: it.title, thumb: it.thumb || "", categories: it.categories || [],
+          sources: it.sources || [], score: it.score ?? 0, rank: it.rank ?? 50, badge: { kind: "same", label: "ARCHIVE" },
+          persons: [],
+        });
+      }
+    }
+  }
+  for (const item of ranking.top) historyOnly.delete(item.url);
+  const detailItems = [...ranking.top, ...[...historyOnly.values()].slice(0, 300)];
   const slugMap = new Map(); // url -> slug
   await mkdir(path.join(distDir, "r"), { recursive: true });
-  for (const item of ranking.top) {
+  for (const item of detailItems) {
     const slug = slugOf(item.url);
     slugMap.set(item.url, slug);
     const related = ranking.top.filter((r) => r !== item && (r.categories ?? []).some((c) => (item.categories ?? []).includes(c))).slice(0, 6);
@@ -324,5 +342,5 @@ ${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${today}</lastmod><changefreq>
 `;
   await writeFile(path.join(distDir, "sitemap-pages.xml"), sitemap, "utf8");
 
-  return { detailPages: ranking.top.length, personPages: models.length, sitemapUrls: urls.length };
+  return { detailPages: detailItems.length, personPages: models.length, sitemapUrls: urls.length };
 }

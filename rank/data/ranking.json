@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-28T15:31:14.926Z",
+  "generated_at": "2026-08-28T15:36:00.106Z",
   "window_hours": 24,
-  "collected_count": 1184,
+  "collected_count": 1208,
   "top": [
     {
       "rank": 1,
@@ -10,8 +10,8 @@
       "thumb": "https://live.staticflickr.com/65535/55493465323_bc9fd057f7_b.jpg",
       "publishedAt": "2026-08-28T14:37:23.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 부두어"
+        "Flickr · 부두어",
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -28,29 +28,6 @@
     },
     {
       "rank": 2,
-      "title": "DSC_0275 WM",
-      "url": "https://www.flickr.com/photos/71296134@N08/55493464618/",
-      "thumb": "https://live.staticflickr.com/65535/55493464618_56e8c31f60_b.jpg",
-      "publishedAt": "2026-08-28T14:37:22.000Z",
-      "sources": [
-        "Flickr · 란제리",
-        "Flickr · 부두어"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 27,
-      "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 3,
       "title": "美スタイル際立つワンピ水着 ミスFLASHグランプリの完璧ボディが宮古島で躍動 「もっとたくさんグラビアやって」 - Yahoo!ニュース",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1hMFBjdU5xUThDNTk2ekhMY2N0dHhiazdRTkJPN0RiWFdwamowckVUV3JiQkNTTkxDU3hRNWljcEphdEhKM1FDSTEtY0ZsR3dray1oYzFCeVI1VHZzWXEyOVY2UHVDMjNzSGtRTVJibHVhZTcwYXRkR3pvMDNHQ2s?oc=5",
       "thumb": "",
@@ -68,12 +45,12 @@
       "persons": [],
       "score": 26,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 1"
       }
     },
     {
-      "rank": 4,
+      "rank": 3,
       "title": "美スタイル際立つワンピ水着 ミスFLASHグランプリの完璧ボディが宮古島で躍動 「もっとたくさんグラビアやって」 - UQライフ",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNeTl2b0RucjlZQTRXRWh4MHBueFpxNTU5UTVPQmU5MUdzMjZBMUJsbEZkVUdveE1NdzFKOERvVVdNRUc0QW5XUnZaUURfSzhGOGZGYTRnSmVHWkhQaHd0WmV0cDI4SjBSZlVYMWlORDhSTXBkMHRnVkkyWngxQzVaQg?oc=5",
       "thumb": "",
@@ -91,36 +68,12 @@
       "persons": [],
       "score": 26,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 1"
       }
     },
     {
-      "rank": 5,
-      "title": "Hina Chan",
-      "url": "https://www.flickr.com/photos/zerodark/55493271068/",
-      "thumb": "https://live.staticflickr.com/65535/55493271068_f01c5acfc0_b.jpg",
-      "publishedAt": "2026-08-28T12:28:14.000Z",
-      "sources": [
-        "Flickr · 란제리",
-        "Flickr · 그라비아"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model",
-        "gravure"
-      ],
-      "persons": [],
-      "score": 26,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 2"
-      }
-    },
-    {
-      "rank": 6,
+      "rank": 4,
       "title": "白濱美兎が表紙を飾る、青春×水着グラビアマガジン『Navy』特別版が8月27日に発売 - ほんのひきだし",
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE05c0l5X1dOQ0JZTlBKaUZOdjdQQzdLNGlQY0NGSVktcEk5QUh4Sk1SUUxfUF9VWjdCbGYxMWE5S1RBRnlUYUFqWVl5d1AzZw?oc=5",
       "thumb": "",
@@ -138,19 +91,19 @@
       "persons": [],
       "score": 24,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
-      "rank": 7,
+      "rank": 5,
       "title": "Late Summer Style",
       "url": "https://www.flickr.com/photos/tracy4214/55492236464/",
       "thumb": "https://live.staticflickr.com/65535/55492236464_6058de82ea_b.jpg",
       "publishedAt": "2026-08-27T20:56:44.000Z",
       "sources": [
-        "Flickr · 란제리",
-        "Flickr · 부두어"
+        "Flickr · 부두어",
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
@@ -161,12 +114,35 @@
       "persons": [],
       "score": 22,
       "badge": {
-        "kind": "down",
-        "label": "▼ 3"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
-      "rank": 8,
+      "rank": 6,
+      "title": "Black & White",
+      "url": "https://www.flickr.com/photos/tracy4214/55492059156/",
+      "thumb": "https://live.staticflickr.com/65535/55492059156_d13d8d4e0e_z.jpg",
+      "publishedAt": "2026-08-27T20:54:30.000Z",
+      "sources": [
+        "Flickr · 부두어",
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 22,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 7,
       "title": "「ムチムチ感を残しつつ…」 鍛え上げた100センチ美尻をぐいっ 東雲うみ、4回目の週チャン表紙＆巻頭グラビア - Yahoo!ニュース",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE93NlBzVDcteVoyNzcxSWpvQnJhR0NCMnZ3b1plSHNPRlNHVldhVmxndlhTQmhtUWNwWVJiX2FnbGxnZUNLNVJ3MVd6dTNkMll0Njc3a1c2RmdGRWtvZ3JCU01XeGJDQ1EzYVlmWEdVcElTbnNSakJlWlc0TGI5S28?oc=5",
       "thumb": "",
@@ -186,6 +162,28 @@
           "name": "Umi Shinonome"
         }
       ],
+      "score": 18,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 1"
+      }
+    },
+    {
+      "rank": 8,
+      "title": "[Safebooru · 코스프레] arknights artist_request bag",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7095634",
+      "thumb": "https://safebooru.org/thumbnails/845/thumbnail_1be7600ea7147f5e19fe70c0f2d70de97ec3908d.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "platforms": [
+        "safebooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
       "score": 18,
       "badge": {
         "kind": "new",
@@ -210,8 +208,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -232,8 +230,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -254,8 +252,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -276,8 +274,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -298,8 +296,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -320,8 +318,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -342,8 +340,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -364,8 +362,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -386,8 +384,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -408,8 +406,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -430,8 +428,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -452,8 +450,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -474,8 +472,8 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -496,78 +494,12 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "down",
-        "label": "▼ 4"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
       "rank": 23,
-      "title": "[Safebooru · 코스프레] android bare_shoulders blue_hair",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7094514",
-      "thumb": "https://safebooru.org/thumbnails/589/thumbnail_d84cf0a1c5b2c1b9010256ef82e019a9d15fc909.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 4"
-      }
-    },
-    {
-      "rank": 24,
-      "title": "Black Lace",
-      "url": "https://www.flickr.com/photos/grahamtownsend/55493400091/",
-      "thumb": "https://live.staticflickr.com/65535/55493400091_765a0de4ff_b.jpg",
-      "publishedAt": "2026-08-28T15:01:29.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 3"
-      }
-    },
-    {
-      "rank": 25,
-      "title": "Quck dip",
-      "url": "https://www.flickr.com/photos/snapeverything/55493538293/",
-      "thumb": "https://live.staticflickr.com/65535/55493538293_ecc9b34b72_b.jpg",
-      "publishedAt": "2026-08-28T15:16:25.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 5"
-      }
-    },
-    {
-      "rank": 26,
       "title": "[TFC 23] TFC걸 라인업 공개! 레이싱퀸 강하빈, 치어리더 이지현, 라운드걸 레전드 김세라 - 네이트",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5acDJ0cXN4TVVOekNudzlJMVBIa0kybGx6UnBTWW5ZWmZwT2RnQS12Y29mcFIxUUhCMFRNNUhxSHpJWWJrajg0cWNNUXB1X1ZWUURpLS0wXzREanZj?oc=5",
       "thumb": "",
@@ -584,12 +516,12 @@
       "persons": [],
       "score": 17,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 27,
+      "rank": 24,
       "title": "井口裕香＞声優界ナンバーワングラビアン 「くびれ捜索願い出してます！」 ピンク水着でポップでセクシーに（MANTANWEB） - Yahoo!ニュース",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1oMmpSbDNmbmN2dENGb3FqSHFfLUhPQ1BqaUZkQ3NSdXJtZnFmY2tNZ0JBSDM1VnFldFh5VkJDQWs5RnZhRXJONHRJMk5YYXY1UnpJNDVYelVNNFk4NDdRVnNwNUYydl9jOUlRdjlXOGxMRE9FYURsQWNwNGR6bm8?oc=5",
       "thumb": "",
@@ -606,12 +538,12 @@
       "persons": [],
       "score": 17,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 28,
+      "rank": 25,
       "title": "東雲うみ＞「とても元気がでるグラビアになってます」 バックショットで“美尻”見せる（MANTANWEB） - Yahoo!ニュース",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE15MFVkU05va3lkN3VRUzNlVzh2dERQOWNmc3VrYWNhT05JZzctSHgtNWNMbnF5M25nNm15Yy11YnZGeF9OM08yVThtM1NmVDV1ZXkwVnZtSDlYVEk5Y1B0c2xPZFlzQUVUd2FQT0xpb0FfdmZJWmFYbGpheFRMN28?oc=5",
       "thumb": "",
@@ -633,12 +565,12 @@
       ],
       "score": 17,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 29,
+      "rank": 26,
       "title": "露出少なめも良き！29歳人気グラドル、日帰り静岡旅行先での涼しげ浴衣姿に「どの角度でも美しい」「あでやかすぎる」ネット称賛の声 - ｄメニューニュース",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOT3h2WkxvVm1XTTZ3bmtqZkZqdElQZlZ2MzY1MTI5LXBrSkRFWVc4OVl0OXBpcXdjdGtmUGpLS1dNYVA5NVVFeXpwMG5LakdfWmdMeVp1SEJzSk82M3pjSFNFeDdJa1NQa2hNRDQxa3Jad3AycDdnNnctR1JpeGw0cdIBhgFBVV95cUxPQlg2UDJhaGY0cXpRMmNSTXdIT1F4Z1Q2bVdmVU5FQ1JTbWsyOUpnN2p1dWZGbjdUUm1MMHJIUl8wWm5KdTlIRERtampJUmxwRm5hY3dONXBGY18xNDE3ZnZFMm1taXdZOWcxQzBkMVMta0pGdlQwRzhxUlpoSXpIM3B5SFVEdw?oc=5",
       "thumb": "",
@@ -655,34 +587,12 @@
       "persons": [],
       "score": 17,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 30,
-      "title": "「美魔女ですなぁ」44歳・手島優の現在が「ますます綺麗」 ファンと結婚でも話題…誕生日報告に「若く見えます」の声 - Yahoo!ニュース",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBRYlRORHNQc291bUh4YjlLV2stemh3LUxjRDBoNTQwVEZ6dGhyMUlsTnFpYkNvM25ieFFuQTRSdkpIbnNlMG5TdUNwYjhIOURUdTg0R0poSXhWVThXZkpBQk1Ia1JrMnZuWExCNG5DUV9VU1lNWUU1VEJzNGNGSFk?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-08-28T13:05:00.000Z",
-      "sources": [
-        "Google News · グラビア(JA)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 31,
+      "rank": 27,
       "title": "「美魔女ですなぁ」44歳・手島優の現在が「ますます綺麗」 ファンと結婚でも話題…誕生日報告に「若く見えます」の声 - プラメポータル",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9nSDdqYnZCOUZPU2VEMmdtSUFucjZWTWtDVmRnemRQOFQ2R0x4T2t3RTZZNjhacTNLXzRwZkVhUzBMR3dXYWY0bXJ4Skc5c2pfc3hoSmc3QXhMY1MyUm9QLTFtTjY2cktzTktLdGd4ZWFxRnN5YkdTQ3F4OG5NbXM?oc=5",
       "thumb": "",
@@ -699,34 +609,34 @@
       "persons": [],
       "score": 17,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 4"
       }
     },
     {
-      "rank": 32,
-      "title": "https://www. cosphb.com/321233/ メイドの横側宙#メイド # コスプレ # cosplay # CosplayInJapan # コスプレ",
-      "url": "https://jpmstdn.com/@cosphb/117173264431531454",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/173/264/549/445/452/original/53daae4e0ea12f6e.jpg",
-      "publishedAt": "2026-08-28T13:02:05.000Z",
+      "rank": 28,
+      "title": "DSC_0275 WM",
+      "url": "https://www.flickr.com/photos/71296134@N08/55493464618/",
+      "thumb": "https://live.staticflickr.com/65535/55493464618_56e8c31f60_b.jpg",
+      "publishedAt": "2026-08-28T14:37:22.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Flickr · 부두어"
       ],
       "platforms": [
-        "mastodon"
+        "flickr"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
       "score": 17,
       "badge": {
         "kind": "down",
-        "label": "▼ 10"
+        "label": "▼ 26"
       }
     },
     {
-      "rank": 33,
+      "rank": 29,
       "title": "Seduction",
       "url": "https://www.flickr.com/photos/grahamtownsend/55493265146/",
       "thumb": "https://live.staticflickr.com/65535/55493265146_755669ab2a_b.jpg",
@@ -743,12 +653,34 @@
       "persons": [],
       "score": 17,
       "badge": {
-        "kind": "down",
-        "label": "▼ 10"
+        "kind": "up",
+        "label": "▲ 4"
       }
     },
     {
-      "rank": 34,
+      "rank": 30,
+      "title": "FAN EXPO Day 1",
+      "url": "https://www.flickr.com/photos/uyglz_yuudachi/55493302058/",
+      "thumb": "https://live.staticflickr.com/65535/55493302058_272820f872_b.jpg",
+      "publishedAt": "2026-08-28T12:48:21.000Z",
+      "sources": [
+        "Flickr · 코스프레"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 31,
       "title": "元TBS山本里菜アナ、初の水着グラビアにフォロワー衝撃「ナイスプロポーション」「美の極み」 - 日刊スポーツ",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPb09HbURIZURHdnNwY1BJLU9mRWxSczJGZnRuWXlxeVdWLVZYRnBxZHE0LWozN20taVZITTFObXphYnFHaWo4MU0tYURfSUZoNlJXd1pnalYtQWg4Vzgta0puUkp6dk1OWmEtRkp2azV6RVE1VkdJMC1zT1JZdngtdmRZeVJIT1YxdW83X0c5RlpxSG9OTmc?oc=5",
       "thumb": "",
@@ -765,12 +697,12 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 35,
+      "rank": 32,
       "title": "黄色の水着で夏を乗り越えろ！宮川みやびが巻末グラビアで美ボディを魅せた『ヤングアニマル』17号が本日8月28日に発売 - ほんのひきだし",
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBjWVk4b1dkUGUzTWlZelRRbUJQOV9SNW54REhCMW5STEU0Mm1mSmdkbmNGbTFfaXREVEpMTWpia1p0dFNEeHAySHNZYmZJQQ?oc=5",
       "thumb": "",
@@ -787,12 +719,12 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 36,
+      "rank": 33,
       "title": "合宿所の美人看護師は171cmのスタイル抜群グラドルだった 「可愛すぎる」「刺激が強い」 - ABEMA TIMES",
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5NQkhkOFplSTV5RDNGVmtjaWZHaGhXM3kya1lfWm9pM3RsQmE3TGlnVzRTbm9MRzlJekZtTzZqb3lVSWNxdkxZLWsxVU1IRmlaN25ETQ?oc=5",
       "thumb": "",
@@ -809,12 +741,12 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 37,
+      "rank": 34,
       "title": "小野たまり ４枚目ＤＶＤ発売 見どころは雪グラビア「体感温度氷点下の中ポーカーフェイスで頑張って撮りました！」 - 東スポWEB",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9keDNGX05wY2ttVE40TmR6WUpCYUphOUVZYUlXWmF3Y01ENE00NEpLRllDNmpWblJvdWd2MzR4d0ZnU1I0Vmh3aXE1Tkt3N0MyQl9YVTF1NmNJY2NH?oc=5",
       "thumb": "",
@@ -831,12 +763,12 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 38,
+      "rank": 35,
       "title": "深切れ込み超脚長＋透き通る白い肌 あふれそうショット連発！新人K―1ガール白石希望「FLASH」初登場 - Yahoo!ニュース",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1uQkszSTFhRFl5UDdmSEVXZVhnUlhLUUFTdnQzenR2NWhFMUF4M195T0ZHRTdzUFZKeXktZ2libDJ5aFNTczBvWXI0SER3NUQxeldyU2xrU18wWGpuNGYxOXgyMEY5WGpIMHBZOFo3NDBMcG1aU19IT1AyV09ma1U?oc=5",
       "thumb": "",
@@ -853,12 +785,34 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 3"
       }
     },
     {
-      "rank": 39,
+      "rank": 36,
+      "title": "「美魔女ですなぁ」44歳・手島優の現在が「ますます綺麗」 ファンと結婚でも話題…誕生日報告に「若く見えます」の声 - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBRYlRORHNQc291bUh4YjlLV2stemh3LUxjRDBoNTQwVEZ6dGhyMUlsTnFpYkNvM25ieFFuQTRSdkpIbnNlMG5TdUNwYjhIOURUdTg0R0poSXhWVThXZkpBQk1Ia1JrMnZuWExCNG5DUV9VU1lNWUU1VEJzNGNGSFk?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-08-28T13:05:00.000Z",
+      "sources": [
+        "Google News · グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 6"
+      }
+    },
+    {
+      "rank": 37,
       "title": "41歳元トップグラドル、マネジャーから「入る下着が無い…」通告 ネットは同情「苦労されてるんですね」 - au Webポータル",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE13YzBzVDJwNC00ZkdLelNhVE9MMngtV002YjB1WEZyV3hWVUZ1RVNZMklVZmtZSEVhTEV5b25wR3BnemxwbTliZmNtcGdlUVlaNTlQOWJLV2lSNmR5ZmJVT0dqaGl2ekdrTjREQ19n?oc=5",
       "thumb": "",
@@ -875,12 +829,12 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
-      "rank": 40,
+      "rank": 38,
       "title": "41歳元トップグラドル、マネジャーから「入る下着が無い…」通告 ネットは同情「苦労されてるんですね」 - UQライフ",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNUTZpd09RcGtPU0paRnRLUExrYXVrNEktM0FVS2hGaUxDZ3A0ZnRRTDlRLUV0TGwzcXlhangycFJsNUpCb2xUdHBQYVNQVENzN1hIdGpOV1E1My1IN1lScmM1QTYxWkViSmhCenVuSDdfMzR1ZXlTNmdZUUI2S0c5ag?oc=5",
       "thumb": "",
@@ -897,12 +851,12 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 2"
       }
     },
     {
-      "rank": 41,
+      "rank": 39,
       "title": "“最強ボディ”東雲うみが『週チャン』表紙＆巻頭グラビア！「ムチムチ感を残しつつ筋トレ頑張りました」 - RBB TODAY",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE14SEhKMGJMSkotWXRNZXp5d216RzJCVlNtWkNTM2ZxRnJzTEtfVm41Zi1Ub2NCdWtxaHJ4TGdYdXBkZ285UE5mdzhBRWtsWnJaUkprQ2NFVDBmS1E3UnBOblhsSHk1QQ?oc=5",
       "thumb": "",
@@ -924,8 +878,52 @@
       ],
       "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 2"
+      }
+    },
+    {
+      "rank": 40,
+      "title": "Hina Chan",
+      "url": "https://www.flickr.com/photos/zerodark/55493271068/",
+      "thumb": "https://live.staticflickr.com/65535/55493271068_f01c5acfc0_b.jpg",
+      "publishedAt": "2026-08-28T12:28:14.000Z",
+      "sources": [
+        "Flickr · 그라비아"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 35"
+      }
+    },
+    {
+      "rank": 41,
+      "title": "https://www. cosphb.com/321233/ メイドの横側宙#メイド # コスプレ # cosplay # CosplayInJapan # コスプレ",
+      "url": "https://jpmstdn.com/@cosphb/117173264431531454",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/173/264/549/445/452/original/53daae4e0ea12f6e.jpg",
+      "publishedAt": "2026-08-28T13:02:05.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 9"
       }
     },
     {
@@ -946,8 +944,8 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "down",
-        "label": "▼ 17"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -968,8 +966,8 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "down",
-        "label": "▼ 17"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -990,12 +988,34 @@
       "persons": [],
       "score": 16,
       "badge": {
-        "kind": "down",
-        "label": "▼ 17"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
       "rank": 45,
+      "title": "ᕼᗩᗯTᕼOᖇᑎE",
+      "url": "https://www.flickr.com/photos/95117956@N05/55492143762/",
+      "thumb": "https://live.staticflickr.com/65535/55492143762_01eed030c1_b.jpg",
+      "publishedAt": "2026-08-28T12:12:00.000Z",
+      "sources": [
+        "Flickr · 부두어"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 2"
+      }
+    },
+    {
+      "rank": 46,
       "title": "Armed and Naughty",
       "url": "https://www.flickr.com/photos/201236896@N02/55493556625/",
       "thumb": "https://live.staticflickr.com/65535/55493556625_d385133c65_b.jpg",
@@ -1013,105 +1033,83 @@
       "score": 16,
       "badge": {
         "kind": "down",
-        "label": "▼ 14"
-      }
-    },
-    {
-      "rank": 46,
-      "title": "FAN EXPO Day 1",
-      "url": "https://www.flickr.com/photos/uyglz_yuudachi/55493191781/",
-      "thumb": "https://live.staticflickr.com/65535/55493191781_2ec5dbc9bb_b.jpg",
-      "publishedAt": "2026-08-28T12:50:31.000Z",
-      "sources": [
-        "Flickr · 코스프레"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "label": "▼ 1"
       }
     },
     {
       "rank": 47,
-      "title": "ᕼᗩᗯTᕼOᖇᑎE",
-      "url": "https://www.flickr.com/photos/95117956@N05/55492143762/",
-      "thumb": "https://live.staticflickr.com/65535/55492143762_01eed030c1_b.jpg",
-      "publishedAt": "2026-08-28T12:12:00.000Z",
-      "sources": [
-        "Flickr · 부두어"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 17"
-      }
-    },
-    {
-      "rank": 48,
-      "title": "The original paddle",
-      "url": "https://www.flickr.com/photos/186481046@N08/55493538180/",
-      "thumb": "https://live.staticflickr.com/65535/55493538180_01c0e1bfe1_b.jpg",
-      "publishedAt": "2026-08-28T12:19:45.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 20"
-      }
-    },
-    {
-      "rank": 49,
-      "title": "Sunny Pines",
-      "url": "https://www.flickr.com/photos/193171943@N08/55493067611/",
-      "thumb": "https://live.staticflickr.com/65535/55493067611_5c3e55f891_b.jpg",
-      "publishedAt": "2026-08-28T11:21:40.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 20"
-      }
-    },
-    {
-      "rank": 50,
       "title": "元気な青い水着！グラビアマガジン『Navy』通常版の一ノ瀬瑠菜の特典画像Cが公開 - ほんのひきだし",
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE50alB4cFFQYXpKZEJ3NnE5YnJicUVwZ2RrZm1KekZzeXA0eHBzT3NvU19jV2kwdXJzTzVNVGZJcEF5cWFwaThsT2JVNWFOUQ?oc=5",
       "thumb": "",
       "publishedAt": "2026-08-28T08:55:05.000Z",
       "sources": [
         "Google News · 水着グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 3"
+      }
+    },
+    {
+      "rank": 48,
+      "title": "シックなモスグリーンの水着！グラビアマガジン『Navy』特別版の白濱美兎の特典画像Aが公開 - ほんのひきだし",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBNaEtMTmZEZUc2RkZwbGc0dU5aeEhKeXZ0TTBrX0VRU2s1SDJrakcyZVhFVDZlclBDU1hTajVEbDlfLWxPX1h4RkNyelJPdw?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-08-28T09:25:06.000Z",
+      "sources": [
+        "Google News · 水着グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 49,
+      "title": "元TBS山本里菜アナ「離婚21日後」に初の水着グラビア解禁、女性アナの“脱ぐ”歩み (週刊女性PRIME) - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNcEhQb0hxT0sxdUF6N19SUlVrOVcyV3RGWFBQQ2NPbjNzZWo5Tm9xSXRuLWRjYU94bC1hRllVYWZMYVVVb0c3bnZ5anJoUFVHVnN4Rjg0OG5MUDRnNzJNaTVSTjdaYWdOMzIxbXBaWGEtaHJNa0poNVllbXY4WlpXRGYtTFhoZ2RqV25sN0dB?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-08-28T10:03:05.000Z",
+      "sources": [
+        "Google News · 水着グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 50,
+      "title": "橋本梨菜が渋谷で「釘玉夏祭り」をひと足早く満喫！ 無料の豪華かき氷と懐かしの羽根モノに笑顔満開 - スポニチ Sponichi Annex",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNcDMxR3ZRZl85b0FDaEtoME8xdzFKNzIyQnJoVDhrQjRzN2szbDFlZHFCbzNHeG0zWUJ5cXF5NkE1WTdtbFQzOTcwQ0k5dmJkMENJWmdFMlpJb0wyTHB1NDJKdDhwVWZxeERsbDJISWZ6LVNId0diWE9Yb3J1aWdFMnh3eE4zelJXZEw2TTFWc1VYX0gwNVE?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-08-28T11:01:00.000Z",
+      "sources": [
+        "Google News · グラビア(JA)"
       ],
       "platforms": [
         "news"
@@ -1137,8 +1135,8 @@
     {
       "id": "yoko-kumada",
       "name": "Yoko Kumada",
-      "mentions": 1,
-      "score": 18
+      "mentions": 2,
+      "score": 29
     }
   ]
 }
