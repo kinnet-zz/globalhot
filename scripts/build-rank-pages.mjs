@@ -5,6 +5,7 @@
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { matchPersons } from "../rank/scripts/lib/score.mjs";
 
 // 메인(index.html)과 동일한 FNV-1a 8hex — 클라이언트와 슬러그 일치 필수
 export function slugOf(url) {
@@ -214,11 +215,43 @@ export async function buildRankPages({ projectRoot, distDir }) {
   // ── 인물 페이지 /t/<id> ──
   await mkdir(path.join(distDir, "t"), { recursive: true });
   const nameOf = (m) => [m.name, m.altName].filter(Boolean);
+
+  // 인물별 활동 인덱스: 최근 7일 히스토리 + 현재 랭킹에서 인물 언급 항목 수집 (살아있는 인물 페이지)
+  const cutoff = Date.now() - 7 * 24 * 3600 * 1000;
+  const personIndex = new Map(); // personId -> Map(url -> {title, thumb, rank, best, lastTs})
+  const addMention = (person, item, ts) => {
+    if (!personIndex.has(person.id)) personIndex.set(person.id, new Map());
+    const bucket = personIndex.get(person.id);
+    const prev = bucket.get(item.url);
+    bucket.set(item.url, {
+      title: item.title,
+      thumb: item.thumb || prev?.thumb || "",
+      lastTs: ts,
+      rank: prev?.rank ?? item.rank,
+      best: Math.min(prev?.best ?? item.rank, item.rank),
+    });
+  };
+  for (const snap of history) {
+    if (Date.parse(snap.ts) < cutoff) continue;
+    for (const it of snap.items ?? []) {
+      if (!it.title) continue; // 과거 스냅샷(제목 없음)은 스킵
+      for (const hit of matchPersons(it.title, models)) addMention(hit, it, snap.ts);
+    }
+  }
+  for (const item of ranking.top) {
+    for (const hit of matchPersons(item.title, models)) addMention(hit, item, ranking.generated_at);
+  }
+
   for (const m of models) {
-    const related = ranking.top.filter((item) => {
-      const hay = ` ${item.title.toLowerCase()} `;
-      return nameOf(m).some((n) => n.length >= 3 && hay.includes(n.toLowerCase()));
-    }).slice(0, 8);
+    const activity = [...(personIndex.get(m.id)?.values() ?? [])].sort((a, b) => String(b.lastTs).localeCompare(String(a.lastTs)));
+    const mentions = activity.length;
+    const best = mentions ? Math.min(...activity.map((a) => a.best)) : null;
+    const related = mentions
+      ? activity.slice(0, 8)
+      : ranking.top.filter((item) => {
+          const hay = ` ${item.title.toLowerCase()} `;
+          return nameOf(m).some((n) => n.length >= 3 && hay.includes(n.toLowerCase()));
+        }).slice(0, 8);
     const photo = m.photoAvailable ? `/assets/profiles/${m.id}.jpg` : null;
     const sns = Object.entries(m.sns ?? {}).filter(([, v]) => v);
     const body = `${AD_LEADERBOARD}
@@ -231,6 +264,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
       </div>
     </div>
     ${m.bio ? `<div class="section" data-i18n="personsTitle"></div><p class="bio">${esc(m.bio)}</p>` : ""}
+    ${mentions ? `<div class="tags" style="margin-top:10px"><span class="rtag" style="background:#fef3c7;color:#92400e">🔥 7d ${mentions}</span>${best ? `<span class="rtag" style="background:#dbeafe;color:#1e40af">TOP ${best}</span>` : ""}</div>` : ""}
     <div class="sns">
       ${sns.map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener nofollow">${esc(k.toUpperCase())} ↗</a>`).join(" ")}
       ${m.officialUrl ? `<a href="${esc(m.officialUrl)}" target="_blank" rel="noopener nofollow">OFFICIAL ↗</a>` : ""}
@@ -238,7 +272,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
     ${AD_INCONTENT}
     <div class="section" data-i18n="latestTitle"></div>
     <ul class="related">
-      ${related.length ? related.map((r) => `<a href="/r/${slugMap.get(r.url) ?? slugOf(r.url)}"><span class="rn">${r.rank}</span><span class="tt">${esc(r.title.slice(0, 90))}</span></a>`).join("") : `<li style="color:var(--muted);font-size:13px" data-i18n="noRelated"></li>`}
+      ${related.length ? related.map((r) => `<a href="/r/${slugMap.get(r.url) ?? slugOf(r.url)}"><span class="rn">${r.rank}</span><span class="tt">${esc(r.title.slice(0, 90))}${r.lastTs ? ` <span style="color:var(--muted);font-size:11px">· ${new Date(r.lastTs).toLocaleDateString("ko-KR", { month: "2-digit", day: "2-digit" })}</span>` : ""}</span></a>`).join("") : `<li style="color:var(--muted);font-size:13px" data-i18n="noRelated"></li>`}
     </ul>
     <p style="margin-top:16px"><a href="/" style="color:var(--blue);font-size:13px" data-i18n="navRank"></a></p>`;
 
