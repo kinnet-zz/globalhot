@@ -99,3 +99,60 @@ export function hasAdultRating(itemBlockXml) {
     /rating="(adult|mature)"/i.test(xml)
   );
 }
+
+// ── 랭킹 균형 룰 ────────────────────────────────────────
+// 1) 애니 쿼터: booru 계열(일러스트 중심) 항목은 TOP의 MAX_BOORU_RATIO 까지만.
+//    실사(사진·화보·뉴스)가 메인인 사이트 성격 유지.
+// 2) 작가 캡: 동일 Flickr 작가/Mastodon 계정은 MAX_PER_AUTHOR 건까지 — 특정 계정 도배 방지.
+export const MAX_BOORU_RATIO = 0.3;
+export const MAX_PER_AUTHOR = 2;
+
+const BOORU_PLATFORMS = new Set(["yandere", "safebooru", "danbooru", "konachan", "gelbooru"]);
+
+// URL에서 작가/계정 키 추출 (Flickr 작가, Mastodon 핸들)
+export function authorKeyOf(url, platforms) {
+  const u = String(url ?? "");
+  let m = u.match(/flickr\.com\/photos\/([^\/]+)/);
+  if (m) return "flickr:" + m[1];
+  if (platforms?.some((p) => p === "mastodon") && (m = u.match(/\/@([^\/]+)/))) return "masto:@" + m[1];
+  return null;
+}
+
+// 정렬된 scored 배열에 쿼터 적용해 상위 TOP_N 선택
+export function applyQuotas(scored, topN) {
+  const maxBooru = Math.round(topN * MAX_BOORU_RATIO);
+  let booruCount = 0;
+  const authorCounts = new Map();
+  const selected = [];
+  for (const item of scored) {
+    if (selected.length >= topN) break;
+    const isBooru = (item.platforms ?? []).some((p) => BOORU_PLATFORMS.has(p));
+    if (isBooru && booruCount >= maxBooru) continue;
+    const author = authorKeyOf(item.url, item.platforms);
+    if (author) {
+      const c = authorCounts.get(author) ?? 0;
+      if (c >= MAX_PER_AUTHOR) continue;
+      authorCounts.set(author, c + 1);
+    }
+    if (isBooru) booruCount++;
+    selected.push(item);
+  }
+  return selected;
+}
+
+// booru 태그 제목 정리 — 메타 태그 제거 후 의미 태그만 (예: "[Safebooru] 코스프레 #hatsune_miku")
+const BOORU_META_TAGS = new Set([
+  "1girl", "2girls", "3girls", "1boy", "2boys", "absurdres", "highres", "hi_res",
+  "large_filesize", "long_image", "multiple_views", "commentary", "translated",
+  "commentary_request", "bad_id", "duplicate", "cosplay_request", "photo_set",
+  "landscape", "portrait", "close-up", "english_commentary",
+]);
+export function cleanBooruTitle(tagString) {
+  const tags = String(tagString ?? "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((t) => !BOORU_META_TAGS.has(t) && !/^:?[;d]/i.test(t))
+    .slice(0, 3)
+    .join(" ");
+  return tags;
+}

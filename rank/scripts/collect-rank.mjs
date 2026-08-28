@@ -7,7 +7,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { itemScore, personScore, normalizeTitle, matchPersons, rankBadge, isCleanTitle, hasAdultRating } from "./lib/score.mjs";
+import { itemScore, personScore, normalizeTitle, matchPersons, rankBadge, isCleanTitle, hasAdultRating, applyQuotas, cleanBooruTitle } from "./lib/score.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..", "..");
@@ -107,12 +107,6 @@ function parseBooru(jsonText, src) {
     if (!id) continue;
     const buildUrl = BOORU_POST_URL[src.platform];
     if (!buildUrl) continue;
-    const tags = String(p.tags ?? "")
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 6)
-      .map((t) => `#${t}`)
-      .join(" ");
     // 발행일: 플랫폼별 unix 초/밀리초 또는 ISO 문자열
     let publishedAt = "";
     if (typeof p.created_at === "number" && p.created_at > 1_000_000_000) {
@@ -121,7 +115,7 @@ function parseBooru(jsonText, src) {
       publishedAt = new Date(p.created_at).toISOString();
     }
     items.push({
-      title: `[${src.label}] ${tags || `post ${id}`}`,
+      title: `[${src.label}] ${cleanBooruTitle(p.tags) || `post ${id}`}`,
       url: buildUrl(id),
       publishedAt,
       thumb: String(p.preview_url ?? p.preview_file_url ?? "").startsWith("http") ? p.preview_url ?? p.preview_file_url : "",
@@ -145,7 +139,7 @@ async function main() {
         const text = await fetchText(src.feed);
         const items = src.type === "booru-json" ? parseBooru(text, src) : parseRss(text);
         for (const it of items) {
-          collected.push({ ...it, source: src.label, category: src.category });
+          collected.push({ ...it, source: src.label, category: src.category, platform: src.platform });
         }
         console.log(`[ok] ${src.label}: ${items.length} items`);
       } catch (e) {
@@ -196,6 +190,8 @@ async function main() {
     if (c.thumb && !g.thumb) g.thumb = c.thumb;
     g.sources.add(c.source);
     g.categories.add(c.category);
+    g.platforms = g.platforms ?? new Set();
+    if (c.platform) g.platforms.add(c.platform);
     if (c.publishedAt && (!g.publishedAt || Date.parse(c.publishedAt) > Date.parse(g.publishedAt))) g.publishedAt = c.publishedAt;
   }
 
@@ -223,12 +219,13 @@ async function main() {
     thumb: g.thumb,
     publishedAt: g.publishedAt,
     sources: [...g.sources],
+    platforms: [...(g.platforms ?? [])],
     categories: [...g.categories],
     persons: g.persons,
     score: Math.round(itemScore({ publishedAt: g.publishedAt || new Date(now).toISOString(), sourceLabels: g.sources, personMentions: g.persons.length }, now) + g.sources.size * 4),
   }));
   scored.sort((a, b) => b.score - a.score);
-  const top = scored.slice(0, TOP_N);
+  const top = applyQuotas(scored, TOP_N);
 
   const personsScored = [...personAgg.values()]
     .map((a) => ({ id: a.id, name: a.name, mentions: a.mentions, score: Math.round(personScore({ mentions: a.mentions, latestAt: a.latestAt, sourceLabels: a.sources }, now)) }))

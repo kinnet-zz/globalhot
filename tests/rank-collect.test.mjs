@@ -99,3 +99,25 @@ test("adult content filter blocks explicit titles and allows clean ones", async 
   assert.equal(hasAdultRating('<item><media:rating scheme="urn:mpaa">mature</media:rating></item>'), true);
   assert.equal(hasAdultRating('<item><title>clean</title></item>'), false);
 });
+
+test("ranking balance quotas: booru cap 30% and per-author cap", async () => {
+  const { applyQuotas, cleanBooruTitle, authorKeyOf } = await import("../rank/scripts/lib/score.mjs");
+  const mk = (i, platforms, url) => ({ title: `item ${i}`, url, platforms, score: 100 - i });
+  // booru 40건 + 실사 20건 → booru는 15건(30%)만 선택되어야 함
+  const scored = [
+    ...Array.from({ length: 40 }, (_, i) => mk(i, ["safebooru"], `https://safebooru.org/index.php?page=post&s=view&id=${i}`)),
+    ...Array.from({ length: 20 }, (_, i) => mk(100 + i, ["flickr"], `https://www.flickr.com/photos/author${i}/50${i}/`)),
+  ];
+  const top = applyQuotas(scored, 50);
+  const booru = top.filter((t) => t.platforms.includes("safebooru")).length;
+  assert.equal(top.length, 35, "booru 15 + flickr 20 = 35 selectable");
+  assert.equal(booru, 15, "booru must be capped at 30% of TOP");
+
+  // 같은 Flickr 작가 10건 → 2건만
+  const flood = Array.from({ length: 10 }, (_, i) => mk(i, ["flickr"], `https://www.flickr.com/photos/spammer/60${i}/`));
+  assert.equal(applyQuotas(flood, 50).length, 2, "same-author flood capped at 2");
+
+  // 메타태그 제거한 booru 제목
+  assert.equal(cleanBooruTitle("1girl absurdres highres hatsune_miku cosplay"), "hatsune_miku cosplay");
+  assert.equal(authorKeyOf("https://www.flickr.com/photos/alice/123/"), "flickr:alice");
+});
