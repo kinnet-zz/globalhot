@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-08-30T05:41:24.371Z",
-    "total_items": 67,
+    "scraped_at": "2026-08-30T16:54:07.302Z",
+    "total_items": 70,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -40,7 +40,7 @@
       "platform": "news",
       "source": "Google News · 수영복",
       "category": "model",
-      "author": "facebook.com",
+      "author": "Facebook",
       "created_utc": 1787881764
     },
     {
@@ -82,16 +82,6 @@
       "category": "model",
       "author": "New York Post",
       "created_utc": 1786777200
-    },
-    {
-      "id": "CBMixwFBVV95cUxNRWNVUTdQZ01UQlhaeGRJcjMyOEktWEV4MXlPZ0Z3UG0xdGVQazZLZW43S3RDSjN3Z2JvajRtSUZyY0RKOWZQRlVqT0x3Q09yTzJaVjJkbl9zSDNiVXdUcXF5R3F3d0xVcXJ6RmNiaXlhdmI3NVRKM201NGRHMTBGSXVUUy04OUVtRFh0Y0daSUx1aHdOMExBZFlEYjlsSEhIdjZDSTg0RUxQdnpQcXdvczhNSWZ6R2FWM3NtQTUxdFRPYjZUZW80",
-      "title": "Ex-SKE48 idol Ayaka Okamoto strips down for ‘secret’ Okinawa getaway in debut photo book",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNRWNVUTdQZ01UQlhaeGRJcjMyOEktWEV4MXlPZ0Z3UG0xdGVQazZLZW43S3RDSjN3Z2JvajRtSUZyY0RKOWZQRlVqT0x3Q09yTzJaVjJkbl9zSDNiVXdUcXF5R3F3d0xVcXJ6RmNiaXlhdmI3NVRKM201NGRHMTBGSXVUUy04OUVtRFh0Y0daSUx1aHdOMExBZFlEYjlsSEhIdjZDSTg0RUxQdnpQcXdvczhNSWZ6R2FWM3NtQTUxdFRPYjZUZW80?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아",
-      "category": "gravure",
-      "author": "The Tokyo Reporter",
-      "created_utc": 1786536380
     },
     {
       "id": "CBMifkFVX3lxTE9EZ2dWdXhPY211Y19Ca2Y3WXRUVHRYUjRtOTkzbVdqZlFYYkdDajJEdHBaeUFlWXFXYVJJMDNPWVRDOTFrRGFvbmZaLXluQ1hxc0VaTmpDTTdNR0tnR1pkSmFMVU05ZmR2V0w5U2RlWHM5d2J6VXZac0RuTkVaUQ",
@@ -214,6 +204,16 @@
       "created_utc": 1774249200
     },
     {
+      "id": "CBMixwFBVV95cUxPanRIQjFfYWVyNlN1aWJZSVJXZVZ4Wmpram0zWjRZSDhQSUs2RFFibXoxc0FFazBqQm5Bd1pRMVpobVI4dXd1N2h0TVpLMlRNLVVYSXBRXzZlSkI4ZWszZkNZbFFpZFBEMkgwOXN3TU05anQ0eXMyNnJnZ3p5M21ORWlnbUZCWTcwU1hXa2lXLUFOb1NONklzaEtfck5tZGstSUY5UlppRjlma3hFSi1LeXVZd09hMS1mWWpOR21HcDdUbDR0bTFj",
+      "title": "Camille Kostek gives behind-the-scenes look at ninth SI Swimsuit shoot: ‘So happy to be back’",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPanRIQjFfYWVyNlN1aWJZSVJXZVZ4Wmpram0zWjRZSDhQSUs2RFFibXoxc0FFazBqQm5Bd1pRMVpobVI4dXd1N2h0TVpLMlRNLVVYSXBRXzZlSkI4ZWszZkNZbFFpZFBEMkgwOXN3TU05anQ0eXMyNnJnZ3p5M21ORWlnbUZCWTcwU1hXa2lXLUFOb1NONklzaEtfck5tZGstSUY5UlppRjlma3hFSi1LeXVZd09hMS1mWWpOR21HcDdUbDR0bTFj?oc=5",
+      "platform": "news",
+      "source": "Google News · 수영복",
+      "category": "model",
+      "author": "New York Post",
+      "created_utc": 1773817200
+    },
+    {
       "id": "CBMihwFBVV95cUxObVdZOXZDYmJFMHV5aEx4Vmt0ZXdjUWxlQUs3YlpOLXVEWjVIR3ZxSGdSTjdHakc4UUR5QUI4UThxNjdfeTUybGwxYkpCZ3FPN1ZjeGRfTnZfWHBpeUkyUDkyS2ppelJOVkhOZktlcno1cTdlUm54NmRlYXFGdTBsVnZOZTJsV2c",
       "title": "Teesside glamour model Chelsea Ferguson hits headlines after celebs' dad spotted 'liking' her photos",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObVdZOXZDYmJFMHV5aEx4Vmt0ZXdjUWxlQUs3YlpOLXVEWjVIR3ZxSGdSTjdHakc4UUR5QUI4UThxNjdfeTUybGwxYkpCZ3FPN1ZjeGRfTnZfWHBpeUkyUDkyS2ppelJOVkhOZktlcno1cTdlUm54NmRlYXFGdTBsVnZOZTJsV2c?oc=5",
@@ -292,6 +292,16 @@
       "category": "cosplay",
       "author": "HELLO! Magazine",
       "created_utc": 1767427200
+    },
+    {
+      "id": "CBMiS0FVX3lxTE15cUNNLVJnNFdZS1lfRjZkQWgwM2Zzc3RvOHE0ekgxYWpycGVDTTZtRmY1SGkzQUVzdGRiNEhJR3pKNmhXOGR0XzFYOA",
+      "title": "시노자키 아이 한정판 화보집 - 몽환",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE15cUNNLVJnNFdZS1lfRjZkQWgwM2Zzc3RvOHE0ekgxYWpycGVDTTZtRmY1SGkzQUVzdGRiNEhJR3pKNmhXOGR0XzFYOA?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "브런치",
+      "created_utc": 1765353600
     },
     {
       "id": "CBMieEFVX3lxTFB3RERjRVNnLXFWZUkzSWVVb0pyZEdnazlOeDdmTExfNjRpMTFFQkU1VWh0dl93LTRhSjRDWDFNU1JoX0hucFloelRlY3VJc1g3VXN3bEtCVjJoa0d4X2xLLTdSUkw4eGxhZ180THpnVVRLaDctelhOTw",
@@ -394,16 +404,6 @@
       "created_utc": 1682492400
     },
     {
-      "id": "CBMiRkFVX3lxTE1QenhIWEtSSzJhLWZzWGxtSGpTOXR0Mm5jVEQ5a2NMQlZqcUZ2R3VHQ3I0WE53ZjM4aHpPUnVzQVp5Vl9QZlE",
-      "title": "하연수 日 근황 공개..그라비아 모델 데뷔 \"첫 촬영 행복\"[스타이슈]",
-      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1QenhIWEtSSzJhLWZzWGxtSGpTOXR0Mm5jVEQ5a2NMQlZqcUZ2R3VHQ3I0WE53ZjM4aHpPUnVzQVp5Vl9QZlE?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "v.daum.net",
-      "created_utc": 1682406000
-    },
-    {
       "id": "CBMic0FVX3lxTE1laUNxVHhYRXFHUVkzYnhYT0hlMElYanVTLVV0c3JyYkY3MnB1Ul80YWViRGJnb3o0eXVtaFA5QU9iQVlCQU1Rc0ZKQTlHMm9ZcHV2SEdTNWhXdkk3YVFzX20tVXhqSGxPODNUWFF6bmFtMk3SAXdBVV95cUxOVWFYRmZ6RDRHcldaa3gwWU41Q3M2UUZseV95dVBvcU9pTHpETi1IbmlRMGdqSGZWZW84Slo3a0Y2YVlXZkZtS1pXb3ZXVmcxZVRGQWFXbVlGbHFSMGd0SUFDQUpmbDBPbXBTMUZWc1VqYUZxVWUyaw",
       "title": "머슬마니아 스포츠모델 ‘퀸’ 장하은, ‘맥스큐’ 비키니 화보 공개",
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1laUNxVHhYRXFHUVkzYnhYT0hlMElYanVTLVV0c3JyYkY3MnB1Ul80YWViRGJnb3o0eXVtaFA5QU9iQVlCQU1Rc0ZKQTlHMm9ZcHV2SEdTNWhXdkk3YVFzX20tVXhqSGxPODNUWFF6bmFtMk3SAXdBVV95cUxOVWFYRmZ6RDRHcldaa3gwWU41Q3M2UUZseV95dVBvcU9pTHpETi1IbmlRMGdqSGZWZW84Slo3a0Y2YVlXZkZtS1pXb3ZXVmcxZVRGQWFXbVlGbHFSMGd0SUFDQUpmbDBPbXBTMUZWc1VqYUZxVWUyaw?oc=5",
@@ -432,6 +432,16 @@
       "category": "model",
       "author": "네이트",
       "created_utc": 1650610800
+    },
+    {
+      "id": "CBMitAFBVV95cUxObU94bDRtd3NCNjRyb2JFemdwTjlZMWZ3c3BnNjdwcEQ4NW8zd2lwX0xPYnhBM2pLVC1zdGFSVldDcnBFY2lxRnJqNmdCUmppNVFvbHA4c3huUlBIVmJ1Vk1OdWlXeVl4MUtNZnZKMFJibG03WlhZMmhCbnFad3pwTnJNVGpVczhsS3psaDhMZFlha0s5d1BBbTdBR0xNWF9mVW11dFI0dFhzdlppR25OT21pSHc",
+      "title": "i☆Ris Member Miyu Kubota Reveals Her 2nd Photo Book \"UP_DATE\" Covers",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxObU94bDRtd3NCNjRyb2JFemdwTjlZMWZ3c3BnNjdwcEQ4NW8zd2lwX0xPYnhBM2pLVC1zdGFSVldDcnBFY2lxRnJqNmdCUmppNVFvbHA4c3huUlBIVmJ1Vk1OdWlXeVl4MUtNZnZKMFJibG03WlhZMmhCbnFad3pwTnJNVGpVczhsS3psaDhMZFlha0s5d1BBbTdBR0xNWF9mVW11dFI0dFhzdlppR25OT21pSHc?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아",
+      "category": "gravure",
+      "author": "Crunchyroll",
+      "created_utc": 1641542400
     },
     {
       "id": "CBMirAFBVV95cUxPVG5IaWZuNFpSLS00amExblNqb2FKbHpiam42S2ZhLWpOanNPYlJ6cE5zUExITFJfVDVvLUJkbVJKOVhZdFNkQTNmY1Y4ZllsTmt0MUxyQkpLT1A4dHNxdnhjZDhPLW9iR0RFUWxOLVB4UFM2cnFHWnAxeTFDbU5WQWh6UmU1U2ktMWQ2U0xEUlFGZDhZVHRSTVcyby1hSFNnZWlCZG5BR1pFWnVG0gGyAUFVX3lxTFBINnlPUHluV2JvcU54X2I4RGtCYVRYOWF3TVJ6bEFlSFJ6RUxTY1dHa3dtQjJkVVp1TDgtUk1sYWlFNS02bXBiVU4xd0g1NHZnd1BuZjIzajF6NG1oN0F0MU5VbWtTdUJNTzMzX1BwdU56WWNTVVI5R2dzZEphMTZ1M3pNNnRxMzFqRHExcWk4ekg1SE5teGU3aEI3ci16eS1FMTl4dXAwQ1J0Rm0xbi1GSXc",
@@ -484,6 +494,16 @@
       "created_utc": 1587689288
     },
     {
+      "id": "CBMiogFBVV95cUxQVUc4VUZZRWZmTzVXSlNZLVA4NExmT3J3LU9qT0JKLVY2enR0M2EwRC1uUFVMbnJZX1pOdmk5ODVCcE1qZG5lRzZDMHhzbDk4cWYxNkZVdWdzQzlwUjd1eFhOeVdZVktTMVdaQmtDeTk5dHpsNUVuZHR6T3NaaVhQZ1NXZEpHdWowanBNcFpnS291SDEyWkNYRWNXUUx1QXVoT0E",
+      "title": "68-year-old model dons same bikini she wore in her 20s for photoshoot",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVUc4VUZZRWZmTzVXSlNZLVA4NExmT3J3LU9qT0JKLVY2enR0M2EwRC1uUFVMbnJZX1pOdmk5ODVCcE1qZG5lRzZDMHhzbDk4cWYxNkZVdWdzQzlwUjd1eFhOeVdZVktTMVdaQmtDeTk5dHpsNUVuZHR6T3NaaVhQZ1NXZEpHdWowanBNcFpnS291SDEyWkNYRWNXUUx1QXVoT0E?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머",
+      "category": "model",
+      "author": "New York Post",
+      "created_utc": 1567407600
+    },
+    {
       "id": "CBMijwFBVV95cUxQQ243LXFFaHJFTUtsMEJZMDlrT0ZpSDZ2RS1ZcHg4Wm9ldTNyZnNlU3dZM3NHM2JIbGk2RmlFYzZ5UHRGOVhoQlFHaVotMnFMdXoxM1REM3B4SC11MlY2Sk8tS3Zxd2stTTNOU25iZVVnWFJUUlZGeHdTbVNRUmtvMmtJRWhhSnVTanJVSVF0SQ",
       "title": "'Britain's oldest glamour model', 68, poses for photoshoot in bikini first worn in her 20s",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQQ243LXFFaHJFTUtsMEJZMDlrT0ZpSDZ2RS1ZcHg4Wm9ldTNyZnNlU3dZM3NHM2JIbGk2RmlFYzZ5UHRGOVhoQlFHaVotMnFMdXoxM1REM3B4SC11MlY2Sk8tS3Zxd2stTTNOU25iZVVnWFJUUlZGeHdTbVNRUmtvMmtJRWhhSnVTanJVSVF0SQ?oc=5",
@@ -504,9 +524,19 @@
       "created_utc": 1561618800
     },
     {
-      "id": "CBMi3gFBVV95cUxOZzVpUC1ta2lWU0FEaDZDdjBMSHdxR0FJX3lwSkxfZVl0bTRBY0tGQnVqNlpoRU8xSDJlUFVqTnIwR0RxRXA3WFNFNVBkUGx2YjhHaWYtWlFGY2RGY296cFBWbjlnZ0hNTGVoeDZIQndyQ0xvSnpBTmgzbnd5QVBCS2tlQ1Q5bGc3aDA3X3FRd3UwUTd3RjR4bjFsaERPOVNPRmhDTkYzTDJidG1LM1hmNkNiTlF0Nkp3SEM5WWVmeWRVRXBXakV2NjY0WXRDOGRVbGRTVS1xQXlSeDk1SEE",
+      "id": "CBMiS0FVX3lxTE9ENk5IMGhmQWt0MGcyQnN2eUhiUFdiUGEwVE9jRGZNWnZYQTBDSmpES3lJdzh5RTUtYTNZRG1zNlc2N0ZMTDRhWlNkUQ",
+      "title": "일본 그라비아 모델 코야마 주나 \"한국 활동 하고 싶다\"",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ENk5IMGhmQWt0MGcyQnN2eUhiUFdiUGEwVE9jRGZNWnZYQTBDSmpES3lJdzh5RTUtYTNZRG1zNlc2N0ZMTDRhWlNkUQ?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "v.daum.net",
+      "created_utc": 1501225200
+    },
+    {
+      "id": "CBMi3AFBVV95cUxPNHJCblpLa2Y1WG5aLWhrU0Z6UXNfdEQzVUVrUGZ6cnd3YkN5M0ZzcGVqNUdQUzdaaVRXRmpXcXBvQ1JjOTJ4QUtxWm1xeEJueFlPWnVLdUJPNThzV2VveVJpMjNlRzE1S0tsVU9MaUdGaHRTV3h1TXdhc3EyZnBnSko5Q1dRMTNFVXprN2Jud3gzNXJycGFMbTlncmcwejBjVm9qZldJbEY3Qm1JckdPYXJvUlgydTVtS19KUHEwMXdaNGZtUUw4aGp0LS1EYXJIbDBZUTRYT1ZuTGZZ",
       "title": "Playboy Bar opens in Tokyo with Japanese gravure idols serving customers",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOZzVpUC1ta2lWU0FEaDZDdjBMSHdxR0FJX3lwSkxfZVl0bTRBY0tGQnVqNlpoRU8xSDJlUFVqTnIwR0RxRXA3WFNFNVBkUGx2YjhHaWYtWlFGY2RGY296cFBWbjlnZ0hNTGVoeDZIQndyQ0xvSnpBTmgzbnd5QVBCS2tlQ1Q5bGc3aDA3X3FRd3UwUTd3RjR4bjFsaERPOVNPRmhDTkYzTDJidG1LM1hmNkNiTlF0Nkp3SEM5WWVmeWRVRXBXakV2NjY0WXRDOGRVbGRTVS1xQXlSeDk1SEE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPNHJCblpLa2Y1WG5aLWhrU0Z6UXNfdEQzVUVrUGZ6cnd3YkN5M0ZzcGVqNUdQUzdaaVRXRmpXcXBvQ1JjOTJ4QUtxWm1xeEJueFlPWnVLdUJPNThzV2VveVJpMjNlRzE1S0tsVU9MaUdGaHRTV3h1TXdhc3EyZnBnSko5Q1dRMTNFVXprN2Jud3gzNXJycGFMbTlncmcwejBjVm9qZldJbEY3Qm1JckdPYXJvUlgydTVtS19KUHEwMXdaNGZtUUw4aGp0LS1EYXJIbDBZUTRYT1ZuTGZZ?oc=5",
       "platform": "news",
       "source": "Google News · 그라비아 화보",
       "category": "gravure",
@@ -520,7 +550,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "The Mirror",
+      "author": "Daily Mirror",
       "created_utc": 1488182400
     },
     {
@@ -670,7 +700,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "The Mirror",
+      "author": "Daily Mirror",
       "created_utc": 1321948800
     },
     {
