@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-09-20T05:14:59.804Z",
-    "total_items": 70,
+    "scraped_at": "2026-09-20T16:22:00.665Z",
+    "total_items": 68,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -60,7 +60,7 @@
       "platform": "news",
       "source": "Google News · 란제리",
       "category": "model",
-      "author": "ew.com",
+      "author": "Entertainment Weekly",
       "created_utc": 1786431600
     },
     {
@@ -120,7 +120,7 @@
       "platform": "news",
       "source": "Google News · 수영복",
       "category": "model",
-      "author": "Yahoo",
+      "author": "yahoo.com",
       "created_utc": 1778655600
     },
     {
@@ -174,13 +174,13 @@
       "created_utc": 1774335600
     },
     {
-      "id": "CBMingFBVV95cUxNOHpHMmp2X0JrQkNPeTJqVmVHQTZxOE1oSmE3dnBUNmZpd2hPbU10WnhDSzNUbkdzUkNIVHI0VlZiOE1tNnpPOGhOSFR1RXN0TzN5bkh0ajdWZkpkNXhRX3NEbUxvUG85NUJHODRVOWUzS21VajhSdmFfckpZcmlqSUJ3VFdJUWhOUDNqeE1IMzQ4N25jRW9sbUpQbnRhd9IBowFBVV95cUxOMmNwYnc0YzQxR1BqUVZjWDRrcTR1TjZtbWlFNmlBMlpvaFdzaGJIalgtcjdwR2NYMUlSaE9TaW5KNWJrYzhxWDNUS3VrOVlES01hTGxOa3RiTmFBYU9OamZGaHRtZi0zTWRrZ2poekpGX3ViRWNDaXhDOVN3ZnVMNldpQzdHTmZQSlB5aDd6eUVtTEdSZFR3ZkpZNEI2dmp3dE1z",
+      "id": "CBMihwFBVV95cUxObVdZOXZDYmJFMHV5aEx4Vmt0ZXdjUWxlQUs3YlpOLXVEWjVIR3ZxSGdSTjdHakc4UUR5QUI4UThxNjdfeTUybGwxYkpCZ3FPN1ZjeGRfTnZfWHBpeUkyUDkyS2ppelJOVkhOZktlcno1cTdlUm54NmRlYXFGdTBsVnZOZTJsV2c",
       "title": "Teesside glamour model Chelsea Ferguson hits headlines after celebs' dad spotted 'liking' her photos",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOHpHMmp2X0JrQkNPeTJqVmVHQTZxOE1oSmE3dnBUNmZpd2hPbU10WnhDSzNUbkdzUkNIVHI0VlZiOE1tNnpPOGhOSFR1RXN0TzN5bkh0ajdWZkpkNXhRX3NEbUxvUG85NUJHODRVOWUzS21VajhSdmFfckpZcmlqSUJ3VFdJUWhOUDNqeE1IMzQ4N25jRW9sbUpQbnRhd9IBowFBVV95cUxOMmNwYnc0YzQxR1BqUVZjWDRrcTR1TjZtbWlFNmlBMlpvaFdzaGJIalgtcjdwR2NYMUlSaE9TaW5KNWJrYzhxWDNUS3VrOVlES01hTGxOa3RiTmFBYU9OamZGaHRtZi0zTWRrZ2poekpGX3ViRWNDaXhDOVN3ZnVMNldpQzdHTmZQSlB5aDd6eUVtTEdSZFR3ZkpZNEI2dmp3dE1z?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObVdZOXZDYmJFMHV5aEx4Vmt0ZXdjUWxlQUs3YlpOLXVEWjVIR3ZxSGdSTjdHakc4UUR5QUI4UThxNjdfeTUybGwxYkpCZ3FPN1ZjeGRfTnZfWHBpeUkyUDkyS2ppelJOVkhOZktlcno1cTdlUm54NmRlYXFGdTBsVnZOZTJsV2c?oc=5",
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "gazettelive.co.uk",
+      "author": "Yahoo News UK",
       "created_utc": 1773212400
     },
     {
@@ -240,18 +240,8 @@
       "platform": "news",
       "source": "Google News · 코스프레",
       "category": "cosplay",
-      "author": "hellomagazine.com",
+      "author": "HELLO! Magazine",
       "created_utc": 1767427200
-    },
-    {
-      "id": "CBMiS0FVX3lxTE15cUNNLVJnNFdZS1lfRjZkQWgwM2Zzc3RvOHE0ekgxYWpycGVDTTZtRmY1SGkzQUVzdGRiNEhJR3pKNmhXOGR0XzFYOA",
-      "title": "시노자키 아이 한정판 화보집 - 몽환",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE15cUNNLVJnNFdZS1lfRjZkQWgwM2Zzc3RvOHE0ekgxYWpycGVDTTZtRmY1SGkzQUVzdGRiNEhJR3pKNmhXOGR0XzFYOA?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "브런치",
-      "created_utc": 1765353600
     },
     {
       "id": "CBMi2wFBVV95cUxPU2FoRlMzamdsUUsySG9ha01sLWxRV1paUW5FUTJXWXhra3VoWE9XNXRiOTNDcjlnaVhhTDBDbnoyN1RBdUN1M1JMSHRzSW1iR3FUOGp0VDhoZTRMYkVURVFXUGZVOURJNXpsMllfUUtwS3BQRTBTZjFWbGdhWUhWNUR3dl9hemp2ellJT19lS0twNF82bkR0cDZxdEg3ckJBVWVfYkxQb05CUGtsQWYzWk0yYVQ3UXVjXzBpeDEtMkZoTllUNDRfdWVaV3c3N2s5UWktUEpQNmNBSVU",
@@ -272,16 +262,6 @@
       "category": "gravure",
       "author": "News On Japan",
       "created_utc": 1745305200
-    },
-    {
-      "id": "CBMif0FVX3lxTE9RNGtoSFNTbGFmbkhBdkFLTWZOSUpIRkFGNWl1bnF4Zk4xd0VIVDBoWXdCa18yRV9GbWp1ajJPejZhNkIxd0VvNHVzYXVEZXV5X0p5QXY4TG9WYWNwNktMTERzUWttZGpUNXh1cUV3RkxFSjZyUWN4NFllSTdRVXc",
-      "title": "Glamour model Rhian Sugden shows off stunning body one week after giving birth",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9RNGtoSFNTbGFmbkhBdkFLTWZOSUpIRkFGNWl1bnF4Zk4xd0VIVDBoWXdCa18yRV9GbWp1ajJPejZhNkIxd0VvNHVzYXVEZXV5X0p5QXY4TG9WYWNwNktMTERzUWttZGpUNXh1cUV3RkxFSjZyUWN4NFllSTdRVXc?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머",
-      "category": "model",
-      "author": "Yahoo Style UK",
-      "created_utc": 1714892400
     },
     {
       "id": "CBMimwFBVV95cUxNWjE2UFNFZjRuQWhLUFBGYWxVd2RiZ1BjdHB6M1NMX2tueW5RWnUxM3ZteS02clJIYm5EcnJ0OUVna2pPRDJKNFAyVDNTQzc2UElmUVRzNzRkNHkwR3BQZXdSbk5NOHhiMTkyQjR5d1dtdXFDejU0WDVGYlBEMFZrNmMwYXBQR2k2dDg2cnhVM1FGekV2VVV0T0Fzbw",
@@ -314,14 +294,14 @@
       "created_utc": 1693206000
     },
     {
-      "id": "CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI",
-      "title": "하연수 그라비아 모델 데뷔 보도 발끈...한국 연예 기자 역시는 역시",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI?oc=5",
+      "id": "CBMia0FVX3lxTFAwOTZ4X3VNQlM1ak5UeEVOVEtaQXFkM1VBU3JNdnpGdjI4Q2F0bmdNUnh4MkU4OVlOQzBXenV3TFpUeHZ3LUVLNGttbE9EVU01TDdHblFVSGVwUHdzZWJRa050WlI1TEFuQWJr0gFvQVVfeXFMTzVoWldtVVdjeUQtaGhOeVloTHZ4QTJXWS1mNXdzdVMydmpsalB6VURxdlp5Q0c3RDJqcVNSYS1yVi1uTGNzZXpnTzdnNHZaaXo3S290WXJMZWpfM3hGb2hWaWhKRHlZd211R2FxbmVz",
+      "title": "성폭행과 폭언·협박, 그라비아 모델들은 숨어 울었다",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAwOTZ4X3VNQlM1ak5UeEVOVEtaQXFkM1VBU3JNdnpGdjI4Q2F0bmdNUnh4MkU4OVlOQzBXenV3TFpUeHZ3LUVLNGttbE9EVU01TDdHblFVSGVwUHdzZWJRa050WlI1TEFuQWJr0gFvQVVfeXFMTzVoWldtVVdjeUQtaGhOeVloTHZ4QTJXWS1mNXdzdVMydmpsalB6VURxdlp5Q0c3RDJqcVNSYS1yVi1uTGNzZXpnTzdnNHZaaXo3S290WXJMZWpfM3hGb2hWaWhKRHlZd211R2FxbmVz?oc=5",
       "platform": "news",
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
-      "author": "아주경제",
-      "created_utc": 1682492400
+      "author": "글로벌E",
+      "created_utc": 1690354800
     },
     {
       "id": "CBMiYEFVX3lxTE9zRUFvY2NHSE5ZbDFkbEh5SlVOd0g2MTRQbFpXZmFXN3hkU3JKRXZJUGtjVWd5VkttQVA5M2paNk1abHpPR2VzU0NPY2s1VDZxMkdDb3JfYjg2TllaR1pyMw",
@@ -384,16 +364,6 @@
       "created_utc": 1650610800
     },
     {
-      "id": "CBMiX0FVX3lxTE43WWdLaGs3SVVfVXBMeHlYZHYtbXlZU3RVS08zeWJrbF9fc1U3b25ZNVFyQmh3MVNYLW1TQVVySTY1OFZnOWRrX2xnajg1Q2kyQ0xoZ2dSOW0xV1hsbFpV",
-      "title": "The Lost Swimsuit Girls",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE43WWdLaGs3SVVfVXBMeHlYZHYtbXlZU3RVS08zeWJrbF9fc1U3b25ZNVFyQmh3MVNYLW1TQVVySTY1OFZnOWRrX2xnajg1Q2kyQ0xoZ2dSOW0xV1hsbFpV?oc=5",
-      "platform": "news",
-      "source": "Google News · 코스프레",
-      "category": "cosplay",
-      "author": "Vocal",
-      "created_utc": 1642185490
-    },
-    {
       "id": "CBMitAFBVV95cUxObU94bDRtd3NCNjRyb2JFemdwTjlZMWZ3c3BnNjdwcEQ4NW8zd2lwX0xPYnhBM2pLVC1zdGFSVldDcnBFY2lxRnJqNmdCUmppNVFvbHA4c3huUlBIVmJ1Vk1OdWlXeVl4MUtNZnZKMFJibG03WlhZMmhCbnFad3pwTnJNVGpVczhsS3psaDhMZFlha0s5d1BBbTdBR0xNWF9mVW11dFI0dFhzdlppR25OT21pSHc",
       "title": "i☆Ris Member Miyu Kubota Reveals Her 2nd Photo Book \"UP_DATE\" Covers",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxObU94bDRtd3NCNjRyb2JFemdwTjlZMWZ3c3BnNjdwcEQ4NW8zd2lwX0xPYnhBM2pLVC1zdGFSVldDcnBFY2lxRnJqNmdCUmppNVFvbHA4c3huUlBIVmJ1Vk1OdWlXeVl4MUtNZnZKMFJibG03WlhZMmhCbnFad3pwTnJNVGpVczhsS3psaDhMZFlha0s5d1BBbTdBR0xNWF9mVW11dFI0dFhzdlppR25OT21pSHc?oc=5",
@@ -454,6 +424,16 @@
       "created_utc": 1587689288
     },
     {
+      "id": "CBMiogFBVV95cUxQVUc4VUZZRWZmTzVXSlNZLVA4NExmT3J3LU9qT0JKLVY2enR0M2EwRC1uUFVMbnJZX1pOdmk5ODVCcE1qZG5lRzZDMHhzbDk4cWYxNkZVdWdzQzlwUjd1eFhOeVdZVktTMVdaQmtDeTk5dHpsNUVuZHR6T3NaaVhQZ1NXZEpHdWowanBNcFpnS291SDEyWkNYRWNXUUx1QXVoT0E",
+      "title": "68-year-old model dons same bikini she wore in her 20s for photoshoot",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVUc4VUZZRWZmTzVXSlNZLVA4NExmT3J3LU9qT0JKLVY2enR0M2EwRC1uUFVMbnJZX1pOdmk5ODVCcE1qZG5lRzZDMHhzbDk4cWYxNkZVdWdzQzlwUjd1eFhOeVdZVktTMVdaQmtDeTk5dHpsNUVuZHR6T3NaaVhQZ1NXZEpHdWowanBNcFpnS291SDEyWkNYRWNXUUx1QXVoT0E?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머",
+      "category": "model",
+      "author": "New York Post",
+      "created_utc": 1567407600
+    },
+    {
       "id": "CBMijwFBVV95cUxQQ243LXFFaHJFTUtsMEJZMDlrT0ZpSDZ2RS1ZcHg4Wm9ldTNyZnNlU3dZM3NHM2JIbGk2RmlFYzZ5UHRGOVhoQlFHaVotMnFMdXoxM1REM3B4SC11MlY2Sk8tS3Zxd2stTTNOU25iZVVnWFJUUlZGeHdTbVNRUmtvMmtJRWhhSnVTanJVSVF0SQ",
       "title": "'Britain's oldest glamour model', 68, poses for photoshoot in bikini first worn in her 20s",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQQ243LXFFaHJFTUtsMEJZMDlrT0ZpSDZ2RS1ZcHg4Wm9ldTNyZnNlU3dZM3NHM2JIbGk2RmlFYzZ5UHRGOVhoQlFHaVotMnFMdXoxM1REM3B4SC11MlY2Sk8tS3Zxd2stTTNOU25iZVVnWFJUUlZGeHdTbVNRUmtvMmtJRWhhSnVTanJVSVF0SQ?oc=5",
@@ -462,6 +442,16 @@
       "category": "model",
       "author": "Yahoo Style UK",
       "created_utc": 1566889200
+    },
+    {
+      "id": "CBMiS0FVX3lxTE9ENk5IMGhmQWt0MGcyQnN2eUhiUFdiUGEwVE9jRGZNWnZYQTBDSmpES3lJdzh5RTUtYTNZRG1zNlc2N0ZMTDRhWlNkUQ",
+      "title": "일본 그라비아 모델 코야마 주나 \"한국 활동 하고 싶다\"",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ENk5IMGhmQWt0MGcyQnN2eUhiUFdiUGEwVE9jRGZNWnZYQTBDSmpES3lJdzh5RTUtYTNZRG1zNlc2N0ZMTDRhWlNkUQ?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "v.daum.net",
+      "created_utc": 1501225200
     },
     {
       "id": "CBMi3AFBVV95cUxPNHJCblpLa2Y1WG5aLWhrU0Z6UXNfdEQzVUVrUGZ6cnd3YkN5M0ZzcGVqNUdQUzdaaVRXRmpXcXBvQ1JjOTJ4QUtxWm1xeEJueFlPWnVLdUJPNThzV2VveVJpMjNlRzE1S0tsVU9MaUdGaHRTV3h1TXdhc3EyZnBnSko5Q1dRMTNFVXprN2Jud3gzNXJycGFMbTlncmcwejBjVm9qZldJbEY3Qm1JckdPYXJvUlgydTVtS19KUHEwMXdaNGZtUUw4aGp0LS1EYXJIbDBZUTRYT1ZuTGZZ",
@@ -504,23 +494,13 @@
       "created_utc": 1468566000
     },
     {
-      "id": "CBMipgFBVV95cUxNQ1hkaEpNMlVZNVV6M0V0QkN4QmpFN24yajEzSE1JMm40ME5MZ2hKNXEzRnZ5UTJSOFo1bkFQU1BkdjJOcXFxVDhHTTd5bkhBdFhyLWpqZ3RJbnJkNnpIMjlDSm9fOXk1VnY3RE1PeEFuam5idHl2cHd0Y2NGU0dlbnVuQ0hYRnloX0k0SDlvWFNHZzVNaHl6U09JaVpyeWRPNS1paHhn0gGrAUFVX3lxTE9RcTBVak5KR2hvUzhDYjFBX3ZCajlEamVGaXluaEtMV0pMTVNYNFp6YW1Nd2Q2U0pucm1YSm5qMGlkTFFUTjFHbzRVbjhSbENLVkJtdUk3Q2NUdk05ZGtwa3NGNzJkWUxRUEQ4c3d0YkhSbDRaczg1dENUX1Bpa0JLYzVVSlFLbWR4bjhKRW5nTWVwZWYtUjhIZ1Nfc3FqTFZvVjR1OUVNcnJFdw",
-      "title": "Cosplayers and models share selfies to celebrate Bikini Day in Japan",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQ1hkaEpNMlVZNVV6M0V0QkN4QmpFN24yajEzSE1JMm40ME5MZ2hKNXEzRnZ5UTJSOFo1bkFQU1BkdjJOcXFxVDhHTTd5bkhBdFhyLWpqZ3RJbnJkNnpIMjlDSm9fOXk1VnY3RE1PeEFuam5idHl2cHd0Y2NGU0dlbnVuQ0hYRnloX0k0SDlvWFNHZzVNaHl6U09JaVpyeWRPNS1paHhn0gGrAUFVX3lxTE9RcTBVak5KR2hvUzhDYjFBX3ZCajlEamVGaXluaEtMV0pMTVNYNFp6YW1Nd2Q2U0pucm1YSm5qMGlkTFFUTjFHbzRVbjhSbENLVkJtdUk3Q2NUdk05ZGtwa3NGNzJkWUxRUEQ4c3d0YkhSbDRaczg1dENUX1Bpa0JLYzVVSlFLbWR4bjhKRW5nTWVwZWYtUjhIZ1Nfc3FqTFZvVjR1OUVNcnJFdw?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "SoraNews24",
-      "created_utc": 1467788400
-    },
-    {
       "id": "CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B",
       "title": "[포토] 글래머 모델, 범접불가 풍만한 몸매",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5XSGFQUkduWDJSUWlCNGgwekZpelA0YXItdWRWWGFpbm1vbTRnM0pNQzhYYlpmbWt2RmlLTjl5Y3Vlb3lTQWRBbnZyRlNlTFJfVGtPN3NZSEgyRk1vZGh5Ui1B?oc=5",
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1453708800
     },
     {
@@ -530,8 +510,18 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "아시아경제",
+      "author": "view.asiae.co.kr",
       "created_utc": 1449734400
+    },
+    {
+      "id": "CBMiYkFVX3lxTE5KWlA3Q2VHeXF0OFZYdEFjekZ1cF9JNXR3UzVVVm11Yl9fOWJOWTE1ck9qSGl4VmYwRlN3WDltWEt2Zlc0ZVZCTDRRLUIwREJlOEtXc1E1UFNCOXZERlQ2S2RB",
+      "title": "[포토] 글래머 모델, 시선 사로잡은 누드톤 점프수트",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5KWlA3Q2VHeXF0OFZYdEFjekZ1cF9JNXR3UzVVVm11Yl9fOWJOWTE1ck9qSGl4VmYwRlN3WDltWEt2Zlc0ZVZCTDRRLUIwREJlOEtXc1E1UFNCOXZERlQ2S2RB?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "view.asiae.co.kr",
+      "created_utc": 1449129600
     },
     {
       "id": "CBMibEFVX3lxTE1TczU5Y0FUWHZPOTl0MFBpVW1Hem1RdmN3bktHNkR1Ri1aS29sdC1XRl9ETHl3ZmxOM2h0Z1g4SlNmak5USDlUNWliNGpENldFSGFyV0pqeWhhLUV5SFZZOV9CSnhETmFfMTdoTA",
@@ -552,16 +542,6 @@
       "category": "model",
       "author": "아시아경제",
       "created_utc": 1444633200
-    },
-    {
-      "id": "CBMiYEFVX3lxTE52R3VKWTdXY2EybEI1QXlnYjBLSnByZ2tVeVRxNDhVeHkyeDRTdDdQR04yUUxxbnl0TFk0a2s5Z2FMTTZTejBzQUIxU1ZSdmFjZlpMdG91N1YyMFpXWTNGOQ",
-      "title": "[포토] '글래머 모델' 조던 카버, 비키니 입고 요가 삼매경",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE52R3VKWTdXY2EybEI1QXlnYjBLSnByZ2tVeVRxNDhVeHkyeDRTdDdQR04yUUxxbnl0TFk0a2s5Z2FMTTZTejBzQUIxU1ZSdmFjZlpMdG91N1YyMFpXWTNGOQ?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "아시아경제",
-      "created_utc": 1444028400
     },
     {
       "id": "CBMiYEFVX3lxTE1HZE5laFZ5LTU1VnRHY0RlcFZKTzRHVkpSRlJYQlIwbG1EeXExYnBBS0pJcVNaVkxYdDFtanZyUnk1QnN5VE9SRlN4OGR0TDYtOV9MTzlLTG9BeGRMY1JtNw",
@@ -624,9 +604,9 @@
       "created_utc": 1428390000
     },
     {
-      "id": "CBMiXkFVX3lxTFA5RDJzdldRalExM05TQV9ybXo3aDdRQXFmMVA5ZHNDNVRDMUxzeGxjeWJfYzF1Q25jRXYtb0ltYTZkSnJNQi0tOVMycVdFcUlCaTgtVFlOV1kta1FFWkHSAWNBVV95cUxNaWJtWkczWTd6dm9DenpTQjU5Wk5mZ2o2QmdUdG1pWlhmUEZwMkVIeV9abk82UFFHSFhraWZQUmpaQWlsMGZ1S3BKUjhScUdjSGtUZjRtZjY3OFFkb293WEVRcEk",
-      "title": "[화보] ‘코리아스타일위크’ 육감적인 몸매의 비키니 모델",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFA5RDJzdldRalExM05TQV9ybXo3aDdRQXFmMVA5ZHNDNVRDMUxzeGxjeWJfYzF1Q25jRXYtb0ltYTZkSnJNQi0tOVMycVdFcUlCaTgtVFlOV1kta1FFWkHSAWNBVV95cUxNaWJtWkczWTd6dm9DenpTQjU5Wk5mZ2o2QmdUdG1pWlhmUEZwMkVIeV9abk82UFFHSFhraWZQUmpaQWlsMGZ1S3BKUjhScUdjSGtUZjRtZjY3OFFkb293WEVRcEk?oc=5",
+      "id": "CBMiXkFVX3lxTFBNeU1HLWZLMXV2T21pZlNBNFlqSVhDMFhLSXJ2MzRhb2w2Z3BDZENFc2FKYTM5eHgtZXluNVdwUWNTU3lqTEtSUHRwUW8zaFczZklhNFBXMXgwZUpIQVHSAWNBVV95cUxNcjVLaE5oNGl4ZWRHU3ptZGNjc1A0NG40Yk41eFBVMGhhSlFPTHNfXy1nd3dTbTFlS2xsTHlpNUhITzZrdjNhNC1hb2pOU2tkcnlKcGVyVlN3Q2lqaVdkUHFjN3M",
+      "title": "[화보] ‘코리아스타일위크’ 비키니 모델의 아름다운 포즈",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBNeU1HLWZLMXV2T21pZlNBNFlqSVhDMFhLSXJ2MzRhb2w2Z3BDZENFc2FKYTM5eHgtZXluNVdwUWNTU3lqTEtSUHRwUW8zaFczZklhNFBXMXgwZUpIQVHSAWNBVV95cUxNcjVLaE5oNGl4ZWRHU3ptZGNjc1A0NG40Yk41eFBVMGhhSlFPTHNfXy1nd3dTbTFlS2xsTHlpNUhITzZrdjNhNC1hb2pOU2tkcnlKcGVyVlN3Q2lqaVdkUHFjN3M?oc=5",
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
@@ -690,7 +670,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Daily Mirror",
+      "author": "The Mirror",
       "created_utc": 1321948800
     },
     {
