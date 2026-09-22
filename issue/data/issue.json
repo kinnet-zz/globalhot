@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-09-22T05:16:27.745Z",
-    "total_items": 70,
+    "scraped_at": "2026-09-22T17:08:27.344Z",
+    "total_items": 69,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -60,7 +60,7 @@
       "platform": "news",
       "source": "Google News · 란제리",
       "category": "model",
-      "author": "ew.com",
+      "author": "Entertainment Weekly",
       "created_utc": 1786431600
     },
     {
@@ -220,7 +220,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "쿠키뉴스",
+      "author": "kukinews.com",
       "created_utc": 1767479669
     },
     {
@@ -264,6 +264,16 @@
       "created_utc": 1745305200
     },
     {
+      "id": "CBMiVEFVX3lxTE5pMHp2dC1MYU9RT0lkYlplbHNuWi02S3RxRE52TWlxU0k0cDBxajNreEhYMnpnd1kyRUVwaE9vX0NJZEFqVmNOeUcxdUFoSmpPcEx4TA",
+      "title": "하연수, 3년 만에 라스 출연…\"그라비아 모델 억측 말라, 한국 소속사 찾아\"",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5pMHp2dC1MYU9RT0lkYlplbHNuWi02S3RxRE52TWlxU0k0cDBxajNreEhYMnpnd1kyRUVwaE9vX0NJZEFqVmNOeUcxdUFoSmpPcEx4TA?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "이투데이",
+      "created_utc": 1733990400
+    },
+    {
       "id": "CBMimwFBVV95cUxNWjE2UFNFZjRuQWhLUFBGYWxVd2RiZ1BjdHB6M1NMX2tueW5RWnUxM3ZteS02clJIYm5EcnJ0OUVna2pPRDJKNFAyVDNTQzc2UElmUVRzNzRkNHkwR3BQZXdSbk5NOHhiMTkyQjR5d1dtdXFDejU0WDVGYlBEMFZrNmMwYXBQR2k2dDg2cnhVM1FGekV2VVV0T0Fzbw",
       "title": "A Girl in Bikini Is Not Wenwen Han in the Karate Kid",
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNWjE2UFNFZjRuQWhLUFBGYWxVd2RiZ1BjdHB6M1NMX2tueW5RWnUxM3ZteS02clJIYm5EcnJ0OUVna2pPRDJKNFAyVDNTQzc2UElmUVRzNzRkNHkwR3BQZXdSbk5NOHhiMTkyQjR5d1dtdXFDejU0WDVGYlBEMFZrNmMwYXBQR2k2dDg2cnhVM1FGekV2VVV0T0Fzbw?oc=5",
@@ -280,7 +290,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "crunchyroll.com",
+      "author": "Crunchyroll",
       "created_utc": 1696834800
     },
     {
@@ -300,7 +310,7 @@
       "platform": "news",
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
-      "author": "news.jtbc.co.kr",
+      "author": "JTBC",
       "created_utc": 1682492400
     },
     {
@@ -311,16 +321,6 @@
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
       "author": "iMBC 연예",
-      "created_utc": 1682492400
-    },
-    {
-      "id": "CBMic0FVX3lxTE5GcGotVmpoRXMxd2I5VFdBUF84bk5hZkdGWHpnQklqMWViS1Y3Skk4MWR1MWZoQXhXdjVBTDNQMzZ5UUpsS1RMMTd6R19SWHpud2dHY1JpYkFzOEJsMXhDS1dZc1NKclN5YkNPUWNZdUpOMzDSAXhBVV95cUxQeXdLWUM4U1dHZ09LWndoc29pNUpSeDVPNzItb1RLeVNKV3pNMjNNVHo1eUZQdU5WSkxkUjVGc2d5WS1xbGI5Q0JmX1lYVGlORjFRVXNJdUNjVTYzTDN5TklFaUp0NXkzUVpFRFZEdDhzYVlCVXdhbno",
-      "title": "하연수, '日그라비아 모델 데뷔' 보도에 \"언론이 바라는 행보 NO\"",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5GcGotVmpoRXMxd2I5VFdBUF84bk5hZkdGWHpnQklqMWViS1Y3Skk4MWR1MWZoQXhXdjVBTDNQMzZ5UUpsS1RMMTd6R19SWHpud2dHY1JpYkFzOEJsMXhDS1dZc1NKclN5YkNPUWNZdUpOMzDSAXhBVV95cUxQeXdLWUM4U1dHZ09LWndoc29pNUpSeDVPNzItb1RLeVNKV3pNMjNNVHo1eUZQdU5WSkxkUjVGc2d5WS1xbGI5Q0JmX1lYVGlORjFRVXNJdUNjVTYzTDN5TklFaUp0NXkzUVpFRFZEdDhzYVlCVXdhbno?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "머니투데이",
       "created_utc": 1682492400
     },
     {
@@ -370,7 +370,7 @@
       "platform": "news",
       "source": "Google News · 코스프레",
       "category": "cosplay",
-      "author": "Vocal",
+      "author": "vocal.media",
       "created_utc": 1642185490
     },
     {
@@ -380,7 +380,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "crunchyroll.com",
+      "author": "Crunchyroll",
       "created_utc": 1641542400
     },
     {
@@ -430,7 +430,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 누드",
       "category": "gravure",
-      "author": "arama! japan",
+      "author": "aramajapan.com",
       "created_utc": 1587689288
     },
     {
@@ -440,7 +440,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Yahoo Style UK",
+      "author": "uk.style.yahoo.com",
       "created_utc": 1566889200
     },
     {
@@ -544,6 +544,16 @@
       "created_utc": 1446015600
     },
     {
+      "id": "CBMiYkFVX3lxTE9SVXk5NDVrYUJPRk9sOU9ydUpQQ2pCZmRjdHY0OWctMUhnZkowX1pnWl80cF9mZGd6VHktLWFzZGZSSHJ3VVlSbWRFSnNVRUZMLTIyMHo4S0VLa3BCTEtvQWFn",
+      "title": "[포토] 글래머 모델, 비키니 입고 요가 삼매경",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9SVXk5NDVrYUJPRk9sOU9ydUpQQ2pCZmRjdHY0OWctMUhnZkowX1pnWl80cF9mZGd6VHktLWFzZGZSSHJ3VVlSbWRFSnNVRUZMLTIyMHo4S0VLa3BCTEtvQWFn?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머(KR)",
+      "category": "model",
+      "author": "아시아경제",
+      "created_utc": 1445497200
+    },
+    {
       "id": "CBMibEFVX3lxTE5oa2FuZDR1R2FlQUpKa3Noc1lRZjg4WnJfZDVaWmdZbVFuZXEzUGhDSnN6RlVqUXVibl9MNVpHQktONEJHSzZHazEzNlBxbUJWUDYxLXlMWVNucmFwZ0JkZkRHZHc3UHlwTnB5SA",
       "title": "[포토] 美 글래머 모델, 보일듯 말듯 '아찔 셀카'",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5oa2FuZDR1R2FlQUpKa3Noc1lRZjg4WnJfZDVaWmdZbVFuZXEzUGhDSnN6RlVqUXVibl9MNVpHQktONEJHSzZHazEzNlBxbUJWUDYxLXlMWVNucmFwZ0JkZkRHZHc3UHlwTnB5SA?oc=5",
@@ -552,26 +562,6 @@
       "category": "model",
       "author": "아시아경제",
       "created_utc": 1444633200
-    },
-    {
-      "id": "CBMiYEFVX3lxTE1HZE5laFZ5LTU1VnRHY0RlcFZKTzRHVkpSRlJYQlIwbG1EeXExYnBBS0pJcVNaVkxYdDFtanZyUnk1QnN5VE9SRlN4OGR0TDYtOV9MTzlLTG9BeGRMY1JtNw",
-      "title": "[포토] 김종민, 글래머 모델과 파격적인 화보",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1HZE5laFZ5LTU1VnRHY0RlcFZKTzRHVkpSRlJYQlIwbG1EeXExYnBBS0pJcVNaVkxYdDFtanZyUnk1QnN5VE9SRlN4OGR0TDYtOV9MTzlLTG9BeGRMY1JtNw?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "아시아경제",
-      "created_utc": 1441004400
-    },
-    {
-      "id": "CBMiZ0FVX3lxTE5BbTdRSTh1cVVVVzdoSXduVWw1SnUtZ1lDZF9zMTZ3NTRuN1pySUIya200MUxmb3NnU0VJbWkyWGt4M3JUSzAtZ2QybG02Qzl4dmk1N3FtZWVlT1c4bnlrVjNhaTBpTzDSAWRBVV95cUxPTE43QmZrZ09sUXY2QWZhV1ZFd2R4S1VWZnFpd1cwM09SNWswMjZjaG9TVTBsTWZ4US1TeGUxMmpLZ1RGQ0ZEcTF2bndTWjhxTnIxNW40amczVUswTkpzXzJpVm9M",
-      "title": "[화보] 루디빈 사냐, 다 벗은듯한 착시 비키니 ‘모델답네’",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5BbTdRSTh1cVVVVzdoSXduVWw1SnUtZ1lDZF9zMTZ3NTRuN1pySUIya200MUxmb3NnU0VJbWkyWGt4M3JUSzAtZ2QybG02Qzl4dmk1N3FtZWVlT1c4bnlrVjNhaTBpTzDSAWRBVV95cUxPTE43QmZrZ09sUXY2QWZhV1ZFd2R4S1VWZnFpd1cwM09SNWswMjZjaG9TVTBsTWZ4US1TeGUxMmpLZ1RGQ0ZEcTF2bndTWjhxTnIxNW40amczVUswTkpzXzJpVm9M?oc=5",
-      "platform": "news",
-      "source": "Google News · 비키니(KR)",
-      "category": "model",
-      "author": "donga.com",
-      "created_utc": 1436252400
     },
     {
       "id": "CBMiVkFVX3lxTFA5dnR6SlN3anBJZ1BPam1XLWoxR0lxZ1praHNNTDBXMHl2QkdMVWRZdTgzMFd3RHg0bXE0MGRXbldTREp3elNCcHg3YzNobS10MS1OVjZB",
@@ -610,7 +600,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "스포츠경향",
+      "author": "sports.khan.co.kr",
       "created_utc": 1428390000
     },
     {
@@ -620,7 +610,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "스포츠경향",
+      "author": "sports.khan.co.kr",
       "created_utc": 1405839600
     },
     {
@@ -660,7 +650,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "The Telegraph",
+      "author": "telegraph.co.uk",
       "created_utc": 1351839600
     },
     {
@@ -670,7 +660,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 화보",
       "category": "gravure",
-      "author": "tokyohive",
+      "author": "tokyohive.com",
       "created_utc": 1337929200
     },
     {
@@ -680,7 +670,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "donga.com",
+      "author": "동아일보",
       "created_utc": 1325577600
     },
     {
@@ -710,7 +700,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 누드",
       "category": "gravure",
-      "author": "tokyohive",
+      "author": "tokyohive.com",
       "created_utc": 1278140400
     }
   ]
