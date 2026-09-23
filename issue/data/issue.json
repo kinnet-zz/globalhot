@@ -1,6 +1,6 @@
 {
   "meta": {
-    "scraped_at": "2026-09-23T05:01:40.722Z",
+    "scraped_at": "2026-09-23T17:21:12.690Z",
     "total_items": 77,
     "source_count": 11,
     "categories": [
@@ -70,8 +70,18 @@
       "platform": "news",
       "source": "Google News · 란제리",
       "category": "model",
-      "author": "Page Six",
+      "author": "pagesix.com",
       "created_utc": 1787814000
+    },
+    {
+      "id": "CBMivwFBVV95cUxNZWt5dE0tZ2JJSUdVMW0ya1Zqcjd3U1JfaEk2eGtzX2ExUWNmWWVuVXk5Z0F0MHNlQ0gtX3RvRUZlRFVpeks4ZlYwMTF0ZFp0blR0azVsbHFXWFAtTnRhRkY3bWw3bG16Y3FJYkxieUgwMTI5TkMxbmJYQmlSbzNUVFpERW1zUTBPbnM5VFlKelR3dmlLM1ZPbC1oSFdvUUpsT1pfVkFNaExUY1ZUaVRtX3Z3cEQ1QjAtTzMwMDVERQ",
+      "title": "Exclusive | Heartless landlord tries to evict NYC model after unhinged stalker sent her nude pics to her neighbors: suit",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZWt5dE0tZ2JJSUdVMW0ya1Zqcjd3U1JfaEk2eGtzX2ExUWNmWWVuVXk5Z0F0MHNlQ0gtX3RvRUZlRFVpeks4ZlYwMTF0ZFp0blR0azVsbHFXWFAtTnRhRkY3bWw3bG16Y3FJYkxieUgwMTI5TkMxbmJYQmlSbzNUVFpERW1zUTBPbnM5VFlKelR3dmlLM1ZPbC1oSFdvUUpsT1pfVkFNaExUY1ZUaVRtX3Z3cEQ1QjAtTzMwMDVERQ?oc=5",
+      "platform": "news",
+      "source": "Google News · 성인 모델",
+      "category": "model",
+      "author": "New York Post",
+      "created_utc": 1786777200
     },
     {
       "id": "CBMifkFVX3lxTE9EZ2dWdXhPY211Y19Ca2Y3WXRUVHRYUjRtOTkzbVdqZlFYYkdDajJEdHBaeUFlWXFXYVJJMDNPWVRDOTFrRGFvbmZaLXluQ1hxc0VaTmpDTTdNR0tnR1pkSmFMVU05ZmR2V0w5U2RlWHM5d2J6VXZac0RuTkVaUQ",
@@ -114,13 +124,23 @@
       "created_utc": 1782198000
     },
     {
-      "id": "CBMi5AFBVV95cUxQRzZfT2E3WUxuSGxKbGJxSllkUXJQLUdZb2ZmSTA0b3J2Y0RkdkVtVmJyaXFfT2tkbHlwVEpxb3FlWFIwV2dSV0xZejU3NHRGQ1dYRWdqMVNaaDFiUWQwSFpsc2RXWHZQX2R6RjVJSjVSREc3b0JBT0V5OFRRVHdIaU1rZWJMYWZ1QlFCd0dNOFF4TTNyT1dScFJBakVleTZ6WmJDb081TG5FX2pjU0RxbWlfNFJ1RUV2Wkozajc5eTJuZnctR0lrclJzV3lpVkhvUXNDbGYwQ0lWaWlNbTNsT2E1SUPSAeQBQVVfeXFMTzFwanFjMUlGeTlBMjlPQTFZaEYydDh5YVJSVnpONjFaZWx2MEE4NzloMnR1cUNhSWRhQVoxdmRfRml5Ry05SlplQjF1VHZlbVlweWNzSkRrdkdKUWxZdHJiemxBQ2Z3QkEwbzZSRWQ5OTRYYUc0ZV9WX2plY1RhTnFoLVVoZjczMzQwZXBjY090US1OVzEwQUxDWElORUR2WTBMUlRnb1ctc18zLUhFVGRaVkdBdTRMTXRZVjBZMmN2VExheV9zVllNcEQ5dnZlMHZiUnlka19qd0szWWJUSTIzbWNk",
-      "title": "Meet Jena Sims, Sports Illustrated Swimsuit model and golfer Brooks Koepka’s wife",
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQRzZfT2E3WUxuSGxKbGJxSllkUXJQLUdZb2ZmSTA0b3J2Y0RkdkVtVmJyaXFfT2tkbHlwVEpxb3FlWFIwV2dSV0xZejU3NHRGQ1dYRWdqMVNaaDFiUWQwSFpsc2RXWHZQX2R6RjVJSjVSREc3b0JBT0V5OFRRVHdIaU1rZWJMYWZ1QlFCd0dNOFF4TTNyT1dScFJBakVleTZ6WmJDb081TG5FX2pjU0RxbWlfNFJ1RUV2Wkozajc5eTJuZnctR0lrclJzV3lpVkhvUXNDbGYwQ0lWaWlNbTNsT2E1SUPSAeQBQVVfeXFMTzFwanFjMUlGeTlBMjlPQTFZaEYydDh5YVJSVnpONjFaZWx2MEE4NzloMnR1cUNhSWRhQVoxdmRfRml5Ry05SlplQjF1VHZlbVlweWNzSkRrdkdKUWxZdHJiemxBQ2Z3QkEwbzZSRWQ5OTRYYUc0ZV9WX2plY1RhTnFoLVVoZjczMzQwZXBjY090US1OVzEwQUxDWElORUR2WTBMUlRnb1ctc18zLUhFVGRaVkdBdTRMTXRZVjBZMmN2VExheV9zVllNcEQ5dnZlMHZiUnlka19qd0szWWJUSTIzbWNk?oc=5",
+      "id": "CBMijgFBVV95cUxQOTFoS1dkQ24xZDczSERGOEZ6TmNiUDVadGk3b19JYlJkLVM3TlRYNHJBOUhQcnY5TUlqTklyajNyS0FzRGxfNDh3dktJeWZ6WWtXWElGT1FObXJrYjRFUW5XRDFPVGd1OEkwTV8wZXI5VERUUDY0LWRmbEotdDRGbUlvYjAwZjB5Y2I1XzRB",
+      "title": "Birthday Girl Kate Upton Shines in These 6 SI Swimsuit Photos From Mexico",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOTFoS1dkQ24xZDczSERGOEZ6TmNiUDVadGk3b19JYlJkLVM3TlRYNHJBOUhQcnY5TUlqTklyajNyS0FzRGxfNDh3dktJeWZ6WWtXWElGT1FObXJrYjRFUW5XRDFPVGd1OEkwTV8wZXI5VERUUDY0LWRmbEotdDRGbUlvYjAwZjB5Y2I1XzRB?oc=5",
       "platform": "news",
       "source": "Google News · 수영복",
       "category": "model",
-      "author": "scmp.com",
+      "author": "Sports Illustrated Swimsuit",
+      "created_utc": 1781074800
+    },
+    {
+      "id": "CBMi5AFBVV95cUxQRzZfT2E3WUxuSGxKbGJxSllkUXJQLUdZb2ZmSTA0b3J2Y0RkdkVtVmJyaXFfT2tkbHlwVEpxb3FlWFIwV2dSV0xZejU3NHRGQ1dYRWdqMVNaaDFiUWQwSFpsc2RXWHZQX2R6RjVJSjVSREc3b0JBT0V5OFRRVHdIaU1rZWJMYWZ1QlFCd0dNOFF4TTNyT1dScFJBakVleTZ6WmJDb081TG5FX2pjU0RxbWlfNFJ1RUV2Wkozajc5eTJuZnctR0lrclJzV3lpVkhvUXNDbGYwQ0lWaWlNbTNsT2E1SUM",
+      "title": "Meet Jena Sims, Sports Illustrated Swimsuit model and golfer Brooks Koepka’s wife",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQRzZfT2E3WUxuSGxKbGJxSllkUXJQLUdZb2ZmSTA0b3J2Y0RkdkVtVmJyaXFfT2tkbHlwVEpxb3FlWFIwV2dSV0xZejU3NHRGQ1dYRWdqMVNaaDFiUWQwSFpsc2RXWHZQX2R6RjVJSjVSREc3b0JBT0V5OFRRVHdIaU1rZWJMYWZ1QlFCd0dNOFF4TTNyT1dScFJBakVleTZ6WmJDb081TG5FX2pjU0RxbWlfNFJ1RUV2Wkozajc5eTJuZnctR0lrclJzV3lpVkhvUXNDbGYwQ0lWaWlNbTNsT2E1SUM?oc=5",
+      "platform": "news",
+      "source": "Google News · 수영복",
+      "category": "model",
+      "author": "South China Morning Post",
       "created_utc": 1780729200
     },
     {
@@ -184,16 +204,6 @@
       "created_utc": 1777791600
     },
     {
-      "id": "CBMijgFBVV95cUxOT0hSS3JER2JsLUlYV2JiTGU2ZTVnbG1QYW80b0VZTnZ1dnpTaURtc3RoR1NDWS1pQ0I1b2M4VjJFS0hLTENvU3l1S2VJNkpwZkdEX3Zkbzlmcm95bm9EVXZ4M2NJSEpuUTNwMl9oN1RLa2dCczQwNWtVY3Rla0VObnVLUTNrOGs0TTJha0R3",
-      "title": "'Love Island USA' Star Olandria Carthen Dials Up the Heat in a Wet T-Shirt and Bikinis for 'Sports Illustrated Swimsuit' Debut",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOT0hSS3JER2JsLUlYV2JiTGU2ZTVnbG1QYW80b0VZTnZ1dnpTaURtc3RoR1NDWS1pQ0I1b2M4VjJFS0hLTENvU3l1S2VJNkpwZkdEX3Zkbzlmcm95bm9EVXZ4M2NJSEpuUTNwMl9oN1RLa2dCczQwNWtVY3Rla0VObnVLUTNrOGs0TTJha0R3?oc=5",
-      "platform": "news",
-      "source": "Google News · 수영복",
-      "category": "model",
-      "author": "People.com",
-      "created_utc": 1774940400
-    },
-    {
       "id": "CBMivwFBVV95cUxNVVdpaWdxWS15Zl91NzRpNlk2TjF0T0Vwazl1OWRleFVPaUZFc2h4NnVFZUJMd1U1aHNMRmU1c0FIcnJhVG9mMlU2bkVCV3YxUkV6Wm1HUl9OcGV5Ym8xbmwxT1pPaXhJYWxWX3JNZkxwallFVHNYZ1FxdzZnWUd2dExrVW5fTmgtbG1xbUVGbnVadnJkNzFNa21MbzZTdHlKc2VuRmRzcndEX2hUVThTcnozVDdOZi1nUTJRdDI0TQ",
       "title": "Atsuko Maeda’s steamy photo book follows Maki Goto in ‘not playing it safe’",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNVVdpaWdxWS15Zl91NzRpNlk2TjF0T0Vwazl1OWRleFVPaUZFc2h4NnVFZUJMd1U1aHNMRmU1c0FIcnJhVG9mMlU2bkVCV3YxUkV6Wm1HUl9OcGV5Ym8xbmwxT1pPaXhJYWxWX3JNZkxwallFVHNYZ1FxdzZnWUd2dExrVW5fTmgtbG1xbUVGbnVadnJkNzFNa21MbzZTdHlKc2VuRmRzcndEX2hUVThTcnozVDdOZi1nUTJRdDI0TQ?oc=5",
@@ -210,7 +220,7 @@
       "platform": "news",
       "source": "Google News · 수영복",
       "category": "model",
-      "author": "Page Six",
+      "author": "pagesix.com",
       "created_utc": 1774335600
     },
     {
@@ -232,16 +242,6 @@
       "category": "gravure",
       "author": "Japan Anime News",
       "created_utc": 1772092800
-    },
-    {
-      "id": "CBMia0FVX3lxTE84VUhZRlVyYy1fbjB4cXlvNDNYeEpyWkpRRWM0SDV3dURMVnU5cXY2aUljc1p0elVMcXl3aXpockp0QURWakh3aWZFc0hQY1VPTXhGY1pSQ0ZHcEI5U2hMaUUzcl9LT2xPUkU4",
-      "title": "Swimsuit Snow Performance Lands Japanese Idols in Hot Water (and They Don't Give a F$*!)",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE84VUhZRlVyYy1fbjB4cXlvNDNYeEpyWkpRRWM0SDV3dURMVnU5cXY2aUljc1p0elVMcXl3aXpockp0QURWakh3aWZFc0hQY1VPTXhGY1pSQ0ZHcEI5U2hMaUUzcl9LT2xPUkU4?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "Unseen Japan",
-      "created_utc": 1770883200
     },
     {
       "id": "CBMiT0FVX3lxTE05N1l5ZzNseUVyTlJYQlBIU2k4a2hCNUpQbmVnMVJya0J6cUF3VVZZU0NCNHgtTU4zY3pNMmRxek8tZE42cHFzdHpqSWp2Zjg",
@@ -324,6 +324,16 @@
       "created_utc": 1733990400
     },
     {
+      "id": "CBMiVEFVX3lxTE5zUXNUblRNd2Y1NHBKQ3V0RHBEUzRFcmRNVHZnNThoOUpBSEg4VjlhUnZwV3BDQ19ESXhjbFhtZld0ZUNCMkFsdEo5Tl9JaHJZT0F2Mw",
+      "title": "Idol's First Foray into Glamour Photography: Celebrating Graduation with a Special Photo Book",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5zUXNUblRNd2Y1NHBKQ3V0RHBEUzRFcmRNVHZnNThoOUpBSEg4VjlhUnZwV3BDQ19ESXhjbFhtZld0ZUNCMkFsdEo5Tl9JaHJZT0F2Mw?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아",
+      "category": "gravure",
+      "author": "News On Japan",
+      "created_utc": 1705651200
+    },
+    {
       "id": "CBMimwFBVV95cUxNWjE2UFNFZjRuQWhLUFBGYWxVd2RiZ1BjdHB6M1NMX2tueW5RWnUxM3ZteS02clJIYm5EcnJ0OUVna2pPRDJKNFAyVDNTQzc2UElmUVRzNzRkNHkwR3BQZXdSbk5NOHhiMTkyQjR5d1dtdXFDejU0WDVGYlBEMFZrNmMwYXBQR2k2dDg2cnhVM1FGekV2VVV0T0Fzbw",
       "title": "A Girl in Bikini Is Not Wenwen Han in the Karate Kid",
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNWjE2UFNFZjRuQWhLUFBGYWxVd2RiZ1BjdHB6M1NMX2tueW5RWnUxM3ZteS02clJIYm5EcnJ0OUVna2pPRDJKNFAyVDNTQzc2UElmUVRzNzRkNHkwR3BQZXdSbk5NOHhiMTkyQjR5d1dtdXFDejU0WDVGYlBEMFZrNmMwYXBQR2k2dDg2cnhVM1FGekV2VVV0T0Fzbw?oc=5",
@@ -344,6 +354,16 @@
       "created_utc": 1696834800
     },
     {
+      "id": "CBMiUEFVX3lxTE9qZUwyYkp2RV92VUpiVm0xWFhzLU5EQkdpTU1FMmxranUwa2trQkNJQXRPOHZqbzBVNHloU2ZaamZ5SWUzRE5ud21wRksyNnVP",
+      "title": "[단독]\"미성년자도 성폭력 피해\" 그라비아 모델 5명 소속사 대표 추가 고소",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9qZUwyYkp2RV92VUpiVm0xWFhzLU5EQkdpTU1FMmxranUwa2trQkNJQXRPOHZqbzBVNHloU2ZaamZ5SWUzRE5ud21wRksyNnVP?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아(KR)",
+      "category": "gravure",
+      "author": "munhwa.com",
+      "created_utc": 1693206000
+    },
+    {
       "id": "CBMia0FVX3lxTFAwOTZ4X3VNQlM1ak5UeEVOVEtaQXFkM1VBU3JNdnpGdjI4Q2F0bmdNUnh4MkU4OVlOQzBXenV3TFpUeHZ3LUVLNGttbE9EVU01TDdHblFVSGVwUHdzZWJRa050WlI1TEFuQWJr0gFvQVVfeXFMTzVoWldtVVdjeUQtaGhOeVloTHZ4QTJXWS1mNXdzdVMydmpsalB6VURxdlp5Q0c3RDJqcVNSYS1yVi1uTGNzZXpnTzdnNHZaaXo3S290WXJMZWpfM3hGb2hWaWhKRHlZd211R2FxbmVz",
       "title": "성폭행과 폭언·협박, 그라비아 모델들은 숨어 울었다",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAwOTZ4X3VNQlM1ak5UeEVOVEtaQXFkM1VBU3JNdnpGdjI4Q2F0bmdNUnh4MkU4OVlOQzBXenV3TFpUeHZ3LUVLNGttbE9EVU01TDdHblFVSGVwUHdzZWJRa050WlI1TEFuQWJr0gFvQVVfeXFMTzVoWldtVVdjeUQtaGhOeVloTHZ4QTJXWS1mNXdzdVMydmpsalB6VURxdlp5Q0c3RDJqcVNSYS1yVi1uTGNzZXpnTzdnNHZaaXo3S290WXJMZWpfM3hGb2hWaWhKRHlZd211R2FxbmVz?oc=5",
@@ -360,7 +380,7 @@
       "platform": "news",
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
-      "author": "JTBC뉴스",
+      "author": "JTBC",
       "created_utc": 1682492400
     },
     {
@@ -382,16 +402,6 @@
       "category": "gravure",
       "author": "v.daum.net",
       "created_utc": 1682406000
-    },
-    {
-      "id": "CBMic0FVX3lxTE1laUNxVHhYRXFHUVkzYnhYT0hlMElYanVTLVV0c3JyYkY3MnB1Ul80YWViRGJnb3o0eXVtaFA5QU9iQVlCQU1Rc0ZKQTlHMm9ZcHV2SEdTNWhXdkk3YVFzX20tVXhqSGxPODNUWFF6bmFtMk3SAXdBVV95cUxOVWFYRmZ6RDRHcldaa3gwWU41Q3M2UUZseV95dVBvcU9pTHpETi1IbmlRMGdqSGZWZW84Slo3a0Y2YVlXZkZtS1pXb3ZXVmcxZVRGQWFXbVlGbHFSMGd0SUFDQUpmbDBPbXBTMUZWc1VqYUZxVWUyaw",
-      "title": "머슬마니아 스포츠모델 ‘퀸’ 장하은, ‘맥스큐’ 비키니 화보 공개",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1laUNxVHhYRXFHUVkzYnhYT0hlMElYanVTLVV0c3JyYkY3MnB1Ul80YWViRGJnb3o0eXVtaFA5QU9iQVlCQU1Rc0ZKQTlHMm9ZcHV2SEdTNWhXdkk3YVFzX20tVXhqSGxPODNUWFF6bmFtMk3SAXdBVV95cUxOVWFYRmZ6RDRHcldaa3gwWU41Q3M2UUZseV95dVBvcU9pTHpETi1IbmlRMGdqSGZWZW84Slo3a0Y2YVlXZkZtS1pXb3ZXVmcxZVRGQWFXbVlGbHFSMGd0SUFDQUpmbDBPbXBTMUZWc1VqYUZxVWUyaw?oc=5",
-      "platform": "news",
-      "source": "Google News · 비키니(KR)",
-      "category": "model",
-      "author": "스트레이트뉴스",
-      "created_utc": 1673683200
     },
     {
       "id": "CBMi_AFBVV95cUxOTFlVM25jLWRXZVJWbThPNEdMRDdSbTRMSjdBZGRwMGlGbXZxektFaGhNWjhPQV9Md1NZUFd0czhNT2Z2S19WcWZIZEpEV25wWG5DSExoT1c1NGRHblh3RndWclEzeFMtb29UbEVCdlZwWnhUbnZfaHhVbDNYNDBtalVaVmVWNk1uUmFsNzJPMmJLZUZzOXBFX0lGaHlpR284U2ZfMUs3SmhvalJMUGUxSm5LSVNrWjdHOFBGUUgxSzVJaEUydXNRbDFpMnNna1dfenE4bFFGaXRoU28tT3Rodlc0YjlfN2RLanJsSlJBNmltYV9iNk1vZlhtTUg",
@@ -440,7 +450,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 누드",
       "category": "gravure",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1640332800
     },
     {
@@ -450,7 +460,7 @@
       "platform": "news",
       "source": "Google News · 그라비아",
       "category": "gravure",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1631602800
     },
     {
@@ -480,7 +490,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 누드",
       "category": "gravure",
-      "author": "arama! japan",
+      "author": "aramajapan.com",
       "created_utc": 1587689288
     },
     {
@@ -490,7 +500,7 @@
       "platform": "news",
       "source": "Google News · 글래머",
       "category": "model",
-      "author": "Yahoo Style UK",
+      "author": "Yahoo Life UK",
       "created_utc": 1566889200
     },
     {
@@ -500,7 +510,7 @@
       "platform": "news",
       "source": "Google News · 코스프레",
       "category": "cosplay",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1521788400
     },
     {
@@ -530,7 +540,7 @@
       "platform": "news",
       "source": "Google News · 코스프레",
       "category": "cosplay",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1471244400
     },
     {
@@ -550,7 +560,7 @@
       "platform": "news",
       "source": "Google News · 그라비아 화보",
       "category": "gravure",
-      "author": "soranews24.com",
+      "author": "SoraNews24",
       "created_utc": 1467788400
     },
     {
@@ -614,16 +624,6 @@
       "created_utc": 1445497200
     },
     {
-      "id": "CBMibEFVX3lxTE5oa2FuZDR1R2FlQUpKa3Noc1lRZjg4WnJfZDVaWmdZbVFuZXEzUGhDSnN6RlVqUXVibl9MNVpHQktONEJHSzZHazEzNlBxbUJWUDYxLXlMWVNucmFwZ0JkZkRHZHc3UHlwTnB5SA",
-      "title": "[포토] 美 글래머 모델, 보일듯 말듯 '아찔 셀카'",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5oa2FuZDR1R2FlQUpKa3Noc1lRZjg4WnJfZDVaWmdZbVFuZXEzUGhDSnN6RlVqUXVibl9MNVpHQktONEJHSzZHazEzNlBxbUJWUDYxLXlMWVNucmFwZ0JkZkRHZHc3UHlwTnB5SA?oc=5",
-      "platform": "news",
-      "source": "Google News · 글래머(KR)",
-      "category": "model",
-      "author": "아시아경제",
-      "created_utc": 1444633200
-    },
-    {
       "id": "CBMiYEFVX3lxTE5NZDVGTVE1UmVJcEhRSGhGUU9iYzZLN0FBcEVMMlFGVnhCWjRQb1BkRVJfY3VNZVc4TWlUU2pnUndMNnZobjJfNV95T2REblNtNDNsalUzWS1UaGhOLWZ3LQ",
       "title": "[포토] '글래머 모델' 조던 카버, 밀착 의상 입고 농구 삼매경",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5NZDVGTVE1UmVJcEhRSGhGUU9iYzZLN0FBcEVMMlFGVnhCWjRQb1BkRVJfY3VNZVc4TWlUU2pnUndMNnZobjJfNV95T2REblNtNDNsalUzWS1UaGhOLWZ3LQ?oc=5",
@@ -640,7 +640,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "동아일보",
+      "author": "donga.com",
       "created_utc": 1436252400
     },
     {
@@ -710,7 +710,7 @@
       "platform": "news",
       "source": "Google News · 비키니(KR)",
       "category": "model",
-      "author": "sports.donga.com",
+      "author": "스포츠동아",
       "created_utc": 1392624000
     },
     {
@@ -750,7 +750,7 @@
       "platform": "news",
       "source": "Google News · 글래머(KR)",
       "category": "model",
-      "author": "동아일보",
+      "author": "donga.com",
       "created_utc": 1325577600
     },
     {
