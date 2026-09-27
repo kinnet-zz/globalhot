@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-27T18:18:24.463Z",
+  "generated_at": "2026-09-27T22:03:12.337Z",
   "window_hours": 24,
-  "collected_count": 1069,
+  "collected_count": 1054,
   "top": [
     {
       "rank": 1,
       "title": "Just enjoy",
-      "url": "https://www.flickr.com/photos/zipzip98/55553857636/",
-      "thumb": "https://live.staticflickr.com/65535/55553857636_e98bb3c183_b.jpg",
+      "url": "https://www.flickr.com/photos/zipzip98/55553957198/",
+      "thumb": "https://live.staticflickr.com/65535/55553957198_381e8bd091_b.jpg",
       "publishedAt": "2026-09-27T12:22:26.000Z",
       "sources": [
-        "Flickr · 비키니",
-        "Flickr · 란제리"
+        "Flickr · 란제리",
+        "Flickr · 비키니"
       ],
       "platforms": [
         "flickr"
@@ -20,7 +20,7 @@
         "model"
       ],
       "persons": [],
-      "score": 25,
+      "score": 24,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -33,8 +33,8 @@
       "thumb": "",
       "publishedAt": "2026-09-27T08:56:44.000Z",
       "sources": [
-        "Google News · 水着グラビア(JA)",
-        "Google News · グラビア(JA)"
+        "Google News · グラビア(JA)",
+        "Google News · 水着グラビア(JA)"
       ],
       "platforms": [
         "news"
@@ -43,10 +43,10 @@
         "gravure"
       ],
       "persons": [],
-      "score": 24,
+      "score": 23,
       "badge": {
-        "kind": "up",
-        "label": "▲ 1"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
@@ -66,30 +66,29 @@
         "model"
       ],
       "persons": [],
-      "score": 24,
+      "score": 23,
       "badge": {
-        "kind": "down",
-        "label": "▼ 1"
+        "kind": "same",
+        "label": "—"
       }
     },
     {
       "rank": 4,
-      "title": "麻倉瑞季：ミスマガ美女がTシャツを脱ぎ こぼれそう 「半端ない」「素晴らしい」の声 - MANTANWEB",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE82eVh2NG5iT2RpUWFPdUtIS21IckM0bGpsbEQ4d3hFOC11VG9SYWFuOFpyNW1OQl9uVTVVNkFTSmlmMnBxQzlYa3ZYMkw2RUU4VkhMc1h6Y1VGVmZjZVY5NXFqbTNZNmY0SDZF?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-09-26T21:02:12.000Z",
+      "title": "[Safebooru · 코스프레] bald black_pantyhose cosplay",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7181938",
+      "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_507039cc9f2270789b4c608d0cdaf8409a967492.jpg",
+      "publishedAt": "",
       "sources": [
-        "Google News · 水着グラビア(JA)",
-        "Google News · グラビア(JA)"
+        "Safebooru · 코스프레"
       ],
       "platforms": [
-        "news"
+        "safebooru"
       ],
       "categories": [
-        "gravure"
+        "cosplay"
       ],
       "persons": [],
-      "score": 21,
+      "score": 18,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -97,18 +96,18 @@
     },
     {
       "rank": 5,
-      "title": "Found Slide",
-      "url": "https://www.flickr.com/photos/thomashawk/55554642548/",
-      "thumb": "https://live.staticflickr.com/65535/55554642548_1a109879bc_b.jpg",
-      "publishedAt": "2026-09-27T18:17:06.000Z",
+      "title": "[Safebooru · 코스프레] arm_belt arms_behind_back black_hair",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7181714",
+      "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_6e9563ad982544c1bd92edf6039a1dcb211249b4.jpg",
+      "publishedAt": "",
       "sources": [
-        "Flickr · 비키니"
+        "Safebooru · 코스프레"
       ],
       "platforms": [
-        "flickr"
+        "safebooru"
       ],
       "categories": [
-        "model"
+        "cosplay"
       ],
       "persons": [],
       "score": 18,
@@ -119,28 +118,6 @@
     },
     {
       "rank": 6,
-      "title": "Tease",
-      "url": "https://www.flickr.com/photos/194532873@N03/55554579928/",
-      "thumb": "https://live.staticflickr.com/65535/55554579928_4c11b6118c_b.jpg",
-      "publishedAt": "2026-09-27T17:50:05.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 7,
       "title": "[Safebooru · 코스프레] ahoge ankle_lace-up ankle_socks",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7181656",
       "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_30be69a3b082a16ba84c2eb2cbb3e7de84097474.jpg",
@@ -157,12 +134,12 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 1"
       }
     },
     {
-      "rank": 8,
+      "rank": 7,
       "title": "[Safebooru · 코스프레] black_capelet capelet cosplay",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7181644",
       "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_73e31495846d77fee9810330f91bf0c5d4eb92ec.jpg",
@@ -179,27 +156,49 @@
       "persons": [],
       "score": 18,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "up",
+        "label": "▲ 1"
       }
     },
     {
-      "rank": 9,
-      "title": "[Safebooru · 코스프레] artist_name badtz-maru badtz-maru_(cosplay)",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7181427",
-      "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_975ee5844e5a68542c5765fbea42e988a7996343.jpg",
-      "publishedAt": "",
+      "rank": 8,
+      "title": "Evangeline Fox cosplay from Once Upon a Broken Heart",
+      "url": "https://www.reddit.com/r/cosplay/comments/1wrwm5v/evangeline_fox_cosplay_from_once_upon_a_broken/",
+      "thumb": "https://preview.redd.it/rfdl5ttyu4sh1.jpg?width=140&height=140&auto=webp&s=93fd189698e0b08a7837d0cea0441b5615e48379",
+      "publishedAt": "2026-09-27T21:44:35.000Z",
       "sources": [
-        "Safebooru · 코스프레"
+        "Reddit · r/cosplay"
       ],
       "platforms": [
-        "safebooru"
+        "reddit"
       ],
       "categories": [
         "cosplay"
       ],
       "persons": [],
       "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 9,
+      "title": "「ブラ忘れたの？」ピアニストグラドル、素肌に直ジャケ！駅ホームでの“露出系”ショット ファン骨抜き「はみ出し禁止」「お巡りさんここにいます」（中日スポーツ） - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9YR3RjWFFEam1PbE85ZzdXY3psTlNUVGszVnE2cVN0LWNiYm1yQkIyUEFmQ0k4dkRIZ0o5WVZKbndmQUVxazkyVGdNR0Zza0VKRExmUGFnTGV5SVNRT3RvRHh6WVNYZVViMmNLektOVGRRMnBBcUVaVUx2RmtiNmc?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-09-27T20:50:29.000Z",
+      "sources": [
+        "Google News · グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 17,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -207,21 +206,21 @@
     },
     {
       "rank": 10,
-      "title": "[Safebooru · 코스프레] ahoge belt black_eyes",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7181407",
-      "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_ee41be3afb4658f15c7f98515acb5fb9b76bc1fa.jpg",
-      "publishedAt": "",
+      "title": "現役捕手グラドル、黒ミニスカ黒スト「新入社員になりました！」スーツショット「むしろ、イイ」 - 日刊スポーツ",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9FaVF2VmxWV1cySWRkeWpvODlLRUZNc2lSeUttTnlGUUpPeHdWMjhITHp2ckV5UEJqYXJwTThWcldKTjkxYkRaUWc4Q1I0REZJYThIbWRQdlNUeGkyQVJta0w4WWhTMzZ2QkFPMDVQT21oT2N1OEQw0gF_QVVfeXFMTlNHMy1FMldfd0dMdUdiM2dyRndFbFFiVzJvV1B5VktlTTFtRWdvX2dMa0Q4WHF6VzZxbkoyOHh3d3BVLXk2UUNRdjhGNExPUS1jV1Vmcm9LVDd4eFpzdjRHTko1OWRLVlBJbnF1UVJTNHhmd19rc1otclFmbk9oNA?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-09-27T20:55:00.000Z",
       "sources": [
-        "Safebooru · 코스프레"
+        "Google News · グラビア(JA)"
       ],
       "platforms": [
-        "safebooru"
+        "news"
       ],
       "categories": [
-        "cosplay"
+        "gravure"
       ],
       "persons": [],
-      "score": 18,
+      "score": 17,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -229,21 +228,21 @@
     },
     {
       "rank": 11,
-      "title": "Cincinnati Comic Expo 2026 Photos, Part 1 of 2: Cosplay! Previously on Midlife Crisis Crossover: my wife Anne and I enjo…",
-      "url": "https://midlifecrisiscrossover.com/2026/09/27/cincinnati-comic-expo-2026-photos-part-1-of-2-cosplay/",
+      "title": "グラドル仲原ちえ仕上がりＯＫ！ １１月「ベストボディ・ジャパン」で２年ぶり女王狙う - デイリースポーツ",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBrTTFaTzNkWUxHWDlkeThJZmVHVHlJeWZJeUxTQUZBS0V1SVBNSFV4eXZjSXM5eUZIeWpxTjU4blA4a0tvek1oTlRoQ1J6ei1OMC11a1R4SEliTGtKM1BwZ2VscGZPNkw2ckE?oc=5",
       "thumb": "",
-      "publishedAt": "2026-09-27T18:02:42.000Z",
+      "publishedAt": "2026-09-27T20:00:00.000Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Google News · グラビア(JA)"
       ],
       "platforms": [
-        "mastodon"
+        "news"
       ],
       "categories": [
-        "cosplay"
+        "gravure"
       ],
       "persons": [],
-      "score": 18,
+      "score": 17,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -251,54 +250,10 @@
     },
     {
       "rank": 12,
-      "title": "[Danbooru · 코스프레] post 12271013",
-      "url": "https://danbooru.donmai.us/posts/12271013",
-      "thumb": "https://cdn.donmai.us/180x180/7e/84/7e84cca9ac19885762f5177127420843.jpg",
-      "publishedAt": "2026-09-27T18:03:26.064Z",
-      "sources": [
-        "Danbooru · 코스프레"
-      ],
-      "platforms": [
-        "danbooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 13,
-      "title": "[Danbooru · 코스프레] post 12270987",
-      "url": "https://danbooru.donmai.us/posts/12270987",
-      "thumb": "https://cdn.donmai.us/180x180/90/c0/90c02d3193e0af960c38971978e0c4e4.jpg",
-      "publishedAt": "2026-09-27T17:58:48.912Z",
-      "sources": [
-        "Danbooru · 코스프레"
-      ],
-      "platforms": [
-        "danbooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 14,
-      "title": "Fanasy wire wrap jewelry",
-      "url": "https://www.flickr.com/photos/198766764@N04/55553260712/",
-      "thumb": "https://live.staticflickr.com/65535/55553260712_2c1e3b59c9_z.jpg",
-      "publishedAt": "2026-09-27T16:15:31.000Z",
+      "title": "Shooting - 02 - Aphrodite & Ariane - Les Amants de La Mythologie Grecque - Nirim.Lavender Psycosplay_toh - Roseraie Internationale - Parc de La Tete D'Or - Lyon -2026-09-20- P1072241",
+      "url": "https://www.flickr.com/photos/styeb/55553781507/",
+      "thumb": "https://live.staticflickr.com/65535/55553781507_cf9deed2c0_b.jpg",
+      "publishedAt": "2026-09-27T20:09:52.000Z",
       "sources": [
         "Flickr · 코스프레"
       ],
@@ -316,11 +271,77 @@
       }
     },
     {
+      "rank": 13,
+      "title": "Shooting - 05 - Apollon & Aphrodite & Hermes - Les Amants de La Mythologie Grecque - Charlenzel Psycosplay_toh _jonedeuf_ - Roseraie Internationale - Parc de La Tete D'Or - Lyon -2026-09-20- P1072452",
+      "url": "https://www.flickr.com/photos/styeb/55554946754/",
+      "thumb": "https://live.staticflickr.com/65535/55554946754_c8f601f087_b.jpg",
+      "publishedAt": "2026-09-27T19:59:21.000Z",
+      "sources": [
+        "Flickr · 코스프레"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 14,
+      "title": "TomorrowLand Belgium - © Rave Heroes - 0763",
+      "url": "https://www.flickr.com/photos/cyberfactory/55554913906/",
+      "thumb": "https://live.staticflickr.com/65535/55554913906_c42fd340b9_b.jpg",
+      "publishedAt": "2026-09-27T21:01:26.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
       "rank": 15,
-      "title": "Beachside",
-      "url": "https://www.flickr.com/photos/203623110@N03/55553246952/",
-      "thumb": "https://live.staticflickr.com/65535/55553246952_552400d591_b.jpg",
-      "publishedAt": "2026-09-27T16:08:13.000Z",
+      "title": "TomorrowLand Belgium - © Rave Heroes - 0777",
+      "url": "https://www.flickr.com/photos/cyberfactory/55555074849/",
+      "thumb": "https://live.staticflickr.com/65535/55555074849_45625aedd5_b.jpg",
+      "publishedAt": "2026-09-27T21:01:24.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 16,
+      "title": "I. Reese Beach Portrait",
+      "url": "https://www.flickr.com/photos/92487916@N02/55553716307/",
+      "thumb": "https://live.staticflickr.com/65535/55553716307_96d863a918_b.jpg",
+      "publishedAt": "2026-09-27T19:39:17.000Z",
       "sources": [
         "Flickr · 비키니"
       ],
@@ -338,35 +359,13 @@
       }
     },
     {
-      "rank": 16,
-      "title": "The Protector",
-      "url": "https://www.flickr.com/photos/88642461@N05/55553660000/",
-      "thumb": "https://live.staticflickr.com/65535/55553660000_7927ea758f_b.jpg",
-      "publishedAt": "2026-09-27T17:26:59.000Z",
-      "sources": [
-        "Flickr · 란제리"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
       "rank": 17,
-      "title": "Love the one your with",
-      "url": "https://www.flickr.com/photos/88642461@N05/55547733874/",
-      "thumb": "https://live.staticflickr.com/65535/55547733874_91cba93b33_b.jpg",
-      "publishedAt": "2026-09-27T16:11:57.000Z",
+      "title": "I. Reese Pineapple Portrait",
+      "url": "https://www.flickr.com/photos/92487916@N02/55554902669/",
+      "thumb": "https://live.staticflickr.com/65535/55554902669_acfb64df30_b.jpg",
+      "publishedAt": "2026-09-27T19:39:17.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Flickr · 비키니"
       ],
       "platforms": [
         "flickr"
@@ -383,32 +382,10 @@
     },
     {
       "rank": 18,
-      "title": "“現役看護師”桃里れあ、水色ランジェリー×黒のシアータイツで美ボディ披露「存在が可愛い！」「スタイルも素敵すぎる」 - ニコニコニュース",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9nYk03T0RJZzJtWjcwRTF2cDdwSkEyU3JYbzBBY09jdWltQTg3NnYyVk00SUE5TGV5VlZJRVlFdEc4d3lIYW1SeXhYQ29fSkxtTTFXNlJVR2RFMy14bWQxWFRnV2ZfUEpYbmhnNXJYRjgyVk9vdnFVbEpkQQ?oc=5",
+      "title": "🎵 #Cosplay Time ! 🎤😄🎶 - Sadlyn there is not a lot of my favorite Cosplayers active on Bluesky, but that doesn't mean…",
+      "url": "https://fed.brid.gy/r/https://bsky.app/profile/did:plc:skpzh4aoocs7t7dsyxissbqi/post/3mwjn4ez7xk2y",
       "thumb": "",
-      "publishedAt": "2026-09-27T16:00:19.000Z",
-      "sources": [
-        "Google News · グラビア(JA)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 19,
-      "title": "The Ineffable Society Philly meetup returns! Saturday October 24, 2026 Langhorne, PA 19047 TIS guest check-in opens: 12p…",
-      "url": "https://blahaj.zone/notes/arnm2gx4xb8v028d",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/344/000/612/206/644/original/bc2663b78ae421a3.webp",
-      "publishedAt": "2026-09-27T16:42:32.000Z",
+      "publishedAt": "2026-09-27T20:26:45.000Z",
       "sources": [
         "Mastodon · 코스프레"
       ],
@@ -426,11 +403,33 @@
       }
     },
     {
+      "rank": 19,
+      "title": "[Danbooru · 코스프레] post 12271467",
+      "url": "https://danbooru.donmai.us/posts/12271467",
+      "thumb": "https://cdn.donmai.us/180x180/00/2b/002b3cda50ea3e3dfe7bed5cd52470cc.jpg",
+      "publishedAt": "2026-09-27T19:57:32.795Z",
+      "sources": [
+        "Danbooru · 코스프레"
+      ],
+      "platforms": [
+        "danbooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 17,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
       "rank": 20,
-      "title": "[Danbooru · 코스프레] post 12270367",
-      "url": "https://danbooru.donmai.us/posts/12270367",
-      "thumb": "https://cdn.donmai.us/180x180/71/ca/71ca211341ad2f99cd9e4cb974d4c49e.jpg",
-      "publishedAt": "2026-09-27T16:20:40.665Z",
+      "title": "[Danbooru · 코스프레] post 12271385",
+      "url": "https://danbooru.donmai.us/posts/12271385",
+      "thumb": "https://cdn.donmai.us/180x180/2f/cf/2fcfbce0a6f71908853108c6ba2ed3c1.jpg",
+      "publishedAt": "2026-09-27T19:37:50.618Z",
       "sources": [
         "Danbooru · 코스프레"
       ],
@@ -449,21 +448,21 @@
     },
     {
       "rank": 21,
-      "title": "[Danbooru · 코스프레] post 12270318",
-      "url": "https://danbooru.donmai.us/posts/12270318",
-      "thumb": "https://cdn.donmai.us/180x180/e5/39/e539119d0f573877c579b54c5cee06f2.jpg",
-      "publishedAt": "2026-09-27T16:10:20.561Z",
+      "title": "Hanley Comic-Con September 2026 (16)",
+      "url": "https://www.flickr.com/photos/62612290@N03/55554825639/",
+      "thumb": "https://live.staticflickr.com/65535/55554825639_33549a9b64_b.jpg",
+      "publishedAt": "2026-09-27T19:03:33.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Flickr · 코스프레"
       ],
       "platforms": [
-        "danbooru"
+        "flickr"
       ],
       "categories": [
         "cosplay"
       ],
       "persons": [],
-      "score": 17,
+      "score": 16,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -471,18 +470,18 @@
     },
     {
       "rank": 22,
-      "title": "殺風景還是殺必死？",
-      "url": "https://www.flickr.com/photos/minghong/55554326583/",
-      "thumb": "https://live.staticflickr.com/65535/55554326583_45e96113fb_b.jpg",
-      "publishedAt": "2026-09-27T15:43:47.000Z",
+      "title": "Hanley Comic-Con September 2026 (36)",
+      "url": "https://www.flickr.com/photos/62612290@N03/55555049120/",
+      "thumb": "https://live.staticflickr.com/65535/55555049120_faf34e0a47_b.jpg",
+      "publishedAt": "2026-09-27T19:03:25.000Z",
       "sources": [
-        "Flickr · 비키니"
+        "Flickr · 코스프레"
       ],
       "platforms": [
         "flickr"
       ],
       "categories": [
-        "model"
+        "cosplay"
       ],
       "persons": [],
       "score": 16,
@@ -493,12 +492,12 @@
     },
     {
       "rank": 23,
-      "title": "More Completely Me",
-      "url": "https://www.flickr.com/photos/helene_tv/55554178589/",
-      "thumb": "https://live.staticflickr.com/65535/55554178589_9f62b24a1c_b.jpg",
-      "publishedAt": "2026-09-27T13:53:09.000Z",
+      "title": "Allegory . Mirelly",
+      "url": "https://www.flickr.com/photos/152516733@N05/55553584902/",
+      "thumb": "https://live.staticflickr.com/65535/55553584902_e1868ca94d_b.jpg",
+      "publishedAt": "2026-09-27T18:41:07.000Z",
       "sources": [
-        "Flickr · 글래머"
+        "Flickr · 부두어"
       ],
       "platforms": [
         "flickr"
@@ -515,10 +514,10 @@
     },
     {
       "rank": 24,
-      "title": "Where the Music Couldn't Follow, Olya #9",
-      "url": "https://www.flickr.com/photos/tobi-s_com/55554130863/",
-      "thumb": "https://live.staticflickr.com/65535/55554130863_6b5f95a8d2_b.jpg",
-      "publishedAt": "2026-09-27T14:00:11.000Z",
+      "title": "BA Lingerie Party",
+      "url": "https://www.flickr.com/photos/32220159@N05/55554920755/",
+      "thumb": "https://live.staticflickr.com/65535/55554920755_45ca5627a8_b.jpg",
+      "publishedAt": "2026-09-27T18:08:17.000Z",
       "sources": [
         "Flickr · 란제리"
       ],
@@ -537,18 +536,18 @@
     },
     {
       "rank": 25,
-      "title": "密着むにゅっ「汗でべちゃべちゃ、ごめん」ニーハイ網タイツバニーも 橋本梨菜＆葉月あや「週プレ」登場 - ｄメニューニュース",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOQWEyRXV0OVpJYW5YdHd5SHptcmdZczNDU2tTWUhyUndTb3NtTnd6VWhhdHQ0MFQ4eHNoTFg0MjYyeHhYamV3ZGpGT01zMU83Z1hBNW4wQlJnZ2ZoRkQ1TXd1eDE3ZmlnS2NwUWtScDBXQ0dfSV9heXlrd1ZpQTlKY2hjeTI3aXNZdU56LUdTa9IBlAFBVV95cUxOalRzX3U5aGZpZC0ySmp0Ujk3c1RDWk0yOVhsbzFJNFk1OWtwbEhzNGxDUXBLWkZUd2xYbDF3eTBYNGQ1ZVFlSHB5Rnpkb0pwc1lBeXdPdzJhTTB6U0pFUDBORHQxdC0yaXRtdlZoX3JERjUxT21nYWx2SHE0SFZRQWVWS1pqaVNSV3l0VVFxcU5NUHhm?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-09-27T14:10:00.000Z",
+      "title": "Saona Island - Caribbean Dream (Dominican Rep.)",
+      "url": "https://www.flickr.com/photos/dv20stecker/55554751938/",
+      "thumb": "https://live.staticflickr.com/65535/55554751938_d18590a69f_b.jpg",
+      "publishedAt": "2026-09-27T19:04:24.000Z",
       "sources": [
-        "Google News · グラビア(JA)"
+        "Flickr · 비키니"
       ],
       "platforms": [
-        "news"
+        "flickr"
       ],
       "categories": [
-        "gravure"
+        "model"
       ],
       "persons": [],
       "score": 16,
@@ -559,18 +558,18 @@
     },
     {
       "rank": 26,
-      "title": "「もうドキドキが止まらない…」斎藤恭代、白ランジェリー×白のニーハイストッキングの極上ショットにファン悶絶 - ｄメニューニュース",
-      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQT1loS3FCVFBSLXRaU29zUUpkSmN2Mm84SkIxekZfNGNSTHNXZmtfNERpY05hUlo3b1BIVU5pdjlodnN3SnByNU5vOV9DQzNvM21mTFNJN3pPU0tBM01yaC1BTnI0YWViZGlTNHZ5RVlrMkRTUnZQR0kzZTZTRGx6T2t1MndkeUVCd2QzeGtidTFNZ09GbFZzLUg0WEgxMm9XOHZiV3BfYTBaV2x6anJ0cW1UQmY3dDI3RGRYdmg1NTAyRmh1a1JXVVFXT245by1IeXdMOGJVSGVyYk9jWWM5X09raFhXd05ncnJMeEVR0gGeAUFVX3lxTFBwRUEyTkwzMElyTk1RazRtVGRYeDk4OG5YOTVOYnpLRlUzYXF5VzJnd2tUdE12Z3UxUWprZnJscW1YMDJVRTFvOXdQUE9XWVpkNzdLRWpsT19TbTBJdzVUZEVleXZLWnBEYmV2RTJCU05fbDRnZW1pNURkdlpHUHBoNGF6YmNXR0RmSHg3WjY5QkZ0emF2RUptT3AxNW93?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-09-27T14:30:00.000Z",
+      "title": "a_22",
+      "url": "https://www.flickr.com/photos/soulofnag/55553527747/",
+      "thumb": "https://live.staticflickr.com/65535/55553527747_ee91d6d341_b.jpg",
+      "publishedAt": "2026-09-27T18:20:59.000Z",
       "sources": [
-        "Google News · グラビア(JA)"
+        "Flickr · 비키니"
       ],
       "platforms": [
-        "news"
+        "flickr"
       ],
       "categories": [
-        "gravure"
+        "model"
       ],
       "persons": [],
       "score": 16,
@@ -581,10 +580,10 @@
     },
     {
       "rank": 27,
-      "title": "🔴 Sunday's #Postpunk Chillout Lounge is LIVE @ --&gt; twitch.tv/maerchen1313 &lt;-- from 12 p.m. EDT! 🖤🖤🖤 Friendly c…",
-      "url": "https://fed.brid.gy/r/https://bsky.app/profile/did:plc:pwbwm7dlp6tnhff3verzbkg3/post/3mwj4qens4c2n",
-      "thumb": "",
-      "publishedAt": "2026-09-27T15:33:42.000Z",
+      "title": "金曜は中秋の名月、土曜は #国際うさぎの日 という🐰日和の週末だったので、けものミラクルみたいなフォトを撮りたかったのですが、生憎🌕が全然見えない曇り／雨空だったので、過去のフレチで撮りそびれた（こんなのが撮りたかった）図を供養します …",
+      "url": "https://d.kg-misskey.net/notes/arnqefuo1gex2ioe",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/344/477/530/964/372/original/fea2b7d73a4bd2fc.webp",
+      "publishedAt": "2026-09-27T18:43:49.000Z",
       "sources": [
         "Mastodon · 코스프레"
       ],
@@ -603,98 +602,10 @@
     },
     {
       "rank": 28,
-      "title": "량현량하 김량하, 내년 1월 결혼…상대는 레이싱모델 김희 - donga.com",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1sLVFja1pvTVdPcnNSNGdKYktOLVhVOUVLUnJjVnUzX3Q4STktZXhvSmM3ekdTZnZBSVpsbkJjMW5qMmFJMTF5azE0cC1vZVo0N0NTbF9nbFZXcjFBVjc4ZEhMcm91US1VMHZlVDRsUkpuSW5mSlHSAWZBVV95cUxOVVlpbHI0WmtObXJ2UEtyRFdBZlhUak56eGd4bzRYSThhdmVUUlNlbWtMbzNFckhfSElqSVdXNUs2VWlqY2p3S2p6NlpMSmF4VmZfR1lXNDJBejFTaWU0ek84ak5zRHc?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-09-27T11:47:03.000Z",
-      "sources": [
-        "Google News · 레이싱 모델(KR)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 29,
-      "title": "Just Veronika",
-      "url": "https://www.flickr.com/photos/veronikapro/55553956348/",
-      "thumb": "https://live.staticflickr.com/65535/55553956348_22f7a5c98f_b.jpg",
-      "publishedAt": "2026-09-27T12:25:43.000Z",
-      "sources": [
-        "Flickr · 글래머"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 7"
-      }
-    },
-    {
-      "rank": 30,
-      "title": "「リアル浅倉南」今年7月にグラビアデビュー！新体操国体1位のアイドルに絶賛の声「かわいい」「オリンピックも目指せそう」 - ｄメニューニュース",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPUWxnU1N6Z1pJdnZWeUhjNVVscy1HVWFjT2xEZmRVUG5Ld3J3aG9JWWR0b3cwRDZPMG5VcWxSVFNPUEhJWFlLWkFtNElYNlBEbG54cEExNHNzZ19zcGtpNm1DYmxBb05kcTVPRkM1aEpTS1ZmLVJzdDFZdS00Z0U5OU5R?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-09-27T12:30:00.000Z",
-      "sources": [
-        "Google News · グラビア(JA)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 13"
-      }
-    },
-    {
-      "rank": 31,
-      "title": "J'ouvre un nouvel atelier de gravure à Poitiers, quartier Montbernage, juste derrière Chantier Public. Pour toustes cell…",
-      "url": "https://piaille.fr/@corbi/117343068581369431",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/343/068/624/125/522/original/c95e08dc918f54d3.png",
-      "publishedAt": "2026-09-27T12:45:31.000Z",
-      "sources": [
-        "Mastodon · 그라비아"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 10"
-      }
-    },
-    {
-      "rank": 32,
-      "title": "My top works on LM | Мои работы в топах на ЯМ https://www. livemaster.ru/topic/3911036-bl og-moi-raboty-v-topah # kawaii…",
-      "url": "https://mastodon.social/@catpunksbrand/117343226512039915",
-      "thumb": "",
-      "publishedAt": "2026-09-27T13:25:41.000Z",
+      "title": "シルバーウィークは東京フレチおつかれさまでした アニマルガールの着ぐるみさんが10キャラも集まる日が来ようとは…… そしてイベントデビューなのをいいことにちゃっかり合わせのセンターに陣取る🐰 # フレンズチホー47 # けものフレンズ #…",
+      "url": "https://costodon.social/@xitoyoujix/117344466427127273",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/344/466/635/970/186/original/99308660af366c3e.jpeg",
+      "publishedAt": "2026-09-27T18:41:00.000Z",
       "sources": [
         "Mastodon · 코스프레"
       ],
@@ -705,18 +616,106 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 15,
+      "score": 16,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 29,
+      "title": "Cincinnati Comic Expo 2026 Photos, Part 1 of 2: Cosplay! Previously on Midlife Crisis Crossover: my wife Anne and I enjo…",
+      "url": "https://midlifecrisiscrossover.com/2026/09/27/cincinnati-comic-expo-2026-photos-part-1-of-2-cosplay/",
+      "thumb": "",
+      "publishedAt": "2026-09-27T18:02:42.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
       "badge": {
         "kind": "down",
-        "label": "▼ 25"
+        "label": "▼ 18"
+      }
+    },
+    {
+      "rank": 30,
+      "title": "[Danbooru · 코스프레] post 12271121",
+      "url": "https://danbooru.donmai.us/posts/12271121",
+      "thumb": "https://cdn.donmai.us/180x180/92/f7/92f79200806851cdc2aeaae875cdad73.jpg",
+      "publishedAt": "2026-09-27T18:28:00.284Z",
+      "sources": [
+        "Danbooru · 코스프레"
+      ],
+      "platforms": [
+        "danbooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 31,
+      "title": "[Danbooru · 코스프레] post 12271013",
+      "url": "https://danbooru.donmai.us/posts/12271013",
+      "thumb": "https://cdn.donmai.us/180x180/7e/84/7e84cca9ac19885762f5177127420843.jpg",
+      "publishedAt": "2026-09-27T18:03:26.064Z",
+      "sources": [
+        "Danbooru · 코스프레"
+      ],
+      "platforms": [
+        "danbooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 19"
+      }
+    },
+    {
+      "rank": 32,
+      "title": "My Tecna cosplay from Winx reboot series",
+      "url": "https://www.reddit.com/r/cosplay/comments/1wrngno/my_tecna_cosplay_from_winx_reboot_series/",
+      "thumb": "https://preview.redd.it/xb665k3c23sh1.jpg?width=140&height=140&crop=1:1,smart&auto=webp&s=7d9148656a04b9ad53aa1f9f8d2819855d33fd86",
+      "publishedAt": "2026-09-27T15:43:55.000Z",
+      "sources": [
+        "Reddit · r/cosplay"
+      ],
+      "platforms": [
+        "reddit"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 33,
-      "title": "My 2b cosplay",
-      "url": "https://www.reddit.com/r/cosplay/comments/1wrk53x/my_2b_cosplay/",
-      "thumb": "https://preview.redd.it/ucn65bfld2sh1.jpg?width=140&height=140&crop=1:1,smart&auto=webp&s=268c8276323067b3d9240ef4c569243ed2e7e203",
-      "publishedAt": "2026-09-27T13:23:31.000Z",
+      "title": "My Steel Inquisitor cosplay at FanXSLC2026",
+      "url": "https://www.reddit.com/r/cosplay/comments/1wrn2b2/my_steel_inquisitor_cosplay_at_fanxslc2026/",
+      "thumb": "https://preview.redd.it/y8vaapbsz2sh1.jpeg?width=640&crop=smart&auto=webp&s=6c51e1184e02977eaeded2fdfc5c92136045114a",
+      "publishedAt": "2026-09-27T15:27:56.000Z",
       "sources": [
         "Reddit · r/cosplay"
       ],
@@ -735,10 +734,98 @@
     },
     {
       "rank": 34,
-      "title": "‘량현량하’ 김량하, 내년 1월 결혼…신부는 레이싱 모델 김희",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab95df0022f46c3a0e85362f0e9284e&amp;url=https%3a%2f%2fsports.khan.co.kr%2farticle%2f202609271747003%2f&amp;c=10464077025824055714&amp;mkt=en-us",
+      "title": "More Completely Me",
+      "url": "https://www.flickr.com/photos/helene_tv/55554178589/",
+      "thumb": "https://live.staticflickr.com/65535/55554178589_9f62b24a1c_b.jpg",
+      "publishedAt": "2026-09-27T13:53:09.000Z",
+      "sources": [
+        "Flickr · 글래머"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 11"
+      }
+    },
+    {
+      "rank": 35,
+      "title": "Just Veronika",
+      "url": "https://www.flickr.com/photos/veronikapro/55553956348/",
+      "thumb": "https://live.staticflickr.com/65535/55553956348_22f7a5c98f_b.jpg",
+      "publishedAt": "2026-09-27T12:25:43.000Z",
+      "sources": [
+        "Flickr · 글래머"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 6"
+      }
+    },
+    {
+      "rank": 36,
+      "title": "J'ouvre un nouvel atelier de gravure à Poitiers, quartier Montbernage, juste derrière Chantier Public. Pour toustes cell…",
+      "url": "https://piaille.fr/@corbi/117343068581369431",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/343/068/624/125/522/original/c95e08dc918f54d3.png",
+      "publishedAt": "2026-09-27T12:45:31.000Z",
+      "sources": [
+        "Mastodon · 그라비아"
+      ],
+      "platforms": [
+        "mastodon"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 5"
+      }
+    },
+    {
+      "rank": 37,
+      "title": "My 2b cosplay",
+      "url": "https://www.reddit.com/r/cosplay/comments/1wrk53x/my_2b_cosplay/",
+      "thumb": "https://preview.redd.it/ucn65bfld2sh1.jpg?width=140&height=140&crop=1:1,smart&auto=webp&s=268c8276323067b3d9240ef4c569243ed2e7e203",
+      "publishedAt": "2026-09-27T13:23:31.000Z",
+      "sources": [
+        "Reddit · r/cosplay"
+      ],
+      "platforms": [
+        "reddit"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 14,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 4"
+      }
+    },
+    {
+      "rank": 38,
+      "title": "'량현량하' 김량하, 내년 1월 결혼⋯예비신부는 10년 지기 레이싱모델",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab992a007cb4969803b59afb3c9eefc&amp;url=https%3a%2f%2fwww.msn.com%2fko-kr%2fnews%2fother%2f%25EB%259F%2589%25ED%2598%2584%25EB%259F%2589%25ED%2595%2598-%25EA%25B9%2580%25EB%259F%2589%25ED%2595%2598-%25EB%2582%25B4%25EB%2585%2584-1%25EC%259B%2594-%25EA%25B2%25B0%25ED%2598%25BC-%25EC%2598%2588%25EB%25B9%2584%25EC%258B%25A0%25EB%25B6%2580%25EB%258A%2594-10%25EB%2585%2584-%25EC%25A7%2580%25EA%25B8%25B0-%25EB%25A0%2588%25EC%259D%25B4%25EC%258B%25B1%25EB%25AA%25A8%25EB%258D%25B8%2far-AA2d3InS&amp;c=15171118795931200943&amp;mkt=en-us",
       "thumb": "",
-      "publishedAt": "2026-09-27T10:47:00.000Z",
+      "publishedAt": "2026-09-27T12:00:00.000Z",
       "sources": [
         "Bing News · 레이싱 모델"
       ],
@@ -749,16 +836,38 @@
         "model"
       ],
       "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
         "kind": "new",
         "label": "NEW"
       }
     },
     {
-      "rank": 35,
+      "rank": 39,
+      "title": "‘량현량하’ 김량하, 내년 1월 결혼…예비 신부는 모델 김희",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab992a007cb4969803b59afb3c9eefc&amp;url=https%3a%2f%2fwww.msn.com%2fko-kr%2fnews%2fother%2f%25EB%259F%2589%25ED%2598%2584%25EB%259F%2589%25ED%2595%2598-%25EA%25B9%2580%25EB%259F%2589%25ED%2595%2598-%25EB%2582%25B4%25EB%2585%2584-1%25EC%259B%2594-%25EA%25B2%25B0%25ED%2598%25BC-%25EC%2598%2588%25EB%25B9%2584-%25EC%258B%25A0%25EB%25B6%2580%25EB%258A%2594-%25EB%25AA%25A8%25EB%258D%25B8-%25EA%25B9%2580%25ED%259D%25AC%2far-AA2d3i4I&amp;c=10406656531767485786&amp;mkt=en-us",
+      "thumb": "",
+      "publishedAt": "2026-09-27T09:41:00.000Z",
+      "sources": [
+        "Bing News · 레이싱 모델"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 13,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 40,
       "title": "'량현량하' 김량하, 레이싱 모델 김희와 내년 1월 17일 결혼 \"평생 함께하고파\" [공식]",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab95df0022f46c3a0e85362f0e9284e&amp;url=https%3a%2f%2fwww.xportsnews.com%2farticle%2f2201008&amp;c=12481075213584455773&amp;mkt=en-us",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab992a007cb4969803b59afb3c9eefc&amp;url=https%3a%2f%2fwww.xportsnews.com%2farticle%2f2201008&amp;c=12481075213584455773&amp;mkt=en-us",
       "thumb": "",
       "publishedAt": "2026-09-27T09:54:00.000Z",
       "sources": [
@@ -771,80 +880,58 @@
         "model"
       ],
       "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
         "kind": "new",
         "label": "NEW"
       }
     },
     {
-      "rank": 36,
-      "title": "おばんざい店女将グラドル「Ｇ」美バストあらわなビキニ姿に「良い形」「最高～～～～」 - Infoseek",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBfdVNFRGNlTm1hZ0JDY2VqUEQxbFNJNThXVmQ0ZHBkZkpRRVUzdkdubU1LVVhqWGN1SzlqRnVYTkxqUkNEWmt4QkxhTDRXXzdNUVgxQ0NUU2VwenJYeDJnRlRkT1o2anNJcW5BSVU5c2xteWPSAXhBVV95cUxQbUMtUXh2dHk4eTBxZ0tmTE01Y2NHN3RmNkc1VnE5T0xTVi1fbTNGYkZ3ejlVZ1pXTThYZC1Gdkh5akRSNE9KcU9PNHBMd2dDWFVhenhIZzllcmt4YWpfbWJtRGZaWDBHdUFkSFhrclAzUmNaQ3VxTjc?oc=5",
+      "rank": 41,
+      "title": "‘량현량하’ 김량하, 내년 1월 결혼…신부는 레이싱 모델 김희",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab992a007cb4969803b59afb3c9eefc&amp;url=https%3a%2f%2fsports.khan.co.kr%2farticle%2f202609271747003%2f&amp;c=10464077025824055714&amp;mkt=en-us",
       "thumb": "",
-      "publishedAt": "2026-09-27T10:20:34.000Z",
+      "publishedAt": "2026-09-27T10:47:00.000Z",
       "sources": [
-        "Google News · 水着グラビア(JA)"
+        "Bing News · 레이싱 모델"
       ],
       "platforms": [
         "news"
       ],
       "categories": [
-        "gravure"
+        "model"
       ],
       "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
-        "kind": "down",
-        "label": "▼ 10"
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
-      "rank": 37,
-      "title": "Phan Hoàng Khang [DdvcwFnzvTZ]",
-      "url": "https://www.flickr.com/photos/204708731@N06/55553764624/",
-      "thumb": "https://live.staticflickr.com/31337/55553764624_da53c9e380_s.jpg",
-      "publishedAt": "2026-09-27T08:56:24.000Z",
+      "rank": 42,
+      "title": "량현량하 김량하, 내년 1월 결혼…상대는 레이싱모델 김희 - 동아일보",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1sLVFja1pvTVdPcnNSNGdKYktOLVhVOUVLUnJjVnUzX3Q4STktZXhvSmM3ekdTZnZBSVpsbkJjMW5qMmFJMTF5azE0cC1vZVo0N0NTbF9nbFZXcjFBVjc4ZEhMcm91US1VMHZlVDRsUkpuSW5mSlHSAWZBVV95cUxOVVlpbHI0WmtObXJ2UEtyRFdBZlhUak56eGd4bzRYSThhdmVUUlNlbWtMbzNFckhfSElqSVdXNUs2VWlqY2p3S2p6NlpMSmF4VmZfR1lXNDJBejFTaWU0ek84ak5zRHc?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-09-27T11:47:03.000Z",
       "sources": [
-        "Flickr · 코스프레"
+        "Google News · 레이싱 모델(KR)"
       ],
       "platforms": [
-        "flickr"
+        "news"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
         "kind": "down",
-        "label": "▼ 3"
+        "label": "▼ 14"
       }
     },
     {
-      "rank": 38,
-      "title": "honey😋 [DdwJPeOTtRJ]",
-      "url": "https://www.flickr.com/photos/204708731@N06/55553700313/",
-      "thumb": "https://live.staticflickr.com/31337/55553700313_a7de7cc145_s.jpg",
-      "publishedAt": "2026-09-27T08:53:59.000Z",
-      "sources": [
-        "Flickr · 코스프레"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 3"
-      }
-    },
-    {
-      "rank": 39,
+      "rank": 43,
       "title": "‘량현량하’ 김량하, 내년 1월 결혼…상대는 레이싱 모델 김희 - 중앙일보",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE85QmhlZ19LVWkwR0R0ekM0Xy00ME1oYVVMcnlwbGFEUWRKbElYamppV0R5M3RacDJMa1pXcVh4anBoeXRMcE8yNTBMRnBrREo2WlJ3d0xR?oc=5",
       "thumb": "",
@@ -859,14 +946,14 @@
         "model"
       ],
       "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 40,
+      "rank": 44,
       "title": "‘량현량하’ 김량하, 레이싱모델 김희와 내년 1월 결혼 - JTBC",
       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE4yZThIZ0dpU3RQWjRYR05BSk1ENUtqYV93cnlhNmZrbklaTGs1LV9hVTRRcExEd25uVHBLZGNIUmd2S2xJQlQ1N1hLOGdOaTVENnF0OQ?oc=5",
       "thumb": "",
@@ -881,14 +968,14 @@
         "model"
       ],
       "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
         "kind": "down",
-        "label": "▼ 16"
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 41,
+      "rank": 45,
       "title": "'량현량하' 김량하, 내년 1월 레이싱 모델 김희와 결혼 \"친구에서 연인\" - 뉴스1",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1nZUpmRUNrYkxIX1NXZS1Wb3c0cVNTNTA3Nk1WRVc5WVY2NjVqSWRhSE81ZWdoSnlxX2xVYWNUalpmUFJJc19iLVdyckpyZVZFNzdzZGpMZllVSl95dFpmMlBUZzI0ZlJQOUHSAWpBVV95cUxNZ2VKZkVDa2JMSF9TV2UtVm93NHFTUzUwNzZNVkVXOVlWNjY1aklkYUhPNWVnaEp5cV9sVWFjVGpaZlBSSXNfYi1XcnJKcmVWRTc3c2RqTGZZVUpfeXRaZjJQVGcyNGZSUDlB?oc=5",
       "thumb": "",
@@ -903,36 +990,36 @@
         "model"
       ],
       "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 42,
-      "title": "My iron hands cosplay from warhammer 40k",
-      "url": "https://www.reddit.com/r/cosplay/comments/1wrge7m/my_iron_hands_cosplay_from_warhammer_40k/",
-      "thumb": "https://preview.redd.it/1x3x2c1vd1sh1.jpg?width=140&height=140&crop=1:1,smart&auto=webp&s=a72d1fb34b040c1e5907acc04f04f57c1bb3eb4c",
-      "publishedAt": "2026-09-27T10:03:16.000Z",
-      "sources": [
-        "Reddit · r/cosplay"
-      ],
-      "platforms": [
-        "reddit"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 14,
+      "score": 13,
       "badge": {
         "kind": "down",
-        "label": "▼ 9"
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 43,
+      "rank": 46,
+      "title": "おばんざい店女将グラドル「Ｇ」美バストあらわなビキニ姿に「良い形」「最高～～～～」 - Infoseek",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBfdVNFRGNlTm1hZ0JDY2VqUEQxbFNJNThXVmQ0ZHBkZkpRRVUzdkdubU1LVVhqWGN1SzlqRnVYTkxqUkNEWmt4QkxhTDRXXzdNUVgxQ0NUU2VwenJYeDJnRlRkT1o2anNJcW5BSVU5c2xteWPSAXhBVV95cUxQbUMtUXh2dHk4eTBxZ0tmTE01Y2NHN3RmNkc1VnE5T0xTVi1fbTNGYkZ3ejlVZ1pXTThYZC1Gdkh5akRSNE9KcU9PNHBMd2dDWFVhenhIZzllcmt4YWpfbWJtRGZaWDBHdUFkSFhrclAzUmNaQ3VxTjc?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-09-27T10:20:34.000Z",
+      "sources": [
+        "Google News · 水着グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 13,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 10"
+      }
+    },
+    {
+      "rank": 47,
       "title": "立華理莉：現役看護師が白の変形水着姿に プール満喫 - MANTANWEB",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE13b2ZVRTRKQ0U3N2JLN21QMUNKUURVTHd3M1ZvNVAzQmNUTHljd09aR0p2bDR0N3BISEp3T0trbkpvNEt0LXJnZjVKRXdub0FZNUVIMTgwUVFmWkgzaVBiU0RXbkYzVXoxN25z?oc=5",
       "thumb": "",
@@ -947,102 +1034,36 @@
         "gravure"
       ],
       "persons": [],
-      "score": 13,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 44,
-      "title": "My big smoke cosplay",
-      "url": "https://www.reddit.com/r/cosplay/comments/1wre8m5/my_big_smoke_cosplay/",
-      "thumb": "https://preview.redd.it/15gic0ceq0sh1.jpeg?width=640&crop=smart&auto=webp&s=5a7db7258ff171e4829b8adab8a8edae43845879",
-      "publishedAt": "2026-09-27T07:51:43.000Z",
-      "sources": [
-        "Reddit · r/cosplay"
-      ],
-      "platforms": [
-        "reddit"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 13,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 7"
-      }
-    },
-    {
-      "rank": 45,
-      "title": "Shadow the Hedgehog",
-      "url": "https://www.reddit.com/r/cosplay/comments/1wrcggk/shadow_the_hedgehog/",
-      "thumb": "https://preview.redd.it/z9444ecm70sh1.jpeg?width=640&crop=smart&auto=webp&s=0e68a45bea7fd739e35d9b76a327610f1d148dfb",
-      "publishedAt": "2026-09-27T06:06:28.000Z",
-      "sources": [
-        "Reddit · r/cosplay"
-      ],
-      "platforms": [
-        "reddit"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 13,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 7"
-      }
-    },
-    {
-      "rank": 46,
-      "title": "“친구에서 부부로”… ‘량현량하’ 김량하, 레이싱모델 김희와 1월 결혼 [공식]",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab95df0022f46c3a0e85362f0e9284e&amp;url=https%3a%2f%2fwww.msn.com%2fko-kr%2fnews%2fother%2f%25EC%25B9%259C%25EA%25B5%25AC%25EC%2597%2590%25EC%2584%259C-%25EB%25B6%2580%25EB%25B6%2580%25EB%25A1%259C-%25EB%259F%2589%25ED%2598%2584%25EB%259F%2589%25ED%2595%2598-%25EA%25B9%2580%25EB%259F%2589%25ED%2595%2598-%25EB%25A0%2588%25EC%259D%25B4%25EC%258B%25B1%25EB%25AA%25A8%25EB%258D%25B8-%25EA%25B9%2580%25ED%259D%25AC%25EC%2599%2580-1%25EC%259B%2594-%25EA%25B2%25B0%25ED%2598%25BC-%25EA%25B3%25B5%25EC%258B%259D%2far-AA2d35Rb&amp;c=9123423474070456322&amp;mkt=en-us",
-      "thumb": "",
-      "publishedAt": "2026-09-27T01:20:36.000Z",
-      "sources": [
-        "Bing News · 레이싱 모델"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
       "score": 12,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 47,
-      "title": "'량현량하' 김량하, 내년 1월 결혼⋯예비신부는 10년 지기 레이싱모델",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6ab95df0022f46c3a0e85362f0e9284e&amp;url=https%3a%2f%2fwww.msn.com%2fko-kr%2fnews%2fother%2f%25EB%259F%2589%25ED%2598%2584%25EB%259F%2589%25ED%2595%2598-%25EA%25B9%2580%25EB%259F%2589%25ED%2595%2598-%25EB%2582%25B4%25EB%2585%2584-1%25EC%259B%2594-%25EA%25B2%25B0%25ED%2598%25BC-%25EC%2598%2588%25EB%25B9%2584%25EC%258B%25A0%25EB%25B6%2580%25EB%258A%2594-10%25EB%2585%2584-%25EC%25A7%2580%25EA%25B8%25B0-%25EB%25A0%2588%25EC%259D%25B4%25EC%258B%25B1%25EB%25AA%25A8%25EB%258D%25B8%2far-AA2d3InS&amp;c=15171118795931200943&amp;mkt=en-us",
-      "thumb": "",
-      "publishedAt": "2026-09-27T03:00:37.000Z",
-      "sources": [
-        "Bing News · 레이싱 모델"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 12,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 4"
       }
     },
     {
       "rank": 48,
+      "title": "idziak posted a photo:",
+      "url": "https://www.flickr.com/photos/196562018@N02/55553566838/",
+      "thumb": "https://live.staticflickr.com/65535/55553566838_5a9de0e5ff_b.jpg",
+      "publishedAt": "2026-09-27T07:08:12.000Z",
+      "sources": [
+        "Flickr · 부두어"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 12,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 49,
       "title": "In the \"Glam-per\"",
       "url": "https://www.flickr.com/photos/thatbish/55553292325/",
       "thumb": "https://live.staticflickr.com/65535/55553292325_54862d1807_b.jpg",
@@ -1057,54 +1078,32 @@
         "model"
       ],
       "persons": [],
-      "score": 12,
+      "score": 11,
       "badge": {
         "kind": "down",
-        "label": "▼ 4"
+        "label": "▼ 1"
       }
     },
     {
-      "rank": 49,
-      "title": "DSC06208",
-      "url": "https://www.flickr.com/photos/151754720@N05/55554205543/",
-      "thumb": "https://live.staticflickr.com/65535/55554205543_6174b75992_b.jpg",
-      "publishedAt": "2026-09-27T14:42:24.000Z",
+      "rank": 50,
+      "title": "[Safebooru · 코스프레] artist_name badtz-maru badtz-maru_(cosplay)",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7181427",
+      "thumb": "https://safebooru.org/thumbnails/1105/thumbnail_975ee5844e5a68542c5765fbea42e988a7996343.jpg",
+      "publishedAt": "",
       "sources": [
-        "Flickr · 코스프레"
+        "Safebooru · 코스프레"
       ],
       "platforms": [
-        "flickr"
+        "safebooru"
       ],
       "categories": [
         "cosplay"
       ],
       "persons": [],
-      "score": 8,
+      "score": 18,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 50,
-      "title": "DSC_1318",
-      "url": "https://www.flickr.com/photos/gurihlive/55553905799/",
-      "thumb": "https://live.staticflickr.com/65535/55553905799_6618f418a6_b.jpg",
-      "publishedAt": "2026-09-27T10:58:42.000Z",
-      "sources": [
-        "Flickr · 부두어"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 6,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 41"
       }
     }
   ],
@@ -1113,7 +1112,7 @@
       "id": "yuki-mita",
       "name": "Yuki Mita",
       "mentions": 1,
-      "score": 18
+      "score": 17
     }
   ]
 }
