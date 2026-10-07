@@ -55,6 +55,7 @@ const CSS = `
   a.rtag:hover { background:#bfdbfe; }
   .out { display:inline-block; margin-top:14px; background:var(--primary); color:#fff; font-weight:600; font-size:14px; padding:11px 22px; border-radius:10px; text-decoration:none; }
   .out:hover { background:var(--primary-hover); }
+  .disclosure { font-size:11px; color:var(--muted); margin-top:8px; }
   .person-head { display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin:16px 0; }
   .person-photo { width:110px; height:110px; border-radius:50%; object-fit:cover; border:2px solid var(--border); }
   .bio { font-size:14px; line-height:1.8; color:#374151; }
@@ -91,9 +92,9 @@ const NAV = `
 
 const I18N_JS = `
 const I18N = {
-  ko: { navRank:"실시간 랭킹", navWeekly:"주간 TOP", navModels:"모델 프로필", navIssue:"이슈", whyTitle:"왜 화제인가요?", historyTitle:"순위 이력", relatedTitle:"같은 카테고리 화제", outBtn:"원본 보기 ↗", personsTitle:"인물 정보", latestTitle:"관련 최신 화제", noRelated:"관련 화제가 아직 없습니다.", footer:"모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다" },
-  en: { navRank:"Live Ranking", navWeekly:"Weekly TOP", navModels:"Model Profiles", navIssue:"Issues", whyTitle:"Why is it trending?", historyTitle:"Rank History", relatedTitle:"Related Topics", outBtn:"View original ↗", personsTitle:"Profile", latestTitle:"Related Latest Topics", noRelated:"No related topics yet.", footer:"All items link to the original source only — no content is copied or stored" },
-  ja: { navRank:"リアルタイムランキング", navWeekly:"週間TOP", navModels:"モデルプロフィール", navIssue:"イシュー", whyTitle:"なぜ話題？", historyTitle:"順位履歴", relatedTitle:"同じカテゴリの話題", outBtn:"元を見る ↗", personsTitle:"プロフィール", latestTitle:"関連の最新話題", noRelated:"関連する話題はまだありません。", footer:"すべての項目は元ソースへのリンクのみ提供し、コンテンツの複製・保存は行いません" },
+  ko: { navRank:"실시간 랭킹", navWeekly:"주간 TOP", navModels:"모델 프로필", navIssue:"이슈", whyTitle:"왜 화제인가요?", historyTitle:"순위 이력", relatedTitle:"같은 카테고리 화제", outBtn:"원본 보기 ↗", personsTitle:"인물 정보", latestTitle:"관련 최신 화제", noRelated:"관련 화제가 아직 없습니다.", shopTitle:"사진집 · DVD", shopDisclosure:"PR: 이 링크를 통한 구매에서 수수료를 받을 수 있습니다.", footer:"모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다" },
+  en: { navRank:"Live Ranking", navWeekly:"Weekly TOP", navModels:"Model Profiles", navIssue:"Issues", whyTitle:"Why is it trending?", historyTitle:"Rank History", relatedTitle:"Related Topics", outBtn:"View original ↗", personsTitle:"Profile", latestTitle:"Related Latest Topics", noRelated:"No related topics yet.", shopTitle:"Photobooks · DVDs", shopDisclosure:"Ad disclosure: we may earn a commission on purchases through this link.", footer:"All items link to the original source only — no content is copied or stored" },
+  ja: { navRank:"リアルタイムランキング", navWeekly:"週間TOP", navModels:"モデルプロフィール", navIssue:"イシュー", whyTitle:"なぜ話題？", historyTitle:"順位履歴", relatedTitle:"同じカテゴリの話題", outBtn:"元を見る ↗", personsTitle:"プロフィール", latestTitle:"関連の最新話題", noRelated:"関連する話題はまだありません。", shopTitle:"写真集 · DVD", shopDisclosure:"PR: このリンク経由の購入で手数料を受け取る場合があります。", footer:"すべての項目は元ソースへのリンクのみ提供し、コンテンツの複製・保存は行いません" },
 };
 const urlLang = new URLSearchParams(location.search).get("lang");
 let lang = ["ko","en","ja"].includes(urlLang) ? urlLang : (localStorage.getItem("gh-lang") || "ko");
@@ -152,10 +153,29 @@ async function loadJson(p) {
   }
 }
 
+export async function loadAffiliateConfig(p) {
+  const raw = await loadJson(p);
+  const tag = typeof raw?.amazonTag === "string" ? raw.amazonTag.trim() : "";
+  if (!tag) return null;
+  const domain = typeof raw?.amazonDomain === "string" && raw.amazonDomain.trim() ? raw.amazonDomain.trim() : "www.amazon.co.jp";
+  return { amazonTag: tag, amazonDomain: domain.replace(/^https?:\/\//, "").replace(/\/+$/, "") };
+}
+
+export function affiliateSection(model, cfg) {
+  if (!cfg || !model) return "";
+  const q = [model.name, model.altName].filter(Boolean).join(" ").trim();
+  if (!q) return "";
+  const href = `https://${cfg.amazonDomain}/s?k=${encodeURIComponent(q)}&tag=${encodeURIComponent(cfg.amazonTag)}`;
+  return `<div class="section" data-i18n="shopTitle"></div>`
+    + `<p><a class="out" href="${esc(href)}" target="_blank" rel="sponsored nofollow noopener" data-affiliate="amazon">Amazon ↗</a></p>`
+    + `<p class="disclosure" data-i18n="shopDisclosure"></p>`;
+}
+
 export async function buildRankPages({ projectRoot, distDir }) {
   const ranking = await loadJson(path.join(projectRoot, "rank", "data", "ranking.json"));
   if (!ranking?.top?.length) throw new Error("ranking.json missing or empty — run: node rank/scripts/collect-rank.mjs");
   const summaries = (await loadJson(path.join(projectRoot, "rank", "data", "summaries.json"))) ?? {};
+  const affiliate = await loadAffiliateConfig(path.join(projectRoot, "data", "affiliate.json"));
 
   // 히스토리 로드
   let history = [];
@@ -288,6 +308,7 @@ export async function buildRankPages({ projectRoot, distDir }) {
       ${sns.map(([k, v]) => `<a href="${esc(v)}" target="_blank" rel="noopener nofollow">${esc(k.toUpperCase())} ↗</a>`).join(" ")}
       ${m.officialUrl ? `<a href="${esc(m.officialUrl)}" target="_blank" rel="noopener nofollow">OFFICIAL ↗</a>` : ""}
     </div>
+    ${affiliateSection(m, affiliate)}
     ${AD_INCONTENT}
     <div class="section" data-i18n="latestTitle"></div>
     <ul class="related">
