@@ -143,22 +143,30 @@
   // 동적으로 삽입된 슬롯(인피드 등)을 렌더링 후 재스캔한다
   window.GlobalHotAds = { rescan: observePendingSlots };
 
-  // 인터스티셥 존: 세션당 한 번만, 콘텐츠가 준비된 뒤 짧은 지연을 두고 요청한다.
-  // 만 오픈 때마다 떠서 화면을 가리는 사고를 막기 위해 localStorage로 쿨다운한다.
+  // 인터스티셥 존: 하루 최대 3회까지만, 콘텐츠가 준비된 뒤 짧은 지연을 두고 요청한다.
+  // 과거의 영구 1회(localStorage 고정값) 방식은 사실상 노출 0이라 일간 카운터로 교체한다.
+  var INTERSTITIAL_DAILY_CAP = 3;
   function scheduleInterstitial() {
     if (!INTERSTITIAL_ZONE_ID) return;
-    var key = 'globalhot-interstitial-shown';
-    var tryStored = function () {
-      try { return window.localStorage.getItem(key) === '1'; }
-      catch (e) { return false; }
+    var key = 'globalhot-interstitial-count';
+    var today = function () {
+      try { return new Date().toISOString().slice(0, 10); }
+      catch (e) { return ''; }
     };
-    var markStored = function () {
-      try { window.localStorage.setItem(key, '1'); } catch (e) { /* private mode */ }
+    var readCount = function () {
+      try {
+        var raw = window.localStorage.getItem(key);
+        if (!raw) return { date: today(), count: 0 };
+        var state = JSON.parse(raw);
+        if (!state || state.date !== today()) return { date: today(), count: 0 };
+        return { date: state.date, count: Number(state.count) || 0 };
+      } catch (e) { return { date: today(), count: 0 }; }
     };
-    if (tryStored()) return;
     window.setTimeout(function () {
+      var state = readCount();
+      if (state.count >= INTERSTITIAL_DAILY_CAP) return;
       ensureJuicy().push({ adzone: INTERSTITIAL_ZONE_ID });
-      markStored();
+      try { window.localStorage.setItem(key, JSON.stringify({ date: state.date, count: state.count + 1 })); } catch (e) { /* private mode */ }
     }, 2000);
   }
 
