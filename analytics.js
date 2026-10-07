@@ -13,24 +13,14 @@
 
   function classifyContentGroup() {
     if (pageType === 'not_found') return 'not_found';
-    if (route === '/' || route === '/index') return 'home';
-    if (route === '/quiz' || route === '/quiz/index') return 'quiz';
-    if (route === '/posts' || route === '/posts/index' || /^\/posts\/\d{4}-\d{2}-\d{2}$/.test(route)) {
-      return 'daily_briefing';
-    }
-    if (/^\/analysis-[a-z0-9-]+$/.test(route)) return 'analysis';
-    if (
-      /^\/[a-z0-9-]+-guide$/.test(route) ||
-      route === '/guide' ||
-      route === '/market-indicators' ||
-      route === '/fed-rate' ||
-      route === '/forex' ||
-      route === '/recession' ||
-      route === '/portfolio'
-    ) return 'evergreen_guide';
+    if (route === '/' || route === '/index') return 'home_ranking';
+    if (route === '/models' || route === '/model') return 'model_directory';
+    if (route.indexOf('/r/') === 0) return 'rank_detail';
+    if (route.indexOf('/t/') === 0) return 'person_page';
+    if (route.indexOf('/archive') === 0) return 'rank_archive';
+    if (route.indexOf('/issue') === 0) return 'issue_board';
     if (
       route === '/about' ||
-      route === '/sources' ||
       route === '/privacy' ||
       route === '/terms'
     ) return 'trust_policy';
