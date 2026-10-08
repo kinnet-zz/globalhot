@@ -6,14 +6,30 @@ import {
   entryPriority,
   buildModelObject,
   isJpeg,
+  normalizePhotoBuffer,
   wikimediaApiHost,
   lastPathSegment,
 } from '../scripts/gravure-add.mjs';
 
 // A buffer that passes isJpeg: magic bytes FF D8 FF + enough payload to clear
 // the minimum-size floor. We test logic here, not real image decoding.
+// The SOF0 segment declares 800x1200 so the photo-quality dimension gate
+// (dimensionsMeetMin) also accepts the fixture.
 function fakeJpeg() {
-  return Buffer.concat([Buffer.from([0xff, 0xd8, 0xff]), Buffer.alloc(2100)]);
+  const sof = Buffer.from([
+    0xff, 0xc0, 0x00, 0x11, 0x08, 0x04, 0xb0, 0x03, 0x20, 0x03,
+    0x01, 0x11, 0x00, 0x02, 0x11, 0x00, 0x03, 0x11, 0x00,
+  ]);
+  return Buffer.concat([Buffer.from([0xff, 0xd8, 0xff]), Buffer.alloc(97), sof, Buffer.alloc(2000)]);
+}
+
+// Same shape, but the SOF declares a sub-minimum 200x300 frame.
+function fakeJpegSmall() {
+  const sof = Buffer.from([
+    0xff, 0xc0, 0x00, 0x11, 0x08, 0x01, 0x2c, 0x00, 0xc8, 0x03,
+    0x01, 0x11, 0x00, 0x02, 0x11, 0x00, 0x03, 0x11, 0x00,
+  ]);
+  return Buffer.concat([Buffer.from([0xff, 0xd8, 0xff]), Buffer.alloc(97), sof, Buffer.alloc(2000)]);
 }
 
 function entry(id, opts = {}) {
@@ -41,6 +57,18 @@ test('isJpeg accepts a real JPEG magic header and rejects tiny or non-JPEG buffe
   assert.equal(isJpeg(Buffer.concat([Buffer.from([0x89, 0x50]), Buffer.alloc(3000)])), false, 'PNG rejected');
   assert.equal(isJpeg(null), false);
   assert.equal(isJpeg('not a buffer'), false);
+});
+
+test('normalizePhotoBuffer keeps a dimension-passing JPEG and rejects the rest', async () => {
+  const kept = await normalizePhotoBuffer(fakeJpeg());
+  assert.ok(Buffer.isBuffer(kept), '800x1200 JPEG fixture passes the gate');
+
+  assert.equal(await normalizePhotoBuffer(fakeJpegSmall()), null, '200x300 SOF fails the dimension floor');
+  assert.equal(
+    await normalizePhotoBuffer(Buffer.concat([Buffer.from([0x89, 0x50]), Buffer.alloc(3000)])),
+    null,
+    'undecodable non-JPEG payload fails instead of being written as .jpg',
+  );
 });
 
 test('buildModelObject applies the CC/Wikimedia default when license fields are absent', () => {

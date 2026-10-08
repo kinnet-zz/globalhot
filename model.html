@@ -113,7 +113,7 @@
     <div class="profile-shell">
       <a class="back-link" href="/models.html#models">← 모든 프로필 보기</a>
       <div id="profileState" class="load-state">로딩 중...</div>
-      <aside class="ad-slot profile-ad" data-ad-zone="1123909" data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고">
+      <aside class="ad-slot profile-ad" data-gh-ad="profile-sidebar" data-ads-config=".ad-slot" data-width="300" data-height="250" aria-label="광고">
       </aside>
     </div>
   </main>
@@ -258,6 +258,17 @@
           portrait.setAttribute('aria-label', model.name + ' 프로필 사진');
           var img = document.createElement('img');
           img.src = profileImgSrc(model);
+          // 300px 히어로(레티나 600px) — w960 WebP 변형이 원본보다 가볍다.
+          // 변형은 빌드타임에 생성된다(scripts/profile-variants.mjs). 원격
+          // Commons URL은 변형이 없으므로 단일 URL을 유지한다.
+          if (img.src.indexOf('/assets/profiles/') !== -1) {
+            var pid = encodeURIComponent(model.id);
+            img.srcset =
+              '/assets/profiles/' + pid + '.w480.webp 480w,' +
+              '/assets/profiles/' + pid + '.w960.webp 960w,' +
+              '/assets/profiles/' + pid + '.jpg 1600w';
+            img.sizes = '300px';
+          }
           img.alt = model.name + ' 프로필 사진';
           img.addEventListener('error', function () { applyMonogramFallback(model, portrait); });
           portrait.appendChild(img);

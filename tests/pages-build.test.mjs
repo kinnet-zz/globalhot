@@ -56,7 +56,7 @@ test("Pages build contains the static files, every source profile photo, and mod
 
 test("Pages build excludes development and user-owned files", async () => {
   const excluded = [
-    "editor.html", "server.py", "package.json", "package-lock.json", "tests",
+    "package.json", "package-lock.json", "tests",
     "migrations", "functions", "CLOUDFLARE_SETUP.txt", "DEVELOPMENT_PROCESS.txt",
     "posts", "scripts",
   ];

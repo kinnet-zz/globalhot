@@ -6,3 +6,4 @@ dist/
 .env
 .gstack/
 .claude-work-session.md
+data/.photo-candidates-cache.json

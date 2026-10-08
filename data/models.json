@@ -822,7 +822,10 @@
       ],
       "recent": [
         "쓰마츠리 하루 선장 (2025년 10월)"
-      ]
+      ],
+      "license": "CC BY 4.0",
+      "creditText": "RuinDig/Yuki Uchida",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kasumi-Mori---2025-06-15_114.jpg"
     },
     {
       "id": "runa-toyota",
@@ -866,7 +869,10 @@
       "notable": [
         "《CanCam》 전속 모델",
         "노기자카46 전 멤버"
-      ]
+      ],
+      "license": "CC BY-SA 2.0",
+      "creditText": "李 承儒, AKB48-Taiwan Clubs (ATC) 社長 ([https://www.facebook.com/MaedaFantomo 李 承儒's facebook page, flickr account link screenshot taken from the facebook page)]",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Yamashita_Mizuki.jpg"
     },
     {
       "id": "nao-kosaka",
@@ -1323,7 +1329,10 @@
       "yearsActive": "2026 -",
       "notable": [
         "주간 영점프 첫 표지·첫 수영복 그라비아"
-      ]
+      ],
+      "license": "CC BY 3.0",
+      "creditText": "リバプール公式YouTubeチャンネル",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E6%AD%A6%E7%94%B0%E7%8E%B2%E5%A5%88.jpg"
     },
     {
       "id": "rika-izumi",
@@ -1404,7 +1413,10 @@
       "yearsActive": "2020 -",
       "birth": "1996-02-18",
       "origin": "東京都",
-      "agency": "イリューム（インセントグループ）"
+      "agency": "イリューム（インセントグループ）",
+      "license": "CC BY 2.0",
+      "creditText": "Dick Thomas Johnson from Tokyo, Japan",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Hisamatsu_Ikumi_%22Sakura_no_Ame%22_at_Opening_Ceremony_of_the_28th_Tokyo_International_Film_Festival_(22241139059).jpg"
     },
     {
       "id": "rio-teramoto",
@@ -1514,7 +1526,7 @@
     {
       "id": "rena-asakawa",
       "name": "Rena Asakawa",
-      "altName": "浅川梨奈",
+      "altName": "",
       "country": "JAPAN",
       "tags": "gravure supergirls actress",
       "photoAvailable": true,
@@ -1843,7 +1855,10 @@
       "yearsActive": "202028日 -",
       "notable": [
         "AKB48 전 멤버"
-      ]
+      ],
+      "license": "CC BY 3.0",
+      "creditText": "魚住誠一",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Mariya_Nagao_(%E6%B0%B8%E5%B0%BE%E3%81%BE%E3%82%8A%E3%82%84)_in_2016.jpg"
     },
     {
       "id": "momoka-ishida",
@@ -2226,10 +2241,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
+      "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "알콩달콩",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Solomon203",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Lee_Da-hye_on_Chunghwa_Post_ad_at_C321_3116_20251004.jpg",
       "bio": "대한민국의 치어리더이자 레이싱 모델. KBO 프로야구 구단 치어리더로 데뷔해 화제가 되었으며 화보와 이벤트 모델로도 활동합니다."
     },
     {
@@ -2582,7 +2597,7 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "Adanola",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kendall_Jenner_for_Adanola_3.jpg",
       "bio": "1995년 11월 3일 미국 캘리포니아주 로스앤젤레스에서 태어난 미국의 모델, 셀러브리티, 미디어 퍼슨낼리티. 2007년부터 2021년까지 20시즌, 약 15년간 리얼리티 쇼 'Keeping Up with the Kardashians'에 출연하며 유명세를 얻었다. 쇼 종영 후 2022년부터는 가족과 함께 Hulu의 리얼리티 시리즈 'The Kardashians'에 출연 중이다.",
       "birth": "1995-11-03",
       "origin": "Los Angeles, California, U.S.",
@@ -2639,8 +2654,8 @@
       },
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:Gabriel_Hutchinson\" title=\"User:Gabriel Hutchinson\">Gabriel Hutchinson</a>",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Gabriel Hutchinson",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Bella_Hadid_at_the_2026_Cannes_Film_Festival_02.jpg",
       "bio": "벨라 하디드는 1996년 10월 9일 미국 워싱턴 D.C.에서 태어난 미국의 패션 모델이다. 2022년 영국 패션 카운슬이 선정한 '올해의 모델'로 뽑혔으며, 경력 내내 국제 보그 표지를 35회 이상 장식했다. 타임은 2023년 연례 '세계에서 가장 영향력 있는 인물 100인'에 그녀를 선정했다.",
       "birth": "1996-10-09",
       "origin": "Washington, D.C., U.S.",
@@ -2669,10 +2684,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
+      "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "<a href=\"//commons.wikimedia.org/wiki/User:Brandnewlover\" title=\"User:Brandnewlover\">Christopher Macsurak</a>",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Eva Rinaldi",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Cara_Delevingne_(19406020156).jpg",
       "bio": "영국 런던 출생의 잉글랜드 모델, 여배우, 뮤지션. 2002년부터 모델 활동을 시작했으며 2012년과 2014년 두 차례 브리티시 패션 어워드에서 올해의 모델(Model of the Year)을 수상했다. 또한 틴 초이스 어워드에서 3회 수상했고, 영국 독립 영화상과 MTV 무비 & TV 어워드 후보에 오르는 등 연기 활동에서도 활약했다.",
       "origin": "London, England",
       "yearsActive": "2002–present",
@@ -2724,10 +2739,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
+      "license": "CC BY 1.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Nomadic",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Miss Maven",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Candice_Swanepoel_in_2011.jpg",
       "bio": "캔디스 스와넬은 1988년 10월 20일 남아프리카공화국 나탈 주 무이리버에서 태어난 남아프리카공화국 출신의 모델이다. 빅토리아 시크릿과의 작업으로 가장 잘 알려져 있으며 2010년 빅토리아 시크릿 엔젤이 되었다. 2016년에는 포브스 최고 수입 모델 순위에서 8위에 오르기도 했다.",
       "birth": "1988-10-20",
       "origin": "Mooi River, Natal, South Africa",
@@ -2815,10 +2830,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 2.0",
+      "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-      "creditText": "Renan Katayama",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Tiago Chediak",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Gisele_Bundchen2.jpg",
       "bio": "지젤 번천은 1980년 7월 브라질 리우그란지두술주 오리존티나에서 태어난 브라질 출신의 모델이자 환경운동가이다. 2001년부터 세계에서 가장 고소득 모델 중 한 명으로 꼽혔으며, 2005년부터 2016년까지 포브스 최고 수입 모델 1위 자리를 지켰다. 2014년에는 포브스가 선정한 미디어·엔터테인먼트 분야에서 가장 영향력 있는 여성 중 89위에 오르기도 했다.",
       "origin": "Horizontina, Rio Grande do Sul, Brazil",
       "yearsActive": "1996–present",
@@ -2846,10 +2861,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
+      "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Georges Biard",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Yvan Fabing",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Barbara_Palvin_scowling_for_Chaos.jpg",
       "bio": "1993년 10월 8일 헝가리 부다페스트에서 태어난 헝가리 모델이자 여배우. 2012년 첫 런웨이를 걸은 데 이어 2016년 스포츠 일러스트레이티드 스윔수트 이슈에 처음 등장했고, 2019년에는 빅토리아 시크릿 앤젤이 됐다. 롱진과 아르마니 뷰티의 앰버서더로도 활동 중이다.",
       "birth": "1993-10-08",
       "origin": "Budapest, Hungary",
@@ -2931,10 +2946,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
+      "license": "CC BY 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-      "creditText": "Behind The Velvet Rope TV",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Erik Drost",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Kate_Bock_(32651840637).jpg",
       "bio": "캐나다 브리티시컬럼비아주 밴쿠버 출신의 캐나다 모델. 2013년부터 스포츠 일러스트레이티드 스윔수트 이슈에 등장하며 이름을 알리기 시작했다. 2020년에는 올리비아 컬포, 재스민 샌더스와 함께 해당 잡지의 표지에 등장했으며, 주로 수영복·스윔수트 계열에서 활약해 온 모델이다.",
       "origin": "Vancouver, British Columbia, Canada",
       "agency": "Plainlist",
@@ -3039,7 +3054,7 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "LOVE Magazine",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Rose_Bertram_for_LOVE_Advent_2016.jpg",
       "bio": "1994년 10월 26일 벨기에 코르트레이크에서 태어난 벨기에의 모델입니다. 뉴욕 원 매니지먼트, 밀란 패션 모델 매니지먼트, 런던 더 스쿼드, 브뤼셀 도미니크 모델스, 함부르크 SPIN 모델 매니지먼트 등 세계 여러 모델 에이전시에 소속되어 국제 패션 시장에서 활발히 활동하고 있습니다.",
       "birth": "1994-10-26",
       "origin": "Kortrijk, Belgium",
@@ -3060,10 +3075,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
+      "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "creditText": "Mrslyd",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "David Shankbone",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Doutzen_Kroes_2012_Shankbone_2.JPG",
       "bio": "도우첸 크루스는 1985년 1월 23일 네덜란드 프리슬란트주의 귀츠여르크에서 태어난 네덜란드 출신의 패션 모델이다. 2003년 네덜란드에서 모델 경력을 시작했으며, 2008년부터 2014년까지 빅토리아 시크릿 엔젤로 활동했고 2006년부터 로레알 파리 브랜드 앰배서더를 맡고 있다. 2013년 보그 9월호 국제판 4개 표지를 한 해에 단독 장식한 최초의 모델이었으며, 2014년 포브스 최고 수입 모델 순위 2위에 올랐다.",
       "birth": "1985-01-23",
       "origin": "Gytsjerk, Friesland, Netherlands",
@@ -3195,10 +3210,10 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 3.0",
+      "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "creditText": "Georges Biard",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditText": "Dmedvedev83",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Naomi-Campbell-2014.jpg",
       "bio": "1970년 5월 영국 런던에서 태어난 영국의 모델 겸 배우입니다. 여덟 살 때 경력을 시작해 1978년부터 현재까지 수십 년간 활동하며, 패션 업계와 국제 언론이 '수퍼모델'로 선언한 당대의 6인 중 한 명이 됐습니다. 타임과 보그 프랑스의 표지를 장식한 최초의 흑인 모델로 기록되며 40년 넘게 정상을 지켜온 패션계의 이정표입니다.",
       "origin": "London, England",
       "yearsActive": "1978–present",
@@ -3636,7 +3651,7 @@
       "license": "CC BY 3.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
       "creditText": "RecPlay Records",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Celine_Farach_-_Run_This_Town_2.png",
       "bio": "미국 마이애미 출신의 모델이자 가수, 작곡가. 어린 시절 모델을 시작해 마크 앤 스펜서, 디올 등 브랜드 캠페인과 뮤직비디오에서 활약했습니다."
     },
     {
@@ -4049,9 +4064,9 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 4.0",
-      "creditText": "警察庁",
-      "creditUrl": "https://commons.wikimedia.org/",
+      "license": "CC BY 2.0",
+      "creditText": "Dick Thomas Johnson from Tokyo, Japan",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Iitoyo_Marie_from_%22The_Tunnel_to_Summer,_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_(52461532805).jpg",
       "bio": "일본 치바현 치바시 출신의 패션 모델, 여배우, 그래비어 모델. 본명 겸 옛 예명은 이이토요 마리에이며 에이벡스 매니지먼트 에이전시에 소속되어 있고 배우 타카하시 잇세이와 결혼했다. 20세 생일에 첫 사진집 『NO GAZPACHO』가 발매된 바 있다.",
       "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg/1280px-Iitoyo_Marie_from_%22The_Tunnel_to_Summer%2C_the_Exit_of_Goodbyes%22_at_Red_Carpet_of_the_Tokyo_International_Film_Festival_2022_%2852461345204%29.jpg",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
@@ -4097,8 +4112,8 @@
         "tiktok": ""
       },
       "license": "CC BY-SA 3.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Yukari_in_ACE_(cropped).jpg",
+      "creditText": "弧微分",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Yukari_in_ACE.jpg",
       "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Fukui_Yukari_in_ACE_%28cropped%29.jpg",
       "bio": "일본의 성우, 여배우, 가수, 전 그래비어 아이돌. 가나가와현 히라츠카시 출신으로 1997년 데뷔해 성우와 화보를 병행했습니다."
     },
@@ -4181,9 +4196,9 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY 3.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:Oto_Abe_2021.jpg"
+      "license": "CC BY-SA 4.0",
+      "creditText": "講談社ヤンマガch",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%8A%87%E5%9B%A34%E3%83%89%E3%83%AB50%E3%82%BB%E3%83%B3%E3%83%88%E3%83%BB%E5%AE%89%E5%80%8D%E4%B9%99%EF%BC%88%E8%AC%9B%E8%AB%87%E7%A4%BE%E3%83%A4%E3%83%B3%E3%83%9E%E3%82%ACch%EF%BC%89.jpg"
     },
     {
       "id": "jurii-aida",
@@ -4220,7 +4235,7 @@
         "tiktok": ""
       },
       "license": "CC BY-SA 4.0",
-      "creditText": "Wikimedia Commons",
+      "creditText": "​リバプール公式YouTubeチャンネル",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:%E3%80%90%E8%B5%A4%E7%BE%BD%E3%82%82%E3%82%82%E3%80%91DVD%E7%99%BA%E5%A3%B2%E8%A8%98%E5%BF%B5%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%83%BB%E7%B5%82%E4%BA%86%E5%BE%8C%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88@%E3%82%BD%E3%83%95%E3%83%9E%E3%83%83%E3%83%97%E2%99%AA.jpg"
     },
     {
@@ -4277,7 +4292,7 @@
         "tiktok": ""
       },
       "license": "CC BY 3.0",
-      "creditText": "Wikimedia Commons",
+      "creditText": "スタジオぼくらの Parallel (official youtube account)",
       "creditUrl": "https://commons.wikimedia.org/wiki/File:%E9%9B%A8%E5%AE%AE%E7%95%99%E8%8F%9C_%E5%AE%A3%E6%9D%90PV_Screenshot.jpg"
     },
     {
@@ -4466,9 +4481,9 @@
         "youtube": "",
         "tiktok": ""
       },
-      "license": "CC BY-SA 4.0",
-      "creditText": "Wikimedia Commons",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E6%B2%BC%E9%9B%84%E4%B8%80%E7%9B%A3%E7%9D%A3%E4%BD%9C%E5%93%81%EF%BC%86%E6%B5%9C%E8%BE%BA%E7%BE%8E%E6%B3%A2%E4%B8%BB%E6%BC%94%E3%80%8E%E5%92%B2-Saki-%E3%80%8F.jpg"
+      "license": "CC BY 3.0",
+      "creditText": "講談社ヤンマガch",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:%E6%B5%85%E5%B7%9D%E6%A2%A8%E5%A5%88.png"
     },
     {
       "id": "hinako-asakura",

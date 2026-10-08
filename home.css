@@ -449,17 +449,17 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   min-height: 250px;
   color: var(--h-faint);
 }
-/* JuicyAds 로더(jads2.js)가 ins를 0x0 인라인 스타일로 축소하므로,
-   !important로 300x250 자리를 확보해 광고가 렌더링되기 전후 레이아웃
-   시프트와 인접 섹션과의 겹침을 막는다. */
-.ad-slot .adsbyjuicy {
+/* 광고가 렌더링되기 전후 레이아웃 시프트와 인접 섹션과의 겹침을 막기 위해
+   슬롯 자리를 확보한다. 미설정 슬롯은 ads.js가 접는다(data-ad-empty). */
+.ad-slot[data-ad-empty="1"] { display: none; }
+.ad-slot .adsbygoogle {
   display: block;
-  width: 300px !important;
-  height: 250px !important;
+  min-width: 300px;
+  min-height: 250px;
   max-width: 100%;
   line-height: 0;
 }
-.ad-slot .adsbyjuicy iframe { display: block; max-width: 100%; border: 0; }
+.ad-slot .adsbygoogle iframe { display: block; max-width: 100%; border: 0; }
 .ad-spot-label {
   margin: 0;
   font-family: var(--font-display);
@@ -502,9 +502,9 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   max-width: 100%;
   min-height: 90px;
 }
-.home-ad-band .ad-slot--desktop[data-width="728"] .adsbyjuicy {
-  width: 728px !important;
-  height: 90px !important;
+.home-ad-band .ad-slot--desktop[data-width="728"] .adsbygoogle {
+  min-width: 728px;
+  min-height: 90px;
   max-width: 100%;
 }
 .home-ad-band .ad-slot--desktop[data-width="728"] .ad-fallback {
@@ -517,9 +517,9 @@ a { text-decoration-thickness: .08em; text-underline-offset: .18em; }
   max-width: 100%;
   min-height: 50px;
 }
-.home-ad-band .ad-slot--mobile[data-width="300"] .adsbyjuicy {
-  width: 300px !important;
-  height: 50px !important;
+.home-ad-band .ad-slot--mobile[data-width="300"] .adsbygoogle {
+  min-width: 300px;
+  min-height: 50px;
   max-width: 100%;
 }
 .home-ad-band .ad-slot--mobile[data-width="300"] .ad-fallback {

@@ -72,8 +72,8 @@ const CSS = `
   [data-i18n] { }
   .hidden { display:none; }
 `;
-const AD_LEADERBOARD = '<div class="ad-leaderboard"><aside class="ad-slot" data-ads-config data-ad-zone="1124349" data-width="728" data-height="90"></aside></div>';
-const AD_INCONTENT = '<aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250" style="margin:18px auto"></aside>';
+const AD_LEADERBOARD = '<div class="ad-leaderboard"><aside class="ad-slot" data-ads-config data-gh-ad="rank-leaderboard" data-width="728" data-height="90"></aside></div>';
+const AD_INCONTENT = '<aside class="ad-slot" data-ads-config data-gh-ad="rank-incontent" data-width="300" data-height="250" style="margin:18px auto"></aside>';
 
 const NAV = `
   <header><div class="header-in">

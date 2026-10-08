@@ -26,6 +26,7 @@
 import { readFile, writeFile, rename, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { sniffFormat, imageDimensions, dimensionsMeetMin } from "./photo-quality.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -210,6 +211,25 @@ async function fetchPhotoBuffer(entry, fetcher) {
   return fetcher(original);
 }
 
+// 다운로드 버퍼를 게이트에 맞는 JPEG로 정규화한다.
+//   * PNG 등 비(非)JPEG(Commons 썸네일이 원본 포맷을 따르는 경우)는 sharp로
+//     JPEG 재인코딩 — .jpg 확장자 파일은 항상 실제 JPEG이어야 한다.
+//   * 해상도가 표시 최소(세로형 600x800 / 가로형 500x500+0.5MP)에 못 미치면
+//     null 을 반환해 해당 항목을 거부한다.
+export async function normalizePhotoBuffer(buffer) {
+  let buf = buffer;
+  if (sniffFormat(buf) !== "jpeg") {
+    try {
+      buf = await sharp(buf).rotate().jpeg({ quality: 88, mozjpeg: true }).toBuffer();
+    } catch {
+      return null;
+    }
+  }
+  if (!isJpeg(buf)) return null;
+  if (!dimensionsMeetMin(imageDimensions(buf))) return null;
+  return buf;
+}
+
 // Core logic. Pure with respect to the filesystem: it reads parsed data and an
 // injectable fetcher, and returns the new models/queue plus the buffers to
 // persist. The CLI wrapper (run) does the actual writes.
@@ -234,16 +254,17 @@ export async function addGravureModels({
       continue;
     }
     try {
-      const buffer = await fetchPhotoBuffer(entry, fetcher);
-      if (buffer.length > MAX_PHOTO_BYTES) {
+      const raw = await fetchPhotoBuffer(entry, fetcher);
+      if (raw.length > MAX_PHOTO_BYTES) {
         throw new Error(
-          "photo is " + buffer.length + " bytes, exceeds the " + MAX_PHOTO_BYTES +
+          "photo is " + raw.length + " bytes, exceeds the " + MAX_PHOTO_BYTES +
             " byte cap (reject an over-large original so the deploy never trips " +
             "Cloudflare Pages' 25 MiB per-file limit)",
         );
       }
-      if (!isJpeg(buffer)) {
-        throw new Error("downloaded photo is not a valid JPEG or is too small");
+      const buffer = await normalizePhotoBuffer(raw);
+      if (!buffer) {
+        throw new Error("photo failed quality gate (not decodable or below minimum 600x800 / 500x500+0.5MP)");
       }
       downloads.push({ id: entry.id, buffer });
       added.push(entry);

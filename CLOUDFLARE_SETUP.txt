@@ -36,10 +36,10 @@ Cloudflare Pages 추천 API 현재 운영 설정
    - Canonical URL: https://globalhot.net
 
 5. 광고 정책 현재 상태
-   - JuicyAds 실장됨(2026-08-28, ads.js 런타임 주입, zone 1123909/인터스티셜 1124196).
-   - AdSense는 사용하지 않는다.
+   - JuicyAds 제거됨(2026-10-08, AdSense 전환 준비). ads.js는 AdSense 승인 전까지 외부 광고 요청 없음.
+   - AdSense 승인 후 ads.txt에 seller ID 등록 + ads.js ADSENSE_CLIENT_ID 설정.
    - popunder, clickunder, 강제 리디렉션, push 구독 유도 광고는 금지한다.
-   - ads.txt는 비어 있음 — JuicyAds 단일 네트워크이며 제공된 seller 항목이 없기 때문.
+   - ads.txt는 승인 전까지 플레이스홀더 유지.
    - GA4 content_group은 현행 라우트 기준(home_ranking/rank_detail/person_page/rank_archive/issue_board/model_directory/trust_policy)으로 분류한다(2026-10-07 갱신).
 
 6. CC 라이선스 사진 사용 (2026-08-01)

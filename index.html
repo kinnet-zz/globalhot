@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>globalhot.net — 실시간 화제 랭킹</title>
-<meta name="description" content="그라비아·화보·모델 계열 실시간 급상승 화제 랭킹. 매시간 집계. / Real-time trending gravure & photo-model topics, updated hourly. / グラビア・モデル系のリアルタイム急上昇ランキング、毎時更新。">
+<meta name="description" content="모델·화보·이슈 실시간 화제 랭킹. 매시간 집계. / Real-time trending topics on models, pictorials and entertainment issues, updated hourly. / モデル・話題のリアルタイム急上昇ランキング、毎時更新。">
 <link rel="canonical" href="https://globalhot.net/">
 <link rel="icon" href="/favicon.svg">
 <link rel="alternate" hreflang="ko" href="https://globalhot.net/?lang=ko">
@@ -49,9 +49,8 @@
   .lang-switch button:hover { background:var(--card-hover); }
   .lang-switch button.active { background:var(--primary); color:#fff; }
 
-  /* 영상 백그라운드 히어로 — 밝은 테마용 그라디언트 */
-  .hero { position:relative; height:420px; overflow:hidden; }
-  .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.75) saturate(1.1); }
+  /* 정적 그라디언트 히어로 (영상 제거: LCP·모바일 데이터 절감) */
+  .hero { position:relative; height:340px; overflow:hidden; background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#7c3aed 100%); }
   .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,24,39,.45) 0%, rgba(17,24,39,.15) 45%, var(--bg) 100%); }
   .hero-content { position:relative; z-index:2; height:100%; max-width:1200px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; justify-content:center; gap:14px; }
   .hero-badge { align-self:flex-start; background:var(--accent); color:#fff; font-size:12px; font-weight:700; padding:4px 12px; border-radius:6px; letter-spacing:1px; }
@@ -59,7 +58,15 @@
   .hero-sub { font-size:15px; color:#f9fafb; text-shadow:0 1px 8px rgba(0,0,0,.45); }
   .hero-cta { align-self:flex-start; margin-top:8px; background:var(--primary); color:#fff; font-weight:600; font-size:15px; padding:12px 26px; border-radius:10px; cursor:pointer; box-shadow:0 4px 14px rgba(37,99,235,.35); transition:background .15s, transform .15s; }
   .hero-cta:hover { background:var(--primary-hover); transform:translateY(-2px); }
-  @media (prefers-reduced-motion: reduce) { .hero-video { display:none; } .hero { background:linear-gradient(135deg,var(--primary-soft),#fff); } .hero-title,.hero-sub{color:var(--text);text-shadow:none} }
+  @media (prefers-reduced-motion: reduce) { .hero { background:linear-gradient(135deg,var(--primary-soft),#fff); } .hero-title,.hero-sub{color:var(--text);text-shadow:none} }
+
+  /* 에디토리얼 안내 (정적 콘텐츠: 사이트 소개 + 가이드 연결) */
+  .ed-intro { font-size:14px; line-height:1.8; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+  .ed-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:12px; }
+  .ed-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; text-decoration:none; color:var(--text); display:block; }
+  .ed-card:hover { border-color:var(--primary); }
+  .ed-card-t { font-size:14px; font-weight:700; margin-bottom:6px; }
+  .ed-card-d { font-size:13px; color:var(--muted); line-height:1.6; }
 
   .section-title { font-size:15px; font-weight:700; margin:4px 0 12px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .live { background:var(--accent); color:#fff; font-size:11px; padding:2px 8px; border-radius:4px; font-weight:600; }
@@ -144,7 +151,7 @@
       <a href="/models.html" data-i18n="navModels">모델</a>
       <a href="/issue/" data-i18n="navIssue">이슈</a>
       <a href="/about.html" data-i18n="navAbout">소개</a>
-      <a href="/about.html" data-i18n="navAbout">소개</a>
+      <a href="/contact.html" data-i18n="navContact">연락처</a>
       <div class="lang-switch" id="langSwitch">
         <button data-lang="ko">한</button>
         <button data-lang="en">EN</button>
@@ -154,11 +161,8 @@
   </div>
 </header>
 
-<!-- 영상 백그라운드 히어로 -->
+<!-- 정적 히어로 -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="/main_202608081044.mp4" type="video/mp4">
-  </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">LIVE RANKING</div>
@@ -168,9 +172,9 @@
   </div>
 </section>
 
-<div class="ad-mobile"><aside class="ad-slot" data-ads-config data-ad-zone="1124352" data-width="300" data-height="50"></aside></div>
+<div class="ad-mobile"><aside class="ad-slot" data-ads-config data-gh-ad="home-mobile-banner" data-width="300" data-height="50"></aside></div>
 
-<div class="ad-leaderboard"><aside class="ad-slot" data-ads-config data-ad-zone="1124349" data-width="728" data-height="90"></aside></div>
+<div class="ad-leaderboard"><aside class="ad-slot" data-ads-config data-gh-ad="home-leaderboard" data-width="728" data-height="90"></aside></div>
 
 <div class="layout">
   <main>
@@ -186,9 +190,23 @@
       <h3>🔥 <span data-i18n="personsTitle">급상승 인물 TOP 10</span></h3>
       <div id="personsTop"></div>
     </div>
-    <div class="panel ad-sticky"><aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250"></aside></div>
+    <div class="panel ad-sticky"><aside class="ad-slot" data-ads-config data-gh-ad="home-sidebar" data-width="300" data-height="250"></aside></div>
   </aside>
 </div>
+
+<!-- 사이트 안내 (정적 에디토리얼) -->
+<section class="layout" style="max-width:1200px;margin:0 auto;padding:0 20px 40px" aria-label="사이트 안내">
+  <main>
+    <div class="section-title">📖 <span data-i18n="edTitle">GlobalHot 읽기</span></div>
+    <p class="ed-intro" data-i18n="edIntro">GlobalHot은 공개된 화제와 공식 출처의 프로필 정보를 정리하는 디렉터리입니다. 급상승 화제는 매시간 자동으로 집계되며, 모든 항목은 원 출처로의 링크만 제공하고 콘텐츠를 복제하거나 저장하지 않습니다. 처음 방문하셨다면 아래 안내를 먼저 읽어보세요.</p>
+    <div class="ed-grid">
+      <a class="ed-card" href="/guide-ranking.html"><div class="ed-card-t" data-i18n="edGuideRanking">집계 방식</div><div class="ed-card-d" data-i18n="edGuideRankingD">매시간 집계·72시간 윈도우의 기준을 설명합니다</div></a>
+      <a class="ed-card" href="/guide-photobook.html"><div class="ed-card-t" data-i18n="edGuidePhoto">사진집 구매 가이드</div><div class="ed-card-d" data-i18n="edGuidePhotoD">정품 사진집을 안전하게 고르고 사는 방법</div></a>
+      <a class="ed-card" href="/models.html"><div class="ed-card-t" data-i18n="navModels">모델</div><div class="ed-card-d" data-i18n="edModelsD">공식 출처로 검증된 프로필 모음</div></a>
+      <a class="ed-card" href="/issue/"><div class="ed-card-t" data-i18n="navIssue">이슈</div><div class="ed-card-d" data-i18n="edIssueD">매일 수집되는 화제 뉴스</div></a>
+    </div>
+  </main>
+</section>
 
 <!-- 커뮤니티 화제 등록 (X/인스타/스레드 공식 임베드) -->
 <section class="layout" style="max-width:1200px;margin:0 auto;padding:0 20px 40px">
@@ -214,7 +232,8 @@
 
 <footer>
   <span data-i18n="footer1">globalhot.net 실시간 화제 랭킹 · 매시간 자동 집계 (최근 72시간 윈도우)</span><br>
-  <span data-i18n="footer2">모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다</span> · <a href="/privacy.html" data-i18n="privacy">개인정보처리방침</a>
+  <span data-i18n="footer2">모든 항목은 원 출처로의 링크만 제공하며 콘텐츠를 복제·저장하지 않습니다</span><br>
+  <a href="/about.html" data-i18n="navAbout">소개</a> · <a href="/terms.html" data-i18n="footerTerms">이용약관</a> · <a href="/privacy.html" data-i18n="privacy">개인정보처리방침</a> · <a href="/contact.html" data-i18n="navContact">연락처</a>
 </footer>
 
 <script>
@@ -223,7 +242,13 @@ const I18N = {
   ko: {
     htmlLang: "ko",
     docTitle: "globalhot.net — 실시간 화제 랭킹",
-    navRank2: "랭킹", navWeekly: "주간 TOP", navModels: "모델 프로필", navIssue: "이슈", navAbout: "소개",
+    navRank2: "랭킹", navWeekly: "주간 TOP", navModels: "모델 프로필", navIssue: "이슈", navAbout: "소개", navContact: "연락처",
+    footerTerms: "이용약관",
+    edTitle: "GlobalHot 읽기",
+    edIntro: "GlobalHot은 공개된 화제와 공식 출처의 프로필 정보를 정리하는 디렉터리입니다. 급상승 화제는 매시간 자동으로 집계되며, 모든 항목은 원 출처로의 링크만 제공하고 콘텐츠를 복제하거나 저장하지 않습니다. 처음 방문하셨다면 아래 안내를 먼저 읽어보세요.",
+    edGuideRanking: "집계 방식", edGuideRankingD: "매시간 집계·72시간 윈도우의 기준을 설명합니다",
+    edGuidePhoto: "사진집 구매 가이드", edGuidePhotoD: "정품 사진집을 안전하게 고르고 사는 방법",
+    edModelsD: "공식 출처로 검증된 프로필 모음", edIssueD: "매일 수집되는 화제 뉴스",
     heroTitle: "지금 가장 뜨거운 화제,<br>실시간으로.",
     heroSub: "매시간 집계되는 급상승 콘텐츠 · globalhot.net",
     heroCta: "🔥 급상승 TOP 50 보기",
@@ -251,7 +276,13 @@ const I18N = {
   en: {
     htmlLang: "en",
     docTitle: "globalhot.net — Trending Now, Live Ranking",
-    navRank2: "Ranking", navWeekly: "Weekly TOP", navModels: "Model Profiles", navIssue: "Issues", navAbout: "About",
+    navRank2: "Ranking", navWeekly: "Weekly TOP", navModels: "Model Profiles", navIssue: "Issues", navAbout: "About", navContact: "Contact",
+    footerTerms: "Terms",
+    edTitle: "Reading GlobalHot",
+    edIntro: "GlobalHot is a directory of trending topics and officially sourced profiles. Trending topics are aggregated automatically every hour; every item links to its original source — nothing is copied or stored. New here? Start with the guides below.",
+    edGuideRanking: "How ranking works", edGuideRankingD: "How hourly aggregation and the 72-hour window work",
+    edGuidePhoto: "Photo-book buying guide", edGuidePhotoD: "How to choose and buy official photo books safely",
+    edModelsD: "Profiles verified against official sources", edIssueD: "Trending news collected daily",
     heroTitle: "The hottest topics right now,<br>in real time.",
     heroSub: "Rising content aggregated every hour · globalhot.net",
     heroCta: "🔥 See Trending TOP 50",
@@ -279,7 +310,13 @@ const I18N = {
   ja: {
     htmlLang: "ja",
     docTitle: "globalhot.net — リアルタイム急上昇ランキング",
-    navRank2: "ランキング", navWeekly: "週間TOP", navModels: "モデルプロフィール", navIssue: "イシュー", navAbout: "概要",
+    navRank2: "ランキング", navWeekly: "週間TOP", navModels: "モデルプロフィール", navIssue: "イシュー", navAbout: "概要", navContact: "お問い合わせ",
+    footerTerms: "利用規約",
+    edTitle: "GlobalHot の読み方",
+    edIntro: "GlobalHotは、話題と公式ソースのプロフィールを整理するディレクトリです。急上昇トピックは毎時自動集計し、すべての項目は元ソースへのリンクのみを提供します。初めての方は下記の案内をご覧ください。",
+    edGuideRanking: "集計方法", edGuideRankingD: "毎時集計・72時間ウィンドウの基準を解説します",
+    edGuidePhoto: "写真集購入ガイド", edGuidePhotoD: "公式写真集を安全に選んで購入する方法",
+    edModelsD: "公式ソースで検証したプロフィール集", edIssueD: "毎日収集される話題ニュース",
     heroTitle: "今いちばん熱い話題を、<br>リアルタイムに。",
     heroSub: "毎時集計の急上昇コンテンツ · globalhot.net",
     heroCta: "🔥 急上昇 TOP 50 を見る",
@@ -355,7 +392,7 @@ function render() {
   document.getElementById("updatedAt").textContent =
     `· ${new Date(DATA.generated_at).toLocaleString(lang === "ko" ? "ko-KR" : lang === "ja" ? "ja-JP" : "en-US")} ${t("aggregatedAt")} · ${t("collected")} ${DATA.collected_count}`;
 
-  const adSlot = `<aside class="ad-slot" data-ads-config data-ad-zone="1123909" data-width="300" data-height="250"></aside>`;
+  const adSlot = `<aside class="ad-slot" data-ads-config data-gh-ad="home-infeed" data-width="300" data-height="250"></aside>`;
   const cards = DATA.top.map((item) => {
     const badge = item.badge || { kind: "new", label: "NEW" };
     const tags = (item.categories || []).map((c) => `<span class="rtag">#${esc(c)}</span>`).join(" ");

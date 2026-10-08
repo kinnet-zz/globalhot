@@ -13,6 +13,9 @@ export const STATIC_FILES = [
   "about.html",
   "privacy.html",
   "terms.html",
+  "contact.html",
+  "guide-ranking.html",
+  "guide-photobook.html",
   "404.html",
   "admin.html",
   "portal.css",
@@ -23,11 +26,10 @@ export const STATIC_FILES = [
   "analytics.js",
   "ads.js",
   "favicon.svg",
-  "gallery.html",
-  "playground.html",
   "ads.txt",
   "robots.txt",
   "sitemap.xml",
+  "sitemap-approval.xml",
   "_headers",
   "_redirects",
   "main_202608081044.mp4",
@@ -106,6 +108,11 @@ export async function buildPages() {
   for (const scanDir of SCAN_DIRS) {
     await copyDirTree(path.resolve(projectRoot, scanDir), path.join(distDir, scanDir));
   }
+
+  // 프로필 사진 반응형 WebP 변형 (srcset 용, 원본 jpg 유지)
+  const { generateProfileVariants } = await import("./profile-variants.mjs");
+  const variants = await generateProfileVariants({ distDir });
+  console.log(`[profile-variants] webp=${variants.files} files (${variants.kb}KB) from ${variants.sources} sources`);
 
   await prepareModelsData({ projectRoot, distDir });
 

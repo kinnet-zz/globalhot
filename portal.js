@@ -618,11 +618,22 @@ emptyState.hidden = displayedCards.length !== 0;
       var img = document.createElement('img');
       // Local vendored file wins; models published via a remote CC-licensed
       // Wikimedia image (photoUrl) render that URL directly from the CDN.
+      var isLocalProfile = !(model.photoUrl && model.photoUrl.indexOf('/assets/profiles/') === -1);
       img.src = thumbOf(
-        model.photoUrl && model.photoUrl.indexOf('/assets/profiles/') === -1
-          ? model.photoUrl
-          : '/assets/profiles/' + model.id + '.jpg'
+        isLocalProfile
+          ? '/assets/profiles/' + model.id + '.jpg'
+          : model.photoUrl
       );
+      // Cards render at ~130-260px; w480 covers retina. Variants are emitted at
+      // build time (scripts/profile-variants.mjs). Remote Commons URLs have no
+      // local variants and keep the single thumb URL.
+      if (isLocalProfile) {
+        img.srcset =
+          '/assets/profiles/' + encodeURIComponent(model.id) + '.w480.webp 480w,' +
+          '/assets/profiles/' + encodeURIComponent(model.id) + '.w960.webp 960w,' +
+          '/assets/profiles/' + encodeURIComponent(model.id) + '.jpg 1600w';
+        img.sizes = '(max-width: 640px) 45vw, 260px';
+      }
       img.alt = model.name + ' photo';
       img.setAttribute('loading', 'lazy');
       // Defense-in-depth: if the photo 404s or fails to load, recover to the
