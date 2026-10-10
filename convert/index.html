@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>평→㎡, 종이컵→ml, 돈→g 계산기 | GlobalHot Tools</title>
+<meta name="description" content="1평은 3.305785㎡, 종이컵 1컵은 180ml, 1돈은 3.75g. 한국 생활단위 변환기 — 부동산·요리·금·TV 인치까지 3초 계산.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+<a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>GlobalHot Tools</a>
+<nav><a href="../index.html">홈</a><a href="index.html" class="on">단위변환</a><a href="../dday/index.html">D-day</a></nav>
+</div></header>
+
+<div class="wrap">
+<div class="pagehead">
+<div class="kicker">Converter · 평 돈 종이컵 인치</div>
+<h1>한국 생활단위 변환기</h1>
+<p>고르고, 숫자만 넣으세요. 답이 바로 나옵니다.</p>
+<div class="tick" aria-hidden="true"></div>
+</div>
+
+<div class="adslot">ADVERTISEMENT</div>
+
+<div class="card">
+<div class="seg" id="tabs" role="group" aria-label="변환 종류">
+<button aria-pressed="true" onclick="setTab('pyung',this)">평 ↔ ㎡</button>
+<button aria-pressed="false" onclick="setTab('don',this)">돈 ↔ g</button>
+<button aria-pressed="false" onclick="setTab('cup',this)">종이컵 ↔ ml</button>
+<button aria-pressed="false" onclick="setTab('inch',this)">인치 ↔ cm</button>
+<button aria-pressed="false" onclick="setTab('lb',this)">파운드·온스</button>
+</div>
+<div class="chips" id="presets"></div>
+<div class="field">
+<label id="labelA" for="inA">평</label>
+<input id="inA" type="number" value="30" oninput="calc()" inputmode="decimal">
+</div>
+<div class="readout" id="panel">
+<div class="rl" id="labelB">평 → ㎡</div>
+<div class="rv" id="outA">—</div>
+<div class="rn" id="noteA"></div>
+</div>
+</div>
+
+<div class="adslot">ADVERTISEMENT</div>
+
+<div class="card">
+<h2>자주 쓰는 값</h2>
+<p class="sub">복사해서 바로 쓰세요</p>
+<table class="tbl">
+<tr><th>변환</th><th>값</th><th>근거</th></tr>
+<tr><td>1평</td><td class="num">3.305785㎡</td><td>건축법 시행령</td></tr>
+<tr><td>30평</td><td class="num">99.17㎡</td><td>국민평형 ≈ 99㎡</td></tr>
+<tr><td>1돈</td><td class="num">3.75g</td><td>한국 금 시장 표준</td></tr>
+<tr><td>종이컵 1컵</td><td class="num">180ml</td><td>일반 종이컵 (계량컵 200ml와 구분)</td></tr>
+<tr><td>밥숟가락 1큰술</td><td class="num">15ml</td><td>레시피 표준</td></tr>
+<tr><td>55인치 TV</td><td class="num">139.7cm (대각선)</td><td>1인치 = 2.54cm</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>왜 이런 단위를 쓰나</h2>
+<div class="prose">
+<h3>평 → ㎡</h3>
+<p>부동산에서 쓰는 평은 일본식 단위에서 온 관행입니다. 법적으로는 ㎡ 표기가 정식이며, 1평 = 3.305785㎡입니다. 30평 아파트를 ㎡로 바꾸면 약 99.17㎡가 됩니다. 전세계약서에는 ㎡가 적혀 있으니 이사 전 꼭 변환해 보세요.</p>
+<h3>돈 → g</h3>
+<p>금 한 돈은 3.75g입니다. 돌반지 1돈이면 3.75g짜리 금이라는 뜻입니다. 금은방에서는 돈과 g을 섞어 쓰니, 사기 전 g당 가격으로 나눠 비교하는 것이 안전합니다.</p>
+<h3>종이컵 → ml</h3>
+<p>한국 레시피의 "1컵"은 보통 종이컵(180ml) 기준입니다. 서양 레시피의 1컵(240ml)과 달라서 그대로 따르면 싱거워집니다. 계량컵(200ml)도 다르니 레시피 출처를 확인하세요.</p>
+<h3>인치 → cm</h3>
+<p>TV·모니터 인치는 대각선 길이입니다. 55인치는 139.7cm 대각선이며, 실제 가로폭은 16:9 기준 약 121.7cm입니다. 벽 크기를 잴 때는 대각선이 아니라 가로폭을 재세요.</p>
+</div>
+</div>
+
+<div class="card">
+<h2>자주 묻는 질문</h2>
+<details class="faq"><summary>30평은 몇 ㎡인가요?</summary><p>99.17㎡입니다. 30 × 3.305785로 계산됩니다.</p></details>
+<details class="faq"><summary>종이컵 2컵은 몇 ml인가요?</summary><p>360ml입니다. 단, 종이컵마다 170~190ml 오차가 있으니 정확한 베이킹은 저울을 쓰세요.</p></details>
+<details class="faq"><summary>금 1돈 가격은 얼마인가요?</summary><p>시세는 매일 변합니다. (1돈 가격 ÷ 3.75)로 g당 가격을 구해 비교하세요. 공임·부가세가 별도입니다.</p></details>
+<details class="faq"><summary>입력값이 서버에 저장되나요?</summary><p>아니요. 모든 계산은 브라우저에서만 이뤄집니다. <a href="../privacy.html">개인정보처리방침</a> 참고.</p></details>
+</div>
+
+</div>
+<footer class="sitefoot"><div class="sitefoot-in">
+<a href="../index.html">홈</a><a href="../about.html">소개</a><a href="../contact.html">문의</a><a href="../privacy.html">개인정보처리방침</a>
+<span class="copy">© 2026 GlobalHot Tools</span>
+</div></footer>
+<script>
+const TABS={
+ pyung:{a:'평',b:'평 → ㎡',def:30,pre:[24,30,34,40,50]},
+ don:{a:'돈',b:'돈 → g',def:5,pre:[1,3,5,10]},
+ cup:{a:'종이컵 (컵)',b:'종이컵 → ml',def:2,pre:[1,2,3,5]},
+ inch:{a:'인치',b:'인치 → cm',def:55,pre:[32,43,55,65,75]},
+ lb:{a:'파운드 (lb)',b:'파운드 → kg',def:150,pre:[50,100,150,200]}
+};
+let tab='pyung';
+function setTab(t,btn){tab=t;document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-pressed','false'));btn.setAttribute('aria-pressed','true');
+document.getElementById('labelA').textContent=TABS[t].a;
+document.getElementById('labelB').textContent=TABS[t].b;
+document.getElementById('inA').value=TABS[t].def;
+document.getElementById('presets').innerHTML=TABS[t].pre.map(p=>`<button class="chipbtn" onclick="document.getElementById('inA').value=${p};calc()">${p}</button>`).join('');
+calc();}
+function calc(){
+const v=parseFloat(document.getElementById('inA').value)||0;
+let r='',n='';
+if(tab==='pyung'){r=(v*3.305785).toLocaleString(undefined,{maximumFractionDigits:2})+' ㎡';n=v+'평 × 3.305785 (건축법 기준)';}
+if(tab==='don'){r=(v*3.75).toLocaleString()+' g';n=v+'돈 × 3.75g (금 시장 표준). g당 가격 비교용으로 활용';}
+if(tab==='cup'){r=(v*180).toLocaleString()+' ml';n=v+'컵 × 180ml (일반 종이컵). 계량컵(200ml)·서양컵(240ml)과 다름';}
+if(tab==='inch'){r=(v*2.54).toLocaleString()+' cm (대각선)';n=v+'인치 × 2.54. 가로폭은 16:9 기준 약 '+(v*2.54*0.871).toFixed(1)+'cm';}
+if(tab==='lb'){r=(v*0.453592).toFixed(2)+' kg ('+(v*16)+'온스)';n=v+'lb × 0.453592kg. 해외직구 무게 확인용';}
+document.getElementById('outA').textContent=r;document.getElementById('noteA').textContent=n;
+const p=document.getElementById('panel');p.classList.remove('flash');void p.offsetWidth;p.classList.add('flash');}
+document.getElementById('presets').innerHTML=TABS.pyung.pre.map(p=>`<button class="chipbtn" onclick="document.getElementById('inA').value=${p};calc()">${p}</button>`).join('');
+calc();
+</script>
+</body>
+</html>

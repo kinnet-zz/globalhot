@@ -34,9 +34,13 @@ export const STATIC_FILES = [
   "_redirects",
   "main_202608081044.mp4",
   "models.html",
+  "assets/style.css",
 ];
 
 const SCAN_DIRS = ["assets/profiles"];
+
+// 생활 도구 모음(/tools, /convert, /dday, /photo, /typing, /blog) — 통째로 dist에 복사
+const TOOL_DIRS = ["tools", "convert", "dday", "photo", "typing", "blog"];
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -109,6 +113,10 @@ export async function buildPages() {
     await copyDirTree(path.resolve(projectRoot, scanDir), path.join(distDir, scanDir));
   }
 
+  for (const toolDir of TOOL_DIRS) {
+    await copyDirTree(path.resolve(projectRoot, toolDir), path.join(distDir, toolDir));
+  }
+
   // 프로필 사진 반응형 WebP 변형 (srcset 용, 원본 jpg 유지)
   const { generateProfileVariants } = await import("./profile-variants.mjs");
   const variants = await generateProfileVariants({ distDir });
@@ -171,8 +179,10 @@ export async function buildPages() {
     /^t\/[a-z0-9-]+\.html$/.test(file) ||
     /^archive\/(weekly|monthly)\.html$/.test(file) ||
     file.startsWith("issue/") ||
-    SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`));
-  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue", "r", "t", "archive"]);
+    SCAN_DIRS.some((dir) => file.startsWith(`${dir}/`)) ||
+    TOOL_DIRS.some((dir) => file.startsWith(`${dir}/`));
+  const allowedDirRoots = new Set(["data", "assets", "assets/profiles", "issue", "r", "t", "archive",
+    "tools", "convert", "dday", "photo", "typing", "blog"]);
   const isAllowedDir = (d) => allowedDirRoots.has(d) || SCAN_DIRS.some((dir) => d.startsWith(`${dir}/`));
 
   const unexpectedFiles = outputFiles.filter((f) => !isAllowedOutput(f));

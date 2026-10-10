@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전역일·수능 D-day·기념일 계산기 | GlobalHot Tools</title>
+<meta name="description" content="입대일로 전역일 계산(육군·해군·공군·사회복무), 2027학년도 수능(2026-11-19) D-day, 100일 기념일 계산. 무료, 저장 없음.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+<a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>GlobalHot Tools</a>
+<nav><a href="../index.html">홈</a><a href="../convert/index.html">단위변환</a><a href="index.html" class="on">D-day</a></nav>
+</div></header>
+
+<div class="wrap">
+<div class="pagehead">
+<div class="kicker">D-day · 전역 수능 기념일</div>
+<h1>D-day 계산기</h1>
+<p>날짜만 넣으세요. 전역일, 수능, 기념일이 바로 나옵니다.</p>
+<div class="tick" aria-hidden="true"></div>
+</div>
+
+<div class="adslot">ADVERTISEMENT</div>
+
+<div class="card">
+<h2>전역일 계산기</h2>
+<p class="sub">2022년 단축 완료 기준 복무기간 적용</p>
+<div class="duo">
+<div class="field">
+<label for="enlist">입대일</label>
+<input id="enlist" type="date" value="2026-01-05" onchange="mil()">
+</div>
+<div class="field">
+<label for="branch">군별</label>
+<select id="branch" onchange="mil()">
+<option value="18">육군 · 해병대 (18개월)</option>
+<option value="20">해군 (20개월)</option>
+<option value="21">공군 (21개월)</option>
+<option value="21">사회복무요원 (21개월)</option>
+</select>
+</div>
+</div>
+<div class="readout" id="milPanel">
+<div class="rl">전역일</div>
+<div class="rv" id="milOut">—</div>
+<div class="rn" id="milSub"></div>
+<div class="meter"><i id="milBar" style="width:0%"></i></div>
+</div>
+<p class="sub" style="margin-top:8px">계산식: 입대일 + 복무개월 − 1일. 훈련소·행정 처리에 따라 ±1일 차이 가능. 정확한 날짜는 전역증으로 확인하세요.</p>
+</div>
+
+<div class="card">
+<h2>수능 D-day</h2>
+<p class="sub">2027학년도 대학수학능력시험</p>
+<div class="readout">
+<div class="rl">남은 날짜</div>
+<div class="rv" id="csatOut">—</div>
+<div class="rn">2026년 11월 19일(목) · 성적통지 12월 11일(금) — 교육부 발표. 종료 후 다음 학년도로 자동 전환됩니다.</div>
+</div>
+</div>
+
+<div class="adslot">ADVERTISEMENT</div>
+
+<div class="card">
+<h2>기념일 계산기</h2>
+<p class="sub">사귄 날 + N일</p>
+<div class="duo">
+<div class="field">
+<label for="base">기준일</label>
+<input id="base" type="date" onchange="anni()">
+</div>
+<div class="field">
+<label for="nday">며칠 후? (100 / 200 / 1000일)</label>
+<input id="nday" type="number" value="100" oninput="anni()" inputmode="numeric">
+</div>
+</div>
+<div class="readout">
+<div class="rl">기념일</div>
+<div class="rv" id="anniOut">—</div>
+</div>
+</div>
+
+<div class="card">
+<h2>왜 이렇게 계산하나</h2>
+<div class="prose">
+<p><b>전역일:</b> 병역법상 복무기간은 입대일을 포함해 월 단위로 계산합니다. 그래서 입대일에 복무개월을 더한 뒤 하루를 뺍니다. 예: 2026-01-05 입대·육군(18개월) → 2027-07-05 − 1일 = <b>2027-07-04 전역</b>. 말이 짧은 달·윤년은 달력 계산 그대로 적용됩니다.</p>
+<h3>복무기간 근거</h3>
+<p>2022년 단축 완료 기준 육군·해병대 18개월, 해군 20개월, 공군·사회복무 21개월입니다. 제도 변경 시 병무청 공지를 우선하세요.</p>
+<h3>수능 D-day</h3>
+<p>수능은 매년 11월 셋째 주 목요일입니다. 2027학년도는 2026-11-19, 다음 해는 2027-11-18이 유력합니다.</p>
+</div>
+</div>
+
+<div class="card">
+<h2>자주 묻는 질문</h2>
+<details class="faq"><summary>전역일은 정확히 맞나요?</summary><p>달력 계산 기준이며, 훈련소 수료일·휴가·행정 처리에 따라 ±1일 차이 날 수 있습니다. 참고용으로 쓰세요.</p></details>
+<details class="faq"><summary>2026학년도 수능은 끝났나요?</summary><p>네. 이 페이지는 2027학년도(2026-11-19) 기준이며, 시험 종료 후 다음 학년도로 자동 전환됩니다.</p></details>
+<details class="faq"><summary>입력한 날짜가 저장되나요?</summary><p>아니요. 모든 계산은 브라우저에서만 이뤄집니다.</p></details>
+</div>
+
+</div>
+<footer class="sitefoot"><div class="sitefoot-in">
+<a href="../index.html">홈</a><a href="../about.html">소개</a><a href="../contact.html">문의</a><a href="../privacy.html">개인정보처리방침</a>
+<span class="copy">© 2026 GlobalHot Tools</span>
+</div></footer>
+<script>
+function flash(id){const p=document.getElementById(id);if(!p)return;p.classList.remove('flash');void p.offsetWidth;p.classList.add('flash');}
+function mil(){
+const e=new Date(document.getElementById('enlist').value+'T00:00:00');
+const m=parseInt(document.getElementById('branch').value);
+if(isNaN(e))return;
+const d=new Date(e);d.setMonth(d.getMonth()+m);d.setDate(d.getDate()-1);
+const now=new Date();now.setHours(0,0,0,0);
+const total=Math.round((d-e)/864e5), left=Math.max(0,Math.round((d-now)/864e5));
+const pct=Math.min(100,Math.round((total-left)/total*100));
+document.getElementById('milOut').textContent=d.toLocaleDateString('ko-KR')+(left===0?' · 전역!':' · D-'+left);
+document.getElementById('milSub').textContent='총 '+total+'일 중 '+pct+'% 복무';
+document.getElementById('milBar').style.width=pct+'%';flash('milPanel');
+}
+function csat(){
+const exams=[new Date('2026-11-19T00:00:00'),new Date('2027-11-18T00:00:00')];
+const now=new Date();now.setHours(0,0,0,0);
+const t=exams.find(d=>d>=now)||exams[exams.length-1];
+const left=Math.round((t-now)/864e5);
+document.getElementById('csatOut').textContent=t.toLocaleDateString('ko-KR')+' · '+(left===0?'D-day!':'D-'+left);
+}
+function anni(){
+const b=new Date(document.getElementById('base').value+'T00:00:00');
+const n=parseInt(document.getElementById('nday').value)||0;
+if(isNaN(b))return;
+const d=new Date(b);d.setDate(d.getDate()+n-1);
+document.getElementById('anniOut').textContent=n+'일째 · '+d.toLocaleDateString('ko-KR');
+}
+document.getElementById('base').value=new Date().toISOString().slice(0,10);
+mil();csat();anni();
+</script>
+</body>
+</html>
