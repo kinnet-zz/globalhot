@@ -1,83 +1,56 @@
 {
-  "generated_at": "2026-10-23T22:03:02.190Z",
+  "generated_at": "2026-10-24T00:34:31.376Z",
   "window_hours": 24,
-  "collected_count": 987,
+  "collected_count": 1063,
   "top": [
     {
       "rank": 1,
-      "title": "JinxxSplashpointStudioShoot2026.10.10-244",
-      "url": "https://www.flickr.com/photos/robert_bond75/55607790608/",
-      "thumb": "https://live.staticflickr.com/65535/55607790608_65b30a6b31_b.jpg",
-      "publishedAt": "2026-10-23T17:33:17.000Z",
+      "title": "JinxxSplashpointStudioShoot2026.10.10-268",
+      "url": "https://www.flickr.com/photos/robert_bond75/55607867809/",
+      "thumb": "https://live.staticflickr.com/65535/55607867809_3c1549feed_b.jpg",
+      "publishedAt": "2026-10-23T17:33:31.000Z",
       "sources": [
         "Flickr · 부두어",
-        "Flickr · 란제리",
-        "Flickr · 코스프레"
+        "Flickr · 란제리"
       ],
       "platforms": [
         "flickr"
       ],
       "categories": [
-        "model",
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 36,
-      "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 2,
-      "title": "JinxxSplashpointStudioShoot2026.10.10-221",
-      "url": "https://www.flickr.com/photos/robert_bond75/55607869604/",
-      "thumb": "https://live.staticflickr.com/65535/55607869604_a39cc5cfe0_b.jpg",
-      "publishedAt": "2026-10-23T17:33:04.000Z",
-      "sources": [
-        "Flickr · 부두어",
-        "Flickr · 란제리",
-        "Flickr · 코스프레"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model",
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 35,
-      "badge": {
-        "kind": "same",
-        "label": "—"
-      }
-    },
-    {
-      "rank": 3,
-      "title": "10月で46歳になった気象予報士・吉井明子がテスト撮影の思い出を振り返る「もう少し布面積が広い水着もあったのですが、本気の水着のほうが絶対にイイぞ！ って」（週プレNEWS） - Yahoo!ニュース",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9UVnp1X3ZWaC15YWN1THFEbmxxbHoyLWljYkF2VlR5LWpVR3EwZm9MYl94WkdUaUd3RFRHQ3NIWG9HQjNWUHR0azNsbml1VVNUNy1rLU5LVmZtNktaNEFhWWlIUFZSREN1N0FqTWhfZjlReThkZDBadlJHMnhhU0k?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-10-23T11:03:38.000Z",
-      "sources": [
-        "Google News · 水着グラビア(JA)",
-        "Google News · グラビア(JA)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [],
-      "score": 23,
+      "score": 24,
       "badge": {
         "kind": "new",
         "label": "NEW"
       }
     },
     {
-      "rank": 4,
+      "rank": 2,
+      "title": "JinxxSplashpointStudioShoot2026.10.10-210",
+      "url": "https://www.flickr.com/photos/robert_bond75/55607667741/",
+      "thumb": "https://live.staticflickr.com/65535/55607667741_ae2591a3d3_b.jpg",
+      "publishedAt": "2026-10-23T17:32:59.000Z",
+      "sources": [
+        "Flickr · 부두어",
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 24,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 3,
       "title": "147cm現役アイドル、1st写真集のオフショットに「釘付けです」「可愛すぎ」の声 グラビアでも活躍中 - エンタメ - ニュース - クランクイン！",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5DYjZOYXZndmhNUzE1bDJpNjhFSXo2ZU5VY0xsM1ZvMVdEdVF5enlLb1N0eDBHcVhFNTlUYjFLQVF1bmpSd0tLQ21DWkRfSTQ?oc=5",
       "thumb": "",
@@ -93,14 +66,14 @@
         "gravure"
       ],
       "persons": [],
-      "score": 23,
+      "score": 22,
       "badge": {
-        "kind": "down",
-        "label": "▼ 1"
+        "kind": "up",
+        "label": "▲ 1"
       }
     },
     {
-      "rank": 5,
+      "rank": 4,
       "title": "“100センチヒップ”東雲うみ、圧巻スタイル披露 『ヤングアニマル』で「東雲フェチ祭り」開催 - オリコンニュース",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1NVWIzZk55MGZJNXdJVXFXVjlsSm0wcU5NR3VnMHljMnBqMDA5aG9RMDRYU0Rvbks3d2hVVlVmVzlaa2pVNndYWXNFbDNzN1E?oc=5",
       "thumb": "",
@@ -120,7 +93,29 @@
           "name": "Umi Shinonome"
         }
       ],
-      "score": 20,
+      "score": 18,
+      "badge": {
+        "kind": "up",
+        "label": "▲ 1"
+      }
+    },
+    {
+      "rank": 5,
+      "title": "[Safebooru · 코스프레] ahoge awoogamart0947 black_skirt",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257885",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_defa43f5772275d98350bccea24225c55df6bd5b.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "platforms": [
+        "safebooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -128,26 +123,21 @@
     },
     {
       "rank": 6,
-      "title": "“100センチヒップ”東雲うみ、圧巻スタイル披露 『ヤングアニマル』で「東雲フェチ祭り」開催｜Infoseekニュース - Infoseek",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE40ZEdTTEV1d1NZZWQ5alN5Z0RBWGRfa1J5SFdJZmVRV1JWdmNlcFVKZ2tHelk3QndvTlpZSDlNbVBPT09EV0JTbXNBS0YwdVJsN2NxMmdDWUduaXBFcFFOcA?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-10-23T21:20:00.000Z",
+      "title": "[Safebooru · 코스프레] alternate_costume assault_visor black_bodysuit",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257880",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_864b590c726600635c440820da6720416b77d992.jpg",
+      "publishedAt": "",
       "sources": [
-        "Google News · グラビア(JA)"
+        "Safebooru · 코스프레"
       ],
       "platforms": [
-        "news"
+        "safebooru"
       ],
       "categories": [
-        "gravure"
+        "cosplay"
       ],
-      "persons": [
-        {
-          "id": "umi-shinonome",
-          "name": "Umi Shinonome"
-        }
-      ],
-      "score": 20,
+      "persons": [],
+      "score": 18,
       "badge": {
         "kind": "new",
         "label": "NEW"
@@ -155,9 +145,9 @@
     },
     {
       "rank": 7,
-      "title": "[Safebooru · 코스프레] &gt;:) adjusting_eyewear arihara_nanami",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257637",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_bd44fba1ea787de998909f27716156a834a6d9cb.jpg",
+      "title": "[Safebooru · 코스프레] black_gloves black_shirt blue_eyes",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257876",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_e7fa7591fd1b97c73f690836453e1845431857d3.jpg",
       "publishedAt": "",
       "sources": [
         "Safebooru · 코스프레"
@@ -177,53 +167,9 @@
     },
     {
       "rank": 8,
-      "title": "[Safebooru · 코스프레] artist_name bang_dream! bang_dream!_it&#039;s_mygo!!!!!",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257580",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_f7ed7c3aa6ec02c9783b7dc690635ddafc3ba4eb.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 9,
-      "title": "[Safebooru · 코스프레] artist_name blue_eyes blue_gloves",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257559",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_a92ebb704e040672019d432cca988b277bb2d0bd.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 10,
-      "title": "[Safebooru · 코스프레] black_collar black_hair black_shirt",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257446",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_cec982c06f31f74a3d3f6fc758dfe4cfdedd53c3.jpg",
+      "title": "[Safebooru · 코스프레] &gt;:) adjusting_eyewear arihara_nanami",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257637",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_bd44fba1ea787de998909f27716156a834a6d9cb.jpg",
       "publishedAt": "",
       "sources": [
         "Safebooru · 코스프레"
@@ -238,20 +184,64 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 5"
+        "label": "▼ 1"
+      }
+    },
+    {
+      "rank": 9,
+      "title": "[Danbooru · 코스프레] post 12436140",
+      "url": "https://danbooru.donmai.us/posts/12436140",
+      "thumb": "https://cdn.donmai.us/180x180/39/f7/39f7701deabfec6f5e2f0b259cd52674.jpg",
+      "publishedAt": "2026-10-24T00:25:15.405Z",
+      "sources": [
+        "Danbooru · 코스프레"
+      ],
+      "platforms": [
+        "danbooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 10,
+      "title": "[Danbooru · 코스프레] post 12436086",
+      "url": "https://danbooru.donmai.us/posts/12436086",
+      "thumb": "https://cdn.donmai.us/180x180/07/8f/078fa071487436ec9c9461b99377bf5e.jpg",
+      "publishedAt": "2026-10-24T00:08:59.323Z",
+      "sources": [
+        "Danbooru · 코스프레"
+      ],
+      "platforms": [
+        "danbooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
       }
     },
     {
       "rank": 11,
-      "title": "Is this AI? # FamilyGuy # PeterGriffin # Memes # Cosplay # IRL # humor # commentbelow # memes # dankmemes # funny",
-      "url": "https://mastodon.social/@OldDirtyMustard/117492353736324866",
-      "thumb": "https://files.mastodon.social/media_attachments/files/117/492/353/678/589/167/original/ca8fa81091587d6b.jpg",
-      "publishedAt": "2026-10-23T21:30:42.000Z",
+      "title": "[Danbooru · 코스프레] post 12436058",
+      "url": "https://danbooru.donmai.us/posts/12436058",
+      "thumb": "https://cdn.donmai.us/180x180/fb/5e/fb5e7115edb2b8ed9b53863aff4d2877.jpg",
+      "publishedAt": "2026-10-24T00:05:12.803Z",
       "sources": [
-        "Mastodon · 코스프레"
+        "Danbooru · 코스프레"
       ],
       "platforms": [
-        "mastodon"
+        "danbooru"
       ],
       "categories": [
         "cosplay"
@@ -265,10 +255,10 @@
     },
     {
       "rank": 12,
-      "title": "“日本一の天然アップルぱい”グラドル、駅でのミニ丈姿が「スタイル最高」「可愛い」「透明感あふれてる」 - クランクイン！",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0tQ1A4Sm94MjBLUG1iNUUzMjdSSGJzcDUyV0JYVGZ6R1ZCTzdCemlKNF9aNUhnTWJVVUlQWDhFRmVyTHJaUkhBU0s3VUxuUm8?oc=5",
+      "title": "乃木坂46小川彩：19歳美少女の抜群の透明感 「グラビアチャンピオン」登場 - まんたんウェブ",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBpOV9jRGxwclJCTTkwbDBSSkRfcUdZM3hueHhDTTFyekRkY0RUYm53a2dRZWQxelpIYzFyWlIxbUMxS1AxNDkxU01sSkJrdmJoVnp2Tkhwa1drZDNBYXNiRmJzUHFZSnhrc09r?oc=5",
       "thumb": "",
-      "publishedAt": "2026-10-23T21:00:00.000Z",
+      "publishedAt": "2026-10-23T22:08:50.000Z",
       "sources": [
         "Google News · グラビア(JA)"
       ],
@@ -287,10 +277,10 @@
     },
     {
       "rank": 13,
-      "title": "「圧、スゴすぎ」「すごい！ヒモが食い込んでる」29歳グラドル、ワンピースのボタン外れ“白三角”飛び出し、ファン「確かにキツそうだ」「しゅごい♪♪」（中日スポーツ） - Yahoo!ニュース",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5ZMzFnOUhBOXV3eUw5Znl6S1Vja0ZXNkVWVUExSm9XSVp2cVo3ZVh0ZjRKN2lxYjJEdWxneUNPbkdVSW1JTzE4ZjJtZ1hseGpNdXhSZ0hvcDlpN2FKd1licGhSMVhSYnNYWWo5YWduRFZ4MlAtMm8zRHZXWWF2RTQ?oc=5",
+      "title": "“メロンカップ”グラドル、ぴちぴちジムウエアで曲線美際立つ 「これはかなり引き締まった」とX仰天（ENCOUNT） - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE92TDJlVTJLSVFzY3hUTWQtYmk0blZBZWNlQXQwVXoxMkVHdTh3VVZRQlIyWFBOZ29CQThkQVdIaHhacFRpYjJkMlltUzYwc3ZFdWlPUlJWWlRseUJzdjhFX19tV2F4T0pBR3Y1MXZhbDlxVndRb1Y5U0d4am93c0U?oc=5",
       "thumb": "",
-      "publishedAt": "2026-10-23T20:03:24.000Z",
+      "publishedAt": "2026-10-23T23:23:14.000Z",
       "sources": [
         "Google News · グラビア(JA)"
       ],
@@ -309,12 +299,12 @@
     },
     {
       "rank": 14,
-      "title": "PVC faux-leather mini dress Tan Stockings (2)",
-      "url": "https://www.flickr.com/photos/emmaward49/55608312340/",
-      "thumb": "https://live.staticflickr.com/65535/55608312340_640450561b_b.jpg",
-      "publishedAt": "2026-10-23T20:05:35.000Z",
+      "title": "Figueira da Foz",
+      "url": "https://www.flickr.com/photos/debarshiray/55608368959/",
+      "thumb": "https://live.staticflickr.com/65535/55608368959_902ac48ff5_b.jpg",
+      "publishedAt": "2026-10-23T23:05:04.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Flickr · 비키니"
       ],
       "platforms": [
         "flickr"
@@ -331,12 +321,12 @@
     },
     {
       "rank": 15,
-      "title": "PVC faux-leather mini dress Tan Stockings (3)",
-      "url": "https://www.flickr.com/photos/emmaward49/55606886287/",
-      "thumb": "https://live.staticflickr.com/65535/55606886287_162ab57423_b.jpg",
-      "publishedAt": "2026-10-23T20:05:36.000Z",
+      "title": "Hot Import Nights Honolulu - 2026",
+      "url": "https://www.flickr.com/photos/madmarv/55608259453/",
+      "thumb": "https://live.staticflickr.com/65535/55608259453_120da2fb29_b.jpg",
+      "publishedAt": "2026-10-23T22:39:43.000Z",
       "sources": [
-        "Flickr · 란제리"
+        "Flickr · 비키니"
       ],
       "platforms": [
         "flickr"
@@ -353,18 +343,18 @@
     },
     {
       "rank": 16,
-      "title": "Impression d'une linogravure pour une commande professionnelle. . #linogravure #illustratricefrançaise #printprocess #tr…",
-      "url": "https://pixelfed.social/p/CaroleMariet/1019333094849201814",
-      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/491/941/415/185/204/original/d14138357861573e.jpg",
-      "publishedAt": "2026-10-23T19:45:48.000Z",
+      "title": "[Danbooru · 코스프레] post 12435662",
+      "url": "https://danbooru.donmai.us/posts/12435662",
+      "thumb": "https://cdn.donmai.us/180x180/bf/50/bf5019c1ab2905e3a7a365207e7a9ca0.jpg",
+      "publishedAt": "2026-10-23T22:16:53.622Z",
       "sources": [
-        "Mastodon · 그라비아"
+        "Danbooru · 코스프레"
       ],
       "platforms": [
-        "mastodon"
+        "danbooru"
       ],
       "categories": [
-        "gravure"
+        "cosplay"
       ],
       "persons": [],
       "score": 17,
@@ -375,72 +365,94 @@
     },
     {
       "rank": 17,
-      "title": "[Danbooru · 코스프레] post 12435395",
-      "url": "https://danbooru.donmai.us/posts/12435395",
-      "thumb": "https://cdn.donmai.us/180x180/32/8d/328d882161d29fe5a542d4810a313426.jpg",
-      "publishedAt": "2026-10-23T21:05:05.401Z",
+      "title": "PVC faux-leather mini dress Tan Stockings (2)",
+      "url": "https://www.flickr.com/photos/emmaward49/55608312340/",
+      "thumb": "https://live.staticflickr.com/65535/55608312340_640450561b_b.jpg",
+      "publishedAt": "2026-10-23T20:05:35.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Flickr · 란제리"
       ],
       "platforms": [
-        "danbooru"
+        "flickr"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 17,
+      "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 3"
       }
     },
     {
       "rank": 18,
-      "title": "[Danbooru · 코스프레] post 12435241",
-      "url": "https://danbooru.donmai.us/posts/12435241",
-      "thumb": "https://cdn.donmai.us/180x180/4c/22/4c22ffc100ba43444a1705e8bbd09c05.jpg",
-      "publishedAt": "2026-10-23T20:21:14.403Z",
+      "title": "PVC faux-leather mini dress Tan Stockings (3)",
+      "url": "https://www.flickr.com/photos/emmaward49/55606886287/",
+      "thumb": "https://live.staticflickr.com/65535/55606886287_162ab57423_b.jpg",
+      "publishedAt": "2026-10-23T20:05:36.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Flickr · 란제리"
       ],
       "platforms": [
-        "danbooru"
+        "flickr"
       ],
       "categories": [
-        "cosplay"
+        "model"
       ],
       "persons": [],
-      "score": 17,
+      "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 3"
       }
     },
     {
       "rank": 19,
-      "title": "[Danbooru · 코스프레] post 12435149",
-      "url": "https://danbooru.donmai.us/posts/12435149",
-      "thumb": "https://cdn.donmai.us/180x180/d3/4e/d34ef79626283ae8007b80ea408b4d6f.jpg",
-      "publishedAt": "2026-10-23T19:57:38.578Z",
+      "title": "“日本一の天然アップルぱい”グラドル、駅でのミニ丈姿が「スタイル最高」「可愛い」「透明感あふれてる」 - クランクイン！",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0tQ1A4Sm94MjBLUG1iNUUzMjdSSGJzcDUyV0JYVGZ6R1ZCTzdCemlKNF9aNUhnTWJVVUlQWDhFRmVyTHJaUkhBU0s3VUxuUm8?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-10-23T21:00:00.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Google News · グラビア(JA)"
       ],
       "platforms": [
-        "danbooru"
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 7"
+      }
+    },
+    {
+      "rank": 20,
+      "title": "Is this AI? # FamilyGuy # PeterGriffin # Memes # Cosplay # IRL # humor # commentbelow # memes # dankmemes # funny",
+      "url": "https://mastodon.social/@OldDirtyMustard/117492353736324866",
+      "thumb": "https://files.mastodon.social/media_attachments/files/117/492/353/678/589/167/original/ca8fa81091587d6b.jpg",
+      "publishedAt": "2026-10-23T21:30:42.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
       ],
       "categories": [
         "cosplay"
       ],
       "persons": [],
-      "score": 17,
+      "score": 16,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 9"
       }
     },
     {
-      "rank": 20,
+      "rank": 21,
       "title": "Autmn1x_w",
       "url": "https://www.flickr.com/photos/204179366@N08/55607779616/",
       "thumb": "https://live.staticflickr.com/65535/55607779616_b5f4891b1b_b.jpg",
@@ -455,14 +467,14 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 16,
+      "score": 15,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 1"
       }
     },
     {
-      "rank": 21,
+      "rank": 22,
       "title": "Vampire1x_w",
       "url": "https://www.flickr.com/photos/204179366@N08/55607779516/",
       "thumb": "https://live.staticflickr.com/65535/55607779516_2b188678a0_b.jpg",
@@ -477,36 +489,80 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 16,
+      "score": 15,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 22,
-      "title": "Liebe Community, wir haben für das morgige Treffen am 24.10.2026 noch zwei kleine Infovideos vorbereitet. ^^ https://www…",
-      "url": "https://mstdn.animexx.de/@animexx_stuttgart/117491677603768284",
-      "thumb": "",
-      "publishedAt": "2026-10-23T18:38:45.000Z",
-      "sources": [
-        "Mastodon · 코스프레"
-      ],
-      "platforms": [
-        "mastodon"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 16,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 1"
       }
     },
     {
       "rank": 23,
+      "title": "It's the back-end of the week! TGIF!",
+      "url": "https://www.flickr.com/photos/37629956@N06/55606883087/",
+      "thumb": "https://live.staticflickr.com/65535/55606883087_7a03749e5a_b.jpg",
+      "publishedAt": "2026-10-23T20:03:51.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 24,
+      "title": "↣ ADDAMS ↢",
+      "url": "https://www.flickr.com/photos/192562465@N04/55607981524/",
+      "thumb": "https://live.staticflickr.com/65535/55607981524_cbc85f3762_b.jpg",
+      "publishedAt": "2026-10-23T18:46:12.000Z",
+      "sources": [
+        "Flickr · 란제리"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 25,
+      "title": "Sunlit Style Swimwear Collage",
+      "url": "https://www.flickr.com/photos/blaneyphoto/55607885971/",
+      "thumb": "https://live.staticflickr.com/65535/55607885971_4f7c647cb1_b.jpg",
+      "publishedAt": "2026-10-23T19:54:33.000Z",
+      "sources": [
+        "Flickr · 비키니"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "model"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 26,
       "title": "#2096",
       "url": "https://www.flickr.com/photos/194402598@N05/55606824292/",
       "thumb": "https://live.staticflickr.com/65535/55606824292_73cd3b9f71_b.jpg",
@@ -521,36 +577,102 @@
         "model"
       ],
       "persons": [],
-      "score": 16,
+      "score": 15,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 3"
       }
     },
     {
-      "rank": 24,
-      "title": "[Danbooru · 코스프레] post 12434997",
-      "url": "https://danbooru.donmai.us/posts/12434997",
-      "thumb": "https://cdn.donmai.us/180x180/17/a5/17a58bf4c412d88bb035c3c2f16c56ad.jpg",
-      "publishedAt": "2026-10-23T19:14:01.862Z",
+      "rank": 27,
+      "title": "Impression d'une linogravure pour une commande professionnelle. . #linogravure #illustratricefrançaise #printprocess #tr…",
+      "url": "https://pixelfed.social/p/CaroleMariet/1019333094849201814",
+      "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/491/941/415/185/204/original/d14138357861573e.jpg",
+      "publishedAt": "2026-10-23T19:45:48.000Z",
       "sources": [
-        "Danbooru · 코스프레"
+        "Mastodon · 그라비아"
       ],
       "platforms": [
-        "danbooru"
+        "mastodon"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 11"
+      }
+    },
+    {
+      "rank": 28,
+      "title": "Liebe Community, wir haben für das morgige Treffen am 24.10.2026 noch zwei kleine Infovideos vorbereitet. ^^ https://www…",
+      "url": "https://mstdn.animexx.de/@animexx_stuttgart/117491677603768284",
+      "thumb": "",
+      "publishedAt": "2026-10-23T18:38:45.000Z",
+      "sources": [
+        "Mastodon · 코스프레"
+      ],
+      "platforms": [
+        "mastodon"
       ],
       "categories": [
         "cosplay"
       ],
       "persons": [],
-      "score": 16,
+      "score": 15,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 6"
+      }
+    },
+    {
+      "rank": 29,
+      "title": "Morrigan, Darkstalkers",
+      "url": "https://www.reddit.com/r/cosplay/comments/1xdm4qd/morrigan_darkstalkers/",
+      "thumb": "https://preview.redd.it/hhkh0kblg9xh1.jpeg?width=140&height=140&crop=1:1,smart&auto=webp&s=ad9d983e2bd9a77b9f83fd740adffba32912b6e0",
+      "publishedAt": "2026-10-23T18:33:28.000Z",
+      "sources": [
+        "Reddit · r/cosplay"
+      ],
+      "platforms": [
+        "reddit"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 15,
       "badge": {
         "kind": "new",
         "label": "NEW"
       }
     },
     {
-      "rank": 25,
+      "rank": 30,
+      "title": "Spiderman",
+      "url": "https://www.reddit.com/r/cosplay/comments/1xdn9mq/spiderman/",
+      "thumb": "https://preview.redd.it/hhtmeef6o9xh1.jpeg?width=640&crop=smart&auto=webp&s=deb14cda83295b5252bff3a5d6fd4d390b1857d1",
+      "publishedAt": "2026-10-23T19:16:00.000Z",
+      "sources": [
+        "Reddit · r/cosplay"
+      ],
+      "platforms": [
+        "reddit"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 15,
+      "badge": {
+        "kind": "new",
+        "label": "NEW"
+      }
+    },
+    {
+      "rank": 31,
       "title": "Copyrights: # tengen_toppa_gurren_lagann # spy_x_family # fate_grand_order # blue_archive Characters: # yoko_littner # y…",
       "url": "https://mastodon.social/@Syki07/117491063973490966",
       "thumb": "https://files.mastodon.social/media_attachments/files/117/491/056/031/241/332/original/39bc8e6cba4209ed.jpg",
@@ -565,14 +687,14 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 15,
+      "score": 14,
       "badge": {
         "kind": "down",
-        "label": "▼ 13"
+        "label": "▼ 6"
       }
     },
     {
-      "rank": 26,
+      "rank": 32,
       "title": "Ash Bentley has created another glorious abomination. https:// youtu.be/kuVBqqTOIbc # Cosplay # Sewing",
       "url": "https://kind.social/@Gulleko/117491010245672134",
       "thumb": "",
@@ -587,14 +709,14 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 15,
+      "score": 14,
       "badge": {
         "kind": "down",
-        "label": "▼ 13"
+        "label": "▼ 6"
       }
     },
     {
-      "rank": 27,
+      "rank": 33,
       "title": "cosplayed L for the first time",
       "url": "https://www.reddit.com/r/cosplay/comments/1xdiszj/cosplayed_l_for_the_first_time/",
       "thumb": "https://preview.redd.it/7okj3rt8u8xh1.jpeg?width=140&height=140&crop=1:1,smart&auto=webp&s=13f9d4a44327d20bfb1a04974dba0eff96b26874",
@@ -609,14 +731,14 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 15,
+      "score": 14,
       "badge": {
         "kind": "down",
-        "label": "▼ 11"
+        "label": "▼ 6"
       }
     },
     {
-      "rank": 28,
+      "rank": 34,
       "title": "A few photos we took of my Titanfall Pilot Cosplay I did for Comic-Con here in my country.",
       "url": "https://www.reddit.com/r/cosplay/comments/1xdjxh1/a_few_photos_we_took_of_my_titanfall_pilot/",
       "thumb": "https://preview.redd.it/c8jnxual19xh1.jpeg?width=140&height=140&crop=1:1,smart&auto=webp&s=018af8bd1dfd34a7ede129707d9ee89ad6445c58",
@@ -631,72 +753,6 @@
         "cosplay"
       ],
       "persons": [],
-      "score": 15,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 11"
-      }
-    },
-    {
-      "rank": 29,
-      "title": "Imix&Ufix 026-eersteFietstochtEirenmeisje-6chromos-ephemera-PUB-1880-EnglishVersion",
-      "url": "https://www.flickr.com/photos/collectomania/55607211866/",
-      "thumb": "https://live.staticflickr.com/31337/55607211866_8f767a801d_s.jpg",
-      "publishedAt": "2026-10-23T13:26:54.000Z",
-      "sources": [
-        "Flickr · 그라비아"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 5"
-      }
-    },
-    {
-      "rank": 30,
-      "title": "Where Summer Burned Through Green, Sarah #63",
-      "url": "https://www.flickr.com/photos/tobi-s_com/55607272916/",
-      "thumb": "https://live.staticflickr.com/65535/55607272916_5bb4b58c25_b.jpg",
-      "publishedAt": "2026-10-23T14:00:14.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 10"
-      }
-    },
-    {
-      "rank": 31,
-      "title": "Seaside Relaxation",
-      "url": "https://www.flickr.com/photos/201501011@N03/55606174267/",
-      "thumb": "https://live.staticflickr.com/65535/55606174267_9dc321fe42_b.jpg",
-      "publishedAt": "2026-10-23T13:14:02.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
       "score": 14,
       "badge": {
         "kind": "down",
@@ -704,55 +760,11 @@
       }
     },
     {
-      "rank": 32,
-      "title": "My Bela Dimetrescu cosplay from MAG!",
-      "url": "https://www.reddit.com/r/cosplay/comments/1xddt4n/my_bela_dimetrescu_cosplay_from_mag/",
-      "thumb": "https://preview.redd.it/gvygyvndw7xh1.jpeg?width=140&height=140&crop=1:1,smart&auto=webp&s=860f8be8384570614df5bba8f08ab43e2b02be32",
-      "publishedAt": "2026-10-23T13:18:25.000Z",
-      "sources": [
-        "Reddit · r/cosplay"
-      ],
-      "platforms": [
-        "reddit"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 33,
-      "title": "Our cosplay \"Akuyaku Reijou Tensei Ojisan\"/\"From Bureaucrat to Villainess: Dad's Been Reincarnated!\" [ed version]",
-      "url": "https://www.reddit.com/r/cosplay/comments/1xdfu5v/our_cosplay_akuyaku_reijou_tensei_ojisanfrom/",
-      "thumb": "https://preview.redd.it/dfdpmxc1a8xh1.jpeg?width=140&height=93&auto=webp&s=396b7dce7d8dd23750a94ec294a8bf324dcfd750",
-      "publishedAt": "2026-10-23T14:37:19.000Z",
-      "sources": [
-        "Reddit · r/cosplay"
-      ],
-      "platforms": [
-        "reddit"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 14,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 11"
-      }
-    },
-    {
-      "rank": 34,
-      "title": "「小さすぎる水着」が話題のグラドル、大金を諦め本命男性に告白するも…まさかの結末 - ABEMA TIMES",
-      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBFSjJFRFljMnlFN2FRcUVmNVhld0NDRjZuVURTUkJlajZOS1NoOE5YczhTWFB3ODR4d1pHQnlRMUVvY2JjcmlJbS14TXR6T0NXVHR4bg?oc=5",
+      "rank": 35,
+      "title": "10月で46歳になった気象予報士・吉井明子がテスト撮影の思い出を振り返る「もう少し布面積が広い水着もあったのですが、本気の水着のほうが絶対にイイぞ！ って」（週プレNEWS） - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9UVnp1X3ZWaC15YWN1THFEbmxxbHoyLWljYkF2VlR5LWpVR3EwZm9MYl94WkdUaUd3RFRHQ3NIWG9HQjNWUHR0azNsbml1VVNUNy1rLU5LVmZtNktaNEFhWWlIUFZSREN1N0FqTWhfZjlReThkZDBadlJHMnhhU0k?oc=5",
       "thumb": "",
-      "publishedAt": "2026-10-23T09:00:00.000Z",
+      "publishedAt": "2026-10-23T11:03:38.000Z",
       "sources": [
         "Google News · 水着グラビア(JA)"
       ],
@@ -766,11 +778,11 @@
       "score": 13,
       "badge": {
         "kind": "down",
-        "label": "▼ 6"
+        "label": "▼ 32"
       }
     },
     {
-      "rank": 35,
+      "rank": 36,
       "title": "雛形あきこ、28年ぶり水着グラビア挑戦の裏側「前の自分を超えたかった」 - WEBザテレビジョン",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1URGRJcXFfMXl3X0RQU0pWWEVvSFQ3WFJiM3RzNEtWSENTTzBtbVYyUUEzTmx1bU94OUlsOXZ4Yk5weFJNYktCMVlxeWJIS3c3N0dZd1laVTQ?oc=5",
       "thumb": "",
@@ -793,11 +805,33 @@
       "score": 13,
       "badge": {
         "kind": "down",
-        "label": "▼ 6"
+        "label": "▼ 1"
       }
     },
     {
-      "rank": 36,
+      "rank": 37,
+      "title": "Imix&Ufix 026-eersteFietstochtEirenmeisje-6chromos-ephemera-PUB-1880-EnglishVersion",
+      "url": "https://www.flickr.com/photos/collectomania/55607211866/",
+      "thumb": "https://live.staticflickr.com/31337/55607211866_8f767a801d_s.jpg",
+      "publishedAt": "2026-10-23T13:26:54.000Z",
+      "sources": [
+        "Flickr · 그라비아"
+      ],
+      "platforms": [
+        "flickr"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 13,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 8"
+      }
+    },
+    {
+      "rank": 38,
       "title": "Il reste des places pour le stage d' # initiation à l'eau forte ( # gravure sur zinc avec un acide) que je propose à la …",
       "url": "https://piaille.fr/@corbi/117489926956835078",
       "thumb": "https://files.mastodon.social/cache/media_attachments/files/117/489/926/985/216/095/original/aba5e6b8cc3ff4ae.png",
@@ -815,55 +849,33 @@
       "score": 13,
       "badge": {
         "kind": "down",
-        "label": "▼ 9"
+        "label": "▼ 2"
       }
     },
     {
-      "rank": 37,
-      "title": "Google Gemini AI \"Dragon Magazine\" Fantasy Cover Art",
-      "url": "https://www.flickr.com/photos/192222471@N04/55607450600/",
-      "thumb": "https://live.staticflickr.com/65535/55607450600_dbc93891cb_b.jpg",
-      "publishedAt": "2026-10-23T11:21:33.000Z",
-      "sources": [
-        "Flickr · 비키니"
-      ],
-      "platforms": [
-        "flickr"
-      ],
-      "categories": [
-        "model"
-      ],
-      "persons": [],
-      "score": 13,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 38,
-      "title": "레이싱 모델, 이자카야에 가다. 일러스트를 자연스러운 스마트폰 사진으로 바꾸기까지",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6adbd996e7864d588573c2ef3124c908&amp;url=https%3a%2f%2fnote.com%2ffacadetheory%2fn%2fna86b9fbfd300%3fhl%3dko&amp;c=13932241290761972144&amp;mkt=en-us",
+      "rank": 39,
+      "title": "「小さすぎる水着」が話題のグラドル、大金を諦め本命男性に告白するも…まさかの結末 - ABEMA TIMES",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBFSjJFRFljMnlFN2FRcUVmNVhld0NDRjZuVURTUkJlajZOS1NoOE5YczhTWFB3ODR4d1pHQnlRMUVvY2JjcmlJbS14TXR6T0NXVHR4bg?oc=5",
       "thumb": "",
-      "publishedAt": "2026-10-23T05:16:00.000Z",
+      "publishedAt": "2026-10-23T09:00:00.000Z",
       "sources": [
-        "Bing News · 레이싱 모델"
+        "Google News · 水着グラビア(JA)"
       ],
       "platforms": [
         "news"
       ],
       "categories": [
-        "model"
+        "gravure"
       ],
       "persons": [],
       "score": 12,
       "badge": {
-        "kind": "new",
-        "label": "NEW"
+        "kind": "down",
+        "label": "▼ 5"
       }
     },
     {
-      "rank": 39,
+      "rank": 40,
       "title": "20261022_171205",
       "url": "https://www.flickr.com/photos/collectomania/55607612780/",
       "thumb": "https://live.staticflickr.com/65535/55607612780_9b4ed2bf23_b.jpg",
@@ -878,14 +890,80 @@
         "gravure"
       ],
       "persons": [],
-      "score": 6,
+      "score": 5,
       "badge": {
         "kind": "down",
-        "label": "▼ 5"
+        "label": "▼ 1"
       }
     },
     {
-      "rank": 40,
+      "rank": 41,
+      "title": "[Safebooru · 코스프레] artist_name bang_dream! bang_dream!_it&#039;s_mygo!!!!!",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257580",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_f7ed7c3aa6ec02c9783b7dc690635ddafc3ba4eb.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "platforms": [
+        "safebooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 33"
+      }
+    },
+    {
+      "rank": 42,
+      "title": "[Safebooru · 코스프레] artist_name blue_eyes blue_gloves",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257559",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_a92ebb704e040672019d432cca988b277bb2d0bd.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "platforms": [
+        "safebooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 33"
+      }
+    },
+    {
+      "rank": 43,
+      "title": "[Safebooru · 코스프레] black_collar black_hair black_shirt",
+      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257446",
+      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_cec982c06f31f74a3d3f6fc758dfe4cfdedd53c3.jpg",
+      "publishedAt": "",
+      "sources": [
+        "Safebooru · 코스프레"
+      ],
+      "platforms": [
+        "safebooru"
+      ],
+      "categories": [
+        "cosplay"
+      ],
+      "persons": [],
+      "score": 18,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 33"
+      }
+    },
+    {
+      "rank": 44,
       "title": "[Safebooru · 코스프레] arihara_nanami ascot bare_shoulders",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7257443",
       "thumb": "https://safebooru.org/thumbnails/342/thumbnail_c6895dc426789125ea6856ccb4038c83fab02fba.jpg",
@@ -903,11 +981,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 34"
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 41,
+      "rank": 45,
       "title": "[Safebooru · 코스프레] armor blue_bow blue_eyes",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7257270",
       "thumb": "https://safebooru.org/thumbnails/342/thumbnail_5bb6082e9d70237fbfd60046e929469b805e23cd.jpg",
@@ -925,11 +1003,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 34"
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 42,
+      "rank": 46,
       "title": "[Safebooru · 코스프레] arm_up arrow_(symbol) artist_request",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7257213",
       "thumb": "https://safebooru.org/thumbnails/342/thumbnail_fa370f1fd2cac7ded275c9bfa9ad9695b886f9bd.jpg",
@@ -947,11 +1025,11 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 34"
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 43,
+      "rank": 47,
       "title": "[Safebooru · 코스프레] :p ass batman_(series)",
       "url": "https://safebooru.org/index.php?page=post&s=view&id=7257190",
       "thumb": "https://safebooru.org/thumbnails/342/thumbnail_2edbd2fcf0d9aa17f9e0053fadb9b55bc312ea11.jpg",
@@ -969,81 +1047,15 @@
       "score": 18,
       "badge": {
         "kind": "down",
-        "label": "▼ 8"
+        "label": "▼ 4"
       }
     },
     {
-      "rank": 44,
-      "title": "[Safebooru · 코스프레] =_= animal_focus clodsire",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257172",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_d7f8b98d14f2f669598c7d25146d4722823e7f09.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 8"
-      }
-    },
-    {
-      "rank": 45,
-      "title": "[Safebooru · 코스프레] 2026 artist_name bag",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7257079",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_c987c3ceaaa98c0e822e2cdb8ed3a18ee46d6f97.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 8"
-      }
-    },
-    {
-      "rank": 46,
-      "title": "[Safebooru · 코스프레] alice:_madness_returns alice_(disney) alice_(disney)_(cosplay)",
-      "url": "https://safebooru.org/index.php?page=post&s=view&id=7256935",
-      "thumb": "https://safebooru.org/thumbnails/342/thumbnail_febe4321b205c3237fef50131a56c6723788405a.jpg",
-      "publishedAt": "",
-      "sources": [
-        "Safebooru · 코스프레"
-      ],
-      "platforms": [
-        "safebooru"
-      ],
-      "categories": [
-        "cosplay"
-      ],
-      "persons": [],
-      "score": 18,
-      "badge": {
-        "kind": "down",
-        "label": "▼ 8"
-      }
-    },
-    {
-      "rank": 47,
-      "title": "「食欲の秋！問題なす！」農家出身グラドル、まぶしい笑顔で衝撃の爆食い”朝活”カミングアウト ファン驚き「スゲーーーー」「そりゃ買い過ぎ」「かわいすぎるから許しちゃう♡♡」（中日スポーツ） - Yahoo!ニュース",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4xMWhQc2gyYndvc0NZNmFFczYyX1RJQlZXZGRsSnJ3eWFCR0VnMDI4dy1WVFFsVEkwYnB3Z19aRDN6UGxmdE0zbno4bHN4UGxKQ1B5VnlHVTBYc2VmSGVyVFFoWVN5MlJTeFFBeTh5dGNFc1kwVGpUYUlEb1B5dkk?oc=5",
+      "rank": 48,
+      "title": "「もっと小さく出来そうだね～」現役看護師グラドル、蛍光カラー”変形マイクロ” ファンくぎ付け「凄いことになってる！！」「ただの紐になるぞ」（中日スポーツ） - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9kVHRCNmtPX3FuN2FtbVhQcmJoNDlWZ2JMeXNIT2xvSHkxYWtzVUU3bXByeWdtRmhCNFhGY2N6ek80ZjF4bmpUMThjU0NFSnhpQkxON21tMk5JOEl5MEpEMUYyWFpVcjZwYlphekdzdGZjT3lKSFFza3hEVDNmXzQ?oc=5",
       "thumb": "",
-      "publishedAt": "2026-10-23T20:46:31.000Z",
+      "publishedAt": "2026-10-23T20:28:23.000Z",
       "sources": [
         "Google News · グラビア(JA)"
       ],
@@ -1054,14 +1066,36 @@
         "gravure"
       ],
       "persons": [],
-      "score": 17,
+      "score": 16,
       "badge": {
         "kind": "new",
         "label": "NEW"
       }
     },
     {
-      "rank": 48,
+      "rank": 49,
+      "title": "「食欲の秋！問題なす！」農家出身グラドル、まぶしい笑顔で衝撃の爆食い”朝活”カミングアウト ファン驚き「スゲーーーー」「そりゃ買い過ぎ」「かわいすぎるから許しちゃう♡♡」（中日スポーツ） - Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4xMWhQc2gyYndvc0NZNmFFczYyX1RJQlZXZGRsSnJ3eWFCR0VnMDI4dy1WVFFsVEkwYnB3Z19aRDN6UGxmdE0zbno4bHN4UGxKQ1B5VnlHVTBYc2VmSGVyVFFoWVN5MlJTeFFBeTh5dGNFc1kwVGpUYUlEb1B5dkk?oc=5",
+      "thumb": "",
+      "publishedAt": "2026-10-23T20:40:53.000Z",
+      "sources": [
+        "Google News · グラビア(JA)"
+      ],
+      "platforms": [
+        "news"
+      ],
+      "categories": [
+        "gravure"
+      ],
+      "persons": [],
+      "score": 16,
+      "badge": {
+        "kind": "down",
+        "label": "▼ 2"
+      }
+    },
+    {
+      "rank": 50,
       "title": "「身長の半分以上が股下」”摩天楼”32歳グラドル、“ノーブラ”ミニ丈トップスで“チラ半球” ファン興奮「刺激的に素敵デス！」「くびれ好き」「たまらん、身体つき」（中日スポーツ） - Yahoo!ニュース",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5yYzhZM18wSWJsSVU2MVY0Y1NlLXFGNGt3T0VKZmh3bHJITklmX2szMExlSDR4MC1qV1hORXZtWGpyLVZpams0QXRYYTRuSWdfLWhwUHlyXzVxbENtU2NNRk4zX1FmY0JVOHVuSGk1VDZ5a1kxOEtpUUUxb3locVE?oc=5",
       "thumb": "",
@@ -1076,64 +1110,10 @@
         "gravure"
       ],
       "persons": [],
-      "score": 17,
-      "badge": {
-        "kind": "new",
-        "label": "NEW"
-      }
-    },
-    {
-      "rank": 49,
-      "title": "新婚の天木じゅん「今はもっとむちむち」 キャミ×ショーパンの超絶美ボディを公開に「スタイル神」 - J-CAST ニュース",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9SNWNiWGI1dGxZTlJMOW12b1BDRmR6c0VtSTA5VUNKLUdfLXZDMGhOaHN0RHprMEtiYVVRVmN4N0wyaTd0WERqenFMczlqZGFwZy1ndmF5RQ?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-10-23T12:00:00.000Z",
-      "sources": [
-        "Google News · グラビア(JA)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [
-        {
-          "id": "jun-amaki",
-          "name": "Jun Amaki"
-        }
-      ],
-      "score": 15,
+      "score": 16,
       "badge": {
         "kind": "down",
-        "label": "▼ 38"
-      }
-    },
-    {
-      "rank": 50,
-      "title": "ちとせよしの、白ニットから美バストのぞく大胆ショット公開！透明感あふれる姿に「凄い際どい写真」とファン騒然 - ｄメニューニュース",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPZ0xydEZEWmRqNTBPZUxQb3lZbXRLNFFqVXg1Y3U1eDlzMC1PY09hNF8tY09zeTdHdzVQNFN3MXdYdzBYNmdfWDBsM3FTTmNNd2VFX0hTUjhrcjF0LV9KVWJ0M0FlZE9QSHk2SDJQYldhdEQ5aTgwTG1jY21NM1lqbzA4ZldrSFA0bXgxV3B2R1k0SG9RMkVpN9IBngFBVV95cUxOQ2llYVdFbTIzMkRZaVpuVWdYU0hkcE0ydHVFRC1lcW91aS14VmdoLU4xeGJjb1l5bE4tYl9qdzhxQlZvc0tvYVRNQXZkZ3RVX0dhT1FKZFpsNDJacmlYU3BEblNCVkFHRGk0Tm1KbVdvbUMxWEI0SzVPWGNPNlctb0dDRmp4NHp2TmhxN2VRMS1BbHpaeE1zS18tQk1hdw?oc=5",
-      "thumb": "",
-      "publishedAt": "2026-10-23T08:15:00.000Z",
-      "sources": [
-        "Google News · グラビア(JA)"
-      ],
-      "platforms": [
-        "news"
-      ],
-      "categories": [
-        "gravure"
-      ],
-      "persons": [
-        {
-          "id": "yoshino-chitose",
-          "name": "Yoshino Chitose"
-        }
-      ],
-      "score": 15,
-      "badge": {
-        "kind": "same",
-        "label": "—"
+        "label": "▼ 2"
       }
     }
   ],
@@ -1141,8 +1121,8 @@
     {
       "id": "umi-shinonome",
       "name": "Umi Shinonome",
-      "mentions": 2,
-      "score": 34
+      "mentions": 1,
+      "score": 22
     },
     {
       "id": "jun-amaki",
@@ -1154,12 +1134,6 @@
       "id": "yoshino-chitose",
       "name": "Yoshino Chitose",
       "mentions": 1,
-      "score": 19
-    },
-    {
-      "id": "sayaka-isoyama",
-      "name": "Sayaka Isoyama",
-      "mentions": 1,
       "score": 18
     },
     {
@@ -1169,8 +1143,8 @@
       "score": 17
     },
     {
-      "id": "yuki-mita",
-      "name": "Yuki Mita",
+      "id": "sayaka-isoyama",
+      "name": "Sayaka Isoyama",
       "mentions": 1,
       "score": 17
     }
