@@ -1,7 +1,7 @@
 {
   "meta": {
-    "scraped_at": "2026-10-29T18:35:50.003Z",
-    "total_items": 81,
+    "scraped_at": "2026-10-30T06:17:08.103Z",
+    "total_items": 78,
     "source_count": 11,
     "categories": [
       "cosplay",
@@ -52,6 +52,16 @@
       "category": "model",
       "author": "TMZ",
       "created_utc": 1792699221
+    },
+    {
+      "id": "CBMiqgFBVV95cUxNYndwMmlaVkMya1pKWVByZ0pVMTNDb2RYUVRKX0toaE1WbVpncFI0X1I3NnVjdVZLcWpYZzVSaW5ueS1tVWFzXzgyQTYtZHYwb2laTkNTNGVtQkJjYXQ5dTU2QkJkWF9hQmZuYXRoUlFGdEs2R0lhT3lsVm5zZ1ltanVaUVJhWFZEaEFmQ2lUVExPZ3dZRE9KM3M5UlNSeU9aRnBEbERhOGVlQQ",
+      "title": "Dallas Wings' Azzi Fudd named a Sports Illustrated model for its 2027 swimsuit issue",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYndwMmlaVkMya1pKWVByZ0pVMTNDb2RYUVRKX0toaE1WbVpncFI0X1I3NnVjdVZLcWpYZzVSaW5ueS1tVWFzXzgyQTYtZHYwb2laTkNTNGVtQkJjYXQ5dTU2QkJkWF9hQmZuYXRoUlFGdEs2R0lhT3lsVm5zZ1ltanVaUVJhWFZEaEFmQ2lUVExPZ3dZRE9KM3M5UlNSeU9aRnBEbERhOGVlQQ?oc=5",
+      "platform": "news",
+      "source": "Google News · 수영복",
+      "category": "model",
+      "author": "USA Today",
+      "created_utc": 1792691160
     },
     {
       "id": "CBMivwFBVV95cUxObE53TjdETVRBNGZhSFk3cXJwZjNDTEZ1OXF4OFlBcE9ta3lHOG9ibmxpY3pmcnZqb2NpdTUyQXdKTDJQblltVFB5bmFnd1FzVzk0eWhrY3JzT3ZaVVI5cEd5NzExZ2h0d3puRTdLbl9sSHlmNDNNNlVkX190V2lucUZ6UVpMbGVXLVRIR3NWZU9xTjVfZnBSLXZSTXdmSUxGRXdaaVlYRXV4YjhHTHhhc2FJNDVQaDBTdHVUalc3Yw",
@@ -114,16 +124,6 @@
       "created_utc": 1789023600
     },
     {
-      "id": "CBMiygFBVV95cUxQNkxMa25vZERnY2ZuWEU5Y2tKb2hPd1VFNFlJeWtDWDQ5OEcxRUxPaGRDZWZxZ1RtSnhrZE4zZTdJempXZG44TFVjSGx4ZTd6cjRNRzFQWFIwRjVVNkNRN3gxbktfTWF5S3Y2YTF5TGFtUWIxZFdDcHU5bkJiTzh6Q3NuNnVyY3EzYWd1Ukt5em5RTVROTlFrcXhfTkVnZHFDVEJqN1kwanE0aG9xVzJQdXBjQUJQUlhVRmlpaVdCTzNTRDhVRlUxUXNB",
-      "title": "Morning Musume’s Sakura Oda flaunts bikini figure in final photo book ahead of graduation",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQNkxMa25vZERnY2ZuWEU5Y2tKb2hPd1VFNFlJeWtDWDQ5OEcxRUxPaGRDZWZxZ1RtSnhrZE4zZTdJempXZG44TFVjSGx4ZTd6cjRNRzFQWFIwRjVVNkNRN3gxbktfTWF5S3Y2YTF5TGFtUWIxZFdDcHU5bkJiTzh6Q3NuNnVyY3EzYWd1Ukt5em5RTVROTlFrcXhfTkVnZHFDVEJqN1kwanE0aG9xVzJQdXBjQUJQUlhVRmlpaVdCTzNTRDhVRlUxUXNB?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "The Tokyo Reporter",
-      "created_utc": 1787122800
-    },
-    {
       "id": "CBMifkFVX3lxTE9EZ2dWdXhPY211Y19Ca2Y3WXRUVHRYUjRtOTkzbVdqZlFYYkdDajJEdHBaeUFlWXFXYVJJMDNPWVRDOTFrRGFvbmZaLXluQ1hxc0VaTmpDTTdNR0tnR1pkSmFMVU05ZmR2V0w5U2RlWHM5d2J6VXZac0RuTkVaUQ",
       "title": "Mindy Kaling reacts to rumors she models lingerie",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9EZ2dWdXhPY211Y19Ca2Y3WXRUVHRYUjRtOTkzbVdqZlFYYkdDajJEdHBaeUFlWXFXYVJJMDNPWVRDOTFrRGFvbmZaLXluQ1hxc0VaTmpDTTdNR0tnR1pkSmFMVU05ZmR2V0w5U2RlWHM5d2J6VXZac0RuTkVaUQ?oc=5",
@@ -184,6 +184,26 @@
       "created_utc": 1778914800
     },
     {
+      "id": "CBMioAFBVV95cUxPN1pWMTV2YlRPeE5nN1BPTzdhYnJ2VzZPY21XaXJOQ3ozTk5vS0ZqUWR0MERsY0lDRnVqVHJSNkhZWm84eVMzWVMtajhETjQ2NjY5M0prUlhjRDNuYjdrMkl1ZXpSZlk2a3BVWkt2X2sySWw0RmNjeU9zZlVreERDZzNlbDhqZm80R2xuWnNnQmRROHUtTWdXdnNzS1JfWk5v",
+      "title": "Best images of SI Swimsuit model and WNBA star Sophie Cunningham",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPN1pWMTV2YlRPeE5nN1BPTzdhYnJ2VzZPY21XaXJOQ3ozTk5vS0ZqUWR0MERsY0lDRnVqVHJSNkhZWm84eVMzWVMtajhETjQ2NjY5M0prUlhjRDNuYjdrMkl1ZXpSZlk2a3BVWkt2X2sySWw0RmNjeU9zZlVreERDZzNlbDhqZm80R2xuWnNnQmRROHUtTWdXdnNzS1JfWk5v?oc=5",
+      "platform": "news",
+      "source": "Google News · 수영복",
+      "category": "model",
+      "author": "Yahoo",
+      "created_utc": 1778655600
+    },
+    {
+      "id": "CBMiigFBVV95cUxNUVNRbno4aEZNWlozRlVlbGNibzYyZGFoU2JoY0wyM0RpMGRyUzJwUmNORGl0cm56NTN0VWhWSDJnSm9hdVlsN2s2NFk5Q3ZtVlhvcWJTM09UTjJYQ0dBNkVLNnMtMXQ2VUp2aDdQdUZCS2pxMmhxTTVDWTJJdmRqaGtnejRnTkE3UGc",
+      "title": "Ex-nude model is SACKED from role as envoy - because of what she DID wear",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUVNRbno4aEZNWlozRlVlbGNibzYyZGFoU2JoY0wyM0RpMGRyUzJwUmNORGl0cm56NTN0VWhWSDJnSm9hdVlsN2s2NFk5Q3ZtVlhvcWJTM09UTjJYQ0dBNkVLNnMtMXQ2VUp2aDdQdUZCS2pxMmhxTTVDWTJJdmRqaGtnejRnTkE3UGc?oc=5",
+      "platform": "news",
+      "source": "Google News · 글래머",
+      "category": "model",
+      "author": "The Sun",
+      "created_utc": 1775631600
+    },
+    {
       "id": "CBMivwFBVV95cUxNVVdpaWdxWS15Zl91NzRpNlk2TjF0T0Vwazl1OWRleFVPaUZFc2h4NnVFZUJMd1U1aHNMRmU1c0FIcnJhVG9mMlU2bkVCV3YxUkV6Wm1HUl9OcGV5Ym8xbmwxT1pPaXhJYWxWX3JNZkxwallFVHNYZ1FxdzZnWUd2dExrVW5fTmgtbG1xbUVGbnVadnJkNzFNa21MbzZTdHlKc2VuRmRzcndEX2hUVThTcnozVDdOZi1nUTJRdDI0TQ",
       "title": "Atsuko Maeda’s steamy photo book follows Maki Goto in ‘not playing it safe’",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNVVdpaWdxWS15Zl91NzRpNlk2TjF0T0Vwazl1OWRleFVPaUZFc2h4NnVFZUJMd1U1aHNMRmU1c0FIcnJhVG9mMlU2bkVCV3YxUkV6Wm1HUl9OcGV5Ym8xbmwxT1pPaXhJYWxWX3JNZkxwallFVHNYZ1FxdzZnWUd2dExrVW5fTmgtbG1xbUVGbnVadnJkNzFNa21MbzZTdHlKc2VuRmRzcndEX2hUVThTcnozVDdOZi1nUTJRdDI0TQ?oc=5",
@@ -192,16 +212,6 @@
       "category": "gravure",
       "author": "The Tokyo Reporter",
       "created_utc": 1774508400
-    },
-    {
-      "id": "CBMitAFBVV95cUxOY1pfbXZuazcxSlgzVlp2am00M3AydTlpUnRJcHVnREpuTm1ZVndYbmpNeEhzQ0lseUp3UVUtSFdNMkxEbl9ZcVNKWXd3REJSbUJkNkttYl9kQ0pieVJjZXJfc1lrV3NtU2xfLUpyYlNGMDZmUDVVYndtWHh2NEZnRV9nVTdyNi1jZVpaV01NTHRfUThtRjRkbVZvYWIxSDNSSzNqOF9MNmJOZ3I1Y3llUzR5RTk",
-      "title": "Bethenny Frankel makes her Sports Illustrated Swimsuit Issue debut at age 55",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOY1pfbXZuazcxSlgzVlp2am00M3AydTlpUnRJcHVnREpuTm1ZVndYbmpNeEhzQ0lseUp3UVUtSFdNMkxEbl9ZcVNKWXd3REJSbUJkNkttYl9kQ0pieVJjZXJfc1lrV3NtU2xfLUpyYlNGMDZmUDVVYndtWHh2NEZnRV9nVTdyNi1jZVpaV01NTHRfUThtRjRkbVZvYWIxSDNSSzNqOF9MNmJOZ3I1Y3llUzR5RTk?oc=5",
-      "platform": "news",
-      "source": "Google News · 수영복",
-      "category": "model",
-      "author": "Page Six",
-      "created_utc": 1774335600
     },
     {
       "id": "CBMingFBVV95cUxNOHpHMmp2X0JrQkNPeTJqVmVHQTZxOE1oSmE3dnBUNmZpd2hPbU10WnhDSzNUbkdzUkNIVHI0VlZiOE1tNnpPOGhOSFR1RXN0TzN5bkh0ajdWZkpkNXhRX3NEbUxvUG85NUJHODRVOWUzS21VajhSdmFfckpZcmlqSUJ3VFdJUWhOUDNqeE1IMzQ4N25jRW9sbUpQbnRhd9IBowFBVV95cUxOMmNwYnc0YzQxR1BqUVZjWDRrcTR1TjZtbWlFNmlBMlpvaFdzaGJIalgtcjdwR2NYMUlSaE9TaW5KNWJrYzhxWDNUS3VrOVlES01hTGxOa3RiTmFBYU9OamZGaHRtZi0zTWRrZ2poekpGX3ViRWNDaXhDOVN3ZnVMNldpQzdHTmZQSlB5aDd6eUVtTEdSZFR3ZkpZNEI2dmp3dE1z",
@@ -242,16 +252,6 @@
       "category": "gravure",
       "author": "Japan Anime News",
       "created_utc": 1770105600
-    },
-    {
-      "id": "CBMiUEFVX3lxTFBZeHA5N0pBVXIwZENVV0hRWU94YzNmV2ZGZVBMcTAzMURjVC0xTnhmU0M1WEV5dzJ6RW9pSFU5ZWpiQXhtM1BSd2xGLWFqb3NM",
-      "title": "Gravure Idol Kokoro Toyoshima Uploads Chest X-Ray, Netizens React: \"Never Thought an X-Ray Could Be This Spicy!\"",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBZeHA5N0pBVXIwZENVV0hRWU94YzNmV2ZGZVBMcTAzMURjVC0xTnhmU0M1WEV5dzJ6RW9pSFU5ZWpiQXhtM1BSd2xGLWFqb3NM?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "玩具人 TOY PEOPLE",
-      "created_utc": 1769155200
     },
     {
       "id": "CBMib0FVX3lxTE1FeEJFaWtERjJVYmcwMFh1UTBFUXZOaUVTV2ZoTF80VjFEUHFseHRhY0I3WVloRWJkUlE1Q3Y3cHRER0RfaExuWGJNdWs5T2NqQ0Y0bTVSc3FIaFhSS3prQ1MzMmJuWHN6ZUhXWlpEMA",
@@ -364,16 +364,6 @@
       "created_utc": 1682492400
     },
     {
-      "id": "CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI",
-      "title": "하연수 그라비아 모델 데뷔 보도 발끈...한국 연예 기자 역시는 역시",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBGVEJHOGRjeFhnRjFXTU9BZDBxXzhrZXV6cjN1ZWJQRWRzUHB3NWN3N1o4c2o3YkdLSEhJa0M1dXFwSEctY0x5VGZ5SVlxbU9YUUtaOWpNeVY3QdIBWEFVX3lxTE5YY3BOQWc4SXRnN3duMnBhcVpna1JsUlZ4bXp3c1ZjQlh4ei1SLXNQU1pacjJuQnc1LUFnMHNqQkJCekFybHFxSmQ5NlI1OHpZVGlwNC1KZTI?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "아주경제",
-      "created_utc": 1682492400
-    },
-    {
       "id": "CBMib0FVX3lxTFBlYnhGTlFoSU43cjZZR1dGblJUUFZ5aFJJbWpsMEFqVWpnU1BXSXh4dTF3MEZXRHhyV3ZLeEYyYXEyZnFXcXVKVjFfaGZNUmx2Wml5bG1BeGluY25RWWJFdXlqTFk3d0ppOWhCVXI2NA",
       "title": "하연수, 日 그라비아 모델로 데뷔…\"응원받고 싶다\"",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBlYnhGTlFoSU43cjZZR1dGblJUUFZ5aFJJbWpsMEFqVWpnU1BXSXh4dTF3MEZXRHhyV3ZLeEYyYXEyZnFXcXVKVjFfaGZNUmx2Wml5bG1BeGluY25RWWJFdXlqTFk3d0ppOWhCVXI2NA?oc=5",
@@ -381,16 +371,6 @@
       "source": "Google News · 그라비아(KR)",
       "category": "gravure",
       "author": "SPOTV NEWS",
-      "created_utc": 1682406000
-    },
-    {
-      "id": "CBMiXkFVX3lxTFBHTnFmYU1BLUFEd1dXWHhHOGNCTkRsSUVvekZZbUx1TlU5TUFoZjhoT04zY0RUa2VuOEhvTTZIWGJvdmxxQTNtZEtXZFRJOW5aNjZIb1JQRWJ4X0FtS1HSAWNBVV95cUxObmMwek9fY0tSUHA0alR2aTFMNXBmTzBWczZEdDl0NXB0a0g3T0dnaEp2em5YRlNlNmR4cEYyN1Z4a0hiSlpERl9SR1VxelF3QktRWjFZdXZfSC1raTBHeDBTUVU",
-      "title": "하연수, 일본 그라비아 모델 데뷔…“처음이지만 행복해”",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBHTnFmYU1BLUFEd1dXWHhHOGNCTkRsSUVvekZZbUx1TlU5TUFoZjhoT04zY0RUa2VuOEhvTTZIWGJvdmxxQTNtZEtXZFRJOW5aNjZIb1JQRWJ4X0FtS1HSAWNBVV95cUxObmMwek9fY0tSUHA0alR2aTFMNXBmTzBWczZEdDl0NXB0a0g3T0dnaEp2em5YRlNlNmR4cEYyN1Z4a0hiSlpERl9SR1VxelF3QktRWjFZdXZfSC1raTBHeDBTUVU?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아(KR)",
-      "category": "gravure",
-      "author": "스포츠경향",
       "created_utc": 1682406000
     },
     {
@@ -454,16 +434,6 @@
       "created_utc": 1611172868
     },
     {
-      "id": "CBMizAFBVV95cUxPYjRaOTFwNFFKYm5FMXp0Q19UVzdOYlBKWnJSYThPOExMMVJ4MU9ZZW5OOF9hMERUc0tEVjAxaGZMOVFRdjNCc2I2ZHJuM1M4WVJVdkZSa2RoSEpCVUZrRll0dlRwc25QV1Z2WTEtR25NdXFUbjkzZXh3VkU1cnVFbXVadEdTblRiNjVxTHZpTVB1YUllU2dweDNpMnlXUVdGNURDQXhoMjJXc3FoclB6WnpXcHJpYS1fbi1ZQ2lqbEhKdXhoRmwzZ0p4NWTSAdIBQVVfeXFMT19IREVnUU81N1gta0VIQkxPX1Uzd2Rkc19FQWRwSGxqSGNfRk5obGszcTl5TVFOcE5FbnlhaWtWcUFELXZpeTlIUE8tNVFicWdzU0NOZGN6NElXRFl0OFZ3a2Y2UUc5czJHRVJlQ0dCNWRkSldvN0d1TGhMMlV1ajUtc3ZCandIVjVmWXc2Z3ZFNkpYUmJLYzdIYnpZbnl1YWZfTXZCRlB5U3ZLZ0JIOVlqZGpMbWJMcE81Si1icm1qNjlSUk96aGU4b0FCN0txdVd3",
-      "title": "Japanese swimsuit models holding online drinking parties with fans to encourage them to stay home",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPYjRaOTFwNFFKYm5FMXp0Q19UVzdOYlBKWnJSYThPOExMMVJ4MU9ZZW5OOF9hMERUc0tEVjAxaGZMOVFRdjNCc2I2ZHJuM1M4WVJVdkZSa2RoSEpCVUZrRll0dlRwc25QV1Z2WTEtR25NdXFUbjkzZXh3VkU1cnVFbXVadEdTblRiNjVxTHZpTVB1YUllU2dweDNpMnlXUVdGNURDQXhoMjJXc3FoclB6WnpXcHJpYS1fbi1ZQ2lqbEhKdXhoRmwzZ0p4NWTSAdIBQVVfeXFMT19IREVnUU81N1gta0VIQkxPX1Uzd2Rkc19FQWRwSGxqSGNfRk5obGszcTl5TVFOcE5FbnlhaWtWcUFELXZpeTlIUE8tNVFicWdzU0NOZGN6NElXRFl0OFZ3a2Y2UUc5czJHRVJlQ0dCNWRkSldvN0d1TGhMMlV1ajUtc3ZCandIVjVmWXc2Z3ZFNkpYUmJLYzdIYnpZbnl1YWZfTXZCRlB5U3ZLZ0JIOVlqZGpMbWJMcE81Si1icm1qNjlSUk96aGU4b0FCN0txdVd3?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "SoraNews24",
-      "created_utc": 1588143600
-    },
-    {
       "id": "CBMipgFBVV95cUxNZFFUUFhFVXhlMXIxcUNndHd5Sm5CdWNRZjhlMThrZkI2MTBlM3g2V3ZHMno4X2hqOW1aZ2Y3NkJSSWQ2RVF2dnpFSWRETFZwVFA4R1hrMkdZSWJYcEU5dFZMblVtUEJjS0xBOHlGeEF2dGhUNXp0OEplaWduS1o0ZldJTGx5NE5fQ0FhYTFFVkx3aDRjdXdnZmIwWU16bjdLcDcxRjNB",
       "title": "Former Morning Musume member Asuka Fukuda to release nude photobook",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZFFUUFhFVXhlMXIxcUNndHd5Sm5CdWNRZjhlMThrZkI2MTBlM3g2V3ZHMno4X2hqOW1aZ2Y3NkJSSWQ2RVF2dnpFSWRETFZwVFA4R1hrMkdZSWJYcEU5dFZMblVtUEJjS0xBOHlGeEF2dGhUNXp0OEplaWduS1o0ZldJTGx5NE5fQ0FhYTFFVkx3aDRjdXdnZmIwWU16bjdLcDcxRjNB?oc=5",
@@ -504,14 +474,34 @@
       "created_utc": 1561618800
     },
     {
-      "id": "CBMipwFBVV95cUxPc0VLanpzT0ZkcHVPdllNbFdqS3pvNWZoeXVxMm9iYkhCT2hzV2N3cGZQODNXeHh1TG96c3p5UENrR2lLX3QwdDczM2NEcVZqMkZEUUFGWnZZcGd6WDBQcnMzTTBzcFlob0ZkNUY5UzNHNnpEZktnb1hVTFh0d0VuNUJhZm9NbGtnRlU0M1RSZEludDE2eHk4Q2tQbGptOHBhdVVvRkJTRdIBrAFBVV95cUxNY1F4ZGtTQnNDYUxTaHp3eWlEeFRMVWdIMjJScnBfNVlvMGs4YkFWRXVFTjRCaGVsRGppOTlGMmFpbXRVa2d2cGxabHBXTkJXeXgwODQwTUNac3p2ZkhwLTdJRENJLVhnZllPVFo1N0p1U245dk9YTDFjeGpuSnI5X0wtejBUWGJVdUI1SWVrcjE0ZDRTN2F4cEJMOEQ5RWpfOHJiQ1N1VmhfUi1q",
-      "title": "Cosplay as a sexy shadow warrior with the new Ninja Bikini from Japan",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPc0VLanpzT0ZkcHVPdllNbFdqS3pvNWZoeXVxMm9iYkhCT2hzV2N3cGZQODNXeHh1TG96c3p5UENrR2lLX3QwdDczM2NEcVZqMkZEUUFGWnZZcGd6WDBQcnMzTTBzcFlob0ZkNUY5UzNHNnpEZktnb1hVTFh0d0VuNUJhZm9NbGtnRlU0M1RSZEludDE2eHk4Q2tQbGptOHBhdVVvRkJTRdIBrAFBVV95cUxNY1F4ZGtTQnNDYUxTaHp3eWlEeFRMVWdIMjJScnBfNVlvMGs4YkFWRXVFTjRCaGVsRGppOTlGMmFpbXRVa2d2cGxabHBXTkJXeXgwODQwTUNac3p2ZkhwLTdJRENJLVhnZllPVFo1N0p1U245dk9YTDFjeGpuSnI5X0wtejBUWGJVdUI1SWVrcjE0ZDRTN2F4cEJMOEQ5RWpfOHJiQ1N1VmhfUi1q?oc=5",
+      "id": "CBMiqAFBVV95cUxPUmxkYTZscVB1dV9iTXc2aHlPcS1ZNHNzS1Z5Ukd1bGc5QnRZNE1kSkY3bk1vQ2JXeGR0RjdGRjU5SXdNbFNqWWtSTDg4SC1VQklKOFRDVDhtRkdDYVNMelh1R0ZCSThkSExTQk4tVzdvMEZaSWR0SVRkLXVJMkVsWERxZFBoa0pFazBLYlEtREMxNEJPSVM5UXh0aXFfNENhM09SSlQ2TFPSAa4BQVVfeXFMTUo1VG5oQkpuNTMzTS1jRVFYajlxRlF0QnFSYVppSTllR0Y1bnlYZkhYcDJBaWk0TFpRWVZTdHpVZE1WWTJURDFnVVNHWXdybXptdDR2dXNJMDZjcDg5Q3dlZ3dGT2txWW5aM2xGbGxicVJYUkJHYm1OZVVlZTZvQjktdXFtVW5aUHRXWGg0MmNiVTlfcV96bVVCYllkSUFWVmhIQ1AwMF9SY1lIUE93",
+      "title": "Japanese bikini model bursts fan’s nude hot spring video fantasy bubble",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUmxkYTZscVB1dV9iTXc2aHlPcS1ZNHNzS1Z5Ukd1bGc5QnRZNE1kSkY3bk1vQ2JXeGR0RjdGRjU5SXdNbFNqWWtSTDg4SC1VQklKOFRDVDhtRkdDYVNMelh1R0ZCSThkSExTQk4tVzdvMEZaSWR0SVRkLXVJMkVsWERxZFBoa0pFazBLYlEtREMxNEJPSVM5UXh0aXFfNENhM09SSlQ2TFPSAa4BQVVfeXFMTUo1VG5oQkpuNTMzTS1jRVFYajlxRlF0QnFSYVppSTllR0Y1bnlYZkhYcDJBaWk0TFpRWVZTdHpVZE1WWTJURDFnVVNHWXdybXptdDR2dXNJMDZjcDg5Q3dlZ3dGT2txWW5aM2xGbGxicVJYUkJHYm1OZVVlZTZvQjktdXFtVW5aUHRXWGg0MmNiVTlfcV96bVVCYllkSUFWVmhIQ1AwMF9SY1lIUE93?oc=5",
       "platform": "news",
-      "source": "Google News · 코스프레",
-      "category": "cosplay",
+      "source": "Google News · 그라비아 화보",
+      "category": "gravure",
       "author": "SoraNews24",
-      "created_utc": 1521788400
+      "created_utc": 1546675200
+    },
+    {
+      "id": "CBMiwgFBVV95cUxOd2s3b3RycFZiYzR3S2FDamYxM2oyMkt5M0k0TGhIb2pncW5ZRHdaQ2xqYnRmQ2NBTG5COG1ST1YyN3pWeno1UmRTLXJsWEpzb1J1NmlFSHBvNThYV2liUTdKTW0xOG85b0ljbXk4MFZ0aXM2MENvTG5MdW1VbG9NS3NSR2J5S2RveVRMU0RfeWxxREtIRng4MDBILUtFbUJjU1FLMW54cDZNLVhVTTdPdnQzU19kVW40bmtSVi1MLTh2d9IBxwFBVV95cUxNUXE5dTVTMHVfRTBkdVNxX0tHRmxJMU9IVmtwSlB2YndYd0pEcUlKelFzcjFtTk9GWi1PaDA2QXlUenJkWXFrR0NUNVpQT2VJZkRYaktGa1VseHhpdWVuMHlEODJmR21ubmRwMXNVMXFET25XU1lSc0tSWHdjRDhPVDFzU0FMRzR5SDZfN3l3V0FIWUZ6VzFRZmh2UjBqc0FtaDVqbzJJWXlUejVEcW1aaHZaMHJ1RzJXdG9lTzM4NFlBV2NNWHZZ",
+      "title": "Japanese manga magazine promises to double its number of bikini model pages going forward",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOd2s3b3RycFZiYzR3S2FDamYxM2oyMkt5M0k0TGhIb2pncW5ZRHdaQ2xqYnRmQ2NBTG5COG1ST1YyN3pWeno1UmRTLXJsWEpzb1J1NmlFSHBvNThYV2liUTdKTW0xOG85b0ljbXk4MFZ0aXM2MENvTG5MdW1VbG9NS3NSR2J5S2RveVRMU0RfeWxxREtIRng4MDBILUtFbUJjU1FLMW54cDZNLVhVTTdPdnQzU19kVW40bmtSVi1MLTh2d9IBxwFBVV95cUxNUXE5dTVTMHVfRTBkdVNxX0tHRmxJMU9IVmtwSlB2YndYd0pEcUlKelFzcjFtTk9GWi1PaDA2QXlUenJkWXFrR0NUNVpQT2VJZkRYaktGa1VseHhpdWVuMHlEODJmR21ubmRwMXNVMXFET25XU1lSc0tSWHdjRDhPVDFzU0FMRzR5SDZfN3l3V0FIWUZ6VzFRZmh2UjBqc0FtaDVqbzJJWXlUejVEcW1aaHZaMHJ1RzJXdG9lTzM4NFlBV2NNWHZZ?oc=5",
+      "platform": "news",
+      "source": "Google News · 그라비아 화보",
+      "category": "gravure",
+      "author": "SoraNews24",
+      "created_utc": 1532588400
+    },
+    {
+      "id": "CBMickFVX3lxTFBpU0ZseENaNFZCMDAzLTlsOWlpazdLUzhmX3VBR01HZG42cGN0SmFTVkVaNkV4Y3lWS0xQNG5ubDRwOWZNVEZDaUFxY0pPZmtGMEhraHYtZTM1eU5vOWpZbHE1LUZOeFVER1hMZkxDUDdad9IBdkFVX3lxTFBnMjJVMzZ5R0c4QU1tUmtpdXoyNGt6S0JfOFViYzdmUXY1OFNqaHBfLXh2M1EzLUlZLWhyYmNMZEN4eVFrSDBWdUxMRVZhRTdQUG1sX0Q5R3hDMEtWYTRPTWNXZTJmRnA4Q3Y2T3NpQ2NlNVZWVnc",
+      "title": "[화보] 비키니 모델, 영광의 수상자들(SSA KOREA)",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpU0ZseENaNFZCMDAzLTlsOWlpazdLUzhmX3VBR01HZG42cGN0SmFTVkVaNkV4Y3lWS0xQNG5ubDRwOWZNVEZDaUFxY0pPZmtGMEhraHYtZTM1eU5vOWpZbHE1LUZOeFVER1hMZkxDUDdad9IBdkFVX3lxTFBnMjJVMzZ5R0c4QU1tUmtpdXoyNGt6S0JfOFViYzdmUXY1OFNqaHBfLXh2M1EzLUlZLWhyYmNMZEN4eVFrSDBWdUxMRVZhRTdQUG1sX0Q5R3hDMEtWYTRPTWNXZTJmRnA4Q3Y2T3NpQ2NlNVZWVnc?oc=5",
+      "platform": "news",
+      "source": "Google News · 비키니(KR)",
+      "category": "model",
+      "author": "뉴스프리존",
+      "created_utc": 1506322800
     },
     {
       "id": "CBMijgFBVV95cUxQOHVDV0Q4TURYVnVvLXVoeWlXMEFqdXd3RGlPRDB2SHVjbEVOcl9QYUsxUnBXQTA5WUM3Nk10dnhtRFpWVGJIS0VjVkZZeEJUTGhjNXVHbGpvdk1FdkZiT3RXZ3BLTWZZT1lLMVJyak1EejVDZWpyMHJjUGpOOUFEQ0UxbGRCaWpYRERCUVd3",
@@ -542,6 +532,16 @@
       "category": "model",
       "author": "경향신문",
       "created_utc": 1476342000
+    },
+    {
+      "id": "CBMidEFVX3lxTE5pb3AzcjJYcWVTMVpTY2VBWjY5TTA4aHAtY2VkLVRIZ3BLb3E5RVIwVk80aExCMTBQTHB5NXRpZlgwTVplc2dxNkNwa3BoS3ZMQk5IQmFveDJ5Z3hiX0dpQkRvMGttUDZER0lWRHVJOG9KcnFy",
+      "title": "[화보] 비키니 모델들의 다양한 포즈",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5pb3AzcjJYcWVTMVpTY2VBWjY5TTA4aHAtY2VkLVRIZ3BLb3E5RVIwVk80aExCMTBQTHB5NXRpZlgwTVplc2dxNkNwa3BoS3ZMQk5IQmFveDJ5Z3hiX0dpQkRvMGttUDZER0lWRHVJOG9KcnFy?oc=5",
+      "platform": "news",
+      "source": "Google News · 비키니(KR)",
+      "category": "model",
+      "author": "경향신문",
+      "created_utc": 1468566000
     },
     {
       "id": "CBMipgFBVV95cUxNQ1hkaEpNMlVZNVV6M0V0QkN4QmpFN24yajEzSE1JMm40ME5MZ2hKNXEzRnZ5UTJSOFo1bkFQU1BkdjJOcXFxVDhHTTd5bkhBdFhyLWpqZ3RJbnJkNnpIMjlDSm9fOXk1VnY3RE1PeEFuam5idHl2cHd0Y2NGU0dlbnVuQ0hYRnloX0k0SDlvWFNHZzVNaHl6U09JaVpyeWRPNS1paHhn0gGrAUFVX3lxTE9RcTBVak5KR2hvUzhDYjFBX3ZCajlEamVGaXluaEtMV0pMTVNYNFp6YW1Nd2Q2U0pucm1YSm5qMGlkTFFUTjFHbzRVbjhSbENLVkJtdUk3Q2NUdk05ZGtwa3NGNzJkWUxRUEQ4c3d0YkhSbDRaczg1dENUX1Bpa0JLYzVVSlFLbWR4bjhKRW5nTWVwZWYtUjhIZ1Nfc3FqTFZvVjR1OUVNcnJFdw",
@@ -724,16 +724,6 @@
       "created_utc": 1428390000
     },
     {
-      "id": "CBMiXkFVX3lxTFBGdkVxS182bmV0YVRab3ZrYkY3M0xpX01YMWV3SHB5WjJ0WXE3MndhZWpHejVDQ0ptc1BzV1pfSFZVRHRDc3IwTmp0TG5xc0s4UTUzOEJLTnpmc2h3U3fSAWNBVV95cUxNNHBxLURTZWFXX09MWDFMRWlrNUlaY25COVREbzA5d3RtaHVSUTRPeDI3cHItOW1xaDI0QzdySnpKalBhTk4teVpRZHdOV3d1LU9FUzYtQ1RVa2liX0JqS2pVUk0",
-      "title": "[화보] ‘코리아스타일위크’ 비키니 모델들의 당당한 워킹",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBGdkVxS182bmV0YVRab3ZrYkY3M0xpX01YMWV3SHB5WjJ0WXE3MndhZWpHejVDQ0ptc1BzV1pfSFZVRHRDc3IwTmp0TG5xc0s4UTUzOEJLTnpmc2h3U3fSAWNBVV95cUxNNHBxLURTZWFXX09MWDFMRWlrNUlaY25COVREbzA5d3RtaHVSUTRPeDI3cHItOW1xaDI0QzdySnpKalBhTk4teVpRZHdOV3d1LU9FUzYtQ1RVa2liX0JqS2pVUk0?oc=5",
-      "platform": "news",
-      "source": "Google News · 비키니(KR)",
-      "category": "model",
-      "author": "스포츠경향",
-      "created_utc": 1405839600
-    },
-    {
       "id": "CBMixAFBVV95cUxPcWJERkpwTWRYRkg3VVI4TjgzU0dNTFYxNDBqMURGTmtqOEVUZXBpMVFEcE5FSlllNUIwVGtHci0xMmZtMHRVUWNST2NGM2phNUJiRm5LaEZRMVBLTEhheTA0VGY5azJadWQtcUJfUlZOQ1ZwekZKQk9iZW9DU1VxWDhsdVdLdjFnYnNZLXk1anhyRlpYXzVHZGNoa1hZSFZSYk5udklsbHdnenlLSndqZWZtS3psUWUzRGlZYjFkZUZ2Z0Jo",
       "title": "Behind the scenes: Glamour model Kate Upton on her latest photo-shoot",
       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcWJERkpwTWRYRkg3VVI4TjgzU0dNTFYxNDBqMURGTmtqOEVUZXBpMVFEcE5FSlllNUIwVGtHci0xMmZtMHRVUWNST2NGM2phNUJiRm5LaEZRMVBLTEhheTA0VGY5azJadWQtcUJfUlZOQ1ZwekZKQk9iZW9DU1VxWDhsdVdLdjFnYnNZLXk1anhyRlpYXzVHZGNoa1hZSFZSYk5udklsbHdnenlLSndqZWZtS3psUWUzRGlZYjFkZUZ2Z0Jo?oc=5",
@@ -772,26 +762,6 @@
       "category": "model",
       "author": "The Telegraph",
       "created_utc": 1351839600
-    },
-    {
-      "id": "CBMicEFVX3lxTE9pamJxVDhSclF1dW96MGxMTnl4ZUtKekxPaGJCZWJiVmJ5aDVzWVBhWDgwekduUmZGUjZFN1FndnN1RlU4Y21aSXJsRVpTNU5JVlhGRlpFZ1JIQklLNzNlYzFxRDZwQXBkaXd3S1BCWjE",
-      "title": "‘통통 모델’ 비키니 화보 최초 공개…”여성적 매력 물씬”",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9pamJxVDhSclF1dW96MGxMTnl4ZUtKekxPaGJCZWJiVmJ5aDVzWVBhWDgwekduUmZGUjZFN1FndnN1RlU4Y21aSXJsRVpTNU5JVlhGRlpFZ1JIQklLNzNlYzFxRDZwQXBkaXd3S1BCWjE?oc=5",
-      "platform": "news",
-      "source": "Google News · 비키니(KR)",
-      "category": "model",
-      "author": "나우뉴스",
-      "created_utc": 1350025200
-    },
-    {
-      "id": "CBMivwFBVV95cUxNQUxPNUh6VE5TN293dmNBanFpRWRoOGVVMEJTWk96YzlkOG9rM2piSlJMUjV2VXgzSklOaThveFF6Z1BQVDhDOUVaUlVzQTBvOC1mc3lxTEpyYkhWS1NEYmpZZktmQ3FGS21qdWxJaGVLbGVMOHRQVjZtd0wzVjRyQXZQSXljMDI0QktGMEl2US1NYXMyeGIwa3VzM2k2ZVAyZk1IUDZ0ME9DdTdMMmFNN0RPQXFzVkViZVN1MHBSTQ",
-      "title": "Gravure idol Nakamura Satsuki and Sato Yume appear in bikini photoshoot together",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNQUxPNUh6VE5TN293dmNBanFpRWRoOGVVMEJTWk96YzlkOG9rM2piSlJMUjV2VXgzSklOaThveFF6Z1BQVDhDOUVaUlVzQTBvOC1mc3lxTEpyYkhWS1NEYmpZZktmQ3FGS21qdWxJaGVLbGVMOHRQVjZtd0wzVjRyQXZQSXljMDI0QktGMEl2US1NYXMyeGIwa3VzM2k2ZVAyZk1IUDZ0ME9DdTdMMmFNN0RPQXFzVkViZVN1MHBSTQ?oc=5",
-      "platform": "news",
-      "source": "Google News · 그라비아 화보",
-      "category": "gravure",
-      "author": "tokyohive",
-      "created_utc": 1337929200
     },
     {
       "id": "CBMiYEFVX3lxTE43ekpMNTRoQndvRllVczdRQWFJdzR3b0tTYTQtX3IxdzMzZG11YnpFZFJjRUdEVnp3aTFKd0F1TVhCUjdnS191U0RYclhETUlSWlRDeWI0WHJ4eVZWRENCXw",
